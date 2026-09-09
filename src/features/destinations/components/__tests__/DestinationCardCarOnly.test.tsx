@@ -251,7 +251,7 @@ describe("KAI-275 DestinationCard transport selection", () => {
 });
 
 describe("KAI-275 DestinationCard partial-cost disclosure", () => {
-  it("partial car estimate (no total, bounded on-site knownSubtotal) shows 'Known ¥.. · on-site only' with the disclosure title", async () => {
+  it("partial car estimate (no total, bounded on-site knownSubtotal) shows the full scope qualifier", async () => {
     const partialEstimate = calculateTripEstimate({
       dest: destination,
       mode: "my_car",
@@ -280,13 +280,91 @@ describe("KAI-275 DestinationCard partial-cost disclosure", () => {
     expect(text).toContain("Known");
     expect(text).toContain("¥");
     expect(text).toContain("on-site only");
+    expect(text).toContain("origin transport excluded");
     expect(text).not.toContain("Cost unavailable");
-    // The span title discloses the full meaning.
+    // The rendered scope qualifier and title disclose the full meaning.
+    expect(
+      container.querySelector('[data-testid="destination-card-cost-scope"]'),
+    ).not.toBeNull();
     const titled = container.querySelector('[title*="origin transport"]');
     expect(titled).not.toBeNull();
   });
 
-  it("complete estimate keeps the plain full range (no Known/on-site qualifier)", async () => {
+  it("Ueno's partial three-person car estimate states the same on-site scope explicitly", async () => {
+    const ueno = destinations.find(
+      (candidate) => candidate.id === "ueno-zoo",
+    ) as Destination;
+    const partialEstimate = calculateTripEstimate({
+      dest: ueno,
+      mode: "my_car",
+      partySize: 3,
+      homeCoords: state.homeStationCoords,
+      includeOriginTravel: true,
+      duration: "halfDay",
+    });
+    expect(partialEstimate.total).toBeUndefined();
+    expect(partialEstimate.knownSubtotal).toEqual([6600, 12600]);
+
+    const container = await renderAt(
+      "/destinations?car=my_car&mode=none&partySize=3&duration=halfDay",
+      {
+        carMode: "my_car",
+        publicModes: [],
+        partySize: 3,
+        duration: "halfDay" as TripDuration,
+        resolvedBudgetEstimate: {
+          mode: "my_car",
+          validModes: ["my_car"],
+          estimate: partialEstimate,
+        } satisfies ExploreBudgetEstimate,
+      },
+      ueno,
+    );
+    const scope = container.querySelector(
+      '[data-testid="destination-card-cost-scope"]',
+    );
+    expect(scope?.textContent).toContain("on-site only");
+    expect(scope?.textContent).toContain("origin transport excluded");
+  });
+  it("partial estimate with bounded origin transport says partial total, not origin excluded", async () => {
+    const disneySea = destinations.find(
+      (candidate) => candidate.id === "disneysea",
+    ) as Destination;
+    const partialEstimate = calculateTripEstimate({
+      dest: disneySea,
+      mode: "train",
+      partySize: 2,
+      homeCoords: state.homeStationCoords,
+      includeOriginTravel: true,
+      duration: "fullDay" as TripDuration,
+    });
+    const originTravel = partialEstimate.components.find(
+      (component) => component.evidence.scope === "origin_travel",
+    );
+    expect(partialEstimate.completeness).toBe("partial");
+    expect(partialEstimate.total).toBeUndefined();
+    expect(originTravel?.cost.kind).toBe("bounded");
+    expect(partialEstimate.knownSubtotal[1]).toBeGreaterThan(0);
+
+    const container = await renderAt(
+      "/destinations?mode=train",
+      {
+        carMode: "none",
+        publicModes: ["train"],
+        resolvedBudgetEstimate: {
+          mode: "train",
+          validModes: ["train"],
+          estimate: partialEstimate,
+        },
+      },
+      disneySea,
+    );
+    const text = container.textContent ?? "";
+    expect(text).toContain("partial total");
+    expect(text).not.toContain("origin transport excluded");
+  });
+
+  it("complete estimate keeps the plain full range without a partial qualifier", async () => {
     const completeEstimate = calculateTripEstimate({
       dest: destination,
       mode: "train",
@@ -308,6 +386,8 @@ describe("KAI-275 DestinationCard partial-cost disclosure", () => {
     });
     const text = container.textContent ?? "";
     expect(text).not.toContain("on-site only");
+    expect(text).not.toContain("origin transport excluded");
+    expect(text).not.toContain("partial total");
     expect(text).not.toContain("Cost unavailable");
   });
 
