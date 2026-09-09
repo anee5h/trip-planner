@@ -19,7 +19,25 @@ export type SmartTripTitleContext = Pick<
 >;
 
 function isCrypticDateTitle(title: string): boolean {
-  return /^\d{4}$/.test(title);
+  if (!/^\d{4}$/.test(title)) return false;
+  const month = Number(title.slice(0, 2));
+  const day = Number(title.slice(2));
+  if (month < 1 || month > 12) return false;
+  const daysInMonth = new Date(Date.UTC(2000, month, 0)).getUTCDate();
+  return day >= 1 && day <= daysInMonth;
+}
+
+function canReorderWithinContiguousGroup(
+  stops: TripStop[],
+  startIndex: number,
+  endIndex: number,
+): boolean {
+  const groupKey = stops[startIndex].date ?? "unscheduled";
+  const lowerIndex = Math.min(startIndex, endIndex);
+  const upperIndex = Math.max(startIndex, endIndex);
+  return stops
+    .slice(lowerIndex, upperIndex + 1)
+    .every((stop) => (stop.date ?? "unscheduled") === groupKey);
 }
 
 export function buildSmartTripTitle(input: SmartTripTitleInput): string {
@@ -117,9 +135,9 @@ export function reorderStops(
   ) {
     return trip;
   }
-  const sourceGroup = trip.stops[startIndex].date ?? "unscheduled";
-  const targetGroup = trip.stops[endIndex].date ?? "unscheduled";
-  if (sourceGroup !== targetGroup) return trip;
+  if (!canReorderWithinContiguousGroup(trip.stops, startIndex, endIndex)) {
+    return trip;
+  }
 
   const result = [...trip.stops];
   const [removed] = result.splice(startIndex, 1);

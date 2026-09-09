@@ -166,6 +166,37 @@ describe("ItineraryPlanner stop interactions", () => {
     expect(host.textContent).not.toContain("Day 5");
   });
 
+  it("treats a missing canonical end date as a single-day trip", () => {
+    renderPlanner({
+      ...baseTrip,
+      endDate: undefined,
+      stops: [
+        {
+          ...baseTrip.stops[0],
+          date: "2026-08-12",
+        },
+      ],
+    });
+
+    expect(host.textContent).toContain("Outside trip dates · Aug 12, 2026");
+    expect(host.textContent).not.toContain("Day 5");
+  });
+
+  it("uses a bounded date input instead of rendering unbounded date presets", () => {
+    renderPlanner({
+      ...baseTrip,
+      endDate: "2036-08-08",
+      stops: [],
+    });
+
+    const dateInput =
+      host.querySelector<HTMLInputElement>('input[type="date"]');
+    expect(dateInput).not.toBeNull();
+    expect(dateInput?.min).toBe("2026-08-08");
+    expect(dateInput?.max).toBe("2036-08-08");
+    expect(host.textContent).not.toContain("Day 365");
+  });
+
   it("keeps first and last accessible move actions disabled at the boundaries", () => {
     renderPlanner(sameDayTrip);
     const menus = host.querySelectorAll('[role="menu"]');
@@ -246,6 +277,55 @@ describe("ItineraryPlanner stop interactions", () => {
     });
 
     expect(onReorderStops).toHaveBeenCalledWith(0, 1);
+  });
+
+  it("does not drag across a repeated date group separated by another date", () => {
+    renderPlanner({
+      ...sameDayTrip,
+      stops: [
+        { id: "a", type: "custom", name: "A", date: "2026-08-08" },
+        { id: "x", type: "custom", name: "X", date: "2026-08-09" },
+        { id: "b", type: "custom", name: "B", date: "2026-08-08" },
+      ],
+    });
+    const rows = Array.from(
+      host.querySelectorAll<HTMLElement>("[data-stop-id]"),
+    );
+    rows.forEach((row, index) => {
+      Object.defineProperty(row, "getBoundingClientRect", {
+        value: () => ({ top: index * 50, height: 50 }),
+      });
+    });
+    const handle = host.querySelector<HTMLElement>("[data-drag-handle]")!;
+
+    act(() => {
+      handle.dispatchEvent(
+        new PointerEvent("pointerdown", {
+          bubbles: true,
+          pointerId: 4,
+          pointerType: "mouse",
+          button: 0,
+        }),
+      );
+      handle.dispatchEvent(
+        new PointerEvent("pointermove", {
+          bubbles: true,
+          pointerId: 4,
+          pointerType: "mouse",
+          clientY: 125,
+        }),
+      );
+      handle.dispatchEvent(
+        new PointerEvent("pointerup", {
+          bubbles: true,
+          pointerId: 4,
+          pointerType: "mouse",
+          clientY: 125,
+        }),
+      );
+    });
+
+    expect(onReorderStops).not.toHaveBeenCalled();
   });
 
   it("uses the overflow menu as the accessible move fallback", () => {

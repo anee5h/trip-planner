@@ -18,7 +18,10 @@ import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
 import { Link } from "react-router-dom";
 import { formatTripDateRange } from "@/shared/utils/date";
-import { groupItineraryStops } from "./ItineraryPlannerModel";
+import {
+  groupItineraryStops,
+  type ItineraryStopGroup,
+} from "./ItineraryPlannerModel";
 
 interface ItineraryPlannerProps {
   trip: Trip;
@@ -52,6 +55,17 @@ function addUtcDays(dateStr: string, days: number): string {
   return date.toISOString().slice(0, 10);
 }
 
+const MAX_DATE_PRESET_DAYS = 31;
+
+function getGroupAtIndex(
+  groups: ItineraryStopGroup[],
+  index: number,
+): ItineraryStopGroup | undefined {
+  return groups.find((group) =>
+    group.stops.some((entry) => entry.index === index),
+  );
+}
+
 function formatGroupLabel(
   date: string | undefined,
   tripStartDate: string | undefined,
@@ -65,7 +79,9 @@ function formatGroupLabel(
   const hasCanonicalDate = /^\d{4}-\d{2}-\d{2}$/.test(date);
   const canonicalEnd = /^\d{4}-\d{2}-\d{2}$/.test(tripEndDate ?? "")
     ? tripEndDate
-    : undefined;
+    : hasCanonicalStart
+      ? tripStartDate
+      : undefined;
 
   if (hasCanonicalStart && hasCanonicalDate) {
     const isWithinTripDates =
@@ -85,10 +101,6 @@ function formatGroupLabel(
   }
 
   return locale === "ja" ? `予定日 · ${formatted}` : `Scheduled · ${formatted}`;
-}
-
-function getStopGroupKey(stop: TripStop): string {
-  return stop.date ?? "unscheduled";
 }
 
 export default function ItineraryPlanner({
@@ -140,25 +152,37 @@ export default function ItineraryPlanner({
     trip.startDate && /^\d{4}-\d{2}-\d{2}$/.test(trip.startDate),
   );
 
+  const canonicalTripDateRange = useMemo(() => {
+    if (!trip.startDate || !/^\d{4}-\d{2}-\d{2}$/.test(trip.startDate)) {
+      return null;
+    }
+
+    const startDay = getUtcDay(trip.startDate);
+    const endDate =
+      trip.endDate && /^\d{4}-\d{2}-\d{2}$/.test(trip.endDate)
+        ? trip.endDate
+        : trip.startDate;
+    return {
+      startDate: trip.startDate,
+      endDate,
+      duration: Math.max(1, getUtcDay(endDate) - startDay + 1),
+    };
+  }, [trip.endDate, trip.startDate]);
+
   const tripDatePresets = useMemo(() => {
     const presets: Array<{ label: string; date: string }> = [];
-    if (trip.startDate && /^\d{4}-\d{2}-\d{2}$/.test(trip.startDate)) {
-      const startDay = getUtcDay(trip.startDate);
-      const endDate =
-        trip.endDate && /^\d{4}-\d{2}-\d{2}$/.test(trip.endDate)
-          ? trip.endDate
-          : trip.startDate;
-      const duration = Math.max(1, getUtcDay(endDate) - startDay + 1);
-
-      for (let i = 0; i < duration; i += 1) {
-        const date = addUtcDays(trip.startDate, i);
-        presets.push({
-          label:
-            locale === "ja"
-              ? `${i + 1}日目 · ${formatTripDateRange(date, undefined, locale)}`
-              : `Day ${i + 1} · ${formatTripDateRange(date, undefined, locale)}`,
-          date,
-        });
+    if (canonicalTripDateRange) {
+      if (canonicalTripDateRange.duration <= MAX_DATE_PRESET_DAYS) {
+        for (let i = 0; i < canonicalTripDateRange.duration; i += 1) {
+          const date = addUtcDays(canonicalTripDateRange.startDate, i);
+          presets.push({
+            label:
+              locale === "ja"
+                ? `${i + 1}日目 · ${formatTripDateRange(date, undefined, locale)}`
+                : `Day ${i + 1} · ${formatTripDateRange(date, undefined, locale)}`,
+            date,
+          });
+        }
       }
       presets.push({
         label: locale === "ja" ? "日程未設定" : "Unscheduled",
@@ -184,7 +208,12 @@ export default function ItineraryPlanner({
       date: "",
     });
     return presets;
-  }, [trip.endDate, trip.startDate, locale]);
+  }, [canonicalTripDateRange, locale]);
+
+  const hasExpandedDatePicker = Boolean(
+    canonicalTripDateRange &&
+    canonicalTripDateRange.duration > MAX_DATE_PRESET_DAYS,
+  );
 
   const handleDateChange = (val: string) => {
     setStopDate(sanitizeDateInput(val));
@@ -239,7 +268,9 @@ export default function ItineraryPlanner({
       return;
     }
     const stop = trip.stops[startIndex];
-    if (getStopGroupKey(stop) !== getStopGroupKey(trip.stops[endIndex])) {
+    const sourceGroup = getGroupAtIndex(stopGroups, startIndex);
+    const targetGroup = getGroupAtIndex(stopGroups, endIndex);
+    if (!sourceGroup || sourceGroup.key !== targetGroup?.key) {
       return;
     }
     focusStopRef.current = stop.id;
@@ -276,13 +307,13 @@ export default function ItineraryPlanner({
     if (!drag) return;
 
     const sourceStop = trip.stops[drag.startIndex];
-    if (!sourceStop) return;
-    const sourceGroup = getStopGroupKey(sourceStop);
+    const sourceGroup = getGroupAtIndex(stopGroups, drag.startIndex);
+    if (!sourceStop || !sourceGroup) return;
     const remainingStops = trip.stops
       .map((stop, index) => ({ stop, index }))
       .filter(({ stop }) => stop.id !== drag.stopId);
-    const groupStops = remainingStops.filter(
-      ({ stop }) => getStopGroupKey(stop) === sourceGroup,
+    const groupStops = sourceGroup.stops.filter(
+      ({ stop }) => stop.id !== drag.stopId,
     );
 
     let insertionSlot = groupStops.length;
@@ -475,6 +506,20 @@ export default function ItineraryPlanner({
               ))}
             </div>
           </div>
+          {hasExpandedDatePicker && canonicalTripDateRange && (
+            <Input
+              type="date"
+              value={stopDate}
+              min={canonicalTripDateRange.startDate}
+              max={canonicalTripDateRange.endDate}
+              aria-label={
+                locale === "ja" ? "旅行日を選択" : "Choose travel date"
+              }
+              onChange={(e) => handleDateChange(e.target.value)}
+              onBlur={(e) => handleDateChange(e.target.value)}
+              className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-base sm:text-sm w-full"
+            />
+          )}
           {!hasCanonicalTripDates && (
             <Input
               type="date"
@@ -664,8 +709,9 @@ export default function ItineraryPlanner({
                                 role="menuitem"
                                 disabled={
                                   index === 0 ||
-                                  getStopGroupKey(trip.stops[index - 1]) !==
-                                    getStopGroupKey(stop)
+                                  getGroupAtIndex(stopGroups, index - 1)
+                                    ?.key !==
+                                    getGroupAtIndex(stopGroups, index)?.key
                                 }
                                 onClick={() => moveStop(index, index - 1)}
                                 className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
@@ -677,8 +723,9 @@ export default function ItineraryPlanner({
                                 role="menuitem"
                                 disabled={
                                   index === trip.stops.length - 1 ||
-                                  getStopGroupKey(trip.stops[index + 1]) !==
-                                    getStopGroupKey(stop)
+                                  getGroupAtIndex(stopGroups, index + 1)
+                                    ?.key !==
+                                    getGroupAtIndex(stopGroups, index)?.key
                                 }
                                 onClick={() => moveStop(index, index + 1)}
                                 className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"

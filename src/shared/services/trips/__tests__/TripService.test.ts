@@ -117,6 +117,20 @@ describe("TripService Unit Tests", () => {
     expect(reorderStops(trip, 0, 2)).toBe(trip);
   });
 
+  it("does not cross an intervening group when repeated dates are non-consecutive", () => {
+    const trip: Trip = {
+      ...mockTrip,
+      stops: [
+        { id: "a", type: "custom", name: "A", date: "2026-08-08" },
+        { id: "x", type: "custom", name: "X", date: "2026-08-09" },
+        { id: "b", type: "custom", name: "B", date: "2026-08-08" },
+      ],
+    };
+
+    expect(reorderStops(trip, 0, 2)).toBe(trip);
+    expect(reorderStops(trip, 2, 0)).toBe(trip);
+  });
+
   it("builds localized smart titles without replacing descriptive titles", () => {
     expect(
       buildSmartTripTitle({
@@ -140,6 +154,8 @@ describe("TripService Unit Tests", () => {
         locale: "ja",
       }),
     ).toBe("旅行 · 2026年8月8日");
+    expect(buildSmartTripTitle({ title: "2026", locale: "en" })).toBe("2026");
+    expect(buildSmartTripTitle({ title: "1234", locale: "en" })).toBe("1234");
     expect(buildSmartTripTitle({ locale: "en" })).toBe("Untitled trip");
     expect(buildSmartTripTitle({ locale: "ja" })).toBe("名称未設定の旅");
   });
