@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Destination } from "@/shared/types/destination";
+import type { SavedOriginLocation } from "@/shared/hooks/useTripStore";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { Button } from "@/shared/components/ui/button";
@@ -30,6 +32,7 @@ import {
   getTravelDecisionSemantics,
 } from "@/shared/services/transport/OriginAwareTransportService";
 import { formatTravelEstimateLabel } from "@/shared/services/transport/formatters";
+import { resolveOriginTransportZone } from "@/shared/services/transport/OriginTransportZone";
 
 import {
   getWalkingIntensity,
@@ -46,29 +49,76 @@ const COMPARE_SUPPORTED_MODES = [
 type CompareTransportMode =
   (typeof COMPARE_SUPPORTED_MODES)[number] | "car" | "my_car";
 
-export function getCompareJourneyModes(input: {
+export type CompareJourneyScope = "none" | "active" | "reference";
+
+type CompareTransportSelectionInput = {
   hasExplicitTripContext: boolean;
   publicModes: readonly string[];
   carMode: string;
-}): CompareTransportMode[] {
+};
+
+function getSelectedCompareTransportModes(
+  input: Pick<CompareTransportSelectionInput, "publicModes" | "carMode">,
+): CompareTransportMode[] {
   const modes = input.publicModes.filter((mode): mode is CompareTransportMode =>
     (COMPARE_SUPPORTED_MODES as readonly string[]).includes(mode),
   );
-  const carMode: "car" | "my_car" | undefined =
-    input.carMode === "rental"
-      ? "car"
-      : input.carMode === "my_car"
-        ? "my_car"
-        : undefined;
+  if (input.carMode === "rental") modes.push("car");
+  if (input.carMode === "my_car") modes.push("my_car");
+  return [...new Set(modes)];
+}
 
+export function getCompareJourneyModes(
+  input: CompareTransportSelectionInput,
+): CompareTransportMode[] {
+  const modes = getSelectedCompareTransportModes(input);
   // An explicit destination/date/budget context does not imply that the user
   // constrained transport. In that untouched state, preserve Compare's
   // reference journey instead of producing an empty mode set.
-  if (!input.hasExplicitTripContext || (modes.length === 0 && !carMode)) {
+  if (!input.hasExplicitTripContext || modes.length === 0) {
     return [...COMPARE_REFERENCE_MODES];
   }
+  return modes;
+}
 
-  return [...new Set(carMode ? [...modes, carMode] : modes)];
+export function getCompareJourneyScope(
+  input: CompareTransportSelectionInput,
+): CompareJourneyScope {
+  if (!input.hasExplicitTripContext) return "none";
+  return getSelectedCompareTransportModes(input).length > 0
+    ? "active"
+    : "reference";
+}
+
+export function resolveCompareOrigin(input: {
+  tripContextOrigin: SavedOriginLocation | null | undefined;
+  homeStationCoords?: { lat: number; lng: number };
+  homeStationTransportZoneId?: TransportZoneId;
+}): {
+  source: "trip_context" | "saved_home" | "none";
+  homeStationCoords?: { lat: number; lng: number };
+  originZoneId?: TransportZoneId;
+} {
+  const tripOrigin = input.tripContextOrigin;
+  if (tripOrigin?.coordinates) {
+    return {
+      source: "trip_context",
+      homeStationCoords: tripOrigin.coordinates,
+      originZoneId: resolveOriginTransportZone({
+        coordinates: tripOrigin.coordinates,
+        label: tripOrigin.label,
+        transportZoneId: tripOrigin.transportZoneId,
+      }),
+    };
+  }
+  if (input.homeStationCoords) {
+    return {
+      source: "saved_home",
+      homeStationCoords: input.homeStationCoords,
+      originZoneId: input.homeStationTransportZoneId,
+    };
+  }
+  return { source: "none" };
 }
 
 export default function Compare() {
@@ -82,6 +132,28 @@ export default function Compare() {
     homeStationTransportZoneId,
   } = useTripStore();
   const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
+  const compareOrigin = resolveCompareOrigin({
+    tripContextOrigin: tripContext.origin,
+    homeStationCoords,
+    homeStationTransportZoneId,
+  });
+  const compareJourneyInput = {
+    hasExplicitTripContext,
+    publicModes: tripContext.publicModes,
+    carMode: tripContext.carMode,
+  };
+  const compareJourneyModes = getCompareJourneyModes(compareJourneyInput);
+  const compareJourneyScope = getCompareJourneyScope(compareJourneyInput);
+  const compareJourneyScopeLabel =
+    compareJourneyScope === "active"
+      ? locale === "ja"
+        ? "選択した交通モード・出発地から"
+        : "Origin journey · selected mode"
+      : compareJourneyScope === "reference"
+        ? locale === "ja"
+          ? "標準ルート・代表的な交通モード"
+          : "Reference journey · typical modes"
+        : undefined;
   // Compare reads ratings/walking/budget/transport plus canonical cost facts.
   // The full catalogue is runtime-loaded; loading is
   // distinguished from empty so the empty state is not flashed while
@@ -99,19 +171,13 @@ export default function Compare() {
     .map((id) => allDestinations.find((d) => d.id === id))
     .filter((d): d is Destination => !!d);
 
-  const compareJourneyModes = getCompareJourneyModes({
-    hasExplicitTripContext,
-    publicModes: tripContext.publicModes,
-    carMode: tripContext.carMode,
-  });
-
   const compareTransportEstimates = compareDestinations.map((dest) =>
-    homeStationCoords && compareJourneyModes.length > 0
+    compareOrigin.homeStationCoords && compareJourneyModes.length > 0
       ? getOriginAwareTransportEstimate(
           dest,
           {
-            homeStationCoords,
-            originZoneId: homeStationTransportZoneId,
+            homeStationCoords: compareOrigin.homeStationCoords,
+            originZoneId: compareOrigin.originZoneId,
           },
           compareJourneyModes,
         )
@@ -365,18 +431,16 @@ export default function Compare() {
                   : undefined;
                 return (
                   <TableCell key={dest.id}>
+                    {compareJourneyScopeLabel && (
+                      <span
+                        data-testid="compare-journey-scope"
+                        className="block text-[11px] font-semibold text-slate-500 dark:text-slate-400"
+                      >
+                        {compareJourneyScopeLabel}
+                      </span>
+                    )}
                     {estimate ? (
                       <>
-                        {hasExplicitTripContext && (
-                          <span
-                            data-testid="compare-journey-scope"
-                            className="block text-[11px] font-semibold text-slate-500 dark:text-slate-400"
-                          >
-                            {locale === "ja"
-                              ? "選択した交通モード・出発地から"
-                              : "Origin journey · active mode"}
-                          </span>
-                        )}
                         <span
                           className={
                             reliable &&
@@ -482,6 +546,11 @@ export default function Compare() {
           const travelTime = estimate
             ? formatTravelEstimateLabel(estimate, locale)
             : undefined;
+          const modeLabel = estimate
+            ? t(`home.transportModes.${String(estimate.mode)}`, {
+                defaultValue: String(estimate.mode),
+              })
+            : undefined;
           const reliable =
             estimate && getTravelDecisionSemantics(estimate) === "reliable";
 
@@ -551,8 +620,24 @@ export default function Compare() {
                   <p className="text-slate-500 font-semibold mb-0.5">
                     {t("compare.travelTime")}
                   </p>
+                  {compareJourneyScopeLabel && (
+                    <p
+                      data-testid="compare-mobile-journey-scope"
+                      className="text-[11px] font-semibold text-slate-500 dark:text-slate-400"
+                    >
+                      {compareJourneyScopeLabel}
+                    </p>
+                  )}
                   <p className="font-bold text-slate-900 dark:text-white">
                     {travelTime ?? t("compare.unavailable")}
+                    {modeLabel && (
+                      <span
+                        data-testid="compare-mobile-journey-mode"
+                        className="ml-1"
+                      >
+                        ({modeLabel})
+                      </span>
+                    )}
                     {reliable &&
                       estimate &&
                       getDecisionOneWayMinutes(estimate) ===

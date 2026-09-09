@@ -19,7 +19,12 @@ import {
 } from "@/shared/services/place/PlaceCatalog";
 import Compare from "../Compare";
 import CompareModal from "../components/CompareModal";
-import { getCompareJourneyModes } from "../Compare";
+import {
+  getCompareJourneyModes,
+  getCompareJourneyScope,
+  resolveCompareOrigin,
+} from "../Compare";
+import type { SavedOriginLocation } from "@/shared/hooks/useTripStore";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -27,6 +32,19 @@ const compareState = vi.hoisted(() => ({
   compareList: ["kyoto-city", "osaka-city"],
   toggleCompare: vi.fn(),
   clearCompare: vi.fn(),
+  homeStationCoords: undefined as { lat: number; lng: number } | undefined,
+  homeStationTransportZoneId: undefined as string | undefined,
+  hasExplicitTripContext: false,
+  tripContext: {
+    origin: null as SavedOriginLocation | null,
+    travelDate: null,
+    dateSemantics: "any" as const,
+    duration: "fullDay" as const,
+    partySize: 2,
+    publicModes: [] as string[],
+    carMode: "none" as const,
+    budget: { kind: "any", tier: "any" },
+  },
 }));
 
 vi.mock("@/shared/hooks/useTripStore", () => ({
@@ -34,6 +52,8 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
     compareList: compareState.compareList,
     toggleCompare: compareState.toggleCompare,
     clearCompare: compareState.clearCompare,
+    homeStationCoords: compareState.homeStationCoords,
+    homeStationTransportZoneId: compareState.homeStationTransportZoneId,
   }),
 }));
 
@@ -43,17 +63,8 @@ vi.mock("@/shared/context/LocaleContext", () => ({
 
 vi.mock("@/shared/context/TripContext", () => ({
   useOptionalTripContext: () => ({
-    hasExplicitTripContext: false,
-    tripContext: {
-      origin: null,
-      travelDate: null,
-      dateSemantics: "any",
-      duration: "fullDay",
-      partySize: 2,
-      publicModes: [],
-      carMode: "none",
-      budget: { kind: "any", tier: "any" },
-    },
+    hasExplicitTripContext: compareState.hasExplicitTripContext,
+    tripContext: compareState.tripContext,
   }),
 }));
 
@@ -115,6 +126,12 @@ beforeEach(() => {
   compareState.compareList = ["kyoto-city", "osaka-city"];
   compareState.toggleCompare.mockClear();
   compareState.clearCompare.mockClear();
+  compareState.homeStationCoords = undefined;
+  compareState.homeStationTransportZoneId = undefined;
+  compareState.hasExplicitTripContext = false;
+  compareState.tripContext.origin = null;
+  compareState.tripContext.publicModes = [];
+  compareState.tripContext.carMode = "none";
 });
 
 afterEach(() => {
@@ -150,6 +167,102 @@ describe("Compare Page & Modal — Japanese Localization", () => {
         carMode: "none",
       }),
     ).toEqual(["train", "shinkansen", "bus"]);
+  });
+
+  it("distinguishes reference journeys from active transport selections", () => {
+    expect(
+      getCompareJourneyScope({
+        hasExplicitTripContext: true,
+        publicModes: [],
+        carMode: "none",
+      }),
+    ).toBe("reference");
+    expect(
+      getCompareJourneyScope({
+        hasExplicitTripContext: true,
+        publicModes: ["train"],
+        carMode: "none",
+      }),
+    ).toBe("active");
+    expect(
+      getCompareJourneyScope({
+        hasExplicitTripContext: true,
+        publicModes: [],
+        carMode: "my_car",
+      }),
+    ).toBe("active");
+  });
+
+  it("resolves the active TripContext origin before saved home", () => {
+    const tripOrigin = {
+      label: "Trip origin A",
+      coordinates: { lat: 34.6937, lng: 135.5023 },
+      source: "station",
+      transportZoneId: "mainland-honshu",
+    } satisfies SavedOriginLocation;
+    const savedHome = { lat: 35.6812, lng: 139.7671 };
+
+    expect(
+      resolveCompareOrigin({
+        tripContextOrigin: tripOrigin,
+        homeStationCoords: savedHome,
+        homeStationTransportZoneId: "mainland-honshu",
+      }),
+    ).toMatchObject({
+      source: "trip_context",
+      homeStationCoords: tripOrigin.coordinates,
+      originZoneId: "mainland-honshu",
+    });
+  });
+
+  it("shows journey scope and resolved mode in the mobile Compare cards", async () => {
+    compareState.hasExplicitTripContext = true;
+    compareState.tripContext.publicModes = ["train"];
+    compareState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
+    compareState.homeStationTransportZoneId = "mainland-honshu";
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+
+    await act(async () => {
+      root!.render(
+        <MemoryRouter>
+          <Compare />
+        </MemoryRouter>,
+      );
+      await Promise.resolve();
+    });
+
+    expect(
+      host.querySelector('[data-testid="compare-mobile-journey-scope"]')
+        ?.textContent,
+    ).toContain("選択した交通モード・出発地から");
+    expect(
+      host.querySelector('[data-testid="compare-mobile-journey-mode"]')
+        ?.textContent,
+    ).toContain("電車");
+  });
+
+  it("does not call reference modes an active mode in the rendered scope", async () => {
+    compareState.hasExplicitTripContext = true;
+    compareState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
+    compareState.homeStationTransportZoneId = "mainland-honshu";
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+
+    await act(async () => {
+      root!.render(
+        <MemoryRouter>
+          <Compare />
+        </MemoryRouter>,
+      );
+      await Promise.resolve();
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("標準ルート・代表的な交通モード");
+    expect(text).not.toContain("選択した交通モード・出発地から");
   });
 
   it("renders Japanese table headers, metrics, vibe tags, and place labels on Compare page without overall score", async () => {
