@@ -21,6 +21,7 @@ import {
 import DestinationDetails from "../DestinationDetails";
 import liteIndex from "@/shared/data/destinations-index.lite.json";
 import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
+import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -46,6 +47,16 @@ vi.mock("react-leaflet", () => ({
   TileLayer: () => null,
   Marker: () => null,
   Popup: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+}));
+
+const carRefinementState = vi.hoisted(() => ({
+  routes: undefined as CarRoundTripRoute | undefined,
+  status: "idle" as "idle" | "provider-backed",
+  failureCode: undefined as string | undefined,
+}));
+
+vi.mock("../hooks/useDestinationCarRouteRefinement", () => ({
+  useDestinationCarRouteRefinement: () => carRefinementState,
 }));
 
 const authState = vi.hoisted(() => ({
@@ -105,6 +116,57 @@ import destinationIndex from "@/shared/data/destinations-index.json";
 const records = new Map<string, Record<string, unknown>>(
   (destinationIndex as Record<string, unknown>[]).map((d) => [String(d.id), d]),
 );
+const nmwaAccessAnchor = {
+  id: "nmwa-road-entrance",
+  label: "NMWA road entrance",
+  kind: "road_access_entrance" as const,
+  coordinates: { lat: 35.7202, lng: 139.7767 },
+  accessAnchorId: "nmwa-road-entrance",
+  sourceUrls: ["https://example.com/nmwa-road"],
+};
+const providerCarRoute: CarRoundTripRoute = {
+  outbound: {
+    availability: "available",
+    origin: { lat: 35.6812, lng: 139.7671 },
+    destination: nmwaAccessAnchor,
+    accessAnchor: nmwaAccessAnchor,
+    provider: "fixture-route-provider",
+    direction: "outbound",
+    distanceKm: 12,
+    durationMinutes: 35,
+    toll: { state: "priced", amountJPY: 800, basis: "ETC" },
+    confidence: "verified",
+    completeness: "complete",
+  },
+  returnRoute: {
+    availability: "available",
+    origin: nmwaAccessAnchor.coordinates,
+    destination: {
+      id: "origin",
+      label: "Trip origin",
+      coordinates: { lat: 35.6812, lng: 139.7671 },
+    },
+    accessAnchor: nmwaAccessAnchor,
+    provider: "fixture-route-provider",
+    direction: "return",
+    distanceKm: 12,
+    durationMinutes: 35,
+    toll: { state: "priced", amountJPY: 800, basis: "ETC" },
+    confidence: "verified",
+    completeness: "complete",
+  },
+};
+const providerCarRouteUnknownToll: CarRoundTripRoute = {
+  ...providerCarRoute,
+  outbound: {
+    ...providerCarRoute.outbound,
+    toll: { state: "unknown", basis: "unspecified" },
+  },
+  returnRoute: {
+    ...providerCarRoute.returnRoute,
+    toll: { state: "unknown", basis: "unspecified" },
+  },
+};
 const nmwaRecord = records.get("national-museum-western-art-tokyo");
 if (nmwaRecord) {
   records.set("national-museum-western-art-tokyo", {
@@ -203,6 +265,9 @@ beforeEach(() => {
   storeState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
   storeState.homeStationTransportZoneId = "mainland-honshu";
   localeState.locale = "en";
+  carRefinementState.routes = undefined;
+  carRefinementState.status = "idle";
+  carRefinementState.failureCode = undefined;
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -214,6 +279,93 @@ afterEach(() => {
 });
 
 describe("DestinationDetails transport rows", () => {
+  it("projects a provider-backed rental-car cost through the production seam", async () => {
+    carRefinementState.routes = providerCarRoute;
+    carRefinementState.status = "provider-backed";
+    render("/destinations/national-museum-western-art-tokyo", {
+      carMode: "rental",
+      publicModes: [],
+      partySize: 2,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("Rental Car");
+    expect(text).not.toContain("Cost unavailable");
+    expect(text).toContain("/ car, round trip");
+  });
+
+  it("projects a provider-backed personal-car cost through the production seam", async () => {
+    carRefinementState.routes = providerCarRoute;
+    carRefinementState.status = "provider-backed";
+    render("/destinations/national-museum-western-art-tokyo", {
+      carMode: "my_car",
+      publicModes: [],
+      partySize: 2,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("Personal Car");
+    expect(text).not.toContain("Cost unavailable");
+    expect(text).toContain("/ car, round trip");
+  });
+
+  it("renders a rental-car subtotal with unresolved toll in English", async () => {
+    carRefinementState.routes = providerCarRouteUnknownToll;
+    carRefinementState.status = "provider-backed";
+    render("/destinations/national-museum-western-art-tokyo", {
+      carMode: "rental",
+      publicModes: [],
+      partySize: 2,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("Rental Car");
+    expect(text).toContain("+ toll");
+    expect(text).toContain("/ car, round trip");
+    expect(text).not.toContain("Cost unavailable");
+    const partialCost = Array.from(host.querySelectorAll(".text-xs")).find(
+      (element) => element.textContent?.includes("+ toll"),
+    );
+    expect(partialCost?.parentElement?.className).toContain("min-w-0");
+  });
+
+  it("renders a personal-car subtotal with unresolved toll in Japanese", async () => {
+    carRefinementState.routes = providerCarRouteUnknownToll;
+    carRefinementState.status = "provider-backed";
+    localeState.locale = "ja";
+    render("/destinations/national-museum-western-art-tokyo", {
+      carMode: "my_car",
+      publicModes: [],
+      partySize: 2,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("マイカー");
+    expect(text).toContain("+ 高速料金");
+    expect(text).toContain("／車・往復");
+    expect(text).not.toContain("料金不明");
+    const partialCost = Array.from(host.querySelectorAll(".text-xs")).find(
+      (element) => element.textContent?.includes("+ 高速料金"),
+    );
+    expect(partialCost?.parentElement?.className).toContain("min-w-0");
+  });
+
   it("shows transport-only per-person cost instead of the whole-trip total", async () => {
     storeState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
     storeState.homeStationTransportZoneId = "mainland-honshu";

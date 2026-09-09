@@ -1,3 +1,5 @@
+import type { PriceRange } from "./planner";
+
 export type CarAccessState =
   | "direct"
   | "parking_walk"
@@ -39,6 +41,13 @@ export interface CarAccessAnchor {
   readonly label: string;
   readonly kind: CarAccessAnchorKind;
   readonly coordinates?: CarAccessCoordinates;
+  /**
+   * Optional destination-specific verified parking range. When present, the
+   * canonical car-cost option builder must use it instead of the generic
+   * planning fallback. The range is for one modeled round trip, not a daily
+   * rental charge.
+   */
+  readonly parkingCostJPY?: PriceRange;
   readonly sourceUrls: readonly string[];
   readonly notes?: string;
 }

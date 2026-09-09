@@ -34,7 +34,7 @@
  * Pure and deterministic: no I/O, no React, no system clock.
  */
 
-import type { Destination } from "@/shared/types/destination";
+import type { Destination, BudgetReasonCode } from "@/shared/types/destination";
 import type { FerryTemporalContext, TransportMode } from "./types";
 import { getOriginAwareTransportEstimate } from "./OriginAwareTransportService";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
@@ -90,6 +90,8 @@ export interface TransportCostResult {
     | "verified_ferry_fare"
     | "car_route_cost"
     | "unavailable";
+  /** Stable reason for an incomplete/unavailable canonical result. */
+  readonly incompleteReason?: BudgetReasonCode;
 }
 
 /** True when the party size is a finite positive integer. */
@@ -143,7 +145,10 @@ function carRouteSourceUrls(route: CarRoundTripRoute): readonly string[] {
   );
 }
 
-function carUnavailable(route: CarRoundTripRoute): TransportCostResult {
+function carUnavailable(
+  route: CarRoundTripRoute,
+  incompleteReason: BudgetReasonCode = "route_unavailable",
+): TransportCostResult {
   return {
     cost: UNAVAILABLE_SOURCE_MISSING,
     evidence: {
@@ -153,6 +158,7 @@ function carUnavailable(route: CarRoundTripRoute): TransportCostResult {
       sourceUrls: carRouteSourceUrls(route),
     },
     source: "unavailable",
+    incompleteReason,
   };
 }
 
@@ -163,7 +169,7 @@ function carRouteCost(
   partySize: number,
 ): TransportCostResult {
   if (!options) {
-    return carUnavailable(route);
+    return carUnavailable(route, "car_options_missing");
   }
   const effectiveOptions = { ...options, partySize };
   if (mode === "car") {
@@ -172,7 +178,7 @@ function carRouteCost(
       !("vehicleClass" in effectiveOptions) ||
       !("dailyRentalChargeJPY" in effectiveOptions)
     ) {
-      return carUnavailable(route);
+      return carUnavailable(route, "rental_options_mismatch");
     }
     return toCarTransportCost(
       route,
@@ -180,7 +186,7 @@ function carRouteCost(
     );
   }
   if ("duration" in effectiveOptions) {
-    return carUnavailable(route);
+    return carUnavailable(route, "personal_options_mismatch");
   }
   return toCarTransportCost(
     route,
@@ -216,6 +222,7 @@ function toCarTransportCost(
       assumptionProvenance: result.assumptionProvenance,
     },
     source: result.breakdown ? "car_route_cost" : "unavailable",
+    ...(result.reason ? { incompleteReason: result.reason } : {}),
   };
 }
 
@@ -264,7 +271,7 @@ export function getCanonicalTransportCost(
 
   if ((mode === "car" || mode === "my_car") && carRoute) {
     if (!isCarRoundTripRouteForDestination(dest, carRoute, homeCoords)) {
-      return carUnavailable(carRoute);
+      return carUnavailable(carRoute, "route_unavailable");
     }
     return carRouteCost(carRoute, mode, carCostOptions, partySize);
   }
@@ -553,6 +560,7 @@ export function getCanonicalTransportCost(
         derivation: "computed",
       },
       source: "unavailable",
+      incompleteReason: "route_unavailable",
     };
   }
 

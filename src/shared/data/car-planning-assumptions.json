@@ -1,6 +1,6 @@
 {
-  "version": "car-planning-assumptions-2026-09-03-v1",
-  "checkedAt": "2026-09-03",
+  "version": "car-planning-assumptions-2026-09-09-v2",
+  "checkedAt": "2026-09-09",
   "notes": "Planning envelopes only. These values are not live supplier quotes and are not vehicle-specific facts.",
   "fuelEconomyKmPerL": {
     "value": [12, 18],
@@ -43,5 +43,21 @@
       "source": "Toyota Rent a Car published price-list reference",
       "reference": "https://rent.toyota.co.jp/eng/pricelist.aspx"
     }
+  },
+  "parkingCostJPY": {
+    "value": [500, 1600],
+    "unit": "JPY per vehicle per modeled round trip",
+    "category": "generic_destination_parking_planning",
+    "rationale": "Generic fallback for one vehicle's destination parking charge in the modeled round trip. The estimator applies it once per vehicle; it is not a per-day or per-stay rate and does not model multiple parking stays. The deliberately broad ¥500–1,600 envelope covers representative official examples: UPOPOY ¥500 per visit, Akashi Kaikyo National Government Park ¥500–600 per day, Kamikochi ¥600–800 per day, Yokohama Aoba Ward Office ¥500–900 daily maximums, Nara City tourist parking ¥600–800 per day, and Kanazawa Musashi Underground Parking ¥800 per 24 hours. The ¥1,600 upper bound is a conservative generic planning cap, not a nationwide standard-car fee claim. Verified destination parking attached to an official parking anchor overrides this fallback when represented.",
+    "source": "Multiple official Japanese public and destination parking rate pages",
+    "reference": "https://ainu-upopoy.go.jp/access/",
+    "references": [
+      "https://ainu-upopoy.go.jp/access/",
+      "https://awaji-kaikyopark.kkr.mlit.go.jp/en/info.html",
+      "https://chubu.env.go.jp/shinetsu/pre_2025/press_00057.html",
+      "https://www.city.yokohama.lg.jp/aoba/madoguchi-shisetsu/kuyakusho/annai/access-parking.html",
+      "https://www.city.nara.lg.jp/site/kankou/5913.html",
+      "https://www4.city.kanazawa.lg.jp/soshikikarasagasu/shigaichisaiseika/gyomuannai/3/1/6278.html"
+    ]
   }
 }

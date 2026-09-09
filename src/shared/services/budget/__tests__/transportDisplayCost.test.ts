@@ -26,6 +26,7 @@ describe("getTransportDisplayCost", () => {
     expect(getTransportDisplayCost(estimate, "train", 4)).toEqual({
       range: [600, 2000],
       unit: "per_person_round_trip",
+      completeness: "complete",
     });
   });
 
@@ -45,6 +46,51 @@ describe("getTransportDisplayCost", () => {
     expect(getTransportDisplayCost(estimate, "my_car", 4)).toEqual({
       range: [12000, 18000],
       unit: "per_car_round_trip",
+      completeness: "complete",
+    });
+  });
+
+  it("projects a bounded known subtotal as partial when toll is unknown", () => {
+    const estimate = {
+      components: [
+        {
+          cost: { kind: "unavailable" as const, reason: "source_missing" },
+          knownCost: { kind: "bounded" as const, min: 3200, max: 4600 },
+          evidence: {
+            scope: "origin_travel" as const,
+            derivation: "computed" as const,
+            reason: "toll_unknown",
+          },
+        },
+      ],
+    } as unknown as Parameters<typeof getTransportDisplayCost>[0];
+
+    expect(getTransportDisplayCost(estimate, "my_car", 2)).toEqual({
+      range: [3200, 4600],
+      unit: "per_car_round_trip",
+      completeness: "partial",
+      reason: "toll_unknown",
+    });
+  });
+
+  it("retains unavailable status when no bounded subtotal exists", () => {
+    const estimate = {
+      components: [
+        {
+          cost: { kind: "unavailable" as const, reason: "source_missing" },
+          evidence: {
+            scope: "origin_travel" as const,
+            derivation: "computed" as const,
+            reason: "route_unavailable",
+          },
+        },
+      ],
+    } as unknown as Parameters<typeof getTransportDisplayCost>[0];
+
+    expect(getTransportDisplayCost(estimate, "car", 2)).toEqual({
+      unit: "per_car_round_trip",
+      completeness: "unavailable",
+      reason: "route_unavailable",
     });
   });
 });

@@ -167,6 +167,11 @@ import {
 } from "@/shared/hooks/useWeather";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { getTransportDisplayCost } from "@/shared/services/budget/transportDisplayCost";
+import {
+  buildPersonalCarCostOptions,
+  buildRentalCarCostOptions,
+  getVerifiedDestinationParkingCost,
+} from "@/shared/services/transport/carCostOptions";
 import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
 
 function WeatherIcon({ type }: { type: string }) {
@@ -226,6 +231,8 @@ const DETAIL_COPY = {
     travelTime: "Travel Time",
     transportCostPerPersonRoundTrip: "/ person, round trip",
     transportCostPerCarRoundTrip: "/ car, round trip",
+    tollUnknownSuffix: " + toll",
+    partialCostSuffix: " + unresolved cost",
     comfortMetrics: "Comfort Metrics",
     experienceRatings: "Experience Ratings",
     seasonalRatings: "Seasonal Ratings",
@@ -284,6 +291,8 @@ const DETAIL_COPY = {
     travelTime: "所要時間",
     transportCostPerPersonRoundTrip: "／1人・往復",
     transportCostPerCarRoundTrip: "／車・往復",
+    tollUnknownSuffix: " + 高速料金",
+    partialCostSuffix: " + 未確定の費用",
     comfortMetrics: "快適性",
     experienceRatings: "体験評価",
     seasonalRatings: "季節評価",
@@ -967,6 +976,13 @@ export default function DestinationDetails() {
     return formatTravelEstimateLabel(estimate, locale);
   };
 
+  // A verified parking fee on an official parking anchor overrides the generic
+  // planning envelope. No numeric destination override exists for most
+  // records, so the canonical fallback remains explicit and bounded.
+  const verifiedDestinationParkingCost = destination
+    ? getVerifiedDestinationParkingCost(destination)
+    : undefined;
+
   // KAI-260: a bounded canonical range remains displayable when its
   // ingredients are model/profile derived. The range itself is never collapsed.
   const modeEstimate = (
@@ -990,6 +1006,17 @@ export default function DestinationDetails() {
               carRefinement.status === "provider-backed"
                 ? carRefinement.routes
                 : undefined,
+            carCostOptions:
+              mode === "car"
+                ? buildRentalCarCostOptions({
+                    duration,
+                    partySize,
+                    parkingCostJPY: verifiedDestinationParkingCost,
+                  })
+                : buildPersonalCarCostOptions({
+                    partySize,
+                    parkingCostJPY: verifiedDestinationParkingCost,
+                  }),
           }
         : {}),
       ...(opts ?? {}),
@@ -999,7 +1026,9 @@ export default function DestinationDetails() {
   const formatGroundCost = (mode: GroundMode): string => {
     const result = modeEstimate(mode);
     const transportCost = getTransportDisplayCost(result, mode, partySize);
-    if (!transportCost) return copy.costUnavailable;
+    if (!transportCost || transportCost.completeness === "unavailable") {
+      return copy.costUnavailable;
+    }
     const unit =
       transportCost.unit === "per_car_round_trip"
         ? copy.transportCostPerCarRoundTrip
@@ -1011,7 +1040,13 @@ export default function DestinationDetails() {
         : locale === "ja"
           ? `約 ${costRange}`
           : `~${costRange}`;
-    return `${copy.estimated} ${costLabel} ${unit}`;
+    const partialSuffix =
+      transportCost.completeness === "partial"
+        ? transportCost.reason === "toll_unknown"
+          ? copy.tollUnknownSuffix
+          : copy.partialCostSuffix
+        : "";
+    return `${copy.estimated} ${costLabel}${partialSuffix} ${unit}`;
   };
 
   const isModeVisible = (mode: string) => {
@@ -2211,7 +2246,7 @@ export default function DestinationDetails() {
                                       ? "レンタカー"
                                       : "Rental Car"}
                                   </span>
-                                  <div className="text-right">
+                                  <div className="min-w-0 text-right">
                                     <div className="font-semibold text-slate-700 dark:text-slate-300">
                                       {formatGroundTime("car")}
                                       {groundEstimateFor("car")?.evidence ===
@@ -2237,7 +2272,7 @@ export default function DestinationDetails() {
                                       ? "マイカー"
                                       : "Personal Car"}
                                   </span>
-                                  <div className="text-right">
+                                  <div className="min-w-0 text-right">
                                     <div className="font-semibold text-slate-700 dark:text-slate-300">
                                       {formatGroundTime("my_car")}
                                       {groundEstimateFor("my_car")?.evidence ===
