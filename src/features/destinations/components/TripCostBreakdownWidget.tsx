@@ -517,14 +517,6 @@ export function TripCostBreakdownWidget({
                     ? `交通・チケット・宿泊を含む予想合計 (グループ: ${partySize}名)`
                     : `Est. total including transport, tickets & accommodation (${partySize} guests)`}
             </p>
-            {mandatoryAdmissionDisclosure && (
-              <p
-                data-testid="mandatory-admission-disclosure"
-                className="mt-1 text-[11px] font-semibold text-amber-700 dark:text-amber-300"
-              >
-                {mandatoryAdmissionDisclosure}
-              </p>
-            )}
           </div>
 
           <div className="flex items-center gap-3 self-end sm:self-auto">

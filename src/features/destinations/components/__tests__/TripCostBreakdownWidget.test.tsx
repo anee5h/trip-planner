@@ -315,6 +315,9 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     expect(container.textContent).toContain(
       "Admission unavailable/not included",
     );
+    expect(
+      container.textContent?.match(/Admission unavailable\/not included/g),
+    ).toHaveLength(1);
     expect(container.textContent).toContain("origin transport excluded");
 
     const toggle = Array.from(container.querySelectorAll("button")).find(
