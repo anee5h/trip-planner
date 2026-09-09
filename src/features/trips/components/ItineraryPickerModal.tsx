@@ -2,7 +2,10 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { addStopToTrip } from "@/shared/services/trips/TripService";
+import {
+  addStopToTrip,
+  buildSmartTripTitle,
+} from "@/shared/services/trips/TripService";
 import {
   saveItineraryGroup,
   type ItineraryGroup,
@@ -22,7 +25,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
-
+import { useTranslation } from "react-i18next";
 export type PendingItinerarySave =
   | { type: "destination"; destination: { id: string; name: string } }
   | { type: "destination_pair"; group: ItineraryGroup }
@@ -40,6 +43,8 @@ export function ItineraryPickerModal({
   payload,
 }: ItineraryPickerModalProps) {
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
+  const locale = i18n.language === "ja" ? "ja" : "en";
   const { trips, addTrip, updateTrip } = useTripStore();
   const [isCreating, setIsCreating] = useState(false);
   const [newTitle, setNewTitle] = useState("");
@@ -211,15 +216,26 @@ export function ItineraryPickerModal({
 
     const defaultTitle =
       payload.type === "destination"
-        ? `Trip to ${payload.destination.name}`
+        ? locale === "ja"
+          ? `${payload.destination.name}への旅`
+          : `Trip to ${payload.destination.name}`
         : payload.type === "destination_pair"
-          ? payload.group.title.en
-          : payload.plan.title.en;
+          ? payload.group.title[locale]
+          : payload.plan.title[locale];
 
-    const titleToUse = newTitle.trim() || defaultTitle;
+    const titleToUse = buildSmartTripTitle({
+      title: newTitle.trim() || defaultTitle,
+      locale,
+      destinationName:
+        payload.type === "destination" ? payload.destination.name : undefined,
+    });
 
     try {
-      const created = addTrip(titleToUse);
+      const created = addTrip(titleToUse, undefined, undefined, {
+        locale,
+        destinationName:
+          payload.type === "destination" ? payload.destination.name : undefined,
+      });
       let currentTrip = created;
 
       if (payload.type === "generated_plan") {

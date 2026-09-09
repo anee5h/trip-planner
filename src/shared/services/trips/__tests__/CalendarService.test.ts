@@ -49,4 +49,19 @@ describe("CalendarService Unit Tests", () => {
     expect(url).toContain("dates=20261101/20261106");
     expect(url).toContain("details=Plan%20Link");
   });
+
+  it("does not infer calendar dates from stop metadata", () => {
+    const undatedTrip = {
+      ...mockTrip,
+      startDate: undefined,
+      endDate: undefined,
+    };
+
+    expect(() => generateIcsContent(undatedTrip)).toThrow(
+      "Trip has no canonical dates",
+    );
+    expect(() => generateGoogleCalendarUrl(undatedTrip)).toThrow(
+      "Trip has no canonical dates",
+    );
+  });
 });

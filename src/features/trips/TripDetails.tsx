@@ -10,6 +10,8 @@ import {
 import { triggerPdfPrint } from "@/shared/services/trips/PdfExportService";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
+import { formatTripDateRange } from "@/shared/utils/date";
+import { getCanonicalTripDateRange } from "@/shared/services/trips/CalendarService";
 
 interface TripDetailsProps {
   trip: Trip;
@@ -28,7 +30,14 @@ export default function TripDetails({
   onRemoveStop,
   onReorderStops,
 }: TripDetailsProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const canonicalDates = getCanonicalTripDateRange(trip);
+  const locale = i18n.language === "ja" ? "ja" : "en";
+  const dateLabel = formatTripDateRange(
+    canonicalDates?.start,
+    canonicalDates?.end,
+    locale,
+  );
   const [journal, setJournal] = useState(trip.journalNotes || "");
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [titleInput, setTitleInput] = useState(trip.title);
@@ -52,7 +61,7 @@ export default function TripDetails({
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pb-[calc(6rem+env(safe-area-inset-bottom))]">
       {/* Header Bar */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
         <div className="flex items-center gap-3">
@@ -92,11 +101,19 @@ export default function TripDetails({
                 </button>
               </h1>
             )}
-            <p className="text-sm text-slate-500 dark:text-slate-300 mt-1">
-              {t("trips.status")}:{" "}
-              <span className="font-bold capitalize text-emerald-700 dark:text-emerald-300">
-                {t(`trips.statusLabels.${trip.status}`, trip.status)}
-              </span>
+            {trip.status !== "draft" && (
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-300">
+                {t("trips.status")}
+                {": "}
+                <span className="font-bold capitalize text-emerald-700 dark:text-emerald-300">
+                  {t(`trips.statusLabels.${trip.status}`, trip.status)}
+                </span>
+              </p>
+            )}
+            <p className="mt-1 text-sm font-semibold text-slate-600 dark:text-slate-300">
+              {dateLabel || (
+                <span className="italic">{t("ui.noDatesSet")}</span>
+              )}
             </p>
           </div>
         </div>
@@ -108,9 +125,16 @@ export default function TripDetails({
               variant="outline"
               size="icon"
               aria-label={t("trips.exportCalendar")}
-              title={t("trips.exportCalendar")}
-              onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-              className="rounded-full border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
+              title={
+                canonicalDates
+                  ? t("trips.exportCalendar")
+                  : t("trips.noCanonicalDatesForCalendar")
+              }
+              disabled={!canonicalDates}
+              onClick={() => {
+                if (canonicalDates) setIsCalendarOpen(!isCalendarOpen);
+              }}
+              className="rounded-full border-slate-200 text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-900"
             >
               <Calendar className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
             </Button>

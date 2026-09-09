@@ -8,7 +8,21 @@ import TripCard from "../TripCard";
 import type { Trip } from "@/shared/types/trip";
 
 vi.mock("react-i18next", () => ({
-  useTranslation: () => ({ t: (key: string) => key }),
+  useTranslation: () => ({
+    i18n: { language: "en" },
+    t: (key: string) =>
+      ({
+        "ui.moreActions": "More actions",
+        "ui.editItinerary": "Edit itinerary",
+        "ui.noDatesSet": "No dates set",
+        "ui.stop": "stop",
+        "ui.stops": "stops",
+        "trips.status": "Status",
+        "trips.statusLabels.planned": "Planned",
+        "trips.statusLabels.completed": "Completed",
+        "trips.statusLabels.cancelled": "Cancelled",
+      })[key] ?? key,
+  }),
 }));
 
 const mockTrip: Trip = {
@@ -48,29 +62,91 @@ afterEach(() => {
 });
 
 describe("TripCard", () => {
-  it("renders trip title and status", () => {
+  it("renders non-draft statuses while hiding only the permanent draft state", () => {
     render();
     expect(host.textContent).toContain("Kyoto Weekend");
-    expect(host.textContent).toContain("planned");
+    expect(host.textContent).toContain("Status: Planned");
+
+    for (const [status, label] of [
+      ["completed", "Completed"],
+      ["cancelled", "Cancelled"],
+    ] as const) {
+      act(() =>
+        root.render(
+          <TripCard
+            trip={{ ...mockTrip, status }}
+            onSelect={onSelect}
+            onDelete={onDelete}
+          />,
+        ),
+      );
+      expect(host.textContent).toContain(`Status: ${label}`);
+    }
+
+    act(() =>
+      root.render(
+        <TripCard
+          trip={{ ...mockTrip, status: "draft" }}
+          onSelect={onSelect}
+          onDelete={onDelete}
+        />,
+      ),
+    );
+    expect(host.textContent).not.toContain("Status:");
   });
 
-  it("calls onSelect when Planner button is clicked", () => {
+  it("calls onSelect from the Edit itinerary action", () => {
     render();
-    const plannerBtn = Array.from(host.querySelectorAll("button")).find((b) =>
-      b.textContent?.includes("Planner"),
+    const editButton = Array.from(host.querySelectorAll("button")).find((b) =>
+      b.textContent?.includes("Edit itinerary"),
     );
-    act(() => plannerBtn?.click());
+    act(() => editButton?.click());
     expect(onSelect).toHaveBeenCalledWith("trip-1");
+  });
+
+  it("uses the canonical trip date range, never a stop date", () => {
+    const datedTrip = {
+      ...mockTrip,
+      startDate: "2026-08-08",
+      endDate: "2026-08-10",
+      stops: [
+        {
+          id: "stop-1",
+          type: "destination" as const,
+          destinationId: "shibuya-city",
+          name: "Shibuya City",
+          date: "2026-08-12",
+        },
+      ],
+    };
+    act(() =>
+      root.render(
+        <TripCard trip={datedTrip} onSelect={onSelect} onDelete={onDelete} />,
+      ),
+    );
+    expect(host.textContent).toContain("Aug 8–10, 2026");
+    expect(host.textContent).not.toContain("Aug 12, 2026");
+  });
+
+  it("puts destructive actions behind an overflow menu", () => {
+    render();
+    expect(
+      host.querySelector('button[aria-label="More actions"]'),
+    ).not.toBeNull();
   });
 
   it("shows confirm/cancel after delete click and calls onDelete on confirm", () => {
     render();
 
-    // Click delete icon
-    const deleteBtn = host.querySelector<HTMLButtonElement>(
-      'button[aria-label="ui.delete"]',
+    const moreBtn = host.querySelector<HTMLButtonElement>(
+      'button[aria-label="More actions"]',
     );
-    act(() => deleteBtn?.click());
+    act(() => moreBtn?.click());
+
+    const deleteBtn = Array.from(
+      host.querySelectorAll('[role="menuitem"]'),
+    ).find((item) => item.textContent?.includes("ui.delete"));
+    act(() => (deleteBtn as HTMLElement | undefined)?.click());
 
     // Should now show delete button
     expect(host.textContent).toContain("ui.delete");
@@ -87,10 +163,15 @@ describe("TripCard", () => {
   it("cancels delete when cancel is clicked", () => {
     render();
 
-    const deleteBtn = host.querySelector<HTMLButtonElement>(
-      'button[aria-label="ui.delete"]',
+    const moreBtn = host.querySelector<HTMLButtonElement>(
+      'button[aria-label="More actions"]',
     );
-    act(() => deleteBtn?.click());
+    act(() => moreBtn?.click());
+
+    const deleteBtn = Array.from(
+      host.querySelectorAll('[role="menuitem"]'),
+    ).find((item) => item.textContent?.includes("ui.delete"));
+    act(() => (deleteBtn as HTMLElement | undefined)?.click());
 
     const cancelBtn = Array.from(host.querySelectorAll("button")).find((b) =>
       b.textContent?.includes("ui.cancel"),

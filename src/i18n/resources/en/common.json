@@ -620,6 +620,11 @@
     "cancel": "Cancel",
     "save": "Save",
     "delete": "Delete",
+    "moreActions": "More actions",
+    "editItinerary": "Edit itinerary",
+    "noDatesSet": "No dates set",
+    "stop": "stop",
+    "stops": "stops",
     "close": "Close",
     "clearAll": "Clear all",
     "view": "View details",
@@ -789,7 +794,8 @@
     "customLocationPlaceholder": "e.g. Hotel Sunroute Plaza Shinjuku",
     "notesPlaceholder": "e.g. Try local spicy noodles",
     "failedAdd": "Failed to add destination to itinerary",
-    "failedCreate": "Failed to create trip"
+    "failedCreate": "Failed to create trip",
+    "noCanonicalDatesForCalendar": "Set the trip dates before exporting it to a calendar"
   },
   "settings": {
     "fullName": "Full name",

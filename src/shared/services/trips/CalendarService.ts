@@ -12,9 +12,11 @@ export function generateIcsContent(trip: Trip): string {
     return dateStr.replace(/-/g, "") + "T000000Z";
   };
 
-  const { start: startDate, end: endDate } = deriveTripDates(trip);
-  const start = formatIcsDate(startDate);
-  const end = formatIcsDate(getNextDay(endDate));
+  const dates = getCanonicalTripDateRange(trip);
+  if (!dates) throw new Error("Trip has no canonical dates");
+
+  const start = formatIcsDate(dates.start);
+  const end = formatIcsDate(getNextDay(dates.end));
 
   const description = trip.stops
     .map((s, idx) => formatStopLine(s, idx))
@@ -52,17 +54,14 @@ export function downloadIcsFile(trip: Trip): void {
   document.body.removeChild(link);
 }
 
-function deriveTripDates(trip: Trip): { start: string; end: string } {
-  const stopDates = trip.stops
-    .map((s) => s.date)
-    .filter((d): d is string => Boolean(d))
-    .sort();
-
-  const startDate =
-    trip.startDate || stopDates[0] || new Date().toISOString().split("T")[0];
-  const endDate = trip.endDate || stopDates[stopDates.length - 1] || startDate;
-
-  return { start: startDate, end: endDate };
+export function getCanonicalTripDateRange(
+  trip: Trip,
+): { start: string; end: string } | undefined {
+  if (!trip.startDate) return undefined;
+  return {
+    start: trip.startDate,
+    end: trip.endDate || trip.startDate,
+  };
 }
 
 function getNextDay(dateStr: string): string {
@@ -76,10 +75,11 @@ export function generateGoogleCalendarUrl(trip: Trip): string {
     return dateStr.replace(/-/g, "");
   };
 
-  const { start: startDate, end: endDate } = deriveTripDates(trip);
-  const calEndDate = getNextDay(endDate);
+  const dates = getCanonicalTripDateRange(trip);
+  if (!dates) throw new Error("Trip has no canonical dates");
+  const calEndDate = getNextDay(dates.end);
 
-  const dates = `${formatUrlDate(startDate)}/${formatUrlDate(calEndDate)}`;
+  const urlDates = `${formatUrlDate(dates.start)}/${formatUrlDate(calEndDate)}`;
   const text = encodeURIComponent(trip.title);
 
   // Build deep link back to this specific trip
@@ -92,7 +92,7 @@ export function generateGoogleCalendarUrl(trip: Trip): string {
   const body = `Plan Link: ${tripLink}\n\nItinerary Overview:\n${stopsSummary}`;
   const details = encodeURIComponent(body);
 
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}`;
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${urlDates}&details=${details}`;
 }
 
 export function openGoogleCalendar(trip: Trip): void {

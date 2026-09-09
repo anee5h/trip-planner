@@ -26,15 +26,11 @@ export default function TripEditor({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title || title.trim() === "") {
-      setError(t("ui.titleRequired"));
-      return;
-    }
     if (startDate && endDate && new Date(startDate) > new Date(endDate)) {
       setError(t("ui.invalidDates"));
       return;
     }
-    onSave(title, startDate || undefined, endDate || undefined);
+    onSave(title.trim(), startDate || undefined, endDate || undefined);
   };
 
   return (
@@ -46,7 +42,7 @@ export default function TripEditor({
       )}
       <div>
         <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-1.5">
-          {t("ui.tripTitle")} *
+          {t("ui.tripTitle")}
         </label>
         <Input
           type="text"

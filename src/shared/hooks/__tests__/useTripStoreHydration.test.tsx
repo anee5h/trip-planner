@@ -80,4 +80,27 @@ describe("TripStore profile mutation guard", () => {
     expect(store.favorites).toEqual(["kyoto-city"]);
     expect(store.visited).toContain("fushimi-inari-kyoto");
   });
+
+  it("creates localized smart titles at the store boundary", () => {
+    render();
+
+    let created: ReturnType<typeof store.addTrip> | undefined;
+    act(() => {
+      created = store.addTrip("", "2026-08-08", undefined, {
+        locale: "ja",
+      });
+    });
+
+    expect(created?.title).toBe("旅行 · 2026年8月8日");
+    expect(store.trips[0]?.title).toBe("旅行 · 2026年8月8日");
+
+    act(() => {
+      created = store.addTrip("0808", "2026-08-08", undefined, {
+        locale: "en",
+        destinationName: "Kamakura",
+      });
+    });
+
+    expect(created?.title).toBe("Trip to Kamakura — Aug 8, 2026");
+  });
 });

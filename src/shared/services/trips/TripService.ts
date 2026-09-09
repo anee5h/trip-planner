@@ -1,5 +1,75 @@
 import type { Trip, TripStop } from "@/shared/types/trip";
 import { generateUUID } from "@/shared/utils/uuid";
+import { formatTripDateRange } from "@/shared/utils/date";
+
+export type TripTitleLocale = "en" | "ja";
+
+export interface SmartTripTitleInput {
+  title?: string;
+  startDate?: string;
+  endDate?: string;
+  destinationName?: string;
+  region?: string;
+  locale?: TripTitleLocale;
+}
+
+export type SmartTripTitleContext = Pick<
+  SmartTripTitleInput,
+  "destinationName" | "region" | "locale"
+>;
+
+function isCrypticDateTitle(title: string): boolean {
+  if (!/^\d{4}$/.test(title)) return false;
+  const month = Number(title.slice(0, 2));
+  const day = Number(title.slice(2));
+  if (month < 1 || month > 12) return false;
+  const daysInMonth = new Date(Date.UTC(2000, month, 0)).getUTCDate();
+  return day >= 1 && day <= daysInMonth;
+}
+
+function canReorderWithinContiguousGroup(
+  stops: TripStop[],
+  startIndex: number,
+  endIndex: number,
+): boolean {
+  const groupKey = stops[startIndex].date ?? "unscheduled";
+  const lowerIndex = Math.min(startIndex, endIndex);
+  const upperIndex = Math.max(startIndex, endIndex);
+  return stops
+    .slice(lowerIndex, upperIndex + 1)
+    .every((stop) => (stop.date ?? "unscheduled") === groupKey);
+}
+
+export function buildSmartTripTitle(input: SmartTripTitleInput): string {
+  const title = input.title?.trim() ?? "";
+  if (title && !isCrypticDateTitle(title)) return title;
+
+  const locale = input.locale ?? "en";
+  const destinationName = input.destinationName?.trim();
+  const region = input.region?.trim();
+  const dateLabel = input.startDate
+    ? formatTripDateRange(input.startDate, input.endDate, locale)
+    : "";
+  const dateSuffix = dateLabel
+    ? locale === "ja"
+      ? ` · ${dateLabel}`
+      : ` — ${dateLabel}`
+    : "";
+
+  if (destinationName) {
+    return locale === "ja"
+      ? `${destinationName}への旅${dateSuffix}`
+      : `Trip to ${destinationName}${dateSuffix}`;
+  }
+  if (region) {
+    return locale === "ja"
+      ? `${region}の旅${dateSuffix}`
+      : `${region} trip${dateSuffix}`;
+  }
+  if (dateLabel)
+    return locale === "ja" ? `旅行${dateSuffix}` : `Trip${dateSuffix}`;
+  return locale === "ja" ? "名称未設定の旅" : "Untitled trip";
+}
 
 export function validateTrip(
   title: string,
@@ -65,6 +135,10 @@ export function reorderStops(
   ) {
     return trip;
   }
+  if (!canReorderWithinContiguousGroup(trip.stops, startIndex, endIndex)) {
+    return trip;
+  }
+
   const result = [...trip.stops];
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);

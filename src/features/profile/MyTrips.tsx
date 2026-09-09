@@ -13,7 +13,7 @@ import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { useTranslation } from "react-i18next";
 
 export default function MyTrips() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
   const {
     favorites,
@@ -267,7 +267,9 @@ export default function MyTrips() {
             </h3>
             <TripEditor
               onSave={(title, start, end) => {
-                addTrip(title, start, end);
+                addTrip(title, start, end, {
+                  locale: i18n.language === "ja" ? "ja" : "en",
+                });
                 setIsAddingTrip(false);
               }}
               onCancel={() => setIsAddingTrip(false)}

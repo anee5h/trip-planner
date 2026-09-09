@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Calendar, Trash2, ArrowRight } from "lucide-react";
+import { Calendar, Trash2, ArrowRight, MoreHorizontal } from "lucide-react";
 import type { Trip } from "@/shared/types/trip";
 import { Button } from "@/shared/components/ui/button";
 import { useTranslation } from "react-i18next";
+import { formatTripDateRange } from "@/shared/utils/date";
 
 interface TripCardProps {
   trip: Trip;
@@ -11,91 +12,112 @@ interface TripCardProps {
 }
 
 export default function TripCard({ trip, onSelect, onDelete }: TripCardProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const [actionsOpen, setActionsOpen] = useState(false);
   const stopsCount = trip.stops.length;
+  const locale = i18n.language === "ja" ? "ja" : "en";
+  const dateLabel = formatTripDateRange(trip.startDate, trip.endDate, locale);
 
-  const formatDate = (dateStr?: string) => {
-    if (!dateStr) return null;
-    return new Date(dateStr).toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
+  const closeActions = () => {
+    setActionsOpen(false);
+    setConfirmDelete(false);
   };
 
   return (
-    <div className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-5">
-      <div>
-        <div className="flex justify-between items-start mb-3">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 capitalize border border-emerald-100 dark:border-emerald-900">
-            {trip.status}
-          </span>
-          {confirmDelete ? (
-            <div className="flex items-center gap-1">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => {
-                  onDelete(trip.id);
-                  setConfirmDelete(false);
-                }}
-                className="text-xs font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full px-3 h-7"
-              >
-                {t("ui.delete")}
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setConfirmDelete(false)}
-                className="text-xs text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full px-3 h-7"
-              >
-                {t("ui.cancel")}
-              </Button>
-            </div>
-          ) : (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setConfirmDelete(true)}
-              className="text-slate-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full"
-              aria-label={t("ui.delete")}
-            >
-              <Trash2 className="w-4 h-4" />
-            </Button>
-          )}
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-950 dark:text-white mb-2 line-clamp-1">
+    <article className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-5">
+      <div className="flex items-start justify-between gap-3">
+        <h3 className="min-w-0 flex-1 truncate text-lg font-bold text-slate-950 dark:text-white sm:text-xl">
           {trip.title}
         </h3>
 
-        <div className="flex items-center gap-2 text-slate-500 dark:text-slate-300 text-sm mb-4">
-          <Calendar className="w-4 h-4 flex-shrink-0" />
-          {trip.startDate ? (
-            <span>
-              {formatDate(trip.startDate)}
-              {trip.endDate && ` - ${formatDate(trip.endDate)}`}
-            </span>
-          ) : (
-            <span className="italic">No dates set</span>
+        <div className="relative shrink-0">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => {
+              setActionsOpen((open) => !open);
+              setConfirmDelete(false);
+            }}
+            className="rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-800 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+            aria-label={t("ui.moreActions")}
+            aria-expanded={actionsOpen}
+            aria-haspopup="menu"
+          >
+            <MoreHorizontal className="size-5" />
+          </Button>
+
+          {actionsOpen && (
+            <div
+              role="menu"
+              className="absolute right-0 top-11 z-20 min-w-40 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl dark:border-slate-700 dark:bg-slate-950"
+            >
+              {confirmDelete ? (
+                <div className="flex items-center gap-1 p-1">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      onDelete(trip.id);
+                      closeActions();
+                    }}
+                    className="min-h-10 flex-1 rounded-lg px-2 text-xs font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
+                  >
+                    {t("ui.delete")}
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={closeActions}
+                    className="min-h-10 flex-1 rounded-lg px-2 text-xs text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"
+                  >
+                    {t("ui.cancel")}
+                  </Button>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  role="menuitem"
+                  onClick={() => setConfirmDelete(true)}
+                  className="flex min-h-10 w-full items-center gap-2 rounded-lg px-3 text-left text-sm font-semibold text-red-600 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:hover:bg-red-950/20"
+                >
+                  <Trash2 className="size-4" />
+                  {t("ui.delete")}
+                </button>
+              )}
+            </div>
           )}
         </div>
       </div>
 
-      <div className="flex justify-between items-center mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500 dark:text-slate-300">
+        <div className="flex items-center gap-2">
+          <Calendar className="size-4 shrink-0" />
+          <span>
+            {dateLabel || <span className="italic">{t("ui.noDatesSet")}</span>}
+          </span>
+        </div>
+        {trip.status !== "draft" && (
+          <span data-trip-status>
+            {t("trips.status")}:{" "}
+            {t(`trips.statusLabels.${trip.status}`, trip.status)}
+          </span>
+        )}
+      </div>
+
+      <div className="mt-4 flex items-center justify-between gap-3 border-t border-slate-100 pt-3 dark:border-slate-800">
         <span className="text-xs font-semibold text-slate-500 dark:text-slate-300">
-          {stopsCount} stop{stopsCount === 1 ? "" : "s"}
+          {stopsCount} {stopsCount === 1 ? t("ui.stop") : t("ui.stops")}
         </span>
 
         <Button
           onClick={() => onSelect(trip.id)}
-          className="bg-slate-900 hover:bg-slate-850 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white rounded-full font-bold px-4 text-xs inline-flex items-center gap-1.5"
+          className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-slate-900 px-4 text-xs font-bold text-white hover:bg-slate-800 dark:bg-emerald-600 dark:hover:bg-emerald-700"
         >
-          <span>Planner</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <span>{t("ui.editItinerary")}</span>
+          <ArrowRight className="size-3.5" />
         </Button>
       </div>
-    </div>
+    </article>
   );
 }

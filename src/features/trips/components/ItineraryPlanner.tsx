@@ -1,22 +1,27 @@
-import { useState, useMemo } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import { TripStopType } from "@/shared/types/trip";
 import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
 import {
-  ArrowDown,
-  ArrowUp,
   Plus,
-  Trash2,
   CalendarDays,
   Calendar as CalendarIcon,
+  GripVertical,
+  MoreHorizontal,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
+import { Link } from "react-router-dom";
+import { formatTripDateRange } from "@/shared/utils/date";
+import {
+  groupItineraryStops,
+  type ItineraryStopGroup,
+} from "./ItineraryPlannerModel";
 
 interface ItineraryPlannerProps {
   trip: Trip;
@@ -39,28 +44,63 @@ function sanitizeDateInput(rawDate: string): string {
   return `${year}-${month}-${day}`;
 }
 
-function formatDisplayDate(dateStr: string, locale: string = "en"): string {
-  if (!dateStr) return "";
-  try {
-    const parts = dateStr.split("-");
-    if (parts.length === 3) {
-      const dateObj = new Date(
-        parseInt(parts[0], 10),
-        parseInt(parts[1], 10) - 1,
-        parseInt(parts[2], 10),
-      );
-      if (!isNaN(dateObj.getTime())) {
-        return dateObj.toLocaleDateString(locale === "ja" ? "ja-JP" : "en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        });
-      }
+function getUtcDay(dateStr: string): number {
+  const [year, month, day] = dateStr.split("-").map(Number);
+  return Date.UTC(year, month - 1, day) / 86_400_000;
+}
+
+function addUtcDays(dateStr: string, days: number): string {
+  const date = new Date(`${dateStr}T00:00:00Z`);
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
+}
+
+const MAX_DATE_PRESET_DAYS = 31;
+
+function getGroupAtIndex(
+  groups: ItineraryStopGroup[],
+  index: number,
+): ItineraryStopGroup | undefined {
+  return groups.find((group) =>
+    group.stops.some((entry) => entry.index === index),
+  );
+}
+
+function formatGroupLabel(
+  date: string | undefined,
+  tripStartDate: string | undefined,
+  tripEndDate: string | undefined,
+  locale: "en" | "ja",
+): string {
+  if (!date) return locale === "ja" ? "日程未設定" : "Unscheduled";
+
+  const formatted = formatTripDateRange(date, undefined, locale);
+  const hasCanonicalStart = /^\d{4}-\d{2}-\d{2}$/.test(tripStartDate ?? "");
+  const hasCanonicalDate = /^\d{4}-\d{2}-\d{2}$/.test(date);
+  const canonicalEnd = /^\d{4}-\d{2}-\d{2}$/.test(tripEndDate ?? "")
+    ? tripEndDate
+    : hasCanonicalStart
+      ? tripStartDate
+      : undefined;
+
+  if (hasCanonicalStart && hasCanonicalDate) {
+    const isWithinTripDates =
+      date >= tripStartDate! && (!canonicalEnd || date <= canonicalEnd);
+    if (!isWithinTripDates) {
+      return locale === "ja"
+        ? `日程範囲外 · ${formatted}`
+        : `Outside trip dates · ${formatted}`;
     }
-  } catch {
-    // Fallback to raw string
+
+    const dayNumber = getUtcDay(date) - getUtcDay(tripStartDate!) + 1;
+    if (Number.isInteger(dayNumber) && dayNumber > 0) {
+      return locale === "ja"
+        ? `${dayNumber}日目 · ${formatted}`
+        : `Day ${dayNumber} · ${formatted}`;
+    }
   }
-  return dateStr;
+
+  return locale === "ja" ? `予定日 · ${formatted}` : `Scheduled · ${formatted}`;
 }
 
 export default function ItineraryPlanner({
@@ -79,6 +119,17 @@ export default function ItineraryPlanner({
   const [stopDate, setStopDate] = useState("");
   const { favorites } = useTripStore();
   const recentDestinations = useRecentlyViewedDestinations();
+  const rowRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const dragRef = useRef<{
+    stopId: string;
+    startIndex: number;
+    overIndex: number;
+  } | null>(null);
+  const [draggedStopId, setDraggedStopId] = useState<string | null>(null);
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
+  const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+  const focusStopRef = useRef<string | null>(null);
+  const [announcement, setAnnouncement] = useState("");
 
   const {
     places: cataloguePlaces,
@@ -86,6 +137,10 @@ export default function ItineraryPlanner({
     retry: retryLite,
   } = useCatalogue({ need: "summary" });
   const destinations = cataloguePlaces as Destination[];
+  const stopGroups = useMemo(
+    () => groupItineraryStops(trip.stops),
+    [trip.stops],
+  );
 
   const savedDestinations = useMemo(() => {
     return (favorites || [])
@@ -93,23 +148,49 @@ export default function ItineraryPlanner({
       .filter((d): d is Destination => Boolean(d));
   }, [favorites, destinations]);
 
+  const hasCanonicalTripDates = Boolean(
+    trip.startDate && /^\d{4}-\d{2}-\d{2}$/.test(trip.startDate),
+  );
+
+  const canonicalTripDateRange = useMemo(() => {
+    if (!trip.startDate || !/^\d{4}-\d{2}-\d{2}$/.test(trip.startDate)) {
+      return null;
+    }
+
+    const startDay = getUtcDay(trip.startDate);
+    const endDate =
+      trip.endDate && /^\d{4}-\d{2}-\d{2}$/.test(trip.endDate)
+        ? trip.endDate
+        : trip.startDate;
+    return {
+      startDate: trip.startDate,
+      endDate,
+      duration: Math.max(1, getUtcDay(endDate) - startDay + 1),
+    };
+  }, [trip.endDate, trip.startDate]);
+
   const tripDatePresets = useMemo(() => {
     const presets: Array<{ label: string; date: string }> = [];
-    if (trip.startDate) {
-      const baseDate = new Date(trip.startDate);
-      if (!isNaN(baseDate.getTime())) {
-        for (let i = 0; i < 3; i++) {
-          const d = new Date(baseDate);
-          d.setDate(d.getDate() + i);
-          const dateStr = d.toISOString().split("T")[0];
+    if (canonicalTripDateRange) {
+      if (canonicalTripDateRange.duration <= MAX_DATE_PRESET_DAYS) {
+        for (let i = 0; i < canonicalTripDateRange.duration; i += 1) {
+          const date = addUtcDays(canonicalTripDateRange.startDate, i);
           presets.push({
-            label: locale === "ja" ? `${i + 1}日目` : `Day ${i + 1}`,
-            date: dateStr,
+            label:
+              locale === "ja"
+                ? `${i + 1}日目 · ${formatTripDateRange(date, undefined, locale)}`
+                : `Day ${i + 1} · ${formatTripDateRange(date, undefined, locale)}`,
+            date,
           });
         }
-        return presets;
       }
+      presets.push({
+        label: locale === "ja" ? "日程未設定" : "Unscheduled",
+        date: "",
+      });
+      return presets;
     }
+
     const today = new Date();
     const todayStr = today.toISOString().split("T")[0];
     const tomorrow = new Date(today);
@@ -122,8 +203,17 @@ export default function ItineraryPlanner({
       label: locale === "ja" ? "明日" : "Tomorrow",
       date: tomorrow.toISOString().split("T")[0],
     });
+    presets.push({
+      label: locale === "ja" ? "日程未設定" : "Unscheduled",
+      date: "",
+    });
     return presets;
-  }, [trip.startDate, locale]);
+  }, [canonicalTripDateRange, locale]);
+
+  const hasExpandedDatePicker = Boolean(
+    canonicalTripDateRange &&
+    canonicalTripDateRange.duration > MAX_DATE_PRESET_DAYS,
+  );
 
   const handleDateChange = (val: string) => {
     setStopDate(sanitizeDateInput(val));
@@ -157,6 +247,134 @@ export default function ItineraryPlanner({
     setCustomName("");
     setNotes("");
     setStopDate("");
+  };
+
+  const announceMove = (stop: TripStop, endIndex: number) => {
+    setAnnouncement(
+      locale === "ja"
+        ? `${stop.name}を${endIndex + 1}番目に移動しました`
+        : `${stop.name} moved to position ${endIndex + 1}`,
+    );
+  };
+
+  const moveStop = (startIndex: number, endIndex: number) => {
+    if (
+      startIndex < 0 ||
+      endIndex < 0 ||
+      startIndex >= trip.stops.length ||
+      endIndex >= trip.stops.length ||
+      startIndex === endIndex
+    ) {
+      return;
+    }
+    const stop = trip.stops[startIndex];
+    const sourceGroup = getGroupAtIndex(stopGroups, startIndex);
+    const targetGroup = getGroupAtIndex(stopGroups, endIndex);
+    if (!sourceGroup || sourceGroup.key !== targetGroup?.key) {
+      return;
+    }
+    focusStopRef.current = stop.id;
+    setOpenMenuId(null);
+    onReorderStops(startIndex, endIndex);
+    announceMove(stop, endIndex);
+  };
+
+  useLayoutEffect(() => {
+    const stopId = focusStopRef.current;
+    if (!stopId) return;
+    rowRefs.current[stopId]
+      ?.querySelector<HTMLButtonElement>("[data-stop-actions]")
+      ?.focus();
+    focusStopRef.current = null;
+  }, [trip.stops]);
+
+  const handleDragStart = (
+    event: React.PointerEvent<HTMLButtonElement>,
+    stopId: string,
+    startIndex: number,
+  ) => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    event.preventDefault();
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+    dragRef.current = { stopId, startIndex, overIndex: startIndex };
+    setDraggedStopId(stopId);
+    setDragOverIndex(startIndex);
+    setOpenMenuId(null);
+  };
+
+  const handleDragMove = (event: React.PointerEvent<HTMLButtonElement>) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+
+    const sourceStop = trip.stops[drag.startIndex];
+    const sourceGroup = getGroupAtIndex(stopGroups, drag.startIndex);
+    if (!sourceStop || !sourceGroup) return;
+    const remainingStops = trip.stops
+      .map((stop, index) => ({ stop, index }))
+      .filter(({ stop }) => stop.id !== drag.stopId);
+    const groupStops = sourceGroup.stops.filter(
+      ({ stop }) => stop.id !== drag.stopId,
+    );
+
+    let insertionSlot = groupStops.length;
+    let visualIndex = drag.startIndex;
+    for (let slot = 0; slot < groupStops.length; slot += 1) {
+      const row = rowRefs.current[groupStops[slot].stop.id];
+      if (!row) continue;
+      const rect = row.getBoundingClientRect();
+      if (event.clientY < rect.top + rect.height / 2) {
+        insertionSlot = slot;
+        visualIndex = groupStops[slot].index;
+        break;
+      }
+    }
+
+    if (groupStops.length > 0 && insertionSlot === groupStops.length) {
+      visualIndex = groupStops[groupStops.length - 1].index;
+    }
+
+    const targetEntry =
+      insertionSlot < groupStops.length
+        ? groupStops[insertionSlot]
+        : groupStops[groupStops.length - 1];
+    const targetIndex = targetEntry
+      ? insertionSlot < groupStops.length
+        ? remainingStops.findIndex(
+            ({ stop }) => stop.id === targetEntry.stop.id,
+          )
+        : remainingStops.findIndex(
+            ({ stop }) => stop.id === targetEntry.stop.id,
+          ) + 1
+      : drag.startIndex;
+
+    drag.overIndex = targetIndex;
+    setDragOverIndex(visualIndex);
+  };
+
+  const clearDrag = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+      event.currentTarget.releasePointerCapture?.(event.pointerId);
+    }
+    dragRef.current = null;
+    setDraggedStopId(null);
+    setDragOverIndex(null);
+  };
+
+  const handleDragEnd = (event: React.PointerEvent<HTMLButtonElement>) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    const endIndex = drag.overIndex;
+    clearDrag(event);
+    if (endIndex !== drag.startIndex) {
+      const stop = trip.stops[drag.startIndex];
+      onReorderStops(drag.startIndex, endIndex);
+      announceMove(stop, endIndex);
+    }
+  };
+
+  const handleDragCancel = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (!dragRef.current) return;
+    clearDrag(event);
   };
 
   // KAI-132: a failed lite load is NOT an empty destination list — the
@@ -271,13 +489,13 @@ export default function ItineraryPlanner({
               <CalendarIcon className="w-3.5 h-3.5 text-emerald-500" />
               {t("datePicker.chooseTravelDate")}
             </label>
-            <div className="flex items-center gap-1.5">
+            <div className="flex flex-wrap items-center gap-1.5">
               {tripDatePresets.map((preset) => (
                 <button
-                  key={preset.date}
+                  key={preset.label}
                   type="button"
                   onClick={() => setStopDate(preset.date)}
-                  className={`px-2.5 py-0.5 rounded-md text-[11px] font-bold transition-all border ${
+                  className={`min-h-9 rounded-md border px-2.5 py-1 text-left text-[11px] font-bold leading-4 transition-all ${
                     stopDate === preset.date
                       ? "bg-emerald-700 text-white border-emerald-600 shadow-sm"
                       : "bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-slate-300"
@@ -288,15 +506,31 @@ export default function ItineraryPlanner({
               ))}
             </div>
           </div>
-          <Input
-            type="date"
-            value={stopDate}
-            min="2020-01-01"
-            max="2035-12-31"
-            onChange={(e) => handleDateChange(e.target.value)}
-            onBlur={(e) => handleDateChange(e.target.value)}
-            className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-base sm:text-sm w-full"
-          />
+          {hasExpandedDatePicker && canonicalTripDateRange && (
+            <Input
+              type="date"
+              value={stopDate}
+              min={canonicalTripDateRange.startDate}
+              max={canonicalTripDateRange.endDate}
+              aria-label={
+                locale === "ja" ? "旅行日を選択" : "Choose travel date"
+              }
+              onChange={(e) => handleDateChange(e.target.value)}
+              onBlur={(e) => handleDateChange(e.target.value)}
+              className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-base sm:text-sm w-full"
+            />
+          )}
+          {!hasCanonicalTripDates && (
+            <Input
+              type="date"
+              value={stopDate}
+              min="2020-01-01"
+              max="2035-12-31"
+              onChange={(e) => handleDateChange(e.target.value)}
+              onBlur={(e) => handleDateChange(e.target.value)}
+              className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-base sm:text-sm w-full"
+            />
+          )}
         </div>
 
         {/* Notes */}
@@ -332,80 +566,194 @@ export default function ItineraryPlanner({
           {t("ui.itineraryOrder")}
         </h4>
 
+        {announcement && (
+          <p role="status" aria-live="polite" className="sr-only">
+            {announcement}
+          </p>
+        )}
+
         {trip.stops.length === 0 ? (
-          <p className="text-slate-500 dark:text-slate-300 text-sm italic py-8 text-center">
+          <p className="py-8 text-center text-sm italic text-slate-500 dark:text-slate-300">
             {t("ui.noItinerariesHint")}
           </p>
         ) : (
-          <div className="space-y-4">
-            {trip.stops.map((stop, index) => (
-              <div
-                key={stop.id}
-                className="flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-sm"
+          <div className="space-y-5">
+            {stopGroups.map((group) => (
+              <section
+                key={group.key}
+                aria-label={formatGroupLabel(
+                  group.date,
+                  trip.startDate,
+                  trip.endDate,
+                  locale,
+                )}
               >
-                {/* Stop number */}
-                <div className="w-8 h-8 rounded-full bg-emerald-700 text-white flex items-center justify-center font-extrabold text-sm shrink-0">
-                  {index + 1}
-                </div>
+                <h5 className="mb-2 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-300">
+                  <CalendarDays className="size-3.5 text-emerald-600 dark:text-emerald-300" />
+                  {formatGroupLabel(
+                    group.date,
+                    trip.startDate,
+                    trip.endDate,
+                    locale,
+                  )}
+                </h5>
 
-                <div className="flex-1 min-w-0">
-                  <h5 className="font-extrabold text-slate-900 dark:text-white text-sm truncate">
-                    {stop.name}
-                  </h5>
-                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-xs text-slate-500 dark:text-slate-300">
-                    <span className="inline-block px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold uppercase tracking-wider text-[10px]">
-                      {stop.type}
-                    </span>
-                    {stop.date && (
-                      <span className="inline-flex items-center gap-1 font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-md border border-emerald-700/20">
-                        <CalendarDays className="w-3 h-3" />
-                        {formatDisplayDate(stop.date, locale)}
-                      </span>
-                    )}
-                    {stop.notes && (
-                      <span className="italic text-slate-500 truncate">
-                        "{stop.notes}"
-                      </span>
-                    )}
-                  </div>
-                </div>
+                <div role="list" className="space-y-2">
+                  {group.stops.map(({ stop, index }) => {
+                    const isDragging = draggedStopId === stop.id;
+                    const destinationPath =
+                      stop.type === "destination" && stop.destinationId
+                        ? `/destinations/${stop.destinationId}`
+                        : undefined;
 
-                {/* Actions */}
-                <div className="flex items-center gap-0.5 shrink-0">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    aria-label={t("trips.moveUp", "Move stop up")}
-                    disabled={index === 0}
-                    onClick={() => onReorderStops(index, index - 1)}
-                    className="h-8 w-8 text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 disabled:opacity-20 rounded-full"
-                  >
-                    <ArrowUp className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    aria-label={t("trips.moveDown", "Move stop down")}
-                    disabled={index === trip.stops.length - 1}
-                    onClick={() => onReorderStops(index, index + 1)}
-                    className="h-8 w-8 text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 disabled:opacity-20 rounded-full"
-                  >
-                    <ArrowDown className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    aria-label={t(
-                      "trips.removeStop",
-                      "Remove stop from itinerary",
-                    )}
-                    onClick={() => onRemoveStop(stop.id)}
-                    className="h-8 w-8 text-slate-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </Button>
+                    return (
+                      <div
+                        key={stop.id}
+                        ref={(node) => {
+                          rowRefs.current[stop.id] = node;
+                        }}
+                        role="listitem"
+                        data-stop-id={stop.id}
+                        className={`flex items-start gap-2 rounded-2xl border bg-white px-2.5 py-3 shadow-sm transition-[transform,box-shadow,border-color,background-color] dark:bg-slate-900 sm:gap-3 sm:px-3 ${
+                          isDragging
+                            ? "scale-[1.01] border-emerald-500 bg-emerald-50 shadow-lg dark:bg-emerald-950/30"
+                            : "border-slate-200 dark:border-slate-800"
+                        } ${
+                          dragOverIndex === index && !isDragging
+                            ? "border-emerald-400"
+                            : ""
+                        }`}
+                      >
+                        <div className="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-sm font-extrabold text-white">
+                          {index + 1}
+                        </div>
+
+                        <div className="min-w-0 flex-1">
+                          {destinationPath ? (
+                            <Link
+                              to={destinationPath}
+                              data-stop-link
+                              className="block line-clamp-2 break-words py-0.5 text-sm font-extrabold leading-5 text-slate-900 underline-offset-4 hover:text-emerald-700 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 dark:text-white dark:hover:text-emerald-300"
+                              style={{
+                                display: "-webkit-box",
+                                WebkitBoxOrient: "vertical",
+                                WebkitLineClamp: 2,
+                              }}
+                            >
+                              {stop.name}
+                            </Link>
+                          ) : (
+                            <span className="block break-words py-0.5 text-sm font-extrabold leading-5 text-slate-900 dark:text-white">
+                              {stop.name}
+                            </span>
+                          )}
+                          {stop.notes && (
+                            <p className="mt-1 max-w-full break-words whitespace-normal text-xs italic leading-5 text-slate-500 dark:text-slate-300">
+                              “{stop.notes}”
+                            </p>
+                          )}
+                        </div>
+
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          data-drag-handle
+                          aria-label={
+                            locale === "ja"
+                              ? `${stop.name}の並べ替えハンドル`
+                              : `Reorder ${stop.name}`
+                          }
+                          aria-grabbed={isDragging}
+                          onPointerDown={(event) =>
+                            handleDragStart(event, stop.id, index)
+                          }
+                          onPointerMove={handleDragMove}
+                          onPointerUp={handleDragEnd}
+                          onPointerCancel={handleDragCancel}
+                          className="mt-0.5 min-h-11 min-w-11 shrink-0 touch-none cursor-grab rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 active:cursor-grabbing dark:hover:bg-slate-800 dark:hover:text-slate-200"
+                        >
+                          <GripVertical className="size-5" aria-hidden="true" />
+                        </Button>
+
+                        <div className="relative shrink-0">
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            data-stop-actions
+                            aria-label={
+                              locale === "ja"
+                                ? "スポットの操作"
+                                : "Stop actions"
+                            }
+                            aria-expanded={openMenuId === stop.id}
+                            aria-haspopup="menu"
+                            onClick={() =>
+                              setOpenMenuId((open) =>
+                                open === stop.id ? null : stop.id,
+                              )
+                            }
+                            className="mt-0.5 min-h-11 min-w-11 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+                          >
+                            <MoreHorizontal className="size-5" />
+                          </Button>
+
+                          {openMenuId === stop.id && (
+                            <div
+                              role="menu"
+                              className="absolute right-0 top-12 z-20 min-w-44 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl dark:border-slate-700 dark:bg-slate-950"
+                            >
+                              <button
+                                type="button"
+                                role="menuitem"
+                                disabled={
+                                  index === 0 ||
+                                  getGroupAtIndex(stopGroups, index - 1)
+                                    ?.key !==
+                                    getGroupAtIndex(stopGroups, index)?.key
+                                }
+                                onClick={() => moveStop(index, index - 1)}
+                                className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
+                              >
+                                {t("trips.moveUp", "Move stop up")}
+                              </button>
+                              <button
+                                type="button"
+                                role="menuitem"
+                                disabled={
+                                  index === trip.stops.length - 1 ||
+                                  getGroupAtIndex(stopGroups, index + 1)
+                                    ?.key !==
+                                    getGroupAtIndex(stopGroups, index)?.key
+                                }
+                                onClick={() => moveStop(index, index + 1)}
+                                className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
+                              >
+                                {t("trips.moveDown", "Move stop down")}
+                              </button>
+                              <button
+                                type="button"
+                                role="menuitem"
+                                onClick={() => {
+                                  setOpenMenuId(null);
+                                  onRemoveStop(stop.id);
+                                }}
+                                className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-red-700 hover:bg-red-50 dark:text-red-300 dark:hover:bg-red-950/30"
+                              >
+                                {t(
+                                  "trips.removeStop",
+                                  "Remove stop from itinerary",
+                                )}
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              </div>
+              </section>
             ))}
           </div>
         )}
