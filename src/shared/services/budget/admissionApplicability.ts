@@ -50,10 +50,13 @@ export function resolveAdmissionApplicability(
     return destination.admissionApplicability;
   }
 
-  // Compatibility for pre-KAI-285 hub records that stored the destination-level
-  // N/A state in the shared budget metadata. New records should use the
-  // admission-specific field or fact above.
-  if (destination.budgetMetadata?.state === "not_applicable") {
+  // Compatibility for pre-KAI-285 hub fixtures that stored the
+  // destination-level N/A state in shared budget metadata. This generic field
+  // is never admission evidence for non-hubs.
+  if (
+    destination.role === "hub" &&
+    destination.budgetMetadata?.state === "not_applicable"
+  ) {
     return "not_applicable";
   }
 

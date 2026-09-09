@@ -105,6 +105,76 @@ describe("KAI-285 admission applicability boundary", () => {
     ).toBe("unknown");
   });
 
+  it("does not use generic N/A budget metadata as admission evidence for a POI", () => {
+    expect(
+      resolveAdmissionApplicability(
+        destination({
+          role: "poi",
+          kind: "viewpoint",
+          categories: ["Nature"],
+          budgetMetadata: {
+            method: "model",
+            state: "not_applicable",
+            provenance: "model",
+          },
+        }),
+      ),
+    ).toBe("unknown");
+  });
+
+  it("keeps generic N/A budget metadata unknown for a factless non-hub", () => {
+    expect(
+      resolveAdmissionApplicability(
+        destination({
+          role: "standalone",
+          kind: "lake",
+          categories: ["Nature"],
+          budgetMetadata: {
+            method: "model",
+            state: "not_applicable",
+            provenance: "model",
+          },
+        }),
+      ),
+    ).toBe("unknown");
+  });
+
+  it("allows explicit admission applicability to override generic budget metadata", () => {
+    expect(
+      resolveAdmissionApplicability(
+        destination({
+          role: "standalone",
+          kind: "lake",
+          categories: ["Nature"],
+          admissionApplicability: "not_applicable",
+          budgetMetadata: {
+            method: "model",
+            state: "not_applicable",
+            provenance: "model",
+          },
+        }),
+      ),
+    ).toBe("not_applicable");
+  });
+
+  it("retains the legacy hub compatibility fallback", () => {
+    expect(
+      resolveAdmissionApplicability(
+        destination({
+          role: "hub",
+          kind: "city",
+          admission: undefined,
+          budgetMetadata: {
+            method: "model",
+            state: "not_applicable",
+            provenance: "model",
+            reasonCode: "hub_budget_not_applicable",
+          },
+        }),
+      ),
+    ).toBe("not_applicable");
+  });
+
   it("does not let conflicting N/A metadata hide a persisted paid fact", () => {
     expect(
       resolveAdmissionApplicability(
