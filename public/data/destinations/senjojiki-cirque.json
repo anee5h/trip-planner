@@ -244,17 +244,16 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
+    "state": "not_applicable",
     "provenance": "verified_source",
-    "reasonCode": "source_missing",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "source_missing"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "The official destination source was reviewed for identity and visitor access, but no current ordinary individual admission value was promoted without a dedicated fee source.",
+    "scope": "open_area",
+    "basis": "Official Central Alps source covers the natural cirque; ropeway access and optional activities are separate products, with no mandatory destination-level cirque admission identified.",
     "sourceUrls": ["https://www.chuo-alps.com/en/"],
-    "checkedAt": "2026-08-31",
+    "checkedAt": "2026-09-09",
     "reviewIntervalMonths": 12
   },
   "localTransport": {

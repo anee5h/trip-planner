@@ -22,9 +22,9 @@ The current traveller-facing failure is concentrated in 68 records whose admissi
 
 - Total records audited: **1130**; unique IDs: **1130**.
 - Admission facts present: **1130**; absent: **0**.
-- Current admission states: `not_applicable/not_applicable` 757, `unavailable/unavailable` 43, `variable_price/bounded` 23, `variable_price/open_ended` 6, `variable_price/variable` 25, `verified_free/bounded` 38, `verified_paid/bounded` 238.
-- Current estimate completeness: **1062 complete**, **68 partial**.
-- Admission-driven incomplete estimates: **68 / 68**.
+- Current admission states: `not_applicable/not_applicable` 771, `unavailable/unavailable` 29, `variable_price/bounded` 23, `variable_price/open_ended` 6, `variable_price/variable` 25, `verified_free/bounded` 38, `verified_paid/bounded` 238.
+- Current estimate completeness: **1076 complete**, **54 partial**.
+- Admission-driven incomplete estimates: **54 / 54**.
 
 ## Requested semantic cohorts
 
@@ -34,30 +34,27 @@ The current traveller-facing failure is concentrated in 68 records whose admissi
 | city_travel_hub             |     164 | not_applicable/not_applicable: 163, verified_free/bounded: 1                                                                                                                                               |                164 |                           0 |
 | neighbourhood_district_area |      26 | not_applicable/not_applicable: 25, verified_free/bounded: 1                                                                                                                                                |                 26 |                           0 |
 | beach                       |      29 | not_applicable/not_applicable: 24, verified_free/bounded: 2, verified_paid/bounded: 3                                                                                                                      |                 29 |                           0 |
-| hiking_trail_region         |      40 | not_applicable/not_applicable: 27, unavailable/unavailable: 10, variable_price/variable: 1, verified_free/bounded: 2                                                                                       |                 29 |                          11 |
-| open_scenic_nature_area     |     394 | not_applicable/not_applicable: 286, unavailable/unavailable: 26, variable_price/bounded: 3, variable_price/open_ended: 2, variable_price/variable: 4, verified_free/bounded: 19, verified_paid/bounded: 54 |                364 |                          30 |
+| hiking_trail_region         |      40 | not_applicable/not_applicable: 34, unavailable/unavailable: 3, variable_price/variable: 1, verified_free/bounded: 2                                                                                        |                 36 |                           4 |
+| open_scenic_nature_area     |     394 | not_applicable/not_applicable: 297, unavailable/unavailable: 15, variable_price/bounded: 3, variable_price/open_ended: 2, variable_price/variable: 4, verified_free/bounded: 19, verified_paid/bounded: 54 |                375 |                          19 |
 | public_open_park            |     196 | not_applicable/not_applicable: 149, unavailable/unavailable: 3, variable_price/bounded: 4, variable_price/open_ended: 2, variable_price/variable: 11, verified_free/bounded: 8, verified_paid/bounded: 19  |                182 |                          14 |
-| market_street_public_area   |      54 | not_applicable/not_applicable: 48, unavailable/unavailable: 3, variable_price/bounded: 1, verified_free/bounded: 2                                                                                         |                 51 |                           3 |
+| market_street_public_area   |      54 | not_applicable/not_applicable: 51, variable_price/bounded: 1, verified_free/bounded: 2                                                                                                                     |                 54 |                           0 |
 | normal_paid_attraction      |     196 | verified_paid/bounded: 196                                                                                                                                                                                 |                196 |                           0 |
 | verified_free_attraction    |      21 | verified_free/bounded: 21                                                                                                                                                                                  |                 21 |                           0 |
 
 ## High-confidence N/A projection (PR B candidate set)
 
 - Deterministic N/A candidates: **391**.
-- Of those, currently admission-unknown/unavailable: **14**.
-- Currently incomplete estimates in that candidate set: **14**.
-- Projected recovered estimates if only those explicit records are corrected to N/A: **14**.
-- Projected admission-driven incomplete estimates: **54**; reduction **20.59%**.
+- Of those, currently admission-unknown/unavailable: **0**.
+- Currently incomplete estimates in that candidate set: **0**.
+- Projected recovered estimates if only those explicit records are corrected to N/A: **0**.
+- Projected admission-driven incomplete estimates: **54**; reduction **0%**.
 
 This is a bounded projection, not a data mutation. PR A leaves the 14 records unchanged. PR B may update only the high-confidence rows after review; medium-confidence nature/park/onsen/temple/shrine cases remain untouched until source review.
 
 ## Current failure examples
 
 - **DisneySea** `disneysea`: kind absent/role absent, admission `variable_price/variable`, estimate **partial**, assessment **review_candidate**.
-- **Ikaho Stone Steps** `ikaho-stone-steps`: street/standalone, admission `unavailable/unavailable`, estimate **partial**, assessment **deterministic_na_candidate**.
-- **Nakamachi and Nawate Streets** `matsumoto-nakamachi-nawate`: street/poi, admission `unavailable/unavailable`, estimate **partial**, assessment **deterministic_na_candidate**.
 - **Onioshidashi Park** `onioshidashi-park`: park/standalone, admission `unavailable/unavailable`, estimate **partial**, assessment **review_candidate**.
-- **Yanagimachi Street** `yanagimachi-street-ueda`: street/standalone, admission `unavailable/unavailable`, estimate **partial**, assessment **deterministic_na_candidate**.
 
 ## Parent-area review
 

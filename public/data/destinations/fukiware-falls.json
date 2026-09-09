@@ -73,16 +73,16 @@
     "detail": "No destination-specific local-transport fare was promoted; route modes remain separately marked as unestimated."
   },
   "admission": {
-    "state": "unavailable",
+    "state": "not_applicable",
     "provenance": "verified_source",
-    "reasonCode": "source_missing",
-    "scope": "general_entry",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable"
+      "kind": "not_applicable"
     },
-    "basis": "The reviewed official source was retained, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "scope": "open_area",
+    "basis": "Official Numata tourism source describes the waterfall and maintained walking trail; no mandatory destination-level admission product was identified.",
     "sourceUrls": ["https://www.numata-kankou.jp/fukiwarenotaki/index.html"],
-    "checkedAt": "2026-08-31",
+    "checkedAt": "2026-09-09",
     "reviewIntervalMonths": 12
   },
   "recommendedVisitHours": {

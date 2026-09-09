@@ -21,8 +21,8 @@
     "admissionFactsPresent": 1130,
     "admissionFactsAbsent": 0,
     "admissionStates": {
-      "not_applicable/not_applicable": 757,
-      "unavailable/unavailable": 43,
+      "not_applicable/not_applicable": 771,
+      "unavailable/unavailable": 29,
       "variable_price/bounded": 23,
       "variable_price/open_ended": 6,
       "variable_price/variable": 25,
@@ -30,16 +30,16 @@
       "verified_paid/bounded": 238
     },
     "engineCompleteness": {
-      "complete": 1062,
-      "partial": 68
+      "complete": 1076,
+      "partial": 54
     },
     "evidenceCompleteness": {
-      "partial": 1062,
-      "unavailable": 68
+      "partial": 1076,
+      "unavailable": 54
     },
     "estimateQuality": {
-      "estimated": 1062,
-      "rough": 68
+      "estimated": 1076,
+      "rough": 54
     },
     "semanticClassCounts": {
       "city_town_village_ward": 176,
@@ -55,14 +55,14 @@
     }
   },
   "impact": {
-    "incompleteEstimates": 68,
-    "admissionDrivenIncompleteEstimates": 68,
+    "incompleteEstimates": 54,
+    "admissionDrivenIncompleteEstimates": 54,
     "deterministicNaCandidates": 391,
-    "deterministicNaUnknownCandidates": 14,
-    "deterministicNaIncompleteEstimates": 14,
-    "projectedRecoveredEstimates": 14,
+    "deterministicNaUnknownCandidates": 0,
+    "deterministicNaIncompleteEstimates": 0,
+    "projectedRecoveredEstimates": 0,
     "projectedAdmissionDrivenIncompleteEstimates": 54,
-    "projectedReductionPercent": 20.59
+    "projectedReductionPercent": 0
   },
   "cohorts": {
     "city_town_village_ward": {
@@ -105,27 +105,27 @@
     "hiking_trail_region": {
       "records": 40,
       "admissionStates": {
-        "not_applicable/not_applicable": 27,
-        "unavailable/unavailable": 10,
+        "not_applicable/not_applicable": 34,
+        "unavailable/unavailable": 3,
         "variable_price/variable": 1,
         "verified_free/bounded": 2
       },
-      "completeEstimates": 29,
-      "admissionDrivenIncompleteEstimates": 11
+      "completeEstimates": 36,
+      "admissionDrivenIncompleteEstimates": 4
     },
     "open_scenic_nature_area": {
       "records": 394,
       "admissionStates": {
-        "not_applicable/not_applicable": 286,
-        "unavailable/unavailable": 26,
+        "not_applicable/not_applicable": 297,
+        "unavailable/unavailable": 15,
         "variable_price/bounded": 3,
         "variable_price/open_ended": 2,
         "variable_price/variable": 4,
         "verified_free/bounded": 19,
         "verified_paid/bounded": 54
       },
-      "completeEstimates": 364,
-      "admissionDrivenIncompleteEstimates": 30
+      "completeEstimates": 375,
+      "admissionDrivenIncompleteEstimates": 19
     },
     "public_open_park": {
       "records": 196,
@@ -144,13 +144,12 @@
     "market_street_public_area": {
       "records": 54,
       "admissionStates": {
-        "not_applicable/not_applicable": 48,
-        "unavailable/unavailable": 3,
+        "not_applicable/not_applicable": 51,
         "variable_price/bounded": 1,
         "verified_free/bounded": 2
       },
-      "completeEstimates": 51,
-      "admissionDrivenIncompleteEstimates": 3
+      "completeEstimates": 54,
+      "admissionDrivenIncompleteEstimates": 0
     },
     "normal_paid_attraction": {
       "records": 196,
@@ -246,24 +245,6 @@
       "assessment": "review_candidate"
     },
     {
-      "id": "ikaho-stone-steps",
-      "name": "Ikaho Stone Steps",
-      "kind": "street",
-      "role": "standalone",
-      "admissionState": "unavailable/unavailable",
-      "completeness": "partial",
-      "assessment": "deterministic_na_candidate"
-    },
-    {
-      "id": "matsumoto-nakamachi-nawate",
-      "name": "Nakamachi and Nawate Streets",
-      "kind": "street",
-      "role": "poi",
-      "admissionState": "unavailable/unavailable",
-      "completeness": "partial",
-      "assessment": "deterministic_na_candidate"
-    },
-    {
       "id": "onioshidashi-park",
       "name": "Onioshidashi Park",
       "kind": "park",
@@ -271,15 +252,6 @@
       "admissionState": "unavailable/unavailable",
       "completeness": "partial",
       "assessment": "review_candidate"
-    },
-    {
-      "id": "yanagimachi-street-ueda",
-      "name": "Yanagimachi Street",
-      "kind": "street",
-      "role": "standalone",
-      "admissionState": "unavailable/unavailable",
-      "completeness": "partial",
-      "assessment": "deterministic_na_candidate"
     }
   ],
   "incompleteRecords": [
@@ -494,34 +466,6 @@
       },
       "assessment": "unclassified",
       "classes": [],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
-      "id": "fukiware-falls",
-      "name": "Fukiware Falls",
-      "kind": "waterfall",
-      "role": "standalone",
-      "categories": ["Nature", "Waterfalls"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["open_scenic_nature_area"],
       "estimate": {
         "completeness": "partial",
         "evidenceCompleteness": "unavailable",
@@ -844,34 +788,6 @@
       }
     },
     {
-      "id": "ikaho-stone-steps",
-      "name": "Ikaho Stone Steps",
-      "kind": "street",
-      "role": "standalone",
-      "categories": ["History", "Hot Springs", "Shopping"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["market_street_public_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
       "id": "jigokudani-monkey-park",
       "name": "Jigokudani Monkey Park",
       "kind": "zoo",
@@ -956,34 +872,6 @@
       }
     },
     {
-      "id": "kagami-pond",
-      "name": "Kagami Pond",
-      "kind": "lake",
-      "role": "standalone",
-      "categories": ["Lake", "Nature", "Photography"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["open_scenic_nature_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
       "id": "kawachi-wisteria-garden",
       "name": "Kawachi Wisteria Garden",
       "kind": "garden",
@@ -1007,34 +895,6 @@
           {
             "scope": "admission",
             "reason": "seasonal_pricing"
-          }
-        ]
-      }
-    },
-    {
-      "id": "kirigamine-highlands",
-      "name": "Kirigamine Highlands",
-      "kind": "mountain",
-      "role": "standalone",
-      "categories": ["Mountain", "Nature", "Outdoor Activities"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["hiking_trail_region", "open_scenic_nature_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
           }
         ]
       }
@@ -1096,62 +956,6 @@
       }
     },
     {
-      "id": "lake-onuma-akagi",
-      "name": "Lake Onuma",
-      "kind": "lake",
-      "role": "standalone",
-      "categories": ["Lake", "Nature", "Photography"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["open_scenic_nature_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
-      "id": "lake-shirakaba",
-      "name": "Lake Shirakaba",
-      "kind": "lake",
-      "role": "standalone",
-      "categories": ["Lake", "Nature", "Outdoor Activities"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["open_scenic_nature_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
       "id": "legoland-japan-nagoya",
       "name": "LEGOLAND Japan",
       "kind": "theme_park",
@@ -1194,90 +998,6 @@
       },
       "assessment": "review_candidate",
       "classes": ["open_scenic_nature_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
-      "id": "matsumoto-nakamachi-nawate",
-      "name": "Nakamachi and Nawate Streets",
-      "kind": "street",
-      "role": "poi",
-      "categories": ["Culture", "History", "Shopping"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["market_street_public_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [2400, 5000],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
-      "id": "mt-akagi",
-      "name": "Mount Akagi",
-      "kind": "mountain",
-      "role": "standalone",
-      "categories": ["Mountain", "Nature", "Outdoor Activities"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["hiking_trail_region", "open_scenic_nature_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
-      "id": "mt-myogi",
-      "name": "Mount Myogi",
-      "kind": "mountain",
-      "role": "standalone",
-      "categories": ["Mountain", "Nature", "Photography"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["hiking_trail_region", "open_scenic_nature_area"],
       "estimate": {
         "completeness": "partial",
         "evidenceCompleteness": "unavailable",
@@ -1544,34 +1264,6 @@
       }
     },
     {
-      "id": "senjojiki-cirque",
-      "name": "Senjojiki Cirque",
-      "kind": "rock_formation",
-      "role": "standalone",
-      "categories": ["Geology", "Hiking", "Mountain", "Nature"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["hiking_trail_region", "open_scenic_nature_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
       "id": "shibu-onsen",
       "name": "Shibu Onsen",
       "kind": "onsen",
@@ -1623,34 +1315,6 @@
           {
             "scope": "admission",
             "reason": "price_variable_by_date"
-          }
-        ]
-      }
-    },
-    {
-      "id": "shiga-kogen",
-      "name": "Shiga Kogen",
-      "kind": "mountain",
-      "role": "standalone",
-      "categories": ["Mountain", "Nature", "Outdoor Activities"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["hiking_trail_region", "open_scenic_nature_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
           }
         ]
       }
@@ -1996,34 +1660,6 @@
       }
     },
     {
-      "id": "utsukushigahara-highlands",
-      "name": "Utsukushigahara Highlands",
-      "kind": "mountain",
-      "role": "standalone",
-      "categories": ["Mountain", "Nature", "Viewpoint"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["hiking_trail_region", "open_scenic_nature_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
       "id": "watarase-keikoku-railway",
       "name": "Watarase Keikoku Railway",
       "kind": "cultural",
@@ -2075,62 +1711,6 @@
           {
             "scope": "admission",
             "reason": "price_variable_by_date"
-          }
-        ]
-      }
-    },
-    {
-      "id": "yanagimachi-street-ueda",
-      "name": "Yanagimachi Street",
-      "kind": "street",
-      "role": "standalone",
-      "categories": ["Food", "History", "Shopping"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["market_street_public_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
-      }
-    },
-    {
-      "id": "yashimagahara-wetland",
-      "name": "Yashimagahara Wetland",
-      "kind": "nature",
-      "role": "standalone",
-      "categories": ["Hiking", "Nature", "Wetland"],
-      "admission": {
-        "state": "unavailable",
-        "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
-      },
-      "assessment": "deterministic_na_candidate",
-      "classes": ["hiking_trail_region", "open_scenic_nature_area"],
-      "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
-        "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
           }
         ]
       }
@@ -3498,25 +3078,20 @@
       "role": "standalone",
       "categories": ["Nature", "Waterfalls"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -4438,25 +4013,20 @@
       "role": "standalone",
       "categories": ["History", "Hot Springs", "Shopping"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["market_street_public_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -4926,25 +4496,20 @@
       "role": "standalone",
       "categories": ["Lake", "Nature", "Photography"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -5322,25 +4887,20 @@
       "role": "standalone",
       "categories": ["Mountain", "Nature", "Outdoor Activities"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["hiking_trail_region", "open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -6293,25 +5853,20 @@
       "role": "standalone",
       "categories": ["Lake", "Nature", "Photography"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -6321,25 +5876,20 @@
       "role": "standalone",
       "categories": ["Lake", "Nature", "Outdoor Activities"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -6492,25 +6042,20 @@
       "role": "poi",
       "categories": ["Culture", "History", "Shopping"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["market_street_public_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [2400, 5000],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -7030,25 +6575,20 @@
       "role": "standalone",
       "categories": ["Mountain", "Nature", "Outdoor Activities"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["hiking_trail_region", "open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -7058,25 +6598,20 @@
       "role": "standalone",
       "categories": ["Mountain", "Nature", "Photography"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["hiking_trail_region", "open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -9006,25 +8541,20 @@
       "role": "standalone",
       "categories": ["Geology", "Hiking", "Mountain", "Nature"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["hiking_trail_region", "open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -9130,25 +8660,20 @@
       "role": "standalone",
       "categories": ["Mountain", "Nature", "Outdoor Activities"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["hiking_trail_region", "open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -10653,25 +10178,20 @@
       "role": "standalone",
       "categories": ["Mountain", "Nature", "Viewpoint"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["hiking_trail_region", "open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -11003,25 +10523,20 @@
       "role": "standalone",
       "categories": ["Food", "History", "Shopping"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["market_street_public_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [3200, 7200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
@@ -11031,25 +10546,20 @@
       "role": "standalone",
       "categories": ["Hiking", "Nature", "Wetland"],
       "admission": {
-        "state": "unavailable",
+        "state": "not_applicable",
         "provenance": "verified_source",
-        "reasonCode": "source_missing",
-        "costKind": "unavailable",
-        "scope": "general_entry"
+        "reasonCode": "no_single_admission_product",
+        "costKind": "not_applicable",
+        "scope": "open_area"
       },
       "assessment": "deterministic_na_candidate",
       "classes": ["hiking_trail_region", "open_scenic_nature_area"],
       "estimate": {
-        "completeness": "partial",
-        "evidenceCompleteness": "unavailable",
-        "estimateQuality": "rough",
+        "completeness": "complete",
+        "evidenceCompleteness": "partial",
+        "estimateQuality": "estimated",
         "knownSubtotal": [7200, 15200],
-        "missingComponents": [
-          {
-            "scope": "admission",
-            "reason": "source_missing"
-          }
-        ]
+        "missingComponents": []
       }
     },
     {
