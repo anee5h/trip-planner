@@ -393,7 +393,7 @@ export default function Navbar() {
             </span>
             <span
               data-testid="navbar-brand-wordmark"
-              className="whitespace-nowrap text-base font-extrabold max-[359px]:hidden sm:text-lg md:text-xl"
+              className="whitespace-nowrap text-base font-extrabold max-[379px]:hidden sm:text-lg md:text-xl"
             >
               <span className="text-emerald-700 dark:text-emerald-300">
                 Meguru
