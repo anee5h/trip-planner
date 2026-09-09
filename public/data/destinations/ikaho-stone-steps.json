@@ -51,16 +51,16 @@
     }
   },
   "admission": {
-    "state": "unavailable",
+    "state": "not_applicable",
     "provenance": "verified_source",
-    "reasonCode": "source_missing",
-    "scope": "general_entry",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable"
+      "kind": "not_applicable"
     },
-    "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "scope": "open_area",
+    "basis": "Official Shibukawa tourism source covers the public stone-step street; nearby baths, ropeway, and other activities are separate products, with no mandatory street admission identified.",
     "sourceUrls": ["https://www.shibukawa-kanko.jp/"],
-    "checkedAt": "2026-08-31",
+    "checkedAt": "2026-09-09",
     "reviewIntervalMonths": 12
   },
   "transportOptions": {},

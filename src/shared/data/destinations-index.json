@@ -233765,19 +233765,18 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable",
-        "reason": "source_missing"
+        "kind": "not_applicable"
       },
-      "scope": "general_entry",
-      "basis": "The official destination source was reviewed for identity and visitor access, but no current ordinary individual admission value was promoted without a dedicated fee source.",
+      "scope": "open_area",
+      "basis": "Official Central Alps source covers the natural cirque; ropeway access and optional activities are separate products, with no mandatory destination-level cirque admission identified.",
       "sourceUrls": [
         "https://www.chuo-alps.com/en/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "localTransport": {
@@ -236413,18 +236412,18 @@
       "detail": "No destination-specific local-transport fare was promoted; route modes remain separately marked as unestimated."
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The reviewed official source was retained, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Numata tourism source describes the waterfall and maintained walking trail; no mandatory destination-level admission product was identified.",
       "sourceUrls": [
         "https://www.numata-kankou.jp/fukiwarenotaki/index.html"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "recommendedVisitHours": {
@@ -237744,18 +237743,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Togakushi tourism source describes the public pond and surrounding walk; the pond has no mandatory destination-level admission product.",
       "sourceUrls": [
         "https://togakushi-21.jp/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -238215,18 +238214,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Shiga Kogen National Park source covers the open highland area; lift passes and activity tickets are separate products, with no mandatory general-area admission identified.",
       "sourceUrls": [
         "https://www.shigakogen.gr.jp/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -238472,18 +238471,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Visit Matsumoto source describes the public streets as an open town walk; shops, museums, and other venues are separate products, with no street admission identified.",
       "sourceUrls": [
         "https://visitmatsumoto.com/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -238701,18 +238700,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Utsukushigahara tourism source covers the open highland area; visitor-centre and facility services are separate products, with no mandatory highland admission identified.",
       "sourceUrls": [
         "https://www.utsukushi2034.jp/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -239409,18 +239408,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Ueda tourism source describes Yanagimachi as a public historic street walk; shops, guides, and venues are separate products, with no street admission identified.",
       "sourceUrls": [
         "https://ueda-kanko.or.jp/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -239640,18 +239639,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Suwa tourism source covers the open highland area; ski-lift, resort, and activity tickets are separate products, with no mandatory highland admission identified.",
       "sourceUrls": [
         "https://www.suwakanko.jp/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -239897,18 +239896,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Shimosuwa visitor-centre source describes the open wetland and identifies voluntary maintenance contributions separately; no mandatory wetland admission product was identified.",
       "sourceUrls": [
         "https://shimosuwaonsen.jp/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -240141,18 +240140,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Shirakaba Lake tourism source covers the open lake area; lodging, activities, and parking are separate products, with no mandatory lake admission identified.",
       "sourceUrls": [
         "https://www.shirakabako.com/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -241349,18 +241348,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Shibukawa tourism source covers the public stone-step street; nearby baths, ropeway, and other activities are separate products, with no mandatory street admission identified.",
       "sourceUrls": [
         "https://www.shibukawa-kanko.jp/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -241579,18 +241578,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Tomioka tourism source describes the public mountain and hiking trails; visitor-centre, shrine, and bathing facilities are separate products, with no mandatory mountain admission identified.",
       "sourceUrls": [
         "https://www.tomioka-silk.jp/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -242812,18 +242811,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Gunma and Maebashi tourism sources describe the mountain area and hiking access; optional activities and facilities are separate products, with no mandatory mountain admission identified.",
       "sourceUrls": [
         "https://www.maebashi-cvb.com/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
@@ -243057,18 +243056,18 @@
       }
     },
     "admission": {
-      "state": "unavailable",
+      "state": "not_applicable",
       "provenance": "verified_source",
-      "reasonCode": "source_missing",
-      "scope": "general_entry",
+      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "unavailable"
+        "kind": "not_applicable"
       },
-      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "scope": "open_area",
+      "basis": "Official Maebashi tourism source covers the open lake area; fishing, boat, and other activities are separate products, with no mandatory lake admission identified.",
       "sourceUrls": [
         "https://www.maebashi-cvb.com/"
       ],
-      "checkedAt": "2026-08-31",
+      "checkedAt": "2026-09-09",
       "reviewIntervalMonths": 12
     },
     "transportOptions": {},
