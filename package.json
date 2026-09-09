@@ -139,7 +139,7 @@
     "expand:kai-148-shikoku-interior": "tsx scripts/kai-148-shikoku-interior-expansion.ts"
   },
   "dependencies": {
-    "@base-ui/react": "^1.6.0",
+    "@base-ui/react": "^1.8.0",
     "@react-map/japan": "^1.0.10",
     "@supabase/supabase-js": "^2.112.4",
     "class-variance-authority": "^0.7.1",
