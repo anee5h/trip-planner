@@ -152,7 +152,7 @@
     "react": "^19.2.7",
     "react-day-picker": "^10.0.1",
     "react-dom": "^19.2.8",
-    "react-i18next": "^17.0.12",
+    "react-i18next": "^17.0.13",
     "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.18.3",
     "sonner": "^2.0.8",
