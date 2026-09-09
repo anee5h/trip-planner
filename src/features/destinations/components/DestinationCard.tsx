@@ -735,12 +735,21 @@ export default function DestinationCard({
                   <div className="flex min-w-0 items-center whitespace-nowrap md:col-span-2">
                     <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
                     <span
-                      className="truncate"
+                      data-testid={
+                        cardEstimate?.partial
+                          ? "destination-card-cost-scope"
+                          : undefined
+                      }
+                      className={
+                        cardEstimate?.partial
+                          ? "min-w-0 whitespace-normal break-words leading-tight"
+                          : "truncate"
+                      }
                       title={
                         cardEstimate?.partial
                           ? locale === "ja"
-                            ? "現地費用のみです。交通費は含まれません。"
-                            : "On-site cost only; origin transport excluded"
+                            ? "現地費用のみ・広域交通費を除く"
+                            : "Partial on-site total; origin transport excluded"
                           : undefined
                       }
                     >
@@ -758,7 +767,9 @@ export default function DestinationCard({
                           );
                           const prefix = locale === "ja" ? "既知" : "Known";
                           const qualifier =
-                            locale === "ja" ? "現地のみ" : "on-site only";
+                            locale === "ja"
+                              ? "現地のみ・広域交通費を除く"
+                              : "on-site only · origin transport excluded";
                           const sep = locale === "ja" ? "・" : " · ";
                           return `${prefix} ${known}${sep}${qualifier}`;
                         }
