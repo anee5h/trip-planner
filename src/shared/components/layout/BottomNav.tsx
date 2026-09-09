@@ -1,11 +1,16 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Home, Map, Search, Calendar, Compass } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { dispatchOpenSearch } from "@/features/search/openSearch";
+import {
+  dispatchOpenSearch,
+  SEARCH_STATE_EVENT,
+} from "@/features/search/openSearch";
 
 export default function BottomNav() {
   const location = useLocation();
   const { t } = useTranslation();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pathname = location.pathname;
   const isHomeActive = pathname === "/";
   const isExploreActive =
@@ -14,7 +19,19 @@ export default function BottomNav() {
     pathname.startsWith("/my-trips") || pathname.startsWith("/bucket-list");
   const isPassportActive = pathname.startsWith("/passport");
 
+  useEffect(() => {
+    function handleSearchState(event: Event) {
+      const detail = (event as CustomEvent<{ isOpen?: boolean }>).detail;
+      setIsSearchOpen(detail?.isOpen === true);
+    }
+
+    window.addEventListener(SEARCH_STATE_EVENT, handleSearchState);
+    return () =>
+      window.removeEventListener(SEARCH_STATE_EVENT, handleSearchState);
+  }, []);
+
   const handleOpenSearch = () => {
+    setIsSearchOpen(true);
     dispatchOpenSearch();
   };
 
@@ -66,11 +83,22 @@ export default function BottomNav() {
             type="button"
             onClick={handleOpenSearch}
             aria-label={t("search.label")}
-            className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:scale-105 active:scale-95 transition-all duration-200 ring-4 ring-white dark:ring-slate-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950"
+            aria-expanded={isSearchOpen}
+            className={`group relative flex items-center justify-center w-12 h-12 rounded-full text-white hover:scale-105 active:scale-95 transition-all duration-200 ring-4 ring-white dark:ring-slate-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
+              isSearchOpen
+                ? "bg-gradient-to-tr from-emerald-500 to-teal-600 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50"
+                : "bg-slate-800 shadow-md shadow-slate-900/20 hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-600"
+            }`}
           >
             <Search className="w-5 h-5 transition-transform group-hover:rotate-12" />
           </button>
-          <span className="text-[11px] text-slate-600 dark:text-slate-300 font-semibold mt-0.5 truncate max-w-[68px] text-center">
+          <span
+            className={`text-[11px] font-semibold mt-0.5 truncate max-w-[68px] text-center ${
+              isSearchOpen
+                ? "text-emerald-700 dark:text-emerald-300 font-bold"
+                : "text-slate-600 dark:text-slate-300"
+            }`}
+          >
             {t("search.label")}
           </span>
         </div>

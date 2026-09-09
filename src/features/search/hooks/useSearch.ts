@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { searchDocuments } from "../services/searchIndex";
 import type { SearchDocument, SearchGroup } from "../types";
 import { useLocale } from "@/shared/context/LocaleContext";
-import { OPEN_SEARCH_EVENT } from "../openSearch";
+import { OPEN_SEARCH_EVENT, dispatchSearchState } from "../openSearch";
 
 export function useSearch(active = true) {
   const [query, setQuery] = useState("");
@@ -67,6 +67,10 @@ export function useSearch(active = true) {
     return () =>
       window.removeEventListener(OPEN_SEARCH_EVENT, handleOpenSearch);
   }, []);
+
+  useEffect(() => {
+    dispatchSearchState(isOpen);
+  }, [isOpen]);
 
   const selectItem = useCallback(
     (item: SearchDocument) => {

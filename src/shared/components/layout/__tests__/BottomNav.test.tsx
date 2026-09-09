@@ -117,6 +117,32 @@ describe("BottomNav Component", () => {
     window.removeEventListener("meguruto:open-search", listener);
   });
 
+  it("keeps inactive Search quieter than the selected destination", () => {
+    const node = renderBottomNav(["/my-trips"]);
+    const searchButton = node.querySelector<HTMLButtonElement>(
+      "button[aria-label='Search']",
+    );
+
+    expect(searchButton?.getAttribute("aria-expanded")).toBe("false");
+    expect(searchButton?.className).toContain("bg-slate-800");
+    expect(searchButton?.className).not.toContain("from-emerald-500");
+  });
+
+  it("marks Search as selected while the shared search dialog is open", () => {
+    const node = renderBottomNav(["/my-trips"]);
+    const searchButton = () =>
+      node.querySelector<HTMLButtonElement>("button[aria-label='Search']");
+
+    act(() => {
+      window.dispatchEvent(
+        new CustomEvent("meguruto:search-state", { detail: { isOpen: true } }),
+      );
+    });
+
+    expect(searchButton()?.getAttribute("aria-expanded")).toBe("true");
+    expect(searchButton()?.className).toContain("from-emerald-500");
+  });
+
   it("keeps bottom nav visible when compareList selection tray is active", () => {
     tripStoreState.compareList = ["kyoto-station", "osaka-station"];
     const node = renderBottomNav(["/"]);
