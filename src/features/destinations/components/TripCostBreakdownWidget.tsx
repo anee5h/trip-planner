@@ -409,6 +409,26 @@ export function TripCostBreakdownWidget({
 
   if (!destination) return null;
 
+  const mandatoryAdmissionUnresolved = planCostBreakdown
+    ? planCostBreakdown.completeness === "partial" &&
+      planCostBreakdown.admission.applicable &&
+      planCostBreakdown.admission.knownNumeric !== true
+    : engineResult?.completeness === "partial" &&
+      admissionComp !== undefined &&
+      admissionComp.cost.kind !== "bounded" &&
+      admissionComp.cost.kind !== "not_applicable";
+  const mandatoryAdmissionDisclosure = mandatoryAdmissionUnresolved
+    ? locale === "ja"
+      ? "入場料不明・未算入"
+      : "Admission unavailable/not included"
+    : undefined;
+  const partialHeadline =
+    mandatoryAdmissionUnresolved && (partialPlanLabel || enginePartialLabel)
+      ? locale === "ja"
+        ? `部分合計 — ${partialPlanLabel ?? enginePartialLabel}`
+        : `Partial total — ${partialPlanLabel ?? enginePartialLabel}`
+      : undefined;
+
   const totalMax = displayedTotalRange?.[1];
 
   function getCategoryWidth(amount: number): number {
@@ -485,14 +505,26 @@ export function TripCostBreakdownWidget({
               )}
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-300">
-              {!hasOriginTransport
+              {mandatoryAdmissionDisclosure
                 ? locale === "ja"
-                  ? `現地費用の概算（広域交通費を除く） (グループ: ${partySize}名)`
-                  : `Estimated on-site total — origin transport excluded (${partySize} guests)`
-                : locale === "ja"
-                  ? `交通・チケット・宿泊を含む予想合計 (グループ: ${partySize}名)`
-                  : `Est. total including transport, tickets & accommodation (${partySize} guests)`}
+                  ? `部分合計 — ${mandatoryAdmissionDisclosure}${!hasOriginTransport ? "・広域交通費を除く" : ""} (グループ: ${partySize}名)`
+                  : `Partial total — ${mandatoryAdmissionDisclosure}${!hasOriginTransport ? "; origin transport excluded" : ""} (${partySize} guests)`
+                : !hasOriginTransport
+                  ? locale === "ja"
+                    ? `現地費用の概算（広域交通費を除く） (グループ: ${partySize}名)`
+                    : `Estimated on-site total — origin transport excluded (${partySize} guests)`
+                  : locale === "ja"
+                    ? `交通・チケット・宿泊を含む予想合計 (グループ: ${partySize}名)`
+                    : `Est. total including transport, tickets & accommodation (${partySize} guests)`}
             </p>
+            {mandatoryAdmissionDisclosure && (
+              <p
+                data-testid="mandatory-admission-disclosure"
+                className="mt-1 text-[11px] font-semibold text-amber-700 dark:text-amber-300"
+              >
+                {mandatoryAdmissionDisclosure}
+              </p>
+            )}
           </div>
 
           <div className="flex items-center gap-3 self-end sm:self-auto">
@@ -501,8 +533,8 @@ export function TripCostBreakdownWidget({
                 {locale === "ja" ? "概算合計" : "Est. Range"}
               </div>
               <div className="text-base font-extrabold text-slate-900 dark:text-white">
-                {partialPlanLabel || enginePartialLabel
-                  ? (partialPlanLabel ?? enginePartialLabel)
+                {partialHeadline || partialPlanLabel || enginePartialLabel
+                  ? (partialHeadline ?? partialPlanLabel ?? enginePartialLabel)
                   : // KAI-219A final N/A guard: a COMPLETE plan with no
                     // numeric cost claim (all-N/A) shows an honest
                     // non-numeric summary — never an overall ¥0.
