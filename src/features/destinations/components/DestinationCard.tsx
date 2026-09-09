@@ -166,6 +166,9 @@ export default function DestinationCard({
   } = useTripStore();
   const isLocalAccessJourney = journeyScope === "local_access";
   const localJourneyOrigin = journeyOrigin ?? parent;
+  const localizedLocalJourneyOrigin = localJourneyOrigin
+    ? getLocalizedPlace(localJourneyOrigin, locale)
+    : null;
   const journeyOriginCoords = isLocalAccessJourney
     ? (localJourneyOrigin?.coordinates ?? null)
     : homeStationCoords;
@@ -630,8 +633,8 @@ export default function DestinationCard({
                         ? "現地アクセスは利用できません"
                         : "Local access unavailable"
                       : locale === "ja"
-                        ? `現地アクセス · ${localizedParent?.name ?? "ハブ"}から`
-                        : `Local access · from ${localizedParent?.name ?? "hub"}`}
+                        ? `現地アクセス · ${localizedLocalJourneyOrigin?.name ?? "ハブ"}から`
+                        : `Local access · from ${localizedLocalJourneyOrigin?.name ?? "hub"}`}
                   </p>
                 )}
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-xs font-semibold text-slate-700 dark:text-slate-300 md:gap-x-3 md:gap-y-1.5 md:text-sm">
@@ -692,13 +695,13 @@ export default function DestinationCard({
                     return (
                       <div
                         data-testid="destination-card-travel-time"
-                        className="flex min-w-0 items-center whitespace-nowrap"
+                        className="flex min-w-0 items-center gap-1 whitespace-nowrap"
                       >
-                        <Icon className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
+                        <Icon className="mr-0 size-3.5 shrink-0 text-slate-500 md:size-4" />
                         {scopeLabel && !isSameAnchor && (
                           <span
                             data-testid="destination-card-journey-scope"
-                            className="shrink-0 text-[10px] font-bold uppercase tracking-wide text-slate-400"
+                            className="shrink-0 text-[10px] font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400"
                           >
                             {scopeLabel}
                           </span>

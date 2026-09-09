@@ -535,7 +535,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               {journeyScopeLabel && (
                 <span
                   data-testid="home-journey-scope"
-                  className="shrink-0 text-[10px] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-500"
+                  className="shrink-0 text-[10px] font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400"
                 >
                   {journeyScopeLabel}
                 </span>

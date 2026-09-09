@@ -142,6 +142,16 @@ describe("Compare Page & Modal — Japanese Localization", () => {
     ).toEqual(["train"]);
   });
 
+  it("keeps reference journeys when an explicit trip leaves transport untouched", () => {
+    expect(
+      getCompareJourneyModes({
+        hasExplicitTripContext: true,
+        publicModes: [],
+        carMode: "none",
+      }),
+    ).toEqual(["train", "shinkansen", "bus"]);
+  });
+
   it("renders Japanese table headers, metrics, vibe tags, and place labels on Compare page without overall score", async () => {
     host = document.createElement("div");
     document.body.appendChild(host);

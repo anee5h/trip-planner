@@ -51,16 +51,24 @@ export function getCompareJourneyModes(input: {
   publicModes: readonly string[];
   carMode: string;
 }): CompareTransportMode[] {
-  if (!input.hasExplicitTripContext) {
-    return [...COMPARE_REFERENCE_MODES];
-  }
-
   const modes = input.publicModes.filter((mode): mode is CompareTransportMode =>
     (COMPARE_SUPPORTED_MODES as readonly string[]).includes(mode),
   );
-  if (input.carMode === "rental") modes.push("car");
-  if (input.carMode === "my_car") modes.push("my_car");
-  return [...new Set(modes)];
+  const carMode: "car" | "my_car" | undefined =
+    input.carMode === "rental"
+      ? "car"
+      : input.carMode === "my_car"
+        ? "my_car"
+        : undefined;
+
+  // An explicit destination/date/budget context does not imply that the user
+  // constrained transport. In that untouched state, preserve Compare's
+  // reference journey instead of producing an empty mode set.
+  if (!input.hasExplicitTripContext || (modes.length === 0 && !carMode)) {
+    return [...COMPARE_REFERENCE_MODES];
+  }
+
+  return [...new Set(carMode ? [...modes, carMode] : modes)];
 }
 
 export default function Compare() {

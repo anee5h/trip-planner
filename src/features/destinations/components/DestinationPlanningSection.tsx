@@ -34,7 +34,7 @@ export function getPlannerTransportScopeNotice(
 ): string {
   if (locale === "ja") {
     return hasOrigin
-      ? "計画時間には最初のスポットまでの移動時間を含みません。費用には出発地からの交通費が含まれます。"
+      ? "計画時間には最初のスポットまでの移動時間を含みません。料金を算出できる場合、費用サマリーには出発地からの交通費を含みます。"
       : "計画時間には最初のスポットまでの移動時間を含みません。出発地が未設定のため、出発地からの交通費は含まれません。";
   }
   return hasOrigin
