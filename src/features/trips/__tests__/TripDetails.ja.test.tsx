@@ -52,6 +52,7 @@ vi.mock("react-i18next", () => ({
         "trips.exportCalendar": "カレンダーに出力",
         "trips.printTrip": "旅程を印刷",
         "trips.copyTripLink": "旅程のリンクをコピー",
+        "ui.noDatesSet": "日程未設定",
       };
       return jaMap[key] ?? opts?.defaultValue ?? key;
     },
@@ -94,5 +95,38 @@ describe("TripDetails — Japanese Localization", () => {
     expect(text).toContain("ステータス");
     expect(text).toContain("計画中");
     expect(text).not.toContain("ステータス: planned");
+  });
+
+  it("uses the canonical trip date range in the editor", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    const datedTrip = {
+      ...mockTrip,
+      status: "draft" as const,
+      startDate: "2026-08-08",
+      endDate: "2026-08-09",
+    };
+
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <TripDetails
+            trip={datedTrip}
+            onBack={vi.fn()}
+            onUpdateTrip={vi.fn()}
+            onAddStop={vi.fn()}
+            onRemoveStop={vi.fn()}
+            onReorderStops={vi.fn()}
+          />
+        </MemoryRouter>,
+      );
+    });
+
+    expect(host.textContent).toContain("2026年8月8日〜9日");
+    expect(host.textContent).toContain("1日目 · 2026年8月8日");
+    expect(host.textContent).toContain("2日目 · 2026年8月9日");
+    expect(host.textContent).toContain("日程未設定");
+    expect(host.textContent).not.toContain("下書き");
   });
 });

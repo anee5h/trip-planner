@@ -31,4 +31,53 @@ describe("TripRepository Unit Tests", () => {
     expect(mockEq).toHaveBeenCalledWith("user_id", "user-1");
     expect(trips).toEqual([]);
   });
+
+  it("round-trips canonical dates and persisted stop order", async () => {
+    const stops = [
+      { id: "stop-2", type: "custom", name: "Hotel" },
+      {
+        id: "stop-1",
+        type: "destination",
+        destinationId: "ginza",
+        name: "Ginza",
+        date: "2026-08-08",
+      },
+    ];
+    const row = {
+      id: "trip-1",
+      user_id: "user-1",
+      title: "Tokyo weekend",
+      start_date: "2026-08-08",
+      end_date: "2026-08-09",
+      status: "draft",
+      stops,
+      journal_notes: null,
+      created_at: "2026-01-01T00:00:00Z",
+      updated_at: "2026-01-01T00:00:00Z",
+    };
+    const mockOrder = vi.fn().mockResolvedValue({ data: [row], error: null });
+    const mockEq = vi.fn().mockReturnValue({ order: mockOrder });
+    const mockSelect = vi.fn().mockReturnValue({ eq: mockEq });
+    const mockUpsert = vi.fn().mockResolvedValue({ error: null });
+
+    vi.mocked(supabase!.from).mockReturnValue({
+      select: mockSelect,
+      upsert: mockUpsert,
+    } as any);
+
+    const repo = new SupabaseTripRepository();
+    const [reloaded] = await repo.fetchTrips("user-1");
+    await repo.saveTrip(reloaded);
+
+    expect(reloaded.startDate).toBe("2026-08-08");
+    expect(reloaded.endDate).toBe("2026-08-09");
+    expect(reloaded.stops.map((stop) => stop.id)).toEqual(["stop-2", "stop-1"]);
+    expect(mockUpsert).toHaveBeenCalledWith(
+      expect.objectContaining({
+        start_date: "2026-08-08",
+        end_date: "2026-08-09",
+        stops,
+      }),
+    );
+  });
 });

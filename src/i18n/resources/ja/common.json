@@ -620,6 +620,11 @@
     "cancel": "キャンセル",
     "save": "保存",
     "delete": "削除",
+    "moreActions": "その他の操作",
+    "editItinerary": "旅程を編集",
+    "noDatesSet": "日程未設定",
+    "stop": "スポット",
+    "stops": "スポット",
     "close": "閉じる",
     "clearAll": "すべて消去",
     "view": "詳細を見る",
@@ -789,7 +794,8 @@
     "customLocationPlaceholder": "例：ホテルサンルートプラザ新宿",
     "notesPlaceholder": "例：地元名物の辛い麺を食べる",
     "failedAdd": "旅程へのスポット追加に失敗しました",
-    "failedCreate": "旅行の作成に失敗しました"
+    "failedCreate": "旅行の作成に失敗しました",
+    "noCanonicalDatesForCalendar": "カレンダーに書き出す前に旅程の日程を設定してください"
   },
   "settings": {
     "fullName": "名前",
