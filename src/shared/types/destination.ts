@@ -162,6 +162,17 @@ export type BudgetReasonCode =
   | "temporarily_closed"
   | "legacy_provenance_unrecovered"
   | "insufficient_model_evidence"
+  | "route_unavailable"
+  | "car_options_missing"
+  | "rental_options_mismatch"
+  | "personal_options_mismatch"
+  | "toll_unknown"
+  | "fuel_assumption_invalid"
+  | "parking_unknown"
+  | "rental_duration_unknown"
+  | "rental_rate_unknown"
+  | "rental_fee_unknown"
+  | "invalid_party_or_vehicle_capacity"
   | "transitional_unclassified";
 
 /**

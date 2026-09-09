@@ -4,6 +4,7 @@ import type {
 } from "@/shared/services/budget/budgetV2";
 import { getTripDays, type TripDuration } from "@/shared/types/tripDuration";
 import type { PriceRange } from "@/shared/types/planner";
+import type { BudgetReasonCode } from "@/shared/types/destination";
 import planningAssumptions from "@/shared/data/car-planning-assumptions.json";
 import type { CarRoundTripRoute, CarRouteResult } from "./CarRouteProvider";
 
@@ -22,6 +23,7 @@ export interface PersonalCarCostOptions {
   readonly vehicleCapacity?: number;
   readonly fuelEconomyKmPerL: PriceRange;
   readonly fuelPriceJPYPerL: PriceRange;
+  /** One modeled destination parking charge per vehicle, applied once per round trip. */
   readonly parkingCostJPY: PriceRange;
   readonly assumptionProvenance?: CostAssumptionProvenance;
 }
@@ -42,20 +44,37 @@ export interface CarCostResult {
   readonly routedDistanceKm?: number;
   readonly rentalDays?: number;
   readonly assumptionProvenance?: CostAssumptionProvenance;
-  readonly reason?: string;
+  readonly reason?: BudgetReasonCode;
 }
 
-export const DEFAULT_CAR_ASSUMPTION_PROVENANCE: CostAssumptionProvenance = {
-  source: "car-planning-assumptions.json",
-  basis: planningAssumptions.notes,
-  revision: planningAssumptions.version,
-  checkedAt: planningAssumptions.checkedAt,
-  sourceUrls: [
-    planningAssumptions.fuelEconomyKmPerL.reference,
-    planningAssumptions.fuelPriceJPYPerL.reference,
+function buildCarAssumptionProvenance(
+  sourceUrls: readonly string[],
+): CostAssumptionProvenance {
+  return {
+    source: "car-planning-assumptions.json",
+    basis: planningAssumptions.notes,
+    revision: planningAssumptions.version,
+    checkedAt: planningAssumptions.checkedAt,
+    sourceUrls,
+  };
+}
+
+const SHARED_CAR_ASSUMPTION_URLS = [
+  planningAssumptions.fuelEconomyKmPerL.reference,
+  planningAssumptions.fuelPriceJPYPerL.reference,
+  ...planningAssumptions.parkingCostJPY.references,
+];
+
+export const DEFAULT_PERSONAL_CAR_ASSUMPTION_PROVENANCE =
+  buildCarAssumptionProvenance(SHARED_CAR_ASSUMPTION_URLS);
+export const DEFAULT_RENTAL_CAR_ASSUMPTION_PROVENANCE =
+  buildCarAssumptionProvenance([
+    ...SHARED_CAR_ASSUMPTION_URLS,
     planningAssumptions.rentalDailyChargeJPY.compact.reference,
-  ],
-};
+  ]);
+/** Legacy combined provenance retained for existing recommendation fixtures. */
+export const DEFAULT_CAR_ASSUMPTION_PROVENANCE =
+  DEFAULT_RENTAL_CAR_ASSUMPTION_PROVENANCE;
 
 function planningRange(value: readonly number[]): PriceRange {
   if (
@@ -74,6 +93,9 @@ export const DEFAULT_FUEL_ECONOMY_KM_PER_L: PriceRange = planningRange(
 export const DEFAULT_FUEL_PRICE_JPY_PER_L: PriceRange = planningRange(
   planningAssumptions.fuelPriceJPYPerL.value,
 );
+export const DEFAULT_PARKING_COST_JPY: PriceRange = planningRange(
+  planningAssumptions.parkingCostJPY.value,
+);
 export const DEFAULT_RENTAL_DAILY_CHARGES: Readonly<
   Record<CarVehicleClass, PriceRange>
 > = {
@@ -88,7 +110,7 @@ export const DEFAULT_RENTAL_DAILY_CHARGES: Readonly<
 
 function unavailable(
   vehiclesNeeded: number,
-  reason: string,
+  reason: BudgetReasonCode,
   distanceKm?: number,
   rentalDays?: number,
   details: Partial<
@@ -105,13 +127,14 @@ function unavailable(
   };
 }
 
-function validRange(range: readonly [number, number]): boolean {
-  return (
+function validRange(range: readonly number[] | undefined): boolean {
+  return Boolean(
+    range &&
     range.length === 2 &&
     Number.isFinite(range[0]) &&
     Number.isFinite(range[1]) &&
     range[0] >= 0 &&
-    range[1] >= range[0]
+    range[1] >= range[0],
   );
 }
 

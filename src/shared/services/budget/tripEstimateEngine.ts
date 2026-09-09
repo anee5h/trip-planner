@@ -755,7 +755,7 @@ function originComponent(
       ...component(transport.cost, {
         ...baseEvidence,
         derivation: transport.evidence.derivation,
-        reason: "source_missing",
+        reason: transport.incompleteReason ?? "source_missing",
       }),
       ...(transport.knownCost ? { knownCost: transport.knownCost } : {}),
     };
