@@ -105,7 +105,8 @@ interface DestinationCardProps {
   ferryTemporal?: FerryTemporalContext;
   /** Detail-page rails use a denser card while retaining all actions. */
   compact?: boolean;
-  /** Scope of the displayed journey; local rails must not fall back to home. */
+  /** Explicit current-page anchor for local/final-segment rails. */
+  journeyOrigin?: Destination;
   journeyScope?: JourneyScope;
   duration?: TripDuration;
 }
@@ -122,6 +123,7 @@ export default function DestinationCard({
   conditionLabel,
   ferryTemporal,
   compact = false,
+  journeyOrigin,
   journeyScope,
   duration = "fullDay",
 }: DestinationCardProps) {
@@ -163,12 +165,16 @@ export default function DestinationCard({
     canMutateProfile,
   } = useTripStore();
   const isLocalAccessJourney = journeyScope === "local_access";
+  const localJourneyOrigin = journeyOrigin ?? parent;
+  const localizedLocalJourneyOrigin = localJourneyOrigin
+    ? getLocalizedPlace(localJourneyOrigin, locale)
+    : null;
   const journeyOriginCoords = isLocalAccessJourney
-    ? (parent?.coordinates ?? null)
+    ? (localJourneyOrigin?.coordinates ?? null)
     : homeStationCoords;
   const journeyOriginZoneId = isLocalAccessJourney
-    ? parent
-      ? resolveDestinationTransportZone(parent)
+    ? localJourneyOrigin
+      ? resolveDestinationTransportZone(localJourneyOrigin)
       : undefined
     : homeStationTransportZoneId;
   const localAccessOriginAvailable =
@@ -627,8 +633,8 @@ export default function DestinationCard({
                         ? "現地アクセスは利用できません"
                         : "Local access unavailable"
                       : locale === "ja"
-                        ? `現地アクセス · ${localizedParent?.name ?? "ハブ"}から`
-                        : `Local access · from ${localizedParent?.name ?? "hub"}`}
+                        ? `現地アクセス · ${localizedLocalJourneyOrigin?.name ?? "ハブ"}から`
+                        : `Local access · from ${localizedLocalJourneyOrigin?.name ?? "hub"}`}
                   </p>
                 )}
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-xs font-semibold text-slate-700 dark:text-slate-300 md:gap-x-3 md:gap-y-1.5 md:text-sm">
@@ -660,6 +666,16 @@ export default function DestinationCard({
                     // KAI-278: same-origin destinations render an explicit
                     // state rather than a journey estimate (no mode claim).
                     const isSameAnchor = sameOriginAnchor && !gateway;
+                    const scopeLabel =
+                      journeyScope === "local_access"
+                        ? locale === "ja"
+                          ? "現地アクセス"
+                          : "Local access"
+                        : journeyScope === "origin_journey"
+                          ? locale === "ja"
+                            ? "出発地からの旅程"
+                            : "Origin journey"
+                          : undefined;
                     const formattedTime = isSameAnchor
                       ? cardCopy.alreadyThere
                       : transport
@@ -679,9 +695,17 @@ export default function DestinationCard({
                     return (
                       <div
                         data-testid="destination-card-travel-time"
-                        className="flex min-w-0 items-center whitespace-nowrap"
+                        className="flex min-w-0 items-center gap-1 whitespace-nowrap"
                       >
-                        <Icon className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
+                        <Icon className="mr-0 size-3.5 shrink-0 text-slate-500 md:size-4" />
+                        {scopeLabel && !isSameAnchor && (
+                          <span
+                            data-testid="destination-card-journey-scope"
+                            className="shrink-0 text-[10px] font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400"
+                          >
+                            {scopeLabel}
+                          </span>
+                        )}
                         <span className="truncate">
                           {formattedTime || cardCopy.travelUnavailable}
                           {formattedTime && !isSameAnchor && isDriving

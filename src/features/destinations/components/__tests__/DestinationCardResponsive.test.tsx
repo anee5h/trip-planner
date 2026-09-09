@@ -135,6 +135,32 @@ describe("DestinationCard responsive content", () => {
     ).toContain("hidden");
   });
 
+  it("labels local access from the same explicit origin used for the journey", () => {
+    const explicitOrigin = {
+      ...destination,
+      id: "explicit-origin",
+      name: "Explicit origin",
+      nameJa: "明示的な出発地",
+      coordinates: { lat: 34.6937, lng: 135.5023 },
+    } as Destination;
+
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard
+            destination={destination}
+            journeyOrigin={explicitOrigin}
+            journeyScope="local_access"
+          />
+        </MemoryRouter>,
+      ),
+    );
+
+    const scope = host.querySelector('[data-testid="journey-scope"]');
+    expect(scope?.textContent).toContain("Local access");
+    expect(scope?.textContent).toContain("Explicit origin");
+  });
+
   it("hides the overall destination score chip (beta product decision)", () => {
     const verifiedDestination = destinations.find(
       (candidate) => candidate.id === "yokohama-city",

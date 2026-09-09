@@ -801,3 +801,39 @@ describe("KAI-275 overnight Personal-Car travel display", () => {
     expect(text).not.toMatch(/Est\.\s*\d+/);
   });
 });
+
+describe("HomeMatchCard — canonical journey scope", () => {
+  it("renders Tokyo Station as already there instead of inventing a transport mode", async () => {
+    mockHomeStationCoords = TOKYO;
+    const tokyoStation: Destination = {
+      ...seikoMuseum,
+      id: "tokyo-station-chiyoda",
+      name: "Tokyo Station",
+      coordinates: TOKYO,
+      kind: "station",
+    } as Destination;
+    const host = document.createElement("div");
+    document.body.appendChild(host);
+    const root = createRoot(host);
+
+    await act(async () => {
+      root.render(
+        <HomeMatchCard
+          destination={tokyoStation}
+          rank={1}
+          publicModes={["train"]}
+        />,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("Already there");
+    expect(text).not.toContain("home.transportModes.travelUnavailable");
+    expect(text).not.toContain("home.transportModes.train");
+    expect(host.querySelector('[data-testid="home-journey-scope"]')).toBeNull();
+
+    act(() => root.unmount());
+    host.remove();
+    mockHomeStationCoords = YOKOHAMA;
+  });
+});

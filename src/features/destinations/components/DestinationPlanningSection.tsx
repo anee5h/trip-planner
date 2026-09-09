@@ -28,6 +28,20 @@ interface DestinationPlanningSectionProps {
   onPlanGenerated?: (plan: DayPlan | null) => void;
 }
 
+export function getPlannerTransportScopeNotice(
+  locale: "en" | "ja",
+  hasOrigin: boolean,
+): string {
+  if (locale === "ja") {
+    return hasOrigin
+      ? "計画時間には最初のスポットまでの移動時間を含みません。料金を算出できる場合、費用サマリーには出発地からの交通費を含みます。"
+      : "計画時間には最初のスポットまでの移動時間を含みません。出発地が未設定のため、出発地からの交通費は含まれません。";
+  }
+  return hasOrigin
+    ? "Planning time excludes travel to the first stop. The cost summary includes origin transport when priced."
+    : "Planning time excludes travel to the first stop. Origin transport is not included without a saved origin.";
+}
+
 export function DestinationPlanningSection({
   destination,
   locale,
@@ -136,6 +150,13 @@ export function DestinationPlanningSection({
         }
         onPlanGenerated={(plan) => setGeneratedPlan(plan)}
       />
+
+      <p
+        data-testid="planner-transport-scope"
+        className="rounded-xl border border-slate-200/80 bg-slate-50 px-3 py-2 text-xs font-medium leading-relaxed text-slate-600 dark:border-slate-700/60 dark:bg-slate-800/60 dark:text-slate-300"
+      >
+        {getPlannerTransportScopeNotice(locale, Boolean(homeCoords))}
+      </p>
 
       {/* Progressive Cost Breakdown */}
       <TripCostBreakdownWidget

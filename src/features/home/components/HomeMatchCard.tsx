@@ -50,6 +50,7 @@ import {
   isOvernightDuration,
   type TripDuration,
 } from "@/shared/types/tripDuration";
+import { destinationSharesOriginAnchor } from "@/shared/services/transport/JourneyEndpoints";
 
 interface HomeMatchCardProps {
   destination: Destination;
@@ -132,7 +133,11 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     homeStationTransportZoneId,
     ferryTemporal,
   );
-  const sharedDayEstimate = isOvernight
+  const sameOriginAnchor = destinationSharesOriginAnchor(
+    destination,
+    homeStationCoords,
+  );
+  const sharedDayTravelEvidence = isOvernight
     ? undefined
     : getDayTripTravelDurationEvidence(
         destination,
@@ -142,7 +147,8 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
           ferryTemporal,
         },
         validModes,
-      ).estimate;
+      );
+  const sharedDayEstimate = sharedDayTravelEvidence?.estimate;
   const recommendationEstimate = scoredDestination.transportEstimate;
   const fallbackOvernightTransport = isOvernight
     ? getFastestPreferredTransport(
@@ -173,17 +179,37 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         validModes,
       ).estimate
     : undefined;
-  const displayTransport =
-    recommendationEstimate ??
-    sharedDayEstimate ??
-    fallbackOvernightTransport ??
-    deterministicOvernightEstimate;
+  const displayTransport = sameOriginAnchor
+    ? undefined
+    : homeStationCoords
+      ? (sharedDayEstimate ??
+        fallbackOvernightTransport ??
+        deterministicOvernightEstimate)
+      : (recommendationEstimate ??
+        sharedDayEstimate ??
+        fallbackOvernightTransport ??
+        deterministicOvernightEstimate);
+  // KAI-278: same-origin destinations are already reached; never show an
+  // origin journey for them. When an origin is configured, discovery must use
+  // the shared evidence-aware journey rather than a scorer snapshot that may
+  // have been produced for another mode or endpoint.
+  const travelTimeText = sameOriginAnchor
+    ? locale === "ja"
+      ? "出発地と同じ場所"
+      : "Already there"
+    : displayTransport
+      ? formatTravelEstimateLabel(displayTransport, locale, { compact: true })
+      : t("home.transportModes.travelUnavailable");
+  const journeyScopeLabel = sameOriginAnchor
+    ? undefined
+    : displayTransport && homeStationCoords
+      ? locale === "ja"
+        ? "出発地からの旅程"
+        : "Origin journey"
+      : undefined;
   // KAI-226 resilience: rough outage estimates are additionally labeled so
   // the user can tell a temporary provider outage from a normal estimate.
   const isRoughOutageDisplay = isCarOutageRoughEstimate(displayTransport);
-  const travelTimeText = displayTransport
-    ? formatTravelEstimateLabel(displayTransport, locale, { compact: true })
-    : t("home.transportModes.travelUnavailable");
   const transportDisplay = displayTransport
     ? {
         train: { Icon: Train, label: t("home.transportModes.train") },
@@ -504,8 +530,16 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
           )}
 
           <div className="mt-auto flex min-h-[2.375rem] flex-wrap items-center gap-1 pt-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-300 sm:min-h-[2.625rem] sm:gap-1.5 sm:text-xs">
-            <span className="flex items-center gap-1 truncate">
+            <span className="flex min-w-0 items-center gap-1 truncate">
               <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-500 shrink-0" />
+              {journeyScopeLabel && (
+                <span
+                  data-testid="home-journey-scope"
+                  className="shrink-0 text-[10px] font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400"
+                >
+                  {journeyScopeLabel}
+                </span>
+              )}
               <span className="truncate">{travelTimeText}</span>
             </span>
             {transportDisplay && (
