@@ -16,7 +16,8 @@ interface DestinationDetailRailProps {
   nextLabel: string;
   /** Keep detail-page discovery rails scannable without removing actions. */
   compact?: boolean;
-  /** Explicit scope for cards that describe access within the current hub. */
+  /** Explicit current-page anchor for local/final-segment journey cards. */
+  journeyOrigin?: Destination;
   journeyScope?: JourneyScope;
 }
 
@@ -34,6 +35,7 @@ export function DestinationDetailRail({
   previousLabel,
   nextLabel,
   compact = false,
+  journeyOrigin,
   journeyScope,
 }: DestinationDetailRailProps) {
   const headingId = `destination-rail-${useId().replace(/:/g, "")}`;
@@ -81,6 +83,7 @@ export function DestinationDetailRail({
               publicModes={publicModes}
               activeTransportMode="all"
               compact={compact}
+              journeyOrigin={journeyOrigin}
               journeyScope={journeyScope}
             />
           </div>

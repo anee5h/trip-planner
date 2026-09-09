@@ -19,6 +19,7 @@ import {
 } from "@/shared/services/place/PlaceCatalog";
 import Compare from "../Compare";
 import CompareModal from "../components/CompareModal";
+import { getCompareJourneyModes } from "../Compare";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -124,6 +125,23 @@ afterEach(() => {
 });
 
 describe("Compare Page & Modal — Japanese Localization", () => {
+  it("uses the active personal-car journey instead of a transit fallback", () => {
+    expect(
+      getCompareJourneyModes({
+        hasExplicitTripContext: true,
+        publicModes: [],
+        carMode: "my_car",
+      }),
+    ).toEqual(["my_car"]);
+    expect(
+      getCompareJourneyModes({
+        hasExplicitTripContext: true,
+        publicModes: ["train"],
+        carMode: "none",
+      }),
+    ).toEqual(["train"]);
+  });
+
   it("renders Japanese table headers, metrics, vibe tags, and place labels on Compare page without overall score", async () => {
     host = document.createElement("div");
     document.body.appendChild(host);

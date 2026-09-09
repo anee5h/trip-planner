@@ -1989,6 +1989,7 @@ export default function DestinationDetails() {
                   carMode={activeCarMode}
                   publicModes={activePublicModes}
                   journeyScope="local_access"
+                  journeyOrigin={destination}
                   compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}
@@ -2030,6 +2031,7 @@ export default function DestinationDetails() {
                       carMode={activeCarMode}
                       publicModes={activePublicModes}
                       journeyScope="local_access"
+                      journeyOrigin={destination}
                       compact
                       previousLabel={copy.scrollLeft}
                       nextLabel={copy.scrollRight}
@@ -2940,6 +2942,8 @@ export default function DestinationDetails() {
                   partySize={partySize}
                   carMode={activeCarMode}
                   publicModes={activePublicModes}
+                  journeyOrigin={destination}
+                  journeyScope="local_access"
                   compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}

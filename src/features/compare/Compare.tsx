@@ -36,6 +36,33 @@ import {
   getWalkingIntensityMetadata,
 } from "@/shared/utils/walking";
 
+const COMPARE_REFERENCE_MODES = ["train", "shinkansen", "bus"] as const;
+const COMPARE_SUPPORTED_MODES = [
+  ...COMPARE_REFERENCE_MODES,
+  "flight",
+  "ferry",
+] as const;
+
+type CompareTransportMode =
+  (typeof COMPARE_SUPPORTED_MODES)[number] | "car" | "my_car";
+
+export function getCompareJourneyModes(input: {
+  hasExplicitTripContext: boolean;
+  publicModes: readonly string[];
+  carMode: string;
+}): CompareTransportMode[] {
+  if (!input.hasExplicitTripContext) {
+    return [...COMPARE_REFERENCE_MODES];
+  }
+
+  const modes = input.publicModes.filter((mode): mode is CompareTransportMode =>
+    (COMPARE_SUPPORTED_MODES as readonly string[]).includes(mode),
+  );
+  if (input.carMode === "rental") modes.push("car");
+  if (input.carMode === "my_car") modes.push("my_car");
+  return [...new Set(modes)];
+}
+
 export default function Compare() {
   const { t } = useTranslation();
   const { locale } = useLocale();
@@ -64,15 +91,21 @@ export default function Compare() {
     .map((id) => allDestinations.find((d) => d.id === id))
     .filter((d): d is Destination => !!d);
 
+  const compareJourneyModes = getCompareJourneyModes({
+    hasExplicitTripContext,
+    publicModes: tripContext.publicModes,
+    carMode: tripContext.carMode,
+  });
+
   const compareTransportEstimates = compareDestinations.map((dest) =>
-    homeStationCoords
+    homeStationCoords && compareJourneyModes.length > 0
       ? getOriginAwareTransportEstimate(
           dest,
           {
             homeStationCoords,
             originZoneId: homeStationTransportZoneId,
           },
-          ["train", "shinkansen", "bus"],
+          compareJourneyModes,
         )
       : null,
   );
@@ -326,6 +359,16 @@ export default function Compare() {
                   <TableCell key={dest.id}>
                     {estimate ? (
                       <>
+                        {hasExplicitTripContext && (
+                          <span
+                            data-testid="compare-journey-scope"
+                            className="block text-[11px] font-semibold text-slate-500 dark:text-slate-400"
+                          >
+                            {locale === "ja"
+                              ? "選択した交通モード・出発地から"
+                              : "Origin journey · active mode"}
+                          </span>
+                        )}
                         <span
                           className={
                             reliable &&
