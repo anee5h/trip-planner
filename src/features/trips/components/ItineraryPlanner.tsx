@@ -72,6 +72,10 @@ function formatGroupLabel(
   return locale === "ja" ? `予定日 · ${formatted}` : `Scheduled · ${formatted}`;
 }
 
+function getStopGroupKey(stop: TripStop): string {
+  return stop.date ?? "unscheduled";
+}
+
 export default function ItineraryPlanner({
   trip,
   onAddStop,
@@ -220,6 +224,9 @@ export default function ItineraryPlanner({
       return;
     }
     const stop = trip.stops[startIndex];
+    if (getStopGroupKey(stop) !== getStopGroupKey(trip.stops[endIndex])) {
+      return;
+    }
     focusStopRef.current = stop.id;
     setOpenMenuId(null);
     onReorderStops(startIndex, endIndex);
@@ -253,36 +260,75 @@ export default function ItineraryPlanner({
     const drag = dragRef.current;
     if (!drag) return;
 
-    let nextIndex = trip.stops.length - 1;
-    for (let index = 0; index < trip.stops.length; index += 1) {
-      const stop = trip.stops[index];
-      const row = rowRefs.current[stop.id];
-      if (!row || stop.id === drag.stopId) continue;
+    const sourceStop = trip.stops[drag.startIndex];
+    if (!sourceStop) return;
+    const sourceGroup = getStopGroupKey(sourceStop);
+    const remainingStops = trip.stops
+      .map((stop, index) => ({ stop, index }))
+      .filter(({ stop }) => stop.id !== drag.stopId);
+    const groupStops = remainingStops.filter(
+      ({ stop }) => getStopGroupKey(stop) === sourceGroup,
+    );
+
+    let insertionSlot = groupStops.length;
+    let visualIndex = drag.startIndex;
+    for (let slot = 0; slot < groupStops.length; slot += 1) {
+      const row = rowRefs.current[groupStops[slot].stop.id];
+      if (!row) continue;
       const rect = row.getBoundingClientRect();
       if (event.clientY < rect.top + rect.height / 2) {
-        nextIndex = index;
+        insertionSlot = slot;
+        visualIndex = groupStops[slot].index;
         break;
       }
     }
-    drag.overIndex = nextIndex;
-    setDragOverIndex(nextIndex);
+
+    if (groupStops.length > 0 && insertionSlot === groupStops.length) {
+      visualIndex = groupStops[groupStops.length - 1].index;
+    }
+
+    const targetEntry =
+      insertionSlot < groupStops.length
+        ? groupStops[insertionSlot]
+        : groupStops[groupStops.length - 1];
+    const targetIndex = targetEntry
+      ? insertionSlot < groupStops.length
+        ? remainingStops.findIndex(
+            ({ stop }) => stop.id === targetEntry.stop.id,
+          )
+        : remainingStops.findIndex(
+            ({ stop }) => stop.id === targetEntry.stop.id,
+          ) + 1
+      : drag.startIndex;
+
+    drag.overIndex = targetIndex;
+    setDragOverIndex(visualIndex);
+  };
+
+  const clearDrag = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+      event.currentTarget.releasePointerCapture?.(event.pointerId);
+    }
+    dragRef.current = null;
+    setDraggedStopId(null);
+    setDragOverIndex(null);
   };
 
   const handleDragEnd = (event: React.PointerEvent<HTMLButtonElement>) => {
     const drag = dragRef.current;
     if (!drag) return;
-    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
-      event.currentTarget.releasePointerCapture?.(event.pointerId);
-    }
     const endIndex = drag.overIndex;
-    dragRef.current = null;
-    setDraggedStopId(null);
-    setDragOverIndex(null);
-    if (endIndex !== null && endIndex !== drag.startIndex) {
+    clearDrag(event);
+    if (endIndex !== drag.startIndex) {
       const stop = trip.stops[drag.startIndex];
       onReorderStops(drag.startIndex, endIndex);
       announceMove(stop, endIndex);
     }
+  };
+
+  const handleDragCancel = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (!dragRef.current) return;
+    clearDrag(event);
   };
 
   // KAI-132: a failed lite load is NOT an empty destination list — the
@@ -558,7 +604,7 @@ export default function ItineraryPlanner({
                           }
                           onPointerMove={handleDragMove}
                           onPointerUp={handleDragEnd}
-                          onPointerCancel={handleDragEnd}
+                          onPointerCancel={handleDragCancel}
                           className="mt-0.5 min-h-11 min-w-11 shrink-0 touch-none cursor-grab rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 active:cursor-grabbing dark:hover:bg-slate-800 dark:hover:text-slate-200"
                         >
                           <GripVertical className="size-5" aria-hidden="true" />
@@ -595,7 +641,11 @@ export default function ItineraryPlanner({
                               <button
                                 type="button"
                                 role="menuitem"
-                                disabled={index === 0}
+                                disabled={
+                                  index === 0 ||
+                                  getStopGroupKey(trip.stops[index - 1]) !==
+                                    getStopGroupKey(stop)
+                                }
                                 onClick={() => moveStop(index, index - 1)}
                                 className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
                               >
@@ -604,7 +654,11 @@ export default function ItineraryPlanner({
                               <button
                                 type="button"
                                 role="menuitem"
-                                disabled={index === trip.stops.length - 1}
+                                disabled={
+                                  index === trip.stops.length - 1 ||
+                                  getStopGroupKey(trip.stops[index + 1]) !==
+                                    getStopGroupKey(stop)
+                                }
                                 onClick={() => moveStop(index, index + 1)}
                                 className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
                               >

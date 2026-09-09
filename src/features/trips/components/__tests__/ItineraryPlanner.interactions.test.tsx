@@ -62,6 +62,21 @@ const baseTrip: Trip = {
   updatedAt: "2026-01-01T00:00:00Z",
 };
 
+const sameDayTrip: Trip = {
+  ...baseTrip,
+  stops: baseTrip.stops.map((stop) => ({ ...stop, date: "2026-08-08" })),
+};
+
+const fourStopTrip: Trip = {
+  ...sameDayTrip,
+  stops: [
+    { id: "a", type: "custom", name: "A", date: "2026-08-08" },
+    { id: "b", type: "custom", name: "B", date: "2026-08-08" },
+    { id: "c", type: "custom", name: "C", date: "2026-08-08" },
+    { id: "d", type: "custom", name: "D", date: "2026-08-08" },
+  ],
+};
+
 let root: Root;
 let host: HTMLDivElement;
 let onReorderStops: ReturnType<
@@ -136,7 +151,7 @@ describe("ItineraryPlanner stop interactions", () => {
   });
 
   it("keeps first and last accessible move actions disabled at the boundaries", () => {
-    renderPlanner();
+    renderPlanner(sameDayTrip);
     const menus = host.querySelectorAll('[role="menu"]');
     expect(menus).toHaveLength(0);
 
@@ -175,7 +190,7 @@ describe("ItineraryPlanner stop interactions", () => {
   });
 
   it("commits a touch drag through the canonical reorder callback", () => {
-    renderPlanner();
+    renderPlanner(sameDayTrip);
     const rows = Array.from(
       host.querySelectorAll<HTMLElement>("[data-stop-id]"),
     );
@@ -218,7 +233,7 @@ describe("ItineraryPlanner stop interactions", () => {
   });
 
   it("uses the overflow menu as the accessible move fallback", () => {
-    renderPlanner();
+    renderPlanner(sameDayTrip);
     const actionButton = host.querySelector<HTMLButtonElement>(
       "[data-stop-actions]",
     );
@@ -248,7 +263,7 @@ describe("ItineraryPlanner stop interactions", () => {
   });
 
   it("commits a handle drag through the canonical reorder callback", () => {
-    renderPlanner();
+    renderPlanner(sameDayTrip);
     const rows = Array.from(
       host.querySelectorAll<HTMLElement>("[data-stop-id]"),
     );
@@ -288,5 +303,155 @@ describe("ItineraryPlanner stop interactions", () => {
     });
 
     expect(onReorderStops).toHaveBeenCalledWith(0, 1);
+  });
+
+  it("maps four-stop pointer drops to post-removal insertion positions", () => {
+    renderPlanner(fourStopTrip);
+    const rows = Array.from(
+      host.querySelectorAll<HTMLElement>("[data-stop-id]"),
+    );
+    rows.forEach((row, index) => {
+      Object.defineProperty(row, "getBoundingClientRect", {
+        value: () => ({ top: index * 50, height: 50 }),
+      });
+    });
+
+    const drag = (startIndex: number, clientY: number, pointerId: number) => {
+      const handle =
+        host.querySelectorAll<HTMLElement>("[data-drag-handle]")[startIndex];
+      act(() => {
+        handle.dispatchEvent(
+          new PointerEvent("pointerdown", {
+            bubbles: true,
+            pointerId,
+            pointerType: "mouse",
+            button: 0,
+          }),
+        );
+        handle.dispatchEvent(
+          new PointerEvent("pointermove", {
+            bubbles: true,
+            pointerId,
+            pointerType: "mouse",
+            clientY,
+          }),
+        );
+        handle.dispatchEvent(
+          new PointerEvent("pointerup", {
+            bubbles: true,
+            pointerId,
+            pointerType: "mouse",
+            clientY,
+          }),
+        );
+      });
+    };
+
+    drag(0, 120, 10); // first -> middle, before C
+    drag(1, 220, 11); // middle -> later, after D
+    drag(3, 120, 12); // last -> middle, before C
+    drag(0, 300, 13); // first -> last
+    drag(2, 10, 14); // upward reorder, before A
+
+    expect(onReorderStops.mock.calls).toEqual([
+      [0, 1],
+      [1, 3],
+      [3, 2],
+      [0, 3],
+      [2, 0],
+    ]);
+  });
+
+  it("does not allow fallback or drag reorder to cross a day group", () => {
+    renderPlanner();
+    const actionButton = host.querySelector<HTMLButtonElement>(
+      "[data-stop-actions]",
+    );
+    act(() => actionButton?.click());
+    const moveDown = host.querySelectorAll<HTMLButtonElement>(
+      '[role="menu"] [role="menuitem"]',
+    )[1];
+    expect(moveDown.disabled).toBe(true);
+
+    const rows = Array.from(
+      host.querySelectorAll<HTMLElement>("[data-stop-id]"),
+    );
+    Object.defineProperty(rows[0], "getBoundingClientRect", {
+      value: () => ({ top: 0, height: 50 }),
+    });
+    Object.defineProperty(rows[1], "getBoundingClientRect", {
+      value: () => ({ top: 50, height: 50 }),
+    });
+    const handle = host.querySelector<HTMLElement>("[data-drag-handle]")!;
+    act(() => {
+      handle.dispatchEvent(
+        new PointerEvent("pointerdown", {
+          bubbles: true,
+          pointerId: 15,
+          pointerType: "touch",
+          button: 0,
+        }),
+      );
+      handle.dispatchEvent(
+        new PointerEvent("pointermove", {
+          bubbles: true,
+          pointerId: 15,
+          pointerType: "touch",
+          clientY: 100,
+        }),
+      );
+      handle.dispatchEvent(
+        new PointerEvent("pointerup", {
+          bubbles: true,
+          pointerId: 15,
+          pointerType: "touch",
+          clientY: 100,
+        }),
+      );
+    });
+    expect(onReorderStops).not.toHaveBeenCalled();
+  });
+
+  it("aborts a pointercancel instead of committing the current drag target", () => {
+    renderPlanner(sameDayTrip);
+    const rows = Array.from(
+      host.querySelectorAll<HTMLElement>("[data-stop-id]"),
+    );
+    Object.defineProperty(rows[0], "getBoundingClientRect", {
+      value: () => ({ top: 0, height: 50 }),
+    });
+    Object.defineProperty(rows[1], "getBoundingClientRect", {
+      value: () => ({ top: 50, height: 50 }),
+    });
+    const handle = host.querySelector<HTMLElement>("[data-drag-handle]")!;
+
+    act(() => {
+      handle.dispatchEvent(
+        new PointerEvent("pointerdown", {
+          bubbles: true,
+          pointerId: 16,
+          pointerType: "touch",
+          button: 0,
+        }),
+      );
+      handle.dispatchEvent(
+        new PointerEvent("pointermove", {
+          bubbles: true,
+          pointerId: 16,
+          pointerType: "touch",
+          clientY: 90,
+        }),
+      );
+      handle.dispatchEvent(
+        new PointerEvent("pointercancel", {
+          bubbles: true,
+          pointerId: 16,
+          pointerType: "touch",
+          clientY: 90,
+        }),
+      );
+    });
+
+    expect(onReorderStops).not.toHaveBeenCalled();
   });
 });

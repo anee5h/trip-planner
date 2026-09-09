@@ -5,6 +5,7 @@ import {
   removeStopFromTrip,
   reorderStops,
   duplicateTrip,
+  buildSmartTripTitle,
 } from "../TripService";
 import type { Trip } from "@/shared/types/trip";
 
@@ -58,6 +59,89 @@ describe("TripService Unit Tests", () => {
     const next = reorderStops(mockTrip, 0, 1);
     expect(next.stops[0].id).toBe("stop-2");
     expect(next.stops[1].id).toBe("stop-1");
+  });
+
+  it("covers four-stop reorder destinations in both directions", () => {
+    const trip: Trip = {
+      ...mockTrip,
+      stops: [
+        { id: "a", type: "custom", name: "A" },
+        { id: "b", type: "custom", name: "B" },
+        { id: "c", type: "custom", name: "C" },
+        { id: "d", type: "custom", name: "D" },
+      ],
+    };
+
+    expect(reorderStops(trip, 0, 1).stops.map((item) => item.id)).toEqual([
+      "b",
+      "a",
+      "c",
+      "d",
+    ]);
+    expect(reorderStops(trip, 1, 3).stops.map((item) => item.id)).toEqual([
+      "a",
+      "c",
+      "d",
+      "b",
+    ]);
+    expect(reorderStops(trip, 3, 1).stops.map((item) => item.id)).toEqual([
+      "a",
+      "d",
+      "b",
+      "c",
+    ]);
+    expect(reorderStops(trip, 0, 3).stops.map((item) => item.id)).toEqual([
+      "b",
+      "c",
+      "d",
+      "a",
+    ]);
+    expect(reorderStops(trip, 2, 0).stops.map((item) => item.id)).toEqual([
+      "c",
+      "a",
+      "b",
+      "d",
+    ]);
+  });
+
+  it("does not move a stop across a date-group boundary", () => {
+    const trip: Trip = {
+      ...mockTrip,
+      stops: [
+        { id: "a", type: "custom", name: "A", date: "2026-08-08" },
+        { id: "b", type: "custom", name: "B", date: "2026-08-08" },
+        { id: "c", type: "custom", name: "C", date: "2026-08-09" },
+      ],
+    };
+
+    expect(reorderStops(trip, 0, 2)).toBe(trip);
+  });
+
+  it("builds localized smart titles without replacing descriptive titles", () => {
+    expect(
+      buildSmartTripTitle({
+        startDate: "2026-08-08",
+        destinationName: "Kamakura",
+        locale: "en",
+      }),
+    ).toBe("Trip to Kamakura — Aug 8, 2026");
+    expect(
+      buildSmartTripTitle({
+        title: "Weekend in Hakone",
+        startDate: "2026-09-19",
+        endDate: "2026-09-20",
+        locale: "ja",
+      }),
+    ).toBe("Weekend in Hakone");
+    expect(
+      buildSmartTripTitle({
+        title: "0808",
+        startDate: "2026-08-08",
+        locale: "ja",
+      }),
+    ).toBe("旅行 · 2026年8月8日");
+    expect(buildSmartTripTitle({ locale: "en" })).toBe("Untitled trip");
+    expect(buildSmartTripTitle({ locale: "ja" })).toBe("名称未設定の旅");
   });
 
   it("duplicates trip items mapping new stop IDs", () => {

@@ -41,7 +41,7 @@ describe("groupItineraryStops", () => {
     expect(groups.map((group) => group.key)).toEqual([
       "2026-08-08",
       "unscheduled",
-      "2026-08-08",
+      "2026-08-08-1",
     ]);
   });
 });
