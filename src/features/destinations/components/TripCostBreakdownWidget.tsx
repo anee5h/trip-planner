@@ -181,6 +181,9 @@ export function TripCostBreakdownWidget({
       ? undefined
       : [planCostBreakdown.admission.min, planCostBreakdown.admission.max]
     : componentRange(admissionComp);
+  const showAdmissionRow = planCostBreakdown
+    ? planCostBreakdown.admission.semanticState !== "not_applicable"
+    : admissionComp?.cost.kind !== "not_applicable";
   const mealsRange: [number, number] | undefined = planCostBreakdown
     ? planCostBreakdown.meals.applicable && planCostBreakdown.meals.knownNumeric
       ? [planCostBreakdown.meals.min, planCostBreakdown.meals.max]
@@ -677,56 +680,50 @@ export function TripCostBreakdownWidget({
                 </div>
               )}
 
-              <div className="space-y-1.5">
-                <div className="flex justify-between text-xs font-bold">
-                  <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                    <Ticket className="w-4 h-4 text-purple-500 shrink-0" />
-                    {locale === "ja"
-                      ? "入場チケット・拝観料"
-                      : "Admission Tickets"}
-                  </span>
-                  <span className="text-slate-900 dark:text-white">
-                    {(() => {
-                      // KAI-217B round-6: component-level displayability —
-                      // NEVER gated by the trip's global completeness. A
-                      // bounded admission shows its range even when the trip
-                      // is partial; free shows Free; unknown → variable/
-                      // unavailable.
-                      // KAI-219A final repair: generated-plan not_applicable
-                      // → "Not applicable / 対象外" (never a ¥0 row).
-                      if (
-                        planCostBreakdown?.admission.semanticState ===
-                        "not_applicable"
-                      ) {
-                        return locale === "ja" ? "対象外" : "Not applicable";
-                      }
-                      if (isFreeAdmission) {
-                        return locale === "ja" ? "無料" : "Free";
-                      }
-                      if (admissionRange) {
-                        return formatLocalizedJPYRange(
-                          displayRangeOrUndefined(admissionRange),
-                          locale,
-                        );
-                      }
-                      if (planCostBreakdown?.admission.source === "unknown") {
+              {showAdmissionRow && (
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs font-bold">
+                    <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                      <Ticket className="w-4 h-4 text-purple-500 shrink-0" />
+                      {locale === "ja"
+                        ? "入場チケット・拝観料"
+                        : "Admission Tickets"}
+                    </span>
+                    <span className="text-slate-900 dark:text-white">
+                      {(() => {
+                        // Component-level displayability: bounded admission
+                        // shows its range even when the trip is partial; free
+                        // shows Free; unknown remains unknown/unavailable.
+                        if (isFreeAdmission) {
+                          return locale === "ja" ? "無料" : "Free";
+                        }
+                        if (admissionRange) {
+                          return formatLocalizedJPYRange(
+                            displayRangeOrUndefined(admissionRange),
+                            locale,
+                          );
+                        }
+                        if (planCostBreakdown?.admission.source === "unknown") {
+                          return locale === "ja"
+                            ? "変動・未確認"
+                            : "Variable / unknown admission";
+                        }
                         return locale === "ja"
-                          ? "変動・未確認"
-                          : "Variable / unknown admission";
-                      }
-                      return locale === "ja" ? "料金不明" : "Cost unavailable";
-                    })()}
-                  </span>
+                          ? "料金不明"
+                          : "Cost unavailable";
+                      })()}
+                    </span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-purple-500 rounded-full transition-all"
+                      style={{
+                        width: `${isFreeAdmission ? 0 : getCategoryWidth(displayRangeOrUndefined(admissionRange)?.[1] ?? 0)}%`,
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-purple-500 rounded-full transition-all"
-                    style={{
-                      width: `${isFreeAdmission ? 0 : getCategoryWidth(displayRangeOrUndefined(admissionRange)?.[1] ?? 0)}%`,
-                    }}
-                  />
-                </div>
-              </div>
+              )}
 
               {mealsRange && (
                 <div className="space-y-1.5">

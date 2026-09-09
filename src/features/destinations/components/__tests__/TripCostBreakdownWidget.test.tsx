@@ -524,7 +524,10 @@ describe("TripCostBreakdownWidget canonical duration", () => {
 
 // ── KAI-219A FINAL repair: widget consumes generated-plan semanticState ──────
 describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
-  function renderPlanWidget(plan: GeneratedPlanCostResult) {
+  function renderPlanWidget(
+    plan: GeneratedPlanCostResult,
+    locale: "en" | "ja" = "en",
+  ) {
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -532,7 +535,7 @@ describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
       root!.render(
         <TripCostBreakdownWidget
           destination={testDestination}
-          locale="en"
+          locale={locale}
           partySize={2}
           activeTransportMode="train"
           hasGeneratedPlan
@@ -562,13 +565,13 @@ describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
     };
   }
 
-  it("A) not_applicable admission → widget says Not applicable, NO overall ¥0, honest non-numeric summary", () => {
+  it("A) not_applicable admission omits the admission row and never shows ¥0", () => {
     const text = renderPlanWidget({
       ...basePlan({
         min: 0,
         max: 0,
         source: "curated",
-        applicable: true,
+        applicable: false,
         satisfied: true,
         knownNumeric: false,
         semanticState: "not_applicable",
@@ -577,16 +580,35 @@ describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
       // cost claim.
       hasNumericTotal: false,
     });
-    expect(text).toContain("Not applicable");
-    // The admission row is NOT a numeric range (no fake ¥0 admission row).
-    // "Admission Tickets" is followed by "Not applicable", not a ¥ range.
-    const admissionSection = text.slice(text.indexOf("Admission Tickets"));
-    expect(admissionSection).toContain("Not applicable");
-    expect(admissionSection).not.toMatch(/¥\d/);
+    // N/A is a satisfied non-numeric component, so the ticket row is omitted.
+    expect(text).not.toContain("Admission Tickets");
+    expect(text).not.toContain("Not applicable");
+    expect(text).not.toMatch(/¥\d/);
     // No overall numeric total — the honest non-numeric summary shows.
     expect(text).toContain("No applicable priced components");
     // No overall ¥0 range in the header.
     expect(text).not.toMatch(/¥0 - ¥0/);
+  });
+
+  it("N/A admission row is omitted in Japanese as well", () => {
+    const text = renderPlanWidget(
+      {
+        ...basePlan({
+          min: 0,
+          max: 0,
+          source: "unknown",
+          applicable: false,
+          satisfied: true,
+          knownNumeric: false,
+          semanticState: "not_applicable",
+        }),
+        hasNumericTotal: false,
+      },
+      "ja",
+    );
+    expect(text).not.toContain("入場チケット・拝観料");
+    expect(text).not.toContain("対象外");
+    expect(text).not.toContain("¥0");
   });
 
   it("C) free + paid → widget shows the paid RANGE, NOT Free", () => {

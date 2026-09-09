@@ -214,6 +214,16 @@ export type AdmissionScope =
   | "whole_area";
 
 /**
+ * Whether the destination conceptually has its own admission product.
+ *
+ * This is deliberately separate from the admission value: `not_applicable`
+ * means there is no destination-level ticket concept, while `applicable`
+ * still requires a paid/free/unknown fact. Missing metadata remains `unknown`;
+ * it must never be silently converted to N/A or ¥0.
+ */
+export type AdmissionApplicability = "applicable" | "not_applicable";
+
+/**
  * KAI-218A — ADMISSION cost fact.
  *
  * The on-site admission/entry-price truth for ONE destination. Deliberately
@@ -537,6 +547,12 @@ export interface Destination {
    * aggregate estimate.
    */
   admission?: AdmissionCostFact;
+  /**
+   * KAI-285 — explicit applicability boundary for records whose admission
+   * fact is not yet available. This is not a price and must not be encoded as
+   * a bounded [0,0] admission fact.
+   */
+  admissionApplicability?: AdmissionApplicability;
   /**
    * KAI-218A — explicit required-local-transport cost fact. When present,
    * this replaces budgetBreakdown.transport in canonical affordability.

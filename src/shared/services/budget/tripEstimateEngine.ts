@@ -52,6 +52,7 @@ import type {
 } from "@/shared/services/transport/carCostV2";
 import { buildCarJourney } from "@/shared/services/transport/CarJourneyBuilder";
 import { getDistanceKm } from "@/shared/services/transport/TransportEstimator";
+import { resolveAdmissionApplicability } from "@/shared/services/budget/admissionApplicability";
 import {
   isVerifiedFree,
   normalizeBudgetState,
@@ -229,34 +230,6 @@ function component(
   return { cost, evidence };
 }
 
-function isMandatoryAdmissionDestination(dest: Destination): boolean {
-  const kind = (dest.kind ?? "").toLowerCase();
-  const categories = (dest.categories ?? []).map((category) =>
-    category.toLowerCase(),
-  );
-  return (
-    [
-      "aquarium",
-      "castle",
-      "entertainment_complex",
-      "indoor_attraction",
-      "museum",
-      "theme_park",
-      "zoo",
-    ].includes(kind) ||
-    categories.some((category) =>
-      [
-        "aquarium",
-        "castle",
-        "indoor attraction",
-        "museum",
-        "theme park",
-        "zoo",
-      ].includes(category),
-    )
-  );
-}
-
 function admissionUnavailable(
   reason:
     | "source_missing"
@@ -381,10 +354,29 @@ function admissionComponent(
   partySize: number,
 ): TripCostComponent {
   const fact = dest.admission;
+  const applicability = resolveAdmissionApplicability(dest);
+
+  if (applicability === "not_applicable") {
+    return component(
+      { kind: "not_applicable" },
+      {
+        scope: "admission",
+        derivation: "computed",
+        state: "not_applicable",
+        provenance: fact?.provenance,
+        reason:
+          fact?.reasonCode ??
+          (dest.admissionApplicability === "not_applicable"
+            ? "no_single_admission_product"
+            : "hub_budget_not_applicable"),
+      },
+    );
+  }
+
   if (!fact) {
     const legacy = admissionFromLegacy(dest, partySize);
     if (legacy) return legacy;
-    return isMandatoryAdmissionDestination(dest)
+    return applicability === "applicable"
       ? admissionUnavailable()
       : admissionFallback(dest, partySize);
   }
