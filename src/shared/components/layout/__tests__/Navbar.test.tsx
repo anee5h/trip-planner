@@ -155,7 +155,7 @@ describe("Navbar Component", () => {
     expect(homeLink).not.toBeNull();
     expect(wordmark?.textContent).toBe("Meguruto");
     expect(wordmark?.className).toContain("whitespace-nowrap");
-    expect(wordmark?.className).toContain("max-[359px]:hidden");
+    expect(wordmark?.className).toContain("max-[379px]:hidden");
     expect(markFrame?.className).toContain("dark:ring-white/50");
   });
 

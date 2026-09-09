@@ -109,6 +109,37 @@ test.describe("KAI-259 guest header", () => {
     ).toHaveCount(0);
   });
 
+  test("guest mobile detail header fits at 360px in EN and JA", async ({
+    page,
+  }, testInfo) => {
+    test.skip(!isMobile(testInfo.project.name), "mobile project only");
+    await page.setViewportSize({ width: 360, height: 844 });
+
+    for (const path of [
+      "/destinations/kyoto-city",
+      "/ja/destinations/kyoto-city",
+    ]) {
+      await page.goto(path);
+      await expect(page.getByTestId("navbar-signup-cta")).toBeVisible();
+
+      const geometry = await page.evaluate(() => {
+        const cta = document.querySelector<HTMLElement>(
+          '[data-testid="navbar-signup-cta"]',
+        );
+        return {
+          documentWidth: document.documentElement.scrollWidth,
+          viewportWidth: document.documentElement.clientWidth,
+          ctaRight: cta?.getBoundingClientRect().right ?? 0,
+        };
+      });
+
+      expect(geometry.documentWidth).toBeLessThanOrEqual(
+        geometry.viewportWidth + 1,
+      );
+      expect(geometry.ctaRight).toBeLessThanOrEqual(360 + 1);
+    }
+  });
+
   test("header signup opens the existing signup flow", async ({
     page,
   }, testInfo) => {
