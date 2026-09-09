@@ -326,7 +326,45 @@ describe("KAI-275 DestinationCard partial-cost disclosure", () => {
     expect(scope?.textContent).toContain("on-site only");
     expect(scope?.textContent).toContain("origin transport excluded");
   });
-  it("complete estimate keeps the plain full range (no Known/on-site qualifier)", async () => {
+  it("partial estimate with bounded origin transport says partial total, not origin excluded", async () => {
+    const disneySea = destinations.find(
+      (candidate) => candidate.id === "disneysea",
+    ) as Destination;
+    const partialEstimate = calculateTripEstimate({
+      dest: disneySea,
+      mode: "train",
+      partySize: 2,
+      homeCoords: state.homeStationCoords,
+      includeOriginTravel: true,
+      duration: "fullDay" as TripDuration,
+    });
+    const originTravel = partialEstimate.components.find(
+      (component) => component.evidence.scope === "origin_travel",
+    );
+    expect(partialEstimate.completeness).toBe("partial");
+    expect(partialEstimate.total).toBeUndefined();
+    expect(originTravel?.cost.kind).toBe("bounded");
+    expect(partialEstimate.knownSubtotal[1]).toBeGreaterThan(0);
+
+    const container = await renderAt(
+      "/destinations?mode=train",
+      {
+        carMode: "none",
+        publicModes: ["train"],
+        resolvedBudgetEstimate: {
+          mode: "train",
+          validModes: ["train"],
+          estimate: partialEstimate,
+        },
+      },
+      disneySea,
+    );
+    const text = container.textContent ?? "";
+    expect(text).toContain("partial total");
+    expect(text).not.toContain("origin transport excluded");
+  });
+
+  it("complete estimate keeps the plain full range without a partial qualifier", async () => {
     const completeEstimate = calculateTripEstimate({
       dest: destination,
       mode: "train",
@@ -347,7 +385,9 @@ describe("KAI-275 DestinationCard partial-cost disclosure", () => {
       resolvedBudgetEstimate: budgetEstimate,
     });
     const text = container.textContent ?? "";
-    expect(text).not.toContain("on-site total only");
+    expect(text).not.toContain("on-site only");
+    expect(text).not.toContain("origin transport excluded");
+    expect(text).not.toContain("partial total");
     expect(text).not.toContain("Cost unavailable");
   });
 

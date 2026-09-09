@@ -72,7 +72,10 @@ import {
 } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import { getCityArea } from "@/shared/data/cityAreas";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
-import type { ExploreBudgetEstimate } from "../exploreBudget";
+import {
+  getExploreEstimateScope,
+  type ExploreBudgetEstimate,
+} from "../exploreBudget";
 import { getOvernightCapacityThresholds } from "@/shared/services/recommendation/WeekendPolicy";
 import {
   isOvernightDuration,
@@ -353,13 +356,14 @@ export default function DestinationCard({
   const cardEstimate = useMemo<{
     range: [number, number];
     quality: "verified" | "estimated" | "rough";
-    partial?: boolean;
+    scope: "complete" | "partial_on_site" | "partial_total";
   } | null>(() => {
     const resolved = resolvedBudgetEstimate?.estimate;
     if (resolved?.total) {
       return {
         range: [resolved.total.min, resolved.total.max],
         quality: resolved.estimateQuality,
+        scope: "complete",
       };
     }
     const hasKnownSubtotal = (known: readonly [number, number] | undefined) =>
@@ -376,7 +380,7 @@ export default function DestinationCard({
       return {
         range: [resolved.knownSubtotal[0], resolved.knownSubtotal[1]],
         quality: resolved.estimateQuality,
-        partial: true,
+        scope: getExploreEstimateScope(resolved),
       };
     }
     const mode =
@@ -396,13 +400,14 @@ export default function DestinationCard({
       return {
         range: [r.total.min, r.total.max],
         quality: r.estimateQuality,
+        scope: "complete",
       };
     }
     if (r.completeness === "partial" && hasKnownSubtotal(r.knownSubtotal)) {
       return {
         range: [r.knownSubtotal[0], r.knownSubtotal[1]],
         quality: r.estimateQuality,
-        partial: true,
+        scope: getExploreEstimateScope(r),
       };
     }
     return null;
@@ -736,40 +741,46 @@ export default function DestinationCard({
                     <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
                     <span
                       data-testid={
-                        cardEstimate?.partial
+                        cardEstimate && cardEstimate.scope !== "complete"
                           ? "destination-card-cost-scope"
                           : undefined
                       }
                       className={
-                        cardEstimate?.partial
+                        cardEstimate && cardEstimate.scope !== "complete"
                           ? "min-w-0 whitespace-normal break-words leading-tight"
                           : "truncate"
                       }
                       title={
-                        cardEstimate?.partial
-                          ? locale === "ja"
-                            ? "現地費用のみ・広域交通費を除く"
-                            : "Partial on-site total; origin transport excluded"
+                        cardEstimate && cardEstimate.scope !== "complete"
+                          ? cardEstimate.scope === "partial_on_site"
+                            ? locale === "ja"
+                              ? "現地費用のみ・広域交通費を除く"
+                              : "Partial on-site total; origin transport excluded"
+                            : locale === "ja"
+                              ? "部分合計。出発地からの交通費を含みます"
+                              : "Partial total; origin transport is included in the known subtotal"
                           : undefined
                       }
                     >
                       {(() => {
-                        // KAI-260: a bounded estimate is displayable even
-                        // when its ingredients are model/profile derived.
-                        // KAI-275 follow-up: a PARTIAL car estimate shows the
-                        // KNOWN on-site subtotal with an explicit qualifier
-                        // instead of a bare "Cost unavailable" — origin-car
-                        // transport is never fabricated (0 ORS discovery).
-                        if (cardEstimate?.partial) {
+                        // KAI-276: partial completeness does not define scope.
+                        // The canonical origin component decides whether this
+                        // known subtotal is on-site-only or includes origin
+                        // transport while another required component is missing.
+                        if (cardEstimate && cardEstimate.scope !== "complete") {
                           const known = formatLocalizedJPYRange(
                             cardBudgetRange,
                             locale,
                           );
                           const prefix = locale === "ja" ? "既知" : "Known";
                           const qualifier =
-                            locale === "ja"
-                              ? "現地のみ・広域交通費を除く"
-                              : "on-site only · origin transport excluded";
+                            cardEstimate.scope === "partial_on_site"
+                              ? locale === "ja"
+                                ? "現地のみ・広域交通費を除く"
+                                : "on-site only · origin transport excluded"
+                              : locale === "ja"
+                                ? "部分合計"
+                                : "partial total";
                           const sep = locale === "ja" ? "・" : " · ";
                           return `${prefix} ${known}${sep}${qualifier}`;
                         }
