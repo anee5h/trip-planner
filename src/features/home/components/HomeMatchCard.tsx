@@ -533,10 +533,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
             <span className="flex min-w-0 items-center gap-1 truncate">
               <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-500 shrink-0" />
               {journeyScopeLabel && (
-                <span
-                  data-testid="home-journey-scope"
-                  className="shrink-0 text-[10px] font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400"
-                >
+                <span data-testid="home-journey-scope" className="sr-only">
                   {journeyScopeLabel}
                 </span>
               )}
