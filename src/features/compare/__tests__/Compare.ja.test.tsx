@@ -330,6 +330,38 @@ describe("Compare Page & Modal — Japanese Localization", () => {
     expect(text).not.toContain("N/A");
   });
 
+  it("uses the same text-only walking badge in desktop and mobile Compare", async () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+
+    await act(async () => {
+      root!.render(
+        <MemoryRouter>
+          <Compare />
+        </MemoryRouter>,
+      );
+      await Promise.resolve();
+    });
+
+    const badges = Array.from(
+      host.querySelectorAll('[data-testid="walking-intensity-badge"]'),
+    );
+    expect(badges).toHaveLength(compareState.compareList.length * 2);
+    expect(badges.map((badge) => badge.textContent)).not.toContainEqual(
+      expect.stringMatching(/[🟢🟡🔴]/u),
+    );
+    expect(
+      badges.slice(0, 2).map((badge) => badge.getAttribute("data-level")),
+    ).toEqual(badges.slice(2).map((badge) => badge.getAttribute("data-level")));
+    expect(badges.slice(0, 2).map((badge) => badge.textContent)).toEqual(
+      badges.slice(2).map((badge) => badge.textContent),
+    );
+    expect(
+      badges.every((badge) => badge.className.includes("rounded-4xl")),
+    ).toBe(true);
+  });
+
   it("renders Japanese comparison metrics, category, and buttons in CompareModal without overall score", async () => {
     host = document.createElement("div");
     document.body.appendChild(host);
