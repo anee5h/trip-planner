@@ -1312,6 +1312,42 @@ function sleep(ms) {
 }
 
 /**
+ * Budget refusal codes a `beforeProviderAttempt` hook may return.
+ *
+ * `budget_exhausted` — the budget check succeeded and no capacity remains.
+ * `budget_unavailable` — no trustworthy decision could be obtained (the budget
+ * backend failed); the provider request was NOT issued. Distinct from ordinary
+ * exhaustion on purpose: it is a Meguruto infrastructure failure, not a policy
+ * refusal, and must never be reported as provider unavailability or as data.
+ */
+const BUDGET_REFUSAL_CODES = new Set([
+  "budget_exhausted",
+  "budget_unavailable",
+]);
+
+/**
+ * Reports whether the provider is usable at all with this environment.
+ *
+ * Exported for KAI-290 PR 2B so the boundary can evaluate these
+ * request-INDEPENDENT failures BEFORE consulting the result cache. Otherwise a
+ * cached success would mask a misconfigured credential: the endpoint would look
+ * healthy and serve data while every real provider call would fail.
+ *
+ * Returns `{ok: true}` or `{ok: false, error}` where `error` is the same code
+ * `odptLookup` would report.
+ */
+export function odptProviderReadiness(env) {
+  const base = resolveOdptBaseUrl(env);
+  if (!base.ok) return { ok: false, error: base.error };
+  const apiKey =
+    typeof env?.ODPT_API_KEY === "string" ? env.ODPT_API_KEY.trim() : "";
+  if (apiKey.length === 0) {
+    return { ok: false, error: "provider_not_configured" };
+  }
+  return { ok: true };
+}
+
+/**
  * Executes one allow-listed ODPT operation and returns a canonical normalized
  * result. Never throws, never returns raw provider payloads, and never includes
  * the consumer key in any field.
@@ -1379,6 +1415,12 @@ export async function odptLookup(
     return failure(operation, sourceResource, "", "network_error", now);
   }
 
+  // KAI-290 PR 2B: optional acquire-attempt hook. Called immediately before
+  // EVERY outbound provider HTTP attempt (initial and the bounded 503 retry),
+  // so a caller can budget each real attempt rather than each logical lookup.
+  // Retry mechanics stay here; only the permission decision is injected.
+  const beforeProviderAttempt = options.beforeProviderAttempt ?? null;
+
   const params = buildParams(operation, body);
   if (params === null) {
     // A declared query input with no documented ODPT parameter name is a
@@ -1404,6 +1446,40 @@ export async function odptLookup(
   let lastFailure = "provider_unavailable";
   while (attempt < ODPT_MAX_ATTEMPTS) {
     attempt += 1;
+
+    // Budget permission is required for EVERY actual outbound attempt. When a
+    // would-be RETRY is refused, the result must stay truthful: the provider was
+    // attempted once, the retry was blocked by Meguruto, and no second provider
+    // response exists. `sourceUrl` is reported only when at least one request
+    // really went out, so a first-attempt refusal carries an empty `sourceUrl`
+    // while a refused retry keeps the safe sanitized URL of the attempt that did
+    // happen.
+    //
+    // The refusal PHASE (first attempt vs retry) and the number of attempts made
+    // are deliberately NOT part of this result: they are internal runtime/test
+    // observability, tracked by the protection layer. The public ODPT result
+    // contract exposes only the canonical fields (outcome, errorCode, records,
+    // recordCount, retrievedAt, sourceResource, sourceUrl, normalization).
+    if (typeof beforeProviderAttempt === "function") {
+      const permission = await beforeProviderAttempt({ attempt });
+      if (!permission || permission.allowed !== true) {
+        const attemptsMade = attempt - 1;
+        // The caller may distinguish WHY permission was refused. Only these two
+        // documented budget states are honoured; anything else falls back to
+        // ordinary exhaustion rather than letting an arbitrary code through.
+        const refusalCode = BUDGET_REFUSAL_CODES.has(permission?.errorCode)
+          ? permission.errorCode
+          : "budget_exhausted";
+        return failure(
+          operation,
+          sourceResource,
+          attemptsMade > 0 ? safeSourceUrl : "",
+          refusalCode,
+          now,
+        );
+      }
+    }
+
     const outcome = await fetchOnce(callUrl, fetchFn, timeoutMs);
 
     if (outcome.kind === "timeout") {

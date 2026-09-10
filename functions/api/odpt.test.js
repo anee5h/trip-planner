@@ -1,7 +1,20 @@
 // @vitest-environment node
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { MAX_BODY_BYTES, ODPT_RATE_LIMIT, onRequest } from "./odpt.js";
+import {
+  MAX_BODY_BYTES,
+  ODPT_RATE_LIMIT,
+  __getOdptProtectionState,
+  __resetOdptProtection,
+  __setOdptProtectionForTest,
+  onRequest,
+} from "./odpt.js";
 import { __resetRequestGuardState } from "../_request-guards.js";
+import { odptProviderScope } from "./odpt-request-identity.js";
+import {
+  createMemoryCacheStore,
+  createOdptResultCache,
+  createOdptRuntimeProtection,
+} from "./odpt-runtime-protection.js";
 
 const KEY = "fixture-odpt-key";
 const ENV = { ODPT_API_KEY: KEY };
@@ -66,6 +79,7 @@ function stubProviderFetch(payload, status = 200) {
 
 afterEach(() => {
   __resetRequestGuardState();
+  __resetOdptProtection();
   vi.unstubAllGlobals();
 });
 
@@ -225,5 +239,394 @@ describe("/api/odpt boundary", () => {
     }
     const other = await onRequest(makeContext({ ip: "198.51.100.7" }));
     expect(other.status).toBe(200);
+  });
+});
+
+describe("/api/odpt runtime request protection (KAI-290 PR 2B)", () => {
+  it("serves a repeated identical request from cache with one provider call", async () => {
+    const calls = stubProviderFetch([STATION]);
+
+    const first = await onRequest(makeContext());
+    const second = await onRequest(makeContext());
+
+    expect(first.status).toBe(200);
+    expect(second.status).toBe(200);
+    expect(calls).toHaveLength(1);
+
+    const firstBody = await first.json();
+    const secondBody = await second.json();
+    // The transport payload is identical: caching must not change semantics.
+    expect(secondBody).toEqual(firstBody);
+    // A CACHED public response exposes no runtime metadata either — caching is
+    // not a reason to leak how the request was served.
+    expect(secondBody).not.toHaveProperty("runtime");
+    expect(JSON.stringify(secondBody)).not.toContain("cacheHit");
+    expect(JSON.stringify(secondBody)).not.toContain("dedupHit");
+    expect(JSON.stringify(secondBody)).not.toContain("budget");
+    // Cache-hit observability is internal, not part of the response.
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(1);
+    expect(state.counters.cacheMisses).toBe(1);
+    expect(state.counters.cacheHits).toBe(1);
+    // The credential is absent from the fresh AND the cached public payload.
+    for (const payload of [firstBody, secondBody]) {
+      const serialized = JSON.stringify(payload);
+      expect(serialized).not.toContain(KEY);
+      expect(serialized).not.toContain("consumerKey");
+      expect(serialized).not.toContain("acl:");
+      expect(serialized).not.toContain("ODPT_API_KEY");
+    }
+  });
+
+  it("keeps budget exhaustion visible through the canonical errorCode", async () => {
+    // Real production wiring, configured to one attempt: the first request
+    // spends it, so a second DISTINCT request is refused by the budget.
+    const calls = stubProviderFetch([STATION]);
+    const tight = {
+      ...ENV,
+      ODPT_PROVIDER_BUDGET_LIMIT: "1",
+      ODPT_PROVIDER_BUDGET_WINDOW_MS: "60000",
+    };
+
+    const first = await onRequest(makeContext({ env: tight }));
+    expect((await first.json()).outcome).toBe("records");
+
+    const refused = await onRequest(
+      makeContext({
+        env: tight,
+        body: { operation: "station", operator: "odpt.Operator:TokyoMetro" },
+      }),
+    );
+    const body = await refused.json();
+
+    // Client-relevant canonical semantics are PRESERVED: the state is reported
+    // through errorCode, which is part of the public contract.
+    expect(refused.status).toBe(200);
+    expect(body.outcome).toBe("error");
+    expect(body.errorCode).toBe("budget_exhausted");
+    expect(body.records).toEqual([]);
+    expect(body.recordCount).toBe(0);
+    // First-attempt refusal: nothing was fetched, so provenance is empty.
+    expect(body.sourceUrl).toBe("");
+    // No attempt bookkeeping is exposed publicly.
+    expect(body).not.toHaveProperty("providerAttempts");
+    expect(body).not.toHaveProperty("retryBlockedByBudget");
+    expect(JSON.stringify(body)).not.toContain("providerAttempts");
+    expect(JSON.stringify(body)).not.toContain("retryBlockedByBudget");
+
+    // Still no runtime metadata, and still no credential.
+    expect(body).not.toHaveProperty("runtime");
+    const serialized = JSON.stringify(body);
+    expect(serialized).not.toContain("budgetTokensUsed");
+    expect(serialized).not.toContain(KEY);
+    expect(serialized).not.toContain("consumerKey");
+
+    // The refusal never reached the provider.
+    expect(calls).toHaveLength(1);
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(1);
+    expect(state.counters.budgetRejected).toBe(1);
+    expect(state.counters.budgetAllowed).toBe(1);
+  });
+
+  it("does NOT expose internal runtime metadata on the public response", async () => {
+    stubProviderFetch([STATION]);
+    const response = await onRequest(makeContext());
+    const body = await response.json();
+
+    // The public contract is the canonical normalized result, nothing more.
+    // Cache/dedup/budget counters are internal; exposing them would silently
+    // widen the endpoint contract for every caller.
+    expect(body).not.toHaveProperty("runtime");
+    expect(Object.keys(body).sort()).toEqual([
+      "normalization",
+      "operation",
+      "outcome",
+      "provider",
+      "recordCount",
+      "records",
+      "retrievedAt",
+      "sourceResource",
+      "sourceUrl",
+    ]);
+    expect(JSON.stringify(body)).not.toContain("cacheHit");
+    expect(JSON.stringify(body)).not.toContain("dedupHit");
+    expect(JSON.stringify(body)).not.toContain("providerAttempts");
+    expect(JSON.stringify(body)).not.toContain("budget");
+
+    // The same metadata stays available to harnesses and unit tests.
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(1);
+    expect(state.counters.budgetAllowed).toBe(1);
+    expect(state.budget).not.toBeNull();
+
+    const serialized = JSON.stringify(body);
+    expect(serialized).not.toContain(KEY);
+    expect(serialized).not.toContain("consumerKey");
+    expect(serialized).not.toContain("acl:");
+  });
+
+  it("does not let a cached success mask a missing credential", async () => {
+    stubProviderFetch([STATION]);
+    // Warm the cache with a healthy configuration.
+    const warm = await onRequest(makeContext());
+    expect((await warm.json()).outcome).toBe("records");
+
+    // Now the credential disappears. Readiness is request-independent and is
+    // evaluated BEFORE the cache, so the misconfiguration must surface rather
+    // than being hidden behind a stale success.
+    const broken = await onRequest(makeContext({ env: {} }));
+    expect(broken.status).toBe(200);
+    await expect(broken.json()).resolves.toMatchObject({
+      outcome: "error",
+      errorCode: "provider_not_configured",
+    });
+  });
+
+  it("contacts the provider once per distinct request, not once per call", async () => {
+    const calls = stubProviderFetch([STATION]);
+
+    await onRequest(makeContext({ body: STATION_QUERY }));
+    await onRequest(
+      makeContext({
+        body: { operation: "station", operator: "odpt.Operator:Toei" },
+      }),
+    );
+    // A repeat of the first request is a cache hit, not a new provider call.
+    await onRequest(makeContext({ body: STATION_QUERY }));
+
+    expect(calls).toHaveLength(2);
+  });
+
+  it("exposes isolate-local coordination scope rather than global", async () => {
+    stubProviderFetch([STATION]);
+    await onRequest(makeContext());
+    const state = __getOdptProtectionState();
+    expect(state.cacheScope).toBe("isolate-local");
+    expect(state.budgetScope).toBe("isolate-local");
+    expect(JSON.stringify(state).toLowerCase()).not.toContain("global");
+    expect(JSON.stringify(state)).not.toContain(KEY);
+  });
+
+  it("does not cache a provider failure", async () => {
+    const calls = stubProviderFetch([], 500);
+
+    const first = await onRequest(makeContext());
+    const second = await onRequest(makeContext());
+
+    await expect(first.json()).resolves.toMatchObject({
+      outcome: "error",
+      errorCode: "provider_internal_error",
+    });
+    await expect(second.json()).resolves.toMatchObject({
+      outcome: "error",
+      errorCode: "provider_internal_error",
+    });
+    expect(calls).toHaveLength(2);
+    const state = __getOdptProtectionState();
+    expect(state.counters.cacheWrites).toBe(0);
+  });
+
+  it("budgets EVERY outbound attempt, including the bounded 503 retry", async () => {
+    // Two 503s: the initial attempt and its retry are two real fetches.
+    const calls = stubProviderFetch([], 503);
+    const response = await onRequest(makeContext());
+    const body = await response.json();
+
+    expect(calls).toHaveLength(2);
+    expect(body).not.toHaveProperty("runtime");
+    expect(body.errorCode).toBe("provider_unavailable");
+
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(2);
+    // The counter means ACTUAL outbound attempts, not logical lookups.
+    expect(state.counters.budgetAllowed).toBe(2);
+  });
+
+  it("503 then success costs two tokens and reports one logical result", async () => {
+    // First fetch 503, retry succeeds.
+    let call = 0;
+    vi.stubGlobal("fetch", async () => {
+      call += 1;
+      return call === 1
+        ? new Response("{}", { status: 503 })
+        : new Response(JSON.stringify([STATION]), {
+            status: 200,
+            headers: { "content-type": "application/json" },
+          });
+    });
+
+    const response = await onRequest(makeContext());
+    const body = await response.json();
+
+    expect(call).toBe(2);
+    expect(body.outcome).toBe("records");
+    expect(body).not.toHaveProperty("runtime");
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(2);
+    expect(state.counters.budgetAllowed).toBe(2);
+    expect(state.counters.budgetRejected).toBe(0);
+  });
+
+  it("reports a provider scope and never serves another scope's cache entry", async () => {
+    stubProviderFetch([STATION]);
+    await onRequest(makeContext());
+    expect(__getOdptProtectionState().counters.cacheMisses).toBe(1);
+
+    // A second identical request still hits the same scope's entry.
+    await onRequest(makeContext());
+    expect(__getOdptProtectionState().counters.cacheHits).toBe(1);
+
+    // The cache key is derived from the resolved base URL, so it must differ
+    // when the deployment points at a different allow-listed endpoint.
+    const official = odptProviderScope("https://api.odpt.org/api/v4");
+    const mirror = odptProviderScope("https://odpt-mirror.example/api/v4");
+    expect(official).not.toBe(mirror);
+  });
+
+  it("returns budget_unavailable (not provider failure) when the budget backend fails", async () => {
+    const calls = stubProviderFetch([STATION]);
+    // Inject a budget backend that cannot return a trustworthy decision. This
+    // is a seam for tests, not environment configuration.
+    __setOdptProtectionForTest(
+      createOdptRuntimeProtection({
+        cache: createOdptResultCache({ store: createMemoryCacheStore() }),
+        budget: {
+          acquire: async () => {
+            throw new Error("budget backend unavailable");
+          },
+        },
+      }),
+    );
+    const response = await onRequest(makeContext());
+    const body = await response.json();
+
+    // No provider request was issued for the blocked attempt.
+    expect(calls).toHaveLength(0);
+    expect(response.status).toBe(200);
+    expect(body.outcome).toBe("error");
+    expect(body.errorCode).toBe("budget_unavailable");
+    expect(body).not.toHaveProperty("runtime");
+    // Never presented as provider unavailability or as provider "no data".
+    expect(body.errorCode).not.toBe("budget_exhausted");
+    expect(body.errorCode).not.toBe("no_data");
+    expect(body.records).toEqual([]);
+  });
+});
+
+describe("/api/odpt public result contract (KAI-290 PR 2B)", () => {
+  it("never exposes providerAttempts or retryBlockedByBudget on a served payload", async () => {
+    stubProviderFetch([STATION]);
+    const success = await (await onRequest(makeContext())).json();
+
+    const cached = await (await onRequest(makeContext())).json();
+
+    // NOTE: the protection layer (and therefore its budget) is created once per
+    // isolate, so a later `env` change cannot retune the limit. Refusal paths are
+    // therefore covered by their own tests, which are the first request in their
+    // case and so build the budget with the limit they need.
+    const CANONICAL_COMMON = [
+      "normalization",
+      "operation",
+      "outcome",
+      "provider",
+      "recordCount",
+      "records",
+      "retrievedAt",
+      "sourceResource",
+      "sourceUrl",
+    ];
+    for (const [label, payload] of [
+      ["success", success],
+      ["cached", cached],
+    ]) {
+      expect(payload, label).not.toHaveProperty("providerAttempts");
+      expect(payload, label).not.toHaveProperty("retryBlockedByBudget");
+      expect(payload, label).not.toHaveProperty("runtime");
+      const text = JSON.stringify(payload);
+      expect(text, label).not.toContain("providerAttempts");
+      expect(text, label).not.toContain("retryBlockedByBudget");
+      // The canonical keys are what a client may depend on. `errorCode` appears
+      // exactly when the outcome is not `records`.
+      expect(Object.keys(payload).sort(), label).toEqual(CANONICAL_COMMON);
+    }
+  });
+
+  it("a RETRY blocked by budget keeps budget_exhausted plus the safe sourceUrl, without attempt bookkeeping", async () => {
+    // Every provider response is a 503, so the bounded retry is what matters.
+    const calls = stubProviderFetch([], 503);
+    const response = await onRequest(
+      makeContext({
+        env: {
+          ...ENV,
+          ODPT_PROVIDER_BUDGET_LIMIT: "1",
+          ODPT_PROVIDER_BUDGET_WINDOW_MS: "60000",
+        },
+      }),
+    );
+    const body = await response.json();
+
+    // Exactly ONE real provider attempt: the retry was refused by Meguruto.
+    expect(calls).toHaveLength(1);
+    expect(response.status).toBe(200);
+    expect(body.outcome).toBe("error");
+    expect(body.errorCode).toBe("budget_exhausted");
+    // The first attempt really happened, so truthful safe provenance remains.
+    expect(body.sourceUrl).toContain("https://");
+    expect(body.sourceUrl).not.toContain(KEY);
+    expect(body.sourceUrl).not.toContain("consumerKey");
+    // The public payload carries no attempt bookkeeping or runtime metadata.
+    expect(body).not.toHaveProperty("providerAttempts");
+    expect(body).not.toHaveProperty("retryBlockedByBudget");
+    expect(body).not.toHaveProperty("runtime");
+    expect(Object.keys(body).sort()).toEqual([
+      "errorCode",
+      "normalization",
+      "operation",
+      "outcome",
+      "provider",
+      "recordCount",
+      "records",
+      "retrievedAt",
+      "sourceResource",
+      "sourceUrl",
+    ]);
+
+    // Internally the phase IS still distinguishable.
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(1);
+  });
+
+  it("budget_unavailable exposes only the canonical errorCode", async () => {
+    const calls = stubProviderFetch([STATION]);
+    __setOdptProtectionForTest(
+      createOdptRuntimeProtection({
+        cache: createOdptResultCache({ store: createMemoryCacheStore() }),
+        // A MALFORMED decision: no trustworthy answer.
+        budget: { acquire: async () => ({ remaining: 10 }) },
+      }),
+    );
+    const body = await (await onRequest(makeContext())).json();
+
+    expect(calls).toHaveLength(0);
+    expect(body.outcome).toBe("error");
+    expect(body.errorCode).toBe("budget_unavailable");
+    expect(body.records).toEqual([]);
+    expect(body.sourceUrl).toBe("");
+    expect(body).not.toHaveProperty("providerAttempts");
+    expect(body).not.toHaveProperty("retryBlockedByBudget");
+    expect(body).not.toHaveProperty("runtime");
+    expect(JSON.stringify(body)).not.toContain("providerAttempts");
+    expect(JSON.stringify(body)).not.toContain("retryBlockedByBudget");
+  });
+
+  it("keeps success and cached payloads byte-equivalent", async () => {
+    const calls = stubProviderFetch([STATION]);
+    const fresh = await (await onRequest(makeContext())).json();
+    const cached = await (await onRequest(makeContext())).json();
+    expect(calls).toHaveLength(1);
+    // Caching must not change the payload at all.
+    expect(cached).toEqual(fresh);
+    expect(JSON.stringify(cached)).toBe(JSON.stringify(fresh));
   });
 });
