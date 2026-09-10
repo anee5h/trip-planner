@@ -212,6 +212,8 @@ describe("ItineraryPlanner stop interactions", () => {
     const dateInput =
       host.querySelector<HTMLInputElement>('input[type="date"]');
     expect(dateInput).not.toBeNull();
+    expect(host.querySelector('label[for="stop-date"]')).not.toBeNull();
+    expect(host.querySelector('input[type="date"]#stop-date')).not.toBeNull();
     expect(dateInput?.min).toBe("2026-08-08");
     expect(dateInput?.max).toBe("2036-08-08");
     expect(host.textContent).not.toContain("Day 365");
@@ -363,6 +365,83 @@ describe("ItineraryPlanner stop interactions", () => {
     expect(onReorderStops).toHaveBeenCalledWith(0, 1);
   });
 
+  it("exposes clear handle, drag target, scroll, and menu-dismissal affordances", () => {
+    renderPlanner(sameDayTrip);
+    const rows = Array.from(
+      host.querySelectorAll<HTMLElement>("[data-stop-id]"),
+    );
+    Object.defineProperty(rows[0], "getBoundingClientRect", {
+      value: () => ({ top: 0, height: 50 }),
+    });
+    Object.defineProperty(rows[1], "getBoundingClientRect", {
+      value: () => ({ top: 50, height: 50 }),
+    });
+
+    const handle = host.querySelector<HTMLElement>("[data-drag-handle]")!;
+    expect(handle.className).toContain("touch-none");
+    expect(handle.className).toContain("min-h-11");
+    expect(rows[0].className).toContain("touch-pan-y");
+    expect(rows[0].className).not.toMatch(/(?:^|:)h-/);
+
+    act(() => {
+      handle.dispatchEvent(
+        new PointerEvent("pointerdown", {
+          bubbles: true,
+          pointerId: 31,
+          pointerType: "touch",
+          button: 0,
+        }),
+      );
+      handle.dispatchEvent(
+        new PointerEvent("pointermove", {
+          bubbles: true,
+          pointerId: 31,
+          pointerType: "touch",
+          clientY: 90,
+        }),
+      );
+    });
+
+    expect(rows[0].getAttribute("data-drag-state")).toBe("dragging");
+    expect(rows[1].getAttribute("data-drag-target")).toBe("true");
+
+    act(() => {
+      host.querySelector<HTMLButtonElement>("[data-stop-actions]")?.click();
+    });
+    act(() => {
+      document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+    });
+    expect(host.querySelector('[role="menu"]')).toBeNull();
+  });
+
+  it("collapses the add-stop panel for existing itineraries and reopens it on demand", () => {
+    renderPlanner(baseTrip);
+    const panel = () =>
+      host.querySelector<HTMLElement>("[data-add-stop-panel]");
+    const toggle = host.querySelector<HTMLButtonElement>(
+      "[data-add-stop-toggle]",
+    );
+
+    expect(panel()?.dataset.state).toBe("collapsed");
+    expect(toggle?.getAttribute("aria-expanded")).toBe("false");
+
+    act(() => toggle?.click());
+    expect(panel()?.dataset.state).toBe("expanded");
+    expect(toggle?.getAttribute("aria-expanded")).toBe("true");
+
+    act(() =>
+      host.querySelector<HTMLButtonElement>("[data-add-stop-cancel]")?.click(),
+    );
+    expect(panel()?.dataset.state).toBe("collapsed");
+  });
+
+  it("keeps add-stop expanded for an empty itinerary", () => {
+    renderPlanner({ ...baseTrip, stops: [] });
+
+    expect(
+      host.querySelector<HTMLElement>("[data-add-stop-panel]")?.dataset.state,
+    ).toBe("expanded");
+  });
   it("starts pointer drag from the handle, not from the title link", () => {
     renderPlanner();
     const handle = host.querySelector<HTMLElement>("[data-drag-handle]");

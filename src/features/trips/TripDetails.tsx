@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import ItineraryPlanner from "./components/ItineraryPlanner";
 import { Button } from "@/shared/components/ui/button";
-import { ArrowLeft, Edit3, Share2, Calendar, Printer } from "lucide-react";
+import {
+  ArrowLeft,
+  Edit3,
+  Share2,
+  Calendar,
+  CalendarDays,
+  Printer,
+} from "lucide-react";
 import {
   downloadIcsFile,
   openGoogleCalendar,
@@ -12,6 +19,7 @@ import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import { formatTripDateRange } from "@/shared/utils/date";
 import { getCanonicalTripDateRange } from "@/shared/services/trips/CalendarService";
+import TripDatesEditor from "./components/TripDatesEditor";
 
 interface TripDetailsProps {
   trip: Trip;
@@ -33,15 +41,22 @@ export default function TripDetails({
   const { t, i18n } = useTranslation();
   const canonicalDates = getCanonicalTripDateRange(trip);
   const locale = i18n.language === "ja" ? "ja" : "en";
-  const dateLabel = formatTripDateRange(
-    canonicalDates?.start,
-    canonicalDates?.end,
-    locale,
-  );
+  const dateLabel = formatTripDateRange(trip.startDate, trip.endDate, locale);
   const [journal, setJournal] = useState(trip.journalNotes || "");
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [titleInput, setTitleInput] = useState(trip.title);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [isDateEditorOpen, setIsDateEditorOpen] = useState(false);
+  const hasCanonicalTripDates = Boolean(trip.startDate);
+
+  useEffect(() => {
+    if (!isDateEditorOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsDateEditorOpen(false);
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isDateEditorOpen]);
 
   const handleSaveTitle = () => {
     if (titleInput.trim() !== "") {
@@ -68,24 +83,26 @@ export default function TripDetails({
           <Button
             variant="ghost"
             size="icon"
+            aria-label={t("ui.back")}
             onClick={onBack}
             className="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 rounded-full"
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
 
-          <div>
+          <div className="min-w-0 flex-1">
             {isEditingTitle ? (
               <div className="flex items-center gap-2">
                 <input
+                  id="trip-details-title"
                   type="text"
                   value={titleInput}
                   onChange={(e) => setTitleInput(e.target.value)}
-                  className="text-3xl font-extrabold bg-transparent border-b border-slate-300 focus:outline-none text-slate-900 dark:text-white"
+                  className="min-h-11 min-w-0 max-w-full flex-1 border-b border-slate-300 bg-transparent text-2xl font-extrabold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-600/30 dark:border-slate-700 dark:text-white sm:text-3xl"
                 />
                 <Button
                   onClick={handleSaveTitle}
-                  className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-semibold px-4 text-xs h-8"
+                  className="min-h-11 rounded-full bg-emerald-700 px-4 text-xs font-semibold text-white hover:bg-emerald-800"
                 >
                   {t("ui.save")}
                 </Button>
@@ -94,10 +111,12 @@ export default function TripDetails({
               <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
                 <span>{trip.title}</span>
                 <button
+                  type="button"
+                  aria-label={t("ui.rename")}
                   onClick={() => setIsEditingTitle(true)}
-                  className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-200"
+                  className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
                 >
-                  <Edit3 className="w-4 h-4" />
+                  <Edit3 className="size-4" />
                 </button>
               </h1>
             )}
@@ -110,11 +129,40 @@ export default function TripDetails({
                 </span>
               </p>
             )}
-            <p className="mt-1 text-sm font-semibold text-slate-600 dark:text-slate-300">
-              {dateLabel || (
-                <span className="italic">{t("ui.noDatesSet")}</span>
-              )}
-            </p>
+            <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <button
+                type="button"
+                data-trip-date-trigger
+                aria-label={
+                  dateLabel
+                    ? `${dateLabel} · ${t(hasCanonicalTripDates ? "ui.editDates" : "ui.setDates")}`
+                    : t(hasCanonicalTripDates ? "ui.editDates" : "ui.setDates")
+                }
+                onClick={() => setIsDateEditorOpen(true)}
+                className="inline-flex min-h-11 max-w-full flex-wrap items-center gap-2 rounded-xl text-left text-sm font-semibold text-slate-700 underline decoration-emerald-600/40 underline-offset-4 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:text-slate-200 dark:hover:text-emerald-300"
+              >
+                <CalendarDays
+                  className="size-4 shrink-0 text-emerald-700 dark:text-emerald-300"
+                  aria-hidden="true"
+                />
+                <span className={dateLabel ? "" : "italic"}>
+                  {dateLabel || t("ui.noDatesSet")}
+                </span>
+                <span aria-hidden="true" className="text-slate-400">
+                  ·
+                </span>
+                <span
+                  data-trip-date-action
+                  className="font-bold text-emerald-700 dark:text-emerald-300"
+                >
+                  {t(hasCanonicalTripDates ? "ui.editDates" : "ui.setDates")}
+                </span>
+              </button>
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                {trip.stops.length}{" "}
+                {t(trip.stops.length === 1 ? "ui.stop" : "ui.stops")}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -197,6 +245,48 @@ export default function TripDetails({
           </Button>
         </div>
       </div>
+
+      {isDateEditorOpen && (
+        <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-950/60 p-4 backdrop-blur-sm sm:items-center">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="trip-dates-editor-title"
+            className="max-h-[calc(100dvh-2rem)] w-full max-w-lg overflow-y-auto rounded-3xl border border-slate-200 bg-white p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] shadow-2xl dark:border-slate-800 dark:bg-slate-950 sm:p-6"
+          >
+            <div className="mb-5 flex items-start justify-between gap-4">
+              <div className="min-w-0">
+                <h2
+                  id="trip-dates-editor-title"
+                  className="text-lg font-extrabold text-slate-950 dark:text-white"
+                >
+                  {t(hasCanonicalTripDates ? "ui.editDates" : "ui.setDates")}
+                </h2>
+                <p className="mt-1 text-sm text-slate-500 dark:text-slate-300">
+                  {trip.title}
+                </p>
+              </div>
+              <button
+                type="button"
+                aria-label={t("ui.close")}
+                onClick={() => setIsDateEditorOpen(false)}
+                className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+              >
+                ×
+              </button>
+            </div>
+            <TripDatesEditor
+              initialStartDate={trip.startDate}
+              initialEndDate={trip.endDate}
+              onSave={(startDate, endDate) => {
+                onUpdateTrip({ startDate, endDate });
+                setIsDateEditorOpen(false);
+              }}
+              onCancel={() => setIsDateEditorOpen(false)}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

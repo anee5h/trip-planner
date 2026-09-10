@@ -1,5 +1,12 @@
-import { useState } from "react";
-import { Calendar, Trash2, ArrowRight, MoreHorizontal } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import {
+  Calendar,
+  CalendarDays,
+  Trash2,
+  ArrowRight,
+  MoreHorizontal,
+  Pencil,
+} from "lucide-react";
 import type { Trip } from "@/shared/types/trip";
 import { Button } from "@/shared/components/ui/button";
 import { useTranslation } from "react-i18next";
@@ -9,20 +16,55 @@ interface TripCardProps {
   trip: Trip;
   onSelect: (tripId: string) => void;
   onDelete: (tripId: string) => void;
+  onRename?: (tripId: string) => void;
+  onEditDates?: (tripId: string) => void;
 }
 
-export default function TripCard({ trip, onSelect, onDelete }: TripCardProps) {
+export default function TripCard({
+  trip,
+  onSelect,
+  onDelete,
+  onRename,
+  onEditDates,
+}: TripCardProps) {
   const { t, i18n } = useTranslation();
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [actionsOpen, setActionsOpen] = useState(false);
+  const actionsRef = useRef<HTMLDivElement>(null);
   const stopsCount = trip.stops.length;
   const locale = i18n.language === "ja" ? "ja" : "en";
   const dateLabel = formatTripDateRange(trip.startDate, trip.endDate, locale);
+  const hasCanonicalDates = Boolean(trip.startDate);
 
   const closeActions = () => {
     setActionsOpen(false);
     setConfirmDelete(false);
   };
+
+  useEffect(() => {
+    if (!actionsOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (
+        actionsRef.current &&
+        event.target instanceof Node &&
+        actionsRef.current.contains(event.target)
+      ) {
+        return;
+      }
+      closeActions();
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeActions();
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [actionsOpen]);
 
   return (
     <article className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-5">
@@ -31,7 +73,7 @@ export default function TripCard({ trip, onSelect, onDelete }: TripCardProps) {
           {trip.title}
         </h3>
 
-        <div className="relative shrink-0">
+        <div ref={actionsRef} className="relative shrink-0">
           <Button
             variant="ghost"
             size="icon"
@@ -75,15 +117,41 @@ export default function TripCard({ trip, onSelect, onDelete }: TripCardProps) {
                   </Button>
                 </div>
               ) : (
-                <button
-                  type="button"
-                  role="menuitem"
-                  onClick={() => setConfirmDelete(true)}
-                  className="flex min-h-10 w-full items-center gap-2 rounded-lg px-3 text-left text-sm font-semibold text-red-600 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:hover:bg-red-950/20"
-                >
-                  <Trash2 className="size-4" />
-                  {t("ui.delete")}
-                </button>
+                <>
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => {
+                      setActionsOpen(false);
+                      onRename?.(trip.id);
+                    }}
+                    className="flex min-h-11 w-full items-center gap-2 rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:text-slate-200 dark:hover:bg-slate-800"
+                  >
+                    <Pencil className="size-4" />
+                    {t("ui.rename")}
+                  </button>
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => {
+                      setActionsOpen(false);
+                      onEditDates?.(trip.id);
+                    }}
+                    className="flex min-h-11 w-full items-center gap-2 rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:text-slate-200 dark:hover:bg-slate-800"
+                  >
+                    <CalendarDays className="size-4" />
+                    {t(hasCanonicalDates ? "ui.editDates" : "ui.setDates")}
+                  </button>
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => setConfirmDelete(true)}
+                    className="flex min-h-11 w-full items-center gap-2 rounded-lg px-3 text-left text-sm font-semibold text-red-600 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:hover:bg-red-950/20"
+                  >
+                    <Trash2 className="size-4" />
+                    {t("ui.delete")}
+                  </button>
+                </>
               )}
             </div>
           )}

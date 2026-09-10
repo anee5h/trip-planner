@@ -6,8 +6,9 @@ import type { Destination } from "@/shared/types/destination";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
 import TripCard from "@/features/trips/components/TripCard";
 import TripEditor from "@/features/trips/components/TripEditor";
+import TripDatesEditor from "@/features/trips/components/TripDatesEditor";
 import TripDetails from "@/features/trips/TripDetails";
-import { Sparkles, Plus, Calendar, Bookmark, Compass } from "lucide-react";
+import { Sparkles, Plus, Calendar, Bookmark, Compass, X } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { useTranslation } from "react-i18next";
@@ -38,6 +39,9 @@ export default function MyTrips() {
   );
   const [selectedTripId, setSelectedTripId] = useState<string | null>(null);
   const [isAddingTrip, setIsAddingTrip] = useState(false);
+  const [cardEdit, setCardEdit] = useState<
+    { tripId: string; mode: "rename" | "dates" } | undefined
+  >();
 
   useEffect(() => {
     if (location.pathname === "/bucket-list" || paramTab === "bucketlist") {
@@ -62,6 +66,20 @@ export default function MyTrips() {
   );
 
   const selectedTrip = trips.find((t) => t.id === selectedTripId);
+  const cardEditingTrip = cardEdit
+    ? trips.find((t) => t.id === cardEdit.tripId)
+    : undefined;
+
+  useEffect(() => {
+    if (!isAddingTrip && !cardEdit) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setIsAddingTrip(false);
+      setCardEdit(undefined);
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isAddingTrip, cardEdit]);
 
   // If a specific trip planner is open, render its detailed editor
   if (selectedTrip) {
@@ -222,6 +240,10 @@ export default function MyTrips() {
                   trip={trip}
                   onSelect={() => setSelectedTripId(trip.id)}
                   onDelete={() => deleteTrip(trip.id)}
+                  onRename={(tripId) => setCardEdit({ tripId, mode: "rename" })}
+                  onEditDates={(tripId) =>
+                    setCardEdit({ tripId, mode: "dates" })
+                  }
                 />
               ))}
             </div>
@@ -258,11 +280,79 @@ export default function MyTrips() {
         </div>
       )}
 
+      {cardEditingTrip && cardEdit && (
+        <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-950/60 p-4 backdrop-blur-sm sm:items-center">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="trip-card-editor-title"
+            className="max-h-[calc(100dvh-2rem)] w-full max-w-lg overflow-y-auto rounded-3xl border border-slate-200 bg-white p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] shadow-2xl dark:border-slate-800 dark:bg-slate-950 sm:p-6"
+          >
+            <div className="mb-5 flex items-start justify-between gap-4">
+              <div className="min-w-0">
+                <h2
+                  id="trip-card-editor-title"
+                  className="text-lg font-extrabold text-slate-950 dark:text-white"
+                >
+                  {cardEdit.mode === "rename"
+                    ? t("ui.rename")
+                    : cardEditingTrip.startDate
+                      ? t("ui.editDates")
+                      : t("ui.setDates")}
+                </h2>
+                <p className="mt-1 truncate text-sm text-slate-500 dark:text-slate-300">
+                  {cardEditingTrip.title}
+                </p>
+              </div>
+              <button
+                type="button"
+                aria-label={t("ui.close")}
+                onClick={() => setCardEdit(undefined)}
+                className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+              >
+                <X className="size-5" aria-hidden="true" />
+              </button>
+            </div>
+
+            {cardEdit.mode === "rename" ? (
+              <TripEditor
+                initialTitle={cardEditingTrip.title}
+                showDates={false}
+                allowBlankTitle={false}
+                onSave={(title) => {
+                  updateTrip(cardEditingTrip.id, { title });
+                  setCardEdit(undefined);
+                }}
+                onCancel={() => setCardEdit(undefined)}
+              />
+            ) : (
+              <TripDatesEditor
+                initialStartDate={cardEditingTrip.startDate}
+                initialEndDate={cardEditingTrip.endDate}
+                onSave={(startDate, endDate) => {
+                  updateTrip(cardEditingTrip.id, { startDate, endDate });
+                  setCardEdit(undefined);
+                }}
+                onCancel={() => setCardEdit(undefined)}
+              />
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Create Trip Overlay Modal */}
       {isAddingTrip && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 max-w-md w-full relative shadow-xl mx-4">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
+        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 p-4 backdrop-blur-sm sm:items-center">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="new-itinerary-title"
+            className="max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-3xl border border-slate-200 bg-white p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] shadow-xl dark:border-slate-800 dark:bg-slate-950 sm:p-6"
+          >
+            <h3
+              id="new-itinerary-title"
+              className="mb-4 text-xl font-bold text-slate-900 dark:text-white"
+            >
               {t("ui.newItinerary")}
             </h3>
             <TripEditor
