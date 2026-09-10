@@ -52,47 +52,29 @@ export const DEFAULT_DELAY_MS = 400;
 export const MAX_429_BACKOFF_MS = 30_000;
 export const DEFAULT_OUT = "qa/kai-290/odpt-coverage.json";
 export const DEFAULT_MAX_IDS = 500;
+/**
+ * Stations sampled per operator for StationTimetable coverage. One station is
+ * too small a sample to say anything about an operator: live measurement showed
+ * 12 JR-East probes across major hubs all empty, which a single probe could not
+ * have established.
+ */
+export const DEFAULT_TIMETABLE_SAMPLE = 3;
 
 /** Values ODPT has been observed to silently truncate at (lower bounds). */
 const OPERATOR_ID_PATTERN = /^odpt\.Operator:[A-Za-z0-9._-]+$/;
 
 /**
- * Operations that ship in this PR but are not yet deployed. Each is probed once
- * so the audit reports "not available (pending deployment)" honestly instead of
- * treating a not-yet-shipped operation as a data gap. Timetable probes need a
- * narrowing filter (the boundary requires one); the first audited operator is
- * injected at runtime.
+ * Provider-wide reference resources probed once, not per operator.
+ *
+ * These are finite, non-operator enumerations. `operator` is probed to confirm
+ * the operation is actually deployed and answering, so a missing operation is
+ * distinguishable from an operator with no data.
  */
-export const PENDING_OPERATION_PROBES = Object.freeze([
-  {
-    operation: "calendar",
-    body: { operation: "calendar" },
-    needsOperator: false,
-  },
+export const REFERENCE_RESOURCE_PROBES = Object.freeze([
   {
     operation: "operator",
     body: { operation: "operator" },
     needsOperator: false,
-  },
-  {
-    operation: "train_type",
-    body: { operation: "train_type" },
-    needsOperator: false,
-  },
-  {
-    operation: "rail_direction",
-    body: { operation: "rail_direction" },
-    needsOperator: false,
-  },
-  {
-    operation: "station_timetable",
-    body: { operation: "station_timetable" },
-    needsOperator: true,
-  },
-  {
-    operation: "train_timetable",
-    body: { operation: "train_timetable" },
-    needsOperator: true,
   },
 ]);
 
@@ -153,6 +135,8 @@ export function parseArgs(argv) {
     maxRequests: DEFAULT_MAX_REQUESTS,
     delayMs: DEFAULT_DELAY_MS,
     fare: true,
+    timetable: true,
+    timetableSample: DEFAULT_TIMETABLE_SAMPLE,
   };
   const unknown = [];
   for (const arg of argv) {
@@ -162,6 +146,10 @@ export function parseArgs(argv) {
     }
     if (arg === "--no-fare") {
       config.fare = false;
+      continue;
+    }
+    if (arg === "--no-timetable") {
+      config.timetable = false;
       continue;
     }
     const match = /^--([a-z-]+)=(.*)$/s.exec(arg);
@@ -189,6 +177,12 @@ export function parseArgs(argv) {
         );
       }
       config.delayMs = parsed;
+    } else if (key === "timetable-sample") {
+      const parsed = Number(value);
+      if (!Number.isInteger(parsed) || parsed < 1 || parsed > 20) {
+        throw new Error("--timetable-sample requires an integer from 1 to 20");
+      }
+      config.timetableSample = parsed;
     } else {
       unknown.push(arg);
     }
@@ -327,6 +321,122 @@ export const RAILWAY_TITLE_FIELDS = Object.freeze([
   "operatorTitle",
 ]);
 
+/**
+ * Coarse classification of a single timetable probe result (KAI-290 PR 2).
+ *
+ * This exists because `recordCount === 0` is NOT the same claim as "the
+ * provider has no data". A response can also fail the boundary's byte guard
+ * (`provider_response_too_large`) or be rejected outright. Conflating those
+ * would let the audit report JR-East as "no timetables" when the truth is
+ * "we could not fetch it". Every consumer must branch on this classifier,
+ * never on `recordCount` alone.
+ */
+export const PROBE_EMPTY = "empty";
+export const PROBE_RECORDS = "records";
+export const PROBE_TOO_LARGE = "too_large";
+export const PROBE_ERROR = "error";
+export const PROBE_UNAVAILABLE = "unavailable";
+
+export function classifyProbeResult(descriptor) {
+  if (!isRecord(descriptor)) {
+    return { state: PROBE_UNAVAILABLE, detail: "no_result" };
+  }
+  if (descriptor.state !== "available") {
+    return {
+      state: PROBE_UNAVAILABLE,
+      detail: descriptor.reason ?? descriptor.error ?? descriptor.state,
+    };
+  }
+  const errorCode =
+    typeof descriptor.errorCode === "string" ? descriptor.errorCode : null;
+  if (descriptor.outcome === "error" || errorCode) {
+    // The boundary failed closed. `provider_response_too_large` in particular
+    // means the provider likely HAS data that we refused to read wholesale.
+    return {
+      state:
+        errorCode === "provider_response_too_large"
+          ? PROBE_TOO_LARGE
+          : PROBE_ERROR,
+      detail: errorCode ?? "provider_error",
+      recordCount: descriptor.recordCount,
+      // A large response tells us the *scoped* query was too broad; it does not
+      // tell us the answer. Say so explicitly rather than implying emptiness.
+      note:
+        errorCode === "provider_response_too_large"
+          ? "response exceeded the boundary byte guard; coverage unknown, not empty"
+          : "provider returned an error outcome; coverage unknown",
+    };
+  }
+  if (descriptor.outcome !== "records") {
+    return {
+      state: PROBE_ERROR,
+      detail: `unexpected_outcome:${String(descriptor.outcome)}`,
+    };
+  }
+  const count = Number.isInteger(descriptor.recordCount)
+    ? descriptor.recordCount
+    : 0;
+  return {
+    state: count > 0 ? PROBE_RECORDS : PROBE_EMPTY,
+    recordCount: count,
+    ...(count === 0
+      ? { note: "provider returned a successful zero-record result" }
+      : {}),
+  };
+}
+
+/** Result states that document *proven* provider coverage (either way). */
+export function isConclusiveProbe(state) {
+  return state === PROBE_RECORDS || state === PROBE_EMPTY;
+}
+
+/**
+ * Builds the per-operator timetable coverage section from already-fetched probe
+ * results. Pure: no fetching, so this is the unit under test.
+ *
+ * `stationTimetable` and `trainTimetable` are arrays of `{ scope, descriptor }`
+ * because a single station/railway is too small a sample to support any claim
+ * about an operator; the operator-level probes are single descriptors.
+ */
+export function buildTimetableSection({
+  trainType,
+  railDirection,
+  stationTimetable = [],
+  trainTimetable = [],
+  sampleSize = null,
+}) {
+  const stationGroup = summarizeProbeGroup(stationTimetable);
+  const trainGroup = summarizeProbeGroup(trainTimetable);
+  const operatorProbes = {
+    trainType: classifyProbeResult(trainType),
+    railDirection: classifyProbeResult(railDirection),
+  };
+  const conclusive =
+    Object.values(operatorProbes).filter((entry) =>
+      isConclusiveProbe(entry.state),
+    ).length +
+    stationGroup.conclusiveCount +
+    trainGroup.conclusiveCount;
+  const total =
+    Object.keys(operatorProbes).length +
+    stationGroup.probeCount +
+    trainGroup.probeCount;
+  return {
+    trainType: operatorProbes.trainType,
+    railDirection: operatorProbes.railDirection,
+    stationTimetable: stationGroup,
+    trainTimetable: trainGroup,
+    sampleSize,
+    conclusiveProbes: conclusive,
+    totalProbes: total,
+    /**
+     * True only when every planned probe produced a conclusive answer. Any
+     * `too_large`/`error`/`unavailable` leaves coverage explicitly unknown.
+     */
+    coverageKnown: total > 0 && conclusive === total,
+  };
+}
+
 /** Field counts + ratios for a record set, in declared (stable) field order. */
 export function summarizeRecords(records, fields) {
   const list = Array.isArray(records) ? records : [];
@@ -407,6 +517,93 @@ export function parseBoundaryResponse(status, body) {
     httpStatus: Number.isInteger(status) ? status : null,
     error:
       isRecord(body) && typeof body.error === "string" ? body.error : "unknown",
+  };
+}
+
+/**
+ * Picks bounded probe scopes for the timetable pass (KAI-290 PR 2).
+ *
+ * Timetable endpoints cannot be queried operator-wide: live measurement showed
+ * such responses exceed the boundary's byte guard (`provider_response_too_large`)
+ * for operators that actually publish timetables. So the audit always scopes to
+ * ONE station and ONE railway, and records which ones were used — a scoped
+ * result is evidence about that scope, never a whole-operator claim.
+ */
+export function deriveTimetableScopes(
+  { station, railway } = {},
+  sampleSize = DEFAULT_TIMETABLE_SAMPLE,
+) {
+  const stationRecords =
+    isRecord(station) && Array.isArray(station.records) ? station.records : [];
+  const railwayRecords =
+    isRecord(railway) && Array.isArray(railway.records) ? railway.records : [];
+
+  const stations = [];
+  for (const record of stationRecords) {
+    if (stations.length >= sampleSize) break;
+    if (typeof record?.id !== "string" || record.id.length === 0) continue;
+    stations.push({
+      id: record.id,
+      title: typeof record.title === "string" ? record.title : null,
+      railway:
+        typeof record.railway === "string" && record.railway.length > 0
+          ? record.railway
+          : null,
+    });
+  }
+
+  // Fall back to the operator's first railway when a sampled station carries no
+  // railway reference, so train-timetable coverage is still probed at least once.
+  const fallbackRailway =
+    railwayRecords.find(
+      (record) =>
+        typeof record?.sameAs === "string" && record.sameAs.length > 0,
+    )?.sameAs ?? null;
+
+  const railways = [];
+  for (const entry of stations) {
+    const candidate = entry.railway ?? fallbackRailway;
+    if (candidate && !railways.includes(candidate)) railways.push(candidate);
+  }
+
+  return {
+    stations,
+    railways,
+    sampleSize,
+    station: stations[0]?.id ?? null,
+    stationName: stations[0]?.title ?? null,
+    railway: railways[0] ?? null,
+  };
+}
+
+/**
+ * Aggregates a group of identically-shaped scoped probes into a compact summary
+ * that keeps every non-conclusive state visible instead of collapsing it.
+ */
+export function summarizeProbeGroup(results) {
+  const byState = {};
+  let conclusive = 0;
+  const entries = [];
+  for (const { scope, descriptor } of results) {
+    const classified = classifyProbeResult(descriptor);
+    byState[classified.state] = (byState[classified.state] ?? 0) + 1;
+    if (isConclusiveProbe(classified.state)) conclusive += 1;
+    entries.push({
+      scope,
+      state: classified.state,
+      ...(isConclusiveProbe(classified.state)
+        ? { recordCount: classified.recordCount }
+        : {}),
+      ...(classified.note ? { note: classified.note } : {}),
+      ...(classified.detail ? { detail: classified.detail } : {}),
+    });
+  }
+  return {
+    probeCount: entries.length,
+    conclusiveCount: conclusive,
+    coverageKnown: entries.length > 0 && conclusive === entries.length,
+    byState,
+    results: entries,
   };
 }
 
@@ -557,6 +754,7 @@ export function buildOperatorSection({
   railway,
   fare,
   fareProbe,
+  timetable = null,
 }) {
   const stationSection = coverageSection(station, STATION_FIELDS, {
     countsAreLowerBounds: true,
@@ -590,6 +788,8 @@ export function buildOperatorSection({
     station: stationSection,
     railway: railwaySection,
     railwayFare: fareSection,
+    /** KAI-290 PR 2: timetable/reference coverage, incl. unknown states. */
+    timetable,
     /**
      * Multilingual title languages observed (API v4.16 documents these fields as
      * open-ended "multilingual-support").
@@ -685,6 +885,85 @@ export function deriveFindings(operators) {
         total: connectingStation.total,
       });
     }
+
+    // KAI-290 PR 2 timetable coverage. An unknown probe is reported as unknown,
+    // never silently dropped — otherwise a fetch failure would read as "none".
+    const operatorProbes = {
+      trainType: section.timetable?.trainType,
+      railDirection: section.timetable?.railDirection,
+    };
+    for (const [probeName, probe] of Object.entries(operatorProbes)) {
+      if (!probe) continue;
+      if (probe.state === PROBE_TOO_LARGE) {
+        findings.push({
+          kind: "timetable_coverage_unknown_too_large",
+          operator: section.operator,
+          probe: probeName,
+          detail: probe.note,
+        });
+      } else if (probe.state === PROBE_ERROR) {
+        findings.push({
+          kind: "timetable_coverage_unknown_error",
+          operator: section.operator,
+          probe: probeName,
+          detail: probe.detail ?? probe.note,
+        });
+      } else if (probe.state === PROBE_EMPTY) {
+        findings.push({
+          kind: "timetable_probe_empty",
+          operator: section.operator,
+          probe: probeName,
+        });
+      }
+    }
+
+    for (const [groupName, group] of Object.entries({
+      stationTimetable: section.timetable?.stationTimetable,
+      trainTimetable: section.timetable?.trainTimetable,
+    })) {
+      if (!group) continue;
+      if (group.probeCount > 0 && group.conclusiveCount === group.probeCount) {
+        const states = Object.keys(group.byState);
+        // All-empty across a multi-station sample is a real, reportable gap;
+        // a single probe could not support it.
+        if (states.length === 1 && states[0] === PROBE_EMPTY) {
+          findings.push({
+            kind: "timetable_group_all_empty",
+            operator: section.operator,
+            probe: groupName,
+            probes: group.probeCount,
+          });
+        }
+      }
+      for (const entry of group.results) {
+        if (entry.state === PROBE_TOO_LARGE) {
+          findings.push({
+            kind: "timetable_coverage_unknown_too_large",
+            operator: section.operator,
+            probe: groupName,
+            scope: entry.scope,
+            detail: entry.note,
+          });
+        } else if (entry.state === PROBE_ERROR) {
+          findings.push({
+            kind: "timetable_coverage_unknown_error",
+            operator: section.operator,
+            probe: groupName,
+            scope: entry.scope,
+            detail: entry.detail,
+          });
+        }
+      }
+    }
+
+    if (section.timetable && section.timetable.coverageKnown === false) {
+      findings.push({
+        kind: "timetable_coverage_incomplete",
+        operator: section.operator,
+        conclusive: section.timetable.conclusiveProbes,
+        total: section.timetable.totalProbes,
+      });
+    }
   }
   return findings;
 }
@@ -696,16 +975,17 @@ export function deriveFindings(operators) {
 export function buildCoverageArtifact({
   generatedAt,
   operators,
-  pendingOperations,
+  referenceProbes,
   requestBudget,
   sourceUrlSample,
   checks,
+  calendar = null,
 }) {
   const sortedOperators = [...operators].sort((a, b) =>
     a.operator < b.operator ? -1 : a.operator > b.operator ? 1 : 0,
   );
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     tool: "kai-290-odpt-coverage",
     generatedAt,
     boundaryUrl: BOUNDARY_URL,
@@ -719,8 +999,10 @@ export function buildCoverageArtifact({
       rateLimitHalted: requestBudget.rateLimitHalted === true,
     },
     sourceUrlSample: sourceUrlSample ?? null,
+    /** KAI-290 PR 2: provider-wide Calendar reference probe. */
+    calendar,
     operators: sortedOperators,
-    pendingOperations,
+    referenceProbes,
     findings: deriveFindings(sortedOperators),
     checks: {
       boundaryOnly: true,
@@ -940,15 +1222,81 @@ export function renderMarkdown(artifact) {
     lines.push("");
   }
 
-  lines.push("## Pending operations (not yet deployed)");
+  // KAI-290 PR 2: timetable/reference coverage. States are explicit so a
+  // non-conclusive probe can never be misread as "the provider has none".
+  lines.push("## Timetable and reference coverage");
   lines.push("");
-  if (artifact.pendingOperations.length === 0) {
+  lines.push(
+    "Probe states: `records` / `empty` are conclusive provider answers; `too_large` (response exceeded the boundary byte guard) and `error` are **unknown**, not empty.",
+  );
+  lines.push("");
+  if (artifact.calendar) {
+    const cal = artifact.calendar;
+    lines.push(
+      `- \`calendar\` (provider-wide): **${cal.state}**${Number.isInteger(cal.recordCount) ? ` — ${cal.recordCount} record(s)` : ""}`,
+    );
+    lines.push("");
+  }
+  for (const section of artifact.operators) {
+    if (!section.timetable) continue;
+    lines.push(`### ${section.operator}`);
+    lines.push("");
+    const scope = section.timetable.scope ?? {};
+    lines.push(
+      `- probe scope (${section.timetable.sampleSize ?? "?"} station sample): ${(scope.stations ?? []).map((station) => `\`${station}\``).join(", ") || "n/a"}`,
+    );
+    lines.push(
+      `- railways probed: ${(scope.railways ?? []).map((railway) => `\`${railway}\``).join(", ") || "n/a"}`,
+    );
+    lines.push(
+      "- scoped results are evidence about those stations/railways only — **not** a whole-operator claim",
+    );
+    for (const name of ["trainType", "railDirection"]) {
+      const probe = section.timetable[name];
+      if (!probe) continue;
+      const count = isConclusiveProbe(probe.state)
+        ? ` — ${probe.recordCount} record(s)`
+        : "";
+      const note = probe.note ? ` (${probe.note})` : "";
+      lines.push(`- ${name}: **${probe.state}**${count}${note}`);
+    }
+    for (const groupName of ["stationTimetable", "trainTimetable"]) {
+      const group = section.timetable[groupName];
+      if (!group) continue;
+      const states = Object.entries(group.byState)
+        .map(([state, count]) => `${state}×${count}`)
+        .join(", ");
+      lines.push(
+        `- ${groupName}: ${group.probeCount} probe(s) — ${states}${group.coverageKnown ? "" : " — **coverage unknown**"}`,
+      );
+      for (const entry of group.results) {
+        const label =
+          entry.scope?.station ?? entry.scope?.railway ?? "unknown scope";
+        const count = isConclusiveProbe(entry.state)
+          ? ` — ${entry.recordCount} record(s)`
+          : "";
+        const note = entry.note ? ` (${entry.note})` : "";
+        lines.push(`  - ${label}: **${entry.state}**${count}${note}`);
+      }
+    }
+    lines.push(
+      `- coverage conclusively known: ${section.timetable.coverageKnown ? "yes" : `no (${section.timetable.conclusiveProbes}/${section.timetable.totalProbes} conclusive)`}`,
+    );
+    lines.push("");
+  }
+
+  lines.push("## Provider-wide reference resources");
+  lines.push("");
+  if (
+    !Array.isArray(artifact.referenceProbes) ||
+    artifact.referenceProbes.length === 0
+  ) {
     lines.push("- (none probed)");
   } else {
-    for (const entry of artifact.pendingOperations) {
+    for (const entry of artifact.referenceProbes) {
       const label =
         entry.state === "pending"
-          ? "not available (pending deployment)"
+          ? "not available (operation not deployed)"
           : entry.state;
       lines.push(
         `- ${entry.operation} — ${label}${entry.evidence ? `: ${entry.evidence}` : ""}`,
@@ -1115,6 +1463,8 @@ Options:
   --max-requests=N      Hard cap on total boundary requests (default ${DEFAULT_MAX_REQUESTS}, max ${HARD_MAX_REQUESTS})
   --delay=MS            Delay between sequential calls (default ${DEFAULT_DELAY_MS} ms)
   --no-fare             Skip the per-operator railway_fare probe
+  --no-timetable        Skip the timetable/reference probes (calendar, train_type,
+                        rail_direction, StationTimetable, TrainTimetable)
   -h, --help            Show this help
 `);
 }
@@ -1190,18 +1540,85 @@ async function main(argv) {
         operator,
       });
     }
+
+    // KAI-290 PR 2: timetable/reference coverage. Every probe is scoped and
+    // every non-conclusive outcome is preserved as `unknown`, never as "none".
+    let timetable = null;
+    if (config.timetable) {
+      const scopes = deriveTimetableScopes(
+        { station, railway },
+        config.timetableSample,
+      );
+      const stationTimetable = [];
+      for (const entry of scopes.stations) {
+        stationTimetable.push({
+          scope: { station: entry.id, stationName: entry.title },
+          descriptor: await runner.call({
+            operation: "station_timetable",
+            station: entry.id,
+          }),
+        });
+      }
+      const trainTimetable = [];
+      for (const railwayId of scopes.railways) {
+        trainTimetable.push({
+          scope: { railway: railwayId },
+          descriptor: await runner.call({
+            operation: "train_timetable",
+            railway: railwayId,
+          }),
+        });
+      }
+      timetable = {
+        ...buildTimetableSection({
+          trainType: await runner.call({ operation: "train_type", operator }),
+          railDirection: await runner.call({
+            operation: "rail_direction",
+            operator,
+          }),
+          stationTimetable,
+          trainTimetable,
+          sampleSize: scopes.sampleSize,
+        }),
+        scope: {
+          stations: scopes.stations.map((entry) => entry.id),
+          railways: scopes.railways,
+        },
+      };
+    }
+
     operators.push(
-      buildOperatorSection({ operator, station, railway, fare, fareProbe }),
+      buildOperatorSection({
+        operator,
+        station,
+        railway,
+        fare,
+        fareProbe,
+        timetable,
+      }),
     );
   }
 
-  const pendingOperations = [];
-  for (const probe of PENDING_OPERATION_PROBES) {
+  // Provider-wide reference data (Calendar is a finite, non-operator list).
+  let calendarProbe = null;
+  if (config.timetable) {
+    const calendar = await runner.call({ operation: "calendar" });
+    calendarProbe = {
+      ...classifyProbeResult(calendar),
+      ...(typeof calendar.sourceUrl === "string"
+        ? { sourceUrl: calendar.sourceUrl }
+        : {}),
+      ...(calendar.retrievedAt ? { retrievedAt: calendar.retrievedAt } : {}),
+    };
+  }
+
+  const referenceProbes = [];
+  for (const probe of REFERENCE_RESOURCE_PROBES) {
     const body = probe.needsOperator
       ? { ...probe.body, operator: config.operators[0] }
       : probe.body;
     const result = await runner.call(body);
-    pendingOperations.push(buildPendingEntry(probe.operation, result));
+    referenceProbes.push(buildPendingEntry(probe.operation, result));
   }
 
   if (sourceUrlSample && containsCredentialLike(sourceUrlSample)) {
@@ -1211,7 +1628,8 @@ async function main(argv) {
   const artifact = buildCoverageArtifact({
     generatedAt: new Date().toISOString(),
     operators,
-    pendingOperations,
+    referenceProbes,
+    calendar: calendarProbe,
     requestBudget: {
       maxRequests: config.maxRequests,
       requestsMade: runner.requestsMade,

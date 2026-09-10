@@ -1,8 +1,8 @@
 # KAI-290 — ODPT operator coverage audit
 
-Generated: 2026-09-10T08:56:44.948Z
+Generated: 2026-09-10T09:50:46.205Z
 Boundary: https://meguruto.app/api/odpt (the only endpoint contacted)
-Requests: 14/40 (budget exhausted: no, rate-limit halted: no)
+Requests: 31/40 (budget exhausted: no, rate-limit halted: no)
 
 > ODPT silently truncates broad search results at a system upper limit, so every
 > `station` / `railway` count below is a LOWER BOUND, not an exact total.
@@ -59,14 +59,63 @@ Requests: 14/40 (budget exhausted: no, rate-limit halted: no)
 - station dc:date: latest 2025-05-29T14:00:00+09:00 (4 distinct)
 - station dct:valid: latest n/a
 
-## Pending operations (not yet deployed)
+## Timetable and reference coverage
 
-- calendar — not available (pending deployment): unsupported_operation (HTTP 400) — pending deployment
-- operator — not available (pending deployment): unsupported_operation (HTTP 400) — pending deployment
-- train_type — not available (pending deployment): unsupported_operation (HTTP 400) — pending deployment
-- rail_direction — not available (pending deployment): unsupported_operation (HTTP 400) — pending deployment
-- station_timetable — not available (pending deployment): unsupported_operation (HTTP 400) — pending deployment
-- train_timetable — not available (pending deployment): unsupported_operation (HTTP 400) — pending deployment
+Probe states: `records` / `empty` are conclusive provider answers; `too_large` (response exceeded the boundary byte guard) and `error` are **unknown**, not empty.
+
+- `calendar` (provider-wide): **records** — 174 record(s)
+
+### odpt.Operator:JR-East
+
+- probe scope (3 station sample): `odpt.Station:JR-East.ChuoSobuLocal.Tsudanuma`, `odpt.Station:JR-East.Keiyo.Tokyo`, `odpt.Station:JR-East.ChuoSobuLocal.Mitaka`
+- railways probed: `odpt.Railway:JR-East.ChuoSobuLocal`, `odpt.Railway:JR-East.Keiyo`
+- scoped results are evidence about those stations/railways only — **not** a whole-operator claim
+- trainType: **empty** — 0 record(s) (provider returned a successful zero-record result)
+- railDirection: **empty** — 0 record(s) (provider returned a successful zero-record result)
+- stationTimetable: 3 probe(s) — empty×3
+  - odpt.Station:JR-East.ChuoSobuLocal.Tsudanuma: **empty** — 0 record(s) (provider returned a successful zero-record result)
+  - odpt.Station:JR-East.Keiyo.Tokyo: **empty** — 0 record(s) (provider returned a successful zero-record result)
+  - odpt.Station:JR-East.ChuoSobuLocal.Mitaka: **empty** — 0 record(s) (provider returned a successful zero-record result)
+- trainTimetable: 2 probe(s) — empty×2
+  - odpt.Railway:JR-East.ChuoSobuLocal: **empty** — 0 record(s) (provider returned a successful zero-record result)
+  - odpt.Railway:JR-East.Keiyo: **empty** — 0 record(s) (provider returned a successful zero-record result)
+- coverage conclusively known: yes
+
+### odpt.Operator:Toei
+
+- probe scope (3 station sample): `odpt.Station:Toei.Mita.Hakusan`, `odpt.Station:Toei.Mita.NishiTakashimadaira`, `odpt.Station:Toei.Asakusa.HonjoAzumabashi`
+- railways probed: `odpt.Railway:Toei.Mita`, `odpt.Railway:Toei.Asakusa`
+- scoped results are evidence about those stations/railways only — **not** a whole-operator claim
+- trainType: **records** — 8 record(s)
+- railDirection: **records** — 3 record(s)
+- stationTimetable: 3 probe(s) — records×3
+  - odpt.Station:Toei.Mita.Hakusan: **records** — 4 record(s)
+  - odpt.Station:Toei.Mita.NishiTakashimadaira: **records** — 2 record(s)
+  - odpt.Station:Toei.Asakusa.HonjoAzumabashi: **records** — 4 record(s)
+- trainTimetable: 2 probe(s) — too_large×2 — **coverage unknown**
+  - odpt.Railway:Toei.Mita: **too_large** (response exceeded the boundary byte guard; coverage unknown, not empty)
+  - odpt.Railway:Toei.Asakusa: **too_large** (response exceeded the boundary byte guard; coverage unknown, not empty)
+- coverage conclusively known: no (5/7 conclusive)
+
+### odpt.Operator:TokyoMetro
+
+- probe scope (3 station sample): `odpt.Station:TokyoMetro.Marunouchi.Shinjuku`, `odpt.Station:TokyoMetro.Chiyoda.Yushima`, `odpt.Station:TokyoMetro.Chiyoda.KitaAyase`
+- railways probed: `odpt.Railway:TokyoMetro.Marunouchi`, `odpt.Railway:TokyoMetro.Chiyoda`
+- scoped results are evidence about those stations/railways only — **not** a whole-operator claim
+- trainType: **records** — 12 record(s)
+- railDirection: **records** — 17 record(s)
+- stationTimetable: 3 probe(s) — records×3
+  - odpt.Station:TokyoMetro.Marunouchi.Shinjuku: **records** — 4 record(s)
+  - odpt.Station:TokyoMetro.Chiyoda.Yushima: **records** — 4 record(s)
+  - odpt.Station:TokyoMetro.Chiyoda.KitaAyase: **records** — 2 record(s)
+- trainTimetable: 2 probe(s) — too_large×2 — **coverage unknown**
+  - odpt.Railway:TokyoMetro.Marunouchi: **too_large** (response exceeded the boundary byte guard; coverage unknown, not empty)
+  - odpt.Railway:TokyoMetro.Chiyoda: **too_large** (response exceeded the boundary byte guard; coverage unknown, not empty)
+- coverage conclusively known: no (5/7 conclusive)
+
+## Provider-wide reference resources
+
+- operator — available
 
 ## Checks
 
