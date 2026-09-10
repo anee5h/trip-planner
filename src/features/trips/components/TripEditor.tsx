@@ -110,6 +110,8 @@ export default function TripEditor({
             label={t("ui.endDate")}
             placeholder={t("ui.selectDate")}
             value={endDate}
+            disabled={!startDate}
+            min={startDate || undefined}
             onChange={(value) => {
               setEndDate(value);
               setError(null);

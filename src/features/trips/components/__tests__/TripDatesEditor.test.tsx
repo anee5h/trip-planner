@@ -80,6 +80,25 @@ describe("TripDatesEditor", () => {
     expect(host!.querySelector('label[for="trip-end-date"]')).not.toBeNull();
   });
 
+  it("keeps End Date disabled until Start Date exists and bounds it", () => {
+    renderEditor();
+
+    const start = host!.querySelector<HTMLInputElement>(
+      'input[name="startDate"]',
+    )!;
+    const end = host!.querySelector<HTMLInputElement>('input[name="endDate"]')!;
+
+    expect(end.disabled).toBe(true);
+    expect(end.min).toBe("");
+
+    act(() => {
+      setInputValue(start, "2026-08-08");
+    });
+
+    expect(end.disabled).toBe(false);
+    expect(end.min).toBe("2026-08-08");
+  });
+
   it("emits canonical date values and undefined for cleared fields", () => {
     const { onSave } = renderEditor({
       initialStartDate: "2026-08-08",
@@ -185,24 +204,18 @@ describe("TripDatesEditor", () => {
     expect(onSave).toHaveBeenCalledWith(undefined, undefined);
   });
 
-  it("prevents saving an end date before the start date", () => {
-    const { onSave } = renderEditor();
-    const start = host!.querySelector<HTMLInputElement>(
-      'input[name="startDate"]',
-    )!;
+  it("uses the native minimum to prevent an end date before the start date", () => {
+    const { onSave } = renderEditor({
+      initialStartDate: "2026-08-10",
+      initialEndDate: "2026-08-08",
+    });
     const end = host!.querySelector<HTMLInputElement>('input[name="endDate"]')!;
 
-    act(() => {
-      setInputValue(start, "2026-08-10");
-      setInputValue(end, "2026-08-08");
-    });
+    expect(end.validity.rangeUnderflow).toBe(true);
     act(() => {
       host!.querySelector<HTMLButtonElement>('button[type="submit"]')!.click();
     });
 
     expect(onSave).not.toHaveBeenCalled();
-    expect(host!.querySelector('[role="alert"]')?.textContent).toContain(
-      "Start date cannot be after end date",
-    );
   });
 });

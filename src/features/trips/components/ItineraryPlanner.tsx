@@ -10,6 +10,8 @@ import {
   Calendar as CalendarIcon,
   GripVertical,
   MoreHorizontal,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
@@ -488,14 +490,17 @@ export default function ItineraryPlanner({
             }`}
           >
             {isAddStopExpanded ? (
-              t("ui.cancel")
+              <>
+                {t("ui.close")}
+                <ChevronUp className="size-4" aria-hidden="true" />
+              </>
             ) : (
               <>
                 <span className="inline-flex items-center gap-1.5">
                   <Plus className="size-4" aria-hidden="true" />
                   {t("ui.addStopShort")}
                 </span>
-                <span aria-hidden="true">＋</span>
+                <ChevronDown className="size-4" aria-hidden="true" />
               </>
             )}
           </button>
@@ -653,15 +658,6 @@ export default function ItineraryPlanner({
             >
               <Plus className="mr-1.5 h-4 w-4" />
               <span>{t("ui.addStopAction")}</span>
-            </Button>
-            <Button
-              type="button"
-              data-add-stop-cancel
-              variant="outline"
-              onClick={() => setIsAddStopExpanded(false)}
-              className="min-h-11 w-full rounded-full font-semibold sm:hidden"
-            >
-              {t("ui.cancel")}
             </Button>
           </div>
         </div>

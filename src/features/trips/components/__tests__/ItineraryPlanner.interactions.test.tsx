@@ -12,7 +12,9 @@ vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     i18n: { language: "en" },
     t: (key: string, fallback?: string) =>
-      ({ "ui.addStopShort": "Add stop" })[key] ?? fallback ?? key,
+      ({ "ui.addStopShort": "Add stop", "ui.close": "Close" })[key] ??
+      fallback ??
+      key,
   }),
 }));
 
@@ -430,9 +432,7 @@ describe("ItineraryPlanner stop interactions", () => {
     expect(panel()?.dataset.state).toBe("expanded");
     expect(toggle?.getAttribute("aria-expanded")).toBe("true");
 
-    act(() =>
-      host.querySelector<HTMLButtonElement>("[data-add-stop-cancel]")?.click(),
-    );
+    act(() => toggle?.click());
     expect(panel()?.dataset.state).toBe("collapsed");
   });
 
@@ -457,6 +457,28 @@ describe("ItineraryPlanner stop interactions", () => {
     expect(form.textContent).not.toMatch(
       /Add itinerary stop[\s\S]*Add itinerary stop/,
     );
+  });
+
+  it("uses one header Close control when add-stop is expanded", () => {
+    renderPlanner(baseTrip);
+    const toggle = host.querySelector<HTMLButtonElement>(
+      "[data-add-stop-toggle]",
+    )!;
+
+    act(() => toggle.click());
+
+    expect(toggle.textContent).toContain("Close");
+    expect(toggle.textContent).not.toContain("Cancel");
+    expect(host.querySelector("[data-add-stop-cancel]")).toBeNull();
+  });
+
+  it("does not duplicate the plus icon in the collapsed affordance", () => {
+    renderPlanner(baseTrip);
+    const toggle = host.querySelector<HTMLButtonElement>(
+      "[data-add-stop-toggle]",
+    )!;
+
+    expect(toggle.textContent).not.toContain("＋");
   });
 
   it("keeps stop controls in a quiet aligned action cluster", () => {

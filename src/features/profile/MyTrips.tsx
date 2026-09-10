@@ -28,7 +28,7 @@ export default function MyTrips() {
     reorderTripStops,
   } = useTripStore();
 
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const paramTab = searchParams.get("tab");
   const paramTripId = searchParams.get("tripId");
 
@@ -102,7 +102,12 @@ export default function MyTrips() {
       <div className="container mx-auto max-w-7xl px-4 py-6 md:py-12">
         <TripDetails
           trip={selectedTrip}
-          onBack={() => setSelectedTripId(null)}
+          onBack={() => {
+            setSelectedTripId(null);
+            const nextSearchParams = new URLSearchParams(searchParams);
+            nextSearchParams.delete("tripId");
+            setSearchParams(nextSearchParams, { replace: true });
+          }}
           onUpdateTrip={(updates) => updateTrip(selectedTrip.id, updates)}
           onAddStop={(stop) => addStopToTrip(selectedTrip.id, stop)}
           onRemoveStop={(stopId) => removeStopFromTrip(selectedTrip.id, stopId)}

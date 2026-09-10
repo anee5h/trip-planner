@@ -18,6 +18,8 @@ interface TripDateFieldProps {
   value: string;
   placeholder: string;
   autoFocus?: boolean;
+  disabled?: boolean;
+  min?: string;
   onChange: (value: string) => void;
 }
 
@@ -28,6 +30,8 @@ export function TripDateField({
   value,
   placeholder,
   autoFocus,
+  disabled,
+  min,
   onChange,
 }: TripDateFieldProps) {
   return (
@@ -53,10 +57,12 @@ export function TripDateField({
           type="date"
           value={value}
           autoFocus={autoFocus}
+          disabled={disabled}
+          min={min}
           onChange={(event) => onChange(event.target.value)}
           aria-label={label}
           data-dialog-initial-focus={autoFocus ? "true" : undefined}
-          className={`min-h-11 h-11 bg-slate-50 pl-10 pr-3 text-base [color-scheme:light] focus-visible:border-emerald-600 focus-visible:ring-emerald-600/30 dark:bg-slate-900 dark:[color-scheme:dark] dark:[&::-webkit-calendar-picker-indicator]:invert dark:border-slate-700 ${
+          className={`min-h-11 h-11 bg-slate-50 pl-10 pr-3 text-base [color-scheme:light] focus-visible:border-emerald-600 focus-visible:ring-emerald-600/30 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-slate-900 dark:[color-scheme:dark] dark:[&::-webkit-calendar-picker-indicator]:invert dark:border-slate-700 ${
             value
               ? "text-slate-900 dark:text-white"
               : "text-transparent dark:text-transparent"
@@ -136,6 +142,8 @@ export default function TripDatesEditor({
           label={t("ui.endDate")}
           placeholder={t("ui.selectDate")}
           value={endDate}
+          disabled={!startDate}
+          min={startDate || undefined}
           onChange={(value) => {
             setEndDate(value);
             setError(null);
