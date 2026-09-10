@@ -47,7 +47,8 @@
     "/api/feedback",
     "/api/errors",
     "/api/account/delete",
-    "/api/car-route"
+    "/api/car-route",
+    "/api/odpt"
   ],
   "exclude": [
     "/assets/*",
