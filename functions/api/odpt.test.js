@@ -120,7 +120,7 @@ describe("/api/odpt boundary", () => {
     ],
     [
       "an unknown operation",
-      { operation: "operator" },
+      { operation: "police_box" },
       "unsupported_operation",
     ],
     [

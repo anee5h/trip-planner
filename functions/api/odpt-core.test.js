@@ -166,7 +166,7 @@ describe("validateOdptRequest", () => {
   it.each([
     ["non-object body", null, "invalid_json"],
     ["missing operation", { lat: 35 }, "invalid_operation"],
-    ["unknown operation", { operation: "operator" }, "unsupported_operation"],
+    ["unknown operation", { operation: "police_box" }, "unsupported_operation"],
     [
       "raw rdf:type pass-through",
       { operation: "station", "rdf:type": "odpt:Operator" },
@@ -443,7 +443,11 @@ describe("odptLookup configuration and request construction", () => {
     });
   });
 
-  it("retains a generic identity envelope for an unmodelled datapoint type", async () => {
+  it("fully normalizes a known datapoint type (KAI-290 calendar)", async () => {
+    // KAI-289 returned the generic envelope here because Calendar was not yet
+    // modelled. KAI-290 added a dedicated normalizer, so the full record — and
+    // in particular the specificity flag the precedence rules depend on — must
+    // now come back.
     const result = await odptLookup(
       {
         operation: "datapoint",
@@ -457,6 +461,7 @@ describe("odptLookup configuration and request construction", () => {
           "dc:date": "2017-01-13T15:10:00+09:00",
           "dct:valid": "2017-11-22T14:57:04+09:00",
           "owl:sameAs": "odpt.Calendar:Weekday",
+          "odpt:calendarTitle": { ja: "平日", en: "Weekday" },
         },
       ]),
       NOW,
@@ -465,7 +470,35 @@ describe("odptLookup configuration and request construction", () => {
       id: "odpt.Calendar:Weekday",
       sameAs: "odpt.Calendar:Weekday",
       ucode: "urn:ucode:_00001C000000000000010000030FD7EA",
-      type: "odpt:Calendar",
+      calendarTitle: { ja: "平日", en: "Weekday" },
+      isSpecific: false,
+    });
+    expect(result.records[0].provenance.coverage).toBe("unknown");
+  });
+
+  it("retains a generic identity envelope for an unmodelled datapoint type", async () => {
+    const result = await odptLookup(
+      {
+        operation: "datapoint",
+        dataUri: "odpt.PassengerSurvey:JR-East.Tokyo",
+      },
+      ENV,
+      captureFetch([
+        {
+          "@id": "urn:ucode:_00001C000000000000010000030FD7EB",
+          "@type": "odpt:PassengerSurvey",
+          "dc:date": "2017-01-13T15:10:00+09:00",
+          "dct:valid": "2017-11-22T14:57:04+09:00",
+          "owl:sameAs": "odpt.PassengerSurvey:JR-East.Tokyo",
+        },
+      ]),
+      NOW,
+    );
+    expect(result.records[0]).toMatchObject({
+      id: "odpt.PassengerSurvey:JR-East.Tokyo",
+      sameAs: "odpt.PassengerSurvey:JR-East.Tokyo",
+      ucode: "urn:ucode:_00001C000000000000010000030FD7EB",
+      type: "odpt:PassengerSurvey",
       validUntil: "2017-11-22T14:57:04+09:00",
     });
     expect(result.records[0].provenance.coverage).toBe("unknown");
@@ -1062,10 +1095,10 @@ describe("operation schema: path inputs vs query inputs", () => {
 });
 
 describe("deferred KAI-290+ surface", () => {
-  it("exposes no timetable, route-search or realtime operation", () => {
+  it("exposes no route-search, realtime or bus operation", () => {
+    // KAI-290 adds timetable and reference reads. Realtime train state, bus data
+    // and any routing/journey assembly remain out of scope.
     for (const operation of [
-      "station_timetable",
-      "train_timetable",
       "train",
       "train_information",
       "bus",
@@ -1077,6 +1110,22 @@ describe("deferred KAI-290+ surface", () => {
         ok: false,
         error: "unsupported_operation",
       });
+    }
+  });
+
+  it("recognises the KAI-290 timetable operations but requires narrowing", () => {
+    for (const operation of ["station_timetable", "train_timetable"]) {
+      // Recognised (not "unsupported"), yet still refused without a filter.
+      expect(validateOdptRequest({ operation })).toEqual({
+        ok: false,
+        error: "unfiltered_search_not_allowed",
+      });
+      expect(
+        validateOdptRequest({
+          operation,
+          operator: "odpt.Operator:JR-East",
+        }).ok,
+      ).toBe(true);
     }
   });
 });

@@ -12,12 +12,18 @@
  */
 
 import type {
+  OdptCalendar,
+  OdptCalendarQuery,
   OdptDatapointQuery,
   OdptDatapointResource,
   OdptErrorCode,
   OdptNearbyStationsInput,
+  OdptOperator,
+  OdptOperatorQuery,
   OdptOutcome,
   OdptProvider,
+  OdptRailDirection,
+  OdptRailDirectionQuery,
   OdptRailway,
   OdptRailwayFare,
   OdptRailwayFareQuery,
@@ -25,6 +31,12 @@ import type {
   OdptResult,
   OdptStation,
   OdptStationQuery,
+  OdptStationTimetable,
+  OdptStationTimetableQuery,
+  OdptTrainTimetable,
+  OdptTrainTimetableQuery,
+  OdptTrainType,
+  OdptTrainTypeQuery,
 } from "./OdptProvider";
 
 export const ODPT_API_ENDPOINT = "/api/odpt";
@@ -157,6 +169,39 @@ export class OdptApiProvider implements OdptProvider {
     return this.invoke<OdptDatapointResource>("datapoint", {
       dataUri: input.dataUri,
     });
+  }
+
+  // KAI-290 operations. Each sends only its allow-listed fields; the server
+  // boundary re-validates and rejects anything else.
+
+  calendar(input: OdptCalendarQuery = {}): Promise<OdptResult<OdptCalendar>> {
+    return this.invoke<OdptCalendar>("calendar", { ...input });
+  }
+
+  operator(input: OdptOperatorQuery = {}): Promise<OdptResult<OdptOperator>> {
+    return this.invoke<OdptOperator>("operator", { ...input });
+  }
+
+  trainType(input: OdptTrainTypeQuery): Promise<OdptResult<OdptTrainType>> {
+    return this.invoke<OdptTrainType>("train_type", { ...input });
+  }
+
+  railDirection(
+    input: OdptRailDirectionQuery,
+  ): Promise<OdptResult<OdptRailDirection>> {
+    return this.invoke<OdptRailDirection>("rail_direction", { ...input });
+  }
+
+  stationTimetable(
+    input: OdptStationTimetableQuery,
+  ): Promise<OdptResult<OdptStationTimetable>> {
+    return this.invoke<OdptStationTimetable>("station_timetable", { ...input });
+  }
+
+  trainTimetable(
+    input: OdptTrainTimetableQuery,
+  ): Promise<OdptResult<OdptTrainTimetable>> {
+    return this.invoke<OdptTrainTimetable>("train_timetable", { ...input });
   }
 
   private async invoke<T>(
