@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
@@ -8,11 +8,61 @@ import TripCard from "@/features/trips/components/TripCard";
 import TripEditor from "@/features/trips/components/TripEditor";
 import TripDatesEditor from "@/features/trips/components/TripDatesEditor";
 import TripDetails from "@/features/trips/TripDetails";
-import { Sparkles, Plus, Calendar, Bookmark, Compass, X } from "lucide-react";
+import {
+  Sparkles,
+  Plus,
+  Calendar,
+  Bookmark,
+  Compass,
+  Search,
+  X,
+} from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
+import { Input } from "@/shared/components/ui/input";
+import {
+  formatPrefecture,
+  localizePlaceLabel,
+} from "@/shared/utils/placeLabels";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 import ModalDialog from "@/shared/components/ui/ModalDialog";
 import { useTranslation } from "react-i18next";
+
+function getSavedDestinationSearchText(destination: Destination): string {
+  const localizedKinds = destination.kind
+    ? [
+        localizePlaceLabel(destination.kind, "en"),
+        localizePlaceLabel(destination.kind, "ja"),
+      ]
+    : [];
+  const localizedCategories = (destination.categories ?? []).flatMap(
+    (category) => [
+      category,
+      localizePlaceLabel(category, "en"),
+      localizePlaceLabel(category, "ja"),
+    ],
+  );
+
+  return [
+    destination.name,
+    destination.nameJa,
+    destination.content?.en?.name,
+    destination.content?.ja?.name,
+    destination.municipalityId,
+    destination.prefecture,
+    formatPrefecture(destination.prefecture, "ja"),
+    destination.region,
+    destination.kind,
+    ...localizedKinds,
+    destination.role,
+    destination.placeType,
+    destination.areaId,
+    ...localizedCategories,
+    ...(destination.aliases ?? []),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLocaleLowerCase();
+}
 
 export default function MyTrips() {
   const { t, i18n } = useTranslation();
@@ -49,6 +99,7 @@ export default function MyTrips() {
   const [cardEdit, setCardEdit] = useState<
     { tripId: string; mode: "rename" | "dates" } | undefined
   >();
+  const [savedSearch, setSavedSearch] = useState("");
 
   useEffect(() => {
     if (location.pathname === "/bucket-list" || paramTab === "bucketlist") {
@@ -71,6 +122,18 @@ export default function MyTrips() {
   const favoriteDestinations = allDestinations.filter((d) =>
     favorites.includes(d.id),
   );
+  const showSavedSearch = favoriteDestinations.length >= 8;
+  const normalizedSavedSearch = showSavedSearch
+    ? savedSearch.trim().toLocaleLowerCase()
+    : "";
+  const filteredFavoriteDestinations = useMemo(() => {
+    if (!normalizedSavedSearch) return favoriteDestinations;
+    return favoriteDestinations.filter((destination) =>
+      getSavedDestinationSearchText(destination).includes(
+        normalizedSavedSearch,
+      ),
+    );
+  }, [favoriteDestinations, normalizedSavedSearch]);
 
   const selectedTrip = trips.find((t) => t.id === selectedTripId);
   const cardEditingTrip = cardEdit
@@ -151,10 +214,14 @@ export default function MyTrips() {
     );
   }
 
+  const isBucketList = activeTab === "bucketlist";
+
   return (
-    <div className="container mx-auto px-4 py-12 max-w-7xl space-y-8">
+    <div
+      className={`container mx-auto max-w-7xl px-4 ${isBucketList ? "space-y-5 py-6 sm:space-y-6 sm:py-8" : "space-y-8 py-12"}`}
+    >
       {/* Shared Trips Sub-Navigation */}
-      <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2 dark:border-slate-800 sm:pb-3">
         <Link
           to="/my-trips"
           className={`flex items-center gap-2 px-4 py-2.5 sm:py-2 min-h-[44px] sm:min-h-[36px] rounded-xl text-xs font-bold transition-all ${
@@ -209,6 +276,7 @@ export default function MyTrips() {
             </Button>
           ) : undefined
         }
+        compact={isBucketList}
         stackActionsOnMobile
       />
 
@@ -283,7 +351,33 @@ export default function MyTrips() {
 
       {/* Bucket List Sub-Page */}
       {activeTab === "bucketlist" && (
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
+          {showSavedSearch && (
+            <div className="relative max-w-xl" data-testid="bucket-list-search">
+              <Search
+                aria-hidden="true"
+                className="pointer-events-none absolute left-3.5 top-1/2 z-10 size-4 -translate-y-1/2 text-slate-400"
+              />
+              <Input
+                type="search"
+                value={savedSearch}
+                onChange={(event) => setSavedSearch(event.target.value)}
+                aria-label={t("ui.bucketListSearchLabel")}
+                placeholder={t("ui.bucketListSearchPlaceholder")}
+                className="h-11 rounded-xl border-slate-200 bg-white pl-10 pr-12 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-900"
+              />
+              {savedSearch && (
+                <button
+                  type="button"
+                  aria-label={t("ui.clearBucketListSearch")}
+                  onClick={() => setSavedSearch("")}
+                  className="absolute right-1 top-1/2 inline-flex min-h-10 min-w-10 -translate-y-1/2 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+                >
+                  <X className="size-4" aria-hidden="true" />
+                </button>
+              )}
+            </div>
+          )}
           {favoriteDestinations.length === 0 ? (
             <div className="text-center py-20 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800 max-w-2xl mx-auto">
               <Bookmark className="w-16 h-16 mx-auto text-slate-300 dark:text-slate-700 mb-6" />
@@ -300,10 +394,22 @@ export default function MyTrips() {
                 </Button>
               </Link>
             </div>
+          ) : filteredFavoriteDestinations.length === 0 ? (
+            <div
+              role="status"
+              aria-live="polite"
+              className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-5 py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-300"
+            >
+              {t("ui.bucketListSearchNoResults")}
+            </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {favoriteDestinations.map((dest) => (
-                <DestinationCard key={dest.id} destination={dest} />
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8">
+              {filteredFavoriteDestinations.map((dest) => (
+                <DestinationCard
+                  key={dest.id}
+                  destination={dest}
+                  variant="saved"
+                />
               ))}
             </div>
           )}
