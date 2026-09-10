@@ -1,18 +1,101 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "tool": "kai-290-odpt-coverage",
-  "generatedAt": "2026-09-10T08:56:44.948Z",
+  "generatedAt": "2026-09-10T09:58:35.878Z",
   "boundaryUrl": "https://meguruto.app/api/odpt",
   "boundaryOnly": true,
   "countsAreLowerBounds": true,
   "requestBudget": {
     "maxRequests": 40,
-    "requestsMade": 14,
+    "requestsMade": 33,
     "delayMs": 400,
     "budgetExhausted": false,
     "rateLimitHalted": false
   },
   "sourceUrlSample": "https://api.odpt.org/api/v4/odpt:Station?odpt:operator=odpt.Operator%3AJR-East",
+  "calendar": {
+    "state": "records",
+    "recordCount": 174,
+    "sourceUrl": "https://api.odpt.org/api/v4/odpt:Calendar",
+    "retrievedAt": "2026-09-10T09:58:35.379Z"
+  },
+  "pilotScope": {
+    "included": [
+      {
+        "operator": "odpt.Operator:Toei",
+        "reason": "usable_timetable_evidence_returned",
+        "evidence": {
+          "stationTimetableProbes": 3,
+          "stationTimetableWithRecords": 3,
+          "trainTimetableProbes": 2,
+          "trainTimetableWithRecords": 0,
+          "trainTypeState": "records",
+          "railDirectionState": "records",
+          "trainIdentityProbeState": "records",
+          "resourceCoverage": {
+            "TrainType": "records",
+            "RailDirection": "records",
+            "StationTimetable": "records",
+            "TrainTimetable": "unknown"
+          },
+          "trainIdentityProbeCoverage": "records"
+        }
+      },
+      {
+        "operator": "odpt.Operator:TokyoMetro",
+        "reason": "usable_timetable_evidence_returned",
+        "evidence": {
+          "stationTimetableProbes": 3,
+          "stationTimetableWithRecords": 3,
+          "trainTimetableProbes": 2,
+          "trainTimetableWithRecords": 0,
+          "trainTypeState": "records",
+          "railDirectionState": "records",
+          "trainIdentityProbeState": "records",
+          "resourceCoverage": {
+            "TrainType": "records",
+            "RailDirection": "records",
+            "StationTimetable": "records",
+            "TrainTimetable": "unknown"
+          },
+          "trainIdentityProbeCoverage": "records"
+        }
+      }
+    ],
+    "excluded": [
+      {
+        "operator": "odpt.Operator:JR-East",
+        "reason": "no_usable_timetable_data_in_audited_corpus",
+        "statement": "In the bounded authenticated production audit, no usable JR-East TrainType, RailDirection, StationTimetable, or TrainTimetable data was returned across the sampled major stations and railways. JR-East therefore cannot participate in the current ODPT timetable-backed pilot.",
+        "emptyResources": [
+          "TrainType",
+          "RailDirection",
+          "StationTimetable",
+          "TrainTimetable"
+        ],
+        "recordBearingResources": [],
+        "evidence": {
+          "stationTimetableProbes": 3,
+          "stationTimetableWithRecords": 0,
+          "trainTimetableProbes": 2,
+          "trainTimetableWithRecords": 0,
+          "trainTypeState": "empty",
+          "railDirectionState": "empty",
+          "trainIdentityProbeState": null,
+          "resourceCoverage": {
+            "TrainType": "empty",
+            "RailDirection": "empty",
+            "StationTimetable": "empty",
+            "TrainTimetable": "empty"
+          },
+          "trainIdentityProbeCoverage": "absent"
+        }
+      }
+    ],
+    "inconclusive": [],
+    "staticEnrichmentNote": "Static enrichment may later supply station geography, stop ordering, topology and canonical mapping, but it does NOT provide timetable-backed journey duration while TrainTimetable/StationTimetable evidence is unavailable. Verified schedule duration for such operators may require a different authoritative source.",
+    "boundaryNote": "Broad StationTimetable queries and whole-railway TrainTimetable queries can exceed the Meguruto boundary's 1 MB response guard; the boundary fails closed with provider_response_too_large. The cap is not raised to normalise broad runtime requests; narrow train-identity queries are the runtime direction."
+  },
   "operators": [
     {
       "operator": "odpt.Operator:JR-East",
@@ -212,6 +295,97 @@
         "fields": null,
         "skippedReason": "no_fare_probe",
         "probe": null
+      },
+      "timetable": {
+        "trainType": {
+          "state": "empty",
+          "recordCount": 0,
+          "note": "provider returned a successful zero-record result"
+        },
+        "railDirection": {
+          "state": "empty",
+          "recordCount": 0,
+          "note": "provider returned a successful zero-record result"
+        },
+        "stationTimetable": {
+          "probeCount": 3,
+          "conclusiveCount": 3,
+          "coverageKnown": true,
+          "byState": {
+            "empty": 3
+          },
+          "results": [
+            {
+              "scope": {
+                "station": "odpt.Station:JR-East.ChuoSobuLocal.Tsudanuma",
+                "stationName": "津田沼"
+              },
+              "state": "empty",
+              "recordCount": 0,
+              "note": "provider returned a successful zero-record result"
+            },
+            {
+              "scope": {
+                "station": "odpt.Station:JR-East.Keiyo.Tokyo",
+                "stationName": "東京"
+              },
+              "state": "empty",
+              "recordCount": 0,
+              "note": "provider returned a successful zero-record result"
+            },
+            {
+              "scope": {
+                "station": "odpt.Station:JR-East.ChuoSobuLocal.Mitaka",
+                "stationName": "三鷹"
+              },
+              "state": "empty",
+              "recordCount": 0,
+              "note": "provider returned a successful zero-record result"
+            }
+          ]
+        },
+        "trainTimetable": {
+          "probeCount": 2,
+          "conclusiveCount": 2,
+          "coverageKnown": true,
+          "byState": {
+            "empty": 2
+          },
+          "results": [
+            {
+              "scope": {
+                "railway": "odpt.Railway:JR-East.ChuoSobuLocal"
+              },
+              "state": "empty",
+              "recordCount": 0,
+              "note": "provider returned a successful zero-record result"
+            },
+            {
+              "scope": {
+                "railway": "odpt.Railway:JR-East.Keiyo"
+              },
+              "state": "empty",
+              "recordCount": 0,
+              "note": "provider returned a successful zero-record result"
+            }
+          ]
+        },
+        "trainIdentityProbe": null,
+        "sampleSize": 3,
+        "conclusiveProbes": 7,
+        "totalProbes": 7,
+        "coverageKnown": true,
+        "scope": {
+          "stations": [
+            "odpt.Station:JR-East.ChuoSobuLocal.Tsudanuma",
+            "odpt.Station:JR-East.Keiyo.Tokyo",
+            "odpt.Station:JR-East.ChuoSobuLocal.Mitaka"
+          ],
+          "railways": [
+            "odpt.Railway:JR-East.ChuoSobuLocal",
+            "odpt.Railway:JR-East.Keiyo"
+          ]
+        }
       },
       "multilingualTitles": {
         "station": {
@@ -695,6 +869,115 @@
           "railway": "odpt.Railway:Toei.Arakawa"
         }
       },
+      "timetable": {
+        "trainType": {
+          "state": "records",
+          "recordCount": 8
+        },
+        "railDirection": {
+          "state": "records",
+          "recordCount": 3
+        },
+        "stationTimetable": {
+          "probeCount": 3,
+          "conclusiveCount": 3,
+          "coverageKnown": true,
+          "byState": {
+            "records": 3
+          },
+          "results": [
+            {
+              "scope": {
+                "station": "odpt.Station:Toei.Mita.Hakusan",
+                "stationName": "白山"
+              },
+              "state": "records",
+              "recordCount": 4,
+              "stopObjectCount": 752,
+              "calendarsObserved": [
+                "odpt.Calendar:SaturdayHoliday",
+                "odpt.Calendar:Weekday"
+              ]
+            },
+            {
+              "scope": {
+                "station": "odpt.Station:Toei.Mita.NishiTakashimadaira",
+                "stationName": "西高島平"
+              },
+              "state": "records",
+              "recordCount": 2,
+              "stopObjectCount": 355,
+              "calendarsObserved": [
+                "odpt.Calendar:SaturdayHoliday",
+                "odpt.Calendar:Weekday"
+              ]
+            },
+            {
+              "scope": {
+                "station": "odpt.Station:Toei.Asakusa.HonjoAzumabashi",
+                "stationName": "本所吾妻橋"
+              },
+              "state": "records",
+              "recordCount": 4,
+              "stopObjectCount": 877,
+              "calendarsObserved": [
+                "odpt.Calendar:SaturdayHoliday",
+                "odpt.Calendar:Weekday"
+              ]
+            }
+          ]
+        },
+        "trainTimetable": {
+          "probeCount": 2,
+          "conclusiveCount": 0,
+          "coverageKnown": false,
+          "byState": {
+            "too_large": 2
+          },
+          "results": [
+            {
+              "scope": {
+                "railway": "odpt.Railway:Toei.Mita"
+              },
+              "state": "too_large",
+              "note": "response exceeded the boundary byte guard; coverage unknown, not empty",
+              "detail": "provider_response_too_large"
+            },
+            {
+              "scope": {
+                "railway": "odpt.Railway:Toei.Asakusa"
+              },
+              "state": "too_large",
+              "note": "response exceeded the boundary byte guard; coverage unknown, not empty",
+              "detail": "provider_response_too_large"
+            }
+          ]
+        },
+        "trainIdentityProbe": {
+          "trainIdentity": "odpt.Train:Toei.Mita.535T",
+          "state": "records",
+          "recordCount": 2,
+          "trainNumber": "535T",
+          "originStation": ["odpt.Station:Toei.Mita.ShirokaneTakanawa"],
+          "destinationStation": ["odpt.Station:Toei.Mita.NishiTakashimadaira"],
+          "stopObjectCount": 25,
+          "needExtraFee": null,
+          "calendar": "odpt.Calendar:SaturdayHoliday",
+          "date": "2026-03-16T09:00:00+09:00"
+        },
+        "sampleSize": 3,
+        "conclusiveProbes": 6,
+        "totalProbes": 8,
+        "coverageKnown": false,
+        "scope": {
+          "stations": [
+            "odpt.Station:Toei.Mita.Hakusan",
+            "odpt.Station:Toei.Mita.NishiTakashimadaira",
+            "odpt.Station:Toei.Asakusa.HonjoAzumabashi"
+          ],
+          "railways": ["odpt.Railway:Toei.Mita", "odpt.Railway:Toei.Asakusa"]
+        }
+      },
       "multilingualTitles": {
         "station": {
           "languages": [
@@ -1042,6 +1325,120 @@
           "railway": "odpt.Railway:TokyoMetro.Marunouchi"
         }
       },
+      "timetable": {
+        "trainType": {
+          "state": "records",
+          "recordCount": 12
+        },
+        "railDirection": {
+          "state": "records",
+          "recordCount": 17
+        },
+        "stationTimetable": {
+          "probeCount": 3,
+          "conclusiveCount": 3,
+          "coverageKnown": true,
+          "byState": {
+            "records": 3
+          },
+          "results": [
+            {
+              "scope": {
+                "station": "odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
+                "stationName": "新宿"
+              },
+              "state": "records",
+              "recordCount": 4,
+              "stopObjectCount": 1060,
+              "calendarsObserved": [
+                "odpt.Calendar:SaturdayHoliday",
+                "odpt.Calendar:Weekday"
+              ]
+            },
+            {
+              "scope": {
+                "station": "odpt.Station:TokyoMetro.Chiyoda.Yushima",
+                "stationName": "湯島"
+              },
+              "state": "records",
+              "recordCount": 4,
+              "stopObjectCount": 914,
+              "calendarsObserved": [
+                "odpt.Calendar:SaturdayHoliday",
+                "odpt.Calendar:Weekday"
+              ]
+            },
+            {
+              "scope": {
+                "station": "odpt.Station:TokyoMetro.Chiyoda.KitaAyase",
+                "stationName": "北綾瀬"
+              },
+              "state": "records",
+              "recordCount": 2,
+              "stopObjectCount": 235,
+              "calendarsObserved": [
+                "odpt.Calendar:SaturdayHoliday",
+                "odpt.Calendar:Weekday"
+              ]
+            }
+          ]
+        },
+        "trainTimetable": {
+          "probeCount": 2,
+          "conclusiveCount": 0,
+          "coverageKnown": false,
+          "byState": {
+            "too_large": 2
+          },
+          "results": [
+            {
+              "scope": {
+                "railway": "odpt.Railway:TokyoMetro.Marunouchi"
+              },
+              "state": "too_large",
+              "note": "response exceeded the boundary byte guard; coverage unknown, not empty",
+              "detail": "provider_response_too_large"
+            },
+            {
+              "scope": {
+                "railway": "odpt.Railway:TokyoMetro.Chiyoda"
+              },
+              "state": "too_large",
+              "note": "response exceeded the boundary byte guard; coverage unknown, not empty",
+              "detail": "provider_response_too_large"
+            }
+          ]
+        },
+        "trainIdentityProbe": {
+          "trainIdentity": "odpt.Train:TokyoMetro.Marunouchi.B427",
+          "state": "records",
+          "recordCount": 1,
+          "trainNumber": "B427",
+          "originStation": ["odpt.Station:TokyoMetro.Marunouchi.Shinjuku"],
+          "destinationStation": [
+            "odpt.Station:TokyoMetro.Marunouchi.Ikebukuro"
+          ],
+          "stopObjectCount": 18,
+          "needExtraFee": null,
+          "calendar": "odpt.Calendar:SaturdayHoliday",
+          "date": "2026-05-28T15:00:00+09:00"
+        },
+        "sampleSize": 3,
+        "conclusiveProbes": 6,
+        "totalProbes": 8,
+        "coverageKnown": false,
+        "scope": {
+          "stations": [
+            "odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
+            "odpt.Station:TokyoMetro.Chiyoda.Yushima",
+            "odpt.Station:TokyoMetro.Chiyoda.KitaAyase"
+          ],
+          "railways": [
+            "odpt.Railway:TokyoMetro.Marunouchi",
+            "odpt.Railway:TokyoMetro.Chiyoda"
+          ]
+        }
+      },
       "multilingualTitles": {
         "station": {
           "languages": [
@@ -1140,36 +1537,12 @@
       }
     }
   ],
-  "pendingOperations": [
-    {
-      "operation": "calendar",
-      "state": "pending",
-      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
-    },
+  "referenceProbes": [
     {
       "operation": "operator",
-      "state": "pending",
-      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
-    },
-    {
-      "operation": "train_type",
-      "state": "pending",
-      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
-    },
-    {
-      "operation": "rail_direction",
-      "state": "pending",
-      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
-    },
-    {
-      "operation": "station_timetable",
-      "state": "pending",
-      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
-    },
-    {
-      "operation": "train_timetable",
-      "state": "pending",
-      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
+      "state": "available",
+      "recordCount": 42,
+      "outcome": "records"
     }
   ],
   "findings": [
@@ -1194,6 +1567,76 @@
       "kind": "connecting_station_absent",
       "operator": "odpt.Operator:JR-East",
       "total": 134
+    },
+    {
+      "kind": "timetable_probe_empty",
+      "operator": "odpt.Operator:JR-East",
+      "probe": "trainType"
+    },
+    {
+      "kind": "timetable_probe_empty",
+      "operator": "odpt.Operator:JR-East",
+      "probe": "railDirection"
+    },
+    {
+      "kind": "timetable_group_all_empty",
+      "operator": "odpt.Operator:JR-East",
+      "probe": "stationTimetable",
+      "probes": 3
+    },
+    {
+      "kind": "timetable_group_all_empty",
+      "operator": "odpt.Operator:JR-East",
+      "probe": "trainTimetable",
+      "probes": 2
+    },
+    {
+      "kind": "timetable_coverage_unknown_too_large",
+      "operator": "odpt.Operator:Toei",
+      "probe": "trainTimetable",
+      "scope": {
+        "railway": "odpt.Railway:Toei.Mita"
+      },
+      "detail": "response exceeded the boundary byte guard; coverage unknown, not empty"
+    },
+    {
+      "kind": "timetable_coverage_unknown_too_large",
+      "operator": "odpt.Operator:Toei",
+      "probe": "trainTimetable",
+      "scope": {
+        "railway": "odpt.Railway:Toei.Asakusa"
+      },
+      "detail": "response exceeded the boundary byte guard; coverage unknown, not empty"
+    },
+    {
+      "kind": "timetable_coverage_incomplete",
+      "operator": "odpt.Operator:Toei",
+      "conclusive": 6,
+      "total": 8
+    },
+    {
+      "kind": "timetable_coverage_unknown_too_large",
+      "operator": "odpt.Operator:TokyoMetro",
+      "probe": "trainTimetable",
+      "scope": {
+        "railway": "odpt.Railway:TokyoMetro.Marunouchi"
+      },
+      "detail": "response exceeded the boundary byte guard; coverage unknown, not empty"
+    },
+    {
+      "kind": "timetable_coverage_unknown_too_large",
+      "operator": "odpt.Operator:TokyoMetro",
+      "probe": "trainTimetable",
+      "scope": {
+        "railway": "odpt.Railway:TokyoMetro.Chiyoda"
+      },
+      "detail": "response exceeded the boundary byte guard; coverage unknown, not empty"
+    },
+    {
+      "kind": "timetable_coverage_incomplete",
+      "operator": "odpt.Operator:TokyoMetro",
+      "conclusive": 6,
+      "total": 8
     }
   ],
   "checks": {
