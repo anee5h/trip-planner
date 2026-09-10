@@ -1,0 +1,1204 @@
+{
+  "schemaVersion": 1,
+  "tool": "kai-290-odpt-coverage",
+  "generatedAt": "2026-09-10T08:56:44.948Z",
+  "boundaryUrl": "https://meguruto.app/api/odpt",
+  "boundaryOnly": true,
+  "countsAreLowerBounds": true,
+  "requestBudget": {
+    "maxRequests": 40,
+    "requestsMade": 14,
+    "delayMs": 400,
+    "budgetExhausted": false,
+    "rateLimitHalted": false
+  },
+  "sourceUrlSample": "https://api.odpt.org/api/v4/odpt:Station?odpt:operator=odpt.Operator%3AJR-East",
+  "operators": [
+    {
+      "operator": "odpt.Operator:JR-East",
+      "station": {
+        "state": "available",
+        "httpStatus": 200,
+        "outcome": "records",
+        "errorCode": null,
+        "error": null,
+        "recordCount": 134,
+        "countsAreLowerBounds": true,
+        "truncation": {
+          "count": 134,
+          "countsAreLowerBounds": true,
+          "isSuspiciousRoundNumber": false,
+          "note": null
+        },
+        "fields": {
+          "id": {
+            "filled": 134,
+            "total": 134,
+            "ratio": 1
+          },
+          "sameAs": {
+            "filled": 134,
+            "total": 134,
+            "ratio": 1
+          },
+          "ucode": {
+            "filled": 134,
+            "total": 134,
+            "ratio": 1
+          },
+          "title": {
+            "filled": 134,
+            "total": 134,
+            "ratio": 1
+          },
+          "stationTitle": {
+            "filled": 134,
+            "total": 134,
+            "ratio": 1
+          },
+          "operator": {
+            "filled": 134,
+            "total": 134,
+            "ratio": 1
+          },
+          "operatorTitle": {
+            "filled": 0,
+            "total": 134,
+            "ratio": 0
+          },
+          "railway": {
+            "filled": 134,
+            "total": 134,
+            "ratio": 1
+          },
+          "railwayTitle": {
+            "filled": 0,
+            "total": 134,
+            "ratio": 0
+          },
+          "stationCode": {
+            "filled": 0,
+            "total": 134,
+            "ratio": 0
+          },
+          "coordinates": {
+            "filled": 0,
+            "total": 134,
+            "ratio": 0
+          },
+          "connectingRailway": {
+            "filled": 0,
+            "total": 134,
+            "ratio": 0
+          },
+          "connectingStation": {
+            "filled": 0,
+            "total": 134,
+            "ratio": 0
+          },
+          "date": {
+            "filled": 134,
+            "total": 134,
+            "ratio": 1
+          },
+          "validUntil": {
+            "filled": 0,
+            "total": 134,
+            "ratio": 0
+          },
+          "provenance": {
+            "filled": 134,
+            "total": 134,
+            "ratio": 1
+          }
+        }
+      },
+      "railway": {
+        "state": "available",
+        "httpStatus": 200,
+        "outcome": "records",
+        "errorCode": null,
+        "error": null,
+        "recordCount": 24,
+        "countsAreLowerBounds": true,
+        "truncation": {
+          "count": 24,
+          "countsAreLowerBounds": true,
+          "isSuspiciousRoundNumber": false,
+          "note": null
+        },
+        "fields": {
+          "id": {
+            "filled": 24,
+            "total": 24,
+            "ratio": 1
+          },
+          "sameAs": {
+            "filled": 24,
+            "total": 24,
+            "ratio": 1
+          },
+          "title": {
+            "filled": 24,
+            "total": 24,
+            "ratio": 1
+          },
+          "railwayTitle": {
+            "filled": 24,
+            "total": 24,
+            "ratio": 1
+          },
+          "operator": {
+            "filled": 24,
+            "total": 24,
+            "ratio": 1
+          },
+          "operatorTitle": {
+            "filled": 0,
+            "total": 24,
+            "ratio": 0
+          },
+          "lineCode": {
+            "filled": 0,
+            "total": 24,
+            "ratio": 0
+          },
+          "color": {
+            "filled": 0,
+            "total": 24,
+            "ratio": 0
+          },
+          "ascendingRailDirection": {
+            "filled": 0,
+            "total": 24,
+            "ratio": 0
+          },
+          "descendingRailDirection": {
+            "filled": 0,
+            "total": 24,
+            "ratio": 0
+          },
+          "stationOrder": {
+            "filled": 0,
+            "total": 24,
+            "ratio": 0
+          },
+          "date": {
+            "filled": 24,
+            "total": 24,
+            "ratio": 1
+          },
+          "validUntil": {
+            "filled": 0,
+            "total": 24,
+            "ratio": 0
+          },
+          "provenance": {
+            "filled": 24,
+            "total": 24,
+            "ratio": 1
+          }
+        }
+      },
+      "railwayFare": {
+        "state": "skipped",
+        "httpStatus": null,
+        "outcome": null,
+        "errorCode": null,
+        "error": null,
+        "recordCount": null,
+        "countsAreLowerBounds": false,
+        "truncation": null,
+        "fields": null,
+        "skippedReason": "no_fare_probe",
+        "probe": null
+      },
+      "multilingualTitles": {
+        "station": {
+          "languages": [
+            {
+              "language": "en",
+              "count": 134
+            },
+            {
+              "language": "ja",
+              "count": 134
+            }
+          ],
+          "distinctLanguageCount": 2,
+          "recordsWithTitles": 134,
+          "recordsWithoutTitles": 0
+        },
+        "railway": {
+          "languages": [
+            {
+              "language": "en",
+              "count": 24
+            },
+            {
+              "language": "ja",
+              "count": 24
+            }
+          ],
+          "distinctLanguageCount": 2,
+          "recordsWithTitles": 24,
+          "recordsWithoutTitles": 0
+        },
+        "languages": ["en", "ja"]
+      },
+      "freshness": {
+        "station": {
+          "generatedAt": {
+            "distinct": 2,
+            "earliest": "2023-03-18T11:00:00+09:00",
+            "latest": "2024-03-27T09:00:00+09:00",
+            "example": "2023-03-18T11:00:00+09:00"
+          },
+          "validUntil": {
+            "distinct": 0,
+            "earliest": null,
+            "latest": null,
+            "example": null
+          }
+        },
+        "railway": {
+          "generatedAt": {
+            "distinct": 2,
+            "earliest": "2024-06-27T08:00:00+09:00",
+            "latest": "2024-08-29T16:00:00+09:00",
+            "example": "2024-06-27T08:00:00+09:00"
+          },
+          "validUntil": {
+            "distinct": 0,
+            "earliest": null,
+            "latest": null,
+            "example": null
+          }
+        }
+      },
+      "missingCoordinateStationIds": {
+        "count": 134,
+        "truncated": false,
+        "ids": [
+          "odpt.Station:JR-East.AkitaShinkansen.Tokyo",
+          "odpt.Station:JR-East.AkitaShinkansen.Ueno",
+          "odpt.Station:JR-East.ChuoRapid.Kanda",
+          "odpt.Station:JR-East.ChuoRapid.Nakano",
+          "odpt.Station:JR-East.ChuoRapid.Ochanomizu",
+          "odpt.Station:JR-East.ChuoRapid.Ogikubo",
+          "odpt.Station:JR-East.ChuoRapid.Shinjuku",
+          "odpt.Station:JR-East.ChuoRapid.Tachikawa",
+          "odpt.Station:JR-East.ChuoRapid.Tokyo",
+          "odpt.Station:JR-East.ChuoRapid.Yotsuya",
+          "odpt.Station:JR-East.ChuoSobuLocal.Akihabara",
+          "odpt.Station:JR-East.ChuoSobuLocal.Asakusabashi",
+          "odpt.Station:JR-East.ChuoSobuLocal.HigashiNakano",
+          "odpt.Station:JR-East.ChuoSobuLocal.Ichigaya",
+          "odpt.Station:JR-East.ChuoSobuLocal.Iidabashi",
+          "odpt.Station:JR-East.ChuoSobuLocal.Kinshicho",
+          "odpt.Station:JR-East.ChuoSobuLocal.Mitaka",
+          "odpt.Station:JR-East.ChuoSobuLocal.MotoYawata",
+          "odpt.Station:JR-East.ChuoSobuLocal.Nakano",
+          "odpt.Station:JR-East.ChuoSobuLocal.NishiFunabashi",
+          "odpt.Station:JR-East.ChuoSobuLocal.Ochanomizu",
+          "odpt.Station:JR-East.ChuoSobuLocal.Ogikubo",
+          "odpt.Station:JR-East.ChuoSobuLocal.Ryogoku",
+          "odpt.Station:JR-East.ChuoSobuLocal.Shinjuku",
+          "odpt.Station:JR-East.ChuoSobuLocal.Suidobashi",
+          "odpt.Station:JR-East.ChuoSobuLocal.Tsudanuma",
+          "odpt.Station:JR-East.ChuoSobuLocal.Yotsuya",
+          "odpt.Station:JR-East.ChuoSobuLocal.Yoyogi",
+          "odpt.Station:JR-East.HokurikuShinkansen.Tokyo",
+          "odpt.Station:JR-East.HokurikuShinkansen.Ueno",
+          "odpt.Station:JR-East.JobanLocal.Abiko",
+          "odpt.Station:JR-East.JobanLocal.Ayase",
+          "odpt.Station:JR-East.JobanLocal.Kashiwa",
+          "odpt.Station:JR-East.JobanLocal.Matsudo",
+          "odpt.Station:JR-East.JobanLocal.Toride",
+          "odpt.Station:JR-East.JobanRapid.KitaSenju",
+          "odpt.Station:JR-East.JobanRapid.MinamiSenju",
+          "odpt.Station:JR-East.JobanRapid.Nippori",
+          "odpt.Station:JR-East.JobanRapid.Shimbashi",
+          "odpt.Station:JR-East.JobanRapid.Tokyo",
+          "odpt.Station:JR-East.JobanRapid.Ueno",
+          "odpt.Station:JR-East.JoetsuShinkansen.Tokyo",
+          "odpt.Station:JR-East.JoetsuShinkansen.Ueno",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Akihabara",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Hamamatsucho",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Kanda",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Kannai",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Nippori",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.NishiNippori",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Oimachi",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Oji",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Okachimachi",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Sakuragicho",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Shimbashi",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.TakanawaGateway",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Tamachi",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Tokyo",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Ueno",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Yokohama",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Yurakucho",
+          "odpt.Station:JR-East.Keiyo.Hatchobori",
+          "odpt.Station:JR-East.Keiyo.NishiFunabashi",
+          "odpt.Station:JR-East.Keiyo.ShinKiba",
+          "odpt.Station:JR-East.Keiyo.Tokyo",
+          "odpt.Station:JR-East.Musashino.MinamiNagareyama",
+          "odpt.Station:JR-East.Musashino.NishiFunabashi",
+          "odpt.Station:JR-East.Nambu.Tachikawa",
+          "odpt.Station:JR-East.Ome.Tachikawa",
+          "odpt.Station:JR-East.SaikyoKawagoe.Akabane",
+          "odpt.Station:JR-East.SaikyoKawagoe.Ebisu",
+          "odpt.Station:JR-East.SaikyoKawagoe.Ikebukuro",
+          "odpt.Station:JR-East.SaikyoKawagoe.Itabashi",
+          "odpt.Station:JR-East.SaikyoKawagoe.Kawagoe",
+          "odpt.Station:JR-East.SaikyoKawagoe.MusashiUrawa",
+          "odpt.Station:JR-East.SaikyoKawagoe.Omiya",
+          "odpt.Station:JR-East.SaikyoKawagoe.Osaki",
+          "odpt.Station:JR-East.SaikyoKawagoe.Sashiogi",
+          "odpt.Station:JR-East.SaikyoKawagoe.Shibuya",
+          "odpt.Station:JR-East.SaikyoKawagoe.Shinjuku",
+          "odpt.Station:JR-East.ShonanShinjuku.Ebisu",
+          "odpt.Station:JR-East.ShonanShinjuku.Ikebukuro",
+          "odpt.Station:JR-East.ShonanShinjuku.Osaki",
+          "odpt.Station:JR-East.ShonanShinjuku.Shibuya",
+          "odpt.Station:JR-East.ShonanShinjuku.Shinjuku",
+          "odpt.Station:JR-East.ShonanShinjuku.Totsuka",
+          "odpt.Station:JR-East.ShonanShinjuku.Yokohama",
+          "odpt.Station:JR-East.SobuRapid.Bakurocho",
+          "odpt.Station:JR-East.SobuRapid.Kinshicho",
+          "odpt.Station:JR-East.SobuRapid.ShinNihombashi",
+          "odpt.Station:JR-East.SobuRapid.Tokyo",
+          "odpt.Station:JR-East.SotetsuDirect.Osaki",
+          "odpt.Station:JR-East.Takasaki.Tokyo",
+          "odpt.Station:JR-East.Takasaki.Ueno",
+          "odpt.Station:JR-East.TohokuShinkansen.Tokyo",
+          "odpt.Station:JR-East.TohokuShinkansen.Ueno",
+          "odpt.Station:JR-East.Tokaido.Shimbashi",
+          "odpt.Station:JR-East.Tokaido.Tokyo",
+          "odpt.Station:JR-East.Tokaido.Totsuka",
+          "odpt.Station:JR-East.Tokaido.Yokohama",
+          "odpt.Station:JR-East.Utsunomiya.Tokyo",
+          "odpt.Station:JR-East.Utsunomiya.Ueno",
+          "odpt.Station:JR-East.YamagataShinkansen.Tokyo",
+          "odpt.Station:JR-East.YamagataShinkansen.Ueno",
+          "odpt.Station:JR-East.Yamanote.Akihabara",
+          "odpt.Station:JR-East.Yamanote.Ebisu",
+          "odpt.Station:JR-East.Yamanote.Gotanda",
+          "odpt.Station:JR-East.Yamanote.Hamamatsucho",
+          "odpt.Station:JR-East.Yamanote.Harajuku",
+          "odpt.Station:JR-East.Yamanote.Ikebukuro",
+          "odpt.Station:JR-East.Yamanote.Kanda",
+          "odpt.Station:JR-East.Yamanote.Komagome",
+          "odpt.Station:JR-East.Yamanote.Meguro",
+          "odpt.Station:JR-East.Yamanote.Nippori",
+          "odpt.Station:JR-East.Yamanote.NishiNippori",
+          "odpt.Station:JR-East.Yamanote.Okachimachi",
+          "odpt.Station:JR-East.Yamanote.Osaki",
+          "odpt.Station:JR-East.Yamanote.Otsuka",
+          "odpt.Station:JR-East.Yamanote.Shibuya",
+          "odpt.Station:JR-East.Yamanote.Shimbashi",
+          "odpt.Station:JR-East.Yamanote.Shinjuku",
+          "odpt.Station:JR-East.Yamanote.Sugamo",
+          "odpt.Station:JR-East.Yamanote.Takadanobaba",
+          "odpt.Station:JR-East.Yamanote.TakanawaGateway",
+          "odpt.Station:JR-East.Yamanote.Tamachi",
+          "odpt.Station:JR-East.Yamanote.Tokyo",
+          "odpt.Station:JR-East.Yamanote.Ueno",
+          "odpt.Station:JR-East.Yamanote.Yoyogi",
+          "odpt.Station:JR-East.Yamanote.Yurakucho",
+          "odpt.Station:JR-East.Yokohama.Nakayama",
+          "odpt.Station:JR-East.Yokohama.ShinYokohama",
+          "odpt.Station:JR-East.Yokosuka.Shimbashi",
+          "odpt.Station:JR-East.Yokosuka.Tokyo",
+          "odpt.Station:JR-East.Yokosuka.Totsuka",
+          "odpt.Station:JR-East.Yokosuka.Yokohama"
+        ]
+      }
+    },
+    {
+      "operator": "odpt.Operator:Toei",
+      "station": {
+        "state": "available",
+        "httpStatus": 200,
+        "outcome": "records",
+        "errorCode": null,
+        "error": null,
+        "recordCount": 149,
+        "countsAreLowerBounds": true,
+        "truncation": {
+          "count": 149,
+          "countsAreLowerBounds": true,
+          "isSuspiciousRoundNumber": false,
+          "note": null
+        },
+        "fields": {
+          "id": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          },
+          "sameAs": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          },
+          "ucode": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          },
+          "title": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          },
+          "stationTitle": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          },
+          "operator": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          },
+          "operatorTitle": {
+            "filled": 0,
+            "total": 149,
+            "ratio": 0
+          },
+          "railway": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          },
+          "railwayTitle": {
+            "filled": 0,
+            "total": 149,
+            "ratio": 0
+          },
+          "stationCode": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          },
+          "coordinates": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          },
+          "connectingRailway": {
+            "filled": 73,
+            "total": 149,
+            "ratio": 0.4899
+          },
+          "connectingStation": {
+            "filled": 73,
+            "total": 149,
+            "ratio": 0.4899
+          },
+          "date": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          },
+          "validUntil": {
+            "filled": 0,
+            "total": 149,
+            "ratio": 0
+          },
+          "provenance": {
+            "filled": 149,
+            "total": 149,
+            "ratio": 1
+          }
+        }
+      },
+      "railway": {
+        "state": "available",
+        "httpStatus": 200,
+        "outcome": "records",
+        "errorCode": null,
+        "error": null,
+        "recordCount": 6,
+        "countsAreLowerBounds": true,
+        "truncation": {
+          "count": 6,
+          "countsAreLowerBounds": true,
+          "isSuspiciousRoundNumber": false,
+          "note": null
+        },
+        "fields": {
+          "id": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          },
+          "sameAs": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          },
+          "title": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          },
+          "railwayTitle": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          },
+          "operator": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          },
+          "operatorTitle": {
+            "filled": 0,
+            "total": 6,
+            "ratio": 0
+          },
+          "lineCode": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          },
+          "color": {
+            "filled": 4,
+            "total": 6,
+            "ratio": 0.6667
+          },
+          "ascendingRailDirection": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          },
+          "descendingRailDirection": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          },
+          "stationOrder": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          },
+          "date": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          },
+          "validUntil": {
+            "filled": 0,
+            "total": 6,
+            "ratio": 0
+          },
+          "provenance": {
+            "filled": 6,
+            "total": 6,
+            "ratio": 1
+          }
+        }
+      },
+      "railwayFare": {
+        "state": "available",
+        "httpStatus": 200,
+        "outcome": "records",
+        "errorCode": null,
+        "error": null,
+        "recordCount": 1,
+        "countsAreLowerBounds": false,
+        "truncation": {
+          "count": 1,
+          "countsAreLowerBounds": false,
+          "isSuspiciousRoundNumber": false,
+          "note": null
+        },
+        "fields": {
+          "id": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "sameAs": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "operator": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "fromStation": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "toStation": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "ticketFare": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "icCardFare": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "childTicketFare": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "childIcCardFare": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "viaStation": {
+            "filled": 0,
+            "total": 1,
+            "ratio": 0
+          },
+          "viaRailway": {
+            "filled": 0,
+            "total": 1,
+            "ratio": 0
+          },
+          "ticketType": {
+            "filled": 0,
+            "total": 1,
+            "ratio": 0
+          },
+          "paymentMethod": {
+            "filled": 0,
+            "total": 1,
+            "ratio": 0
+          },
+          "provenance": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          }
+        },
+        "probe": {
+          "fromStation": "odpt.Station:Toei.Arakawa.Minowabashi",
+          "toStation": "odpt.Station:Toei.Arakawa.ArakawaItchumae",
+          "railway": "odpt.Railway:Toei.Arakawa"
+        }
+      },
+      "multilingualTitles": {
+        "station": {
+          "languages": [
+            {
+              "language": "en",
+              "count": 149
+            },
+            {
+              "language": "ja",
+              "count": 149
+            }
+          ],
+          "distinctLanguageCount": 2,
+          "recordsWithTitles": 149,
+          "recordsWithoutTitles": 0
+        },
+        "railway": {
+          "languages": [
+            {
+              "language": "en",
+              "count": 6
+            },
+            {
+              "language": "ja",
+              "count": 6
+            }
+          ],
+          "distinctLanguageCount": 2,
+          "recordsWithTitles": 6,
+          "recordsWithoutTitles": 0
+        },
+        "languages": ["en", "ja"]
+      },
+      "freshness": {
+        "station": {
+          "generatedAt": {
+            "distinct": 3,
+            "earliest": "2021-08-17T10:00:00+09:00",
+            "latest": "2024-06-27T08:00:00+09:00",
+            "example": "2021-08-17T10:00:00+09:00"
+          },
+          "validUntil": {
+            "distinct": 0,
+            "earliest": null,
+            "latest": null,
+            "example": null
+          }
+        },
+        "railway": {
+          "generatedAt": {
+            "distinct": 1,
+            "earliest": "2024-06-27T08:00:00+09:00",
+            "latest": "2024-06-27T08:00:00+09:00",
+            "example": "2024-06-27T08:00:00+09:00"
+          },
+          "validUntil": {
+            "distinct": 0,
+            "earliest": null,
+            "latest": null,
+            "example": null
+          }
+        }
+      },
+      "missingCoordinateStationIds": {
+        "count": 0,
+        "truncated": false,
+        "ids": []
+      }
+    },
+    {
+      "operator": "odpt.Operator:TokyoMetro",
+      "station": {
+        "state": "available",
+        "httpStatus": 200,
+        "outcome": "records",
+        "errorCode": null,
+        "error": null,
+        "recordCount": 186,
+        "countsAreLowerBounds": true,
+        "truncation": {
+          "count": 186,
+          "countsAreLowerBounds": true,
+          "isSuspiciousRoundNumber": false,
+          "note": null
+        },
+        "fields": {
+          "id": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          },
+          "sameAs": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          },
+          "ucode": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          },
+          "title": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          },
+          "stationTitle": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          },
+          "operator": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          },
+          "operatorTitle": {
+            "filled": 0,
+            "total": 186,
+            "ratio": 0
+          },
+          "railway": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          },
+          "railwayTitle": {
+            "filled": 0,
+            "total": 186,
+            "ratio": 0
+          },
+          "stationCode": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          },
+          "coordinates": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          },
+          "connectingRailway": {
+            "filled": 129,
+            "total": 186,
+            "ratio": 0.6935
+          },
+          "connectingStation": {
+            "filled": 129,
+            "total": 186,
+            "ratio": 0.6935
+          },
+          "date": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          },
+          "validUntil": {
+            "filled": 0,
+            "total": 186,
+            "ratio": 0
+          },
+          "provenance": {
+            "filled": 186,
+            "total": 186,
+            "ratio": 1
+          }
+        }
+      },
+      "railway": {
+        "state": "available",
+        "httpStatus": 200,
+        "outcome": "records",
+        "errorCode": null,
+        "error": null,
+        "recordCount": 10,
+        "countsAreLowerBounds": true,
+        "truncation": {
+          "count": 10,
+          "countsAreLowerBounds": true,
+          "isSuspiciousRoundNumber": false,
+          "note": null
+        },
+        "fields": {
+          "id": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "sameAs": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "title": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "railwayTitle": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "operator": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "operatorTitle": {
+            "filled": 0,
+            "total": 10,
+            "ratio": 0
+          },
+          "lineCode": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "color": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "ascendingRailDirection": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "descendingRailDirection": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "stationOrder": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "date": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          },
+          "validUntil": {
+            "filled": 0,
+            "total": 10,
+            "ratio": 0
+          },
+          "provenance": {
+            "filled": 10,
+            "total": 10,
+            "ratio": 1
+          }
+        }
+      },
+      "railwayFare": {
+        "state": "available",
+        "httpStatus": 200,
+        "outcome": "records",
+        "errorCode": null,
+        "error": null,
+        "recordCount": 1,
+        "countsAreLowerBounds": false,
+        "truncation": {
+          "count": 1,
+          "countsAreLowerBounds": false,
+          "isSuspiciousRoundNumber": false,
+          "note": null
+        },
+        "fields": {
+          "id": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "sameAs": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "operator": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "fromStation": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "toStation": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "ticketFare": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "icCardFare": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "childTicketFare": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "childIcCardFare": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          },
+          "viaStation": {
+            "filled": 0,
+            "total": 1,
+            "ratio": 0
+          },
+          "viaRailway": {
+            "filled": 0,
+            "total": 1,
+            "ratio": 0
+          },
+          "ticketType": {
+            "filled": 0,
+            "total": 1,
+            "ratio": 0
+          },
+          "paymentMethod": {
+            "filled": 0,
+            "total": 1,
+            "ratio": 0
+          },
+          "provenance": {
+            "filled": 1,
+            "total": 1,
+            "ratio": 1
+          }
+        },
+        "probe": {
+          "fromStation": "odpt.Station:TokyoMetro.Marunouchi.Ogikubo",
+          "toStation": "odpt.Station:TokyoMetro.Marunouchi.MinamiAsagaya",
+          "railway": "odpt.Railway:TokyoMetro.Marunouchi"
+        }
+      },
+      "multilingualTitles": {
+        "station": {
+          "languages": [
+            {
+              "language": "en",
+              "count": 186
+            },
+            {
+              "language": "ja",
+              "count": 186
+            },
+            {
+              "language": "ja-Hrkt",
+              "count": 186
+            },
+            {
+              "language": "ko",
+              "count": 186
+            },
+            {
+              "language": "zh-Hans",
+              "count": 186
+            },
+            {
+              "language": "zh-Hant",
+              "count": 186
+            }
+          ],
+          "distinctLanguageCount": 6,
+          "recordsWithTitles": 186,
+          "recordsWithoutTitles": 0
+        },
+        "railway": {
+          "languages": [
+            {
+              "language": "en",
+              "count": 10
+            },
+            {
+              "language": "ja",
+              "count": 10
+            },
+            {
+              "language": "ko",
+              "count": 9
+            },
+            {
+              "language": "zh-Hans",
+              "count": 9
+            },
+            {
+              "language": "zh-Hant",
+              "count": 9
+            }
+          ],
+          "distinctLanguageCount": 5,
+          "recordsWithTitles": 10,
+          "recordsWithoutTitles": 0
+        },
+        "languages": ["en", "ja", "ja-Hrkt", "ko", "zh-Hans", "zh-Hant"]
+      },
+      "freshness": {
+        "station": {
+          "generatedAt": {
+            "distinct": 4,
+            "earliest": "2022-03-15T11:00:00+09:00",
+            "latest": "2025-05-29T14:00:00+09:00",
+            "example": "2022-03-15T11:00:00+09:00"
+          },
+          "validUntil": {
+            "distinct": 0,
+            "earliest": null,
+            "latest": null,
+            "example": null
+          }
+        },
+        "railway": {
+          "generatedAt": {
+            "distinct": 2,
+            "earliest": "2024-06-27T08:00:00+09:00",
+            "latest": "2025-05-29T14:00:00+09:00",
+            "example": "2024-06-27T08:00:00+09:00"
+          },
+          "validUntil": {
+            "distinct": 0,
+            "earliest": null,
+            "latest": null,
+            "example": null
+          }
+        }
+      },
+      "missingCoordinateStationIds": {
+        "count": 0,
+        "truncated": false,
+        "ids": []
+      }
+    }
+  ],
+  "pendingOperations": [
+    {
+      "operation": "calendar",
+      "state": "pending",
+      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
+    },
+    {
+      "operation": "operator",
+      "state": "pending",
+      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
+    },
+    {
+      "operation": "train_type",
+      "state": "pending",
+      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
+    },
+    {
+      "operation": "rail_direction",
+      "state": "pending",
+      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
+    },
+    {
+      "operation": "station_timetable",
+      "state": "pending",
+      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
+    },
+    {
+      "operation": "train_timetable",
+      "state": "pending",
+      "evidence": "unsupported_operation (HTTP 400) — pending deployment"
+    }
+  ],
+  "findings": [
+    {
+      "kind": "station_coordinates_missing",
+      "operator": "odpt.Operator:JR-East",
+      "missing": 134,
+      "total": 134
+    },
+    {
+      "kind": "railway_station_order_missing",
+      "operator": "odpt.Operator:JR-East",
+      "missing": 24,
+      "total": 24
+    },
+    {
+      "kind": "railway_line_code_absent",
+      "operator": "odpt.Operator:JR-East",
+      "total": 24
+    },
+    {
+      "kind": "connecting_station_absent",
+      "operator": "odpt.Operator:JR-East",
+      "total": 134
+    }
+  ],
+  "checks": {
+    "boundaryOnly": true,
+    "noCredentialLeak": true,
+    "operatorCount": 3
+  }
+}

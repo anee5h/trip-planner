@@ -160,6 +160,58 @@ export const OPERATION_SCHEMAS = Object.freeze({
     pathParams: ["dataUri"],
     queryParams: [],
   },
+  // KAI-290: reference/enumeration resources. These are bounded provider lists
+  // (the set of calendars, operators, directions, train types), so they may be
+  // read without a narrowing filter. Timetables below may not.
+  calendar: {
+    resource: "odpt:Calendar",
+    pathParams: [],
+    queryParams: ["sameAs"],
+  },
+  operator: {
+    resource: "odpt:Operator",
+    pathParams: [],
+    queryParams: ["sameAs"],
+  },
+  train_type: {
+    resource: "odpt:TrainType",
+    pathParams: [],
+    queryParams: ["sameAs", "operator"],
+  },
+  rail_direction: {
+    resource: "odpt:RailDirection",
+    pathParams: [],
+    queryParams: ["sameAs", "operator"],
+  },
+  // KAI-290: timetable resources are per-station / per-train and potentially
+  // enormous, so every one of them requires at least one narrowing filter.
+  // A broad timetable query must never become normal runtime behaviour.
+  station_timetable: {
+    resource: "odpt:StationTimetable",
+    pathParams: [],
+    queryParams: [
+      "sameAs",
+      "station",
+      "railway",
+      "operator",
+      "railDirection",
+      "calendar",
+      "date",
+    ],
+  },
+  train_timetable: {
+    resource: "odpt:TrainTimetable",
+    pathParams: [],
+    queryParams: [
+      "sameAs",
+      "trainNumber",
+      "railway",
+      "operator",
+      "trainType",
+      "train",
+      "calendar",
+    ],
+  },
 });
 
 /** Caller field name → documented ODPT query parameter name. */
@@ -175,7 +227,77 @@ export const FILTER_PARAM_NAMES = Object.freeze({
   lat: "lat",
   lon: "lon",
   radius: "radius",
+  // KAI-290 timetable / reference-resource filters (API v4.16 §2.2, §3.2.6,
+  // §3.2.9). Only parameter names the specification documents are listed here.
+  station: "odpt:station",
+  railDirection: "odpt:railDirection",
+  calendar: "odpt:calendar",
+  date: "dc:date",
+  trainNumber: "odpt:trainNumber",
+  trainType: "odpt:trainType",
+  train: "odpt:train",
 });
+
+/**
+ * How each accepted input is validated. Keeping this beside the parameter
+ * mapping means a newly added filter cannot be validated by accident as free
+ * text, and identity-shaped inputs can never become arbitrary provider values.
+ */
+export const FILTER_KINDS = Object.freeze({
+  sameAs: "identity",
+  operator: "identity",
+  railway: "identity",
+  railDirection: "identity",
+  calendar: "identity",
+  trainType: "identity",
+  train: "identity",
+  station: "stationIdentity",
+  fromStation: "stationIdentity",
+  toStation: "stationIdentity",
+  title: "text",
+  stationCode: "text",
+  lineCode: "text",
+  trainNumber: "trainNumber",
+  date: "date",
+  // Geographic search inputs. Declared here so every mapped ODPT parameter has
+  // an explicit validation kind; the documented WGS84/0–4,000 m bounds are
+  // additionally enforced by the nearby_stations branch.
+  lat: "number",
+  lon: "number",
+  radius: "number",
+});
+
+/**
+ * KAI-290 operations that read a bounded provider enumeration list. They may be
+ * requested without a narrowing filter.
+ */
+export const REFERENCE_OPERATIONS = Object.freeze(
+  new Set(["calendar", "operator", "train_type", "rail_direction"]),
+);
+
+/**
+ * KAI-290 operations that read potentially unbounded per-station / per-train
+ * timetables and therefore always require a narrowing filter.
+ */
+export const TIMETABLE_OPERATIONS = Object.freeze(
+  new Set(["station_timetable", "train_timetable"]),
+);
+
+/**
+ * Operations whose result set is unbounded enough that ODPT's silent
+ * truncation could hide data. These require at least one narrowing filter so a
+ * response is never mistaken for complete provider coverage (§1.3.1).
+ *
+ * `calendar` / `operator` / `train_type` / `rail_direction` are documented
+ * enumeration lists and `datapoint` addresses one exact resource, so they are
+ * intentionally excluded.
+ */
+export const OPERATIONS_REQUIRING_FILTER = Object.freeze([
+  "station",
+  "railway",
+  "railway_fare",
+  ...TIMETABLE_OPERATIONS,
+]);
 
 function isRecord(value) {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -211,6 +333,57 @@ function validTextFilter(value) {
     value.length <= 80 &&
     value.trim() === value
   );
+}
+
+/** ODPT train numbers are short opaque tokens, e.g. `123M`, `B1045S`. */
+function validTrainNumber(value) {
+  return (
+    typeof value === "string" &&
+    value.length > 0 &&
+    value.length <= 32 &&
+    /^[A-Za-z0-9._-]+$/.test(value)
+  );
+}
+
+/**
+ * `dc:date` on StationTimetable acquires the timetable for a specific date.
+ * Accept an ISO8601 date or date-time and nothing else, so the value can never
+ * carry provider query syntax.
+ */
+function validDateFilter(value) {
+  if (typeof value !== "string" || value.length === 0 || value.length > 40) {
+    return false;
+  }
+  if (!/^\d{4}-\d{2}-\d{2}(T[\d:.]+([+-]\d{2}:?\d{2}|Z)?)?$/.test(value)) {
+    return false;
+  }
+  return !Number.isNaN(Date.parse(value));
+}
+
+/**
+ * Applies the declared validation kind for one caller-supplied input.
+ * @returns {string|undefined} an error code, or undefined when valid.
+ */
+function validateFilterValue(filter, value) {
+  const kind = FILTER_KINDS[filter];
+  switch (kind) {
+    case "identity":
+      return validIdentity(value) ? undefined : `invalid_${filter}`;
+    case "stationIdentity":
+      return validStationIdentity(value) ? undefined : `invalid_${filter}`;
+    case "text":
+      return validTextFilter(value) ? undefined : `invalid_${filter}`;
+    case "trainNumber":
+      return validTrainNumber(value) ? undefined : `invalid_${filter}`;
+    case "date":
+      return validDateFilter(value) ? undefined : `invalid_${filter}`;
+    case "number":
+      return isFiniteNumber(value) ? undefined : `invalid_${filter}`;
+    default:
+      // A declared query input with no validation kind is a schema mistake.
+      // Fail closed rather than accepting the value unvalidated.
+      return `unsupported_filter_${filter}`;
+  }
 }
 
 /**
@@ -351,6 +524,35 @@ export function validateOdptRequest(body) {
       if (!validTextFilter(value)) {
         return { ok: false, error: `invalid_${filter}` };
       }
+    }
+    return { ok: true, body, operation };
+  }
+
+  // KAI-290: reference/enumeration resources. Every declared input is
+  // validated by its declared kind; no filter is mandatory because these are
+  // bounded provider lists rather than unbounded searches.
+  if (REFERENCE_OPERATIONS.has(operation)) {
+    for (const filter of schema.queryParams) {
+      if (body[filter] === undefined) continue;
+      const error = validateFilterValue(filter, body[filter]);
+      if (error) return { ok: false, error };
+    }
+    return { ok: true, body, operation };
+  }
+
+  // KAI-290: timetable resources. Narrowing is mandatory and every input is
+  // validated by kind, so a caller can never widen a timetable query or smuggle
+  // a non-identity value into an identity-shaped parameter.
+  if (TIMETABLE_OPERATIONS.has(operation)) {
+    const present = schema.queryParams.filter(
+      (filter) => body[filter] !== undefined,
+    );
+    if (present.length === 0) {
+      return { ok: false, error: "unfiltered_search_not_allowed" };
+    }
+    for (const filter of present) {
+      const error = validateFilterValue(filter, body[filter]);
+      if (error) return { ok: false, error };
     }
     return { ok: true, body, operation };
   }
@@ -667,9 +869,364 @@ function normalizeDatapointByType(raw, sourceUrl, fetchedAt) {
       return normalizeRailway(raw, sourceUrl, fetchedAt);
     case "odpt:RailwayFare":
       return normalizeRailwayFare(raw, sourceUrl, fetchedAt);
+    case "odpt:Calendar":
+      return normalizeCalendar(raw, sourceUrl, fetchedAt);
+    case "odpt:Operator":
+      return normalizeOperatorRecord(raw, sourceUrl, fetchedAt);
+    case "odpt:RailDirection":
+      return normalizeRailDirection(raw, sourceUrl, fetchedAt);
+    case "odpt:TrainType":
+      return normalizeTrainType(raw, sourceUrl, fetchedAt);
+    case "odpt:StationTimetable":
+      return normalizeStationTimetable(raw, sourceUrl, fetchedAt);
+    case "odpt:TrainTimetable":
+      return normalizeTrainTimetable(raw, sourceUrl, fetchedAt);
     default:
       return normalizeDatapoint(raw, sourceUrl, fetchedAt);
   }
+}
+
+/**
+ * ODPT time values are plain clock times (e.g. "05:08"), NOT dates. The service
+ * day is not embedded in each event, so midnight rollover has to be derived
+ * from sequence order later (see the client-side chronology helper). Normalizing
+ * here keeps the provider's literal value and does not guess a date.
+ */
+const ODPT_TIME_PATTERN = /^([01]\d|2[0-3]):[0-5]\d(:[0-5]\d)?$/;
+
+function optionalTime(value) {
+  return typeof value === "string" && ODPT_TIME_PATTERN.test(value)
+    ? value
+    : null;
+}
+
+/** A list of multilingual title objects, e.g. `odpt:trainName`. */
+function multilingualList(value) {
+  if (!Array.isArray(value)) return [];
+  const out = [];
+  for (const entry of value) {
+    const title = multilingualTitle(entry);
+    if (title) out.push(title);
+  }
+  return out;
+}
+
+/**
+ * `odpt:isLast` / `odpt:isOrigin` are documented as "omitted if not ...", so an
+ * absent value means false. `odpt:needExtraFee` carries no such guarantee, so it
+ * is preserved as null (unknown) when absent rather than assumed false — the
+ * difference decides whether a base fare may be presented as the full price.
+ */
+function specOmittedBoolean(value) {
+  return value === true;
+}
+
+function triStateBoolean(value) {
+  return typeof value === "boolean" ? value : null;
+}
+
+function optionalInteger(value) {
+  return Number.isInteger(value) ? value : null;
+}
+
+function multilingualNote(raw) {
+  return multilingualTitle(raw["odpt:note"]);
+}
+
+/**
+ * Normalizes one odpt:Calendar record (§2.3.1).
+ *
+ * The specification's precedence rules (Specific.* overrides base; Holiday
+ * overrides Saturday; multiple applicable Specific calendars merge) are applied
+ * by the client-side resolver, which needs the raw `odpt:day` and
+ * `odpt:duration` evidence. Nothing is collapsed to a weekday/saturday/holiday
+ * triple here.
+ */
+export function normalizeCalendar(raw, sourceUrl, fetchedAt) {
+  if (!isRecord(raw)) return malformedRecord();
+  const sameAs = optionalString(raw["owl:sameAs"]);
+  if (!sameAs) return malformedRecord();
+
+  const day = stringArray(raw["odpt:day"]);
+  const duration = optionalString(raw["odpt:duration"]);
+
+  return {
+    record: {
+      id: sameAs,
+      sameAs,
+      ucode: optionalString(raw["@id"]),
+      title: optionalString(raw["dc:title"]),
+      calendarTitle: multilingualTitle(raw["odpt:calendarTitle"]),
+      /** ISO8601 dates on which this calendar explicitly applies. */
+      day,
+      /** ISO8601 validity period, `start/end`. */
+      duration,
+      /**
+       * `Specific.*` calendars take precedence over base calendars (§2.3.1).
+       * Derived here so consumers do not re-implement the naming rule.
+       */
+      isSpecific: sameAs.startsWith("odpt.Calendar:Specific."),
+      date: optionalString(raw["dc:date"]),
+      provenance: recordProvenance(
+        raw,
+        OPERATION_SCHEMAS.calendar.resource,
+        sourceUrl,
+        fetchedAt,
+      ),
+    },
+  };
+}
+
+/** Normalizes one odpt:Operator record (§2.3.2). */
+export function normalizeOperatorRecord(raw, sourceUrl, fetchedAt) {
+  if (!isRecord(raw)) return malformedRecord();
+  const sameAs = optionalString(raw["owl:sameAs"]);
+  if (!sameAs) return malformedRecord();
+
+  return {
+    record: {
+      id: sameAs,
+      sameAs,
+      ucode: optionalString(raw["@id"]),
+      title: optionalString(raw["dc:title"]),
+      operatorTitle: multilingualTitle(raw["odpt:operatorTitle"]),
+      date: optionalString(raw["dc:date"]),
+      provenance: recordProvenance(
+        raw,
+        OPERATION_SCHEMAS.operator.resource,
+        sourceUrl,
+        fetchedAt,
+      ),
+    },
+  };
+}
+
+/** Normalizes one odpt:RailDirection record (§3.3.2). */
+export function normalizeRailDirection(raw, sourceUrl, fetchedAt) {
+  if (!isRecord(raw)) return malformedRecord();
+  const sameAs = optionalString(raw["owl:sameAs"]);
+  if (!sameAs) return malformedRecord();
+
+  return {
+    record: {
+      id: sameAs,
+      sameAs,
+      ucode: optionalString(raw["@id"]),
+      title: optionalString(raw["dc:title"]),
+      railDirectionTitle: multilingualTitle(raw["odpt:railDirectionTitle"]),
+      date: optionalString(raw["dc:date"]),
+      provenance: recordProvenance(
+        raw,
+        OPERATION_SCHEMAS.rail_direction.resource,
+        sourceUrl,
+        fetchedAt,
+      ),
+    },
+  };
+}
+
+/** Normalizes one odpt:TrainType record (§3.3.10). */
+export function normalizeTrainType(raw, sourceUrl, fetchedAt) {
+  if (!isRecord(raw)) return malformedRecord();
+  const sameAs = optionalString(raw["owl:sameAs"]);
+  if (!sameAs) return malformedRecord();
+
+  return {
+    record: {
+      id: sameAs,
+      sameAs,
+      ucode: optionalString(raw["@id"]),
+      operator: optionalString(raw["odpt:operator"]),
+      operatorTitle: multilingualTitle(raw["odpt:operatorTitle"]),
+      title: optionalString(raw["dc:title"]),
+      trainTypeTitle: multilingualTitle(raw["odpt:trainTypeTitle"]),
+      date: optionalString(raw["dc:date"]),
+      provenance: recordProvenance(
+        raw,
+        OPERATION_SCHEMAS.train_type.resource,
+        sourceUrl,
+        fetchedAt,
+      ),
+    },
+  };
+}
+
+/**
+ * Normalizes one `odpt:stationTimetableObject` (§3.3.6). The object describes a
+ * train's arrival/departure at ONE station, with the departure/arrival station
+ * lists carrying that train's wider service context — it is not by itself an
+ * end-to-end journey.
+ */
+function stationTimetableObject(entry) {
+  if (!isRecord(entry)) return null;
+  return {
+    arrivalTime: optionalTime(entry["odpt:arrivalTime"]),
+    departureTime: optionalTime(entry["odpt:departureTime"]),
+    originStation: stringArray(entry["odpt:originStation"]),
+    destinationStation: stringArray(entry["odpt:destinationStation"]),
+    viaStation: stringArray(entry["odpt:viaStation"]),
+    viaRailway: stringArray(entry["odpt:viaRailway"]),
+    train: optionalString(entry["odpt:train"]),
+    trainNumber: optionalString(entry["odpt:trainNumber"]),
+    trainType: optionalString(entry["odpt:trainType"]),
+    trainName: multilingualList(entry["odpt:trainName"]),
+    trainOwner: optionalString(entry["odpt:trainOwner"]),
+    // Documented as "omitted if not ...", so absence means false.
+    isLast: specOmittedBoolean(entry["odpt:isLast"]),
+    isOrigin: specOmittedBoolean(entry["odpt:isOrigin"]),
+    platformNumber: optionalString(entry["odpt:platformNumber"]),
+    platformName: multilingualTitle(entry["odpt:platformName"]),
+    carComposition: optionalInteger(entry["odpt:carComposition"]),
+    note: multilingualNote(entry),
+  };
+}
+
+/**
+ * Normalizes one odpt:StationTimetable record (§3.3.6).
+ *
+ * This is departure/arrival evidence at a single station. It is deliberately NOT
+ * converted into a journey: the specification's ordering of
+ * `odpt:stationTimetableObject` is not a stop-by-stop path, so a duration cannot
+ * be derived from it alone.
+ */
+export function normalizeStationTimetable(raw, sourceUrl, fetchedAt) {
+  if (!isRecord(raw)) return malformedRecord();
+  const sameAs = optionalString(raw["owl:sameAs"]);
+  if (!sameAs) return malformedRecord();
+
+  const rawObjects = raw["odpt:stationTimetableObject"];
+  if (!Array.isArray(rawObjects)) {
+    return malformedRecord("malformed_timetable_objects");
+  }
+  const objects = [];
+  for (const entry of rawObjects) {
+    const normalized = stationTimetableObject(entry);
+    if (normalized === null) {
+      return malformedRecord("malformed_timetable_objects");
+    }
+    objects.push(normalized);
+  }
+
+  return {
+    record: {
+      id: sameAs,
+      sameAs,
+      ucode: optionalString(raw["@id"]),
+      operator: optionalString(raw["odpt:operator"]),
+      operatorTitle: multilingualTitle(raw["odpt:operatorTitle"]),
+      railway: optionalString(raw["odpt:railway"]),
+      railwayTitle: multilingualTitle(raw["odpt:railwayTitle"]),
+      station: optionalString(raw["odpt:station"]),
+      stationTitle: multilingualTitle(raw["odpt:stationTitle"]),
+      railDirection: optionalString(raw["odpt:railDirection"]),
+      railDirectionTitle: multilingualTitle(raw["odpt:railDirectionTitle"]),
+      calendar: optionalString(raw["odpt:calendar"]),
+      objects,
+      objectCount: objects.length,
+      note: multilingualNote(raw),
+      date: optionalString(raw["dc:date"]),
+      issuedAt: optionalString(raw["dct:issued"]),
+      validUntil: optionalString(raw["dct:valid"]),
+      provenance: recordProvenance(
+        raw,
+        OPERATION_SCHEMAS.station_timetable.resource,
+        sourceUrl,
+        fetchedAt,
+      ),
+    },
+  };
+}
+
+/** Normalizes one `odpt:trainTimetableObject` (§3.3.9). */
+function trainTimetableObject(entry) {
+  if (!isRecord(entry)) return null;
+  return {
+    arrivalTime: optionalTime(entry["odpt:arrivalTime"]),
+    arrivalStation: optionalString(entry["odpt:arrivalStation"]),
+    departureTime: optionalTime(entry["odpt:departureTime"]),
+    departureStation: optionalString(entry["odpt:departureStation"]),
+    platformNumber: optionalString(entry["odpt:platformNumber"]),
+    platformName: multilingualTitle(entry["odpt:platformName"]),
+    note: multilingualNote(entry),
+  };
+}
+
+/**
+ * Normalizes one odpt:TrainTimetable record (§3.3.9).
+ *
+ * This is the stronger primitive for later journey reconstruction because
+ * `odpt:trainTimetableObject` carries the ordered stop-by-stop
+ * arrival/departure station/time pairs. It is still NOT assembled into a
+ * Journey here — transfer reconstruction and duration derivation deliberately
+ * belong to a later ticket.
+ *
+ * `odpt:needExtraFee` is preserved as a tri-state: `true` means a base
+ * RailwayFare is NOT the complete price, and `false`/`null` are kept distinct so
+ * "known not to need a supplement" is never confused with "unknown".
+ */
+export function normalizeTrainTimetable(raw, sourceUrl, fetchedAt) {
+  if (!isRecord(raw)) return malformedRecord();
+  const sameAs = optionalString(raw["owl:sameAs"]);
+  if (!sameAs) return malformedRecord();
+
+  const trainNumber = optionalString(raw["odpt:trainNumber"]);
+  if (!trainNumber) return malformedRecord("timetable_without_train_number");
+
+  const rawObjects = raw["odpt:trainTimetableObject"];
+  if (!Array.isArray(rawObjects)) {
+    return malformedRecord("malformed_timetable_objects");
+  }
+  const objects = [];
+  for (const entry of rawObjects) {
+    const normalized = trainTimetableObject(entry);
+    if (normalized === null) {
+      return malformedRecord("malformed_timetable_objects");
+    }
+    objects.push(normalized);
+  }
+
+  return {
+    record: {
+      id: sameAs,
+      sameAs,
+      ucode: optionalString(raw["@id"]),
+      operator: optionalString(raw["odpt:operator"]),
+      operatorTitle: multilingualTitle(raw["odpt:operatorTitle"]),
+      railway: optionalString(raw["odpt:railway"]),
+      railwayTitle: multilingualTitle(raw["odpt:railwayTitle"]),
+      railDirection: optionalString(raw["odpt:railDirection"]),
+      calendar: optionalString(raw["odpt:calendar"]),
+      train: optionalString(raw["odpt:train"]),
+      trainNumber,
+      trainType: optionalString(raw["odpt:trainType"]),
+      trainName: multilingualList(raw["odpt:trainName"]),
+      trainOwner: optionalString(raw["odpt:trainOwner"]),
+      originStation: stringArray(raw["odpt:originStation"]),
+      destinationStation: stringArray(raw["odpt:destinationStation"]),
+      viaStation: stringArray(raw["odpt:viaStation"]),
+      viaRailway: stringArray(raw["odpt:viaRailway"]),
+      /**
+       * Explicit split-service links. These are the ONLY sanctioned way to join
+       * one train's timetable records; same number/name/time are not evidence.
+       */
+      previousTrainTimetable: stringArray(raw["odpt:previousTrainTimetable"]),
+      nextTrainTimetable: stringArray(raw["odpt:nextTrainTimetable"]),
+      objects,
+      objectCount: objects.length,
+      /** true = supplement required, false = known not required, null = unknown. */
+      needExtraFee: triStateBoolean(raw["odpt:needExtraFee"]),
+      note: multilingualNote(raw),
+      date: optionalString(raw["dc:date"]),
+      issuedAt: optionalString(raw["dct:issued"]),
+      validUntil: optionalString(raw["dct:valid"]),
+      provenance: recordProvenance(
+        raw,
+        OPERATION_SCHEMAS.train_timetable.resource,
+        sourceUrl,
+        fetchedAt,
+      ),
+    },
+  };
 }
 
 const NORMALIZERS = {
@@ -678,6 +1235,12 @@ const NORMALIZERS = {
   railway: normalizeRailway,
   railway_fare: normalizeRailwayFare,
   datapoint: normalizeDatapointByType,
+  calendar: normalizeCalendar,
+  operator: normalizeOperatorRecord,
+  rail_direction: normalizeRailDirection,
+  train_type: normalizeTrainType,
+  station_timetable: normalizeStationTimetable,
+  train_timetable: normalizeTrainTimetable,
 };
 
 function resultBase(operation, resource, sourceUrl, now) {

@@ -146,17 +146,201 @@ export interface OdptDatapoint {
   readonly provenance: OdptProvenance;
 }
 
+/** A calendar's service classification, as an ODPT identity (§2.3.1). Retained
+ * raw on purpose: `odpt.Calendar:Specific.*` participates in precedence rules
+ * that a weekday/saturday/holiday enum cannot express. */
+export interface OdptCalendar {
+  readonly id: string;
+  readonly sameAs: string;
+  readonly ucode: string | null;
+  readonly title: string | null;
+  readonly calendarTitle: Record<string, string> | null;
+  /** ISO8601 (YYYY-MM-DD) dates on which this calendar explicitly applies. */
+  readonly day: readonly string[];
+  /** ISO8601 validity period, `start/end`, when supplied. */
+  readonly duration: string | null;
+  /** True for `odpt.Calendar:Specific.*` — these outrank base calendars. */
+  readonly isSpecific: boolean;
+  readonly date: string | null;
+  readonly provenance: OdptProvenance;
+}
+
+export interface OdptOperator {
+  readonly id: string;
+  readonly sameAs: string;
+  readonly ucode: string | null;
+  readonly title: string | null;
+  readonly operatorTitle: Record<string, string> | null;
+  readonly date: string | null;
+  readonly provenance: OdptProvenance;
+}
+
+export interface OdptRailDirection {
+  readonly id: string;
+  readonly sameAs: string;
+  readonly ucode: string | null;
+  readonly title: string | null;
+  readonly railDirectionTitle: Record<string, string> | null;
+  readonly date: string | null;
+  readonly provenance: OdptProvenance;
+}
+
+export interface OdptTrainType {
+  readonly id: string;
+  readonly sameAs: string;
+  readonly ucode: string | null;
+  readonly operator: string | null;
+  readonly operatorTitle: Record<string, string> | null;
+  readonly title: string | null;
+  readonly trainTypeTitle: Record<string, string> | null;
+  readonly date: string | null;
+  readonly provenance: OdptProvenance;
+}
+
+/**
+ * One entry of `odpt:stationTimetableObject` (§3.3.6): a train's arrival and/or
+ * departure at the owning station, with that train's wider service context.
+ * This is not an end-to-end journey.
+ */
+export interface OdptStationTimetableObject {
+  readonly arrivalTime: string | null;
+  readonly departureTime: string | null;
+  readonly originStation: readonly string[];
+  readonly destinationStation: readonly string[];
+  readonly viaStation: readonly string[];
+  readonly viaRailway: readonly string[];
+  readonly train: string | null;
+  readonly trainNumber: string | null;
+  readonly trainType: string | null;
+  readonly trainName: readonly Record<string, string>[];
+  readonly trainOwner: string | null;
+  /** Documented as omitted when not the last service, so absence means false. */
+  readonly isLast: boolean;
+  readonly isOrigin: boolean;
+  readonly platformNumber: string | null;
+  readonly platformName: Record<string, string> | null;
+  readonly carComposition: number | null;
+  readonly note: Record<string, string> | null;
+}
+
+/**
+ * Departure/arrival evidence at ONE station. Deliberately not a journey: the
+ * specification's `odpt:stationTimetableObject` ordering is not a stop-by-stop
+ * path, so a duration cannot be derived from this record alone.
+ */
+export interface OdptStationTimetable {
+  readonly id: string;
+  readonly sameAs: string;
+  readonly ucode: string | null;
+  readonly operator: string | null;
+  readonly operatorTitle: Record<string, string> | null;
+  readonly railway: string | null;
+  readonly railwayTitle: Record<string, string> | null;
+  readonly station: string | null;
+  readonly stationTitle: Record<string, string> | null;
+  readonly railDirection: string | null;
+  readonly railDirectionTitle: Record<string, string> | null;
+  readonly calendar: string | null;
+  readonly objects: readonly OdptStationTimetableObject[];
+  readonly objectCount: number;
+  readonly note: Record<string, string> | null;
+  readonly date: string | null;
+  /** `dct:issued` — schedule revision date. */
+  readonly issuedAt: string | null;
+  readonly validUntil: string | null;
+  readonly provenance: OdptProvenance;
+}
+
+/**
+ * One entry of `odpt:trainTimetableObject` (§3.3.9): an ordered stop with its
+ * arrival/departure station and time.
+ */
+export interface OdptTrainTimetableObject {
+  readonly arrivalTime: string | null;
+  readonly arrivalStation: string | null;
+  readonly departureTime: string | null;
+  readonly departureStation: string | null;
+  readonly platformNumber: string | null;
+  readonly platformName: Record<string, string> | null;
+  readonly note: Record<string, string> | null;
+}
+
+/**
+ * The stronger primitive for eventual journey reconstruction: ordered
+ * stop-by-stop arrival/departure station/time pairs. Still NOT assembled into a
+ * Journey here.
+ */
+export interface OdptTrainTimetable {
+  readonly id: string;
+  readonly sameAs: string;
+  readonly ucode: string | null;
+  readonly operator: string | null;
+  readonly operatorTitle: Record<string, string> | null;
+  readonly railway: string | null;
+  readonly railwayTitle: Record<string, string> | null;
+  readonly railDirection: string | null;
+  readonly calendar: string | null;
+  readonly train: string | null;
+  readonly trainNumber: string;
+  readonly trainType: string | null;
+  readonly trainName: readonly Record<string, string>[];
+  readonly trainOwner: string | null;
+  readonly originStation: readonly string[];
+  readonly destinationStation: readonly string[];
+  readonly viaStation: readonly string[];
+  readonly viaRailway: readonly string[];
+  /**
+   * Explicit split-service links. These are the ONLY evidence that two timetable
+   * records continue the same train; matching numbers, names or times are not.
+   */
+  readonly previousTrainTimetable: readonly string[];
+  readonly nextTrainTimetable: readonly string[];
+  readonly objects: readonly OdptTrainTimetableObject[];
+  readonly objectCount: number;
+  /**
+   * `true` — an extra fee applies, so a base RailwayFare is NOT the complete
+   * price. `false` — known not to apply. `null` — not supplied, i.e. unknown.
+   */
+  readonly needExtraFee: boolean | null;
+  readonly note: Record<string, string> | null;
+  readonly date: string | null;
+  readonly issuedAt: string | null;
+  readonly validUntil: string | null;
+  readonly provenance: OdptProvenance;
+}
+
 /**
  * A datapoint payload may be any data-dump type (§1.6). Known types are fully
  * normalized; an unmodelled `@type` returns the generic `OdptDatapoint`
  * envelope instead of being forced into a shape it does not have.
  */
 export type OdptDatapointResource =
-  OdptStation | OdptRailway | OdptRailwayFare | OdptDatapoint;
+  | OdptStation
+  | OdptRailway
+  | OdptRailwayFare
+  | OdptCalendar
+  | OdptOperator
+  | OdptRailDirection
+  | OdptTrainType
+  | OdptStationTimetable
+  | OdptTrainTimetable
+  | OdptDatapoint;
 
 /** Allow-listed operations. There is no generic ODPT pass-through. */
 export type OdptOperation =
-  "nearby_stations" | "station" | "railway" | "railway_fare" | "datapoint";
+  | "nearby_stations"
+  | "station"
+  | "railway"
+  | "railway_fare"
+  | "datapoint"
+  // KAI-290 reference/enumeration resources
+  | "calendar"
+  | "operator"
+  | "train_type"
+  | "rail_direction"
+  // KAI-290 timetable resources (always require a narrowing filter)
+  | "station_timetable"
+  | "train_timetable";
 
 /**
  * `records` — a successful ODPT request; `records` may legitimately be empty.
@@ -180,6 +364,12 @@ export type OdptErrorCode =
   | "malformed_provider_json"
   | "malformed_provider_record"
   | "invalid_provider_response"
+  /** KAI-290: a timetable record without its required timetable-object list. */
+  | "malformed_timetable_objects"
+  /** KAI-290: a TrainTimetable record missing its required `odpt:trainNumber`. */
+  | "timetable_without_train_number"
+  /** KAI-290: a broad timetable/search query was rejected as unsafely wide. */
+  | "unfiltered_search_not_allowed"
   /**
    * Server-side request-construction failure: an operation declared a query
    * input that has no documented ODPT parameter name. Fails closed without
@@ -254,6 +444,54 @@ export interface OdptDatapointQuery {
   readonly dataUri: string;
 }
 
+/** KAI-290: reference/enumeration queries. A filter is optional but narrows. */
+export interface OdptCalendarQuery {
+  readonly sameAs?: string;
+}
+
+export interface OdptOperatorQuery {
+  readonly sameAs?: string;
+}
+
+export interface OdptTrainTypeQuery {
+  readonly sameAs?: string;
+  readonly operator?: string;
+}
+
+export interface OdptRailDirectionQuery {
+  readonly sameAs?: string;
+  readonly operator?: string;
+}
+
+/**
+ * KAI-290: station timetable query. At least one narrowing filter is REQUIRED —
+ * a broad timetable request is rejected rather than issued.
+ */
+export interface OdptStationTimetableQuery {
+  readonly sameAs?: string;
+  readonly station?: string;
+  readonly railway?: string;
+  readonly operator?: string;
+  readonly railDirection?: string;
+  readonly calendar?: string;
+  /** `dc:date` — acquire the timetable for one specific date. */
+  readonly date?: string;
+}
+
+/**
+ * KAI-290: train timetable query. At least one narrowing filter is REQUIRED.
+ * Note the specification does not document an `odpt:station` filter here.
+ */
+export interface OdptTrainTimetableQuery {
+  readonly sameAs?: string;
+  readonly trainNumber?: string;
+  readonly railway?: string;
+  readonly operator?: string;
+  readonly trainType?: string;
+  readonly train?: string;
+  readonly calendar?: string;
+}
+
 export interface OdptProvider {
   nearbyStations(
     input: OdptNearbyStationsInput,
@@ -266,6 +504,19 @@ export interface OdptProvider {
   datapoint(
     input: OdptDatapointQuery,
   ): Promise<OdptResult<OdptDatapointResource>>;
+  // KAI-290
+  calendar(input?: OdptCalendarQuery): Promise<OdptResult<OdptCalendar>>;
+  operator(input?: OdptOperatorQuery): Promise<OdptResult<OdptOperator>>;
+  trainType(input: OdptTrainTypeQuery): Promise<OdptResult<OdptTrainType>>;
+  railDirection(
+    input: OdptRailDirectionQuery,
+  ): Promise<OdptResult<OdptRailDirection>>;
+  stationTimetable(
+    input: OdptStationTimetableQuery,
+  ): Promise<OdptResult<OdptStationTimetable>>;
+  trainTimetable(
+    input: OdptTrainTimetableQuery,
+  ): Promise<OdptResult<OdptTrainTimetable>>;
 }
 
 /** Result discriminator helpers shared by consumers. */

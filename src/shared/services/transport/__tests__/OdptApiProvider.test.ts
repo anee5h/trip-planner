@@ -304,20 +304,38 @@ describe("ODPT client configuration", () => {
 });
 
 describe("deferred KAI-290+ client surface", () => {
-  it("exposes no timetable, routing or realtime provider method", () => {
+  it("exposes no realtime, routing or journey method", () => {
+    const provider = new OdptApiProvider({
+      fetchImpl: async () => okResponse(recordsResult([])),
+    });
+    // KAI-290 adds timetable reads, but realtime train state, bus, routing and
+    // journey assembly remain out of scope.
+    for (const method of [
+      "train",
+      "trainInformation",
+      "bus",
+      "busstopPole",
+      "routeSearch",
+      "journey",
+      "resolveJourney",
+    ]) {
+      expect(provider).not.toHaveProperty(method);
+    }
+  });
+
+  it("exposes the KAI-290 timetable and reference reads", () => {
     const provider = new OdptApiProvider({
       fetchImpl: async () => okResponse(recordsResult([])),
     });
     for (const method of [
+      "calendar",
+      "operator",
+      "trainType",
+      "railDirection",
       "stationTimetable",
       "trainTimetable",
-      "train",
-      "trainInformation",
-      "bus",
-      "routeSearch",
-      "journey",
     ]) {
-      expect(provider).not.toHaveProperty(method);
+      expect(typeof provider[method as keyof typeof provider]).toBe("function");
     }
   });
 });

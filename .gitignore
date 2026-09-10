@@ -43,6 +43,7 @@ docs/*
 !docs/KAI-259-screenshots/*.png
 !docs/search-console-workflow.md
 !docs/kai-80-a11y-qa.md
+!docs/kai-290-odpt-runtime-budget.md
 /docs/Roadmapv2.0.md
 # Generated catalogue asset (copied from src/shared/data at build/dev time
 # by scripts/copy-catalogue-assets.mjs — KAI-121 runtime-lazy fetch).
