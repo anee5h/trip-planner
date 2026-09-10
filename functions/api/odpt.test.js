@@ -257,11 +257,71 @@ describe("/api/odpt runtime request protection (KAI-290 PR 2B)", () => {
     const secondBody = await second.json();
     // The transport payload is identical: caching must not change semantics.
     expect(secondBody).toEqual(firstBody);
+    // A CACHED public response exposes no runtime metadata either — caching is
+    // not a reason to leak how the request was served.
+    expect(secondBody).not.toHaveProperty("runtime");
+    expect(JSON.stringify(secondBody)).not.toContain("cacheHit");
+    expect(JSON.stringify(secondBody)).not.toContain("dedupHit");
+    expect(JSON.stringify(secondBody)).not.toContain("budget");
     // Cache-hit observability is internal, not part of the response.
     const state = __getOdptProtectionState();
     expect(state.counters.providerRequests).toBe(1);
     expect(state.counters.cacheMisses).toBe(1);
     expect(state.counters.cacheHits).toBe(1);
+    // The credential is absent from the fresh AND the cached public payload.
+    for (const payload of [firstBody, secondBody]) {
+      const serialized = JSON.stringify(payload);
+      expect(serialized).not.toContain(KEY);
+      expect(serialized).not.toContain("consumerKey");
+      expect(serialized).not.toContain("acl:");
+      expect(serialized).not.toContain("ODPT_API_KEY");
+    }
+  });
+
+  it("keeps budget exhaustion visible through the canonical errorCode", async () => {
+    // Real production wiring, configured to one attempt: the first request
+    // spends it, so a second DISTINCT request is refused by the budget.
+    const calls = stubProviderFetch([STATION]);
+    const tight = {
+      ...ENV,
+      ODPT_PROVIDER_BUDGET_LIMIT: "1",
+      ODPT_PROVIDER_BUDGET_WINDOW_MS: "60000",
+    };
+
+    const first = await onRequest(makeContext({ env: tight }));
+    expect((await first.json()).outcome).toBe("records");
+
+    const refused = await onRequest(
+      makeContext({
+        env: tight,
+        body: { operation: "station", operator: "odpt.Operator:TokyoMetro" },
+      }),
+    );
+    const body = await refused.json();
+
+    // Client-relevant canonical semantics are PRESERVED: the state is reported
+    // through errorCode, which is part of the public contract.
+    expect(refused.status).toBe(200);
+    expect(body.outcome).toBe("error");
+    expect(body.errorCode).toBe("budget_exhausted");
+    expect(body.records).toEqual([]);
+    expect(body.recordCount).toBe(0);
+    // First-attempt refusal: nothing was fetched, so provenance is empty.
+    expect(body.sourceUrl).toBe("");
+
+    // Still no runtime metadata, and still no credential.
+    expect(body).not.toHaveProperty("runtime");
+    const serialized = JSON.stringify(body);
+    expect(serialized).not.toContain("budgetTokensUsed");
+    expect(serialized).not.toContain(KEY);
+    expect(serialized).not.toContain("consumerKey");
+
+    // The refusal never reached the provider.
+    expect(calls).toHaveLength(1);
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(1);
+    expect(state.counters.budgetRejected).toBe(1);
+    expect(state.counters.budgetAllowed).toBe(1);
   });
 
   it("does NOT expose internal runtime metadata on the public response", async () => {
