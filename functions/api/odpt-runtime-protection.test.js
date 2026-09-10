@@ -18,6 +18,7 @@ import {
   createOdptRuntimeProtection,
   extractProviderValidityEndMs,
   parseCalendarPeriodEnd,
+  validateGregorianDate,
 } from "./odpt-runtime-protection.js";
 import {
   ODPT_CACHE_CONTRACT_VERSION,
@@ -131,7 +132,11 @@ const SCOPE_B = odptProviderScope("https://odpt-mirror.example/api/v4");
 /**
  * Faithful provider stub: mirrors odptLookup's attempt loop by asking for budget
  * permission IMMEDIATELY BEFORE each outbound attempt (the real hook contract),
- * and returns the canonical budget_exhausted envelope when permission is denied.
+ * and returns the canonical budget envelope when permission is denied.
+ *
+ * It deliberately does NOT add `providerAttempts` / `retryBlockedByBudget`: the
+ * real `odptLookup` no longer exposes them, so the stub must not either — the
+ * refusal PHASE is internal protection-layer diagnostics.
  *
  * `plan(attempt)` decides each attempt's outcome:
  *   "retry503" -> a retryable failure, loop continues (bounded)
@@ -152,8 +157,6 @@ function providerStub(plan, { maxAttempts = 2 } = {}) {
             records: [],
             recordCount: 0,
             sourceUrl: attemptsMade > 0 ? "https://api.odpt.org/api/v4/x" : "",
-            providerAttempts: attemptsMade,
-            retryBlockedByBudget: attemptsMade > 0,
           };
         }
         stub.attempts += 1;
@@ -433,8 +436,15 @@ describe("provider budget accounting", () => {
     // rather than pretending a second provider response occurred.
     expect(run.result.outcome).toBe("error");
     expect(run.result.errorCode).toBe("budget_exhausted");
-    expect(run.result.providerAttempts).toBe(1);
-    expect(run.result.retryBlockedByBudget).toBe(true);
+    // Public result: canonical semantics only, no attempt bookkeeping.
+    expect(run.result).not.toHaveProperty("providerAttempts");
+    expect(run.result).not.toHaveProperty("retryBlockedByBudget");
+    // Truthfulness is preserved where it belongs: a retry refusal keeps the safe
+    // sourceUrl of the attempt that really happened.
+    expect(run.result.sourceUrl).toBe("https://api.odpt.org/api/v4/x");
+    // Internally the phase is still distinguishable.
+    expect(run.runtime.providerAttempts).toBe(1);
+    expect(run.runtime.budgetRefusalPhase).toBe("retry");
     expect(run.runtime.budgetExhausted).toBe(true);
     // A blocked retry is never cached.
     expect(protection.counters.cacheWrites).toBe(0);
@@ -457,8 +467,10 @@ describe("provider budget accounting", () => {
     );
     expect(stub.attempts).toBe(0);
     expect(blocked.result.errorCode).toBe("budget_exhausted");
-    expect(blocked.result.providerAttempts).toBe(0);
     expect(blocked.runtime.providerAttempts).toBe(0);
+    expect(blocked.runtime.budgetRefusalPhase).toBe("first_attempt");
+    expect(blocked.result).not.toHaveProperty("providerAttempts");
+    expect(blocked.result).not.toHaveProperty("retryBlockedByBudget");
     expect(blocked.runtime.providerRequest).toBe(false);
     // Neither "no data" nor an empty success.
     expect(blocked.result.outcome).not.toBe("no_data");
@@ -1038,6 +1050,7 @@ describe("security invariants", () => {
     });
     expect(Object.keys(run.runtime).sort()).toEqual([
       "budgetExhausted",
+      "budgetRefusalPhase",
       "budgetTokensUsed",
       "budgetUnavailable",
       "cacheClass",
@@ -1426,10 +1439,12 @@ describe("provider scope isolation", () => {
  * behaviour is observable through the same seam production uses.
  */
 function budgetHarness(budget) {
+  // Accept either a budget object or a bare acquire function.
+  const resolved = typeof budget === "function" ? { acquire: budget } : budget;
   const store = createMemoryCacheStore();
   const protection = createOdptRuntimeProtection({
     cache: createOdptResultCache({ store }),
-    budget,
+    budget: resolved,
   });
   return {
     protection,
@@ -1568,8 +1583,10 @@ describe("budget acquisition seam", () => {
     expect(counters.providerRequests).toBe(1);
     expect(result.outcome).toBe("error");
     expect(result.errorCode).toBe("budget_unavailable");
-    expect(result.providerAttempts).toBe(1);
-    expect(result.retryBlockedByBudget).toBe(true);
+    // Public result exposes no attempt bookkeeping; the phase is internal.
+    expect(result).not.toHaveProperty("providerAttempts");
+    expect(result).not.toHaveProperty("retryBlockedByBudget");
+    expect(runtime.budgetRefusalPhase).toBe("retry");
     // Provenance stays truthful for the attempt that WAS made.
     expect(result.sourceUrl).toContain("https://");
     expect(runtime.budgetUnavailable).toBe(true);
@@ -1788,5 +1805,299 @@ describe("validity from a Calendar duration period", () => {
     const capped = await cache.lookup(args);
     expect(capped.hit).toBe(true);
     expect(capped.expiresAt).toBe(clock.value + 5 * MINUTE);
+  });
+});
+
+// ── Malformed budget decisions are NOT exhaustion (three-way semantics) ───────
+
+describe("budget decision is strictly three-way", () => {
+  const MALFORMED = [
+    ["undefined", undefined],
+    ["null", null],
+    ["{}", {}],
+    ["{ remaining: 10 }", { remaining: 10 }],
+    ['{ allowed: "false" }', { allowed: "false" }],
+    ["{ allowed: 0 }", { allowed: 0 }],
+    ["{ allowed: null }", { allowed: null }],
+    ["{ allowed: 1 }", { allowed: 1 }],
+  ];
+
+  it.each(MALFORMED)(
+    "treats %s as budget_unavailable, not exhaustion",
+    async (_label, decision) => {
+      const stub = providerStub(recordsResult());
+      const { run, counters } = budgetHarness(async () => decision);
+      const { result, runtime } = await run(stub.fn);
+
+      // No provider request for the blocked attempt.
+      expect(stub.attempts).toBe(0);
+      expect(runtime.providerRequest).toBe(false);
+      expect(counters.providerRequests).toBe(0);
+      // Canonical error state, honestly labelled.
+      expect(result.outcome).toBe("error");
+      expect(result.errorCode).toBe("budget_unavailable");
+      expect(result.errorCode).not.toBe("budget_exhausted");
+      // Never no_data, never a successful [].
+      expect(result.errorCode).not.toBe("no_data");
+      expect(result.outcome).not.toBe("empty");
+      expect(result.records).toEqual([]);
+      // No exception escaped, and the internal counters agree.
+      expect(runtime.budgetUnavailable).toBe(true);
+      expect(runtime.budgetExhausted).toBe(false);
+      expect(counters.budgetMalformed).toBe(1);
+      expect(counters.budgetRejected).toBe(0);
+      // First-attempt refusal: nothing was fetched, so provenance is empty.
+      expect(result.sourceUrl).toBe("");
+      expect(runtime.budgetRefusalPhase).toBe("first_attempt");
+    },
+  );
+
+  it("A. malformed FIRST decision -> budget_unavailable with ZERO provider attempts", async () => {
+    const stub = providerStub(recordsResult());
+    const { run, counters } = budgetHarness(async () => ({ remaining: 10 }));
+    const { result, runtime } = await run(stub.fn);
+    expect(stub.attempts).toBe(0);
+    expect(result.errorCode).toBe("budget_unavailable");
+    expect(runtime.providerAttempts).toBe(0);
+    expect(runtime.providerRequest).toBe(false);
+    expect(result.sourceUrl).toBe("");
+    expect(counters.providerRequests).toBe(0);
+  });
+
+  it("B. 503 then a malformed decision before the retry -> budget_unavailable, exactly ONE real attempt, safe sourceUrl, no second fetch", async () => {
+    let decisions = 0;
+    const stub = providerStub(RETRY_503);
+    const { run, counters } = budgetHarness(async () => {
+      decisions += 1;
+      // First decision is a valid grant; the retry decision is malformed.
+      return decisions === 1 ? { allowed: true } : { allowed: "maybe" };
+    });
+    const { result, runtime } = await run(stub.fn);
+
+    // Exactly ONE real provider attempt happened (the original 503).
+    expect(stub.attempts).toBe(1);
+    expect(counters.providerRequests).toBe(1);
+    expect(runtime.providerAttempts).toBe(1);
+    expect(decisions).toBe(2); // the retry DID ask for permission
+    // No second provider fetch was issued.
+    expect(counters.providerRequests).toBe(1);
+    // Honest canonical state.
+    expect(result.outcome).toBe("error");
+    expect(result.errorCode).toBe("budget_unavailable");
+    // Truthful provenance for the attempt that really occurred.
+    expect(result.sourceUrl).toBe("https://api.odpt.org/api/v4/x");
+    // Phase is internal-only.
+    expect(runtime.budgetRefusalPhase).toBe("retry");
+    expect(result).not.toHaveProperty("providerAttempts");
+    expect(result).not.toHaveProperty("retryBlockedByBudget");
+    expect(runtime.budgetUnavailable).toBe(true);
+    expect(runtime.budgetExhausted).toBe(false);
+    expect(counters.budgetMalformed).toBe(1);
+  });
+
+  it("C. explicit { allowed: false } -> budget_exhausted", async () => {
+    const stub = providerStub(recordsResult());
+    const { run, counters } = budgetHarness(async () => ({ allowed: false }));
+    const { result, runtime } = await run(stub.fn);
+    expect(stub.attempts).toBe(0);
+    expect(result.errorCode).toBe("budget_exhausted");
+    expect(result.errorCode).not.toBe("budget_unavailable");
+    expect(runtime.budgetExhausted).toBe(true);
+    expect(runtime.budgetUnavailable).toBe(false);
+    expect(counters.budgetRejected).toBe(1);
+    expect(counters.budgetMalformed).toBe(0);
+  });
+
+  it("D. explicit { allowed: true } -> the provider fetch proceeds", async () => {
+    const stub = providerStub(recordsResult());
+    const { run, counters } = budgetHarness(async () => ({ allowed: true }));
+    const { result, runtime } = await run(stub.fn);
+    expect(stub.attempts).toBe(1);
+    expect(result.outcome).toBe("records");
+    expect(runtime.budgetTokensUsed).toBe(1);
+    expect(counters.budgetAllowed).toBe(1);
+    expect(counters.budgetMalformed).toBe(0);
+  });
+
+  it("keeps async REJECT (throw) working as budget_unavailable", async () => {
+    const stub = providerStub(recordsResult());
+    const { run, counters } = budgetHarness(async () => {
+      throw new Error("backend down");
+    });
+    const { result, runtime } = await run(stub.fn);
+    expect(stub.attempts).toBe(0);
+    expect(result.errorCode).toBe("budget_unavailable");
+    expect(runtime.budgetUnavailable).toBe(true);
+    // A throw is not a malformed DECISION: it is counted separately.
+    expect(counters.budgetUnavailable).toBe(1);
+    expect(counters.budgetMalformed).toBe(0);
+  });
+
+  it("never caches a malformed-decision refusal", async () => {
+    let acquisitions = 0;
+    const stub = providerStub(recordsResult());
+    const { run, store } = budgetHarness(async () => {
+      acquisitions += 1;
+      return { allowed: "nope" };
+    });
+    await run(stub.fn);
+    expect(store.size()).toBe(0);
+    await run(stub.fn);
+    expect(acquisitions).toBe(2);
+  });
+});
+
+// ── Both budget states are in the explicit non-cacheable list ────────────────
+
+describe("budget states are enumerated as non-cacheable", () => {
+  it("lists BOTH budget_exhausted and budget_unavailable", () => {
+    expect(ODPT_NON_CACHEABLE_ERROR_CODES).toContain("budget_exhausted");
+    expect(ODPT_NON_CACHEABLE_ERROR_CODES).toContain("budget_unavailable");
+  });
+
+  it("classifies every listed budget code as non-cacheable, and never as data", () => {
+    for (const code of ["budget_exhausted", "budget_unavailable"]) {
+      expect(ODPT_NON_CACHEABLE_ERROR_CODES).toContain(code);
+      const classification = classifyResultForCache(
+        {
+          provider: "odpt",
+          operation: "station",
+          outcome: "error",
+          errorCode: code,
+          records: [],
+          recordCount: 0,
+          sourceUrl: "",
+        },
+        "station",
+      );
+      expect(classification.cacheable).toBe(false);
+      expect(classification.cacheClass).toBeUndefined();
+      expect(classification.reason).toBe(`error_code_not_cacheable:${code}`);
+    }
+  });
+
+  it("iterates the whole non-cacheable list and proves each entry is refused", () => {
+    // The point of the explicit list is that every known non-cacheable canonical
+    // error is enumerated, so this guards against future omissions too.
+    for (const code of ODPT_NON_CACHEABLE_ERROR_CODES) {
+      const classification = classifyResultForCache(
+        {
+          provider: "odpt",
+          operation: "station",
+          outcome: "error",
+          errorCode: code,
+          records: [],
+          recordCount: 0,
+          sourceUrl: "",
+        },
+        "station",
+      );
+      expect(classification.cacheable, `${code} must not be cacheable`).toBe(
+        false,
+      );
+    }
+  });
+});
+
+// ── Strict Gregorian date validation ────────────────────────────────────────
+
+describe("impossible Calendar dates are rejected structurally", () => {
+  it("accepts real dates, including leap years", () => {
+    for (const [value, iso] of [
+      ["2017-02-28", "2017-02-27T15:00:00.000Z"],
+      ["2016-02-29", "2016-02-28T15:00:00.000Z"],
+      ["2000-02-29", "2000-02-28T15:00:00.000Z"],
+      ["2017-11-18", "2017-11-17T15:00:00.000Z"],
+    ]) {
+      const parsed = parseCalendarPeriodEnd(`2017-11-13/${value}`);
+      expect(parsed.status).toBe("date_only_start_of_day_jst");
+      expect(new Date(parsed.endMs).toISOString()).toBe(iso);
+    }
+  });
+
+  it.each([
+    ["2017-02-29", "not a leap year"],
+    ["2017-02-30", "February never has 30 days"],
+    ["2017-11-31", "November never has 31 days"],
+    ["2017-13-01", "month out of range"],
+    ["2017-00-10", "month 00"],
+    ["2017-04-31", "April never has 31 days"],
+    ["2017-01-00", "day 00"],
+    ["1900-02-29", "century not divisible by 400"],
+    ["2100-02-29", "century not divisible by 400"],
+  ])("rejects the impossible date %s (%s)", (value) => {
+    const parsed = parseCalendarPeriodEnd(`2017-11-13/${value}`);
+    expect(parsed.status).toBe("unsupported");
+    expect(parsed.endMs).toBeUndefined();
+    expect(parsed.reason).toContain("impossible_date");
+    // Crucially, it must NOT have been normalised into a neighbouring date.
+    expect(parsed.reason).not.toBe("unparseable_date_only");
+  });
+
+  it("does not let Date.parse normalise 2017-02-29 into March", () => {
+    // Proof the guard is doing real work: Date.parse alone WOULD normalise it.
+    expect(Number.isNaN(Date.parse("2017-02-29"))).toBe(false);
+    expect(new Date(Date.parse("2017-02-29")).toISOString()).toBe(
+      "2017-03-01T00:00:00.000Z",
+    );
+    // ...but the parser rejects it instead.
+    expect(parseCalendarPeriodEnd("2017-11-13/2017-02-29").status).toBe(
+      "unsupported",
+    );
+  });
+
+  it("exposes the structural validator directly", () => {
+    expect(validateGregorianDate("2016-02-29")).toMatchObject({
+      ok: true,
+      year: 2016,
+      month: 2,
+      day: 29,
+    });
+    expect(validateGregorianDate("2017-02-29")).toMatchObject({
+      ok: false,
+      reason: "day_out_of_range",
+    });
+    expect(validateGregorianDate("2017-13-01")).toMatchObject({
+      ok: false,
+      reason: "month_out_of_range",
+    });
+    expect(validateGregorianDate("not-a-date")).toMatchObject({
+      ok: false,
+      reason: "not_a_date_shape",
+    });
+  });
+
+  it("rejects impossible dates inside explicit-offset datetimes too", () => {
+    expect(
+      parseCalendarPeriodEnd("2017-11-13/2017-11-18T00:00:00+09:00").status,
+    ).toBe("datetime");
+    for (const value of [
+      "2017-02-29T00:00:00+09:00",
+      "2017-11-31T00:00:00Z",
+      "2017-11-18T25:00:00+09:00",
+      "2017-11-18T00:60:00+09:00",
+      "2017-11-18T00:00:00+15:00",
+    ]) {
+      const parsed = parseCalendarPeriodEnd(`2017-11-13/${value}`);
+      expect(parsed.status, value).toBe("unsupported");
+      expect(parsed.endMs).toBeUndefined();
+    }
+  });
+
+  it("still rejects a timezone-LESS datetime", () => {
+    const parsed = parseCalendarPeriodEnd(
+      "2017-11-13T00:00:00/2017-11-18T00:00:00",
+    );
+    expect(parsed.status).toBe("unsupported");
+    expect(parsed.reason).toBe("datetime_without_timezone");
+  });
+
+  it("keeps the spec's own date-only example valid", () => {
+    const parsed = parseCalendarPeriodEnd("2017-11-13/2017-11-18");
+    expect(parsed.status).toBe("date_only_start_of_day_jst");
+    expect(parsed.policy).toBe("meguruto_start_of_date_asia_tokyo");
+    expect(new Date(parsed.endMs).toISOString()).toBe(
+      "2017-11-17T15:00:00.000Z",
+    );
   });
 });

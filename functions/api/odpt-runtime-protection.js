@@ -144,6 +144,7 @@ export const ODPT_NON_CACHEABLE_ERROR_CODES = Object.freeze([
   "timetable_without_train_number",
   "provider_response_too_large",
   "budget_exhausted",
+  "budget_unavailable",
   "rate_limited",
 ]);
 
@@ -225,6 +226,96 @@ const ODPT_DATE_ONLY_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
 /** Meguruto's conservative zone for date-only Calendar periods (UTC+9, no DST). */
 export const ODPT_DATE_ONLY_TIMEZONE_OFFSET = "+09:00";
 
+/** Days in a Gregorian month, honouring the real leap-year rule. */
+function daysInGregorianMonth(year, month) {
+  const lengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  if (month === 2) {
+    // Divisible by 4, except centuries not divisible by 400.
+    const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+    return leap ? 29 : 28;
+  }
+  return lengths[month - 1];
+}
+
+/**
+ * Structurally validates a `YYYY-MM-DD` Gregorian date.
+ *
+ * A regex alone is not enough: JavaScript's Date parsing NORMALISES impossible
+ * dates, so `2017-02-29` or `2017-11-31` would silently roll over into March or
+ * December and produce a cache ceiling for a date the provider never named. The
+ * numeric components are therefore validated before any Date call.
+ *
+ * Returns `{ok: true, year, month, day}` or `{ok: false, reason}`.
+ */
+export function validateGregorianDate(value) {
+  const match = ODPT_DATE_ONLY_PATTERN.exec(value);
+  if (!match) return { ok: false, reason: "not_a_date_shape" };
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (
+    !Number.isInteger(year) ||
+    !Number.isInteger(month) ||
+    !Number.isInteger(day)
+  ) {
+    return { ok: false, reason: "not_numeric" };
+  }
+  // Month is 1..12 and the month may not be "00".
+  if (month < 1 || month > 12)
+    return { ok: false, reason: "month_out_of_range" };
+  // Day must exist in that Gregorian month, and may not be "00".
+  if (day < 1 || day > daysInGregorianMonth(year, month)) {
+    return { ok: false, reason: "day_out_of_range" };
+  }
+  return { ok: true, year, month, day };
+}
+
+/**
+ * Structurally validates an ISO8601 date-TIME, including its calendar date.
+ *
+ * Same reasoning as the date-only path: `Date.parse` normalises impossible dates,
+ * so `2017-02-29T00:00:00+09:00` must be rejected structurally rather than
+ * accepted as 1 March. Time components are range-checked too, so a syntactically
+ * plausible but impossible timestamp cannot become a validity instant.
+ *
+ * The timezone is NOT interpreted here — callers still require an explicit one.
+ */
+const ODPT_DATETIME_PATTERN =
+  /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{1,9}))?)?(Z|[+-]\d{2}:?\d{2})$/;
+
+function validateIsoDateTime(value) {
+  const match = ODPT_DATETIME_PATTERN.exec(value);
+  if (!match) return { ok: false, reason: "not_a_datetime_shape" };
+  const [, y, mo, d, h, mi, sec, , zone] = match;
+  const date = validateGregorianDate(`${y}-${mo}-${d}`);
+  if (!date.ok) return { ok: false, reason: date.reason };
+  const hour = Number(h);
+  const minute = Number(mi);
+  const second = sec === undefined ? 0 : Number(sec);
+  if (hour > 23) return { ok: false, reason: "hour_out_of_range" };
+  if (minute > 59) return { ok: false, reason: "minute_out_of_range" };
+  // 60 is accepted for a leap second; anything above that is impossible.
+  if (second > 60) return { ok: false, reason: "second_out_of_range" };
+  // The offset itself must be real: hours 00..14 (ISO8601 permits up to 14) and
+  // minutes 00..59. Otherwise the instant would be fabricated.
+  if (zone !== "Z") {
+    const sign = zone[0];
+    const body = zone.slice(1).replace(":", "");
+    const offHours = Number(body.slice(0, 2));
+    const offMinutes = Number(body.slice(2, 4));
+    if (offHours > 14 || offMinutes > 59) {
+      return { ok: false, reason: "offset_out_of_range" };
+    }
+    if (offHours === 14 && offMinutes !== 0) {
+      return { ok: false, reason: "offset_out_of_range" };
+    }
+    if (sign !== "+" && sign !== "-") {
+      return { ok: false, reason: "offset_malformed" };
+    }
+  }
+  return { ok: true };
+}
+
 export function parseCalendarPeriodEnd(period) {
   if (typeof period !== "string") {
     return { status: "unsupported", reason: "not_a_string" };
@@ -242,6 +333,15 @@ export function parseCalendarPeriodEnd(period) {
   }
 
   if (ODPT_DATE_ONLY_PATTERN.test(end)) {
+    // Structural Gregorian validation FIRST: Date.parse would otherwise
+    // normalise 2017-02-29 to 1 March and 2017-11-31 to 1 December.
+    const valid = validateGregorianDate(end);
+    if (!valid.ok) {
+      return {
+        status: "unsupported",
+        reason: `impossible_date:${valid.reason}`,
+      };
+    }
     const endMs = Date.parse(
       `${end}T00:00:00${ODPT_DATE_ONLY_TIMEZONE_OFFSET}`,
     );
@@ -259,6 +359,14 @@ export function parseCalendarPeriodEnd(period) {
   // Require an explicit zone so the instant is unambiguous.
   if (!/(Z|[+-]\d{2}:?\d{2})$/.test(end)) {
     return { status: "unsupported", reason: "datetime_without_timezone" };
+  }
+  // Validate the calendar date and time components structurally before use.
+  const valid = validateIsoDateTime(end);
+  if (!valid.ok) {
+    return {
+      status: "unsupported",
+      reason: `impossible_datetime:${valid.reason}`,
+    };
   }
   const endMs = Date.parse(end);
   if (Number.isNaN(endMs)) {
@@ -642,6 +750,7 @@ export function createOdptProtectionCounters() {
     budgetAllowed: 0,
     budgetRejected: 0,
     budgetUnavailable: 0,
+    budgetMalformed: 0,
   };
 }
 
@@ -720,6 +829,7 @@ export function createOdptRuntimeProtection({
           budgetTokensUsed: 0,
           budgetExhausted: false,
           budgetUnavailable: false,
+          budgetRefusalPhase: null,
         },
       };
     }
@@ -733,6 +843,8 @@ export function createOdptRuntimeProtection({
     let tokensUsed = 0;
     let blockedByBudget = false;
     let budgetUnavailable = false;
+    /** Which phase the refusal landed in — internal diagnostics only. */
+    let budgetRefusalPhase = null;
     const acquireAttempt = async () => {
       if (budget) {
         // `await` tolerates BOTH shapes: the current in-memory budget is
@@ -748,19 +860,37 @@ export function createOdptRuntimeProtection({
           // dressed up as a provider failure.
           counters.budgetUnavailable += 1;
           budgetUnavailable = true;
+          budgetRefusalPhase = attempts > 0 ? "retry" : "first_attempt";
           return { allowed: false, errorCode: "budget_unavailable" };
         }
-        if (!decision || decision.allowed !== true) {
+
+        // Exact THREE-WAY semantics. Only an explicit boolean answer is a
+        // trustworthy decision:
+        //   allowed === true  -> the decision permits this attempt
+        //   allowed === false -> the decision says "no capacity"
+        //   anything else     -> no trustworthy decision was obtained
+        // A malformed answer (`undefined`, `null`, `{}`, `{remaining: 10}`,
+        // `{allowed: "false"}`, `{allowed: 0}`, `{allowed: null}`) is NOT proof
+        // that the budget is exhausted, so it must never be reported as
+        // `budget_exhausted`.
+        if (decision?.allowed === true) {
+          counters.budgetAllowed += 1;
+          tokensUsed += 1;
+        } else if (decision?.allowed === false) {
           counters.budgetRejected += 1;
           blockedByBudget = true;
+          budgetRefusalPhase = attempts > 0 ? "retry" : "first_attempt";
           return {
             allowed: false,
             errorCode: "budget_exhausted",
-            retryAfterMs: decision?.retryAfterMs,
+            retryAfterMs: decision.retryAfterMs,
           };
+        } else {
+          counters.budgetMalformed += 1;
+          budgetUnavailable = true;
+          budgetRefusalPhase = attempts > 0 ? "retry" : "first_attempt";
+          return { allowed: false, errorCode: "budget_unavailable" };
         }
-        counters.budgetAllowed += 1;
-        tokensUsed += 1;
       }
       // Counted only after permission is granted, i.e. when an outbound attempt
       // will genuinely be issued (including a timeout/network attempt). A blocked
@@ -794,6 +924,13 @@ export function createOdptRuntimeProtection({
         budgetTokensUsed: tokensUsed,
         budgetExhausted: blockedByBudget,
         budgetUnavailable,
+        /**
+         * Internal diagnostics: which phase a refusal landed in. The public ODPT
+         * result deliberately does NOT carry this — an HTTP client needs to know
+         * THAT the budget refused, not whether it was the first attempt or a
+         * retry. Only tooling and tests need the distinction.
+         */
+        budgetRefusalPhase,
       },
     };
   }
@@ -835,6 +972,7 @@ export function createOdptRuntimeProtection({
           budgetTokensUsed: 0,
           budgetExhausted: false,
           budgetUnavailable: false,
+          budgetRefusalPhase: null,
         },
       };
     }

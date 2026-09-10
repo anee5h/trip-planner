@@ -1450,8 +1450,16 @@ export async function odptLookup(
     // Budget permission is required for EVERY actual outbound attempt. When a
     // would-be RETRY is refused, the result must stay truthful: the provider was
     // attempted once, the retry was blocked by Meguruto, and no second provider
-    // response exists. `providerAttempts` reports attempts actually issued, and
-    // `sourceUrl` is only reported when at least one request really went out.
+    // response exists. `sourceUrl` is reported only when at least one request
+    // really went out, so a first-attempt refusal carries an empty `sourceUrl`
+    // while a refused retry keeps the safe sanitized URL of the attempt that did
+    // happen.
+    //
+    // The refusal PHASE (first attempt vs retry) and the number of attempts made
+    // are deliberately NOT part of this result: they are internal runtime/test
+    // observability, tracked by the protection layer. The public ODPT result
+    // contract exposes only the canonical fields (outcome, errorCode, records,
+    // recordCount, retrievedAt, sourceResource, sourceUrl, normalization).
     if (typeof beforeProviderAttempt === "function") {
       const permission = await beforeProviderAttempt({ attempt });
       if (!permission || permission.allowed !== true) {
@@ -1462,17 +1470,13 @@ export async function odptLookup(
         const refusalCode = BUDGET_REFUSAL_CODES.has(permission?.errorCode)
           ? permission.errorCode
           : "budget_exhausted";
-        return {
-          ...failure(
-            operation,
-            sourceResource,
-            attemptsMade > 0 ? safeSourceUrl : "",
-            refusalCode,
-            now,
-          ),
-          providerAttempts: attemptsMade,
-          retryBlockedByBudget: attemptsMade > 0,
-        };
+        return failure(
+          operation,
+          sourceResource,
+          attemptsMade > 0 ? safeSourceUrl : "",
+          refusalCode,
+          now,
+        );
       }
     }
 

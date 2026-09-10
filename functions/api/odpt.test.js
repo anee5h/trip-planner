@@ -308,6 +308,11 @@ describe("/api/odpt runtime request protection (KAI-290 PR 2B)", () => {
     expect(body.recordCount).toBe(0);
     // First-attempt refusal: nothing was fetched, so provenance is empty.
     expect(body.sourceUrl).toBe("");
+    // No attempt bookkeeping is exposed publicly.
+    expect(body).not.toHaveProperty("providerAttempts");
+    expect(body).not.toHaveProperty("retryBlockedByBudget");
+    expect(JSON.stringify(body)).not.toContain("providerAttempts");
+    expect(JSON.stringify(body)).not.toContain("retryBlockedByBudget");
 
     // Still no runtime metadata, and still no credential.
     expect(body).not.toHaveProperty("runtime");
@@ -506,5 +511,122 @@ describe("/api/odpt runtime request protection (KAI-290 PR 2B)", () => {
     expect(body.errorCode).not.toBe("budget_exhausted");
     expect(body.errorCode).not.toBe("no_data");
     expect(body.records).toEqual([]);
+  });
+});
+
+describe("/api/odpt public result contract (KAI-290 PR 2B)", () => {
+  it("never exposes providerAttempts or retryBlockedByBudget on a served payload", async () => {
+    stubProviderFetch([STATION]);
+    const success = await (await onRequest(makeContext())).json();
+
+    const cached = await (await onRequest(makeContext())).json();
+
+    // NOTE: the protection layer (and therefore its budget) is created once per
+    // isolate, so a later `env` change cannot retune the limit. Refusal paths are
+    // therefore covered by their own tests, which are the first request in their
+    // case and so build the budget with the limit they need.
+    const CANONICAL_COMMON = [
+      "normalization",
+      "operation",
+      "outcome",
+      "provider",
+      "recordCount",
+      "records",
+      "retrievedAt",
+      "sourceResource",
+      "sourceUrl",
+    ];
+    for (const [label, payload] of [
+      ["success", success],
+      ["cached", cached],
+    ]) {
+      expect(payload, label).not.toHaveProperty("providerAttempts");
+      expect(payload, label).not.toHaveProperty("retryBlockedByBudget");
+      expect(payload, label).not.toHaveProperty("runtime");
+      const text = JSON.stringify(payload);
+      expect(text, label).not.toContain("providerAttempts");
+      expect(text, label).not.toContain("retryBlockedByBudget");
+      // The canonical keys are what a client may depend on. `errorCode` appears
+      // exactly when the outcome is not `records`.
+      expect(Object.keys(payload).sort(), label).toEqual(CANONICAL_COMMON);
+    }
+  });
+
+  it("a RETRY blocked by budget keeps budget_exhausted plus the safe sourceUrl, without attempt bookkeeping", async () => {
+    // Every provider response is a 503, so the bounded retry is what matters.
+    const calls = stubProviderFetch([], 503);
+    const response = await onRequest(
+      makeContext({
+        env: {
+          ...ENV,
+          ODPT_PROVIDER_BUDGET_LIMIT: "1",
+          ODPT_PROVIDER_BUDGET_WINDOW_MS: "60000",
+        },
+      }),
+    );
+    const body = await response.json();
+
+    // Exactly ONE real provider attempt: the retry was refused by Meguruto.
+    expect(calls).toHaveLength(1);
+    expect(response.status).toBe(200);
+    expect(body.outcome).toBe("error");
+    expect(body.errorCode).toBe("budget_exhausted");
+    // The first attempt really happened, so truthful safe provenance remains.
+    expect(body.sourceUrl).toContain("https://");
+    expect(body.sourceUrl).not.toContain(KEY);
+    expect(body.sourceUrl).not.toContain("consumerKey");
+    // The public payload carries no attempt bookkeeping or runtime metadata.
+    expect(body).not.toHaveProperty("providerAttempts");
+    expect(body).not.toHaveProperty("retryBlockedByBudget");
+    expect(body).not.toHaveProperty("runtime");
+    expect(Object.keys(body).sort()).toEqual([
+      "errorCode",
+      "normalization",
+      "operation",
+      "outcome",
+      "provider",
+      "recordCount",
+      "records",
+      "retrievedAt",
+      "sourceResource",
+      "sourceUrl",
+    ]);
+
+    // Internally the phase IS still distinguishable.
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(1);
+  });
+
+  it("budget_unavailable exposes only the canonical errorCode", async () => {
+    const calls = stubProviderFetch([STATION]);
+    __setOdptProtectionForTest(
+      createOdptRuntimeProtection({
+        cache: createOdptResultCache({ store: createMemoryCacheStore() }),
+        // A MALFORMED decision: no trustworthy answer.
+        budget: { acquire: async () => ({ remaining: 10 }) },
+      }),
+    );
+    const body = await (await onRequest(makeContext())).json();
+
+    expect(calls).toHaveLength(0);
+    expect(body.outcome).toBe("error");
+    expect(body.errorCode).toBe("budget_unavailable");
+    expect(body.records).toEqual([]);
+    expect(body.sourceUrl).toBe("");
+    expect(body).not.toHaveProperty("providerAttempts");
+    expect(body).not.toHaveProperty("retryBlockedByBudget");
+    expect(body).not.toHaveProperty("runtime");
+    expect(JSON.stringify(body)).not.toContain("providerAttempts");
+    expect(JSON.stringify(body)).not.toContain("retryBlockedByBudget");
+  });
+
+  it("keeps success and cached payloads byte-equivalent", async () => {
+    const calls = stubProviderFetch([STATION]);
+    const fresh = await (await onRequest(makeContext())).json();
+    const cached = await (await onRequest(makeContext())).json();
+    expect(calls).toHaveLength(1);
+    // Caching must not change the payload at all.
+    expect(cached).toEqual(fresh);
+    expect(JSON.stringify(cached)).toBe(JSON.stringify(fresh));
   });
 });

@@ -134,11 +134,17 @@ and the permission decision in the protection layer.
 
 No token is reserved for a retry that never happens.
 
-**A retry blocked by budget is reported truthfully.** The final state is
-`budget_exhausted`, and the envelope records `providerAttempts: 1` with
-`retryBlockedByBudget: true` rather than pretending a second provider response
-occurred; `sourceUrl` is empty only when nothing was fetched. The original 503 is
-not silently rewritten into a provider error.
+**A retry blocked by budget is reported truthfully.** The final canonical state is
+`budget_exhausted`, and `sourceUrl` is empty only when nothing was fetched: a
+first-attempt refusal carries `""`, while a refused retry keeps the safe sanitized
+URL of the attempt that really happened. The original 503 is not silently rewritten
+into a provider error.
+
+The refusal PHASE (first attempt vs retry) and the number of attempts made are
+**internal diagnostics**, reported on the protection layer's `runtime` object —
+never on the public result. An HTTP client needs to know *that* the budget refused,
+not *where*, so the public envelope carries no `providerAttempts` and no
+`retryBlockedByBudget`.
 
 Counters follow the same definition: `providerRequests` and `providerAttempts`
 mean **actual outbound provider attempts**, never logical lookups.
@@ -298,6 +304,22 @@ Malformed periods never produce an instant. They are counted as unparseable and
 recorded as a note (`duration_unsupported:<reason>`), and the entry falls back to
 the documented policy TTL rather than failing the record or inventing an expiry.
 
+**Dates are validated structurally, not just syntactically.** A `YYYY-MM-DD` shape
+check alone is insufficient because JavaScript's `Date` parsing *normalises*
+impossible dates: `Date.parse("2017-02-29")` silently yields
+`2017-03-01T00:00:00.000Z`, and `2017-11-31` rolls into December. Using that would
+produce a cache ceiling for a date the provider never named. The numeric
+components are therefore checked first — month in `1..12`, day present in that
+Gregorian month with the real leap rule (divisible by 4, except centuries not
+divisible by 400) — and only a real date reaches `Date`. Impossible values
+(`2017-02-29`, `2017-02-30`, `2017-11-31`, `2017-13-01`, `2017-00-10`,
+`1900-02-29`) are `unsupported`, while `2016-02-29` and `2000-02-29` are valid.
+
+The same structural validation is applied to explicit-offset datetimes, so
+`2017-02-29T00:00:00+09:00` is rejected rather than accepted as 1 March, and the
+time and offset components are range-checked (hour `0..23`, minute `0..59`,
+second `0..60`, offset hours `0..14`). Timezone-less datetimes remain unsupported.
+
 
 ### 4.3 Cacheable / non-cacheable result matrix
 
@@ -434,10 +456,30 @@ preserved, so a broken budget backend degrades into a clearly-labelled error
 rather than an unhandled rejection or a fabricated provider answer.
 
 If a provider request **did** already happen (for example the first attempt
-returned 503 and the budget then failed before the bounded retry), the truthful
-actual-attempt count and provenance are preserved exactly as with a budget-blocked
-retry: `providerAttempts: 1`, `retryBlockedByBudget: true`, `sourceUrl` carrying
-the attempt that was really made.
+returned 503 and the budget decision was then unavailable before the bounded
+retry), truthfulness is preserved: `sourceUrl` still carries the attempt that was
+really made, the real attempt is counted once internally
+(`runtime.providerAttempts: 1`, `runtime.budgetRefusalPhase: "retry"`), and no
+second provider fetch is issued. None of that bookkeeping appears on the public
+result.
+
+#### Malformed decisions are NOT exhaustion
+
+The decision is interpreted **strictly three-way**, because only an explicit
+boolean is a trustworthy answer:
+
+| Budget answer | Treat as |
+| --- | --- |
+| `{ allowed: true }` | allowed — the attempt proceeds |
+| `{ allowed: false }` | `budget_exhausted` — the check succeeded and said "no capacity" |
+| anything else | `budget_unavailable` — no trustworthy decision was obtained |
+
+"Anything else" includes `undefined`, `null`, `{}`, `{ remaining: 10 }`,
+`{ allowed: "false" }`, `{ allowed: 0 }`, `{ allowed: null }` and `{ allowed: 1 }`.
+A malformed answer is **not** proof that the budget is exhausted, so it must never
+be reported as `budget_exhausted`. Malformed decisions are counted separately
+(`budgetMalformed`) from explicit refusals (`budgetRejected`) and from backend
+failures (`budgetUnavailable`).
 
 ### 6.3 Per-journey budget — DESIGN ONLY, not implemented
 
@@ -485,7 +527,7 @@ to injected harnesses — via the credential-free `runtime` object returned by
 { "cacheClass": "reference", "cacheHit": false, "dedupHit": false,
   "providerRequest": true, "providerAttempts": 1,
   "budgetTokensUsed": 1, "budgetExhausted": false,
-  "budgetUnavailable": false }
+  "budgetUnavailable": false, "budgetRefusalPhase": null }
 ```
 
 and via `__getOdptProtectionState()` (test-only) for endpoint tests.
@@ -495,7 +537,8 @@ the tokens those attempts cost, so a 503 retry shows `providerAttempts: 2`. It
 never contains the credential, the consumer key, the caller IP, or the raw
 provider payload. Safe counters (`cacheHits`, `cacheMisses`, `cacheWrites`,
 `cacheSkips`, `cacheErrors`, `dedupHits`, `providerRequests`, `budgetAllowed`,
-`budgetRejected`) are exposed for tests rather than written to production logs —
+`budgetRejected`, `budgetUnavailable`, `budgetMalformed`) are exposed for tests
+rather than written to production logs —
 no permanent console logging is added. Tests assert the console stays silent.
 
 ---
