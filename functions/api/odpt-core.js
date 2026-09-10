@@ -1262,6 +1262,30 @@ function failure(operation, resource, sourceUrl, errorCode, now) {
   return { ...resultBase(operation, resource, sourceUrl, now), errorCode };
 }
 
+/**
+ * Canonical `budget_exhausted` envelope (KAI-290 PR 2B).
+ *
+ * Exported so the runtime protection layer returns the SAME envelope shape as
+ * every other outcome instead of duplicating `resultBase`/`failure` and drifting
+ * from it. `sourceUrl` is empty because no provider request was issued.
+ *
+ * `budget_exhausted` is deliberately its own state: it is not `no_data`, not an
+ * empty result, and not a provider failure.
+ */
+export function odptBudgetExhaustedResult(
+  operation,
+  now = () => new Date().toISOString(),
+) {
+  const resource = Object.prototype.hasOwnProperty.call(
+    OPERATION_SCHEMAS,
+    operation,
+  )
+    ? OPERATION_SCHEMAS[operation].resource
+    : "unknown";
+  const sourceResource = operation === "datapoint" ? "datapoints" : resource;
+  return failure(operation, sourceResource, "", "budget_exhausted", now);
+}
+
 async function readArrayPayload(response) {
   let text;
   try {
@@ -1309,6 +1333,28 @@ async function fetchOnce(url, fetchImpl, timeoutMs) {
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Reports whether the provider is usable at all with this environment.
+ *
+ * Exported for KAI-290 PR 2B so the boundary can evaluate these
+ * request-INDEPENDENT failures BEFORE consulting the result cache. Otherwise a
+ * cached success would mask a misconfigured credential: the endpoint would look
+ * healthy and serve data while every real provider call would fail.
+ *
+ * Returns `{ok: true}` or `{ok: false, error}` where `error` is the same code
+ * `odptLookup` would report.
+ */
+export function odptProviderReadiness(env) {
+  const base = resolveOdptBaseUrl(env);
+  if (!base.ok) return { ok: false, error: base.error };
+  const apiKey =
+    typeof env?.ODPT_API_KEY === "string" ? env.ODPT_API_KEY.trim() : "";
+  if (apiKey.length === 0) {
+    return { ok: false, error: "provider_not_configured" };
+  }
+  return { ok: true };
 }
 
 /**

@@ -1,6 +1,12 @@
 // @vitest-environment node
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { MAX_BODY_BYTES, ODPT_RATE_LIMIT, onRequest } from "./odpt.js";
+import {
+  MAX_BODY_BYTES,
+  ODPT_RATE_LIMIT,
+  __getOdptProtectionState,
+  __resetOdptProtection,
+  onRequest,
+} from "./odpt.js";
 import { __resetRequestGuardState } from "../_request-guards.js";
 
 const KEY = "fixture-odpt-key";
@@ -66,6 +72,7 @@ function stubProviderFetch(payload, status = 200) {
 
 afterEach(() => {
   __resetRequestGuardState();
+  __resetOdptProtection();
   vi.unstubAllGlobals();
 });
 
@@ -225,5 +232,108 @@ describe("/api/odpt boundary", () => {
     }
     const other = await onRequest(makeContext({ ip: "198.51.100.7" }));
     expect(other.status).toBe(200);
+  });
+});
+
+describe("/api/odpt runtime request protection (KAI-290 PR 2B)", () => {
+  it("serves a repeated identical request from cache with one provider call", async () => {
+    const calls = stubProviderFetch([STATION]);
+
+    const first = await onRequest(makeContext());
+    const second = await onRequest(makeContext());
+
+    expect(first.status).toBe(200);
+    expect(second.status).toBe(200);
+    expect(calls).toHaveLength(1);
+
+    const firstBody = await first.json();
+    const secondBody = await second.json();
+    expect(firstBody.runtime.cacheHit).toBe(false);
+    expect(secondBody.runtime.cacheHit).toBe(true);
+    // The transport payload is identical: caching must not change semantics.
+    const stripRuntime = ({ runtime: _runtime, ...rest }) => rest;
+    expect(stripRuntime(secondBody)).toEqual(stripRuntime(firstBody));
+  });
+
+  it("reports safe runtime metadata and never the credential", async () => {
+    stubProviderFetch([STATION]);
+    const response = await onRequest(makeContext());
+    const body = await response.json();
+
+    expect(Object.keys(body.runtime).sort()).toEqual([
+      "budgetAllowed",
+      "cacheClass",
+      "cacheHit",
+      "dedupHit",
+      "providerRequest",
+    ]);
+    expect(body.runtime.cacheClass).toBe("reference");
+    expect(body.runtime.providerRequest).toBe(true);
+
+    const serialized = JSON.stringify(body);
+    expect(serialized).not.toContain(KEY);
+    expect(serialized).not.toContain("consumerKey");
+    expect(serialized).not.toContain("acl:");
+  });
+
+  it("does not let a cached success mask a missing credential", async () => {
+    stubProviderFetch([STATION]);
+    // Warm the cache with a healthy configuration.
+    const warm = await onRequest(makeContext());
+    expect((await warm.json()).outcome).toBe("records");
+
+    // Now the credential disappears. Readiness is request-independent and is
+    // evaluated BEFORE the cache, so the misconfiguration must surface rather
+    // than being hidden behind a stale success.
+    const broken = await onRequest(makeContext({ env: {} }));
+    expect(broken.status).toBe(200);
+    await expect(broken.json()).resolves.toMatchObject({
+      outcome: "error",
+      errorCode: "provider_not_configured",
+    });
+  });
+
+  it("contacts the provider once per distinct request, not once per call", async () => {
+    const calls = stubProviderFetch([STATION]);
+
+    await onRequest(makeContext({ body: STATION_QUERY }));
+    await onRequest(
+      makeContext({
+        body: { operation: "station", operator: "odpt.Operator:Toei" },
+      }),
+    );
+    // A repeat of the first request is a cache hit, not a new provider call.
+    await onRequest(makeContext({ body: STATION_QUERY }));
+
+    expect(calls).toHaveLength(2);
+  });
+
+  it("exposes isolate-local coordination scope rather than global", async () => {
+    stubProviderFetch([STATION]);
+    await onRequest(makeContext());
+    const state = __getOdptProtectionState();
+    expect(state.cacheScope).toBe("isolate-local");
+    expect(state.budgetScope).toBe("isolate-local");
+    expect(JSON.stringify(state).toLowerCase()).not.toContain("global");
+    expect(JSON.stringify(state)).not.toContain(KEY);
+  });
+
+  it("does not cache a provider failure", async () => {
+    const calls = stubProviderFetch([], 500);
+
+    const first = await onRequest(makeContext());
+    const second = await onRequest(makeContext());
+
+    await expect(first.json()).resolves.toMatchObject({
+      outcome: "error",
+      errorCode: "provider_internal_error",
+    });
+    await expect(second.json()).resolves.toMatchObject({
+      outcome: "error",
+      errorCode: "provider_internal_error",
+    });
+    expect(calls).toHaveLength(2);
+    const state = __getOdptProtectionState();
+    expect(state.counters.cacheWrites).toBe(0);
   });
 });

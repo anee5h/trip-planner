@@ -1,0 +1,608 @@
+/**
+ * KAI-290 PR 2B — ODPT runtime request protection.
+ *
+ * Makes ODPT provider requests safe to execute at runtime by adding, in order:
+ *
+ *   validated request
+ *     -> canonical request identity      (odpt-request-identity.js)
+ *     -> result cache lookup             (no provider call, no budget token)
+ *     -> in-flight dedup join            (no provider call, no budget token)
+ *     -> provider budget acquire         (only a real provider fetch costs one)
+ *     -> odptLookup (provider fetch, 1 MB size guard, normalize)
+ *     -> safe cache write if eligible
+ *     -> canonical result
+ *
+ * This module changes ONLY how provider requests are executed. It never
+ * converts timetable evidence into durations, selects routes, or participates in
+ * ranking/feasibility/budget/UI decisions.
+ *
+ * Honest coordination scope — read this before trusting any limit:
+ *
+ *   - The in-memory result cache is ISOLATE-LOCAL. Cloudflare Pages Functions
+ *     isolates do not share module memory.
+ *   - The Cloudflare Cache API store is EDGE-LOCAL: shared by isolates within a
+ *     data center, but NOT globally distributed.
+ *   - The request budget is ISOLATE-LOCAL. It is a safety valve against a runaway
+ *     caller or a retry storm reaching one isolate — it is NOT a provider-wide
+ *     quota guard, and it is not described as one. A genuinely distributed
+ *     counter would need new infrastructure (Durable Objects / D1 / KV) and is
+ *     deliberately out of scope here; `OdptRequestBudget` is the replacement
+ *     seam for that later work.
+ */
+import {
+  canonicalOdptRequestIdentity,
+  odptCacheKey,
+} from "./odpt-request-identity.js";
+import { odptBudgetExhaustedResult } from "./odpt-core.js";
+
+// ── Cache policy (Meguruto operational policy, NOT provider guarantees) ───────
+
+/**
+ * Resource classes. TTLs differ per class on purpose: a single universal TTL
+ * would either over-cache timetables or under-cache reference data.
+ */
+export const ODPT_CACHE_CLASS = Object.freeze({
+  REFERENCE: "reference",
+  CALENDAR: "calendar",
+  TIMETABLE: "timetable",
+  FARE: "fare",
+  /** Successful `no_data` (HTTP 404). Short-lived, and never becomes `[]`. */
+  NEGATIVE: "negative",
+});
+
+const MINUTE = 60 * 1000;
+const HOUR = 60 * MINUTE;
+
+/**
+ * Conservative starting TTLs, in milliseconds.
+ *
+ * These are Meguruto cache policy choices based on how each resource is
+ * documented and observed to change. They are NOT claims about ODPT update
+ * guarantees, and nothing here should be read as a provider SLA.
+ */
+export const ODPT_CACHE_TTL_MS = Object.freeze({
+  reference: 6 * HOUR,
+  calendar: 1 * HOUR,
+  timetable: 5 * MINUTE,
+  fare: 1 * HOUR,
+});
+
+/** Short negative TTL for `no_data`. Conservative: it can go stale quickly. */
+export const ODPT_NEGATIVE_CACHE_TTL_MS = 1 * MINUTE;
+
+/** Hard ceiling on entries held by the memory store. */
+export const ODPT_MEMORY_CACHE_MAX_ENTRIES = 512;
+
+/**
+ * Which cache class each allow-listed operation belongs to.
+ *
+ * `datapoint` is deliberately placed in the most conservative *data* class: its
+ * `@type` is only known AFTER the fetch, so a datapoint lookup could return a
+ * timetable-shaped resource. Treating it as long-lived reference data would be
+ * an unsupported assumption.
+ */
+export const ODPT_OPERATION_CACHE_CLASS = Object.freeze({
+  operator: ODPT_CACHE_CLASS.REFERENCE,
+  station: ODPT_CACHE_CLASS.REFERENCE,
+  railway: ODPT_CACHE_CLASS.REFERENCE,
+  nearby_stations: ODPT_CACHE_CLASS.REFERENCE,
+  train_type: ODPT_CACHE_CLASS.REFERENCE,
+  rail_direction: ODPT_CACHE_CLASS.REFERENCE,
+  datapoint: ODPT_CACHE_CLASS.TIMETABLE,
+  calendar: ODPT_CACHE_CLASS.CALENDAR,
+  station_timetable: ODPT_CACHE_CLASS.TIMETABLE,
+  train_timetable: ODPT_CACHE_CLASS.TIMETABLE,
+  railway_fare: ODPT_CACHE_CLASS.FARE,
+});
+
+export function cacheClassForOperation(operation) {
+  return ODPT_OPERATION_CACHE_CLASS[operation] ?? null;
+}
+
+export function cacheTtlMsForClass(cacheClass) {
+  if (cacheClass === ODPT_CACHE_CLASS.NEGATIVE) {
+    return ODPT_NEGATIVE_CACHE_TTL_MS;
+  }
+  return ODPT_CACHE_TTL_MS[cacheClass] ?? null;
+}
+
+/**
+ * Provider error codes that must NEVER be cached as ordinary data.
+ *
+ * Kept as an explicit, testable list rather than an implicit "anything that is
+ * not `records`" so that adding a new error code cannot silently start caching
+ * a failure.
+ */
+export const ODPT_NON_CACHEABLE_ERROR_CODES = Object.freeze([
+  "provider_authentication_error",
+  "provider_authorization_error",
+  "billing_required",
+  "provider_internal_error",
+  "provider_unavailable",
+  "provider_invalid_request",
+  "provider_method_not_allowed",
+  "provider_timeout",
+  "network_error",
+  "provider_not_configured",
+  "provider_endpoint_not_allowed",
+  "provider_request_config_error",
+  "invalid_provider_response",
+  "malformed_provider_json",
+  "malformed_provider_record",
+  "malformed_timetable_objects",
+  "timetable_without_train_number",
+  "provider_response_too_large",
+  "budget_exhausted",
+  "rate_limited",
+]);
+
+/**
+ * Decides whether a provider result may be cached, and in which class.
+ *
+ * Only two outcomes are cacheable:
+ *   - `records`  — normalized records, INCLUDING a successful empty array
+ *   - `no_data`  — HTTP 404, cached in the short NEGATIVE class and returned
+ *                  still as `no_data` (never rewritten to `[]`)
+ *
+ * Every `error` outcome is non-cacheable. In particular `provider_response_too_large`
+ * must never be cached as an empty result, and `billing_required` must never be
+ * cached as `no_data`.
+ */
+export function classifyResultForCache(result, operation) {
+  if (!result || typeof result !== "object") {
+    return { cacheable: false, reason: "not_a_result" };
+  }
+  const { outcome, errorCode } = result;
+
+  if (outcome === "records") {
+    const cacheClass = cacheClassForOperation(operation);
+    if (!cacheClass) return { cacheable: false, reason: "unknown_operation" };
+    return {
+      cacheable: true,
+      cacheClass,
+      ttlMs: cacheTtlMsForClass(cacheClass),
+    };
+  }
+
+  if (outcome === "no_data") {
+    return {
+      cacheable: true,
+      cacheClass: ODPT_CACHE_CLASS.NEGATIVE,
+      ttlMs: ODPT_NEGATIVE_CACHE_TTL_MS,
+    };
+  }
+
+  if (outcome === "error") {
+    const code = typeof errorCode === "string" ? errorCode : "unknown_error";
+    return {
+      cacheable: false,
+      reason: ODPT_NON_CACHEABLE_ERROR_CODES.includes(code)
+        ? `error_code_not_cacheable:${code}`
+        : `error_outcome_not_cacheable:${code}`,
+    };
+  }
+
+  return { cacheable: false, reason: `unknown_outcome:${String(outcome)}` };
+}
+
+// ── Cache stores ─────────────────────────────────────────────────────────────
+
+function isRecord(value) {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+/**
+ * Isolate-local memory store. The default, and the store used in tests.
+ * `scope` is reported so nothing downstream can mislabel it as global.
+ */
+export function createMemoryCacheStore({
+  now = Date.now,
+  maxEntries = ODPT_MEMORY_CACHE_MAX_ENTRIES,
+} = {}) {
+  const entries = new Map();
+
+  function pruneExpired(currentTime) {
+    for (const [key, entry] of entries) {
+      if (entry.expiresAt <= currentTime) entries.delete(key);
+    }
+  }
+
+  return {
+    scope: "isolate-local",
+    async read(key) {
+      const entry = entries.get(key);
+      if (!entry) return null;
+      if (entry.expiresAt <= now()) {
+        entries.delete(key);
+        return null;
+      }
+      return entry;
+    },
+    async write(key, entry) {
+      if (entries.size >= maxEntries) {
+        pruneExpired(now());
+        if (entries.size >= maxEntries) {
+          // Evict the entry closest to expiry.
+          let oldestKey = null;
+          let oldestExpiry = Number.POSITIVE_INFINITY;
+          for (const [existingKey, existing] of entries) {
+            if (existing.expiresAt < oldestExpiry) {
+              oldestExpiry = existing.expiresAt;
+              oldestKey = existingKey;
+            }
+          }
+          if (oldestKey !== null) entries.delete(oldestKey);
+        }
+      }
+      entries.set(key, entry);
+    },
+    async remove(key) {
+      entries.delete(key);
+    },
+    size() {
+      return entries.size;
+    },
+  };
+}
+
+/**
+ * Cloudflare Cache API store (EDGE-LOCAL: shared per data center, not global).
+ *
+ * `/api/odpt` is a POST endpoint, so the Cache API cannot key off the inbound
+ * request. A synthetic GET key is built from the credential-free canonical
+ * identity instead — the credential-bearing provider URL is never used as a key.
+ *
+ * Every operation is failure-tolerant: a cache read/write error degrades to "no
+ * cached value" and is counted, because a cache problem must never fail a
+ * request that the provider could have served.
+ */
+export function createEdgeCacheStore({ cache, now = Date.now } = {}) {
+  if (!cache || typeof cache.match !== "function") {
+    throw new TypeError("createEdgeCacheStore requires a Cache API instance");
+  }
+  const requestFor = (key) => new Request(key, { method: "GET" });
+
+  return {
+    scope: "edge-local (per Cloudflare data center)",
+    async read(key) {
+      const response = await cache.match(requestFor(key));
+      if (!response) return null;
+      let parsed;
+      try {
+        parsed = await response.json();
+      } catch {
+        return null;
+      }
+      if (!isRecord(parsed) || typeof parsed.identity !== "string") return null;
+      if (typeof parsed.expiresAt !== "number" || parsed.expiresAt <= now()) {
+        return null;
+      }
+      return parsed;
+    },
+    async write(key, entry) {
+      const ttlSeconds = Math.max(
+        1,
+        Math.ceil((entry.expiresAt - now()) / 1000),
+      );
+      await cache.put(
+        requestFor(key),
+        new Response(JSON.stringify(entry), {
+          headers: {
+            "content-type": "application/json",
+            "cache-control": `max-age=${ttlSeconds}`,
+          },
+        }),
+      );
+    },
+    async remove(key) {
+      await cache.delete(requestFor(key));
+    },
+    size() {
+      return null;
+    },
+  };
+}
+
+/**
+ * Result cache over a store, adding TTL handling and identity verification.
+ *
+ * The full canonical identity is stored alongside the value so a hash collision
+ * in the cache key is DETECTED and treated as a miss, rather than returning a
+ * different request's result.
+ */
+export function createOdptResultCache({ store, now = Date.now } = {}) {
+  if (!store) throw new TypeError("createOdptResultCache requires a store");
+  return {
+    scope: store.scope,
+    async lookup({ identity, cacheClass }) {
+      const ttlMs = cacheTtlMsForClass(cacheClass);
+      if (ttlMs === null) return { hit: false, reason: "unclassifiable" };
+      const key = odptCacheKey(identity);
+      const entry = await store.read(key);
+      if (!entry) return { hit: false };
+      if (entry.identity !== identity) {
+        // Hash collision: evict rather than serve the wrong request's result.
+        await store.remove(key);
+        return { hit: false, reason: "identity_mismatch" };
+      }
+      return {
+        hit: true,
+        cacheClass: entry.cacheClass ?? cacheClass,
+        value: entry.value,
+        expiresAt: entry.expiresAt,
+      };
+    },
+    async store({ identity, cacheClass, value }) {
+      const ttlMs = cacheTtlMsForClass(cacheClass);
+      if (ttlMs === null) return { stored: false, reason: "unclassifiable" };
+      const expiresAt = now() + ttlMs;
+      await store.write(odptCacheKey(identity), {
+        identity,
+        cacheClass,
+        expiresAt,
+        value,
+      });
+      return { stored: true, expiresAt, ttlMs };
+    },
+  };
+}
+
+// ── Provider request budget ──────────────────────────────────────────────────
+
+/**
+ * Conservative Meguruto-side default. The live provider advertises
+ * `X-RateLimit-Limit-minute: 60` for the shared credential, but those headers
+ * are production OBSERVATIONS, not a documented contract, so no provider quota
+ * is encoded here. This is a safety valve sized comfortably inside the observed
+ * figure for one isolate — NOT a provider-wide guarantee. See the module header
+ * for the coordination-scope caveat.
+ */
+export const ODPT_DEFAULT_BUDGET_LIMIT = 30;
+export const ODPT_DEFAULT_BUDGET_WINDOW_MS = MINUTE;
+
+/**
+ * ISOLATE-LOCAL fixed-window provider-fetch budget.
+ *
+ * Only a real provider fetch consumes a token: cache hits, dedup followers,
+ * validation failures and rejected caller requests do not call `acquire` at all.
+ * The clock is injectable so window behaviour is deterministic under a fake timer.
+ */
+export function createOdptRequestBudget({
+  limit = ODPT_DEFAULT_BUDGET_LIMIT,
+  windowMs = ODPT_DEFAULT_BUDGET_WINDOW_MS,
+  now = Date.now,
+} = {}) {
+  if (!Number.isInteger(limit) || limit < 1) {
+    throw new TypeError("budget limit must be a positive integer");
+  }
+  if (!Number.isFinite(windowMs) || windowMs <= 0) {
+    throw new TypeError("budget windowMs must be a positive number");
+  }
+  let used = 0;
+  let resetAt = null;
+
+  return {
+    scope: "isolate-local",
+    limit,
+    windowMs,
+    acquire() {
+      const currentTime = now();
+      if (resetAt === null || currentTime >= resetAt) {
+        used = 1;
+        resetAt = currentTime + windowMs;
+        return { allowed: true, remaining: limit - used, retryAfterMs: 0 };
+      }
+      if (used < limit) {
+        used += 1;
+        return { allowed: true, remaining: limit - used, retryAfterMs: 0 };
+      }
+      return {
+        allowed: false,
+        remaining: 0,
+        retryAfterMs: Math.max(0, resetAt - currentTime),
+      };
+    },
+    snapshot() {
+      return { limit, windowMs, used, resetAt, scope: "isolate-local" };
+    },
+    reset() {
+      used = 0;
+      resetAt = null;
+    },
+  };
+}
+
+// ── Observability ────────────────────────────────────────────────────────────
+
+/**
+ * Safe behavioural counters. No credential, no caller identity, no raw payload —
+ * these are the only observability surface, and tests read them instead of
+ * production logs.
+ */
+export function createOdptProtectionCounters() {
+  return {
+    cacheHits: 0,
+    cacheMisses: 0,
+    cacheWrites: 0,
+    cacheErrors: 0,
+    dedupHits: 0,
+    providerRequests: 0,
+    budgetAllowed: 0,
+    budgetRejected: 0,
+  };
+}
+
+// ── Orchestration ────────────────────────────────────────────────────────────
+
+/**
+ * Builds the protection layer.
+ *
+ * @param {object} options
+ * @param {object|null} options.cache   result cache (from createOdptResultCache)
+ * @param {object|null} options.budget  provider budget (from createOdptRequestBudget)
+ * @param {Function} options.now
+ */
+export function createOdptRuntimeProtection({
+  cache = null,
+  budget = null,
+  now = Date.now,
+} = {}) {
+  const counters = createOdptProtectionCounters();
+  /** identity -> Promise<{result}> for the in-flight provider fetch. */
+  const inFlight = new Map();
+
+  async function lookupCached(identity, cacheClass) {
+    if (!cache) return { hit: false };
+    try {
+      return await cache.lookup({ identity, cacheClass });
+    } catch {
+      // A cache failure must never fail the request.
+      counters.cacheErrors += 1;
+      return { hit: false, reason: "cache_error" };
+    }
+  }
+
+  async function writeCached(identity, cacheClass, value) {
+    if (!cache) return;
+    try {
+      await cache.store({ identity, cacheClass, value });
+      counters.cacheWrites += 1;
+    } catch {
+      counters.cacheErrors += 1;
+    }
+  }
+
+  /**
+   * The single-flight leader: cache lookup, then budget, then the real fetch.
+   *
+   * Reached only when this caller won the synchronous in-flight registration
+   * below, so exactly one leader exists per canonical identity at a time.
+   */
+  async function executeLeader(
+    identity,
+    cacheClass,
+    validated,
+    executeProvider,
+  ) {
+    // 1. Cache lookup — costs no provider fetch and no budget token.
+    const cached = await lookupCached(identity, cacheClass);
+    if (cached.hit) {
+      counters.cacheHits += 1;
+      return {
+        result: cached.value,
+        runtime: {
+          cacheHit: true,
+          dedupHit: false,
+          providerRequest: false,
+          budgetAllowed: null,
+        },
+      };
+    }
+    counters.cacheMisses += 1;
+
+    // 2. Budget — only a real provider fetch consumes a token.
+    if (budget) {
+      const decision = budget.acquire(identity);
+      if (!decision.allowed) {
+        counters.budgetRejected += 1;
+        return {
+          result: odptBudgetExhaustedResult(validated.operation, () =>
+            new Date(now()).toISOString(),
+          ),
+          runtime: {
+            cacheHit: false,
+            dedupHit: false,
+            providerRequest: false,
+            budgetAllowed: false,
+          },
+        };
+      }
+      counters.budgetAllowed += 1;
+    }
+
+    // 3. Provider fetch (includes the 1 MB size guard and normalization).
+    const result = await executeProvider();
+    counters.providerRequests += 1;
+
+    // 4. Safe cache write, only when the result class is cacheable.
+    const classification = classifyResultForCache(result, validated.operation);
+    if (classification.cacheable) {
+      await writeCached(identity, classification.cacheClass, result);
+    }
+
+    return {
+      result,
+      runtime: {
+        cacheHit: false,
+        dedupHit: false,
+        providerRequest: true,
+        budgetAllowed: budget ? true : null,
+      },
+    };
+  }
+
+  /**
+   * Executes a validated request with cache, dedup and budget protection.
+   *
+   * @param {{ok: true, operation: string, body: object}} validated
+   * @param {() => Promise<object>} executeProvider performs the real fetch
+   * @returns {Promise<{result: object, runtime: object}>}
+   */
+  async function run(validated, executeProvider) {
+    const identity = canonicalOdptRequestIdentity(validated);
+    const cacheClass = cacheClassForOperation(validated.operation);
+
+    // Single-flight registration is deliberately SYNCHRONOUS (no await between
+    // the lookup and the set) so two concurrent identical callers can never both
+    // become leaders, no matter how slow a cache read is. A follower therefore
+    // never issues a provider request or consumes a budget token.
+    const existing = inFlight.get(identity);
+    if (existing) {
+      counters.dedupHits += 1;
+      const { result } = await existing;
+      return {
+        result,
+        runtime: {
+          cacheClass,
+          cacheHit: false,
+          dedupHit: true,
+          providerRequest: false,
+          budgetAllowed: null,
+        },
+      };
+    }
+
+    const leader = executeLeader(
+      identity,
+      cacheClass,
+      validated,
+      executeProvider,
+    );
+    inFlight.set(identity, leader);
+
+    try {
+      const { result, runtime } = await leader;
+      return { result, runtime: { cacheClass, ...runtime } };
+    } finally {
+      // Removal must happen on BOTH success and failure, otherwise a rejected
+      // promise would stay in the map and poison every later identical call.
+      if (inFlight.get(identity) === leader) inFlight.delete(identity);
+    }
+  }
+
+  return {
+    run,
+    counters,
+    cache,
+    budget,
+    inFlightSize: () => inFlight.size,
+  };
+}
+
+/** Honest coordination scope for each layer, for docs and PR reporting. */
+export const ODPT_PROTECTION_SCOPE = Object.freeze({
+  memoryCache: "isolate-local",
+  edgeCache: "edge-local (per Cloudflare data center)",
+  inFlightDedup: "isolate-local",
+  requestBudget: "isolate-local",
+});

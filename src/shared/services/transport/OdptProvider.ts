@@ -381,6 +381,13 @@ export type OdptErrorCode =
   | "method_not_allowed"
   | "no_applicable_data"
   /**
+   * KAI-290 PR 2B: Meguruto's own provider-request budget refused this fetch.
+   * Distinct from `no_data` (the provider answered "nothing matches"), from an
+   * empty result (the provider answered successfully with `[]`), and from a
+   * provider failure (the provider was never contacted).
+   */
+  | "budget_exhausted"
+  /**
    * ODPT documents HTTP 402 (billing required) on exact datapoint acquisition.
    * Under Meguruto's hard-¥0 rule this is a terminal unsupported state: it is
    * never retried, never billed, and never presented as transport
