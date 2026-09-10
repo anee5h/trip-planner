@@ -15,3 +15,12 @@ SUPABASE_PUBLISHABLE_KEY=<anon-key>
 # KAI-226: server-side OpenRouteService key for /api/car-route. Held ONLY in
 # the Pages Function environment — never a VITE_* browser variable.
 OPENROUTESERVICE_API_KEY=<openrouteservice-api-key>
+# KAI-289: server-side ODPT (Public Transportation Open Data Center) consumer
+# key for /api/odpt. Held ONLY in the Pages Function environment — never a
+# VITE_* browser variable. In production this is a Cloudflare secret; a local
+# value is only needed for live smoke testing.
+ODPT_API_KEY=<odpt-consumer-key>
+# KAI-289: optional per-dataset ODPT endpoint override. ODPT notes the endpoint
+# "may differ depending on the dataset"; the host must be allow-listed.
+# ODPT_API_BASE_URL=https://api.odpt.org/api/v4
+# ODPT_ALLOWED_HOSTS=api.odpt.org
