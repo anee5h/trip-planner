@@ -108,6 +108,8 @@ interface DestinationCardProps {
   ferryTemporal?: FerryTemporalContext;
   /** Detail-page rails use a denser card while retaining all actions. */
   compact?: boolean;
+  /** Saved surfaces use the same card family with a mobile-only dense layout. */
+  variant?: "default" | "saved";
   /** Explicit current-page anchor for local/final-segment rails. */
   journeyOrigin?: Destination;
   journeyScope?: JourneyScope;
@@ -126,12 +128,14 @@ export default function DestinationCard({
   conditionLabel,
   ferryTemporal,
   compact = false,
+  variant = "default",
   journeyOrigin,
   journeyScope,
   duration = "fullDay",
 }: DestinationCardProps) {
   const { locale } = useLocale();
   const { t } = useTranslation();
+  const isSavedVariant = variant === "saved";
   const wardGroup = getWardGroup(destination);
   const virtualGroup = destination.virtualGroup;
   const modeLabels = {
@@ -301,6 +305,20 @@ export default function DestinationCard({
   const sortedCollections = sortCollections(activeCollections);
   const visibleCollections = sortedCollections.slice(0, 1);
   const desktopCollectionOverflow = Math.max(0, sortedCollections.length - 1);
+  const savedBadgeLabel = virtualGroup
+    ? t(virtualGroup.badgeKey)
+    : wardGroup
+      ? t("destination.tokyoWardsBadge")
+      : destination.kind
+        ? localizePlaceLabel(destination.kind, locale)
+        : semanticTag
+          ? localizePlaceLabel(semanticTag, locale)
+          : null;
+  const savedBadgeOverflow =
+    !virtualGroup && !wardGroup && savedBadgeLabel
+      ? Number(Boolean(destination.kind && semanticTag)) +
+        sortedCollections.length
+      : 0;
   const selectedPublicModes = publicModes ?? [
     "train",
     "shinkansen",
@@ -448,17 +466,20 @@ export default function DestinationCard({
 
   return (
     <Card
-      className={`overflow-hidden flex flex-col h-full group rounded-card shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-slate-200 dark:border-slate-800 ${compact ? "rounded-xl" : ""}`}
+      data-testid="destination-card"
+      data-card-variant={variant}
+      className={`relative overflow-hidden h-full group rounded-card shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-slate-200 dark:border-slate-800 ${isSavedVariant ? "grid grid-cols-[128px_minmax(0,1fr)] grid-rows-[auto_auto_auto] md:flex md:flex-col" : "flex flex-col"} ${compact ? "rounded-xl" : ""}`}
     >
       <div
-        className={`relative overflow-hidden ${compact ? "h-[112px] sm:h-[128px] md:h-[132px]" : "h-[145px] sm:h-[155px] md:h-[160px]"}`}
+        data-testid="destination-card-image"
+        className={`relative overflow-hidden ${isSavedVariant ? "col-start-1 row-start-1 h-[100px] p-2 md:col-auto md:row-auto md:h-[160px] md:min-h-0 md:p-0" : compact ? "h-[112px] sm:h-[128px] md:h-[132px]" : "h-[145px] sm:h-[155px] md:h-[160px]"}`}
       >
         <LazyImage
           src={localizedDestination.heroImage}
           alt={localizedDestination.name}
           responsive
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${visited ? "grayscale opacity-80" : ""}`}
+          className={`w-full h-full object-cover ${isSavedVariant ? "rounded-xl" : ""} group-hover:scale-105 transition-transform duration-700 ${visited ? "grayscale opacity-80" : ""}`}
         />
         {visited && (
           <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center">
@@ -472,69 +493,89 @@ export default function DestinationCard({
           data-testid="destination-card-badges"
           className="absolute left-2 top-2 z-20 flex max-w-[90%] flex-wrap items-center gap-1 md:left-3 md:top-3 md:gap-2"
         >
-          {rank !== undefined && (
-            <Badge className="bg-slate-900/90 px-2 py-0.5 text-[10px] font-black text-white shadow-md backdrop-blur-md dark:bg-white dark:text-slate-950 md:text-xs">
-              #{rank}
-            </Badge>
-          )}
-          {virtualGroup ? (
-            <Badge className="bg-emerald-700/90 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-md backdrop-blur-md md:text-xs">
-              {t(virtualGroup.badgeKey)}
-            </Badge>
-          ) : wardGroup ? (
-            <Badge className="bg-emerald-700/90 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-md backdrop-blur-md md:text-xs">
-              {t("destination.tokyoWardsBadge")}
-            </Badge>
-          ) : (
+          {isSavedVariant ? (
             <>
-              {destination.kind && (
-                <Badge className="bg-emerald-700/90 px-2 py-0.5 text-[10px] font-extrabold capitalize text-white shadow-md backdrop-blur-md md:text-xs">
-                  {localizePlaceLabel(destination.kind, locale)}
+              {savedBadgeLabel && (
+                <Badge className="max-w-full whitespace-normal break-words bg-emerald-700/90 px-1.5 py-0.5 text-center text-[9px] font-extrabold leading-tight text-white shadow-md backdrop-blur-md">
+                  {savedBadgeLabel}
                 </Badge>
               )}
-              {semanticTag &&
-                (() => {
-                  const tag = semanticTag;
-                  let badgeStyle =
-                    "bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-md border border-white/20";
-                  if (tag === "12 Original Keeps") {
-                    badgeStyle =
-                      "bg-amber-500 hover:bg-amber-600 text-white border-amber-300 font-bold shadow-md";
-                  } else if (tag === "World's Tallest Tower") {
-                    badgeStyle =
-                      "bg-sky-700 hover:bg-sky-800 text-white border-sky-300 font-bold shadow-md";
-                  } else if (tag === "Top 100 Castle") {
-                    badgeStyle =
-                      "bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold border-amber-300 shadow-md";
-                  } else if (tag === "Free Observatory") {
-                    badgeStyle =
-                      "bg-emerald-700 hover:bg-emerald-800 text-white border-emerald-300 font-bold shadow-md";
-                  }
-
-                  return (
-                    <Badge
-                      key={tag}
-                      className={`${destination.kind ? "hidden md:inline-flex" : "inline-flex"} ${badgeStyle}`}
-                    >
-                      {localizePlaceLabel(tag, locale)}
+              {savedBadgeOverflow > 0 && (
+                <Badge className="shrink-0 bg-slate-900/80 px-1.5 py-0.5 text-[9px] font-extrabold text-white shadow-md backdrop-blur-md">
+                  +{savedBadgeOverflow}
+                </Badge>
+              )}
+            </>
+          ) : (
+            <>
+              {rank !== undefined && (
+                <Badge className="bg-slate-900/90 px-2 py-0.5 text-[10px] font-black text-white shadow-md backdrop-blur-md dark:bg-white dark:text-slate-950 md:text-xs">
+                  #{rank}
+                </Badge>
+              )}
+              {virtualGroup ? (
+                <Badge className="bg-emerald-700/90 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-md backdrop-blur-md md:text-xs">
+                  {t(virtualGroup.badgeKey)}
+                </Badge>
+              ) : wardGroup ? (
+                <Badge className="bg-emerald-700/90 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-md backdrop-blur-md md:text-xs">
+                  {t("destination.tokyoWardsBadge")}
+                </Badge>
+              ) : (
+                <>
+                  {destination.kind && (
+                    <Badge className="bg-emerald-700/90 px-2 py-0.5 text-[10px] font-extrabold capitalize text-white shadow-md backdrop-blur-md md:text-xs">
+                      {localizePlaceLabel(destination.kind, locale)}
                     </Badge>
-                  );
-                })()}
+                  )}
+                  {semanticTag &&
+                    (() => {
+                      const tag = semanticTag;
+                      let badgeStyle =
+                        "bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-md border border-white/20";
+                      if (tag === "12 Original Keeps") {
+                        badgeStyle =
+                          "bg-amber-500 hover:bg-amber-600 text-white border-amber-300 font-bold shadow-md";
+                      } else if (tag === "World's Tallest Tower") {
+                        badgeStyle =
+                          "bg-sky-700 hover:bg-sky-800 text-white border-sky-300 font-bold shadow-md";
+                      } else if (tag === "Top 100 Castle") {
+                        badgeStyle =
+                          "bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold border-amber-300 shadow-md";
+                      } else if (tag === "Free Observatory") {
+                        badgeStyle =
+                          "bg-emerald-700 hover:bg-emerald-800 text-white border-emerald-300 font-bold shadow-md";
+                      }
+
+                      return (
+                        <Badge
+                          key={tag}
+                          className={`${destination.kind ? "hidden md:inline-flex" : "inline-flex"} ${badgeStyle}`}
+                        >
+                          {localizePlaceLabel(tag, locale)}
+                        </Badge>
+                      );
+                    })()}
+                </>
+              )}
             </>
           )}
         </div>
-        {!wardGroup && !virtualGroup && (
-          <div className="absolute right-3 top-3 z-10 flex">
-            <BucketListButton
-              destinationId={destination.id}
-              destinationName={localizedDestination.name}
-              className="size-10 p-0"
-            />
-          </div>
-        )}
       </div>
 
-      <CardHeader className="p-3 pb-1 md:p-3 md:pb-1">
+      {!wardGroup && !virtualGroup && (
+        <div className="absolute right-2 top-2 z-30 flex">
+          <BucketListButton
+            destinationId={destination.id}
+            destinationName={localizedDestination.name}
+            className="size-11 p-0"
+          />
+        </div>
+      )}
+
+      <CardHeader
+        className={`${isSavedVariant ? "col-start-2 row-start-1 min-w-0 p-2 pb-0 pr-10" : "p-3 pb-1"} md:col-auto md:row-auto md:p-3 md:pb-1`}
+      >
         <h3
           title={
             virtualGroup
@@ -543,7 +584,7 @@ export default function DestinationCard({
                 ? t("destination.tokyoWardsGroup")
                 : formatPlaceName(localizedDestination, locale)
           }
-          className={`${compact ? "text-base sm:text-lg" : "text-lg sm:text-xl"} line-clamp-2 ${compact ? "min-h-11" : "min-h-12"} min-w-0 font-extrabold leading-[1.15] tracking-tight`}
+          className={`${isSavedVariant ? "text-base sm:text-lg md:text-xl" : compact ? "text-base sm:text-lg" : "text-lg sm:text-xl"} line-clamp-2 ${isSavedVariant ? "min-h-10 md:min-h-12" : compact ? "min-h-11" : "min-h-12"} min-w-0 font-extrabold leading-[1.15] tracking-tight`}
         >
           {virtualGroup
             ? virtualGroup.name
@@ -580,7 +621,10 @@ export default function DestinationCard({
         )}
       </CardHeader>
 
-      <CardContent className="flex-grow p-3 pb-2 pt-0 md:p-3 md:pb-2 md:pt-0">
+      <CardContent
+        data-testid="destination-card-content"
+        className={`${isSavedVariant ? "col-span-2 col-start-1 row-start-2 min-w-0 p-2 pb-1 pt-0" : "flex-grow p-3 pb-2 pt-0"} md:col-auto md:row-auto md:flex-grow md:p-3 md:pb-2 md:pt-0`}
+      >
         {isMultiPlaceGroup ? null : (
           <>
             {match ? (
@@ -642,7 +686,9 @@ export default function DestinationCard({
                         : `Local access · from ${localizedLocalJourneyOrigin?.name ?? "hub"}`}
                   </p>
                 )}
-                <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-xs font-semibold text-slate-700 dark:text-slate-300 md:gap-x-3 md:gap-y-1.5 md:text-sm">
+                <div
+                  className={`grid text-xs font-semibold text-slate-700 dark:text-slate-300 ${isSavedVariant ? "grid-cols-1 gap-y-1.5" : "grid-cols-2 gap-x-2 gap-y-1"} md:grid-cols-2 md:gap-x-3 md:gap-y-1.5 md:text-sm`}
+                >
                   {(() => {
                     // The Tokyo wards group shows the fastest shared gateway
                     // estimate across its members, not legacy transport options.
@@ -700,7 +746,7 @@ export default function DestinationCard({
                     return (
                       <div
                         data-testid="destination-card-travel-time"
-                        className="flex min-w-0 items-center gap-1 whitespace-nowrap"
+                        className={`flex min-w-0 gap-1 ${isSavedVariant ? "items-start whitespace-normal text-[11px]" : "items-center whitespace-nowrap"}`}
                       >
                         <Icon className="mr-0 size-3.5 shrink-0 text-slate-500 md:size-4" />
                         {scopeLabel && !isSameAnchor && (
@@ -711,7 +757,11 @@ export default function DestinationCard({
                             {scopeLabel}
                           </span>
                         )}
-                        <span className="truncate">
+                        <span
+                          className={
+                            isSavedVariant ? "break-words" : "truncate"
+                          }
+                        >
                           {formattedTime || cardCopy.travelUnavailable}
                           {formattedTime && !isSameAnchor && isDriving
                             ? t("compare.driving")
@@ -775,9 +825,13 @@ export default function DestinationCard({
                           const prefix = locale === "ja" ? "既知" : "Known";
                           const qualifier =
                             cardEstimate.scope === "partial_on_site"
-                              ? locale === "ja"
-                                ? "現地のみ・広域交通費を除く"
-                                : "on-site only · origin transport excluded"
+                              ? isSavedVariant
+                                ? locale === "ja"
+                                  ? "現地のみ"
+                                  : "on-site only"
+                                : locale === "ja"
+                                  ? "現地のみ・広域交通費を除く"
+                                  : "on-site only · origin transport excluded"
                               : locale === "ja"
                                 ? "部分合計"
                                 : "partial total";
@@ -878,7 +932,14 @@ export default function DestinationCard({
         )}
       </CardContent>
 
-      <CardFooter className="flex items-center gap-1.5 p-3 pt-0 md:p-3 md:pt-0">
+      <CardFooter
+        data-testid="destination-card-footer"
+        className={
+          isSavedVariant
+            ? "col-span-2 col-start-1 row-start-3 flex items-center justify-between gap-2 p-2 pt-1 md:col-auto md:row-auto md:p-3 md:pt-1"
+            : "flex items-center gap-1.5 p-3 pt-0 md:p-3 md:pt-0"
+        }
+      >
         {virtualGroup ? (
           <span className="text-xs font-bold text-slate-500 dark:text-slate-300 px-1">
             {t("ui.places", { count: virtualGroup.placeCount })}
@@ -973,7 +1034,7 @@ export default function DestinationCard({
           <Button
             variant="default"
             size="sm"
-            className="min-h-11 bg-emerald-700 px-4 font-semibold text-white shadow-sm hover:bg-emerald-800"
+            className="min-h-11 bg-emerald-700 px-3 text-xs font-semibold text-white shadow-sm hover:bg-emerald-800 md:px-4 md:text-sm"
           >
             {cardCopy.explore}
           </Button>

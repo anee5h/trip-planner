@@ -135,6 +135,45 @@ describe("DestinationCard responsive content", () => {
     ).toContain("hidden");
   });
 
+  it("uses the saved variant as a mobile-only horizontal card", () => {
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard destination={destination} variant="saved" />
+        </MemoryRouter>,
+      ),
+    );
+
+    const card = host.querySelector('[data-testid="destination-card"]');
+    expect(card?.getAttribute("data-card-variant")).toBe("saved");
+    expect(card?.className).toContain("grid-cols-[128px_minmax(0,1fr)]");
+    expect(card?.className).toContain("md:flex");
+
+    const image = host.querySelector('[data-testid="destination-card-image"]');
+    expect(image?.className).toContain("h-[100px]");
+    expect(image?.className).toContain("p-2");
+    expect(image?.className).toContain("md:h-[160px]");
+
+    expect(
+      host.querySelector('[data-testid="destination-card-content"]')?.className,
+    ).toContain("col-span-2");
+    expect(
+      host.querySelector('[data-testid="destination-card-footer"]')?.className,
+    ).toContain("col-span-2");
+
+    const bookmark = host.querySelector(
+      'button[aria-label="Add to bucket list"]',
+    );
+    expect(bookmark?.parentElement?.className).toContain("absolute");
+    expect(bookmark?.className).toContain("size-11");
+
+    const travel = host.querySelector(
+      '[data-testid="destination-card-travel-time"]',
+    );
+    expect(travel?.className).toContain("whitespace-normal");
+    expect(travel?.querySelector("span")?.className).toContain("break-words");
+  });
+
   it("labels local access from the same explicit origin used for the journey", () => {
     const explicitOrigin = {
       ...destination,
