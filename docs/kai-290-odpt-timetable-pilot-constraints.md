@@ -17,6 +17,26 @@ than assumption. It deliberately separates measured facts from provider capabili
 | `odpt.Operator:Toei` | **Included** |
 | `odpt.Operator:JR-East` | **Excluded** |
 
+### Scope is three-way and fail-closed
+
+`derivePilotScope()` classifies each operator as **`included`**, **`excluded`**, or
+**`inconclusive`**:
+
+- **`included`** — at least one timetable probe actually returned records.
+- **`excluded`** — the required **schedule-bearing** resources (`StationTimetable`, `TrainTimetable`)
+  were *actually executed* **and every probe was conclusively empty**. Nothing else qualifies.
+- **`inconclusive`** — anything else. Any `too_large`, `error`, `malformed`, `unavailable`,
+  budget-exhausted/skipped probe, or a probe that could not be run at all (no station/railway scope
+  derivable) blocks a conclusive exclusion.
+
+The exclusion statement is **generated from the actual per-resource states** and names only the
+resources observed empty. It therefore cannot claim that `TrainType` or `RailDirection` were absent
+if those actually returned records.
+
+This matters because `too_large` means *the response exceeded the boundary's size guard and the
+record count is unknown*. Treating that as "no data" would turn a failure to inspect a response into
+a false claim about the provider.
+
 ### Why JR-East is excluded
 
 > In the bounded authenticated production audit, no usable JR-East TrainType,
@@ -97,13 +117,13 @@ fetch an entire railway timetable at runtime
   -> filter client-side
 ```
 
-Verified example:
+Verified example (as recorded in the committed artifact `qa/kai-290/odpt-coverage.json`):
 
 ```
-odpt.Train:TokyoMetro.Ginza.B535
+odpt.Train:TokyoMetro.Marunouchi.B427
   -> 1 TrainTimetable record
-  -> 19 ordered stop objects
-  -> odpt.Station:TokyoMetro.Ginza.Shibuya -> odpt.Station:TokyoMetro.Ginza.Asakusa
+  -> 18 ordered stop objects
+  -> odpt.Station:TokyoMetro.Marunouchi.Shinjuku -> odpt.Station:TokyoMetro.Marunouchi.Ikebukuro
 ```
 
 Train identities are discoverable from provider data itself: a `StationTimetable` record's

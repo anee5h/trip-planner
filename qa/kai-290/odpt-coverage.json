@@ -31,7 +31,14 @@
           "trainTimetableWithRecords": 0,
           "trainTypeState": "records",
           "railDirectionState": "records",
-          "trainIdentityProbeState": "records"
+          "trainIdentityProbeState": "records",
+          "resourceCoverage": {
+            "TrainType": "records",
+            "RailDirection": "records",
+            "StationTimetable": "records",
+            "TrainTimetable": "unknown"
+          },
+          "trainIdentityProbeCoverage": "records"
         }
       },
       {
@@ -44,7 +51,14 @@
           "trainTimetableWithRecords": 0,
           "trainTypeState": "records",
           "railDirectionState": "records",
-          "trainIdentityProbeState": "records"
+          "trainIdentityProbeState": "records",
+          "resourceCoverage": {
+            "TrainType": "records",
+            "RailDirection": "records",
+            "StationTimetable": "records",
+            "TrainTimetable": "unknown"
+          },
+          "trainIdentityProbeCoverage": "records"
         }
       }
     ],
@@ -53,6 +67,13 @@
         "operator": "odpt.Operator:JR-East",
         "reason": "no_usable_timetable_data_in_audited_corpus",
         "statement": "In the bounded authenticated production audit, no usable JR-East TrainType, RailDirection, StationTimetable, or TrainTimetable data was returned across the sampled major stations and railways. JR-East therefore cannot participate in the current ODPT timetable-backed pilot.",
+        "emptyResources": [
+          "TrainType",
+          "RailDirection",
+          "StationTimetable",
+          "TrainTimetable"
+        ],
+        "recordBearingResources": [],
         "evidence": {
           "stationTimetableProbes": 3,
           "stationTimetableWithRecords": 0,
@@ -60,10 +81,18 @@
           "trainTimetableWithRecords": 0,
           "trainTypeState": "empty",
           "railDirectionState": "empty",
-          "trainIdentityProbeState": null
+          "trainIdentityProbeState": null,
+          "resourceCoverage": {
+            "TrainType": "empty",
+            "RailDirection": "empty",
+            "StationTimetable": "empty",
+            "TrainTimetable": "empty"
+          },
+          "trainIdentityProbeCoverage": "absent"
         }
       }
     ],
+    "inconclusive": [],
     "staticEnrichmentNote": "Static enrichment may later supply station geography, stop ordering, topology and canonical mapping, but it does NOT provide timetable-backed journey duration while TrainTimetable/StationTimetable evidence is unavailable. Verified schedule duration for such operators may require a different authoritative source.",
     "boundaryNote": "Broad StationTimetable queries and whole-railway TrainTimetable queries can exceed the Meguruto boundary's 1 MB response guard; the boundary fails closed with provider_response_too_large. The cap is not raised to normalise broad runtime requests; narrow train-identity queries are the runtime direction."
   },

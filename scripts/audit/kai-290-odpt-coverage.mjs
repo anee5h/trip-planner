@@ -386,13 +386,21 @@ export function classifyProbeResult(descriptor) {
       detail: `unexpected_outcome:${String(descriptor.outcome)}`,
     };
   }
-  const count = Number.isInteger(descriptor.recordCount)
-    ? descriptor.recordCount
-    : 0;
+  const rawCount = descriptor.recordCount;
+  // `outcome: "records"` without a usable count is NOT "zero records". A
+  // missing / null / stringified / negative count means we cannot read how many
+  // records came back, so it is coverage-unknown, never evidence of absence.
+  if (!Number.isInteger(rawCount) || rawCount < 0) {
+    return {
+      state: PROBE_MALFORMED,
+      detail: `invalid_record_count:${JSON.stringify(rawCount ?? null)}`,
+      note: "record count is missing or not a non-negative integer; coverage unknown",
+    };
+  }
   return {
-    state: count > 0 ? PROBE_RECORDS : PROBE_EMPTY,
-    recordCount: count,
-    ...(count === 0
+    state: rawCount > 0 ? PROBE_RECORDS : PROBE_EMPTY,
+    recordCount: rawCount,
+    ...(rawCount === 0
       ? { note: "provider returned a successful zero-record result" }
       : {}),
   };
@@ -553,9 +561,12 @@ export function parseBoundaryResponse(status, body) {
  *
  * Timetable endpoints cannot be queried operator-wide: live measurement showed
  * such responses exceed the boundary's byte guard (`provider_response_too_large`)
- * for operators that actually publish timetables. So the audit always scopes to
- * ONE station and ONE railway, and records which ones were used — a scoped
- * result is evidence about that scope, never a whole-operator claim.
+ * for operators that actually publish timetables. So the audit samples a small,
+ * FIXED-SIZE set of stations and asks each sampled station's OWN railway for
+ * train timetables, so every station/railway pair is coherent rather than two
+ * unrelated records. `sampleSize` is recorded so the reader can see how much of
+ * the operator was actually covered, and a scoped result is evidence about that
+ * scope only — never a whole-operator claim.
  */
 export function deriveTimetableScopes(
   { station, railway } = {},
@@ -1100,73 +1111,194 @@ export function deriveFindings(operators) {
 }
 
 /**
+ * Resources required to derive schedule-backed journey evidence. An operator can
+ * only be *conclusively excluded* when BOTH of these were actually probed and
+ * every probe was conclusively empty.
+ */
+export const SCHEDULE_BEARING_RESOURCES = Object.freeze([
+  "StationTimetable",
+  "TrainTimetable",
+]);
+
+/** Every state a probe can carry once classified. */
+const CLASSIFIED_PROBE_STATES = Object.freeze([
+  PROBE_EMPTY,
+  PROBE_RECORDS,
+  PROBE_TOO_LARGE,
+  PROBE_ERROR,
+  PROBE_UNAVAILABLE,
+  PROBE_MALFORMED,
+]);
+
+/**
+ * Reduces a single probe to `records` / `empty` / `unknown` / `absent`.
+ *
+ * Accepts BOTH shapes on purpose: the timetable section stores *already
+ * classified* probes (`trainType`, `railDirection`, `trainIdentityProbe`), while
+ * a caller may also hand in a raw boundary descriptor. Re-classifying an
+ * already-classified `{state: "empty"}` would read as "not available" and
+ * wrongly downgrade real coverage to unknown, so the state is inspected first.
+ */
+export function describeProbeCoverage(descriptor) {
+  if (!isRecord(descriptor)) return "absent";
+  const { state } = descriptor;
+  const classifiedState =
+    typeof state === "string" && CLASSIFIED_PROBE_STATES.includes(state)
+      ? state
+      : classifyProbeResult(descriptor).state;
+  if (!isConclusiveProbe(classifiedState)) return "unknown";
+  return classifiedState === PROBE_RECORDS ? "records" : "empty";
+}
+
+/**
+ * Reduces a group of scoped probes to a single coverage state.
+ *
+ * A group reads as `empty` only when it was actually probed AND every probe is
+ * conclusively empty. A group that was never probed is `absent`; a group
+ * containing any inconclusive probe (too_large / error / malformed /
+ * unavailable / budget-skipped) is `unknown`. That distinction is the whole
+ * point: failing to read a response must never be reported as absent data.
+ */
+export function describeGroupCoverage(group) {
+  const probeCount = group?.probeCount ?? 0;
+  if (probeCount === 0) return "absent";
+  const byState = group?.byState ?? {};
+  if ((byState[PROBE_RECORDS] ?? 0) > 0) return "records";
+  const conclusive =
+    (byState[PROBE_EMPTY] ?? 0) + (byState[PROBE_RECORDS] ?? 0);
+  return conclusive === probeCount ? "empty" : "unknown";
+}
+
+/** Joins resource names as "A", "A or B", or "A, B, or C" for generated prose. */
+export function joinWithOr(items) {
+  const list = Array.isArray(items) ? items : [];
+  if (list.length === 0) return "";
+  if (list.length === 1) return list[0];
+  if (list.length === 2) return `${list[0]} or ${list[1]}`;
+  return `${list.slice(0, -1).join(", ")}, or ${list[list.length - 1]}`;
+}
+
+/**
  * Derives the timetable-pilot scope from measured coverage, so the artifact
  * states a *measured* conclusion rather than a hand-written assumption.
  *
- * The wording matters: ODPT search completeness is not guaranteed, so the
- * exclusion is scoped to the audited corpus ("no usable ... was returned across
- * the sampled major stations and railways"), never asserted as a universal
- * provider capability.
+ * Three-way by design. An operator is `excluded` only when the required
+ * schedule-bearing probes were actually executed and conclusively empty; any
+ * non-conclusive probe, missing scope, or un-run probe makes it `inconclusive`
+ * instead. Wording is generated from the actual per-resource states, so a claim
+ * is never made about a resource that returned records.
+ *
+ * Deliberately scoped to the audited corpus: ODPT search completeness is not
+ * guaranteed, so this is observed zero coverage in our corpus, never a claim
+ * about universal provider capability.
  */
 export function derivePilotScope(operators) {
   const included = [];
   const excluded = [];
+  const inconclusive = [];
   for (const section of operators) {
     const timetable = section.timetable;
     const shortName = section.operator.replace(/^odpt\.Operator:/, "");
     if (!timetable) {
-      excluded.push({
+      inconclusive.push({
         operator: section.operator,
         reason: "not_audited",
-        evidence: "no timetable probes were run for this operator",
+        blockingResources: { timetable: "absent" },
+        note: "no timetable probes were run for this operator; nothing can be concluded either way",
       });
       continue;
     }
-    const stationRecords =
-      timetable.stationTimetable?.byState?.[PROBE_RECORDS] ?? 0;
-    const trainRecords =
-      timetable.trainTimetable?.byState?.[PROBE_RECORDS] ?? 0;
-    const identityRecords =
-      timetable.trainIdentityProbe?.state === PROBE_RECORDS ? 1 : 0;
-    const stationProbes = timetable.stationTimetable?.probeCount ?? 0;
-    const trainProbes = timetable.trainTimetable?.probeCount ?? 0;
+
+    const resourceCoverage = {
+      TrainType: describeProbeCoverage(timetable.trainType),
+      RailDirection: describeProbeCoverage(timetable.railDirection),
+      StationTimetable: describeGroupCoverage(timetable.stationTimetable),
+      TrainTimetable: describeGroupCoverage(timetable.trainTimetable),
+    };
+    const identityCoverage = describeProbeCoverage(
+      timetable.trainIdentityProbe,
+    );
     const evidence = {
-      stationTimetableProbes: stationProbes,
-      stationTimetableWithRecords: stationRecords,
-      trainTimetableProbes: trainProbes,
-      trainTimetableWithRecords: trainRecords,
+      stationTimetableProbes: timetable.stationTimetable?.probeCount ?? 0,
+      stationTimetableWithRecords:
+        timetable.stationTimetable?.byState?.[PROBE_RECORDS] ?? 0,
+      trainTimetableProbes: timetable.trainTimetable?.probeCount ?? 0,
+      trainTimetableWithRecords:
+        timetable.trainTimetable?.byState?.[PROBE_RECORDS] ?? 0,
       trainTypeState: timetable.trainType?.state ?? null,
       railDirectionState: timetable.railDirection?.state ?? null,
       trainIdentityProbeState: timetable.trainIdentityProbe?.state ?? null,
+      resourceCoverage,
+      trainIdentityProbeCoverage: identityCoverage,
     };
-    if (stationRecords > 0 || trainRecords > 0 || identityRecords > 0) {
+
+    // Only SCHEDULE-bearing evidence counts as usable for a timetable-backed
+    // pilot. TrainType / RailDirection returning records does not enable a
+    // journey, so it must not mark an operator as included.
+    const hasScheduleEvidence =
+      SCHEDULE_BEARING_RESOURCES.some(
+        (resource) => resourceCoverage[resource] === "records",
+      ) || identityCoverage === "records";
+    if (hasScheduleEvidence) {
       included.push({
         operator: section.operator,
         reason: "usable_timetable_evidence_returned",
         evidence,
       });
-    } else {
-      excluded.push({
+      continue;
+    }
+
+    // Fail closed: anything that is not a conclusive, executed, empty result on
+    // a schedule-bearing resource blocks a "no data" exclusion.
+    const blockingResources = {};
+    for (const resource of SCHEDULE_BEARING_RESOURCES) {
+      if (resourceCoverage[resource] !== "empty") {
+        blockingResources[resource] = resourceCoverage[resource];
+      }
+    }
+    // An identity probe that was attempted but unreadable is also blocking.
+    // `absent` is acceptable here only because it is a *consequence* of empty
+    // station timetables (no train identity existed to derive), not a failed
+    // read of a schedule-bearing resource.
+    if (identityCoverage === "unknown") {
+      blockingResources.TrainTimetableByIdentity = identityCoverage;
+    }
+    if (Object.keys(blockingResources).length > 0) {
+      inconclusive.push({
         operator: section.operator,
-        reason: "no_usable_timetable_data_in_audited_corpus",
-        /**
-         * Scoped to the measured corpus on purpose. Do NOT restate this as
-         * "JR-East has no timetables" — ODPT search completeness is not
-         * guaranteed, so absence here is not proof of universal absence.
-         */
-        statement:
-          `In the bounded authenticated production audit, no usable ${shortName} ` +
-          "TrainType, RailDirection, StationTimetable, or TrainTimetable data was " +
-          "returned across the sampled major stations and railways. " +
-          `${shortName} therefore cannot participate in the current ODPT ` +
-          "timetable-backed pilot.",
+        reason: "non_conclusive_schedule_evidence",
+        blockingResources,
+        note: "cannot conclusively exclude: the required schedule-bearing probes were not all executed with conclusive results",
         evidence,
       });
+      continue;
     }
+
+    // Conclusively excluded. Name ONLY the resources observed empty, so the
+    // claim can never contradict a resource that returned records.
+    const emptyResources = Object.keys(resourceCoverage).filter(
+      (resource) => resourceCoverage[resource] === "empty",
+    );
+    const recordBearingResources = Object.keys(resourceCoverage).filter(
+      (resource) => resourceCoverage[resource] === "records",
+    );
+    excluded.push({
+      operator: section.operator,
+      reason: "no_usable_timetable_data_in_audited_corpus",
+      statement:
+        `In the bounded authenticated production audit, no usable ${shortName} ` +
+        `${joinWithOr(emptyResources)} data was returned across the sampled ` +
+        `major stations and railways. ${shortName} therefore cannot participate ` +
+        "in the current ODPT timetable-backed pilot.",
+      emptyResources,
+      recordBearingResources,
+      evidence,
+    });
   }
   return {
     included,
     excluded,
+    inconclusive,
     /**
      * Static enrichment (geography, stop ordering, topology, canonical mapping)
      * is a separate concern and cannot substitute for schedule evidence.
@@ -1543,6 +1675,26 @@ export function renderMarkdown(artifact) {
         "  Scoped to the audited corpus on purpose. ODPT search completeness is not guaranteed, so this is **observed zero coverage in our audited corpus**, not a claim about universal provider capability.",
       );
     }
+    if (
+      Array.isArray(entry.recordBearingResources) &&
+      entry.recordBearingResources.length > 0
+    ) {
+      lines.push(
+        `  Note: ${entry.recordBearingResources.join(", ")} did return records; the exclusion above names only the resources observed empty.`,
+      );
+    }
+  }
+  for (const entry of pilotScope.inconclusive ?? []) {
+    lines.push(
+      `- **Inconclusive**: \`${entry.operator}\` — ${entry.reason}${
+        entry.blockingResources
+          ? ` (blocking: ${Object.entries(entry.blockingResources)
+              .map(([resource, state]) => `${resource}=${state}`)
+              .join(", ")})`
+          : ""
+      }`,
+    );
+    if (entry.note) lines.push(`  ${entry.note}`);
   }
   if (pilotScope.staticEnrichmentNote) {
     lines.push("");
