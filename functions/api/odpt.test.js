@@ -8,6 +8,7 @@ import {
   onRequest,
 } from "./odpt.js";
 import { __resetRequestGuardState } from "../_request-guards.js";
+import { odptProviderScope } from "./odpt-request-identity.js";
 
 const KEY = "fixture-odpt-key";
 const ENV = { ODPT_API_KEY: KEY };
@@ -261,14 +262,18 @@ describe("/api/odpt runtime request protection (KAI-290 PR 2B)", () => {
     const body = await response.json();
 
     expect(Object.keys(body.runtime).sort()).toEqual([
-      "budgetAllowed",
+      "budgetExhausted",
+      "budgetTokensUsed",
       "cacheClass",
       "cacheHit",
       "dedupHit",
+      "providerAttempts",
       "providerRequest",
     ]);
     expect(body.runtime.cacheClass).toBe("reference");
     expect(body.runtime.providerRequest).toBe(true);
+    expect(body.runtime.providerAttempts).toBe(1);
+    expect(body.runtime.budgetTokensUsed).toBe(1);
 
     const serialized = JSON.stringify(body);
     expect(serialized).not.toContain(KEY);
@@ -335,5 +340,61 @@ describe("/api/odpt runtime request protection (KAI-290 PR 2B)", () => {
     expect(calls).toHaveLength(2);
     const state = __getOdptProtectionState();
     expect(state.counters.cacheWrites).toBe(0);
+  });
+
+  it("budgets EVERY outbound attempt, including the bounded 503 retry", async () => {
+    // Two 503s: the initial attempt and its retry are two real fetches.
+    const calls = stubProviderFetch([], 503);
+    const response = await onRequest(makeContext());
+    const body = await response.json();
+
+    expect(calls).toHaveLength(2);
+    expect(body.runtime.providerAttempts).toBe(2);
+    expect(body.runtime.budgetTokensUsed).toBe(2);
+    expect(body.result ?? body.errorCode).toBe("provider_unavailable");
+
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(2);
+    // The counter means ACTUAL outbound attempts, not logical lookups.
+    expect(state.counters.budgetAllowed).toBe(2);
+  });
+
+  it("503 then success costs two tokens and reports one logical result", async () => {
+    // First fetch 503, retry succeeds.
+    let call = 0;
+    vi.stubGlobal("fetch", async () => {
+      call += 1;
+      return call === 1
+        ? new Response("{}", { status: 503 })
+        : new Response(JSON.stringify([STATION]), {
+            status: 200,
+            headers: { "content-type": "application/json" },
+          });
+    });
+
+    const response = await onRequest(makeContext());
+    const body = await response.json();
+
+    expect(call).toBe(2);
+    expect(body.outcome).toBe("records");
+    expect(body.runtime.providerAttempts).toBe(2);
+    expect(body.runtime.budgetTokensUsed).toBe(2);
+    expect(body.runtime.budgetExhausted).toBe(false);
+  });
+
+  it("reports a provider scope and never serves another scope's cache entry", async () => {
+    stubProviderFetch([STATION]);
+    const first = await onRequest(makeContext());
+    expect((await first.json()).runtime.cacheHit).toBe(false);
+
+    // A second identical request still hits the same scope's entry.
+    const second = await onRequest(makeContext());
+    expect((await second.json()).runtime.cacheHit).toBe(true);
+
+    // The cache key is derived from the resolved base URL, so it must differ
+    // when the deployment points at a different allow-listed endpoint.
+    const official = odptProviderScope("https://api.odpt.org/api/v4");
+    const mirror = odptProviderScope("https://odpt-mirror.example/api/v4");
+    expect(official).not.toBe(mirror);
   });
 });

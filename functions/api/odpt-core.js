@@ -1262,30 +1262,6 @@ function failure(operation, resource, sourceUrl, errorCode, now) {
   return { ...resultBase(operation, resource, sourceUrl, now), errorCode };
 }
 
-/**
- * Canonical `budget_exhausted` envelope (KAI-290 PR 2B).
- *
- * Exported so the runtime protection layer returns the SAME envelope shape as
- * every other outcome instead of duplicating `resultBase`/`failure` and drifting
- * from it. `sourceUrl` is empty because no provider request was issued.
- *
- * `budget_exhausted` is deliberately its own state: it is not `no_data`, not an
- * empty result, and not a provider failure.
- */
-export function odptBudgetExhaustedResult(
-  operation,
-  now = () => new Date().toISOString(),
-) {
-  const resource = Object.prototype.hasOwnProperty.call(
-    OPERATION_SCHEMAS,
-    operation,
-  )
-    ? OPERATION_SCHEMAS[operation].resource
-    : "unknown";
-  const sourceResource = operation === "datapoint" ? "datapoints" : resource;
-  return failure(operation, sourceResource, "", "budget_exhausted", now);
-}
-
 async function readArrayPayload(response) {
   let text;
   try {
@@ -1425,6 +1401,12 @@ export async function odptLookup(
     return failure(operation, sourceResource, "", "network_error", now);
   }
 
+  // KAI-290 PR 2B: optional acquire-attempt hook. Called immediately before
+  // EVERY outbound provider HTTP attempt (initial and the bounded 503 retry),
+  // so a caller can budget each real attempt rather than each logical lookup.
+  // Retry mechanics stay here; only the permission decision is injected.
+  const beforeProviderAttempt = options.beforeProviderAttempt ?? null;
+
   const params = buildParams(operation, body);
   if (params === null) {
     // A declared query input with no documented ODPT parameter name is a
@@ -1450,6 +1432,30 @@ export async function odptLookup(
   let lastFailure = "provider_unavailable";
   while (attempt < ODPT_MAX_ATTEMPTS) {
     attempt += 1;
+
+    // Budget permission is required for EVERY actual outbound attempt. When a
+    // would-be RETRY is refused, the result must stay truthful: the provider was
+    // attempted once, the retry was blocked by Meguruto, and no second provider
+    // response exists. `providerAttempts` reports attempts actually issued, and
+    // `sourceUrl` is only reported when at least one request really went out.
+    if (typeof beforeProviderAttempt === "function") {
+      const permission = await beforeProviderAttempt({ attempt });
+      if (!permission || permission.allowed !== true) {
+        const attemptsMade = attempt - 1;
+        return {
+          ...failure(
+            operation,
+            sourceResource,
+            attemptsMade > 0 ? safeSourceUrl : "",
+            "budget_exhausted",
+            now,
+          ),
+          providerAttempts: attemptsMade,
+          retryBlockedByBudget: attemptsMade > 0,
+        };
+      }
+    }
+
     const outcome = await fetchOnce(callUrl, fetchFn, timeoutMs);
 
     if (outcome.kind === "timeout") {

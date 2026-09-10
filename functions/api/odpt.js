@@ -18,12 +18,22 @@
  * Request execution order (KAI-290 PR 2B):
  *
  *   rate limit -> parse -> validate
- *     -> canonical request identity
- *     -> cache lookup            (no provider call, no budget token)
- *     -> in-flight dedup join    (no provider call, no budget token)
- *     -> provider budget acquire (only a real provider fetch costs one)
- *     -> odptLookup (fetch + 1 MB size guard + normalize)
- *     -> cache write if eligible -> canonical result
+ *     -> canonical request identity + provider scope
+ *     -> SYNCHRONOUS in-flight lookup/register
+ *          follower -> join the leader's fetch (no provider call, no token)
+ *          leader   -> cache lookup          (no provider call, no token)
+ *                      budget per ACTUAL provider attempt
+ *                      odptLookup (fetch + 1 MB size guard + normalize)
+ *                      cache write if eligible
+ *     -> canonical result
+ *
+ * The in-flight check happens BEFORE the leader's cache lookup on purpose: with
+ * cache-first ordering, two concurrent identical callers can both observe a miss
+ * and both start a fetch, which would break single-flight coalescing.
+ *
+ * Budget permission is acquired per ACTUAL outbound provider attempt (the
+ * initial request AND the bounded 503 retry), so "N fetches per window" is a
+ * statement about real provider traffic rather than about logical lookups.
  *
  * The 1 MB response guard is unchanged and must not be raised. Broad timetable
  * reads (operator-wide StationTimetable, whole-railway TrainTimetable) are not
@@ -33,8 +43,10 @@ import { isRateLimited, rateLimitResponse } from "../_request-guards.js";
 import {
   odptLookup,
   odptProviderReadiness,
+  resolveOdptBaseUrl,
   validateOdptRequest,
 } from "./odpt-core.js";
+import { odptProviderScope } from "./odpt-request-identity.js";
 import {
   ODPT_DEFAULT_BUDGET_LIMIT,
   ODPT_DEFAULT_BUDGET_WINDOW_MS,
@@ -173,9 +185,18 @@ export const onRequest = async (context) => {
   }
 
   // Cache hits and dedup followers never reach the provider or the budget.
+  // The provider scope comes from the RESOLVED base URL, so deployments pointed
+  // at different (allow-listed) ODPT endpoints never share cache entries.
   const runtimeProtection = getProtection(env);
-  const { result, runtime } = await runtimeProtection.run(validated, () =>
-    odptLookup(validated.body, env),
+  const base = resolveOdptBaseUrl(env);
+  const providerScope = odptProviderScope(base.ok ? base.baseUrl : null);
+  const { result, runtime } = await runtimeProtection.run(
+    validated,
+    ({ acquireAttempt }) =>
+      odptLookup(validated.body, env, undefined, undefined, {
+        beforeProviderAttempt: acquireAttempt,
+      }),
+    { providerScope },
   );
 
   // The transport payload is unchanged; `runtime` only reports how this

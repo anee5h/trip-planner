@@ -4,13 +4,23 @@
  * Makes ODPT provider requests safe to execute at runtime by adding, in order:
  *
  *   validated request
- *     -> canonical request identity      (odpt-request-identity.js)
- *     -> result cache lookup             (no provider call, no budget token)
- *     -> in-flight dedup join            (no provider call, no budget token)
- *     -> provider budget acquire         (only a real provider fetch costs one)
- *     -> odptLookup (provider fetch, 1 MB size guard, normalize)
- *     -> safe cache write if eligible
+ *     -> canonical request identity + credential-free provider scope
+ *     -> SYNCHRONOUS in-flight lookup/register
+ *          follower -> join the leader's result (no provider call, no token)
+ *          leader   -> cache lookup            (no provider call, no token)
+ *                      budget per ACTUAL provider attempt
+ *                      provider fetch
+ *                      cache write if eligible
  *     -> canonical result
+ *
+ * The in-flight check is registered synchronously BEFORE the leader's cache
+ * lookup, deliberately: with cache-first ordering two concurrent identical
+ * callers can both miss and both fetch, breaking coalescing.
+ *
+ * Budget permission is required for every ACTUAL outbound provider attempt —
+ * the initial request and the bounded 503 retry each cost a token — so the
+ * documented "N fetches per window" contract describes real provider traffic
+ * rather than logical lookups.
  *
  * This module changes ONLY how provider requests are executed. It never
  * converts timetable evidence into durations, selects routes, or participates in
@@ -30,10 +40,11 @@
  *     seam for that later work.
  */
 import {
+  ODPT_CACHE_CONTRACT_VERSION,
   canonicalOdptRequestIdentity,
   odptCacheKey,
+  odptProviderScope,
 } from "./odpt-request-identity.js";
-import { odptBudgetExhaustedResult } from "./odpt-core.js";
 
 // ── Cache policy (Meguruto operational policy, NOT provider guarantees) ───────
 
@@ -185,6 +196,63 @@ export function classifyResultForCache(result, operation) {
   return { cacheable: false, reason: `unknown_outcome:${String(outcome)}` };
 }
 
+// ── Provider-declared validity ───────────────────────────────────────────────
+
+/**
+ * Extracts the EARLIEST trustworthy provider-declared validity end from a
+ * normalized result (KAI-290 PR 2B).
+ *
+ * A cached entry must never outlive provider-declared validity, so the policy
+ * TTL is a MAXIMUM rather than the whole answer.
+ *
+ * Only fields that actually declare validity are read:
+ *   - `validUntil` (from `dct:valid`) on the record or its provenance
+ *   - `duration` (ISO8601 `start/end`) on a Calendar record
+ *
+ * `dc:date` / `dct:issued` are deliberately NOT used: they record when data was
+ * generated/published, which is not a statement that it remains valid. Inferring
+ * validity from them would fabricate an expiry the provider never declared.
+ *
+ * Malformed/unparseable values are ignored rather than guessed, so the caller
+ * falls back to the conservative policy TTL. Returns `{earliestMs: null}` when
+ * no usable evidence exists (including a successful empty array, which has no
+ * records to carry validity).
+ */
+export function extractProviderValidityEndMs(result) {
+  const records = Array.isArray(result?.records) ? result.records : [];
+  let earliestMs = null;
+  let considered = 0;
+  let unparseable = 0;
+
+  const consider = (raw) => {
+    if (typeof raw !== "string" || raw.trim().length === 0) return;
+    const parsed = Date.parse(raw);
+    if (Number.isNaN(parsed)) {
+      unparseable += 1;
+      return;
+    }
+    considered += 1;
+    if (earliestMs === null || parsed < earliestMs) earliestMs = parsed;
+  };
+
+  for (const record of records) {
+    if (!isRecord(record)) continue;
+    // `dct:valid` is preserved top-level where the schema has it, and always on
+    // provenance; prefer the top-level field and fall back to provenance.
+    consider(record.validUntil);
+    if (!isRecord(record) || record.validUntil === undefined) {
+      consider(record.provenance?.validUntil);
+    }
+    // Calendar declares its validity window as an ISO8601 interval.
+    if (typeof record.duration === "string") {
+      const [, end] = record.duration.split("/");
+      consider(end);
+    }
+  }
+
+  return { earliestMs, considered, unparseable, recordCount: records.length };
+}
+
 // ── Cache stores ─────────────────────────────────────────────────────────────
 
 function isRecord(value) {
@@ -304,26 +372,33 @@ export function createEdgeCacheStore({ cache, now = Date.now } = {}) {
 }
 
 /**
- * Result cache over a store, adding TTL handling and identity verification.
+ * Result cache over a store, adding effective-TTL handling, provider-scope
+ * isolation and identity/contract verification.
  *
- * The full canonical identity is stored alongside the value so a hash collision
- * in the cache key is DETECTED and treated as a miss, rather than returning a
- * different request's result.
+ * The full cache context (contract version, provider scope, canonical identity)
+ * is stored alongside the value, so a hash collision, a provider-scope change or
+ * a payload-contract bump is DETECTED and treated as a miss rather than serving
+ * a different request's — or a different endpoint's — result.
  */
 export function createOdptResultCache({ store, now = Date.now } = {}) {
   if (!store) throw new TypeError("createOdptResultCache requires a store");
   return {
     scope: store.scope,
-    async lookup({ identity, cacheClass }) {
+    async lookup({ identity, cacheClass, providerScope }) {
+      const scope = normalizeScope(providerScope);
       const ttlMs = cacheTtlMsForClass(cacheClass);
       if (ttlMs === null) return { hit: false, reason: "unclassifiable" };
-      const key = odptCacheKey(identity);
+      const key = odptCacheKey({ providerScope: scope, identity });
       const entry = await store.read(key);
       if (!entry) return { hit: false };
-      if (entry.identity !== identity) {
-        // Hash collision: evict rather than serve the wrong request's result.
+      const mismatch =
+        entry.identity !== identity ||
+        normalizeScope(entry.providerScope) !== scope ||
+        entry.contractVersion !== ODPT_CACHE_CONTRACT_VERSION;
+      if (mismatch) {
+        // Never serve another scope's / contract's result: evict and miss.
         await store.remove(key);
-        return { hit: false, reason: "identity_mismatch" };
+        return { hit: false, reason: "cache_context_mismatch" };
       }
       return {
         hit: true,
@@ -332,19 +407,66 @@ export function createOdptResultCache({ store, now = Date.now } = {}) {
         expiresAt: entry.expiresAt,
       };
     },
-    async store({ identity, cacheClass, value }) {
+    /**
+     * Stores a result, capping the entry's lifetime by provider-declared
+     * validity when usable evidence exists.
+     *
+     *   effective expiry = min(now + policy TTL, applicable validity end)
+     *
+     * The policy TTL is the MAXIMUM: provider validity may shorten it, never
+     * extend it. If the earliest applicable validity is already in the past the
+     * result is not positive-cached at all.
+     */
+    async store({ identity, cacheClass, value, providerScope }) {
+      const scope = normalizeScope(providerScope);
       const ttlMs = cacheTtlMsForClass(cacheClass);
       if (ttlMs === null) return { stored: false, reason: "unclassifiable" };
-      const expiresAt = now() + ttlMs;
-      await store.write(odptCacheKey(identity), {
+      const currentTime = now();
+      const policyExpiry = currentTime + ttlMs;
+
+      const validity = extractProviderValidityEndMs(value);
+      let expiresAt = policyExpiry;
+      let validityCapped = false;
+      if (validity.earliestMs !== null) {
+        if (validity.earliestMs <= currentTime) {
+          // Already-expired evidence must not be positive-cached.
+          return {
+            stored: false,
+            reason: "provider_validity_expired",
+            validityExpiresAt: validity.earliestMs,
+          };
+        }
+        if (validity.earliestMs < policyExpiry) {
+          expiresAt = validity.earliestMs;
+          validityCapped = true;
+        }
+      }
+
+      await store.write(odptCacheKey({ providerScope: scope, identity }), {
+        contractVersion: ODPT_CACHE_CONTRACT_VERSION,
+        providerScope: scope,
         identity,
         cacheClass,
         expiresAt,
         value,
       });
-      return { stored: true, expiresAt, ttlMs };
+      return {
+        stored: true,
+        expiresAt,
+        ttlMs: expiresAt - currentTime,
+        policyTtlMs: ttlMs,
+        validityCapped,
+        validityExpiresAt: validity.earliestMs,
+      };
     },
   };
+}
+
+/** Absent/blank scopes collapse to one explicit token, never to `undefined`. */
+function normalizeScope(providerScope) {
+  return typeof providerScope === "string" && providerScope.length > 0
+    ? providerScope
+    : odptProviderScope(null);
 }
 
 // ── Provider request budget ──────────────────────────────────────────────────
@@ -424,6 +546,7 @@ export function createOdptProtectionCounters() {
     cacheHits: 0,
     cacheMisses: 0,
     cacheWrites: 0,
+    cacheSkips: 0,
     cacheErrors: 0,
     dedupHits: 0,
     providerRequests: 0,
@@ -440,21 +563,19 @@ export function createOdptProtectionCounters() {
  * @param {object} options
  * @param {object|null} options.cache   result cache (from createOdptResultCache)
  * @param {object|null} options.budget  provider budget (from createOdptRequestBudget)
- * @param {Function} options.now
  */
 export function createOdptRuntimeProtection({
   cache = null,
   budget = null,
-  now = Date.now,
 } = {}) {
   const counters = createOdptProtectionCounters();
-  /** identity -> Promise<{result}> for the in-flight provider fetch. */
+  /** composite dedup key -> Promise<{result, runtime}> for one provider fetch. */
   const inFlight = new Map();
 
-  async function lookupCached(identity, cacheClass) {
+  async function lookupCached(identity, cacheClass, providerScope) {
     if (!cache) return { hit: false };
     try {
-      return await cache.lookup({ identity, cacheClass });
+      return await cache.lookup({ identity, cacheClass, providerScope });
     } catch {
       // A cache failure must never fail the request.
       counters.cacheErrors += 1;
@@ -462,30 +583,41 @@ export function createOdptRuntimeProtection({
     }
   }
 
-  async function writeCached(identity, cacheClass, value) {
+  async function writeCached(identity, cacheClass, value, providerScope) {
     if (!cache) return;
     try {
-      await cache.store({ identity, cacheClass, value });
-      counters.cacheWrites += 1;
+      const outcome = await cache.store({
+        identity,
+        cacheClass,
+        value,
+        providerScope,
+      });
+      if (outcome?.stored === false) {
+        counters.cacheSkips += 1;
+      } else {
+        counters.cacheWrites += 1;
+      }
     } catch {
       counters.cacheErrors += 1;
     }
   }
 
   /**
-   * The single-flight leader: cache lookup, then budget, then the real fetch.
+   * The single-flight leader: cache lookup, then a budget permission per ACTUAL
+   * provider attempt, then the fetch.
    *
    * Reached only when this caller won the synchronous in-flight registration
-   * below, so exactly one leader exists per canonical identity at a time.
+   * below, so exactly one leader exists per cache context at a time.
    */
   async function executeLeader(
     identity,
     cacheClass,
     validated,
     executeProvider,
+    providerScope,
   ) {
     // 1. Cache lookup — costs no provider fetch and no budget token.
-    const cached = await lookupCached(identity, cacheClass);
+    const cached = await lookupCached(identity, cacheClass, providerScope);
     if (cached.hit) {
       counters.cacheHits += 1;
       return {
@@ -494,40 +626,51 @@ export function createOdptRuntimeProtection({
           cacheHit: true,
           dedupHit: false,
           providerRequest: false,
-          budgetAllowed: null,
+          providerAttempts: 0,
+          budgetTokensUsed: 0,
+          budgetExhausted: false,
         },
       };
     }
     counters.cacheMisses += 1;
 
-    // 2. Budget — only a real provider fetch consumes a token.
-    if (budget) {
-      const decision = budget.acquire(identity);
-      if (!decision.allowed) {
-        counters.budgetRejected += 1;
-        return {
-          result: odptBudgetExhaustedResult(validated.operation, () =>
-            new Date(now()).toISOString(),
-          ),
-          runtime: {
-            cacheHit: false,
-            dedupHit: false,
-            providerRequest: false,
-            budgetAllowed: false,
-          },
-        };
+    // 2. Budget — permission is required for EVERY actual outbound attempt, so a
+    //    503 retry costs a SECOND token instead of riding on the first. This
+    //    function is handed to `odptLookup`, which calls it immediately before
+    //    each real fetch, keeping retry mechanics in one place.
+    let attempts = 0;
+    let tokensUsed = 0;
+    let blockedByBudget = false;
+    const acquireAttempt = async () => {
+      if (budget) {
+        const decision = budget.acquire(identity);
+        if (!decision.allowed) {
+          counters.budgetRejected += 1;
+          blockedByBudget = true;
+          return { allowed: false, retryAfterMs: decision.retryAfterMs };
+        }
+        counters.budgetAllowed += 1;
+        tokensUsed += 1;
       }
-      counters.budgetAllowed += 1;
-    }
+      // Counted only after permission is granted, i.e. when an outbound attempt
+      // will genuinely be issued (including a timeout/network attempt).
+      attempts += 1;
+      counters.providerRequests += 1;
+      return { allowed: true };
+    };
 
     // 3. Provider fetch (includes the 1 MB size guard and normalization).
-    const result = await executeProvider();
-    counters.providerRequests += 1;
+    const result = await executeProvider({ acquireAttempt });
 
     // 4. Safe cache write, only when the result class is cacheable.
     const classification = classifyResultForCache(result, validated.operation);
     if (classification.cacheable) {
-      await writeCached(identity, classification.cacheClass, result);
+      await writeCached(
+        identity,
+        classification.cacheClass,
+        result,
+        providerScope,
+      );
     }
 
     return {
@@ -535,8 +678,10 @@ export function createOdptRuntimeProtection({
       runtime: {
         cacheHit: false,
         dedupHit: false,
-        providerRequest: true,
-        budgetAllowed: budget ? true : null,
+        providerRequest: attempts > 0,
+        providerAttempts: attempts,
+        budgetTokensUsed: tokensUsed,
+        budgetExhausted: blockedByBudget,
       },
     };
   }
@@ -545,18 +690,25 @@ export function createOdptRuntimeProtection({
    * Executes a validated request with cache, dedup and budget protection.
    *
    * @param {{ok: true, operation: string, body: object}} validated
-   * @param {() => Promise<object>} executeProvider performs the real fetch
+   * @param {(ctx: {acquireAttempt: Function}) => Promise<object>} executeProvider
+   *   performs the real fetch. It MUST call `ctx.acquireAttempt()` before each
+   *   outbound provider attempt so every attempt is budgeted.
+   * @param {{providerScope?: string}} [context] resolved provider scope
    * @returns {Promise<{result: object, runtime: object}>}
    */
-  async function run(validated, executeProvider) {
+  async function run(validated, executeProvider, context = {}) {
     const identity = canonicalOdptRequestIdentity(validated);
     const cacheClass = cacheClassForOperation(validated.operation);
+    const providerScope = normalizeScope(context.providerScope);
+    // One dedup key per cache context: identical requests against different
+    // configured provider endpoints must never share an in-flight fetch.
+    const dedupKey = `${providerScope}|${identity}`;
 
     // Single-flight registration is deliberately SYNCHRONOUS (no await between
     // the lookup and the set) so two concurrent identical callers can never both
     // become leaders, no matter how slow a cache read is. A follower therefore
     // never issues a provider request or consumes a budget token.
-    const existing = inFlight.get(identity);
+    const existing = inFlight.get(dedupKey);
     if (existing) {
       counters.dedupHits += 1;
       const { result } = await existing;
@@ -567,7 +719,9 @@ export function createOdptRuntimeProtection({
           cacheHit: false,
           dedupHit: true,
           providerRequest: false,
-          budgetAllowed: null,
+          providerAttempts: 0,
+          budgetTokensUsed: 0,
+          budgetExhausted: false,
         },
       };
     }
@@ -577,8 +731,9 @@ export function createOdptRuntimeProtection({
       cacheClass,
       validated,
       executeProvider,
+      providerScope,
     );
-    inFlight.set(identity, leader);
+    inFlight.set(dedupKey, leader);
 
     try {
       const { result, runtime } = await leader;
@@ -586,7 +741,7 @@ export function createOdptRuntimeProtection({
     } finally {
       // Removal must happen on BOTH success and failure, otherwise a rejected
       // promise would stay in the map and poison every later identical call.
-      if (inFlight.get(identity) === leader) inFlight.delete(identity);
+      if (inFlight.get(dedupKey) === leader) inFlight.delete(dedupKey);
     }
   }
 

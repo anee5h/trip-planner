@@ -16,7 +16,13 @@ import {
   createOdptRequestBudget,
   createOdptResultCache,
   createOdptRuntimeProtection,
+  extractProviderValidityEndMs,
 } from "./odpt-runtime-protection.js";
+import {
+  ODPT_CACHE_CONTRACT_VERSION,
+  odptCacheKey,
+  odptProviderScope,
+} from "./odpt-request-identity.js";
 
 const KEY = "fixture-odpt-key";
 const MINUTE = 60 * 1000;
@@ -73,6 +79,18 @@ function noDataResult(operation = "station") {
   };
 }
 
+/** Canonical budget_exhausted envelope, matching odpt-core's hook path. */
+function budgetExhaustedNow() {
+  return {
+    ...recordsResult(),
+    outcome: "error",
+    errorCode: "budget_exhausted",
+    records: [],
+    recordCount: 0,
+    sourceUrl: "",
+  };
+}
+
 function deferred() {
   let resolve;
   let reject;
@@ -106,6 +124,61 @@ function recordingStore(inner) {
 }
 
 /** Builds a protection layer on a controllable clock with a counting budget. */
+const SCOPE_A = odptProviderScope("https://api.odpt.org/api/v4");
+const SCOPE_B = odptProviderScope("https://odpt-mirror.example/api/v4");
+
+/**
+ * Faithful provider stub: mirrors odptLookup's attempt loop by asking for budget
+ * permission IMMEDIATELY BEFORE each outbound attempt (the real hook contract),
+ * and returns the canonical budget_exhausted envelope when permission is denied.
+ *
+ * `plan(attempt)` decides each attempt's outcome:
+ *   "retry503" -> a retryable failure, loop continues (bounded)
+ *   anything else -> the returned result
+ */
+function providerStub(plan, { maxAttempts = 2 } = {}) {
+  const stub = {
+    attempts: 0,
+    fn: async ({ acquireAttempt }) => {
+      for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+        const permission = await acquireAttempt({ attempt });
+        if (!permission || permission.allowed !== true) {
+          const attemptsMade = attempt - 1;
+          return {
+            ...recordsResult(),
+            outcome: "error",
+            errorCode: "budget_exhausted",
+            records: [],
+            recordCount: 0,
+            sourceUrl: attemptsMade > 0 ? "https://api.odpt.org/api/v4/x" : "",
+            providerAttempts: attemptsMade,
+            retryBlockedByBudget: attemptsMade > 0,
+          };
+        }
+        stub.attempts += 1;
+        const outcome = typeof plan === "function" ? plan(attempt) : plan;
+        if (outcome === RETRY_503) continue;
+        return outcome;
+      }
+      return {
+        ...recordsResult(),
+        outcome: "error",
+        errorCode: "provider_unavailable",
+        records: [],
+        recordCount: 0,
+      };
+    },
+  };
+  return stub;
+}
+
+const RETRY_503 = Symbol("retry503");
+
+/** Convenience: a stub that succeeds on the first attempt. */
+function succeeds(result = recordsResult()) {
+  return providerStub(result);
+}
+
 function harness({
   limit = ODPT_DEFAULT_BUDGET_LIMIT,
   windowMs = MINUTE,
@@ -152,14 +225,16 @@ describe("in-flight request deduplication", () => {
     const { protection } = harness();
     const gate = deferred();
     let providerCalls = 0;
-    const execute = () => {
+    const execute = async ({ acquireAttempt }) => {
+      const permission = await acquireAttempt({ attempt: 1 });
+      if (!permission.allowed) return budgetExhaustedNow();
       providerCalls += 1;
       return gate.promise;
     };
 
     const both = Promise.all([
-      protection.run(STATION_QUERY, execute),
-      protection.run(STATION_QUERY, execute),
+      protection.run(STATION_QUERY, execute, { providerScope: SCOPE_A }),
+      protection.run(STATION_QUERY, execute, { providerScope: SCOPE_A }),
     ]);
     gate.resolve(recordsResult());
     const [first, second] = await both;
@@ -175,13 +250,15 @@ describe("in-flight request deduplication", () => {
     const { protection } = harness();
     const gate = deferred();
     let providerCalls = 0;
-    const execute = () => {
+    const execute = async ({ acquireAttempt }) => {
+      const permission = await acquireAttempt({ attempt: 1 });
+      if (!permission.allowed) return budgetExhaustedNow();
       providerCalls += 1;
       return gate.promise;
     };
 
     const all = Array.from({ length: 10 }, () =>
-      protection.run(STATION_QUERY, execute),
+      protection.run(STATION_QUERY, execute, { providerScope: SCOPE_A }),
     );
     gate.resolve(recordsResult());
     const results = await Promise.all(all);
@@ -199,14 +276,16 @@ describe("in-flight request deduplication", () => {
   it("issues separate provider calls for different requests", async () => {
     const { protection } = harness();
     let providerCalls = 0;
-    const execute = () => {
+    const execute = async ({ acquireAttempt }) => {
+      const permission = await acquireAttempt({ attempt: 1 });
+      if (!permission.allowed) return budgetExhaustedNow();
       providerCalls += 1;
-      return Promise.resolve(recordsResult());
+      return recordsResult();
     };
 
     await Promise.all([
-      protection.run(STATION_QUERY, execute),
-      protection.run(FARE_QUERY, execute),
+      protection.run(STATION_QUERY, execute, { providerScope: SCOPE_A }),
+      protection.run(FARE_QUERY, execute, { providerScope: SCOPE_A }),
     ]);
     expect(providerCalls).toBe(2);
   });
@@ -241,10 +320,16 @@ describe("in-flight request deduplication", () => {
   it("does not let a failed request poison a concurrent identical follower", async () => {
     const { protection } = harness();
     const gate = deferred();
-    const leader = protection.run(STATION_QUERY, () => gate.promise);
-    const follower = protection.run(STATION_QUERY, () =>
-      Promise.resolve(recordsResult()),
-    );
+    const leaderExecute = async ({ acquireAttempt }) => {
+      await acquireAttempt({ attempt: 1 });
+      return gate.promise;
+    };
+    const leader = protection.run(STATION_QUERY, leaderExecute, {
+      providerScope: SCOPE_A,
+    });
+    const follower = protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
     gate.reject(new Error("boom"));
 
     await expect(leader).rejects.toThrow("boom");
@@ -256,63 +341,6 @@ describe("in-flight request deduplication", () => {
 // ── Budget accounting vs dedup/cache ─────────────────────────────────────────
 
 describe("provider budget accounting", () => {
-  it("acquires exactly one token per real provider fetch", async () => {
-    const { protection, acquireSpy } = harness();
-    const run = await protection.run(STATION_QUERY, () =>
-      Promise.resolve(recordsResult()),
-    );
-    expect(run.runtime.providerRequest).toBe(true);
-    expect(run.runtime.budgetAllowed).toBe(true);
-    expect(acquireSpy).toHaveBeenCalledTimes(1);
-  });
-
-  it("acquires zero tokens for a dedup follower", async () => {
-    const { protection, acquireSpy } = harness();
-    const gate = deferred();
-    const all = Array.from({ length: 5 }, () =>
-      protection.run(STATION_QUERY, () => {
-        gate.resolve(recordsResult());
-        return gate.promise;
-      }),
-    );
-    await Promise.all(all);
-    expect(acquireSpy).toHaveBeenCalledTimes(1);
-  });
-
-  it("acquires zero tokens for a cache hit", async () => {
-    const { protection, acquireSpy } = harness();
-    await protection.run(STATION_QUERY, () => Promise.resolve(recordsResult()));
-    expect(acquireSpy).toHaveBeenCalledTimes(1);
-
-    const second = await protection.run(STATION_QUERY, () =>
-      Promise.resolve(recordsResult()),
-    );
-    expect(second.runtime.cacheHit).toBe(true);
-    // Still one: the cache hit consumed no budget.
-    expect(acquireSpy).toHaveBeenCalledTimes(1);
-  });
-
-  it("returns an explicit budget_exhausted state instead of a provider error", async () => {
-    const { protection } = harness({ limit: 1 });
-    await protection.run(STATION_QUERY, () => Promise.resolve(recordsResult()));
-
-    // A semantically DIFFERENT request must not be served from cache.
-    const blocked = await protection.run(
-      validatedOf({
-        operation: "station",
-        operator: "odpt.Operator:TokyoMetro",
-      }),
-      () => Promise.resolve(recordsResult()),
-    );
-    expect(blocked.result.outcome).toBe("error");
-    expect(blocked.result.errorCode).toBe("budget_exhausted");
-    expect(blocked.runtime.providerRequest).toBe(false);
-    expect(blocked.runtime.budgetAllowed).toBe(false);
-    // It is neither "no data" nor an empty success.
-    expect(blocked.result.outcome).not.toBe("no_data");
-    expect(blocked.result.records).toEqual([]);
-  });
-
   it("resets deterministically when the window rolls over", async () => {
     const clock = { value: 1_700_000_000_000 };
     const budget = createOdptRequestBudget({
@@ -334,14 +362,131 @@ describe("provider budget accounting", () => {
 
   it("is configurable and injectable", async () => {
     const { protection } = harness({ limit: 1, windowMs: 5 * MINUTE });
-    const first = await protection.run(STATION_QUERY, () =>
-      Promise.resolve(recordsResult()),
-    );
-    expect(first.runtime.budgetAllowed).toBe(true);
-    const second = await protection.run(FARE_QUERY, () =>
-      Promise.resolve(recordsResult()),
-    );
+    const first = await protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
+    expect(first.runtime.budgetTokensUsed).toBe(1);
+    const second = await protection.run(FARE_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
     expect(second.result.errorCode).toBe("budget_exhausted");
+  });
+
+  it("first-attempt success -> 1 token, 1 actual attempt", async () => {
+    const { protection, acquireSpy } = harness();
+    const stub = succeeds();
+    const run = await protection.run(STATION_QUERY, stub.fn, {
+      providerScope: SCOPE_A,
+    });
+    expect(stub.attempts).toBe(1);
+    expect(run.runtime.providerRequest).toBe(true);
+    expect(run.runtime.providerAttempts).toBe(1);
+    expect(run.runtime.budgetTokensUsed).toBe(1);
+    expect(acquireSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it("503 then success -> 2 tokens, 2 actual attempts", async () => {
+    const { protection, acquireSpy } = harness();
+    // Exactly the real retry shape: first attempt 503, the retry succeeds.
+    const stub = providerStub((attempt) =>
+      attempt === 1 ? RETRY_503 : recordsResult(),
+    );
+    const run = await protection.run(STATION_QUERY, stub.fn, {
+      providerScope: SCOPE_A,
+    });
+    expect(stub.attempts).toBe(2);
+    expect(run.result.outcome).toBe("records");
+    expect(run.runtime.providerAttempts).toBe(2);
+    expect(run.runtime.budgetTokensUsed).toBe(2);
+    expect(acquireSpy).toHaveBeenCalledTimes(2);
+    expect(run.runtime.budgetExhausted).toBe(false);
+  });
+
+  it("503 then 503 -> 2 tokens, 2 actual attempts, provider state preserved", async () => {
+    const { protection, acquireSpy } = harness();
+    const stub = providerStub(() => RETRY_503);
+    const run = await protection.run(STATION_QUERY, stub.fn, {
+      providerScope: SCOPE_A,
+    });
+    expect(stub.attempts).toBe(2);
+    expect(run.runtime.providerAttempts).toBe(2);
+    expect(run.runtime.budgetTokensUsed).toBe(2);
+    expect(acquireSpy).toHaveBeenCalledTimes(2);
+    // The retry was permitted, so the provider failure is what is reported.
+    expect(run.result.errorCode).toBe("provider_unavailable");
+    expect(run.runtime.budgetExhausted).toBe(false);
+  });
+
+  it("budget blocks the RETRY after a 503 -> 1 attempt, budget_exhausted", async () => {
+    // Exactly one token left: the initial attempt spends it, the retry is refused.
+    const { protection, acquireSpy } = harness({ limit: 1 });
+    const stub = providerStub(() => RETRY_503);
+    const run = await protection.run(STATION_QUERY, stub.fn, {
+      providerScope: SCOPE_A,
+    });
+    expect(stub.attempts).toBe(1);
+    expect(run.runtime.providerAttempts).toBe(1);
+    expect(run.runtime.budgetTokensUsed).toBe(1);
+    expect(acquireSpy).toHaveBeenCalledTimes(2); // 1 granted + 1 refused
+    // Final state is budget_exhausted, and it reports that one attempt happened
+    // rather than pretending a second provider response occurred.
+    expect(run.result.outcome).toBe("error");
+    expect(run.result.errorCode).toBe("budget_exhausted");
+    expect(run.result.providerAttempts).toBe(1);
+    expect(run.result.retryBlockedByBudget).toBe(true);
+    expect(run.runtime.budgetExhausted).toBe(true);
+    // A blocked retry is never cached.
+    expect(protection.counters.cacheWrites).toBe(0);
+  });
+
+  it("budget blocks the FIRST attempt -> 0 attempts, budget_exhausted", async () => {
+    const { protection } = harness({ limit: 1 });
+    await protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
+    const stub = providerStub(recordsResult());
+    // A semantically different request cannot be served from cache.
+    const blocked = await protection.run(
+      validatedOf({
+        operation: "station",
+        operator: "odpt.Operator:TokyoMetro",
+      }),
+      stub.fn,
+      { providerScope: SCOPE_A },
+    );
+    expect(stub.attempts).toBe(0);
+    expect(blocked.result.errorCode).toBe("budget_exhausted");
+    expect(blocked.result.providerAttempts).toBe(0);
+    expect(blocked.runtime.providerAttempts).toBe(0);
+    expect(blocked.runtime.providerRequest).toBe(false);
+    // Neither "no data" nor an empty success.
+    expect(blocked.result.outcome).not.toBe("no_data");
+  });
+
+  it("counts a timeout/network attempt that actually invoked fetch", async () => {
+    const { protection } = harness();
+    // The attempt was issued (so it costs a token) and then failed.
+    const stub = providerStub(errorResult("provider_timeout"));
+    const run = await protection.run(STATION_QUERY, stub.fn, {
+      providerScope: SCOPE_A,
+    });
+    expect(stub.attempts).toBe(1);
+    expect(run.runtime.providerAttempts).toBe(1);
+    expect(run.runtime.budgetTokensUsed).toBe(1);
+    expect(run.result.errorCode).toBe("provider_timeout");
+  });
+
+  it("counts zero attempts when the request never reaches provider I/O", async () => {
+    const { protection, acquireSpy } = harness();
+    // A readiness/config failure returns before any attempt is issued.
+    const stub = { attempts: 0, fn: async () => budgetExhaustedNow() };
+    const run = await protection.run(STATION_QUERY, stub.fn, {
+      providerScope: SCOPE_A,
+    });
+    expect(stub.attempts).toBe(0);
+    expect(run.runtime.providerAttempts).toBe(0);
+    expect(run.runtime.providerRequest).toBe(false);
+    expect(acquireSpy).not.toHaveBeenCalled();
   });
 
   it("reports isolate-local scope and never claims global enforcement", () => {
@@ -369,13 +514,18 @@ describe("result caching", () => {
   it("misses then hits, and a hit performs no provider call", async () => {
     const { protection, acquireSpy } = harness();
     let providerCalls = 0;
-    const execute = () => {
+    const execute = async ({ acquireAttempt }) => {
+      await acquireAttempt({ attempt: 1 });
       providerCalls += 1;
-      return Promise.resolve(recordsResult());
+      return recordsResult();
     };
 
-    const first = await protection.run(STATION_QUERY, execute);
-    const second = await protection.run(STATION_QUERY, execute);
+    const first = await protection.run(STATION_QUERY, execute, {
+      providerScope: SCOPE_A,
+    });
+    const second = await protection.run(STATION_QUERY, execute, {
+      providerScope: SCOPE_A,
+    });
 
     expect(first.runtime.cacheHit).toBe(false);
     expect(second.runtime.cacheHit).toBe(true);
@@ -386,19 +536,24 @@ describe("result caching", () => {
   it("refetches after the entry expires", async () => {
     const { protection, clock } = harness();
     let providerCalls = 0;
-    const execute = () => {
+    const execute = async ({ acquireAttempt }) => {
+      await acquireAttempt({ attempt: 1 });
       providerCalls += 1;
-      return Promise.resolve(recordsResult());
+      return recordsResult();
     };
 
-    await protection.run(STATION_QUERY, execute);
+    await protection.run(STATION_QUERY, execute, { providerScope: SCOPE_A });
     clock.value += ODPT_CACHE_TTL_MS.reference - 1;
-    const stillCached = await protection.run(STATION_QUERY, execute);
+    const stillCached = await protection.run(STATION_QUERY, execute, {
+      providerScope: SCOPE_A,
+    });
     expect(stillCached.runtime.cacheHit).toBe(true);
     expect(providerCalls).toBe(1);
 
     clock.value += 1; // exactly at expiry
-    const refetched = await protection.run(STATION_QUERY, execute);
+    const refetched = await protection.run(STATION_QUERY, execute, {
+      providerScope: SCOPE_A,
+    });
     expect(refetched.runtime.cacheHit).toBe(false);
     expect(providerCalls).toBe(2);
   });
@@ -406,9 +561,10 @@ describe("result caching", () => {
   it("shares one cache entry between canonical equivalents", async () => {
     const { protection } = harness();
     let providerCalls = 0;
-    const execute = () => {
+    const execute = async ({ acquireAttempt }) => {
+      await acquireAttempt({ attempt: 1 });
       providerCalls += 1;
-      return Promise.resolve(recordsResult());
+      return recordsResult("railway_fare");
     };
 
     // Same semantics, different JSON property order.
@@ -419,6 +575,7 @@ describe("result caching", () => {
         toStation: "odpt.Station:Toei.Mita.Sugamo",
       }),
       execute,
+      { providerScope: SCOPE_A },
     );
     const reordered = await protection.run(
       validatedOf({
@@ -427,6 +584,7 @@ describe("result caching", () => {
         fromStation: "odpt.Station:Toei.Mita.Hakusan",
       }),
       execute,
+      { providerScope: SCOPE_A },
     );
     expect(reordered.runtime.cacheHit).toBe(true);
     expect(providerCalls).toBe(1);
@@ -435,9 +593,10 @@ describe("result caching", () => {
   it("does not collide semantically different requests", async () => {
     const { protection } = harness();
     let providerCalls = 0;
-    const execute = () => {
+    const execute = async ({ acquireAttempt }) => {
+      await acquireAttempt({ attempt: 1 });
       providerCalls += 1;
-      return Promise.resolve(recordsResult());
+      return recordsResult("station_timetable");
     };
 
     await protection.run(
@@ -446,6 +605,7 @@ describe("result caching", () => {
         station: "odpt.Station:Toei.Mita.Hakusan",
       }),
       execute,
+      { providerScope: SCOPE_A },
     );
     const other = await protection.run(
       validatedOf({
@@ -453,6 +613,7 @@ describe("result caching", () => {
         station: "odpt.Station:Toei.Asakusa.HonjoAzumabashi",
       }),
       execute,
+      { providerScope: SCOPE_A },
     );
     expect(other.runtime.cacheHit).toBe(false);
     expect(providerCalls).toBe(2);
@@ -460,10 +621,12 @@ describe("result caching", () => {
 
   it("caches a successful empty array as a successful empty result", async () => {
     const { protection } = harness();
-    await protection.run(STATION_QUERY, () => Promise.resolve(emptyResult()));
-    const cached = await protection.run(STATION_QUERY, () =>
-      Promise.resolve(recordsResult()),
-    );
+    await protection.run(STATION_QUERY, succeeds(emptyResult()).fn, {
+      providerScope: SCOPE_A,
+    });
+    const cached = await protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
     expect(cached.runtime.cacheHit).toBe(true);
     expect(cached.result.outcome).toBe("records");
     expect(cached.result.records).toEqual([]);
@@ -473,9 +636,13 @@ describe("result caching", () => {
   it("keeps cached records as records with unchanged provenance", async () => {
     const { protection } = harness();
     const original = recordsResult("station", [{ id: "x", title: "三田" }]);
-    await protection.run(STATION_QUERY, () => Promise.resolve(original));
-    const cached = await protection.run(STATION_QUERY, () =>
-      Promise.resolve(errorResult("provider_internal_error")),
+    await protection.run(STATION_QUERY, succeeds(original).fn, {
+      providerScope: SCOPE_A,
+    });
+    const cached = await protection.run(
+      STATION_QUERY,
+      succeeds(errorResult("provider_internal_error")).fn,
+      { providerScope: SCOPE_A },
     );
     expect(cached.runtime.cacheHit).toBe(true);
     expect(cached.result).toEqual(original);
@@ -489,10 +656,12 @@ describe("result caching", () => {
       identity: "identity-A",
       cacheClass: ODPT_CACHE_CLASS.REFERENCE,
       value: recordsResult(),
+      providerScope: SCOPE_A,
     });
     const lookup = await cache.lookup({
       identity: "identity-B",
       cacheClass: ODPT_CACHE_CLASS.REFERENCE,
+      providerScope: SCOPE_A,
     });
     expect(lookup.hit).toBe(false);
   });
@@ -514,10 +683,15 @@ describe("result caching", () => {
       budget: null,
     });
     let providerCalls = 0;
-    const run = await protection.run(STATION_QUERY, () => {
-      providerCalls += 1;
-      return Promise.resolve(recordsResult());
-    });
+    const run = await protection.run(
+      STATION_QUERY,
+      async ({ acquireAttempt }) => {
+        await acquireAttempt({ attempt: 1 });
+        providerCalls += 1;
+        return recordsResult();
+      },
+      { providerScope: SCOPE_A },
+    );
     expect(run.result.outcome).toBe("records");
     expect(providerCalls).toBe(1);
     expect(protection.counters.cacheErrors).toBeGreaterThan(0);
@@ -577,14 +751,17 @@ describe("cache class and TTL policy", () => {
       station: "odpt.Station:Toei.Mita.Hakusan",
     });
     let providerCalls = 0;
-    const execute = () => {
+    const execute = async ({ acquireAttempt }) => {
+      await acquireAttempt({ attempt: 1 });
       providerCalls += 1;
-      return Promise.resolve(recordsResult("station_timetable"));
+      return recordsResult("station_timetable");
     };
 
-    await protection.run(timetable, execute);
+    await protection.run(timetable, execute, { providerScope: SCOPE_A });
     clock.value += ODPT_CACHE_TTL_MS.timetable + 1;
-    const afterTimetableTtl = await protection.run(timetable, execute);
+    const afterTimetableTtl = await protection.run(timetable, execute, {
+      providerScope: SCOPE_A,
+    });
     expect(afterTimetableTtl.runtime.cacheHit).toBe(false);
     expect(providerCalls).toBe(2);
   });
@@ -640,13 +817,18 @@ describe("cacheable result matrix", () => {
   ])("never serves a cached %s", async (errorCode) => {
     const { protection } = harness();
     let providerCalls = 0;
-    const execute = () => {
+    const execute = async ({ acquireAttempt }) => {
+      await acquireAttempt({ attempt: 1 });
       providerCalls += 1;
-      return Promise.resolve(errorResult(errorCode));
+      return errorResult(errorCode);
     };
 
-    const first = await protection.run(STATION_QUERY, execute);
-    const second = await protection.run(STATION_QUERY, execute);
+    const first = await protection.run(STATION_QUERY, execute, {
+      providerScope: SCOPE_A,
+    });
+    const second = await protection.run(STATION_QUERY, execute, {
+      providerScope: SCOPE_A,
+    });
 
     expect(first.result.outcome).toBe("error");
     expect(first.result.errorCode).toBe(errorCode);
@@ -657,13 +839,16 @@ describe("cacheable result matrix", () => {
   it("keeps 404 as no_data and never rewrites it to an empty success", async () => {
     const { protection } = harness();
     let providerCalls = 0;
-    const execute = () => {
+    const execute = async ({ acquireAttempt }) => {
+      await acquireAttempt({ attempt: 1 });
       providerCalls += 1;
-      return Promise.resolve(noDataResult());
+      return noDataResult();
     };
 
-    await protection.run(STATION_QUERY, execute);
-    const cached = await protection.run(STATION_QUERY, execute);
+    await protection.run(STATION_QUERY, execute, { providerScope: SCOPE_A });
+    const cached = await protection.run(STATION_QUERY, execute, {
+      providerScope: SCOPE_A,
+    });
 
     expect(cached.runtime.cacheHit).toBe(true);
     expect(providerCalls).toBe(1);
@@ -688,34 +873,42 @@ describe("cacheable result matrix", () => {
     expect(first.result.errorCode).toBe("provider_response_too_large");
     expect(first.result.records).toEqual([]);
 
-    const second = await protection.run(wide, execute);
+    const second = await protection.run(wide, execute, {
+      providerScope: SCOPE_A,
+    });
     expect(second.runtime.cacheHit).toBe(false);
     expect(second.result.errorCode).toBe("provider_response_too_large");
   });
 
   it("keeps 402 billing_required distinct from no_data", async () => {
     const { protection } = harness();
-    const first = await protection.run(STATION_QUERY, () =>
-      Promise.resolve(errorResult("billing_required")),
+    const first = await protection.run(
+      STATION_QUERY,
+      succeeds(errorResult("billing_required")).fn,
+      { providerScope: SCOPE_A },
     );
     expect(first.result.errorCode).toBe("billing_required");
     expect(first.result.outcome).not.toBe("no_data");
-    const second = await protection.run(STATION_QUERY, () =>
-      Promise.resolve(errorResult("billing_required")),
+    const second = await protection.run(
+      STATION_QUERY,
+      succeeds(errorResult("billing_required")).fn,
+      { providerScope: SCOPE_A },
     );
     expect(second.runtime.cacheHit).toBe(false);
   });
 
   it("does not let a failed request break a subsequent valid one", async () => {
     const { protection } = harness();
-    const failed = await protection.run(STATION_QUERY, () =>
-      Promise.resolve(errorResult("provider_internal_error")),
+    const failed = await protection.run(
+      STATION_QUERY,
+      succeeds(errorResult("provider_internal_error")).fn,
+      { providerScope: SCOPE_A },
     );
     expect(failed.result.outcome).toBe("error");
 
-    const ok = await protection.run(STATION_QUERY, () =>
-      Promise.resolve(recordsResult()),
-    );
+    const ok = await protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
     expect(ok.result.outcome).toBe("records");
     expect(ok.runtime.cacheHit).toBe(false);
   });
@@ -815,9 +1008,15 @@ describe("edge cache store (Cloudflare Cache API)", () => {
 describe("security invariants", () => {
   it("never puts credential material in a cache key", async () => {
     const { protection, store } = harness();
-    await protection.run(STATION_QUERY, () => Promise.resolve(recordsResult()));
-    await protection.run(FARE_QUERY, () =>
-      Promise.resolve(recordsResult("railway_fare")),
+    await protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
+    await protection.run(
+      FARE_QUERY,
+      succeeds(recordsResult("railway_fare")).fn,
+      {
+        providerScope: SCOPE_A,
+      },
     );
     expect(store.keys.length).toBeGreaterThan(0);
     for (const key of store.keys) {
@@ -833,14 +1032,16 @@ describe("security invariants", () => {
 
   it("exposes only safe runtime metadata", async () => {
     const { protection } = harness();
-    const run = await protection.run(STATION_QUERY, () =>
-      Promise.resolve(recordsResult()),
-    );
+    const run = await protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
     expect(Object.keys(run.runtime).sort()).toEqual([
-      "budgetAllowed",
+      "budgetExhausted",
+      "budgetTokensUsed",
       "cacheClass",
       "cacheHit",
       "dedupHit",
+      "providerAttempts",
       "providerRequest",
     ]);
     const serialized = JSON.stringify(run.runtime);
@@ -854,8 +1055,12 @@ describe("security invariants", () => {
       vi.spyOn(console, level).mockImplementation(() => {}),
     );
     const { protection } = harness();
-    await protection.run(STATION_QUERY, () => Promise.resolve(recordsResult()));
-    await protection.run(STATION_QUERY, () => Promise.resolve(recordsResult()));
+    await protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
+    await protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
     for (const spy of spies) {
       expect(spy).not.toHaveBeenCalled();
       spy.mockRestore();
@@ -864,12 +1069,350 @@ describe("security invariants", () => {
 
   it("keeps safe counters available for tests instead of production logs", async () => {
     const { protection } = harness();
-    await protection.run(STATION_QUERY, () => Promise.resolve(recordsResult()));
-    await protection.run(STATION_QUERY, () => Promise.resolve(recordsResult()));
+    await protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
+    await protection.run(STATION_QUERY, succeeds().fn, {
+      providerScope: SCOPE_A,
+    });
     expect(protection.counters.providerRequests).toBe(1);
     expect(protection.counters.cacheHits).toBe(1);
     expect(protection.counters.cacheMisses).toBe(1);
     expect(protection.counters.cacheWrites).toBe(1);
     expect(JSON.stringify(protection.counters)).not.toContain(KEY);
+  });
+});
+
+// ── Validity-aware effective TTL ─────────────────────────────────────────────
+
+describe("provider-declared validity extraction", () => {
+  const at = (iso) => Date.parse(iso);
+
+  it("reads validUntil from a record", () => {
+    const result = extractProviderValidityEndMs(
+      recordsResult("station", [{ validUntil: "2026-09-10T05:00:00Z" }]),
+    );
+    expect(result.earliestMs).toBe(at("2026-09-10T05:00:00Z"));
+    expect(result.considered).toBe(1);
+  });
+
+  it("falls back to provenance.validUntil when the top level is absent", () => {
+    const result = extractProviderValidityEndMs(
+      recordsResult("station", [
+        { provenance: { validUntil: "2026-09-10T06:00:00Z" } },
+      ]),
+    );
+    expect(result.earliestMs).toBe(at("2026-09-10T06:00:00Z"));
+  });
+
+  it("reads a Calendar's ISO8601 duration end", () => {
+    const result = extractProviderValidityEndMs(
+      recordsResult("calendar", [
+        { duration: "2026-01-01T00:00:00+09:00/2026-09-30T23:59:59+09:00" },
+      ]),
+    );
+    expect(result.earliestMs).toBe(at("2026-09-30T23:59:59+09:00"));
+  });
+
+  it("takes the EARLIEST expiry across records", () => {
+    const result = extractProviderValidityEndMs(
+      recordsResult("railway_fare", [
+        { validUntil: "2026-09-10T04:00:00Z" },
+        { validUntil: "2026-09-10T02:00:00Z" },
+      ]),
+    );
+    expect(result.earliestMs).toBe(at("2026-09-10T02:00:00Z"));
+  });
+
+  it("ignores malformed validity instead of fabricating an expiry", () => {
+    const result = extractProviderValidityEndMs(
+      recordsResult("station", [{ validUntil: "not-a-date" }]),
+    );
+    expect(result.earliestMs).toBeNull();
+    expect(result.unparseable).toBe(1);
+  });
+
+  it("does NOT infer validity from dc:date", () => {
+    // `date` records generation time, not validity: it must be ignored.
+    const result = extractProviderValidityEndMs(
+      recordsResult("station", [{ date: "2020-01-01T00:00:00Z" }]),
+    );
+    expect(result.earliestMs).toBeNull();
+  });
+
+  it("reports no validity for a successful empty array", () => {
+    const result = extractProviderValidityEndMs(emptyResult());
+    expect(result.earliestMs).toBeNull();
+    expect(result.recordCount).toBe(0);
+  });
+});
+
+describe("validity-aware effective TTL", () => {
+  const NOW = 1_700_000_000_000;
+  const iso = (ms) => new Date(ms).toISOString();
+
+  async function storeTimetable(validUntilMs, { cacheClass } = {}) {
+    const clock = { value: NOW };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    const result = recordsResult("station_timetable", [
+      validUntilMs === null ? {} : { validUntil: iso(validUntilMs) },
+    ]);
+    const outcome = await cache.store({
+      identity: `identity-${validUntilMs}`,
+      cacheClass: cacheClass ?? ODPT_CACHE_CLASS.TIMETABLE,
+      value: result,
+      providerScope: SCOPE_A,
+    });
+    return { outcome, cache, clock };
+  }
+
+  it("timetable policy 5m, validUntil +2m -> expires at +2m", async () => {
+    const { outcome } = await storeTimetable(NOW + 2 * MINUTE);
+    expect(outcome.stored).toBe(true);
+    expect(outcome.validityCapped).toBe(true);
+    expect(outcome.expiresAt).toBe(NOW + 2 * MINUTE);
+    expect(outcome.policyTtlMs).toBe(ODPT_CACHE_TTL_MS.timetable);
+  });
+
+  it("timetable validUntil +20m -> expires at the 5m policy maximum", async () => {
+    const { outcome } = await storeTimetable(NOW + 20 * MINUTE);
+    expect(outcome.stored).toBe(true);
+    // Provider validity may never EXTEND beyond the policy TTL.
+    expect(outcome.validityCapped).toBe(false);
+    expect(outcome.expiresAt).toBe(NOW + ODPT_CACHE_TTL_MS.timetable);
+  });
+
+  it("already-expired timetable is NOT positive-cached", async () => {
+    const { outcome } = await storeTimetable(NOW - MINUTE);
+    expect(outcome.stored).toBe(false);
+    expect(outcome.reason).toBe("provider_validity_expired");
+  });
+
+  it("two records expiring +4m/+2m -> effective expiry is +2m", async () => {
+    const clock = { value: NOW };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    const outcome = await cache.store({
+      identity: "two-records",
+      cacheClass: ODPT_CACHE_CLASS.TIMETABLE,
+      value: recordsResult("station_timetable", [
+        { validUntil: iso(NOW + 4 * MINUTE) },
+        { validUntil: iso(NOW + 2 * MINUTE) },
+      ]),
+      providerScope: SCOPE_A,
+    });
+    expect(outcome.expiresAt).toBe(NOW + 2 * MINUTE);
+  });
+
+  it("missing validity -> normal policy TTL", async () => {
+    const { outcome } = await storeTimetable(null);
+    expect(outcome.stored).toBe(true);
+    expect(outcome.validityCapped).toBe(false);
+    expect(outcome.expiresAt).toBe(NOW + ODPT_CACHE_TTL_MS.timetable);
+  });
+
+  it("malformed optional validity -> conservative policy TTL", async () => {
+    const clock = { value: NOW };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    const outcome = await cache.store({
+      identity: "malformed",
+      cacheClass: ODPT_CACHE_CLASS.TIMETABLE,
+      value: recordsResult("station_timetable", [{ validUntil: "???" }]),
+      providerScope: SCOPE_A,
+    });
+    // Falls back rather than inventing an expiry, and does not fail the record.
+    expect(outcome.stored).toBe(true);
+    expect(outcome.validityCapped).toBe(false);
+    expect(outcome.expiresAt).toBe(NOW + ODPT_CACHE_TTL_MS.timetable);
+  });
+
+  it("fare validity caps the 1h fare policy", async () => {
+    const clock = { value: NOW };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    const outcome = await cache.store({
+      identity: "fare",
+      cacheClass: ODPT_CACHE_CLASS.FARE,
+      value: recordsResult("railway_fare", [
+        { validUntil: iso(NOW + 5 * MINUTE) },
+      ]),
+      providerScope: SCOPE_A,
+    });
+    expect(outcome.expiresAt).toBe(NOW + 5 * MINUTE);
+    expect(outcome.policyTtlMs).toBe(ODPT_CACHE_TTL_MS.fare);
+  });
+
+  it("reference validity caps the 6h reference policy", async () => {
+    const clock = { value: NOW };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    const outcome = await cache.store({
+      identity: "ref",
+      cacheClass: ODPT_CACHE_CLASS.REFERENCE,
+      value: recordsResult("station", [{ validUntil: iso(NOW + 30 * MINUTE) }]),
+      providerScope: SCOPE_A,
+    });
+    expect(outcome.expiresAt).toBe(NOW + 30 * MINUTE);
+    expect(outcome.policyTtlMs).toBe(ODPT_CACHE_TTL_MS.reference);
+  });
+
+  it("calendar duration end caps the 1h calendar policy", async () => {
+    const clock = { value: NOW };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    const outcome = await cache.store({
+      identity: "cal",
+      cacheClass: ODPT_CACHE_CLASS.CALENDAR,
+      value: recordsResult("calendar", [
+        { duration: `${iso(NOW - HOUR)}/${iso(NOW + 10 * MINUTE)}` },
+      ]),
+      providerScope: SCOPE_A,
+    });
+    expect(outcome.expiresAt).toBe(NOW + 10 * MINUTE);
+    expect(outcome.policyTtlMs).toBe(ODPT_CACHE_TTL_MS.calendar);
+  });
+
+  it("[] uses the normal class TTL (no record validity exists)", async () => {
+    const clock = { value: NOW };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    const outcome = await cache.store({
+      identity: "empty",
+      cacheClass: ODPT_CACHE_CLASS.TIMETABLE,
+      value: emptyResult("station_timetable"),
+      providerScope: SCOPE_A,
+    });
+    expect(outcome.stored).toBe(true);
+    expect(outcome.expiresAt).toBe(NOW + ODPT_CACHE_TTL_MS.timetable);
+  });
+
+  it("404 keeps the independent 1m negative policy", async () => {
+    const clock = { value: NOW };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    const outcome = await cache.store({
+      identity: "404",
+      cacheClass: ODPT_CACHE_CLASS.NEGATIVE,
+      value: noDataResult(),
+      providerScope: SCOPE_A,
+    });
+    expect(outcome.stored).toBe(true);
+    expect(outcome.expiresAt).toBe(NOW + ODPT_NEGATIVE_CACHE_TTL_MS);
+    expect(ODPT_NEGATIVE_CACHE_TTL_MS).toBe(1 * MINUTE);
+  });
+
+  it("an expired-validity result is not served later from cache", async () => {
+    const { cache, clock } = await storeTimetable(NOW + 2 * MINUTE);
+    const identity = `identity-${NOW + 2 * MINUTE}`;
+    clock.value = NOW + 2 * MINUTE + 1;
+    const lookup = await cache.lookup({
+      identity,
+      cacheClass: ODPT_CACHE_CLASS.TIMETABLE,
+      providerScope: SCOPE_A,
+    });
+    expect(lookup.hit).toBe(false);
+  });
+});
+
+// ── Provider scope isolation ─────────────────────────────────────────────────
+
+describe("provider scope isolation", () => {
+  it("never serves a cached entry created under another provider scope", async () => {
+    const clock = { value: 1_700_000_000_000 };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+
+    await cache.store({
+      identity: "same-request",
+      cacheClass: ODPT_CACHE_CLASS.REFERENCE,
+      value: recordsResult(),
+      providerScope: SCOPE_A,
+    });
+
+    // Same request identity, DIFFERENT configured provider endpoint.
+    const crossScope = await cache.lookup({
+      identity: "same-request",
+      cacheClass: ODPT_CACHE_CLASS.REFERENCE,
+      providerScope: SCOPE_B,
+    });
+    expect(crossScope.hit).toBe(false);
+
+    // The original scope still hits.
+    const sameScope = await cache.lookup({
+      identity: "same-request",
+      cacheClass: ODPT_CACHE_CLASS.REFERENCE,
+      providerScope: SCOPE_A,
+    });
+    expect(sameScope.hit).toBe(true);
+  });
+
+  it("keys empty and unspecified scopes to the same explicit token", async () => {
+    const clock = { value: 1_700_000_000_000 };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    await cache.store({
+      identity: "x",
+      cacheClass: ODPT_CACHE_CLASS.REFERENCE,
+      value: recordsResult(),
+      providerScope: SCOPE_A,
+    });
+    // A missing scope must not accidentally alias a real provider scope.
+    const unscoped = await cache.lookup({
+      identity: "x",
+      cacheClass: ODPT_CACHE_CLASS.REFERENCE,
+    });
+    expect(unscoped.hit).toBe(false);
+  });
+
+  it("does not collide dedup across provider scopes", async () => {
+    const { protection } = harness();
+    const gate = deferred();
+    let attempts = 0;
+    const execute = async ({ acquireAttempt }) => {
+      await acquireAttempt({ attempt: 1 });
+      attempts += 1;
+      return gate.promise;
+    };
+
+    const a = protection.run(STATION_QUERY, execute, {
+      providerScope: SCOPE_A,
+    });
+    const b = protection.run(STATION_QUERY, execute, {
+      providerScope: SCOPE_B,
+    });
+    gate.resolve(recordsResult());
+    await Promise.all([a, b]);
+    // Different scopes are different fetches, not one coalesced fetch.
+    expect(attempts).toBe(2);
+  });
+
+  it("a cached entry from the current contract version is served; a stale one is not", async () => {
+    const clock = { value: 1_700_000_000_000 };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    await cache.store({
+      identity: "y",
+      cacheClass: ODPT_CACHE_CLASS.REFERENCE,
+      value: recordsResult(),
+      providerScope: SCOPE_A,
+    });
+    const key = odptCacheKey({ providerScope: SCOPE_A, identity: "y" });
+    const entry = await store.read(key);
+    expect(entry.contractVersion).toBe(ODPT_CACHE_CONTRACT_VERSION);
+
+    // Simulate a payload-contract bump by writing an old-version entry.
+    await store.write(key, {
+      ...entry,
+      contractVersion: "odpt-cache-contract-v0",
+    });
+    const lookup = await cache.lookup({
+      identity: "y",
+      cacheClass: ODPT_CACHE_CLASS.REFERENCE,
+      providerScope: SCOPE_A,
+    });
+    expect(lookup.hit).toBe(false);
+    expect(lookup.reason).toBe("cache_context_mismatch");
   });
 });

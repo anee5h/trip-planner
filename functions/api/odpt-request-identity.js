@@ -31,6 +31,17 @@ import { OPERATION_SCHEMAS } from "./odpt-core.js";
 export const ODPT_REQUEST_IDENTITY_VERSION = "odpt-canonical-v1";
 
 /**
+ * Cache payload / normalization contract version (KAI-290 PR 2B).
+ *
+ * SEPARATE from `ODPT_REQUEST_IDENTITY_VERSION` on purpose. That constant
+ * changes only when the identity *representation* changes; this one changes when
+ * the *cached payload contract* changes — i.e. when a server deployment alters
+ * the normalized JSON schema stored in the cache. Bumping it deliberately
+ * invalidates previously cached entries instead of serving old-shaped payloads.
+ */
+export const ODPT_CACHE_CONTRACT_VERSION = "odpt-cache-contract-v1";
+
+/**
  * Reduces a validated filter value to its identity-bearing form.
  *
  * ODPT filter values are validated to primitives (strings and finite numbers),
@@ -118,6 +129,48 @@ export function hashOdptRequestIdentity(identity) {
 export const ODPT_CACHE_KEY_NAMESPACE =
   "https://odpt-cache.meguruto.internal/v1";
 
-export function odptCacheKey(identity) {
-  return `${ODPT_CACHE_KEY_NAMESPACE}/${hashOdptRequestIdentity(identity)}`;
+/**
+ * Credential-free provider scope derived from the RESOLVED provider base URL.
+ *
+ * `ODPT_API_BASE_URL` is deployment-configurable (and allow-listed), so the same
+ * semantic request (`station` + `operator=Toei`) can be served from two
+ * different configured ODPT endpoints. Without a provider scope in the cache
+ * key, one deployment's cached payload could be served for another endpoint's
+ * request — wrong, and hard to notice.
+ *
+ * The scope is a deterministic digest of the normalized base URL, so it is a
+ * fixed-length, credential-free token. The base URL carries no credential (the
+ * key is appended per request and never stored here), and no `acl:consumerKey`
+ * value is ever part of it.
+ */
+export function odptProviderScope(resolvedBaseUrl) {
+  const raw = typeof resolvedBaseUrl === "string" ? resolvedBaseUrl.trim() : "";
+  if (raw.length === 0) return "odpt-provider-v1:unspecified";
+  // Normalize so a trailing slash, a differing hostname case or default port
+  // cannot split one provider into two scopes (or alias two into one).
+  let normalized = raw;
+  try {
+    const parsed = new URL(raw);
+    const port = parsed.port ? `:${parsed.port}` : "";
+    normalized = `${parsed.protocol}//${parsed.hostname.toLowerCase()}${port}${parsed.pathname.replace(/\/+$/, "")}`;
+  } catch {
+    normalized = raw.replace(/\/+$/, "");
+  }
+  return `odpt-provider-v1:${hashOdptRequestIdentity(normalized)}`;
+}
+
+/**
+ * Bounded, credential-free cache key covering the FULL cache context:
+ * payload contract version + provider scope + canonical request identity.
+ *
+ * The provider URL (`https://api.odpt.org/...?acl:consumerKey=...`) is NEVER
+ * used as a cache key. See `odptProviderScope` for why the scope is part of it.
+ */
+export function odptCacheKey({ providerScope, identity } = {}) {
+  const scope =
+    typeof providerScope === "string" && providerScope.length > 0
+      ? providerScope
+      : "odpt-provider-v1:unspecified";
+  const material = `${ODPT_CACHE_CONTRACT_VERSION}|${scope}|${String(identity)}`;
+  return `${ODPT_CACHE_KEY_NAMESPACE}/${hashOdptRequestIdentity(material)}`;
 }

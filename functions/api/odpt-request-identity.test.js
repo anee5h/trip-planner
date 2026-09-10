@@ -1,10 +1,13 @@
 // @vitest-environment node
 import { describe, expect, it } from "vitest";
 import {
+  ODPT_CACHE_CONTRACT_VERSION,
+  ODPT_CACHE_KEY_NAMESPACE,
   ODPT_REQUEST_IDENTITY_VERSION,
   canonicalOdptRequestIdentity,
   hashOdptRequestIdentity,
   odptCacheKey,
+  odptProviderScope,
 } from "./odpt-request-identity.js";
 import { validateOdptRequest } from "./odpt-core.js";
 
@@ -215,16 +218,114 @@ describe("cache key derivation", () => {
   });
 
   it("builds a credential-free synthetic cache key", () => {
-    const key = odptCacheKey(
-      canonicalOdptRequestIdentity({
+    const key = odptCacheKey({
+      providerScope: odptProviderScope("https://api.odpt.org/api/v4"),
+      identity: canonicalOdptRequestIdentity({
         ok: true,
         operation: "station",
         body: { operator: "odpt.Operator:Toei" },
       }),
-    );
+    });
     expect(key).not.toContain(KEY);
     expect(key).not.toContain("consumerKey");
     expect(key).not.toContain("api.odpt.org");
     expect(key.startsWith("https://odpt-cache.meguruto.internal/")).toBe(true);
+  });
+});
+
+describe("provider scope", () => {
+  const identity = canonicalOdptRequestIdentity({
+    ok: true,
+    operation: "station",
+    body: { operator: "odpt.Operator:Toei" },
+  });
+
+  it("is deterministic for the same resolved base url", () => {
+    const a = odptProviderScope("https://api.odpt.org/api/v4");
+    const b = odptProviderScope("https://api.odpt.org/api/v4");
+    expect(a).toBe(b);
+  });
+
+  it("normalizes equivalent spellings of one endpoint to one scope", () => {
+    // A trailing slash or hostname case must not split one provider in two.
+    expect(odptProviderScope("https://api.odpt.org/api/v4/")).toBe(
+      odptProviderScope("https://api.odpt.org/api/v4"),
+    );
+    expect(odptProviderScope("https://API.ODPT.ORG/api/v4")).toBe(
+      odptProviderScope("https://api.odpt.org/api/v4"),
+    );
+  });
+
+  it("separates different allowed provider bases", () => {
+    const official = odptProviderScope("https://api.odpt.org/api/v4");
+    const mirror = odptProviderScope("https://odpt-mirror.example/api/v4");
+    expect(official).not.toBe(mirror);
+  });
+
+  it("produces a DIFFERENT cache key for the same request on a different base", () => {
+    // The same semantic request must never share a cache entry across endpoints.
+    const official = odptCacheKey({
+      providerScope: odptProviderScope("https://api.odpt.org/api/v4"),
+      identity,
+    });
+    const mirror = odptCacheKey({
+      providerScope: odptProviderScope("https://odpt-mirror.example/api/v4"),
+      identity,
+    });
+    expect(official).not.toBe(mirror);
+  });
+
+  it("produces the SAME cache key for the same request on the same base", () => {
+    const scope = odptProviderScope("https://api.odpt.org/api/v4");
+    expect(odptCacheKey({ providerScope: scope, identity })).toBe(
+      odptCacheKey({ providerScope: scope, identity }),
+    );
+  });
+
+  it("carries no provider credential", () => {
+    for (const scope of [
+      odptProviderScope("https://api.odpt.org/api/v4"),
+      odptProviderScope("https://api.odpt.org/api/v4?acl:consumerKey=SECRET"),
+    ]) {
+      expect(scope).not.toContain(KEY);
+      expect(scope).not.toContain("consumerKey");
+      expect(scope).not.toContain("acl:");
+      expect(scope).not.toContain("SECRET");
+      // Digest only: the raw base URL is not embedded verbatim.
+      expect(scope).not.toContain("api.odpt.org");
+    }
+  });
+
+  it("uses an explicit token when no base url is known", () => {
+    const unspecified = odptProviderScope(null);
+    expect(unspecified).toBe("odpt-provider-v1:unspecified");
+    expect(unspecified).toBe(odptProviderScope(""));
+  });
+});
+
+describe("cache contract version", () => {
+  it("is separate from the request-identity version", () => {
+    // They version different things and must not be the same constant.
+    expect(ODPT_CACHE_CONTRACT_VERSION).not.toBe(ODPT_REQUEST_IDENTITY_VERSION);
+    expect(ODPT_CACHE_CONTRACT_VERSION).toContain("cache-contract");
+  });
+
+  it("changes the cache key when the payload contract version changes", () => {
+    // Simulated by rebuilding the key material the same way odptCacheKey does,
+    // with a bumped contract version, to prove the key is contract-sensitive.
+    const scope = odptProviderScope("https://api.odpt.org/api/v4");
+    const requestIdentity = canonicalOdptRequestIdentity({
+      ok: true,
+      operation: "station",
+      body: { operator: "odpt.Operator:Toei" },
+    });
+    const current = odptCacheKey({
+      providerScope: scope,
+      identity: requestIdentity,
+    });
+    const bumped = `${ODPT_CACHE_KEY_NAMESPACE}/${hashOdptRequestIdentity(
+      `odpt-cache-contract-v2|${scope}|${requestIdentity}`,
+    )}`;
+    expect(current).not.toBe(bumped);
   });
 });

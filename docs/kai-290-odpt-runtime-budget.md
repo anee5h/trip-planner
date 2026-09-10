@@ -80,13 +80,16 @@ invariant.
 rate limit (per-client, isolate-local)
   -> parse + validate            (rejects before any identity/cache/budget)
   -> provider readiness          (config failure cannot be masked by cache)
-  -> canonical request identity
-  -> in-flight dedup join        (no provider call, no budget token)
-        else single-flight leader:
-          -> cache lookup        (no provider call, no budget token)
-          -> provider budget acquire   (only a real fetch costs one)
-          -> odptLookup (fetch + 1 MB guard + normalize)
-          -> cache write if the result class is cacheable
+  -> canonical request identity + credential-free provider scope
+  -> SYNCHRONOUS in-flight lookup/register
+       follower -> join the leader's result   (no provider call, no token)
+       leader   ->
+           cache lookup                       (no provider call, no token)
+           budget permission PER ACTUAL PROVIDER ATTEMPT
+             attempt 1 (initial)
+             attempt 2 (bounded 503 retry) if attempt 1 returned 503
+           provider fetch (+ 1 MB guard, normalize)
+           cache write if the result class is cacheable and not validity-expired
   -> canonical result + runtime metadata
 ```
 
@@ -96,15 +99,50 @@ Ordering guarantees that the mandatory tests pin:
   never create a cache entry, join a dedup group, or consume a budget token;
 - a cache hit costs no provider call and no budget token;
 - a dedup follower costs no provider call and no extra budget token;
-- **only a real provider fetch calls `acquire()`**.
+- **every actual outbound provider attempt requires budget permission**, so a 503
+  retry costs a second token.
 
-### 2.1 Single-flight is registered synchronously
+### 2.1 The in-flight check is registered synchronously and BEFORE the cache
 
 `run()` looks up and registers the in-flight entry with **no `await` between the
-two**, so two concurrent identical callers cannot both become leaders regardless
-of cache latency. A follower therefore never duplicates a provider call. The
-in-flight entry is removed in a `finally`, i.e. on **both** success and failure —
-a rejected promise can never remain in the map and poison later identical calls.
+two**, and that happens before the leader performs its cache lookup. With the
+cache consulted first, two concurrent identical callers can both observe a miss
+and both start a fetch, which would break single-flight coalescing on any cache
+with latency. The in-flight entry is removed in a `finally`, i.e. on **both**
+success and failure — a rejected promise can never remain in the map and poison
+later identical calls.
+
+Registration is keyed by `provider scope + canonical identity`, so two deployments
+configured with different ODPT base URLs can never coalesce into one fetch.
+
+### 2.2 Budgeting is per ATTEMPT, not per logical lookup
+
+`odptLookup` accepts a narrow `beforeProviderAttempt` hook and calls it
+immediately before each real `fetch`, keeping retry mechanics in `odpt-core.js`
+and the permission decision in the protection layer.
+
+| Situation | Tokens | Actual provider attempts |
+| --------- | ------ | ------------------------ |
+| first attempt succeeds | 1 | 1 |
+| 503, retry succeeds | 2 | 2 |
+| 503, 503 | 2 | 2 |
+| 503, retry refused by budget | 1 | **1** |
+| cache hit | 0 | 0 |
+| dedup follower (N callers) | 0 extra | 0 extra |
+| timeout / network attempt that reached `fetch` | 1 | 1 |
+| validation, readiness or config failure | 0 | 0 |
+
+No token is reserved for a retry that never happens.
+
+**A retry blocked by budget is reported truthfully.** The final state is
+`budget_exhausted`, and the envelope records `providerAttempts: 1` with
+`retryBlockedByBudget: true` rather than pretending a second provider response
+occurred; `sourceUrl` is empty only when nothing was fetched. The original 503 is
+not silently rewritten into a provider error.
+
+Counters follow the same definition: `providerRequests` and `providerAttempts`
+mean **actual outbound provider attempts**, never logical lookups.
+
 
 ---
 
@@ -140,10 +178,30 @@ URL, or any unvalidated caller field. Fields that validation rejects never reach
 the canonicalizer; undeclared fields are ignored even if injected.
 
 Cache keys are a synthetic, credential-free URL derived from a deterministic
-64-bit digest of the identity (`https://odpt-cache.meguruto.internal/v1/<digest>`).
-The credential-bearing upstream URL is **never** a cache key. Entries store their
-full canonical identity, and a mismatch (hash collision) is treated as a **miss**
-and evicted rather than serving another request's result.
+64-bit digest over **three components**: the cache payload contract version, a
+**provider scope** derived from the resolved provider base URL, and the canonical
+request identity. The credential-bearing upstream URL is **never** a cache key.
+Entries store all three, and any mismatch is treated as a **miss** and evicted
+rather than serving another request's — or another endpoint's — result.
+
+### 3.1 Provider scope is part of the cache key
+
+`ODPT_API_BASE_URL` is deployment-configurable and allow-listed, so the same
+semantic request (`station` + `operator=Toei`) can be served from two different
+configured ODPT endpoints. Without a provider scope one deployment's cached
+payload could be served for another endpoint's request. The scope is
+`odpt-provider-v1:<digest of the normalized resolved base URL>` — fixed length,
+credential-free, and normalized so a trailing slash or hostname case cannot split
+one provider into two scopes.
+
+### 3.2 Cache payload contract version
+
+`ODPT_CACHE_CONTRACT_VERSION` is **separate** from
+`ODPT_REQUEST_IDENTITY_VERSION`, because they version different things: the
+identity constant changes when the identity *representation* changes, while the
+contract constant changes when the *cached normalized payload schema* changes.
+Bumping the contract deliberately invalidates old cache entries instead of
+serving old-shaped payloads.
 
 ---
 
@@ -175,7 +233,36 @@ Two notes:
 
 No TTL is infinite; every TTL is finite and positive.
 
-### 4.2 Cacheable / non-cacheable result matrix
+### 4.2 Effective expiry is capped by provider-declared validity
+
+The class TTL is the **maximum policy lifetime**, not the whole answer. A cache
+entry must never outlive trustworthy provider-declared validity:
+
+```
+effective expiry = min( now + policy TTL , applicable provider validity end )
+```
+
+Rules:
+
+- provider validity may **shorten** the policy TTL, never **extend** it;
+- if the earliest applicable validity is **already expired**, the result is **not
+  positive-cached** at all;
+- for a result with multiple records, the **earliest** applicable validity end
+  among them governs;
+- a successful `[]` has no records to carry validity, so the class TTL applies;
+- `no_data` (404) keeps its independent 1-minute negative TTL;
+- provider failures remain non-cacheable regardless of validity;
+- malformed/unparseable optional validity does **not** fabricate an expiry — it
+  falls back conservatively to the policy TTL and does not fail the record.
+
+Validity is read only from fields that declare it: `validUntil` (from
+`dct:valid`, top-level or on provenance) and a Calendar's `duration` interval end.
+**`dc:date` and `dct:issued` are deliberately not used** — they record when data
+was generated/published, which is not a statement that it remains valid;
+inferring validity from them would invent an expiry the provider never declared.
+
+
+### 4.3 Cacheable / non-cacheable result matrix
 
 | Result                              | Cached? | Notes                                             |
 | ----------------------------------- | ------- | ------------------------------------------------- |
@@ -203,7 +290,7 @@ No error-stampede suppression TTL is implemented: it was not needed to keep this
 design simple, and adding one would complicate preserving the original error
 state.
 
-### 4.3 Configuration/readiness is checked before the cache
+### 4.4 Configuration/readiness is checked before the cache
 
 `odptProviderReadiness(env)` evaluates request-independent failures (missing
 credential, disallowed endpoint) **before** the cache. Without this, a cached
@@ -250,9 +337,13 @@ encoded as contractual limits anywhere. The same position is recorded in
 injectable clock, so window behaviour is deterministic under a fake timer and the
 configuration is testable.
 
-Defaults: **30 provider fetches per 60 s per isolate**, overridable via
-`ODPT_PROVIDER_BUDGET_LIMIT` / `ODPT_PROVIDER_BUDGET_WINDOW_MS`. The default is
-sized comfortably inside the observed per-minute figure for one isolate.
+Defaults: **30 actual outbound provider attempts per 60 s per isolate**,
+overridable via `ODPT_PROVIDER_BUDGET_LIMIT` /
+`ODPT_PROVIDER_BUDGET_WINDOW_MS`. The default is sized comfortably inside the
+observed per-minute figure for one isolate.
+
+The limit counts **attempts, not lookups**: a logical lookup that hits a 503 and
+retries spends two tokens, which is why the contract is stated in attempts.
 
 ### 6.1 What this is NOT
 
@@ -313,12 +404,15 @@ Responses carry a credential-free `runtime` object:
 
 ```json
 { "cacheClass": "reference", "cacheHit": false, "dedupHit": false,
-  "providerRequest": true, "budgetAllowed": true }
+  "providerRequest": true, "providerAttempts": 1,
+  "budgetTokensUsed": 1, "budgetExhausted": false }
 ```
 
-It never contains the credential, the consumer key, the caller IP, or the raw
+`providerAttempts` and `budgetTokensUsed` count **actual outbound attempts** and
+the tokens those attempts cost, so a 503 retry shows `providerAttempts: 2`. It
+never contains the credential, the consumer key, the caller IP, or the raw
 provider payload. Safe counters (`cacheHits`, `cacheMisses`, `cacheWrites`,
-`cacheErrors`, `dedupHits`, `providerRequests`, `budgetAllowed`,
+`cacheSkips`, `cacheErrors`, `dedupHits`, `providerRequests`, `budgetAllowed`,
 `budgetRejected`) are exposed for tests rather than written to production logs —
 no permanent console logging is added. Tests assert the console stays silent.
 
