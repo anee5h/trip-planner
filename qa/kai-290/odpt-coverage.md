@@ -1,8 +1,8 @@
 # KAI-290 — ODPT operator coverage audit
 
-Generated: 2026-09-10T09:50:46.205Z
+Generated: 2026-09-10T09:58:35.878Z
 Boundary: https://meguruto.app/api/odpt (the only endpoint contacted)
-Requests: 31/40 (budget exhausted: no, rate-limit halted: no)
+Requests: 33/40 (budget exhausted: no, rate-limit halted: no)
 
 > ODPT silently truncates broad search results at a system upper limit, so every
 > `station` / `railway` count below is a LOWER BOUND, not an exact total.
@@ -89,13 +89,14 @@ Probe states: `records` / `empty` are conclusive provider answers; `too_large` (
 - trainType: **records** — 8 record(s)
 - railDirection: **records** — 3 record(s)
 - stationTimetable: 3 probe(s) — records×3
-  - odpt.Station:Toei.Mita.Hakusan: **records** — 4 record(s)
-  - odpt.Station:Toei.Mita.NishiTakashimadaira: **records** — 2 record(s)
-  - odpt.Station:Toei.Asakusa.HonjoAzumabashi: **records** — 4 record(s)
+  - odpt.Station:Toei.Mita.Hakusan: **records** — 4 record(s), 752 stop object(s), calendars: odpt.Calendar:SaturdayHoliday, odpt.Calendar:Weekday
+  - odpt.Station:Toei.Mita.NishiTakashimadaira: **records** — 2 record(s), 355 stop object(s), calendars: odpt.Calendar:SaturdayHoliday, odpt.Calendar:Weekday
+  - odpt.Station:Toei.Asakusa.HonjoAzumabashi: **records** — 4 record(s), 877 stop object(s), calendars: odpt.Calendar:SaturdayHoliday, odpt.Calendar:Weekday
 - trainTimetable: 2 probe(s) — too_large×2 — **coverage unknown**
   - odpt.Railway:Toei.Mita: **too_large** (response exceeded the boundary byte guard; coverage unknown, not empty)
   - odpt.Railway:Toei.Asakusa: **too_large** (response exceeded the boundary byte guard; coverage unknown, not empty)
-- coverage conclusively known: no (5/7 conclusive)
+- trainIdentityProbe (`odpt.Train:Toei.Mita.535T`): **records** — 2 record(s), 25 ordered stop object(s), odpt.Station:Toei.Mita.ShirokaneTakanawa → odpt.Station:Toei.Mita.NishiTakashimadaira, needExtraFee: not supplied
+- coverage conclusively known: no (6/8 conclusive)
 
 ### odpt.Operator:TokyoMetro
 
@@ -105,13 +106,26 @@ Probe states: `records` / `empty` are conclusive provider answers; `too_large` (
 - trainType: **records** — 12 record(s)
 - railDirection: **records** — 17 record(s)
 - stationTimetable: 3 probe(s) — records×3
-  - odpt.Station:TokyoMetro.Marunouchi.Shinjuku: **records** — 4 record(s)
-  - odpt.Station:TokyoMetro.Chiyoda.Yushima: **records** — 4 record(s)
-  - odpt.Station:TokyoMetro.Chiyoda.KitaAyase: **records** — 2 record(s)
+  - odpt.Station:TokyoMetro.Marunouchi.Shinjuku: **records** — 4 record(s), 1060 stop object(s), calendars: odpt.Calendar:SaturdayHoliday, odpt.Calendar:Weekday
+  - odpt.Station:TokyoMetro.Chiyoda.Yushima: **records** — 4 record(s), 914 stop object(s), calendars: odpt.Calendar:SaturdayHoliday, odpt.Calendar:Weekday
+  - odpt.Station:TokyoMetro.Chiyoda.KitaAyase: **records** — 2 record(s), 235 stop object(s), calendars: odpt.Calendar:SaturdayHoliday, odpt.Calendar:Weekday
 - trainTimetable: 2 probe(s) — too_large×2 — **coverage unknown**
   - odpt.Railway:TokyoMetro.Marunouchi: **too_large** (response exceeded the boundary byte guard; coverage unknown, not empty)
   - odpt.Railway:TokyoMetro.Chiyoda: **too_large** (response exceeded the boundary byte guard; coverage unknown, not empty)
-- coverage conclusively known: no (5/7 conclusive)
+- trainIdentityProbe (`odpt.Train:TokyoMetro.Marunouchi.B427`): **records** — 1 record(s), 18 ordered stop object(s), odpt.Station:TokyoMetro.Marunouchi.Shinjuku → odpt.Station:TokyoMetro.Marunouchi.Ikebukuro, needExtraFee: not supplied
+- coverage conclusively known: no (6/8 conclusive)
+
+## Timetable-backed pilot scope (derived from the measurements above)
+
+- **Included**: `odpt.Operator:Toei`, `odpt.Operator:TokyoMetro`
+- **Excluded**: `odpt.Operator:JR-East` — no_usable_timetable_data_in_audited_corpus
+
+  > In the bounded authenticated production audit, no usable JR-East TrainType, RailDirection, StationTimetable, or TrainTimetable data was returned across the sampled major stations and railways. JR-East therefore cannot participate in the current ODPT timetable-backed pilot.
+
+  Scoped to the audited corpus on purpose. ODPT search completeness is not guaranteed, so this is **observed zero coverage in our audited corpus**, not a claim about universal provider capability.
+
+- Static enrichment may later supply station geography, stop ordering, topology and canonical mapping, but it does NOT provide timetable-backed journey duration while TrainTimetable/StationTimetable evidence is unavailable. Verified schedule duration for such operators may require a different authoritative source.
+- Broad StationTimetable queries and whole-railway TrainTimetable queries can exceed the Meguruto boundary's 1 MB response guard; the boundary fails closed with provider_response_too_large. The cap is not raised to normalise broad runtime requests; narrow train-identity queries are the runtime direction.
 
 ## Provider-wide reference resources
 

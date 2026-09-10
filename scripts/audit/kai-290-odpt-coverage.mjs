@@ -336,15 +336,28 @@ export const PROBE_RECORDS = "records";
 export const PROBE_TOO_LARGE = "too_large";
 export const PROBE_ERROR = "error";
 export const PROBE_UNAVAILABLE = "unavailable";
+/** The response arrived but could not be read as a Meguruto boundary payload. */
+export const PROBE_MALFORMED = "malformed";
 
 export function classifyProbeResult(descriptor) {
   if (!isRecord(descriptor)) {
     return { state: PROBE_UNAVAILABLE, detail: "no_result" };
   }
-  if (descriptor.state !== "available") {
+  const { state } = descriptor;
+  if (state === "invalid" || state === "http_error") {
+    // A 200 whose body is not the expected envelope, or an unreadable status:
+    // we learned nothing about provider coverage, so this is NOT evidence of
+    // zero records.
+    return {
+      state: PROBE_MALFORMED,
+      detail: descriptor.error ?? "unreadable_response",
+      note: "response could not be read as a boundary payload; coverage unknown",
+    };
+  }
+  if (state !== "available") {
     return {
       state: PROBE_UNAVAILABLE,
-      detail: descriptor.reason ?? descriptor.error ?? descriptor.state,
+      detail: descriptor.reason ?? descriptor.error ?? state,
     };
   }
   const errorCode =
@@ -403,35 +416,50 @@ export function buildTimetableSection({
   railDirection,
   stationTimetable = [],
   trainTimetable = [],
+  trainIdentityProbe = null,
   sampleSize = null,
 }) {
-  const stationGroup = summarizeProbeGroup(stationTimetable);
-  const trainGroup = summarizeProbeGroup(trainTimetable);
+  const stationGroup = summarizeProbeGroup(
+    stationTimetable,
+    describeTimetableRecords,
+  );
+  const trainGroup = summarizeProbeGroup(
+    trainTimetable,
+    describeTimetableRecords,
+  );
   const operatorProbes = {
     trainType: classifyProbeResult(trainType),
     railDirection: classifyProbeResult(railDirection),
   };
+  const identityProbe = trainIdentityProbe
+    ? summarizeTrainIdentityProbe(trainIdentityProbe)
+    : null;
   const conclusive =
     Object.values(operatorProbes).filter((entry) =>
       isConclusiveProbe(entry.state),
     ).length +
     stationGroup.conclusiveCount +
-    trainGroup.conclusiveCount;
+    trainGroup.conclusiveCount +
+    (identityProbe && isConclusiveProbe(identityProbe.state) ? 1 : 0);
   const total =
     Object.keys(operatorProbes).length +
     stationGroup.probeCount +
-    trainGroup.probeCount;
+    trainGroup.probeCount +
+    (identityProbe ? 1 : 0);
   return {
     trainType: operatorProbes.trainType,
     railDirection: operatorProbes.railDirection,
     stationTimetable: stationGroup,
     trainTimetable: trainGroup,
+    /** Narrow by-train-identity probe — the candidate runtime direction. */
+    trainIdentityProbe: identityProbe,
     sampleSize,
     conclusiveProbes: conclusive,
     totalProbes: total,
     /**
      * True only when every planned probe produced a conclusive answer. Any
-     * `too_large`/`error`/`unavailable` leaves coverage explicitly unknown.
+     * `too_large`/`error`/`unavailable`/`malformed` leaves coverage explicitly
+     * unknown.
      */
     coverageKnown: total > 0 && conclusive === total,
   };
@@ -580,7 +608,7 @@ export function deriveTimetableScopes(
  * Aggregates a group of identically-shaped scoped probes into a compact summary
  * that keeps every non-conclusive state visible instead of collapsing it.
  */
-export function summarizeProbeGroup(results) {
+export function summarizeProbeGroup(results, describeExtras = null) {
   const byState = {};
   let conclusive = 0;
   const entries = [];
@@ -588,6 +616,10 @@ export function summarizeProbeGroup(results) {
     const classified = classifyProbeResult(descriptor);
     byState[classified.state] = (byState[classified.state] ?? 0) + 1;
     if (isConclusiveProbe(classified.state)) conclusive += 1;
+    const extra =
+      describeExtras && isConclusiveProbe(classified.state)
+        ? (describeExtras(descriptor) ?? {})
+        : {};
     entries.push({
       scope,
       state: classified.state,
@@ -596,6 +628,7 @@ export function summarizeProbeGroup(results) {
         : {}),
       ...(classified.note ? { note: classified.note } : {}),
       ...(classified.detail ? { detail: classified.detail } : {}),
+      ...extra,
     });
   }
   return {
@@ -605,6 +638,96 @@ export function summarizeProbeGroup(results) {
     byState,
     results: entries,
   };
+}
+
+/**
+ * Describes a conclusive timetable probe by what it actually contains, so the
+ * audit records *evidence shape* and not just a count. Object counts are read
+ * from normalized records only; a non-conclusive probe contributes nothing.
+ */
+export function describeTimetableRecords(descriptor) {
+  const records =
+    isRecord(descriptor) && Array.isArray(descriptor.records)
+      ? descriptor.records
+      : [];
+  if (records.length === 0) return {};
+  let stopObjectCount = 0;
+  const calendars = [];
+  for (const record of records) {
+    if (Array.isArray(record?.objects))
+      stopObjectCount += record.objects.length;
+    if (
+      typeof record?.calendar === "string" &&
+      record.calendar.length > 0 &&
+      !calendars.includes(record.calendar)
+    ) {
+      calendars.push(record.calendar);
+    }
+  }
+  return {
+    stopObjectCount,
+    ...(calendars.length > 0 ? { calendarsObserved: calendars.sort() } : {}),
+  };
+}
+
+/**
+ * Picks a train identity to probe TrainTimetable by, taken from a
+ * StationTimetable record the provider itself returned.
+ *
+ * This is the runtime direction the audit is meant to validate: identify a
+ * service narrowly, then fetch its TrainTimetable by exact identity. It is
+ * derived from provider data rather than hard-coded, so the probe stays
+ * reproducible on a fresh run.
+ */
+export function deriveTrainIdentityFromStationTimetable(records) {
+  const list = Array.isArray(records) ? records : [];
+  for (const record of list) {
+    for (const object of Array.isArray(record?.objects) ? record.objects : []) {
+      const train = object?.train;
+      if (typeof train === "string" && train.length > 0) return train;
+    }
+  }
+  return null;
+}
+
+/**
+ * Summarises a narrow TrainTimetable-by-train-identity probe, capturing the
+ * ordered stop evidence one record provides (origin, destination, stop count).
+ */
+export function summarizeTrainIdentityProbe({ trainIdentity, descriptor }) {
+  const classified = classifyProbeResult(descriptor);
+  const entry = {
+    trainIdentity,
+    state: classified.state,
+    ...(classified.note ? { note: classified.note } : {}),
+    ...(classified.detail ? { detail: classified.detail } : {}),
+  };
+  if (!isConclusiveProbe(classified.state)) return entry;
+  entry.recordCount = classified.recordCount;
+  const records = Array.isArray(descriptor?.records) ? descriptor.records : [];
+  const first = records[0];
+  if (isRecord(first)) {
+    entry.trainNumber =
+      typeof first.trainNumber === "string" ? first.trainNumber : null;
+    entry.originStation = Array.isArray(first.originStation)
+      ? first.originStation
+      : [];
+    entry.destinationStation = Array.isArray(first.destinationStation)
+      ? first.destinationStation
+      : [];
+    entry.stopObjectCount = Array.isArray(first.objects)
+      ? first.objects.length
+      : 0;
+    // Preserved tri-state: `true`, `false` and "not supplied" all differ.
+    entry.needExtraFee =
+      typeof first.needExtraFee === "boolean" ? first.needExtraFee : null;
+    if (typeof first.calendar === "string") entry.calendar = first.calendar;
+    if (typeof first.date === "string") entry.date = first.date;
+    if (typeof first.validUntil === "string") {
+      entry.validUntil = first.validUntil;
+    }
+  }
+  return entry;
 }
 
 /**
@@ -952,6 +1075,14 @@ export function deriveFindings(operators) {
             scope: entry.scope,
             detail: entry.detail,
           });
+        } else if (entry.state === PROBE_MALFORMED) {
+          findings.push({
+            kind: "timetable_coverage_unknown_malformed",
+            operator: section.operator,
+            probe: groupName,
+            scope: entry.scope,
+            detail: entry.detail,
+          });
         }
       }
     }
@@ -966,6 +1097,92 @@ export function deriveFindings(operators) {
     }
   }
   return findings;
+}
+
+/**
+ * Derives the timetable-pilot scope from measured coverage, so the artifact
+ * states a *measured* conclusion rather than a hand-written assumption.
+ *
+ * The wording matters: ODPT search completeness is not guaranteed, so the
+ * exclusion is scoped to the audited corpus ("no usable ... was returned across
+ * the sampled major stations and railways"), never asserted as a universal
+ * provider capability.
+ */
+export function derivePilotScope(operators) {
+  const included = [];
+  const excluded = [];
+  for (const section of operators) {
+    const timetable = section.timetable;
+    const shortName = section.operator.replace(/^odpt\.Operator:/, "");
+    if (!timetable) {
+      excluded.push({
+        operator: section.operator,
+        reason: "not_audited",
+        evidence: "no timetable probes were run for this operator",
+      });
+      continue;
+    }
+    const stationRecords =
+      timetable.stationTimetable?.byState?.[PROBE_RECORDS] ?? 0;
+    const trainRecords =
+      timetable.trainTimetable?.byState?.[PROBE_RECORDS] ?? 0;
+    const identityRecords =
+      timetable.trainIdentityProbe?.state === PROBE_RECORDS ? 1 : 0;
+    const stationProbes = timetable.stationTimetable?.probeCount ?? 0;
+    const trainProbes = timetable.trainTimetable?.probeCount ?? 0;
+    const evidence = {
+      stationTimetableProbes: stationProbes,
+      stationTimetableWithRecords: stationRecords,
+      trainTimetableProbes: trainProbes,
+      trainTimetableWithRecords: trainRecords,
+      trainTypeState: timetable.trainType?.state ?? null,
+      railDirectionState: timetable.railDirection?.state ?? null,
+      trainIdentityProbeState: timetable.trainIdentityProbe?.state ?? null,
+    };
+    if (stationRecords > 0 || trainRecords > 0 || identityRecords > 0) {
+      included.push({
+        operator: section.operator,
+        reason: "usable_timetable_evidence_returned",
+        evidence,
+      });
+    } else {
+      excluded.push({
+        operator: section.operator,
+        reason: "no_usable_timetable_data_in_audited_corpus",
+        /**
+         * Scoped to the measured corpus on purpose. Do NOT restate this as
+         * "JR-East has no timetables" — ODPT search completeness is not
+         * guaranteed, so absence here is not proof of universal absence.
+         */
+        statement:
+          `In the bounded authenticated production audit, no usable ${shortName} ` +
+          "TrainType, RailDirection, StationTimetable, or TrainTimetable data was " +
+          "returned across the sampled major stations and railways. " +
+          `${shortName} therefore cannot participate in the current ODPT ` +
+          "timetable-backed pilot.",
+        evidence,
+      });
+    }
+  }
+  return {
+    included,
+    excluded,
+    /**
+     * Static enrichment (geography, stop ordering, topology, canonical mapping)
+     * is a separate concern and cannot substitute for schedule evidence.
+     */
+    staticEnrichmentNote:
+      "Static enrichment may later supply station geography, stop ordering, topology " +
+      "and canonical mapping, but it does NOT provide timetable-backed journey " +
+      "duration while TrainTimetable/StationTimetable evidence is unavailable. " +
+      "Verified schedule duration for such operators may require a different " +
+      "authoritative source.",
+    boundaryNote:
+      "Broad StationTimetable queries and whole-railway TrainTimetable queries can " +
+      "exceed the Meguruto boundary's 1 MB response guard; the boundary fails closed " +
+      "with provider_response_too_large. The cap is not raised to normalise broad " +
+      "runtime requests; narrow train-identity queries are the runtime direction.",
+  };
 }
 
 /**
@@ -1001,6 +1218,8 @@ export function buildCoverageArtifact({
     sourceUrlSample: sourceUrlSample ?? null,
     /** KAI-290 PR 2: provider-wide Calendar reference probe. */
     calendar,
+    /** KAI-290 PR 2: pilot scope derived from the measured coverage above. */
+    pilotScope: derivePilotScope(sortedOperators),
     operators: sortedOperators,
     referenceProbes,
     findings: deriveFindings(sortedOperators),
@@ -1275,15 +1494,64 @@ export function renderMarkdown(artifact) {
         const count = isConclusiveProbe(entry.state)
           ? ` — ${entry.recordCount} record(s)`
           : "";
+        const stops = Number.isInteger(entry.stopObjectCount)
+          ? `, ${entry.stopObjectCount} stop object(s)`
+          : "";
+        const calendars = Array.isArray(entry.calendarsObserved)
+          ? `, calendars: ${entry.calendarsObserved.join(", ")}`
+          : "";
         const note = entry.note ? ` (${entry.note})` : "";
-        lines.push(`  - ${label}: **${entry.state}**${count}${note}`);
+        lines.push(
+          `  - ${label}: **${entry.state}**${count}${stops}${calendars}${note}`,
+        );
       }
+    }
+    const identity = section.timetable.trainIdentityProbe;
+    if (identity) {
+      lines.push(
+        `- trainIdentityProbe (\`${identity.trainIdentity}\`): **${identity.state}**` +
+          (isConclusiveProbe(identity.state)
+            ? ` — ${identity.recordCount} record(s), ${identity.stopObjectCount} ordered stop object(s)` +
+              (identity.originStation?.length
+                ? `, ${identity.originStation.join("/")} → ${(identity.destinationStation ?? []).join("/")}`
+                : "") +
+              `, needExtraFee: ${identity.needExtraFee === null ? "not supplied" : identity.needExtraFee}`
+            : ` (${identity.note ?? identity.detail ?? ""})`),
+      );
     }
     lines.push(
       `- coverage conclusively known: ${section.timetable.coverageKnown ? "yes" : `no (${section.timetable.conclusiveProbes}/${section.timetable.totalProbes} conclusive)`}`,
     );
     lines.push("");
   }
+
+  lines.push(
+    "## Timetable-backed pilot scope (derived from the measurements above)",
+  );
+  lines.push("");
+  const pilotScope = artifact.pilotScope ?? {};
+  lines.push(
+    `- **Included**: ${(pilotScope.included ?? []).map((entry) => `\`${entry.operator}\``).join(", ") || "(none)"}`,
+  );
+  for (const entry of pilotScope.excluded ?? []) {
+    lines.push(`- **Excluded**: \`${entry.operator}\` — ${entry.reason}`);
+    if (entry.statement) {
+      lines.push("");
+      lines.push(`  > ${entry.statement}`);
+      lines.push("");
+      lines.push(
+        "  Scoped to the audited corpus on purpose. ODPT search completeness is not guaranteed, so this is **observed zero coverage in our audited corpus**, not a claim about universal provider capability.",
+      );
+    }
+  }
+  if (pilotScope.staticEnrichmentNote) {
+    lines.push("");
+    lines.push(`- ${pilotScope.staticEnrichmentNote}`);
+  }
+  if (pilotScope.boundaryNote) {
+    lines.push(`- ${pilotScope.boundaryNote}`);
+  }
+  lines.push("");
 
   lines.push("## Provider-wide reference resources");
   lines.push("");
@@ -1569,6 +1837,30 @@ async function main(argv) {
           }),
         });
       }
+
+      // Narrow by-identity probe. Whole-railway TrainTimetable can exceed the
+      // boundary's byte guard, so derive ONE train identity from a
+      // StationTimetable record the provider returned and query it exactly.
+      // This is what the runtime is expected to do, so the audit measures it.
+      let trainIdentityProbe = null;
+      const sourceRecords = stationTimetable.find(
+        (entry) =>
+          entry.descriptor?.state === "available" &&
+          Array.isArray(entry.descriptor.records) &&
+          entry.descriptor.records.length > 0,
+      )?.descriptor?.records;
+      const trainIdentity =
+        deriveTrainIdentityFromStationTimetable(sourceRecords);
+      if (trainIdentity) {
+        trainIdentityProbe = {
+          trainIdentity,
+          descriptor: await runner.call({
+            operation: "train_timetable",
+            train: trainIdentity,
+          }),
+        };
+      }
+
       timetable = {
         ...buildTimetableSection({
           trainType: await runner.call({ operation: "train_type", operator }),
@@ -1578,6 +1870,7 @@ async function main(argv) {
           }),
           stationTimetable,
           trainTimetable,
+          trainIdentityProbe,
           sampleSize: scopes.sampleSize,
         }),
         scope: {

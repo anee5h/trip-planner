@@ -17,7 +17,11 @@ import {
   coverageSection,
   deriveFareProbe,
   deriveFindings,
+  derivePilotScope,
   deriveTimetableScopes,
+  deriveTrainIdentityFromStationTimetable,
+  describeTimetableRecords,
+  summarizeTrainIdentityProbe,
   FARE_FIELDS,
   formatRatio,
   formatTable,
@@ -30,6 +34,7 @@ import {
   PROBE_EMPTY,
   PROBE_ERROR,
   PROBE_RECORDS,
+  PROBE_MALFORMED,
   PROBE_TOO_LARGE,
   PROBE_UNAVAILABLE,
   parseOperatorList,
@@ -465,6 +470,7 @@ describe("KAI-290 buildCoverageArtifact", () => {
       "requestBudget",
       "sourceUrlSample",
       "calendar",
+      "pilotScope",
       "operators",
       "referenceProbes",
       "findings",
@@ -641,10 +647,9 @@ describe("KAI-290 PR 2 probe classification", () => {
     expect(isConclusiveProbe(result.state)).toBe(false);
   });
 
-  it("treats skipped/invalid/rate-limited probes as unavailable", () => {
+  it("treats skipped/rate-limited/pending probes as unavailable", () => {
     for (const descriptor of [
       { state: "skipped", reason: "budget_exhausted" },
-      { state: "invalid", error: "invalid_station" },
       { state: "rate_limited", httpStatus: 429 },
       { state: "pending", error: "unsupported_operation" },
     ]) {
@@ -711,6 +716,150 @@ describe("KAI-290 PR 2 probe classification", () => {
     expect(section.coverageKnown).toBe(true);
     expect(section.stationTimetable.conclusiveCount).toBe(2);
     expect(section.stationTimetable.byState).toEqual({ empty: 2 });
+  });
+
+  it("treats malformed/unreadable responses as unknown, not empty", () => {
+    for (const descriptor of [
+      { state: "invalid", httpStatus: 200, error: "unexpected_body" },
+      { state: "http_error", httpStatus: 502, error: "unknown" },
+    ]) {
+      const result = classifyProbeResult(descriptor);
+      expect(result.state).toBe(PROBE_MALFORMED);
+      expect(isConclusiveProbe(result.state)).toBe(false);
+      expect(result.note).toContain("coverage unknown");
+    }
+  });
+
+  it("describes conclusive timetable probes by stop objects and calendars", () => {
+    const described = describeTimetableRecords(
+      available([
+        {
+          calendar: "odpt.Calendar:SaturdayHoliday",
+          objects: [{ departureTime: "05:20" }, { departureTime: "05:24" }],
+        },
+        {
+          calendar: "odpt.Calendar:Weekday",
+          objects: [{ departureTime: "05:30" }],
+        },
+      ]),
+    );
+    expect(described.stopObjectCount).toBe(3);
+    expect(described.calendarsObserved).toEqual([
+      "odpt.Calendar:SaturdayHoliday",
+      "odpt.Calendar:Weekday",
+    ]);
+    // An empty record set contributes no shape rather than a misleading zero.
+    expect(describeTimetableRecords(available([]))).toEqual({});
+  });
+
+  it("derives a train identity from provider StationTimetable data", () => {
+    const identity = deriveTrainIdentityFromStationTimetable([
+      {
+        objects: [
+          { train: null },
+          { train: "odpt.Train:TokyoMetro.Ginza.B535" },
+        ],
+      },
+    ]);
+    expect(identity).toBe("odpt.Train:TokyoMetro.Ginza.B535");
+    expect(deriveTrainIdentityFromStationTimetable([])).toBeNull();
+    expect(
+      deriveTrainIdentityFromStationTimetable([{ objects: [] }]),
+    ).toBeNull();
+  });
+
+  it("summarises a narrow train-identity probe with ordered stop evidence", () => {
+    const result = summarizeTrainIdentityProbe({
+      trainIdentity: "odpt.Train:TokyoMetro.Ginza.B535",
+      descriptor: available([
+        {
+          trainNumber: "B535",
+          needExtraFee: null,
+          originStation: ["odpt.Station:TokyoMetro.Ginza.Shibuya"],
+          destinationStation: ["odpt.Station:TokyoMetro.Ginza.Asakusa"],
+          objects: new Array(19).fill({ departureTime: "05:01" }),
+        },
+      ]),
+    });
+    expect(result.state).toBe(PROBE_RECORDS);
+    expect(result.recordCount).toBe(1);
+    expect(result.trainNumber).toBe("B535");
+    expect(result.stopObjectCount).toBe(19);
+    expect(result.originStation).toEqual([
+      "odpt.Station:TokyoMetro.Ginza.Shibuya",
+    ]);
+    // Tri-state preserved: "not supplied" must not collapse to `false`.
+    expect(result.needExtraFee).toBeNull();
+  });
+
+  it("keeps a non-conclusive train-identity probe free of stop evidence", () => {
+    const result = summarizeTrainIdentityProbe({
+      trainIdentity: "odpt.Train:X",
+      descriptor: {
+        state: "available",
+        outcome: "error",
+        errorCode: "provider_response_too_large",
+        recordCount: 0,
+      },
+    });
+    expect(result.state).toBe(PROBE_TOO_LARGE);
+    expect(result.stopObjectCount).toBeUndefined();
+    expect(result.recordCount).toBeUndefined();
+  });
+
+  it("excludes an operator with no usable timetable evidence, scoped to the corpus", () => {
+    const scope = derivePilotScope([
+      {
+        operator: "odpt.Operator:JR-East",
+        timetable: {
+          trainType: { state: PROBE_EMPTY },
+          railDirection: { state: PROBE_EMPTY },
+          stationTimetable: { byState: { empty: 3 }, probeCount: 3 },
+          trainTimetable: { byState: { empty: 2 }, probeCount: 2 },
+          trainIdentityProbe: null,
+        },
+      },
+    ]);
+    expect(scope.included).toEqual([]);
+    expect(scope.excluded).toHaveLength(1);
+    expect(scope.excluded[0].reason).toBe(
+      "no_usable_timetable_data_in_audited_corpus",
+    );
+    const statement = scope.excluded[0].statement;
+    expect(statement).toContain(
+      "In the bounded authenticated production audit",
+    );
+    expect(statement).toContain(
+      "cannot participate in the current ODPT timetable-backed pilot",
+    );
+    // Must NOT overreach into a universal provider claim.
+    expect(statement).not.toContain("has no timetables");
+    expect(statement).not.toContain("does not have");
+  });
+
+  it("includes an operator that returned real timetable evidence", () => {
+    const scope = derivePilotScope([
+      {
+        operator: "odpt.Operator:TokyoMetro",
+        timetable: {
+          trainType: { state: PROBE_RECORDS },
+          railDirection: { state: PROBE_RECORDS },
+          stationTimetable: { byState: { records: 3 }, probeCount: 3 },
+          trainTimetable: { byState: { too_large: 2 }, probeCount: 2 },
+          trainIdentityProbe: { state: PROBE_RECORDS },
+        },
+      },
+    ]);
+    expect(scope.included.map((entry) => entry.operator)).toEqual([
+      "odpt.Operator:TokyoMetro",
+    ]);
+    expect(scope.included[0].evidence.stationTimetableWithRecords).toBe(3);
+    // The too_large group must still be visible as unknown in the evidence.
+    expect(scope.included[0].evidence.trainTimetableWithRecords).toBe(0);
+    expect(scope.staticEnrichmentNote).toContain(
+      "does NOT provide timetable-backed",
+    );
+    expect(scope.boundaryNote).toContain("1 MB");
   });
 
   it("derives bounded probe scopes from the operator's own records", () => {
