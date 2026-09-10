@@ -13,6 +13,9 @@ vi.mock("react-i18next", () => ({
     t: (key: string) =>
       ({
         "ui.moreActions": "More actions",
+        "ui.rename": "Rename",
+        "ui.setDates": "Set dates",
+        "ui.editDates": "Edit dates",
         "ui.editItinerary": "Edit itinerary",
         "ui.noDatesSet": "No dates set",
         "ui.stop": "stop",
@@ -39,11 +42,19 @@ let root: Root;
 let host: HTMLDivElement;
 let onSelect: ReturnType<typeof vi.fn<(id: string) => void>>;
 let onDelete: ReturnType<typeof vi.fn<(id: string) => void>>;
+let onRename: ReturnType<typeof vi.fn<(id: string) => void>>;
+let onEditDates: ReturnType<typeof vi.fn<(id: string) => void>>;
 
 function render() {
   act(() =>
     root.render(
-      <TripCard trip={mockTrip} onSelect={onSelect} onDelete={onDelete} />,
+      <TripCard
+        trip={mockTrip}
+        onSelect={onSelect}
+        onDelete={onDelete}
+        onRename={onRename}
+        onEditDates={onEditDates}
+      />,
     ),
   );
 }
@@ -54,6 +65,8 @@ beforeEach(() => {
   root = createRoot(host);
   onSelect = vi.fn<(id: string) => void>();
   onDelete = vi.fn<(id: string) => void>();
+  onRename = vi.fn<(id: string) => void>();
+  onEditDates = vi.fn<(id: string) => void>();
 });
 
 afterEach(() => {
@@ -133,6 +146,63 @@ describe("TripCard", () => {
     expect(
       host.querySelector('button[aria-label="More actions"]'),
     ).not.toBeNull();
+  });
+
+  it("offers rename and set/edit dates from the overflow menu", () => {
+    act(() =>
+      root.render(
+        <TripCard
+          trip={mockTrip}
+          onSelect={onSelect}
+          onDelete={onDelete}
+          onRename={onRename}
+          onEditDates={onEditDates}
+        />,
+      ),
+    );
+    act(() =>
+      host
+        .querySelector<HTMLButtonElement>('button[aria-label="More actions"]')
+        ?.click(),
+    );
+
+    expect(host.textContent).toContain("Rename");
+    expect(host.textContent).toContain("Set dates");
+
+    const rename = Array.from(host.querySelectorAll('[role="menuitem"]')).find(
+      (item) => item.textContent?.includes("Rename"),
+    );
+    act(() => (rename as HTMLElement).click());
+    expect(onRename).toHaveBeenCalledWith("trip-1", expect.any(HTMLElement));
+
+    act(() =>
+      host
+        .querySelector<HTMLButtonElement>('button[aria-label="More actions"]')
+        ?.click(),
+    );
+    const setDates = Array.from(
+      host.querySelectorAll('[role="menuitem"]'),
+    ).find((item) => item.textContent?.includes("Set dates"));
+    act(() => (setDates as HTMLElement).click());
+    expect(onEditDates).toHaveBeenCalledWith("trip-1", expect.any(HTMLElement));
+
+    act(() =>
+      root.render(
+        <TripCard
+          trip={{ ...mockTrip, startDate: "2026-08-08" }}
+          onSelect={onSelect}
+          onDelete={onDelete}
+          onRename={onRename}
+          onEditDates={onEditDates}
+        />,
+      ),
+    );
+    act(() =>
+      host
+        .querySelector<HTMLButtonElement>('button[aria-label="More actions"]')
+        ?.click(),
+    );
+    expect(host.textContent).toContain("Edit dates");
   });
 
   it("shows confirm/cancel after delete click and calls onDelete on confirm", () => {

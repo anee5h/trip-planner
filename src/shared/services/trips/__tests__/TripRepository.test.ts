@@ -80,4 +80,54 @@ describe("TripRepository Unit Tests", () => {
       }),
     );
   });
+
+  it("persists canonical date edits through a save and reload cycle", async () => {
+    let persistedRow: any = {
+      id: "trip-2",
+      user_id: "user-1",
+      title: "Kyoto weekend",
+      start_date: null,
+      end_date: null,
+      status: "draft",
+      stops: [],
+      journal_notes: null,
+      created_at: "2026-01-01T00:00:00Z",
+      updated_at: "2026-01-01T00:00:00Z",
+    };
+    const mockOrder = vi.fn().mockImplementation(async () => ({
+      data: [persistedRow],
+      error: null,
+    }));
+    const mockEq = vi.fn().mockReturnValue({ order: mockOrder });
+    const mockSelect = vi.fn().mockReturnValue({ eq: mockEq });
+    const mockUpsert = vi.fn().mockImplementation(async (payload) => {
+      persistedRow = payload;
+      return { error: null };
+    });
+
+    vi.mocked(supabase!.from).mockReturnValue({
+      select: mockSelect,
+      upsert: mockUpsert,
+    } as any);
+
+    const repo = new SupabaseTripRepository();
+    const [initial] = await repo.fetchTrips("user-1");
+    await repo.saveTrip({
+      ...initial,
+      startDate: "2026-09-12",
+      endDate: "2026-09-15",
+    });
+
+    const [reloaded] = await repo.fetchTrips("user-1");
+    expect(reloaded.startDate).toBe("2026-09-12");
+    expect(reloaded.endDate).toBe("2026-09-15");
+
+    await repo.saveTrip({
+      ...reloaded,
+      startDate: undefined,
+      endDate: undefined,
+    });
+    expect(persistedRow.start_date).toBeNull();
+    expect(persistedRow.end_date).toBeNull();
+  });
 });

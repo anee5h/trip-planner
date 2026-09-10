@@ -53,6 +53,15 @@ vi.mock("react-i18next", () => ({
         "trips.printTrip": "旅程を印刷",
         "trips.copyTripLink": "旅程のリンクをコピー",
         "ui.noDatesSet": "日程未設定",
+        "ui.back": "戻る",
+        "ui.setDates": "日程を設定",
+        "ui.editDates": "日程を編集",
+        "ui.startDate": "開始日",
+        "ui.endDate": "終了日",
+        "ui.selectDate": "日付を選択",
+        "ui.invalidDates": "開始日は終了日より前にしてください",
+        "ui.save": "保存",
+        "ui.cancel": "キャンセル",
       };
       return jaMap[key] ?? opts?.defaultValue ?? key;
     },
@@ -95,6 +104,7 @@ describe("TripDetails — Japanese Localization", () => {
     expect(text).toContain("ステータス");
     expect(text).toContain("計画中");
     expect(text).not.toContain("ステータス: planned");
+    expect(host.querySelector('button[aria-label="戻る"]')).not.toBeNull();
   });
 
   it("uses the canonical trip date range in the editor", () => {
@@ -124,9 +134,149 @@ describe("TripDetails — Japanese Localization", () => {
     });
 
     expect(host.textContent).toContain("2026年8月8日〜9日");
+    expect(host.textContent).toContain("日程を編集");
     expect(host.textContent).toContain("1日目 · 2026年8月8日");
     expect(host.textContent).toContain("2日目 · 2026年8月9日");
     expect(host.textContent).toContain("日程未設定");
     expect(host.textContent).not.toContain("下書き");
+  });
+
+  it("opens the canonical date editor and updates only trip dates", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    const onUpdateTrip = vi.fn();
+
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <TripDetails
+            trip={{ ...mockTrip, status: "draft", startDate: "2026-08-08" }}
+            onBack={vi.fn()}
+            onUpdateTrip={onUpdateTrip}
+            onAddStop={vi.fn()}
+            onRemoveStop={vi.fn()}
+            onReorderStops={vi.fn()}
+          />
+        </MemoryRouter>,
+      );
+    });
+
+    expect(host!.textContent).toContain("2026年8月8日");
+    expect(host!.textContent).not.toContain("〜9日");
+    act(() =>
+      host!
+        .querySelector<HTMLButtonElement>("[data-trip-date-trigger]")
+        ?.click(),
+    );
+    expect(host!.querySelector("[data-trip-dates-editor]")).not.toBeNull();
+
+    const end = host!.querySelector<HTMLInputElement>('input[name="endDate"]')!;
+    act(() => {
+      const setter = Object.getOwnPropertyDescriptor(
+        window.HTMLInputElement.prototype,
+        "value",
+      )?.set;
+      setter?.call(end, "2026-08-09");
+      end.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    act(() =>
+      host!
+        .querySelector<HTMLButtonElement>(
+          '[data-trip-dates-editor] button[type="submit"]',
+        )
+        ?.click(),
+    );
+
+    expect(onUpdateTrip).toHaveBeenCalledWith({
+      startDate: "2026-08-08",
+      endDate: "2026-08-09",
+    });
+  });
+
+  it("traps date-editor focus and returns focus to the date trigger", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <TripDetails
+            trip={{
+              ...mockTrip,
+              status: "draft",
+              startDate: "2026-08-08",
+              endDate: "2026-08-09",
+            }}
+            onBack={vi.fn()}
+            onUpdateTrip={vi.fn()}
+            onAddStop={vi.fn()}
+            onRemoveStop={vi.fn()}
+            onReorderStops={vi.fn()}
+          />
+        </MemoryRouter>,
+      );
+    });
+
+    const trigger = host!.querySelector<HTMLButtonElement>(
+      "[data-trip-date-trigger]",
+    )!;
+    act(() => {
+      trigger.focus();
+      trigger.click();
+    });
+
+    const dialog = host!.querySelector('[role="dialog"]')!;
+    const start = host!.querySelector<HTMLInputElement>(
+      'input[name="startDate"]',
+    )!;
+    const save = host!.querySelector<HTMLButtonElement>(
+      '[data-trip-dates-editor] button[type="submit"]',
+    )!;
+    expect(document.activeElement).toBe(start);
+
+    act(() => {
+      save.focus();
+      dialog.dispatchEvent(
+        new KeyboardEvent("keydown", { key: "Tab", bubbles: true }),
+      );
+    });
+    expect(document.activeElement).toBe(dialog.querySelector("button"));
+
+    act(() => {
+      document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+    });
+    expect(host!.querySelector('[role="dialog"]')).toBeNull();
+    expect(document.activeElement).toBe(trigger);
+  });
+
+  it("keeps low-frequency mobile actions reachable from one menu", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+
+    act(() => {
+      root!.render(
+        <TripDetails
+          trip={mockTrip}
+          onBack={vi.fn()}
+          onUpdateTrip={vi.fn()}
+          onAddStop={vi.fn()}
+          onRemoveStop={vi.fn()}
+          onReorderStops={vi.fn()}
+        />,
+      );
+    });
+
+    const more = host!.querySelector<HTMLButtonElement>(
+      "[data-trip-more-actions]",
+    )!;
+    act(() => more.click());
+
+    const menu = host!.querySelector("[data-trip-more-menu]");
+    expect(menu).not.toBeNull();
+    expect(menu?.textContent).toContain("旅程を印刷");
+    expect(menu?.textContent).toContain("旅程のリンクをコピー");
   });
 });

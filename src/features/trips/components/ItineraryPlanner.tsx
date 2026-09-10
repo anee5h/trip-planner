@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import { TripStopType } from "@/shared/types/trip";
 import type { Destination } from "@/shared/types/destination";
@@ -10,6 +10,8 @@ import {
   Calendar as CalendarIcon,
   GripVertical,
   MoreHorizontal,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
@@ -130,6 +132,9 @@ export default function ItineraryPlanner({
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
   const focusStopRef = useRef<string | null>(null);
   const [announcement, setAnnouncement] = useState("");
+  const [isAddStopExpanded, setIsAddStopExpanded] = useState(
+    trip.stops.length === 0,
+  );
 
   const {
     places: cataloguePlaces,
@@ -247,6 +252,14 @@ export default function ItineraryPlanner({
     setCustomName("");
     setNotes("");
     setStopDate("");
+    setIsAddStopExpanded(false);
+  };
+
+  const handleRemoveStop = (stopId: string) => {
+    onRemoveStop(stopId);
+    if (trip.stops.length === 1) {
+      setIsAddStopExpanded(true);
+    }
   };
 
   const announceMove = (stop: TripStop, endIndex: number) => {
@@ -288,6 +301,30 @@ export default function ItineraryPlanner({
     focusStopRef.current = null;
   }, [trip.stops]);
 
+  useEffect(() => {
+    if (!openMenuId) return;
+
+    const row = rowRefs.current[openMenuId];
+    const handlePointerDown = (event: PointerEvent) => {
+      if (row && event.target instanceof Node && row.contains(event.target)) {
+        return;
+      }
+      setOpenMenuId(null);
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpenMenuId(null);
+      row?.querySelector<HTMLButtonElement>("[data-stop-actions]")?.focus();
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [openMenuId]);
+
   const handleDragStart = (
     event: React.PointerEvent<HTMLButtonElement>,
     stopId: string,
@@ -295,7 +332,11 @@ export default function ItineraryPlanner({
   ) => {
     if (event.pointerType === "mouse" && event.button !== 0) return;
     event.preventDefault();
-    event.currentTarget.setPointerCapture?.(event.pointerId);
+    try {
+      event.currentTarget.setPointerCapture?.(event.pointerId);
+    } catch {
+      // Pointer capture can fail for synthetic or already-released pointers.
+    }
     dragRef.current = { stopId, startIndex, overIndex: startIndex };
     setDraggedStopId(stopId);
     setDragOverIndex(startIndex);
@@ -377,6 +418,13 @@ export default function ItineraryPlanner({
     clearDrag(event);
   };
 
+  const handleLostPointerCapture = () => {
+    if (!dragRef.current) return;
+    dragRef.current = null;
+    setDraggedStopId(null);
+    setDragOverIndex(null);
+  };
+
   // KAI-132: a failed lite load is NOT an empty destination list — the
   // saved/favorite list and picker must not masquerade as empty. Surface
   // an explicit error/retry state.
@@ -413,151 +461,206 @@ export default function ItineraryPlanner({
     <div className="space-y-8">
       {/* Add Stop Form */}
       <form
+        data-add-stop-form
+        data-add-stop-collapsed={!isAddStopExpanded ? "true" : undefined}
         onSubmit={handleAddStop}
-        className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 sm:p-6 rounded-3xl space-y-4 shadow-sm"
+        className={`border border-slate-200 bg-slate-50 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:space-y-4 sm:p-6 ${
+          isAddStopExpanded ? "space-y-4 rounded-3xl p-4" : "rounded-2xl p-2"
+        }`}
       >
-        <h4 className="text-md font-bold text-slate-950 dark:text-white mb-2 flex items-center gap-2">
-          <CalendarDays className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
-          {t("ui.addStop")}
-        </h4>
-
-        <div className="flex gap-3">
-          <button
-            type="button"
-            onClick={() => setStopType("destination")}
-            className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all border ${
-              stopType === "destination"
-                ? "bg-slate-900 text-white dark:bg-emerald-600 border-transparent shadow-sm"
-                : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300"
+        <div className="flex items-center justify-between gap-3">
+          <h4
+            className={`text-md mb-2 items-center gap-2 font-bold text-slate-950 dark:text-white ${
+              isAddStopExpanded ? "flex" : "hidden sm:flex"
             }`}
           >
-            {t("ui.destinations")}
-          </button>
+            <CalendarDays className="h-5 w-5 text-emerald-700 dark:text-emerald-300" />
+            {t("ui.addStop")}
+          </h4>
           <button
             type="button"
-            onClick={() => setStopType("custom")}
-            className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all border ${
-              stopType === "custom"
-                ? "bg-slate-900 text-white dark:bg-emerald-600 border-transparent shadow-sm"
-                : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300"
+            data-add-stop-toggle
+            aria-expanded={isAddStopExpanded}
+            aria-controls="add-stop-panel"
+            onClick={() => setIsAddStopExpanded((expanded) => !expanded)}
+            className={`inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-emerald-200 text-xs font-bold text-emerald-800 hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:border-emerald-800 dark:text-emerald-200 dark:hover:bg-emerald-950/40 sm:hidden ${
+              isAddStopExpanded
+                ? "shrink-0 px-3"
+                : "w-full justify-between px-3"
             }`}
           >
-            {t("ui.customLocation")}
+            {isAddStopExpanded ? (
+              <>
+                {t("ui.close")}
+                <ChevronUp className="size-4" aria-hidden="true" />
+              </>
+            ) : (
+              <>
+                <span className="inline-flex items-center gap-1.5">
+                  <Plus className="size-4" aria-hidden="true" />
+                  {t("ui.addStopShort")}
+                </span>
+                <ChevronDown className="size-4" aria-hidden="true" />
+              </>
+            )}
           </button>
         </div>
 
-        {stopType === "destination" ? (
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-1">
-              {t("ui.selectPlace")}
-            </label>
-            <SearchableDestinationPicker
-              value={selectedDestId}
-              onSelect={(d) => setSelectedDestId(d.id)}
-              placeholder={`-- ${t("ui.selectPlace")} --`}
-              locale={i18n.language === "ja" ? "ja" : "en"}
-              savedDestinations={savedDestinations}
-              recentDestinations={recentDestinations}
-              activeItineraryDestinations={trip?.stops
-                ?.map((s) =>
-                  s.destinationId
-                    ? destinations.find((d) => d.id === s.destinationId)
-                    : null,
-                )
-                .filter((d): d is Destination => Boolean(d))}
-            />
-          </div>
-        ) : (
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-1">
+        <div
+          id="add-stop-panel"
+          data-add-stop-panel
+          data-state={isAddStopExpanded ? "expanded" : "collapsed"}
+          className={
+            isAddStopExpanded ? "space-y-4" : "hidden space-y-4 sm:block"
+          }
+        >
+          <div className="flex gap-3">
+            <button
+              type="button"
+              onClick={() => setStopType("destination")}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all border ${
+                stopType === "destination"
+                  ? "bg-slate-900 text-white dark:bg-emerald-600 border-transparent shadow-sm"
+                  : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300"
+              }`}
+            >
+              {t("ui.destinations")}
+            </button>
+            <button
+              type="button"
+              onClick={() => setStopType("custom")}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all border ${
+                stopType === "custom"
+                  ? "bg-slate-900 text-white dark:bg-emerald-600 border-transparent shadow-sm"
+                  : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300"
+              }`}
+            >
               {t("ui.customLocation")}
+            </button>
+          </div>
+
+          {stopType === "destination" ? (
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-1">
+                {t("ui.selectPlace")}
+              </label>
+              <SearchableDestinationPicker
+                value={selectedDestId}
+                onSelect={(d) => setSelectedDestId(d.id)}
+                placeholder={`-- ${t("ui.selectPlace")} --`}
+                locale={i18n.language === "ja" ? "ja" : "en"}
+                savedDestinations={savedDestinations}
+                recentDestinations={recentDestinations}
+                activeItineraryDestinations={trip?.stops
+                  ?.map((s) =>
+                    s.destinationId
+                      ? destinations.find((d) => d.id === s.destinationId)
+                      : null,
+                  )
+                  .filter((d): d is Destination => Boolean(d))}
+              />
+            </div>
+          ) : (
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-1">
+                {t("ui.customLocation")}
+              </label>
+              <Input
+                type="text"
+                value={customName}
+                onChange={(e) => setCustomName(e.target.value)}
+                placeholder="e.g. Hotel Sunroute Plaza Shinjuku"
+                className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl"
+              />
+            </div>
+          )}
+
+          {/* Date */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <label
+                htmlFor="stop-date"
+                className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 flex items-center gap-1.5"
+              >
+                <CalendarIcon className="w-3.5 h-3.5 text-emerald-500" />
+                {t("datePicker.chooseTravelDate")}
+              </label>
+              <div className="flex flex-wrap items-center gap-1.5">
+                {tripDatePresets.map((preset) => (
+                  <button
+                    key={preset.label}
+                    type="button"
+                    onClick={() => setStopDate(preset.date)}
+                    className={`min-h-9 rounded-md border px-2.5 py-1 text-left text-[11px] font-bold leading-4 transition-all ${
+                      stopDate === preset.date
+                        ? "bg-emerald-700 text-white border-emerald-600 shadow-sm"
+                        : "bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-slate-300"
+                    }`}
+                  >
+                    {preset.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {hasExpandedDatePicker && canonicalTripDateRange && (
+              <Input
+                id="stop-date"
+                type="date"
+                value={stopDate}
+                min={canonicalTripDateRange.startDate}
+                max={canonicalTripDateRange.endDate}
+                aria-label={
+                  locale === "ja" ? "旅行日を選択" : "Choose travel date"
+                }
+                onChange={(e) => handleDateChange(e.target.value)}
+                onBlur={(e) => handleDateChange(e.target.value)}
+                className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-base sm:text-sm w-full"
+              />
+            )}
+            {!hasCanonicalTripDates && (
+              <Input
+                id="stop-date"
+                type="date"
+                value={stopDate}
+                min="2020-01-01"
+                max="2035-12-31"
+                onChange={(e) => handleDateChange(e.target.value)}
+                onBlur={(e) => handleDateChange(e.target.value)}
+                className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-base sm:text-sm w-full"
+              />
+            )}
+          </div>
+
+          {/* Notes */}
+          <div>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-1">
+              {t("ui.notes")}
             </label>
             <Input
               type="text"
-              value={customName}
-              onChange={(e) => setCustomName(e.target.value)}
-              placeholder="e.g. Hotel Sunroute Plaza Shinjuku"
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              placeholder={t(
+                "trips.notesPlaceholder",
+                "e.g. Try local spicy noodles",
+              )}
               className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl"
             />
           </div>
-        )}
 
-        {/* Date */}
-        <div className="space-y-2">
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <label className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 flex items-center gap-1.5">
-              <CalendarIcon className="w-3.5 h-3.5 text-emerald-500" />
-              {t("datePicker.chooseTravelDate")}
-            </label>
-            <div className="flex flex-wrap items-center gap-1.5">
-              {tripDatePresets.map((preset) => (
-                <button
-                  key={preset.label}
-                  type="button"
-                  onClick={() => setStopDate(preset.date)}
-                  className={`min-h-9 rounded-md border px-2.5 py-1 text-left text-[11px] font-bold leading-4 transition-all ${
-                    stopDate === preset.date
-                      ? "bg-emerald-700 text-white border-emerald-600 shadow-sm"
-                      : "bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-slate-300"
-                  }`}
-                >
-                  {preset.label}
-                </button>
-              ))}
-            </div>
-          </div>
-          {hasExpandedDatePicker && canonicalTripDateRange && (
-            <Input
-              type="date"
-              value={stopDate}
-              min={canonicalTripDateRange.startDate}
-              max={canonicalTripDateRange.endDate}
-              aria-label={
-                locale === "ja" ? "旅行日を選択" : "Choose travel date"
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+            <Button
+              type="submit"
+              disabled={
+                stopType === "destination" ? !selectedDestId : !customName
               }
-              onChange={(e) => handleDateChange(e.target.value)}
-              onBlur={(e) => handleDateChange(e.target.value)}
-              className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-base sm:text-sm w-full"
-            />
-          )}
-          {!hasCanonicalTripDates && (
-            <Input
-              type="date"
-              value={stopDate}
-              min="2020-01-01"
-              max="2035-12-31"
-              onChange={(e) => handleDateChange(e.target.value)}
-              onBlur={(e) => handleDateChange(e.target.value)}
-              className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-base sm:text-sm w-full"
-            />
-          )}
+              className="w-full rounded-full bg-emerald-700 px-6 font-bold text-white hover:bg-emerald-800 sm:w-auto"
+            >
+              <Plus className="mr-1.5 h-4 w-4" />
+              <span>{t("ui.addStopAction")}</span>
+            </Button>
+          </div>
         </div>
-
-        {/* Notes */}
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-1">
-            {t("ui.notes")}
-          </label>
-          <Input
-            type="text"
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            placeholder={t(
-              "trips.notesPlaceholder",
-              "e.g. Try local spicy noodles",
-            )}
-            className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl"
-          />
-        </div>
-
-        <Button
-          type="submit"
-          disabled={stopType === "destination" ? !selectedDestId : !customName}
-          className="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-bold px-6"
-        >
-          <Plus className="w-4 h-4 mr-1.5" />
-          <span>{t("ui.addStopAction")}</span>
-        </Button>
       </form>
 
       {/* Stops List */}
@@ -588,7 +691,7 @@ export default function ItineraryPlanner({
                   locale,
                 )}
               >
-                <h5 className="mb-2 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-300">
+                <h5 className="mb-1.5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">
                   <CalendarDays className="size-3.5 text-emerald-600 dark:text-emerald-300" />
                   {formatGroupLabel(
                     group.date,
@@ -614,17 +717,23 @@ export default function ItineraryPlanner({
                         }}
                         role="listitem"
                         data-stop-id={stop.id}
-                        className={`flex items-start gap-2 rounded-2xl border bg-white px-2.5 py-3 shadow-sm transition-[transform,box-shadow,border-color,background-color] dark:bg-slate-900 sm:gap-3 sm:px-3 ${
+                        data-drag-state={isDragging ? "dragging" : undefined}
+                        data-drag-target={
+                          dragOverIndex === index && !isDragging
+                            ? "true"
+                            : undefined
+                        }
+                        className={`relative flex touch-pan-y items-start gap-1.5 rounded-2xl border bg-white px-2.5 py-2.5 shadow-sm transition-[transform,box-shadow,border-color,background-color] dark:bg-slate-900 sm:gap-3 sm:px-3 ${
                           isDragging
-                            ? "scale-[1.01] border-emerald-500 bg-emerald-50 shadow-lg dark:bg-emerald-950/30"
+                            ? "scale-[1.01] border-emerald-500 bg-emerald-50 opacity-90 shadow-lg ring-2 ring-emerald-500/30 dark:bg-emerald-950/30"
                             : "border-slate-200 dark:border-slate-800"
                         } ${
                           dragOverIndex === index && !isDragging
-                            ? "border-emerald-400"
+                            ? "border-emerald-500 ring-2 ring-emerald-400/70 ring-offset-2 before:absolute before:-top-2 before:left-4 before:right-4 before:h-1 before:rounded-full before:bg-emerald-500 before:content-[''] dark:ring-offset-slate-950"
                             : ""
                         }`}
                       >
-                        <div className="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-sm font-extrabold text-white">
+                        <div className="mt-1 flex size-6 shrink-0 items-center justify-center rounded-full bg-emerald-700/90 text-xs font-extrabold text-white">
                           {index + 1}
                         </div>
 
@@ -654,100 +763,114 @@ export default function ItineraryPlanner({
                           )}
                         </div>
 
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          size="icon"
-                          data-drag-handle
-                          aria-label={
-                            locale === "ja"
-                              ? `${stop.name}の並べ替えハンドル`
-                              : `Reorder ${stop.name}`
-                          }
-                          aria-grabbed={isDragging}
-                          onPointerDown={(event) =>
-                            handleDragStart(event, stop.id, index)
-                          }
-                          onPointerMove={handleDragMove}
-                          onPointerUp={handleDragEnd}
-                          onPointerCancel={handleDragCancel}
-                          className="mt-0.5 min-h-11 min-w-11 shrink-0 touch-none cursor-grab rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 active:cursor-grabbing dark:hover:bg-slate-800 dark:hover:text-slate-200"
+                        <div
+                          data-stop-action-cluster
+                          className="flex w-[5.5rem] shrink-0 items-start justify-end gap-0.5"
                         >
-                          <GripVertical className="size-5" aria-hidden="true" />
-                        </Button>
-
-                        <div className="relative shrink-0">
                           <Button
                             type="button"
                             variant="ghost"
                             size="icon"
-                            data-stop-actions
+                            data-drag-handle
                             aria-label={
                               locale === "ja"
-                                ? "スポットの操作"
-                                : "Stop actions"
+                                ? `${stop.name}の並べ替えハンドル`
+                                : `Reorder ${stop.name}`
                             }
-                            aria-expanded={openMenuId === stop.id}
-                            aria-haspopup="menu"
-                            onClick={() =>
-                              setOpenMenuId((open) =>
-                                open === stop.id ? null : stop.id,
-                              )
+                            aria-grabbed={isDragging}
+                            onPointerDown={(event) =>
+                              handleDragStart(event, stop.id, index)
                             }
-                            className="mt-0.5 min-h-11 min-w-11 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+                            onPointerMove={handleDragMove}
+                            onPointerUp={handleDragEnd}
+                            onPointerCancel={handleDragCancel}
+                            onLostPointerCapture={handleLostPointerCapture}
+                            title={
+                              locale === "ja"
+                                ? "長押しして並べ替え"
+                                : "Drag to reorder"
+                            }
+                            className="min-h-11 min-w-11 shrink-0 touch-none cursor-grab rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 active:cursor-grabbing dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100"
                           >
-                            <MoreHorizontal className="size-5" />
+                            <GripVertical
+                              className="size-5"
+                              aria-hidden="true"
+                            />
                           </Button>
 
-                          {openMenuId === stop.id && (
-                            <div
-                              role="menu"
-                              className="absolute right-0 top-12 z-20 min-w-44 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl dark:border-slate-700 dark:bg-slate-950"
+                          <div className="relative shrink-0">
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon"
+                              data-stop-actions
+                              aria-label={
+                                locale === "ja"
+                                  ? "スポットの操作"
+                                  : "Stop actions"
+                              }
+                              aria-expanded={openMenuId === stop.id}
+                              aria-haspopup="menu"
+                              onClick={() =>
+                                setOpenMenuId((open) =>
+                                  open === stop.id ? null : stop.id,
+                                )
+                              }
+                              className="min-h-11 min-w-11 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-200"
                             >
-                              <button
-                                type="button"
-                                role="menuitem"
-                                disabled={
-                                  index === 0 ||
-                                  getGroupAtIndex(stopGroups, index - 1)
-                                    ?.key !==
-                                    getGroupAtIndex(stopGroups, index)?.key
-                                }
-                                onClick={() => moveStop(index, index - 1)}
-                                className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
+                              <MoreHorizontal className="size-5" />
+                            </Button>
+
+                            {openMenuId === stop.id && (
+                              <div
+                                role="menu"
+                                className="absolute right-0 top-12 z-50 min-w-44 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl dark:border-slate-700 dark:bg-slate-950"
                               >
-                                {t("trips.moveUp", "Move stop up")}
-                              </button>
-                              <button
-                                type="button"
-                                role="menuitem"
-                                disabled={
-                                  index === trip.stops.length - 1 ||
-                                  getGroupAtIndex(stopGroups, index + 1)
-                                    ?.key !==
-                                    getGroupAtIndex(stopGroups, index)?.key
-                                }
-                                onClick={() => moveStop(index, index + 1)}
-                                className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
-                              >
-                                {t("trips.moveDown", "Move stop down")}
-                              </button>
-                              <button
-                                type="button"
-                                role="menuitem"
-                                onClick={() => {
-                                  setOpenMenuId(null);
-                                  onRemoveStop(stop.id);
-                                }}
-                                className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-red-700 hover:bg-red-50 dark:text-red-300 dark:hover:bg-red-950/30"
-                              >
-                                {t(
-                                  "trips.removeStop",
-                                  "Remove stop from itinerary",
-                                )}
-                              </button>
-                            </div>
-                          )}
+                                <button
+                                  type="button"
+                                  role="menuitem"
+                                  disabled={
+                                    index === 0 ||
+                                    getGroupAtIndex(stopGroups, index - 1)
+                                      ?.key !==
+                                      getGroupAtIndex(stopGroups, index)?.key
+                                  }
+                                  onClick={() => moveStop(index, index - 1)}
+                                  className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
+                                >
+                                  {t("trips.moveUp", "Move stop up")}
+                                </button>
+                                <button
+                                  type="button"
+                                  role="menuitem"
+                                  disabled={
+                                    index === trip.stops.length - 1 ||
+                                    getGroupAtIndex(stopGroups, index + 1)
+                                      ?.key !==
+                                      getGroupAtIndex(stopGroups, index)?.key
+                                  }
+                                  onClick={() => moveStop(index, index + 1)}
+                                  className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
+                                >
+                                  {t("trips.moveDown", "Move stop down")}
+                                </button>
+                                <button
+                                  type="button"
+                                  role="menuitem"
+                                  onClick={() => {
+                                    setOpenMenuId(null);
+                                    handleRemoveStop(stop.id);
+                                  }}
+                                  className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-red-700 hover:bg-red-50 dark:text-red-300 dark:hover:bg-red-950/30"
+                                >
+                                  {t(
+                                    "trips.removeStop",
+                                    "Remove stop from itinerary",
+                                  )}
+                                </button>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
                     );
