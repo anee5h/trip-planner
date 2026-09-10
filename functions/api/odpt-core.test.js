@@ -1,8 +1,12 @@
 // @vitest-environment node
 import { describe, expect, it } from "vitest";
 import {
+  FILTER_PARAM_NAMES,
   ODPT_RADIUS_MAX_METERS,
+  OPERATION_SCHEMAS,
   buildOdptUrl,
+  buildParams,
+  buildResourcePath,
   normalizeRailway,
   normalizeRailwayFare,
   normalizeStation,
@@ -340,26 +344,32 @@ describe("odptLookup configuration and request construction", () => {
     expect(fetchImpl.calls).toHaveLength(1);
     const { url, init } = fetchImpl.calls[0];
     expect(init.method).toBe("GET");
-    expect(url).toContain(`acl:consumerKey=${KEY}`);
-    expect(url).toContain("odpt:railway=odpt.Railway%3AJR-East.Yamanote");
+    expect(url).toBe(
+      `https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3AJR-East.Yamanote&acl:consumerKey=${KEY}`,
+    );
+    expect(url).not.toContain("undefined");
     expect(result.outcome).toBe("records");
     // The credential never appears in the normalized result.
     expect(JSON.stringify(result)).not.toContain(KEY);
+    expect(result.sourceUrl).toBe(
+      "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3AJR-East.Yamanote",
+    );
     expect(result.sourceUrl).not.toContain("acl:consumerKey");
   });
 
   it("builds the geographic places search with lat/lon/radius", async () => {
     const fetchImpl = captureFetch([STATION_TOKYO]);
-    await odptLookup(NEARBY, ENV, fetchImpl, NOW);
-    const { url } = fetchImpl.calls[0];
-    expect(url).toContain("/places/odpt:Station?");
-    expect(url).toContain("lat=35.6812");
-    expect(url).toContain("lon=139.7671");
-    expect(url).toContain("radius=500");
-    expect(url).toContain(`acl:consumerKey=${KEY}`);
+    const result = await odptLookup(NEARBY, ENV, fetchImpl, NOW);
+    expect(fetchImpl.calls[0].url).toBe(
+      `https://api.odpt.org/api/v4/places/odpt:Station?lat=35.6812&lon=139.7671&radius=500&acl:consumerKey=${KEY}`,
+    );
+    expect(result.sourceUrl).toBe(
+      "https://api.odpt.org/api/v4/places/odpt:Station?lat=35.6812&lon=139.7671&radius=500",
+    );
   });
 
   it("acquires an exact datapoint by ucode without accepting a url", async () => {
+    const DATA_URI = "urn:ucode:_00001C000000000000010000030FD7E5";
     const fetchImpl = captureFetch([
       {
         "@id": "urn:ucode:_00001C000000000000010000030FD7E5",
@@ -370,19 +380,49 @@ describe("odptLookup configuration and request construction", () => {
       },
     ]);
     const result = await odptLookup(
-      {
-        operation: "datapoint",
-        dataUri: "urn:ucode:_00001C000000000000010000030FD7E5",
-      },
+      { operation: "datapoint", dataUri: DATA_URI },
       ENV,
       fetchImpl,
       NOW,
     );
-    expect(fetchImpl.calls[0].url).toContain(
-      "/datapoints/urn:ucode:_00001C000000000000010000030FD7E5?",
+
+    // EXACT outbound provider URL: the data URI is a PATH component (§1.6) and
+    // the only query parameter is the server-added credential.
+    const outbound = fetchImpl.calls[0].url;
+    expect(outbound).toBe(
+      `https://api.odpt.org/api/v4/datapoints/${DATA_URI}?acl:consumerKey=${KEY}`,
     );
+    expect(outbound).not.toContain("undefined");
+    expect(outbound).not.toContain(`undefined=${encodeURIComponent(DATA_URI)}`);
+
+    // EXACT public normalized sourceUrl: no query string at all.
+    expect(result.sourceUrl).toBe(
+      `https://api.odpt.org/api/v4/datapoints/${DATA_URI}`,
+    );
+    expect(result.sourceUrl).not.toContain("?");
+    expect(result.sourceUrl).not.toContain("undefined");
+    expect(result.sourceUrl).not.toContain("acl:consumerKey");
+    expect(result.sourceUrl).not.toContain(DATA_URI + "?");
+
     expect(result.sourceResource).toBe("datapoints");
     expect(result.outcome).toBe("records");
+  });
+
+  it("sends no query parameter for an exact datapoint acquisition", async () => {
+    const DATA_URI = "urn:ucode:_00001C000000000000010000030FD7E5";
+    const fetchImpl = captureFetch([]);
+    await odptLookup(
+      { operation: "datapoint", dataUri: DATA_URI },
+      ENV,
+      fetchImpl,
+      NOW,
+    );
+    const outbound = new URL(fetchImpl.calls[0].url);
+    expect(outbound.pathname).toBe(`/api/v4/datapoints/${DATA_URI}`);
+    expect([...outbound.searchParams.keys()]).toEqual(["acl:consumerKey"]);
+    expect(outbound.searchParams.get("acl:consumerKey")).toBe(KEY);
+    // The data URI must never appear as a query value.
+    expect([...outbound.searchParams.values()]).not.toContain(DATA_URI);
   });
 
   it("normalizes an exact datapoint using its declared @type", async () => {
@@ -442,9 +482,10 @@ describe("odptLookup configuration and request construction", () => {
       fetchImpl,
       NOW,
     );
-    expect(fetchImpl.calls[0].url).toContain(
-      "/datapoints/odpt.Station:JR-East.Yamanote.Tokyo?",
+    expect(fetchImpl.calls[0].url).toBe(
+      `https://api.odpt.org/api/v4/datapoints/odpt.Station:JR-East.Yamanote.Tokyo?acl:consumerKey=${KEY}`,
     );
+    expect(fetchImpl.calls[0].url).not.toContain("undefined");
   });
 });
 
@@ -956,6 +997,67 @@ describe("credential containment", () => {
     }
     // The credential is only ever in the outbound provider URL, server-side.
     expect(captured).toContain(KEY);
+  });
+});
+
+describe("operation schema: path inputs vs query inputs", () => {
+  it("declares dataUri as a path input only, never a query input", () => {
+    // /api/v4/datapoints/$DATA_URI (§1.6) is a path component. Declaring it as
+    // a query input is what produced the shipped `?undefined=<DATA_URI>` defect.
+    expect(OPERATION_SCHEMAS.datapoint.pathParams).toEqual(["dataUri"]);
+    expect(OPERATION_SCHEMAS.datapoint.queryParams).toEqual([]);
+  });
+
+  it.each(Object.keys(OPERATION_SCHEMAS))(
+    "declares %s with well-formed pathParams and queryParams",
+    (operation) => {
+      const schema = OPERATION_SCHEMAS[operation];
+      expect(Array.isArray(schema.pathParams)).toBe(true);
+      expect(Array.isArray(schema.queryParams)).toBe(true);
+      // An input can never be both a path component and a query parameter.
+      for (const name of schema.pathParams) {
+        expect(schema.queryParams).not.toContain(name);
+      }
+    },
+  );
+
+  it("maps every declared query input to a documented ODPT parameter name", () => {
+    // A missing mapping is a schema mistake; buildParams fails closed on it, and
+    // this assertion makes the mistake fail loudly in CI instead.
+    for (const [operation, schema] of Object.entries(OPERATION_SCHEMAS)) {
+      for (const name of schema.queryParams) {
+        const paramName = FILTER_PARAM_NAMES[name];
+        expect(
+          typeof paramName === "string" && paramName.length > 0,
+          `${operation}.${name} has no documented ODPT query parameter name`,
+        ).toBe(true);
+      }
+    }
+  });
+
+  it("never emits a query parameter for a path input", () => {
+    const dataUri = "urn:ucode:_00001C000000000000010000030FD7E5";
+    expect(buildParams("datapoint", { dataUri })).toEqual([]);
+    expect(buildResourcePath("datapoint", { dataUri })).toBe(
+      `datapoints/${dataUri}`,
+    );
+    // No param name is ever derived from a path input.
+    const emitted = buildParams("datapoint", { dataUri }).map(([name]) => name);
+    expect(emitted).not.toContain("undefined");
+    expect(emitted).not.toContain("dataUri");
+  });
+
+  it("still emits documented query parameters for search operations", () => {
+    expect(
+      buildParams("station", { railway: "odpt.Railway:JR-East.Yamanote" }),
+    ).toEqual([["odpt:railway", "odpt.Railway:JR-East.Yamanote"]]);
+    expect(
+      buildParams("railway", { operator: "odpt.Operator:JR-East" }),
+    ).toEqual([["odpt:operator", "odpt.Operator:JR-East"]]);
+    expect(buildResourcePath("station", {})).toBe("odpt:Station");
+    expect(buildResourcePath("nearby_stations", {})).toBe(
+      "places/odpt:Station",
+    );
   });
 });
 

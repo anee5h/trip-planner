@@ -119,33 +119,51 @@ const RETRYABLE_STATUSES = new Set([503]);
  * Allow-listed operations. Each entry lists the only caller-supplied fields
  * accepted for that operation; every other key (including `rdf:type`,
  * `acl:consumerKey`, `url`, `endpoint` and `queryParameters`) is rejected by
- * `validateOdptRequest`.
+ * `validateOdptRequest`. Each entry declares exactly which caller fields are
+ * accepted and how each one is used, so a path input can never be emitted as a
+ * query parameter by accident:
+ *
+ *   pathParams  — consumed into the resource path (`/resource/<value>`)
+ *   queryParams — emitted as documented ODPT query parameters
+ *
+ * Note `datapoint`: `$DATA_URI` is a PATH component of
+ * `/api/v4/datapoints/$DATA_URI` (§1.6), not an ODPT query parameter, so it is
+ * declared as a pathParam and never reaches `buildParams`.
+ *
+ * Every `queryParams` entry must have a documented name in `FILTER_PARAM_NAMES`;
+ * a mapping-completeness test enforces that so a schema mistake fails loudly in
+ * CI instead of producing a malformed provider request at runtime.
  */
-const OPERATION_SCHEMAS = Object.freeze({
+export const OPERATION_SCHEMAS = Object.freeze({
   nearby_stations: {
     resource: "places/odpt:Station",
-    filters: ["lat", "lon", "radius"],
+    pathParams: [],
+    queryParams: ["lat", "lon", "radius"],
   },
   station: {
     resource: "odpt:Station",
-    filters: ["sameAs", "title", "operator", "railway", "stationCode"],
+    pathParams: [],
+    queryParams: ["sameAs", "title", "operator", "railway", "stationCode"],
   },
   railway: {
     resource: "odpt:Railway",
-    filters: ["sameAs", "title", "operator", "lineCode"],
+    pathParams: [],
+    queryParams: ["sameAs", "title", "operator", "lineCode"],
   },
   railway_fare: {
     resource: "odpt:RailwayFare",
-    filters: ["fromStation", "toStation", "operator"],
+    pathParams: [],
+    queryParams: ["fromStation", "toStation", "operator"],
   },
   datapoint: {
     resource: "datapoints",
-    filters: ["dataUri"],
+    pathParams: ["dataUri"],
+    queryParams: [],
   },
 });
 
-/** Filter name → documented ODPT query parameter name. */
-const FILTER_PARAM_NAMES = Object.freeze({
+/** Caller field name → documented ODPT query parameter name. */
+export const FILTER_PARAM_NAMES = Object.freeze({
   sameAs: "owl:sameAs",
   title: "dc:title",
   operator: "odpt:operator",
@@ -279,7 +297,11 @@ export function validateOdptRequest(body) {
 
   // Allowlist only: rdf:type, acl:consumerKey, url, endpoint, queryParameters
   // and any other caller field are rejected outright rather than ignored.
-  const allowed = new Set(["operation", ...schema.filters]);
+  const allowed = new Set([
+    "operation",
+    ...schema.pathParams,
+    ...schema.queryParams,
+  ]);
   for (const key of Object.keys(body)) {
     if (!allowed.has(key)) return { ok: false, error: "unsupported_field" };
   }
@@ -307,7 +329,7 @@ export function validateOdptRequest(body) {
     // ODPT silently truncates at a system upper limit, so an unfiltered search
     // could never be read as complete coverage (§1.3.1). Requiring at least one
     // narrowing filter is what makes these operations honest.
-    const present = schema.filters.filter(
+    const present = schema.queryParams.filter(
       (filter) => body[filter] !== undefined,
     );
     if (present.length === 0) {
@@ -357,22 +379,39 @@ export function validateOdptRequest(body) {
   return { ok: true, body, operation };
 }
 
-function buildParams(operation, input) {
+/**
+ * Builds the ODPT query parameters for an operation from its declared
+ * `queryParams` only. Path inputs are never emitted here.
+ *
+ * Returns `null` when a declared query input has no documented ODPT parameter
+ * name. That is a schema/configuration mistake, so it fails closed (no provider
+ * request is made) instead of silently emitting an `undefined=` parameter or
+ * dropping the input.
+ */
+export function buildParams(operation, input) {
   const schema = OPERATION_SCHEMAS[operation];
   const params = [];
-  for (const filter of schema.filters) {
-    const value = input[filter];
+  for (const name of schema.queryParams) {
+    const value = input[name];
     if (value === undefined) continue;
-    params.push([FILTER_PARAM_NAMES[filter], String(value)]);
+    const paramName = FILTER_PARAM_NAMES[name];
+    if (typeof paramName !== "string" || paramName.length === 0) return null;
+    params.push([paramName, String(value)]);
   }
   return params;
 }
 
-function buildResourcePath(operation, input) {
-  if (operation === "datapoint") {
-    return `${OPERATION_SCHEMAS.datapoint.resource}/${input.dataUri}`;
+/**
+ * Builds the resource path for an operation, appending each declared
+ * `pathParams` value (e.g. `datapoints/<dataUri>` for §1.6 exact acquisition).
+ */
+export function buildResourcePath(operation, input) {
+  const schema = OPERATION_SCHEMAS[operation];
+  let resource = schema.resource;
+  for (const name of schema.pathParams) {
+    resource += `/${input[name]}`;
   }
-  return OPERATION_SCHEMAS[operation].resource;
+  return resource;
 }
 
 /**
@@ -778,6 +817,18 @@ export async function odptLookup(
   }
 
   const params = buildParams(operation, body);
+  if (params === null) {
+    // A declared query input with no documented ODPT parameter name is a
+    // server-side schema mistake. Fail closed without issuing a request rather
+    // than sending a malformed query.
+    return failure(
+      operation,
+      sourceResource,
+      "",
+      "provider_request_config_error",
+      now,
+    );
+  }
   const callUrl = buildOdptUrl(base.baseUrl, resource, params, apiKey);
   // Displayed provenance is built WITHOUT the credential, and is additionally
   // scrubbed in case a future change reintroduces it.
