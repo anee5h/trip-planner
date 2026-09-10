@@ -140,6 +140,26 @@ describe("ItineraryPlanner stop interactions", () => {
     );
   });
 
+  it("renders a legacy itinerary beginning with several unscheduled stops", () => {
+    const legacyTrip: Trip = {
+      ...baseTrip,
+      stops: [
+        { id: "legacy-1", type: "custom", name: "Legacy hotel" },
+        { id: "legacy-2", type: "custom", name: "Legacy dinner" },
+        {
+          id: "dated-1",
+          type: "custom",
+          name: "Dated museum",
+          date: "2026-08-08",
+        },
+        { id: "legacy-3", type: "custom", name: "Legacy walk" },
+      ],
+    };
+
+    expect(() => renderPlanner(legacyTrip)).not.toThrow();
+    expect(host.textContent).toContain("Unscheduled");
+  });
+
   it("derives canonical day choices and removes the competing date input", () => {
     renderPlanner();
 

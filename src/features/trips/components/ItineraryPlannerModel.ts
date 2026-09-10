@@ -10,7 +10,7 @@ export function groupItineraryStops(stops: TripStop[]): ItineraryStopGroup[] {
   return stops.reduce<ItineraryStopGroup[]>((groups, stop, index) => {
     const baseKey = stop.date ?? "unscheduled";
     const previous = groups[groups.length - 1];
-    if (previous?.date === stop.date) {
+    if (previous && previous.date === stop.date) {
       previous.stops.push({ stop, index });
     } else {
       const occurrence = groups.filter(
