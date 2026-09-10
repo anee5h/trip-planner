@@ -180,6 +180,12 @@ export type OdptErrorCode =
   | "malformed_provider_json"
   | "malformed_provider_record"
   | "invalid_provider_response"
+  /**
+   * Server-side request-construction failure: an operation declared a query
+   * input that has no documented ODPT parameter name. Fails closed without
+   * issuing a provider request.
+   */
+  | "provider_request_config_error"
   | "network_error"
   | "rate_limited"
   | "method_not_allowed"
