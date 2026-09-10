@@ -478,7 +478,11 @@ export default function DestinationCard({
           src={localizedDestination.heroImage}
           alt={localizedDestination.name}
           responsive
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes={
+            isSavedVariant
+              ? "(max-width: 767px) 112px, (max-width: 1200px) 50vw, 33vw"
+              : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          }
           className={`w-full h-full object-cover ${isSavedVariant ? "rounded-xl" : ""} group-hover:scale-105 transition-transform duration-700 ${visited ? "grayscale opacity-80" : ""}`}
         />
         {visited && (
@@ -561,9 +565,18 @@ export default function DestinationCard({
             </>
           )}
         </div>
+        {!isSavedVariant && !wardGroup && !virtualGroup && (
+          <div className="absolute right-3 top-3 z-10 flex">
+            <BucketListButton
+              destinationId={destination.id}
+              destinationName={localizedDestination.name}
+              className="size-10 p-0"
+            />
+          </div>
+        )}
       </div>
 
-      {!wardGroup && !virtualGroup && (
+      {isSavedVariant && !wardGroup && !virtualGroup && (
         <div className="absolute right-2 top-2 z-30 flex">
           <BucketListButton
             destinationId={destination.id}
@@ -1034,7 +1047,11 @@ export default function DestinationCard({
           <Button
             variant="default"
             size="sm"
-            className="min-h-11 bg-emerald-700 px-3 text-xs font-semibold text-white shadow-sm hover:bg-emerald-800 md:px-4 md:text-sm"
+            className={
+              isSavedVariant
+                ? "min-h-11 bg-emerald-700 px-3 text-xs font-semibold text-white shadow-sm hover:bg-emerald-800 md:px-4 md:text-sm"
+                : "min-h-11 bg-emerald-700 px-4 font-semibold text-white shadow-sm hover:bg-emerald-800"
+            }
           >
             {cardCopy.explore}
           </Button>

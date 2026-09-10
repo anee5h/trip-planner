@@ -115,6 +115,22 @@ describe("DestinationCard responsive content", () => {
     // longer renders (no fabricated sun-exposure claim).
     expect(host.textContent).not.toContain("Low sun");
     expect(host.textContent).toContain("Explore");
+    expect(
+      host
+        .querySelector('[data-testid="destination-card-image"] img')
+        ?.getAttribute("sizes"),
+    ).toBe("(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw");
+    const defaultBookmark = host.querySelector(
+      'button[aria-label="Add to bucket list"]',
+    );
+    expect(defaultBookmark?.className).toContain("size-10");
+    expect(defaultBookmark?.parentElement?.className).toContain("right-3");
+    expect(defaultBookmark?.parentElement?.className).toContain("top-3");
+    const defaultExplore = Array.from(host.querySelectorAll("button")).find(
+      (button) => button.textContent?.includes("Explore"),
+    );
+    expect(defaultExplore?.className).toContain("px-4");
+    expect(defaultExplore?.className).not.toContain("text-xs");
 
     const mobileCost = Array.from(host.querySelectorAll("span")).find((node) =>
       node.textContent?.includes(" for 2"),
@@ -153,6 +169,9 @@ describe("DestinationCard responsive content", () => {
     expect(image?.className).toContain("h-[100px]");
     expect(image?.className).toContain("p-2");
     expect(image?.className).toContain("md:h-[160px]");
+    expect(image?.querySelector("img")?.getAttribute("sizes")).toBe(
+      "(max-width: 767px) 112px, (max-width: 1200px) 50vw, 33vw",
+    );
 
     expect(
       host.querySelector('[data-testid="destination-card-content"]')?.className,
