@@ -17,16 +17,20 @@
  * Rollover is detected from SEQUENCE ORDER, never from an absolute rule. The
  * tempting shortcut "any time before 03:00 belongs to tomorrow" is wrong: it
  * would corrupt a genuine 02:00 local departure that starts a service day at
- * 02:00. This module instead treats a backward step as a rollover only when it
- * looks like a crossing of midnight — the previous event in the late evening and
- * the next in the early morning — and reports anything else as invalid
- * chronology rather than silently repairing it.
+ * 02:00. This module accepts a crossing ONLY in the exact shape §3.3.6 defines —
+ * previous hour 23, current hour 0, clock time moving backwards — and reports
+ * every other backward step as invalid chronology rather than silently
+ * repairing it or guessing a day offset the provider never promised.
  */
 
-/** Earliest evening time that can precede a midnight crossing (22:00). */
-export const ROLLOVER_EVENING_FROM_MINUTES = 22 * 60;
-/** Latest morning time that can follow a midnight crossing (03:00). */
-export const ROLLOVER_MORNING_TO_MINUTES = 3 * 60;
+/**
+ * The hour that must precede a midnight-crossing event (23:xx), per API v4.16
+ * §3.3.6: "the day has rolled over when the time (hour) changes from the
+ * previous station's from 23 to 0".
+ */
+export const ROLLOVER_PREVIOUS_HOUR = 23;
+/** The hour that must follow a midnight-crossing event (00:xx), per §3.3.6. */
+export const ROLLOVER_CURRENT_HOUR = 0;
 
 const MINUTES_PER_DAY = 24 * 60;
 
@@ -80,16 +84,31 @@ export function parseClockMinutes(value: string | null): number | null {
 
 /**
  * Decides whether a backward step is a legitimate midnight crossing.
- * Requires the previous event in the late evening AND the next in the early
- * morning; anything else is invalid chronology, not a rollover.
+ *
+ * API v4.16 §3.3.6 states the rule exactly: "in order to determine if the day
+ * rolls over, it is necessary for the client to determine that the day has
+ * rolled over when the time (hour) changes from the previous station's from 23
+ * to 0", with `23:58 → 00:03` as the worked example.
+ *
+ * So the ONLY contract-proven crossing is: the previous event's hour is 23, the
+ * current event's hour is 0, and the clock time went backwards. Anything else
+ * (e.g. 22:30 → 02:00, 21:55 → 00:10, 23:58 → 01:03) is NOT proven by the
+ * provider and is reported as invalid/unresolved rather than being guessed into
+ * the next day. A more permissive window would be an invented heuristic: real
+ * services may plausibly cross midnight without a 00:xx event, but plausible is
+ * not evidence, and ODPT does not promise one. If production evidence later
+ * proves another provider pattern, add that as a separate evidence-backed rule.
  */
 export function isLegitimateRollover(
   previousRawMinutes: number,
   currentRawMinutes: number,
 ): boolean {
+  const previousHour = Math.floor(previousRawMinutes / 60);
+  const currentHour = Math.floor(currentRawMinutes / 60);
   return (
-    previousRawMinutes >= ROLLOVER_EVENING_FROM_MINUTES &&
-    currentRawMinutes <= ROLLOVER_MORNING_TO_MINUTES
+    previousHour === ROLLOVER_PREVIOUS_HOUR &&
+    currentHour === ROLLOVER_CURRENT_HOUR &&
+    currentRawMinutes < previousRawMinutes
   );
 }
 
@@ -149,13 +168,13 @@ export function buildServiceChronology(
     if (lastMinutes !== null && lastRawMinutes !== null) {
       const candidate = rawMinutes + dayOffset * MINUTES_PER_DAY;
       const rawWentBackwards = rawMinutes < lastRawMinutes;
-      // Once midnight has been crossed, a late-evening clock time means the
+      // Once midnight has been crossed, a return to the 23:xx hour means the
       // sequence has crossed again — i.e. it spans more than one service day,
       // which this helper does not model. Comparing offset minutes alone would
       // miss that, because 23:50 (+1 day) still looks "later" than 00:03.
       const secondCrossing =
         crossedMidnight &&
-        rawMinutes >= ROLLOVER_EVENING_FROM_MINUTES &&
+        Math.floor(rawMinutes / 60) === ROLLOVER_PREVIOUS_HOUR &&
         rawWentBackwards === false;
 
       if (candidate < lastMinutes || secondCrossing) {
@@ -337,7 +356,7 @@ export function validateSplitTimetablePair(
       if (
         firstLast?.rawMinutes != null &&
         secondFirst?.rawMinutes != null &&
-        secondFirst.rawMinutes + 0 < firstLast.rawMinutes &&
+        secondFirst.rawMinutes < firstLast.rawMinutes &&
         !isLegitimateRollover(firstLast.rawMinutes, secondFirst.rawMinutes)
       ) {
         reasons.push("join_point_backward");

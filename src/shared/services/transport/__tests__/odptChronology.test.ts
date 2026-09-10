@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
-  ROLLOVER_EVENING_FROM_MINUTES,
-  ROLLOVER_MORNING_TO_MINUTES,
+  ROLLOVER_CURRENT_HOUR,
+  ROLLOVER_PREVIOUS_HOUR,
   buildServiceChronology,
   isLegitimateRollover,
   parseClockMinutes,
@@ -86,10 +86,23 @@ describe("buildServiceChronology — midnight rollover", () => {
     expect(result.events[4].dayOffset).toBe(1);
   });
 
-  it("accepts a crossing that starts before 23:00 but is still a midnight crossing", () => {
+  it("rejects a 22:30 -> 00:20 crossing as unproven by the ODPT contract", () => {
+    // §3.3.6 only proves a crossing when the previous hour is 23 and the
+    // current hour is 0. A 22:30 -> 00:20 step is plausible in the real world
+    // but NOT evidenced by the provider, so it must stay unresolved rather
+    // than being promoted into a next-day chronology.
     const result = buildServiceChronology(sequence(["22:30", "00:20"]));
+    expect(result.status).toBe("invalid");
+    expect(result.errors).toContain("invalid_backward_chronology:1");
+    expect(result.rollovers).toEqual([]);
+  });
+
+  it("accepts the exact §3.3.6 boundary crossing 23:00 -> 00:59", () => {
+    // Previous hour is 23 and current hour is 0, so this IS contract-proven.
+    const result = buildServiceChronology(sequence(["23:00", "00:59"]));
     expect(result.status).toBe("rollover");
-    expect(result.durationMinutes).toBe(110);
+    expect(result.durationMinutes).toBe(119);
+    expect(result.rollovers).toEqual([1]);
   });
 
   it("never returns a negative duration across midnight", () => {
@@ -101,7 +114,8 @@ describe("buildServiceChronology — midnight rollover", () => {
 
 describe("buildServiceChronology — invalid backward chronology", () => {
   it("rejects a backward step that is not a midnight crossing", () => {
-    // 06:00 -> 05:00 is a decrease but not an evening->morning crossing.
+    // 06:00 -> 05:00 is a decrease, and the previous hour is neither 23 nor
+    // followed by hour 0, so it is not a §3.3.6 crossing.
     const result = buildServiceChronology(sequence(["06:00", "05:00"]));
     expect(result.status).toBe("invalid");
     expect(result.errors).toContain("invalid_backward_chronology:1");
@@ -188,9 +202,10 @@ describe("buildServiceChronology — missing and equal times", () => {
 });
 
 describe("isLegitimateRollover", () => {
-  it("accepts an evening-to-early-morning step", () => {
+  it("accepts exactly the §3.3.6 shape: previous hour 23, current hour 0", () => {
     expect(isLegitimateRollover(23 * 60, 0)).toBe(true);
     expect(isLegitimateRollover(23 * 60 + 58, 3)).toBe(true);
+    expect(isLegitimateRollover(23 * 60, 59)).toBe(true);
   });
 
   it("rejects anything else", () => {
@@ -199,9 +214,48 @@ describe("isLegitimateRollover", () => {
     expect(isLegitimateRollover(23 * 60, 10 * 60)).toBe(false);
   });
 
-  it("documents its detection window", () => {
-    expect(ROLLOVER_EVENING_FROM_MINUTES).toBe(22 * 60);
-    expect(ROLLOVER_MORNING_TO_MINUTES).toBe(3 * 60);
+  it("pins the exact ODPT rollover rule, not a heuristic window", () => {
+    // §3.3.6: rollover is proven when "the time (hour) changes from the
+    // previous station's from 23 to 0". These two constants are the rule; a
+    // 22:00-03:00 style window would be an invented heuristic.
+    expect(ROLLOVER_PREVIOUS_HOUR).toBe(23);
+    expect(ROLLOVER_CURRENT_HOUR).toBe(0);
+  });
+
+  it("classifies the required worked examples per the ODPT contract", () => {
+    const cases: ReadonlyArray<{
+      readonly from: string;
+      readonly to: string;
+      readonly rollover: boolean;
+    }> = [
+      { from: "23:58", to: "00:03", rollover: true },
+      { from: "23:00", to: "00:59", rollover: true },
+      // Plausible in the real world, but NOT proven by §3.3.6.
+      { from: "22:30", to: "02:00", rollover: false },
+      { from: "21:55", to: "00:10", rollover: false },
+      { from: "23:58", to: "01:03", rollover: false },
+      // Not a crossing at all.
+      { from: "10:30", to: "09:50", rollover: false },
+    ];
+    for (const { from, to, rollover } of cases) {
+      const previous = parseClockMinutes(from);
+      const current = parseClockMinutes(to);
+      expect(previous, `${from} must parse`).not.toBeNull();
+      expect(current, `${to} must parse`).not.toBeNull();
+      expect(
+        isLegitimateRollover(previous!, current!),
+        `${from} -> ${to} should be ${rollover ? "a" : "NOT a"} rollover`,
+      ).toBe(rollover);
+      // The sequence builder must agree with the predicate.
+      const result = buildServiceChronology(sequence([from, to]));
+      expect(result.status, `${from} -> ${to} chronology status`).toBe(
+        rollover ? "rollover" : "invalid",
+      );
+      if (!rollover) {
+        expect(result.rollovers).toEqual([]);
+        expect(result.errors).toContain("invalid_backward_chronology:1");
+      }
+    }
   });
 });
 
