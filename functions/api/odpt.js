@@ -38,6 +38,12 @@
  * The 1 MB response guard is unchanged and must not be raised. Broad timetable
  * reads (operator-wide StationTimetable, whole-railway TrainTimetable) are not
  * runtime strategies; the narrow train-identity shape is.
+ *
+ * The response body is the canonical ODPT result and NOTHING else. Internal
+ * runtime metadata (cache/dedup/provider-attempt/budget) is deliberately not
+ * exposed: it would silently become part of the public endpoint contract, and
+ * callers do not need it. Tests and injected harnesses read it from
+ * `__getOdptProtectionState()`.
  */
 import { isRateLimited, rateLimitResponse } from "../_request-guards.js";
 import {
@@ -190,7 +196,10 @@ export const onRequest = async (context) => {
   const runtimeProtection = getProtection(env);
   const base = resolveOdptBaseUrl(env);
   const providerScope = odptProviderScope(base.ok ? base.baseUrl : null);
-  const { result, runtime } = await runtimeProtection.run(
+  // `runtime` (cache/dedup/budget metadata) is intentionally NOT added to the
+  // response: it is internal observability for tests and injected harnesses, and
+  // exposing it would silently widen the public endpoint contract.
+  const { result } = await runtimeProtection.run(
     validated,
     ({ acquireAttempt }) =>
       odptLookup(validated.body, env, undefined, undefined, {
@@ -199,9 +208,8 @@ export const onRequest = async (context) => {
     { providerScope },
   );
 
-  // The transport payload is unchanged; `runtime` only reports how this
-  // request was served (no credential, no caller identity, no raw payload).
-  return Response.json({ ...result, runtime }, { status: 200 });
+  // The public payload is the canonical ODPT result and nothing else.
+  return Response.json(result, { status: 200 });
 };
 
 /** Test-only inspection of the protection layer's safe counters and scope. */
@@ -219,6 +227,18 @@ export function __getOdptProtectionState() {
 /** Test-only reset so isolated endpoint tests do not share protection state. */
 export function __resetOdptProtection() {
   protection = null;
+}
+
+/**
+ * Test-only injection of a protection layer whose collaborator must behave in a
+ * way the production wiring cannot produce (e.g. a budget backend that fails).
+ *
+ * This is a code-level seam for tests and injected harnesses — deliberately NOT
+ * an environment variable, so production cannot be switched into a degraded
+ * budget mode by configuration.
+ */
+export function __setOdptProtectionForTest(injected) {
+  protection = injected;
 }
 
 export { ODPT_RATE_LIMIT, MAX_BODY_BYTES };

@@ -1312,6 +1312,20 @@ function sleep(ms) {
 }
 
 /**
+ * Budget refusal codes a `beforeProviderAttempt` hook may return.
+ *
+ * `budget_exhausted` — the budget check succeeded and no capacity remains.
+ * `budget_unavailable` — no trustworthy decision could be obtained (the budget
+ * backend failed); the provider request was NOT issued. Distinct from ordinary
+ * exhaustion on purpose: it is a Meguruto infrastructure failure, not a policy
+ * refusal, and must never be reported as provider unavailability or as data.
+ */
+const BUDGET_REFUSAL_CODES = new Set([
+  "budget_exhausted",
+  "budget_unavailable",
+]);
+
+/**
  * Reports whether the provider is usable at all with this environment.
  *
  * Exported for KAI-290 PR 2B so the boundary can evaluate these
@@ -1442,12 +1456,18 @@ export async function odptLookup(
       const permission = await beforeProviderAttempt({ attempt });
       if (!permission || permission.allowed !== true) {
         const attemptsMade = attempt - 1;
+        // The caller may distinguish WHY permission was refused. Only these two
+        // documented budget states are honoured; anything else falls back to
+        // ordinary exhaustion rather than letting an arbitrary code through.
+        const refusalCode = BUDGET_REFUSAL_CODES.has(permission?.errorCode)
+          ? permission.errorCode
+          : "budget_exhausted";
         return {
           ...failure(
             operation,
             sourceResource,
             attemptsMade > 0 ? safeSourceUrl : "",
-            "budget_exhausted",
+            refusalCode,
             now,
           ),
           providerAttempts: attemptsMade,

@@ -199,6 +199,75 @@ export function classifyResultForCache(result, operation) {
 // ── Provider-declared validity ───────────────────────────────────────────────
 
 /**
+ * Parses the END of an ODPT Calendar `odpt:duration` ISO8601 period.
+ *
+ * API v4.16 documents `odpt:duration` as an ISO8601 period and gives a
+ * DATE-ONLY example (`2017-11-13/2017-11-18`). Generic `Date.parse` must not be
+ * used for a date-only endpoint: JavaScript would silently apply UTC-midnight
+ * semantics that ODPT never specified.
+ *
+ * Three explicit cases:
+ *
+ *   A. End carries an explicit timezone/offset (`Z`, `+09:00`, `+0900`) →
+ *      use that instant.
+ *   B. End is bare `YYYY-MM-DD` → the cache ceiling is the START OF THAT DATE IN
+ *      ASIA/TOKYO (UTC+9, no DST). This is **Meguruto's own conservative cache
+ *      policy**, not a claim that ODPT defines the period as end-exclusive or
+ *      defines any timezone for it.
+ *   C. Anything else (missing end, a datetime WITHOUT a timezone, a malformed
+ *      value) → `unsupported`. No instant is invented; the caller falls back to
+ *      its documented conservative policy TTL.
+ *
+ * Note case A deliberately rejects a timezone-less datetime: without an offset
+ * the instant is genuinely ambiguous, so guessing one would fabricate validity.
+ */
+const ODPT_DATE_ONLY_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
+/** Meguruto's conservative zone for date-only Calendar periods (UTC+9, no DST). */
+export const ODPT_DATE_ONLY_TIMEZONE_OFFSET = "+09:00";
+
+export function parseCalendarPeriodEnd(period) {
+  if (typeof period !== "string") {
+    return { status: "unsupported", reason: "not_a_string" };
+  }
+  const parts = period.split("/");
+  if (parts.length !== 2) {
+    return { status: "unsupported", reason: "not_a_two_part_period" };
+  }
+  if (parts[0].trim().length === 0) {
+    return { status: "unsupported", reason: "missing_start" };
+  }
+  const end = parts[1].trim();
+  if (end.length === 0) {
+    return { status: "unsupported", reason: "missing_end" };
+  }
+
+  if (ODPT_DATE_ONLY_PATTERN.test(end)) {
+    const endMs = Date.parse(
+      `${end}T00:00:00${ODPT_DATE_ONLY_TIMEZONE_OFFSET}`,
+    );
+    if (Number.isNaN(endMs)) {
+      return { status: "unsupported", reason: "unparseable_date_only" };
+    }
+    return {
+      status: "date_only_start_of_day_jst",
+      endMs,
+      /** Documents that the instant is Meguruto policy, not a provider claim. */
+      policy: "meguruto_start_of_date_asia_tokyo",
+    };
+  }
+
+  // Require an explicit zone so the instant is unambiguous.
+  if (!/(Z|[+-]\d{2}:?\d{2})$/.test(end)) {
+    return { status: "unsupported", reason: "datetime_without_timezone" };
+  }
+  const endMs = Date.parse(end);
+  if (Number.isNaN(endMs)) {
+    return { status: "unsupported", reason: "unparseable_datetime" };
+  }
+  return { status: "datetime", endMs };
+}
+
+/**
  * Extracts the EARLIEST trustworthy provider-declared validity end from a
  * normalized result (KAI-290 PR 2B).
  *
@@ -206,8 +275,9 @@ export function classifyResultForCache(result, operation) {
  * TTL is a MAXIMUM rather than the whole answer.
  *
  * Only fields that actually declare validity are read:
- *   - `validUntil` (from `dct:valid`) on the record or its provenance
- *   - `duration` (ISO8601 `start/end`) on a Calendar record
+ *   - `validUntil` (from `dct:valid`) — specified as a date-TIME, parsed as an
+ *     instant; top-level where the schema has it, else on provenance
+ *   - a Calendar's `duration` period end (see `parseCalendarPeriodEnd`)
  *
  * `dc:date` / `dct:issued` are deliberately NOT used: they record when data was
  * generated/published, which is not a statement that it remains valid. Inferring
@@ -223,6 +293,7 @@ export function extractProviderValidityEndMs(result) {
   let earliestMs = null;
   let considered = 0;
   let unparseable = 0;
+  const notes = [];
 
   const consider = (raw) => {
     if (typeof raw !== "string" || raw.trim().length === 0) return;
@@ -240,17 +311,35 @@ export function extractProviderValidityEndMs(result) {
     // `dct:valid` is preserved top-level where the schema has it, and always on
     // provenance; prefer the top-level field and fall back to provenance.
     consider(record.validUntil);
-    if (!isRecord(record) || record.validUntil === undefined) {
+    if (record.validUntil === undefined) {
       consider(record.provenance?.validUntil);
     }
-    // Calendar declares its validity window as an ISO8601 interval.
-    if (typeof record.duration === "string") {
-      const [, end] = record.duration.split("/");
-      consider(end);
+
+    // Calendar validity window: an ISO8601 period, parsed explicitly.
+    if (record.duration !== undefined && record.duration !== null) {
+      const parsed = parseCalendarPeriodEnd(record.duration);
+      if (parsed.status === "unsupported") {
+        unparseable += 1;
+        notes.push(`duration_unsupported:${parsed.reason}`);
+      } else {
+        considered += 1;
+        if (parsed.status === "date_only_start_of_day_jst") {
+          notes.push("duration_date_only_ceiling_meguruto_asia_tokyo");
+        }
+        if (earliestMs === null || parsed.endMs < earliestMs) {
+          earliestMs = parsed.endMs;
+        }
+      }
     }
   }
 
-  return { earliestMs, considered, unparseable, recordCount: records.length };
+  return {
+    earliestMs,
+    considered,
+    unparseable,
+    recordCount: records.length,
+    notes,
+  };
 }
 
 // ── Cache stores ─────────────────────────────────────────────────────────────
@@ -552,6 +641,7 @@ export function createOdptProtectionCounters() {
     providerRequests: 0,
     budgetAllowed: 0,
     budgetRejected: 0,
+    budgetUnavailable: 0,
   };
 }
 
@@ -629,6 +719,7 @@ export function createOdptRuntimeProtection({
           providerAttempts: 0,
           budgetTokensUsed: 0,
           budgetExhausted: false,
+          budgetUnavailable: false,
         },
       };
     }
@@ -641,19 +732,39 @@ export function createOdptRuntimeProtection({
     let attempts = 0;
     let tokensUsed = 0;
     let blockedByBudget = false;
+    let budgetUnavailable = false;
     const acquireAttempt = async () => {
       if (budget) {
-        const decision = budget.acquire(identity);
-        if (!decision.allowed) {
+        // `await` tolerates BOTH shapes: the current in-memory budget is
+        // synchronous, while the documented replacement seam (Durable Object /
+        // D1 / KV) will be asynchronous. Awaiting a non-promise is a no-op.
+        let decision;
+        try {
+          decision = await budget.acquire(identity);
+        } catch {
+          // A budget-backend failure is NOT ordinary exhaustion: no trustworthy
+          // decision was obtained, so no provider request is issued. The error
+          // must not escape `odptLookup` (which never throws) and must not be
+          // dressed up as a provider failure.
+          counters.budgetUnavailable += 1;
+          budgetUnavailable = true;
+          return { allowed: false, errorCode: "budget_unavailable" };
+        }
+        if (!decision || decision.allowed !== true) {
           counters.budgetRejected += 1;
           blockedByBudget = true;
-          return { allowed: false, retryAfterMs: decision.retryAfterMs };
+          return {
+            allowed: false,
+            errorCode: "budget_exhausted",
+            retryAfterMs: decision?.retryAfterMs,
+          };
         }
         counters.budgetAllowed += 1;
         tokensUsed += 1;
       }
       // Counted only after permission is granted, i.e. when an outbound attempt
-      // will genuinely be issued (including a timeout/network attempt).
+      // will genuinely be issued (including a timeout/network attempt). A blocked
+      // attempt is never counted.
       attempts += 1;
       counters.providerRequests += 1;
       return { allowed: true };
@@ -682,6 +793,7 @@ export function createOdptRuntimeProtection({
         providerAttempts: attempts,
         budgetTokensUsed: tokensUsed,
         budgetExhausted: blockedByBudget,
+        budgetUnavailable,
       },
     };
   }
@@ -722,6 +834,7 @@ export function createOdptRuntimeProtection({
           providerAttempts: 0,
           budgetTokensUsed: 0,
           budgetExhausted: false,
+          budgetUnavailable: false,
         },
       };
     }

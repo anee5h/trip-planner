@@ -5,10 +5,16 @@ import {
   ODPT_RATE_LIMIT,
   __getOdptProtectionState,
   __resetOdptProtection,
+  __setOdptProtectionForTest,
   onRequest,
 } from "./odpt.js";
 import { __resetRequestGuardState } from "../_request-guards.js";
 import { odptProviderScope } from "./odpt-request-identity.js";
+import {
+  createMemoryCacheStore,
+  createOdptResultCache,
+  createOdptRuntimeProtection,
+} from "./odpt-runtime-protection.js";
 
 const KEY = "fixture-odpt-key";
 const ENV = { ODPT_API_KEY: KEY };
@@ -249,31 +255,45 @@ describe("/api/odpt runtime request protection (KAI-290 PR 2B)", () => {
 
     const firstBody = await first.json();
     const secondBody = await second.json();
-    expect(firstBody.runtime.cacheHit).toBe(false);
-    expect(secondBody.runtime.cacheHit).toBe(true);
     // The transport payload is identical: caching must not change semantics.
-    const stripRuntime = ({ runtime: _runtime, ...rest }) => rest;
-    expect(stripRuntime(secondBody)).toEqual(stripRuntime(firstBody));
+    expect(secondBody).toEqual(firstBody);
+    // Cache-hit observability is internal, not part of the response.
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(1);
+    expect(state.counters.cacheMisses).toBe(1);
+    expect(state.counters.cacheHits).toBe(1);
   });
 
-  it("reports safe runtime metadata and never the credential", async () => {
+  it("does NOT expose internal runtime metadata on the public response", async () => {
     stubProviderFetch([STATION]);
     const response = await onRequest(makeContext());
     const body = await response.json();
 
-    expect(Object.keys(body.runtime).sort()).toEqual([
-      "budgetExhausted",
-      "budgetTokensUsed",
-      "cacheClass",
-      "cacheHit",
-      "dedupHit",
-      "providerAttempts",
-      "providerRequest",
+    // The public contract is the canonical normalized result, nothing more.
+    // Cache/dedup/budget counters are internal; exposing them would silently
+    // widen the endpoint contract for every caller.
+    expect(body).not.toHaveProperty("runtime");
+    expect(Object.keys(body).sort()).toEqual([
+      "normalization",
+      "operation",
+      "outcome",
+      "provider",
+      "recordCount",
+      "records",
+      "retrievedAt",
+      "sourceResource",
+      "sourceUrl",
     ]);
-    expect(body.runtime.cacheClass).toBe("reference");
-    expect(body.runtime.providerRequest).toBe(true);
-    expect(body.runtime.providerAttempts).toBe(1);
-    expect(body.runtime.budgetTokensUsed).toBe(1);
+    expect(JSON.stringify(body)).not.toContain("cacheHit");
+    expect(JSON.stringify(body)).not.toContain("dedupHit");
+    expect(JSON.stringify(body)).not.toContain("providerAttempts");
+    expect(JSON.stringify(body)).not.toContain("budget");
+
+    // The same metadata stays available to harnesses and unit tests.
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(1);
+    expect(state.counters.budgetAllowed).toBe(1);
+    expect(state.budget).not.toBeNull();
 
     const serialized = JSON.stringify(body);
     expect(serialized).not.toContain(KEY);
@@ -349,9 +369,8 @@ describe("/api/odpt runtime request protection (KAI-290 PR 2B)", () => {
     const body = await response.json();
 
     expect(calls).toHaveLength(2);
-    expect(body.runtime.providerAttempts).toBe(2);
-    expect(body.runtime.budgetTokensUsed).toBe(2);
-    expect(body.result ?? body.errorCode).toBe("provider_unavailable");
+    expect(body).not.toHaveProperty("runtime");
+    expect(body.errorCode).toBe("provider_unavailable");
 
     const state = __getOdptProtectionState();
     expect(state.counters.providerRequests).toBe(2);
@@ -377,24 +396,55 @@ describe("/api/odpt runtime request protection (KAI-290 PR 2B)", () => {
 
     expect(call).toBe(2);
     expect(body.outcome).toBe("records");
-    expect(body.runtime.providerAttempts).toBe(2);
-    expect(body.runtime.budgetTokensUsed).toBe(2);
-    expect(body.runtime.budgetExhausted).toBe(false);
+    expect(body).not.toHaveProperty("runtime");
+    const state = __getOdptProtectionState();
+    expect(state.counters.providerRequests).toBe(2);
+    expect(state.counters.budgetAllowed).toBe(2);
+    expect(state.counters.budgetRejected).toBe(0);
   });
 
   it("reports a provider scope and never serves another scope's cache entry", async () => {
     stubProviderFetch([STATION]);
-    const first = await onRequest(makeContext());
-    expect((await first.json()).runtime.cacheHit).toBe(false);
+    await onRequest(makeContext());
+    expect(__getOdptProtectionState().counters.cacheMisses).toBe(1);
 
     // A second identical request still hits the same scope's entry.
-    const second = await onRequest(makeContext());
-    expect((await second.json()).runtime.cacheHit).toBe(true);
+    await onRequest(makeContext());
+    expect(__getOdptProtectionState().counters.cacheHits).toBe(1);
 
     // The cache key is derived from the resolved base URL, so it must differ
     // when the deployment points at a different allow-listed endpoint.
     const official = odptProviderScope("https://api.odpt.org/api/v4");
     const mirror = odptProviderScope("https://odpt-mirror.example/api/v4");
     expect(official).not.toBe(mirror);
+  });
+
+  it("returns budget_unavailable (not provider failure) when the budget backend fails", async () => {
+    const calls = stubProviderFetch([STATION]);
+    // Inject a budget backend that cannot return a trustworthy decision. This
+    // is a seam for tests, not environment configuration.
+    __setOdptProtectionForTest(
+      createOdptRuntimeProtection({
+        cache: createOdptResultCache({ store: createMemoryCacheStore() }),
+        budget: {
+          acquire: async () => {
+            throw new Error("budget backend unavailable");
+          },
+        },
+      }),
+    );
+    const response = await onRequest(makeContext());
+    const body = await response.json();
+
+    // No provider request was issued for the blocked attempt.
+    expect(calls).toHaveLength(0);
+    expect(response.status).toBe(200);
+    expect(body.outcome).toBe("error");
+    expect(body.errorCode).toBe("budget_unavailable");
+    expect(body).not.toHaveProperty("runtime");
+    // Never presented as provider unavailability or as provider "no data".
+    expect(body.errorCode).not.toBe("budget_exhausted");
+    expect(body.errorCode).not.toBe("no_data");
+    expect(body.records).toEqual([]);
   });
 });

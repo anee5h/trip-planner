@@ -17,6 +17,7 @@ import {
   createOdptResultCache,
   createOdptRuntimeProtection,
   extractProviderValidityEndMs,
+  parseCalendarPeriodEnd,
 } from "./odpt-runtime-protection.js";
 import {
   ODPT_CACHE_CONTRACT_VERSION,
@@ -147,7 +148,7 @@ function providerStub(plan, { maxAttempts = 2 } = {}) {
           return {
             ...recordsResult(),
             outcome: "error",
-            errorCode: "budget_exhausted",
+            errorCode: permission?.errorCode ?? "budget_exhausted",
             records: [],
             recordCount: 0,
             sourceUrl: attemptsMade > 0 ? "https://api.odpt.org/api/v4/x" : "",
@@ -1038,6 +1039,7 @@ describe("security invariants", () => {
     expect(Object.keys(run.runtime).sort()).toEqual([
       "budgetExhausted",
       "budgetTokensUsed",
+      "budgetUnavailable",
       "cacheClass",
       "cacheHit",
       "dedupHit",
@@ -1414,5 +1416,377 @@ describe("provider scope isolation", () => {
     });
     expect(lookup.hit).toBe(false);
     expect(lookup.reason).toBe("cache_context_mismatch");
+  });
+});
+
+// ── Async / failing budget backends ──────────────────────────────────────────
+
+/**
+ * Builds a protection layer whose provider is `providerStub`, so budget
+ * behaviour is observable through the same seam production uses.
+ */
+function budgetHarness(budget) {
+  const store = createMemoryCacheStore();
+  const protection = createOdptRuntimeProtection({
+    cache: createOdptResultCache({ store }),
+    budget,
+  });
+  return {
+    protection,
+    store,
+    run: (execute, scope = SCOPE_A) =>
+      protection.run(STATION_QUERY, execute, { providerScope: scope }),
+    counters: protection.counters,
+  };
+}
+
+describe("budget acquisition seam", () => {
+  it("accepts a SYNCHRONOUS budget (the current in-memory implementation)", async () => {
+    const stub = providerStub(recordsResult());
+    const { run, counters } = budgetHarness(
+      createOdptRequestBudget({ limit: 5 }),
+    );
+    const { result, runtime } = await run(stub.fn);
+    expect(result.outcome).toBe("records");
+    expect(stub.attempts).toBe(1);
+    expect(runtime.budgetTokensUsed).toBe(1);
+    expect(counters.budgetAllowed).toBe(1);
+  });
+
+  it("awaits an ASYNC budget that resolves allowed", async () => {
+    const stub = providerStub(recordsResult());
+    let acquisitions = 0;
+    const { run, counters } = budgetHarness({
+      acquire: async () => {
+        acquisitions += 1;
+        return { allowed: true };
+      },
+    });
+    const { result, runtime } = await run(stub.fn);
+    expect(result.outcome).toBe("records");
+    expect(stub.attempts).toBe(1);
+    expect(acquisitions).toBe(1);
+    expect(runtime.budgetTokensUsed).toBe(1);
+    expect(counters.budgetAllowed).toBe(1);
+  });
+
+  it("awaits an ASYNC budget that resolves exhausted -> budget_exhausted, 0 fetches", async () => {
+    const stub = providerStub(recordsResult());
+    const { run, counters } = budgetHarness({
+      acquire: async () => ({ allowed: false, retryAfterMs: 5000 }),
+    });
+    const { result, runtime } = await run(stub.fn);
+    expect(stub.attempts).toBe(0);
+    expect(result.outcome).toBe("error");
+    expect(result.errorCode).toBe("budget_exhausted");
+    expect(result.records).toEqual([]);
+    expect(result.recordCount).toBe(0);
+    expect(runtime.providerAttempts).toBe(0);
+    expect(runtime.providerRequest).toBe(false);
+    expect(runtime.budgetUnavailable).toBe(false);
+    expect(counters.budgetRejected).toBe(1);
+    expect(counters.providerRequests).toBe(0);
+  });
+
+  it("maps an ASYNC budget that REJECTS before the first attempt to budget_unavailable, 0 fetches", async () => {
+    const stub = providerStub(recordsResult());
+    const { run, counters } = budgetHarness({
+      acquire: async () => {
+        throw new Error("durable object unavailable");
+      },
+    });
+    const { result, runtime } = await run(stub.fn);
+    // The provider was never contacted.
+    expect(stub.attempts).toBe(0);
+    expect(result.outcome).toBe("error");
+    expect(result.errorCode).toBe("budget_unavailable");
+    expect(result.records).toEqual([]);
+    expect(result.recordCount).toBe(0);
+    expect(runtime.providerAttempts).toBe(0);
+    expect(runtime.providerRequest).toBe(false);
+    expect(runtime.budgetTokensUsed).toBe(0);
+    expect(runtime.budgetUnavailable).toBe(true);
+    expect(runtime.budgetExhausted).toBe(false);
+    expect(counters.budgetUnavailable).toBe(1);
+    expect(counters.providerRequests).toBe(0);
+  });
+
+  it("never reports budget_unavailable as provider unavailability or provider no-data", async () => {
+    const stub = providerStub(recordsResult());
+    const { run } = budgetHarness({
+      acquire: async () => {
+        throw new Error("down");
+      },
+    });
+    const { result } = await run(stub.fn);
+    expect(result.errorCode).not.toBe("no_data");
+    expect(result.errorCode).not.toBe("provider_not_configured");
+    expect(result.errorCode).not.toBe("provider_unavailable");
+    // Distinct from ordinary exhaustion too.
+    expect(result.errorCode).not.toBe("budget_exhausted");
+    expect(result.outcome).not.toBe("empty");
+    expect(result.outcome).not.toBe("records");
+  });
+
+  it("maps a SYNCHRONOUS budget that THROWS to budget_unavailable, not exhaustion", async () => {
+    const stub = providerStub(recordsResult());
+    const { run } = budgetHarness({
+      acquire: () => {
+        throw new Error("boom");
+      },
+    });
+    const { result } = await run(stub.fn);
+    expect(stub.attempts).toBe(0);
+    expect(result.errorCode).toBe("budget_unavailable");
+    expect(result.errorCode).not.toBe("budget_exhausted");
+  });
+
+  it("does NOT leak a rejected budget as an exception out of the lookup", async () => {
+    const stub = providerStub(recordsResult());
+    const { run } = budgetHarness({
+      acquire: async () => {
+        throw new TypeError("backend exploded");
+      },
+    });
+    // Must resolve, never reject: honours odptLookup's "never throws" contract.
+    await expect(run(stub.fn)).resolves.toBeDefined();
+  });
+
+  it("preserves the truthful attempt count when the budget fails before a 503 RETRY", async () => {
+    const stub = providerStub(RETRY_503);
+    let acquisitions = 0;
+    const { run, counters } = budgetHarness({
+      acquire: async () => {
+        acquisitions += 1;
+        if (acquisitions === 1) return { allowed: true };
+        throw new Error("do unavailable mid-flight");
+      },
+    });
+    const { result, runtime } = await run(stub.fn);
+    // Exactly ONE real provider attempt happened: the original 503.
+    expect(stub.attempts).toBe(1);
+    expect(counters.providerRequests).toBe(1);
+    expect(result.outcome).toBe("error");
+    expect(result.errorCode).toBe("budget_unavailable");
+    expect(result.providerAttempts).toBe(1);
+    expect(result.retryBlockedByBudget).toBe(true);
+    // Provenance stays truthful for the attempt that WAS made.
+    expect(result.sourceUrl).toContain("https://");
+    expect(runtime.budgetUnavailable).toBe(true);
+    expect(runtime.budgetExhausted).toBe(false);
+    expect(runtime.budgetTokensUsed).toBe(1);
+  });
+
+  it("does not cache budget_unavailable", async () => {
+    const stub = providerStub(recordsResult());
+    let acquisitions = 0;
+    const { run, store } = budgetHarness({
+      acquire: async () => {
+        acquisitions += 1;
+        throw new Error("still down");
+      },
+    });
+    await run(stub.fn);
+    expect(store.size()).toBe(0);
+    await run(stub.fn);
+    // A cached failure would have avoided the second acquisition entirely.
+    expect(acquisitions).toBe(2);
+  });
+
+  it("does not cache budget_exhausted either", async () => {
+    const stub = providerStub(recordsResult());
+    const { run, store } = budgetHarness({
+      acquire: () => ({ allowed: false }),
+    });
+    await run(stub.fn);
+    expect(store.size()).toBe(0);
+  });
+
+  it("dedup followers consume NO extra budget acquisition", async () => {
+    let acquisitions = 0;
+    const gate = deferred();
+    const { run } = budgetHarness({
+      acquire: async () => {
+        acquisitions += 1;
+        return { allowed: true };
+      },
+    });
+    const leader = () =>
+      run(async ({ acquireAttempt, attempt }) => {
+        const permission = await acquireAttempt({ attempt });
+        if (!permission || permission.allowed !== true) {
+          return {
+            ...recordsResult(),
+            outcome: "error",
+            errorCode: permission?.errorCode ?? "budget_exhausted",
+            records: [],
+            recordCount: 0,
+          };
+        }
+        return gate.promise;
+      });
+    const a = leader();
+    const b = leader();
+    const c = leader();
+    gate.resolve(recordsResult());
+    const results = await Promise.all([a, b, c]);
+    expect(acquisitions).toBe(1);
+    expect(results.filter((r) => r.runtime.dedupHit)).toHaveLength(2);
+    expect(results[0].runtime.budgetTokensUsed).toBe(1);
+    for (const follower of results.filter((r) => r.runtime.dedupHit)) {
+      expect(follower.runtime.budgetTokensUsed).toBe(0);
+      expect(follower.runtime.providerAttempts).toBe(0);
+    }
+  });
+});
+
+// ── Calendar odpt:duration period parsing ────────────────────────────────────
+
+describe("parseCalendarPeriodEnd", () => {
+  it("applies the Asia/Tokyo start-of-day ceiling to the spec's DATE-ONLY example", () => {
+    // ODPT v4.16 documents exactly this shape for odpt:duration.
+    const parsed = parseCalendarPeriodEnd("2017-11-13/2017-11-18");
+    expect(parsed.status).toBe("date_only_start_of_day_jst");
+    // 2017-11-18T00:00:00+09:00 — NOT UTC midnight.
+    expect(parsed.endMs).toBe(Date.UTC(2017, 10, 17, 15, 0, 0));
+    expect(new Date(parsed.endMs).toISOString()).toBe(
+      "2017-11-17T15:00:00.000Z",
+    );
+    // The instant is explicitly Meguruto policy, not a provider claim.
+    expect(parsed.policy).toBe("meguruto_start_of_date_asia_tokyo");
+  });
+
+  it("does NOT apply UTC-midnight semantics to a date-only endpoint", () => {
+    const parsed = parseCalendarPeriodEnd("2017-11-13/2017-11-18");
+    // JST start-of-day is NINE HOURS EARLIER than UTC midnight of the same
+    // date: the conservative direction, and not a UTC assumption.
+    expect(parsed.endMs).not.toBe(Date.parse("2017-11-18"));
+    expect(parsed.endMs - Date.parse("2017-11-18")).toBe(-9 * 60 * 60 * 1000);
+  });
+
+  it("parses an explicit offset datetime endpoint as that instant", () => {
+    const parsed = parseCalendarPeriodEnd(
+      "2017-11-13T00:00:00+09:00/2017-11-18T23:59:59+09:00",
+    );
+    expect(parsed.status).toBe("datetime");
+    expect(parsed.endMs).toBe(Date.parse("2017-11-18T23:59:59+09:00"));
+  });
+
+  it("parses a Z datetime endpoint as that instant", () => {
+    const parsed = parseCalendarPeriodEnd(
+      "2017-11-13T00:00:00Z/2017-11-18T15:00:00Z",
+    );
+    expect(parsed.status).toBe("datetime");
+    expect(parsed.endMs).toBe(Date.UTC(2017, 10, 18, 15, 0, 0));
+  });
+
+  it("accepts a compact offset and uses the stated instant", () => {
+    const parsed = parseCalendarPeriodEnd(
+      "2017-11-13/2017-11-18T12:00:00+0900",
+    );
+    expect(parsed.status).toBe("datetime");
+    expect(parsed.endMs).toBe(Date.parse("2017-11-18T12:00:00+09:00"));
+  });
+
+  it("rejects a timezone-LESS datetime rather than guessing an instant", () => {
+    const parsed = parseCalendarPeriodEnd(
+      "2017-11-13T00:00:00/2017-11-18T00:00:00",
+    );
+    expect(parsed.status).toBe("unsupported");
+    expect(parsed.reason).toBe("datetime_without_timezone");
+    expect(parsed.endMs).toBeUndefined();
+  });
+
+  it("rejects MALFORMED intervals without inventing an instant", () => {
+    for (const value of [
+      "2017-11-13/not-a-date",
+      "2017-11-18",
+      "2017-11-13/2017-13-45",
+      "/2017-11-18",
+      "2017-11-13/2017-11-18/2017-11-19",
+    ]) {
+      const parsed = parseCalendarPeriodEnd(value);
+      expect(parsed.status).toBe("unsupported");
+      expect(parsed.endMs).toBeUndefined();
+    }
+  });
+
+  it("treats a missing end as unsupported", () => {
+    const parsed = parseCalendarPeriodEnd("2017-11-13/");
+    expect(parsed.status).toBe("unsupported");
+    expect(parsed.reason).toBe("missing_end");
+  });
+
+  it("rejects non-string input", () => {
+    expect(parseCalendarPeriodEnd(null).status).toBe("unsupported");
+    expect(parseCalendarPeriodEnd(undefined).status).toBe("unsupported");
+    expect(parseCalendarPeriodEnd(20171118).status).toBe("unsupported");
+  });
+
+  it("places the date-only boundary correctly around JST midnight", () => {
+    const boundary = parseCalendarPeriodEnd("2017-11-13/2017-11-18").endMs;
+    // One millisecond earlier is still 2017-11-17 in JST.
+    expect(new Date(boundary - 1).toISOString()).toBe(
+      "2017-11-17T14:59:59.999Z",
+    );
+    // The JST hour at the boundary is exactly midnight.
+    expect(new Date(boundary + 9 * 60 * 60 * 1000).getUTCHours()).toBe(0);
+    // And the boundary is itself in JST on the 18th.
+    expect(new Date(boundary + 9 * 60 * 60 * 1000).getUTCDate()).toBe(18);
+  });
+});
+
+describe("validity from a Calendar duration period", () => {
+  it("uses the date-only ceiling for the spec-shaped value", () => {
+    const validity = extractProviderValidityEndMs({
+      records: [{ duration: "2017-11-13/2017-11-18" }],
+    });
+    expect(validity.earliestMs).toBe(Date.UTC(2017, 10, 17, 15, 0, 0));
+    expect(validity.notes).toContain(
+      "duration_date_only_ceiling_meguruto_asia_tokyo",
+    );
+  });
+
+  it("ignores an unsupported duration instead of fabricating an expiry", () => {
+    const validity = extractProviderValidityEndMs({
+      records: [{ duration: "2017-11-13T00:00:00/2017-11-18T00:00:00" }],
+    });
+    expect(validity.earliestMs).toBeNull();
+    expect(validity.unparseable).toBe(1);
+    expect(validity.notes.join(",")).toContain("datetime_without_timezone");
+  });
+
+  it("provider validity can SHORTEN the TTL but never EXTEND the policy cap", async () => {
+    const clock = { value: 1_700_000_000_000 };
+    const store = createMemoryCacheStore({ now: () => clock.value });
+    const cache = createOdptResultCache({ store, now: () => clock.value });
+    const args = {
+      identity: "duration-validity",
+      cacheClass: ODPT_CACHE_CLASS.TIMETABLE,
+      providerScope: SCOPE_A,
+    };
+    // Validity is read from the normalized RECORD (dct:valid), not a parameter.
+    const withValidUntil = (iso) => ({
+      ...recordsResult(),
+      records: [{ ...recordsResult().records[0], validUntil: iso }],
+    });
+
+    // Shortens: 5m policy TTL, but the provider declares validity ending in 2m.
+    await cache.store({
+      ...args,
+      value: withValidUntil(new Date(clock.value + 2 * MINUTE).toISOString()),
+    });
+    const shortened = await cache.lookup(args);
+    expect(shortened.hit).toBe(true);
+    expect(shortened.expiresAt).toBe(clock.value + 2 * MINUTE);
+
+    // Cannot extend: validity ending in 20m stays capped at the 5m policy.
+    await cache.store({
+      ...args,
+      value: withValidUntil(new Date(clock.value + 20 * MINUTE).toISOString()),
+    });
+    const capped = await cache.lookup(args);
+    expect(capped.hit).toBe(true);
+    expect(capped.expiresAt).toBe(clock.value + 5 * MINUTE);
   });
 });

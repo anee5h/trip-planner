@@ -256,10 +256,47 @@ Rules:
   falls back conservatively to the policy TTL and does not fail the record.
 
 Validity is read only from fields that declare it: `validUntil` (from
-`dct:valid`, top-level or on provenance) and a Calendar's `duration` interval end.
+`dct:valid`, specified as a date-**time**, parsed as an instant; top-level or on
+provenance) and a Calendar's `duration` interval end.
 **`dc:date` and `dct:issued` are deliberately not used** — they record when data
 was generated/published, which is not a statement that it remains valid;
 inferring validity from them would invent an expiry the provider never declared.
+
+### 4.2.1 Calendar `odpt:duration` periods are parsed explicitly
+
+API v4.16 documents a Calendar's `odpt:duration` as an ISO8601 period and gives a
+**date-only** example:
+
+```
+2017-11-13/2017-11-18
+```
+
+Generic `Date.parse` must not be used on the endpoint of such a period: for a bare
+`YYYY-MM-DD` JavaScript would silently apply **UTC-midnight** semantics that ODPT
+never specified. Parsing is therefore explicit, with three cases:
+
+| End value | Handling | Cache ceiling |
+| --- | --- | --- |
+| Full ISO8601 datetime **with** an explicit offset (`Z`, `+09:00`, `+0900`) | case A | that instant |
+| Bare `YYYY-MM-DD` | case B | **start of that date in Asia/Tokyo (UTC+9)** |
+| Missing end, timezone-less datetime, three-part or otherwise malformed interval | case C | **no instant invented** → policy TTL fallback |
+
+**Case B is Meguruto's own conservative cache policy, not a provider claim.** It
+does *not* assert that ODPT defines the period as end-exclusive, and it does *not*
+assert that ODPT defines a timezone for a date-only value. Applying Asia/Tokyo
+start-of-day yields an **earlier** (thus safer) ceiling than UTC midnight — nine
+hours earlier for the same date, since JST is ahead of UTC. Marking the choice as
+policy keeps the difference between what the provider said and what we assumed
+inspectable.
+
+A datetime **without** a timezone is rejected rather than guessed: without an
+offset the instant is genuinely ambiguous, so parsing it would fabricate validity.
+Note the asymmetry with `dct:valid` above — that field is specified as a date-time,
+so its parsing is unchanged by this rule.
+
+Malformed periods never produce an instant. They are counted as unparseable and
+recorded as a note (`duration_unsupported:<reason>`), and the entry falls back to
+the documented policy TTL rather than failing the record or inventing an expiry.
 
 
 ### 4.3 Cacheable / non-cacheable result matrix
@@ -337,6 +374,13 @@ encoded as contractual limits anywhere. The same position is recorded in
 injectable clock, so window behaviour is deterministic under a fake timer and the
 configuration is testable.
 
+The acquisition call site is **async-compatible**: the protection layer does
+`await budget.acquire(identity)`. The current in-memory implementation is
+synchronous (awaiting a non-promise is a no-op), but the documented replacement
+seam — a Durable Object, D1 or KV-backed counter — will necessarily be
+asynchronous, and it must be droppable in without touching callers. Both shapes
+are covered by tests.
+
 Defaults: **30 actual outbound provider attempts per 60 s per isolate**,
 overridable via `ODPT_PROVIDER_BUDGET_LIMIT` /
 `ODPT_PROVIDER_BUDGET_WINDOW_MS`. The default is sized comfortably inside the
@@ -369,6 +413,32 @@ When the budget refuses a fetch, the boundary returns the canonical envelope wit
 
 It is never cached.
 
+### 6.2.1 `budget_unavailable` is a DISTINCT state
+
+If the budget mechanism itself fails — it throws or rejects, so no trustworthy
+decision can be obtained — that is **not** ordinary exhaustion and **not** a
+provider failure. The boundary returns the canonical envelope with
+`outcome: "error"`, `errorCode: "budget_unavailable"`, empty `records`, and an
+empty `sourceUrl`.
+
+| State | Meaning | Provider request issued? |
+| --- | --- | --- |
+| `budget_exhausted` | the check **succeeded**; no capacity remains | no |
+| `budget_unavailable` | Meguruto could **not obtain a trustworthy decision** | no |
+
+Both are `error`, both are non-cacheable, neither is ever `no_data`, and neither
+is ever a successful `[]`. No provider attempt is counted for the blocked attempt.
+
+The failure never escapes the lookup: `odptLookup`'s "never throws" contract is
+preserved, so a broken budget backend degrades into a clearly-labelled error
+rather than an unhandled rejection or a fabricated provider answer.
+
+If a provider request **did** already happen (for example the first attempt
+returned 503 and the budget then failed before the bounded retry), the truthful
+actual-attempt count and provenance are preserved exactly as with a budget-blocked
+retry: `providerAttempts: 1`, `retryBlockedByBudget: true`, `sourceUrl` carrying
+the attempt that was really made.
+
 ### 6.3 Per-journey budget — DESIGN ONLY, not implemented
 
 A per-journey cap of **12 provider calls** (8 base + 4 per transfer, max 1
@@ -389,24 +459,36 @@ caching or dedup:
 | Success                 | `records` (including `[]`)                                                                |
 | No data                 | `no_data`                                                                                 |
 | Billing                 | `billing_required`                                                                        |
-| Budget                  | `budget_exhausted`                                                                        |
+| Budget                  | `budget_exhausted`, `budget_unavailable`                                                  |
 | Provider / contract     | `provider_authentication_error`, `provider_authorization_error`, `provider_invalid_request`, `provider_internal_error`, `provider_unavailable`, `provider_method_not_allowed`, `provider_response_too_large`, `malformed_provider_json`, `invalid_provider_response`, `provider_timeout`, `network_error`, `provider_not_configured` |
 
-`budget_exhausted` is added to `OdptErrorCode` in `OdptProvider.ts` for exactly
-this reason. Cached and fresh results carry the **same** payload; only the
-`runtime` metadata differs.
+`budget_exhausted` and `budget_unavailable` are added to `OdptErrorCode` in
+`OdptProvider.ts` for exactly this reason. Cached and fresh results carry the
+**same** payload; only the internal `runtime` metadata differs.
 
 ---
 
 ## 8. Observability
 
-Responses carry a credential-free `runtime` object:
+**The public response body is the canonical ODPT result and nothing else.**
+
+Runtime metadata is deliberately **not** exposed on `/api/odpt`: it is internal
+observability, and including it would silently widen the public endpoint contract
+that every caller depends on. The endpoint returns
+`Response.json(result, { status: 200 })` exactly as before this PR.
+
+The same metadata remains available internally — to the protection unit tests and
+to injected harnesses — via the credential-free `runtime` object returned by
+`protection.run(...)`:
 
 ```json
 { "cacheClass": "reference", "cacheHit": false, "dedupHit": false,
   "providerRequest": true, "providerAttempts": 1,
-  "budgetTokensUsed": 1, "budgetExhausted": false }
+  "budgetTokensUsed": 1, "budgetExhausted": false,
+  "budgetUnavailable": false }
 ```
+
+and via `__getOdptProtectionState()` (test-only) for endpoint tests.
 
 `providerAttempts` and `budgetTokensUsed` count **actual outbound attempts** and
 the tokens those attempts cost, so a 503 retry shows `providerAttempts: 2`. It
