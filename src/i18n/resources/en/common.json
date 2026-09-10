@@ -752,6 +752,7 @@
     "titleRequired": "Title is required",
     "invalidDates": "Start date cannot be after end date",
     "addStop": "Add itinerary stop",
+    "addStopShort": "Add stop",
     "selectPlace": "Select place",
     "customLocation": "Custom location",
     "arrivalTime": "Arrival time",

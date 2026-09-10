@@ -11,6 +11,9 @@ export default function BottomNav() {
   const location = useLocation();
   const { t } = useTranslation();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isTripDetailOpen, setIsTripDetailOpen] = useState(
+    () => document.body.dataset.tripDetailOpen === "true",
+  );
   const pathname = location.pathname;
   const isHomeActive = pathname === "/";
   const isExploreActive =
@@ -29,6 +32,23 @@ export default function BottomNav() {
     return () =>
       window.removeEventListener(SEARCH_STATE_EVENT, handleSearchState);
   }, []);
+
+  useEffect(() => {
+    const handleTripDetailVisibility = () => {
+      setIsTripDetailOpen(document.body.dataset.tripDetailOpen === "true");
+    };
+    window.addEventListener(
+      "trip-detail-visibility",
+      handleTripDetailVisibility,
+    );
+    return () =>
+      window.removeEventListener(
+        "trip-detail-visibility",
+        handleTripDetailVisibility,
+      );
+  }, []);
+
+  if (isTripDetailOpen) return null;
 
   const handleOpenSearch = () => {
     setIsSearchOpen(true);

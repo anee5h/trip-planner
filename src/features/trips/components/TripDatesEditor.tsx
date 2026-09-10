@@ -55,6 +55,7 @@ export function TripDateField({
           autoFocus={autoFocus}
           onChange={(event) => onChange(event.target.value)}
           aria-label={label}
+          data-dialog-initial-focus={autoFocus ? "true" : undefined}
           className={`min-h-11 h-11 bg-slate-50 pl-10 pr-3 text-base [color-scheme:light] focus-visible:border-emerald-600 focus-visible:ring-emerald-600/30 dark:bg-slate-900 dark:[color-scheme:dark] dark:[&::-webkit-calendar-picker-indicator]:invert dark:border-slate-700 ${
             value
               ? "text-slate-900 dark:text-white"
@@ -79,8 +80,20 @@ export default function TripDatesEditor({
 }: TripDatesEditorProps) {
   const { t } = useTranslation();
   const [startDate, setStartDate] = useState(initialStartDate);
-  const [endDate, setEndDate] = useState(initialEndDate);
+  const [endDate, setEndDate] = useState(
+    initialStartDate ? initialEndDate : "",
+  );
   const [error, setError] = useState<string | null>(null);
+
+  const handleStartDateChange = (value: string) => {
+    setStartDate(value);
+    setError(null);
+    if (!value) {
+      setEndDate("");
+    } else if (endDate && value > endDate) {
+      setEndDate(value);
+    }
+  };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -90,7 +103,10 @@ export default function TripDatesEditor({
     }
 
     setError(null);
-    onSave(startDate || undefined, endDate || undefined);
+    onSave(
+      startDate || undefined,
+      startDate ? endDate || undefined : undefined,
+    );
   };
 
   return (
@@ -112,10 +128,7 @@ export default function TripDatesEditor({
           placeholder={t("ui.selectDate")}
           value={startDate}
           autoFocus
-          onChange={(value) => {
-            setStartDate(value);
-            setError(null);
-          }}
+          onChange={handleStartDateChange}
         />
         <TripDateField
           id="trip-end-date"

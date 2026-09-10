@@ -194,7 +194,7 @@ describe("TripDetails — Japanese Localization", () => {
     });
   });
 
-  it("closes the date editor with Escape", () => {
+  it("traps date-editor focus and returns focus to the date trigger", () => {
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -203,7 +203,12 @@ describe("TripDetails — Japanese Localization", () => {
       root!.render(
         <MemoryRouter>
           <TripDetails
-            trip={mockTrip}
+            trip={{
+              ...mockTrip,
+              status: "draft",
+              startDate: "2026-08-08",
+              endDate: "2026-08-09",
+            }}
             onBack={vi.fn()}
             onUpdateTrip={vi.fn()}
             onAddStop={vi.fn()}
@@ -213,17 +218,65 @@ describe("TripDetails — Japanese Localization", () => {
         </MemoryRouter>,
       );
     });
-    act(() =>
-      host!
-        .querySelector<HTMLButtonElement>("[data-trip-date-trigger]")
-        ?.click(),
-    );
-    expect(host!.querySelector("[data-trip-dates-editor]")).not.toBeNull();
+
+    const trigger = host!.querySelector<HTMLButtonElement>(
+      "[data-trip-date-trigger]",
+    )!;
+    act(() => {
+      trigger.focus();
+      trigger.click();
+    });
+
+    const dialog = host!.querySelector('[role="dialog"]')!;
+    const start = host!.querySelector<HTMLInputElement>(
+      'input[name="startDate"]',
+    )!;
+    const save = host!.querySelector<HTMLButtonElement>(
+      '[data-trip-dates-editor] button[type="submit"]',
+    )!;
+    expect(document.activeElement).toBe(start);
+
+    act(() => {
+      save.focus();
+      dialog.dispatchEvent(
+        new KeyboardEvent("keydown", { key: "Tab", bubbles: true }),
+      );
+    });
+    expect(document.activeElement).toBe(dialog.querySelector("button"));
 
     act(() => {
       document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
     });
+    expect(host!.querySelector('[role="dialog"]')).toBeNull();
+    expect(document.activeElement).toBe(trigger);
+  });
 
-    expect(host!.querySelector("[data-trip-dates-editor]")).toBeNull();
+  it("keeps low-frequency mobile actions reachable from one menu", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+
+    act(() => {
+      root!.render(
+        <TripDetails
+          trip={mockTrip}
+          onBack={vi.fn()}
+          onUpdateTrip={vi.fn()}
+          onAddStop={vi.fn()}
+          onRemoveStop={vi.fn()}
+          onReorderStops={vi.fn()}
+        />,
+      );
+    });
+
+    const more = host!.querySelector<HTMLButtonElement>(
+      "[data-trip-more-actions]",
+    )!;
+    act(() => more.click());
+
+    const menu = host!.querySelector("[data-trip-more-menu]");
+    expect(menu).not.toBeNull();
+    expect(menu?.textContent).toContain("旅程を印刷");
+    expect(menu?.textContent).toContain("旅程のリンクをコピー");
   });
 });

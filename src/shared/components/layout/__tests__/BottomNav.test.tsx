@@ -150,4 +150,13 @@ describe("BottomNav Component", () => {
     expect(nav).not.toBeNull();
     tripStoreState.compareList = [];
   });
+
+  it("hides global bottom navigation while a trip detail editor is open", () => {
+    document.body.dataset.tripDetailOpen = "true";
+    const node = renderBottomNav(["/my-trips"]);
+
+    expect(node.querySelector("nav")).toBeNull();
+
+    delete document.body.dataset.tripDetailOpen;
+  });
 });

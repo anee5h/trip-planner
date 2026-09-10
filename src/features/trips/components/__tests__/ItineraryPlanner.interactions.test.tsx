@@ -11,7 +11,8 @@ import type { Trip } from "@/shared/types/trip";
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     i18n: { language: "en" },
-    t: (key: string, fallback?: string) => fallback ?? key,
+    t: (key: string, fallback?: string) =>
+      ({ "ui.addStopShort": "Add stop" })[key] ?? fallback ?? key,
   }),
 }));
 
@@ -441,6 +442,38 @@ describe("ItineraryPlanner stop interactions", () => {
     expect(
       host.querySelector<HTMLElement>("[data-add-stop-panel]")?.dataset.state,
     ).toBe("expanded");
+  });
+
+  it("uses one concise collapsed add-stop affordance", () => {
+    renderPlanner(baseTrip);
+
+    const form = host.querySelector("[data-add-stop-form]")!;
+    const toggle = host.querySelector<HTMLButtonElement>(
+      "[data-add-stop-toggle]",
+    )!;
+
+    expect(form.getAttribute("data-add-stop-collapsed")).toBe("true");
+    expect(toggle.textContent).toContain("Add stop");
+    expect(form.textContent).not.toMatch(
+      /Add itinerary stop[\s\S]*Add itinerary stop/,
+    );
+  });
+
+  it("keeps stop controls in a quiet aligned action cluster", () => {
+    renderPlanner(sameDayTrip);
+
+    const rows = host.querySelectorAll("[data-stop-id]");
+    const clusters = host.querySelectorAll("[data-stop-action-cluster]");
+    const handles = host.querySelectorAll("[data-drag-handle]");
+    const actionButtons = host.querySelectorAll("[data-stop-actions]");
+
+    expect(clusters).toHaveLength(rows.length);
+    expect(clusters[0]?.querySelector("[data-drag-handle]")).toBe(handles[0]);
+    expect(clusters[0]?.querySelector("[data-stop-actions]")).toBe(
+      actionButtons[0],
+    );
+    expect(handles[0]?.className).not.toContain("border-dashed");
+    expect(handles[0]?.className).not.toContain("bg-slate-50");
   });
   it("starts pointer drag from the handle, not from the title link", () => {
     renderPlanner();

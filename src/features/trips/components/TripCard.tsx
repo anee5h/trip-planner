@@ -16,8 +16,8 @@ interface TripCardProps {
   trip: Trip;
   onSelect: (tripId: string) => void;
   onDelete: (tripId: string) => void;
-  onRename?: (tripId: string) => void;
-  onEditDates?: (tripId: string) => void;
+  onRename?: (tripId: string, opener?: HTMLElement) => void;
+  onEditDates?: (tripId: string, opener?: HTMLElement) => void;
 }
 
 export default function TripCard({
@@ -31,6 +31,7 @@ export default function TripCard({
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [actionsOpen, setActionsOpen] = useState(false);
   const actionsRef = useRef<HTMLDivElement>(null);
+  const actionsTriggerRef = useRef<HTMLButtonElement>(null);
   const stopsCount = trip.stops.length;
   const locale = i18n.language === "ja" ? "ja" : "en";
   const dateLabel = formatTripDateRange(trip.startDate, trip.endDate, locale);
@@ -75,6 +76,7 @@ export default function TripCard({
 
         <div ref={actionsRef} className="relative shrink-0">
           <Button
+            ref={actionsTriggerRef}
             variant="ghost"
             size="icon"
             onClick={() => {
@@ -123,7 +125,10 @@ export default function TripCard({
                     role="menuitem"
                     onClick={() => {
                       setActionsOpen(false);
-                      onRename?.(trip.id);
+                      onRename?.(
+                        trip.id,
+                        actionsTriggerRef.current ?? undefined,
+                      );
                     }}
                     className="flex min-h-11 w-full items-center gap-2 rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:text-slate-200 dark:hover:bg-slate-800"
                   >
@@ -135,7 +140,10 @@ export default function TripCard({
                     role="menuitem"
                     onClick={() => {
                       setActionsOpen(false);
-                      onEditDates?.(trip.id);
+                      onEditDates?.(
+                        trip.id,
+                        actionsTriggerRef.current ?? undefined,
+                      );
                     }}
                     className="flex min-h-11 w-full items-center gap-2 rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:text-slate-200 dark:hover:bg-slate-800"
                   >

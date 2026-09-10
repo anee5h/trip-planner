@@ -459,11 +459,19 @@ export default function ItineraryPlanner({
     <div className="space-y-8">
       {/* Add Stop Form */}
       <form
+        data-add-stop-form
+        data-add-stop-collapsed={!isAddStopExpanded ? "true" : undefined}
         onSubmit={handleAddStop}
-        className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 sm:p-6 rounded-3xl space-y-4 shadow-sm"
+        className={`border border-slate-200 bg-slate-50 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:space-y-4 sm:p-6 ${
+          isAddStopExpanded ? "space-y-4 rounded-3xl p-4" : "rounded-2xl p-2"
+        }`}
       >
         <div className="flex items-center justify-between gap-3">
-          <h4 className="text-md mb-2 flex items-center gap-2 font-bold text-slate-950 dark:text-white">
+          <h4
+            className={`text-md mb-2 items-center gap-2 font-bold text-slate-950 dark:text-white ${
+              isAddStopExpanded ? "flex" : "hidden sm:flex"
+            }`}
+          >
             <CalendarDays className="h-5 w-5 text-emerald-700 dark:text-emerald-300" />
             {t("ui.addStop")}
           </h4>
@@ -473,9 +481,23 @@ export default function ItineraryPlanner({
             aria-expanded={isAddStopExpanded}
             aria-controls="add-stop-panel"
             onClick={() => setIsAddStopExpanded((expanded) => !expanded)}
-            className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border border-emerald-200 px-3 text-xs font-bold text-emerald-800 hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:border-emerald-800 dark:text-emerald-200 dark:hover:bg-emerald-950/40 sm:hidden"
+            className={`inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-emerald-200 text-xs font-bold text-emerald-800 hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:border-emerald-800 dark:text-emerald-200 dark:hover:bg-emerald-950/40 sm:hidden ${
+              isAddStopExpanded
+                ? "shrink-0 px-3"
+                : "w-full justify-between px-3"
+            }`}
           >
-            {isAddStopExpanded ? t("ui.cancel") : t("ui.addStop")}
+            {isAddStopExpanded ? (
+              t("ui.cancel")
+            ) : (
+              <>
+                <span className="inline-flex items-center gap-1.5">
+                  <Plus className="size-4" aria-hidden="true" />
+                  {t("ui.addStopShort")}
+                </span>
+                <span aria-hidden="true">＋</span>
+              </>
+            )}
           </button>
         </div>
 
@@ -673,7 +695,7 @@ export default function ItineraryPlanner({
                   locale,
                 )}
               >
-                <h5 className="mb-2 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-300">
+                <h5 className="mb-1.5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">
                   <CalendarDays className="size-3.5 text-emerald-600 dark:text-emerald-300" />
                   {formatGroupLabel(
                     group.date,
@@ -715,7 +737,7 @@ export default function ItineraryPlanner({
                             : ""
                         }`}
                       >
-                        <div className="mt-1.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-emerald-700/90 text-xs font-extrabold text-white">
+                        <div className="mt-1 flex size-6 shrink-0 items-center justify-center rounded-full bg-emerald-700/90 text-xs font-extrabold text-white">
                           {index + 1}
                         </div>
 
@@ -745,106 +767,114 @@ export default function ItineraryPlanner({
                           )}
                         </div>
 
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          size="icon"
-                          data-drag-handle
-                          aria-label={
-                            locale === "ja"
-                              ? `${stop.name}の並べ替えハンドル`
-                              : `Reorder ${stop.name}`
-                          }
-                          aria-grabbed={isDragging}
-                          onPointerDown={(event) =>
-                            handleDragStart(event, stop.id, index)
-                          }
-                          onPointerMove={handleDragMove}
-                          onPointerUp={handleDragEnd}
-                          onPointerCancel={handleDragCancel}
-                          onLostPointerCapture={handleLostPointerCapture}
-                          title={
-                            locale === "ja"
-                              ? "長押しして並べ替え"
-                              : "Drag to reorder"
-                          }
-                          className="mt-0.5 min-h-11 min-w-11 shrink-0 touch-none cursor-grab rounded-xl border border-dashed border-slate-300 bg-slate-50 text-slate-500 shadow-sm hover:bg-slate-100 hover:text-slate-700 active:cursor-grabbing dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100"
+                        <div
+                          data-stop-action-cluster
+                          className="flex w-[5.5rem] shrink-0 items-start justify-end gap-0.5"
                         >
-                          <GripVertical className="size-5" aria-hidden="true" />
-                        </Button>
-
-                        <div className="relative shrink-0">
                           <Button
                             type="button"
                             variant="ghost"
                             size="icon"
-                            data-stop-actions
+                            data-drag-handle
                             aria-label={
                               locale === "ja"
-                                ? "スポットの操作"
-                                : "Stop actions"
+                                ? `${stop.name}の並べ替えハンドル`
+                                : `Reorder ${stop.name}`
                             }
-                            aria-expanded={openMenuId === stop.id}
-                            aria-haspopup="menu"
-                            onClick={() =>
-                              setOpenMenuId((open) =>
-                                open === stop.id ? null : stop.id,
-                              )
+                            aria-grabbed={isDragging}
+                            onPointerDown={(event) =>
+                              handleDragStart(event, stop.id, index)
                             }
-                            className="mt-0.5 min-h-11 min-w-11 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+                            onPointerMove={handleDragMove}
+                            onPointerUp={handleDragEnd}
+                            onPointerCancel={handleDragCancel}
+                            onLostPointerCapture={handleLostPointerCapture}
+                            title={
+                              locale === "ja"
+                                ? "長押しして並べ替え"
+                                : "Drag to reorder"
+                            }
+                            className="min-h-11 min-w-11 shrink-0 touch-none cursor-grab rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 active:cursor-grabbing dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100"
                           >
-                            <MoreHorizontal className="size-5" />
+                            <GripVertical
+                              className="size-5"
+                              aria-hidden="true"
+                            />
                           </Button>
 
-                          {openMenuId === stop.id && (
-                            <div
-                              role="menu"
-                              className="absolute right-0 top-12 z-50 min-w-44 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl dark:border-slate-700 dark:bg-slate-950"
+                          <div className="relative shrink-0">
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon"
+                              data-stop-actions
+                              aria-label={
+                                locale === "ja"
+                                  ? "スポットの操作"
+                                  : "Stop actions"
+                              }
+                              aria-expanded={openMenuId === stop.id}
+                              aria-haspopup="menu"
+                              onClick={() =>
+                                setOpenMenuId((open) =>
+                                  open === stop.id ? null : stop.id,
+                                )
+                              }
+                              className="min-h-11 min-w-11 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-200"
                             >
-                              <button
-                                type="button"
-                                role="menuitem"
-                                disabled={
-                                  index === 0 ||
-                                  getGroupAtIndex(stopGroups, index - 1)
-                                    ?.key !==
-                                    getGroupAtIndex(stopGroups, index)?.key
-                                }
-                                onClick={() => moveStop(index, index - 1)}
-                                className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
+                              <MoreHorizontal className="size-5" />
+                            </Button>
+
+                            {openMenuId === stop.id && (
+                              <div
+                                role="menu"
+                                className="absolute right-0 top-12 z-50 min-w-44 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl dark:border-slate-700 dark:bg-slate-950"
                               >
-                                {t("trips.moveUp", "Move stop up")}
-                              </button>
-                              <button
-                                type="button"
-                                role="menuitem"
-                                disabled={
-                                  index === trip.stops.length - 1 ||
-                                  getGroupAtIndex(stopGroups, index + 1)
-                                    ?.key !==
-                                    getGroupAtIndex(stopGroups, index)?.key
-                                }
-                                onClick={() => moveStop(index, index + 1)}
-                                className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
-                              >
-                                {t("trips.moveDown", "Move stop down")}
-                              </button>
-                              <button
-                                type="button"
-                                role="menuitem"
-                                onClick={() => {
-                                  setOpenMenuId(null);
-                                  handleRemoveStop(stop.id);
-                                }}
-                                className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-red-700 hover:bg-red-50 dark:text-red-300 dark:hover:bg-red-950/30"
-                              >
-                                {t(
-                                  "trips.removeStop",
-                                  "Remove stop from itinerary",
-                                )}
-                              </button>
-                            </div>
-                          )}
+                                <button
+                                  type="button"
+                                  role="menuitem"
+                                  disabled={
+                                    index === 0 ||
+                                    getGroupAtIndex(stopGroups, index - 1)
+                                      ?.key !==
+                                      getGroupAtIndex(stopGroups, index)?.key
+                                  }
+                                  onClick={() => moveStop(index, index - 1)}
+                                  className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
+                                >
+                                  {t("trips.moveUp", "Move stop up")}
+                                </button>
+                                <button
+                                  type="button"
+                                  role="menuitem"
+                                  disabled={
+                                    index === trip.stops.length - 1 ||
+                                    getGroupAtIndex(stopGroups, index + 1)
+                                      ?.key !==
+                                      getGroupAtIndex(stopGroups, index)?.key
+                                  }
+                                  onClick={() => moveStop(index, index + 1)}
+                                  className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40 dark:text-slate-200 dark:hover:bg-slate-800"
+                                >
+                                  {t("trips.moveDown", "Move stop down")}
+                                </button>
+                                <button
+                                  type="button"
+                                  role="menuitem"
+                                  onClick={() => {
+                                    setOpenMenuId(null);
+                                    handleRemoveStop(stop.id);
+                                  }}
+                                  className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-sm font-semibold text-red-700 hover:bg-red-50 dark:text-red-300 dark:hover:bg-red-950/30"
+                                >
+                                  {t(
+                                    "trips.removeStop",
+                                    "Remove stop from itinerary",
+                                  )}
+                                </button>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
                     );

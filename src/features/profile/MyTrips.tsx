@@ -11,6 +11,7 @@ import TripDetails from "@/features/trips/TripDetails";
 import { Sparkles, Plus, Calendar, Bookmark, Compass, X } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
+import ModalDialog from "@/shared/components/ui/ModalDialog";
 import { useTranslation } from "react-i18next";
 
 export default function MyTrips() {
@@ -39,6 +40,12 @@ export default function MyTrips() {
   );
   const [selectedTripId, setSelectedTripId] = useState<string | null>(null);
   const [isAddingTrip, setIsAddingTrip] = useState(false);
+  const [newTripOpener, setNewTripOpener] = useState<HTMLButtonElement | null>(
+    null,
+  );
+  const [cardEditorOpener, setCardEditorOpener] = useState<HTMLElement | null>(
+    null,
+  );
   const [cardEdit, setCardEdit] = useState<
     { tripId: string; mode: "rename" | "dates" } | undefined
   >();
@@ -52,7 +59,7 @@ export default function MyTrips() {
     if (paramTripId) {
       setSelectedTripId(paramTripId);
     }
-  }, [location.pathname, paramTab, paramTripId]);
+  }, [location.pathname, paramTab, paramTripId, trips]);
 
   const {
     places: cataloguePlaces,
@@ -71,20 +78,28 @@ export default function MyTrips() {
     : undefined;
 
   useEffect(() => {
-    if (!isAddingTrip && !cardEdit) return;
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      setIsAddingTrip(false);
-      setCardEdit(undefined);
+    document.body.dataset.tripDetailOpen = selectedTrip ? "true" : "false";
+    window.dispatchEvent(new Event("trip-detail-visibility"));
+    return () => {
+      delete document.body.dataset.tripDetailOpen;
+      window.dispatchEvent(new Event("trip-detail-visibility"));
     };
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isAddingTrip, cardEdit]);
+  }, [selectedTrip]);
+
+  const closeCardEditor = () => {
+    setCardEdit(undefined);
+    setCardEditorOpener(null);
+  };
+
+  const closeNewTripEditor = () => {
+    setIsAddingTrip(false);
+    setNewTripOpener(null);
+  };
 
   // If a specific trip planner is open, render its detailed editor
   if (selectedTrip) {
     return (
-      <div className="container mx-auto px-4 py-12 max-w-7xl">
+      <div className="container mx-auto max-w-7xl px-4 py-6 md:py-12">
         <TripDetails
           trip={selectedTrip}
           onBack={() => setSelectedTripId(null)}
@@ -178,7 +193,10 @@ export default function MyTrips() {
         actions={
           activeTab === "planned" && trips.length > 0 ? (
             <Button
-              onClick={() => setIsAddingTrip(true)}
+              onClick={(event) => {
+                setNewTripOpener(event.currentTarget);
+                setIsAddingTrip(true);
+              }}
               className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-bold px-6 shadow-md"
             >
               <Plus className="w-4 h-4 mr-1.5" />
@@ -203,7 +221,10 @@ export default function MyTrips() {
               </p>
               <div className="flex flex-col justify-center gap-2 sm:flex-row sm:flex-wrap">
                 <Button
-                  onClick={() => setIsAddingTrip(true)}
+                  onClick={(event) => {
+                    setNewTripOpener(event.currentTarget);
+                    setIsAddingTrip(true);
+                  }}
                   size="lg"
                   className="rounded-full bg-emerald-700 px-6 font-bold text-white shadow-md hover:bg-emerald-800"
                 >
@@ -240,10 +261,14 @@ export default function MyTrips() {
                   trip={trip}
                   onSelect={() => setSelectedTripId(trip.id)}
                   onDelete={() => deleteTrip(trip.id)}
-                  onRename={(tripId) => setCardEdit({ tripId, mode: "rename" })}
-                  onEditDates={(tripId) =>
-                    setCardEdit({ tripId, mode: "dates" })
-                  }
+                  onRename={(tripId, opener) => {
+                    setCardEditorOpener(opener ?? null);
+                    setCardEdit({ tripId, mode: "rename" });
+                  }}
+                  onEditDates={(tripId, opener) => {
+                    setCardEditorOpener(opener ?? null);
+                    setCardEdit({ tripId, mode: "dates" });
+                  }}
                 />
               ))}
             </div>
@@ -281,91 +306,87 @@ export default function MyTrips() {
       )}
 
       {cardEditingTrip && cardEdit && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-950/60 p-4 backdrop-blur-sm sm:items-center">
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="trip-card-editor-title"
-            className="max-h-[calc(100dvh-2rem)] w-full max-w-lg overflow-y-auto rounded-3xl border border-slate-200 bg-white p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] shadow-2xl dark:border-slate-800 dark:bg-slate-950 sm:p-6"
-          >
-            <div className="mb-5 flex items-start justify-between gap-4">
-              <div className="min-w-0">
-                <h2
-                  id="trip-card-editor-title"
-                  className="text-lg font-extrabold text-slate-950 dark:text-white"
-                >
-                  {cardEdit.mode === "rename"
-                    ? t("ui.rename")
-                    : cardEditingTrip.startDate
-                      ? t("ui.editDates")
-                      : t("ui.setDates")}
-                </h2>
-                <p className="mt-1 truncate text-sm text-slate-500 dark:text-slate-300">
-                  {cardEditingTrip.title}
-                </p>
-              </div>
-              <button
-                type="button"
-                aria-label={t("ui.close")}
-                onClick={() => setCardEdit(undefined)}
-                className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+        <ModalDialog
+          titleId="trip-card-editor-title"
+          onClose={closeCardEditor}
+          opener={cardEditorOpener}
+          className="max-w-lg"
+        >
+          <div className="mb-5 flex items-start justify-between gap-4">
+            <div className="min-w-0">
+              <h2
+                id="trip-card-editor-title"
+                className="text-lg font-extrabold text-slate-950 dark:text-white"
               >
-                <X className="size-5" aria-hidden="true" />
-              </button>
+                {cardEdit.mode === "rename"
+                  ? t("ui.rename")
+                  : cardEditingTrip.startDate
+                    ? t("ui.editDates")
+                    : t("ui.setDates")}
+              </h2>
+              <p className="mt-1 truncate text-sm text-slate-500 dark:text-slate-300">
+                {cardEditingTrip.title}
+              </p>
             </div>
-
-            {cardEdit.mode === "rename" ? (
-              <TripEditor
-                initialTitle={cardEditingTrip.title}
-                showDates={false}
-                allowBlankTitle={false}
-                onSave={(title) => {
-                  updateTrip(cardEditingTrip.id, { title });
-                  setCardEdit(undefined);
-                }}
-                onCancel={() => setCardEdit(undefined)}
-              />
-            ) : (
-              <TripDatesEditor
-                initialStartDate={cardEditingTrip.startDate}
-                initialEndDate={cardEditingTrip.endDate}
-                onSave={(startDate, endDate) => {
-                  updateTrip(cardEditingTrip.id, { startDate, endDate });
-                  setCardEdit(undefined);
-                }}
-                onCancel={() => setCardEdit(undefined)}
-              />
-            )}
+            <button
+              type="button"
+              aria-label={t("ui.close")}
+              onClick={closeCardEditor}
+              className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+            >
+              <X className="size-5" aria-hidden="true" />
+            </button>
           </div>
-        </div>
+
+          {cardEdit.mode === "rename" ? (
+            <TripEditor
+              initialTitle={cardEditingTrip.title}
+              showDates={false}
+              allowBlankTitle={false}
+              onSave={(title) => {
+                updateTrip(cardEditingTrip.id, { title });
+                closeCardEditor();
+              }}
+              onCancel={closeCardEditor}
+            />
+          ) : (
+            <TripDatesEditor
+              initialStartDate={cardEditingTrip.startDate}
+              initialEndDate={cardEditingTrip.endDate}
+              onSave={(startDate, endDate) => {
+                updateTrip(cardEditingTrip.id, { startDate, endDate });
+                closeCardEditor();
+              }}
+              onCancel={closeCardEditor}
+            />
+          )}
+        </ModalDialog>
       )}
 
       {/* Create Trip Overlay Modal */}
       {isAddingTrip && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 p-4 backdrop-blur-sm sm:items-center">
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="new-itinerary-title"
-            className="max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-3xl border border-slate-200 bg-white p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] shadow-xl dark:border-slate-800 dark:bg-slate-950 sm:p-6"
+        <ModalDialog
+          titleId="new-itinerary-title"
+          onClose={closeNewTripEditor}
+          opener={newTripOpener}
+          className="max-w-md"
+        >
+          <h3
+            id="new-itinerary-title"
+            className="mb-4 text-xl font-bold text-slate-900 dark:text-white"
           >
-            <h3
-              id="new-itinerary-title"
-              className="mb-4 text-xl font-bold text-slate-900 dark:text-white"
-            >
-              {t("ui.newItinerary")}
-            </h3>
-            <TripEditor
-              onSave={(title, start, end) => {
-                addTrip(title, start, end, {
-                  locale: i18n.language === "ja" ? "ja" : "en",
-                });
-                setIsAddingTrip(false);
-              }}
-              onCancel={() => setIsAddingTrip(false)}
-            />
-          </div>
-        </div>
+            {t("ui.newItinerary")}
+          </h3>
+          <TripEditor
+            onSave={(title, start, end) => {
+              addTrip(title, start, end, {
+                locale: i18n.language === "ja" ? "ja" : "en",
+              });
+              closeNewTripEditor();
+            }}
+            onCancel={closeNewTripEditor}
+          />
+        </ModalDialog>
       )}
     </div>
   );

@@ -26,7 +26,9 @@ export default function TripEditor({
   const { t } = useTranslation();
   const [title, setTitle] = useState(initialTitle);
   const [startDate, setStartDate] = useState(initialStartDate);
-  const [endDate, setEndDate] = useState(initialEndDate);
+  const [endDate, setEndDate] = useState(
+    initialStartDate ? initialEndDate : "",
+  );
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -39,7 +41,11 @@ export default function TripEditor({
       setError(t("ui.invalidDates"));
       return;
     }
-    onSave(title.trim(), startDate || undefined, endDate || undefined);
+    onSave(
+      title.trim(),
+      startDate || undefined,
+      startDate ? endDate || undefined : undefined,
+    );
   };
 
   return (
@@ -70,6 +76,7 @@ export default function TripEditor({
           type="text"
           value={title}
           autoFocus
+          data-dialog-initial-focus="true"
           onChange={(e) => {
             setTitle(e.target.value);
             setError(null);
@@ -90,6 +97,11 @@ export default function TripEditor({
             onChange={(value) => {
               setStartDate(value);
               setError(null);
+              if (!value) {
+                setEndDate("");
+              } else if (endDate && value > endDate) {
+                setEndDate(value);
+              }
             }}
           />
           <TripDateField

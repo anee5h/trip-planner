@@ -752,6 +752,7 @@
     "titleRequired": "タイトルは必須です",
     "invalidDates": "開始日は終了日より前にしてください",
     "addStop": "旅程に立ち寄り先を追加",
+    "addStopShort": "立ち寄り先を追加",
     "selectPlace": "場所を選択",
     "customLocation": "自由入力の場所",
     "arrivalTime": "到着時刻",

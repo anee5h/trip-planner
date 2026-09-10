@@ -123,6 +123,68 @@ describe("TripDatesEditor", () => {
     expect(onSave).toHaveBeenCalledWith("2026-08-08", "2026-08-12");
   });
 
+  it("clears the end date when the start date is cleared", () => {
+    const { onSave } = renderEditor({
+      initialStartDate: "2026-08-08",
+      initialEndDate: "2026-08-09",
+    });
+    const start = host!.querySelector<HTMLInputElement>(
+      'input[name="startDate"]',
+    )!;
+    const end = host!.querySelector<HTMLInputElement>('input[name="endDate"]')!;
+
+    act(() => {
+      setInputValue(start, "");
+    });
+
+    expect(end.value).toBe("");
+
+    act(() => {
+      host!.querySelector<HTMLButtonElement>('button[type="submit"]')!.click();
+    });
+
+    expect(onSave).toHaveBeenCalledWith(undefined, undefined);
+  });
+
+  it("clamps the end date when the start date moves later", () => {
+    const { onSave } = renderEditor({
+      initialStartDate: "2026-08-08",
+      initialEndDate: "2026-08-09",
+    });
+    const start = host!.querySelector<HTMLInputElement>(
+      'input[name="startDate"]',
+    )!;
+    const end = host!.querySelector<HTMLInputElement>('input[name="endDate"]')!;
+
+    act(() => {
+      setInputValue(start, "2026-08-10");
+    });
+
+    expect(end.value).toBe("2026-08-10");
+
+    act(() => {
+      host!.querySelector<HTMLButtonElement>('button[type="submit"]')!.click();
+    });
+
+    expect(onSave).toHaveBeenCalledWith("2026-08-10", "2026-08-10");
+  });
+
+  it("normalizes an orphaned initial end date", () => {
+    const { onSave } = renderEditor({
+      initialStartDate: "",
+      initialEndDate: "2026-08-09",
+    });
+
+    const end = host!.querySelector<HTMLInputElement>('input[name="endDate"]')!;
+    expect(end.value).toBe("");
+
+    act(() => {
+      host!.querySelector<HTMLButtonElement>('button[type="submit"]')!.click();
+    });
+
+    expect(onSave).toHaveBeenCalledWith(undefined, undefined);
+  });
+
   it("prevents saving an end date before the start date", () => {
     const { onSave } = renderEditor();
     const start = host!.querySelector<HTMLInputElement>(

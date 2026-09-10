@@ -173,7 +173,7 @@ describe("TripCard", () => {
       (item) => item.textContent?.includes("Rename"),
     );
     act(() => (rename as HTMLElement).click());
-    expect(onRename).toHaveBeenCalledWith("trip-1");
+    expect(onRename).toHaveBeenCalledWith("trip-1", expect.any(HTMLElement));
 
     act(() =>
       host
@@ -184,7 +184,7 @@ describe("TripCard", () => {
       host.querySelectorAll('[role="menuitem"]'),
     ).find((item) => item.textContent?.includes("Set dates"));
     act(() => (setDates as HTMLElement).click());
-    expect(onEditDates).toHaveBeenCalledWith("trip-1");
+    expect(onEditDates).toHaveBeenCalledWith("trip-1", expect.any(HTMLElement));
 
     act(() =>
       root.render(
