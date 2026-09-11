@@ -34,7 +34,8 @@
     },
     "holdReasons": {
       "DESTINATION_SEMANTICS_UNCLASSIFIED": "destination_semantics_unclassified",
-      "UNKNOWN_OR_LEGACY_ROLE": "unknown_or_legacy_role"
+      "UNKNOWN_OR_LEGACY_ROLE": "unknown_or_legacy_role",
+      "CANONICAL_STATION_NOT_IN_PILOT_INDEX": "canonical_station_not_in_pilot_index"
     },
     "strictness": "kind exclusions are strict for now; the set is intentionally narrow and may be broadened later with evidence. No kind is 'less anchorable' and none is treated as partially anchorable.",
     "semantics": "not_anchorable_by_geography forbids deriving an anchor from an area's representative coordinates. It is NOT a permanent not_anchorable: rule 1 explicit evidence may still anchor the same destination."

@@ -43,13 +43,16 @@ import {
  * The tolerance used, in metres.
  *
  * It MIRRORS the existing resolver default (`DEFAULT_MAX_DISTANCE_METERS` in
- * `odptStationIdentity.ts`, which is module-private). The DECISION is never made
- * with this constant: `resolveOdptStationIdentity` is always called WITHOUT a
- * tolerance option, so it applies its own default. This value is recorded in the
- * artifact for provenance and used to compute the reporting histogram.
+ * `odptStationIdentity.ts`, which is module-private). There is ONE truth for the
+ * decision: `classifyGeographicAnchor` passes this value explicitly as
+ * `maxDistanceMeters` on EVERY `resolveOdptStationIdentity` call, so the shared
+ * resolver and the reporting helper can never disagree about the radius. This
+ * value is also recorded in the artifact for provenance and used to compute the
+ * reporting histogram.
  *
- * A test asserts the two agree at the boundary (just inside vs just outside), so
- * this cannot silently drift away from the resolver's real policy.
+ * The production/audit policy is fixed at 500 m. Tests pin the 499/501 boundary
+ * and assert resolver/helper agreement at a non-default tolerance, so this
+ * cannot silently drift away from the resolver's real policy.
  */
 export const GEOGRAPHIC_TOLERANCE_METERS = 500;
 
@@ -69,8 +72,10 @@ export const PILOT_OPERATORS: readonly string[] = Object.freeze([
 export const ANCHOR_EVIDENCE_PATH = "geographic_unique_candidate";
 
 /**
- * The mutually exclusive coverage-status model. The six geographic statuses
- * partition every evaluated destination and their counts sum to the catalogue size.
+ * The mutually exclusive coverage-status model. The six geographic statuses plus
+ * `canonical_explicit_station` partition every evaluated destination: with zero
+ * canonical mappings today the six sum to the catalogue size; in the general
+ * case six + canonical === destinationsEvaluated.
  */
 export const ANCHOR_STATUS = Object.freeze({
   /** Exactly one exact pilot ODPT station inside the fixed tolerance. */
@@ -104,8 +109,9 @@ export const ANCHOR_STATUS = Object.freeze({
 });
 
 /**
- * The six geographic statuses, in partition order. Their counts must sum to the
- * number of evaluated destinations.
+ * The six geographic statuses, in partition order. With zero canonical mappings
+ * today their counts sum to the number of evaluated destinations; in the general
+ * case they sum to (destinationsEvaluated - canonicalExplicitStation).
  */
 export const STATUS_PARTITION: readonly string[] = Object.freeze([
   ANCHOR_STATUS.GEOGRAPHIC_UNIQUE_CANDIDATE,
@@ -130,6 +136,13 @@ export const ANCHORABILITY_REASONS = Object.freeze({
 export const HOLD_REASONS = Object.freeze({
   DESTINATION_SEMANTICS_UNCLASSIFIED: "destination_semantics_unclassified",
   UNKNOWN_OR_LEGACY_ROLE: "unknown_or_legacy_role",
+  /**
+   * Rule 1 named an explicit station, but that station has no exact identity in
+   * the reviewed pilot index — so the claim is unverifiable for this pilot.
+   * Geography is NOT a fallback: the explicit mapping says where the
+   * destination belongs, and a nearby Metro/Toei station would contradict it.
+   */
+  CANONICAL_STATION_NOT_IN_PILOT_INDEX: "canonical_station_not_in_pilot_index",
 });
 
 /**
@@ -468,33 +481,87 @@ export function classifyGeographicAnchor(
   }
   if (canonicalTargets.length === 1) {
     const target = canonicalTargets[0];
-    const known = stations.find((station) => station.sameAs === target) ?? null;
-    const point =
-      known !== null && isValidCoordinates(known.coordinates)
-        ? known.coordinates
+    // Fail closed through the SHARED exact-identity semantics: the target must
+    // resolve to exactly one record in the reviewed pilot index. Anything else
+    // is unverifiable for this pilot — never a weaker local lookup, and never
+    // a geographic fallback.
+    const exact = resolveOdptStationIdentity(
+      { odptId: target },
+      stations as unknown as readonly OdptStation[],
+    );
+    if (
+      exact.status === "matched" &&
+      exact.evidencePath === "exact_identity" &&
+      exact.station !== null
+    ) {
+      const anchorStation = exact.station as unknown as PilotStationEntry;
+      const point = isValidCoordinates(anchorStation.coordinates)
+        ? anchorStation.coordinates
         : null;
+      return {
+        destinationId: destination.id,
+        status: ANCHOR_STATUS.CANONICAL_EXPLICIT_STATION,
+        blocker: null,
+        evidencePath: CANONICAL_EVIDENCE_PATH,
+        toleranceMeters,
+        // Metadata only: no geographic candidate search was performed, because the
+        // geographic gate is irrelevant to a canonically anchored destination.
+        candidateCount: 0,
+        candidateIdentities: [],
+        anchor: {
+          odptStationId: target,
+          operator: anchorStation.operator,
+          railway: anchorStation.railway,
+          title: anchorStation.title,
+          stationTitle: anchorStation.stationTitle,
+          coordinates: point,
+        },
+        distanceMeters:
+          point !== null && destinationCoordinates !== null
+            ? distanceMeters(destinationCoordinates, point)
+            : null,
+        destinationCoordinates,
+      };
+    }
+    if (exact.status === "ambiguous") {
+      // The reviewed index itself carries more than one record for this exact
+      // identity. Fail closed: never pick one.
+      const identities = exact.candidates
+        .map(
+          (candidate) =>
+            (candidate as unknown as PilotStationEntry).sameAs ?? target,
+        )
+        .sort();
+      return {
+        destinationId: destination.id,
+        status: ANCHOR_STATUS.AMBIGUOUS,
+        blocker: "multiple_pilot_records_for_canonical_identity",
+        evidencePath: null,
+        toleranceMeters,
+        candidateCount: exact.candidateCount,
+        candidateIdentities: identities,
+        anchor: null,
+        distanceMeters: null,
+        destinationCoordinates,
+      };
+    }
+    // Exactly one explicit target, but no matching exact station exists in the
+    // reviewed pilot index (absent, or syntactically ODPT yet outside the
+    // TokyoMetro + Toei pilot). Hold for review with NO geographic fallback:
+    // the explicit mapping states where the destination belongs, so choosing a
+    // nearby pilot station geographically would contradict the stronger
+    // evidence. This holds even for hub/admin destinations, which therefore
+    // never fall through to a geographic anchor from here.
     return {
       destinationId: destination.id,
-      status: ANCHOR_STATUS.CANONICAL_EXPLICIT_STATION,
-      blocker: null,
-      evidencePath: CANONICAL_EVIDENCE_PATH,
+      status: ANCHOR_STATUS.HOLD_FOR_REVIEW,
+      blocker: HOLD_REASONS.CANONICAL_STATION_NOT_IN_PILOT_INDEX,
+      evidencePath: null,
       toleranceMeters,
-      // Metadata only: no geographic candidate search was performed, because the
-      // geographic gate is irrelevant to a canonically anchored destination.
       candidateCount: 0,
       candidateIdentities: [],
-      anchor: {
-        odptStationId: target,
-        operator: known?.operator ?? null,
-        railway: known?.railway ?? null,
-        title: known?.title ?? null,
-        stationTitle: known?.stationTitle ?? null,
-        coordinates: point,
-      },
-      distanceMeters:
-        point !== null && destinationCoordinates !== null
-          ? distanceMeters(destinationCoordinates, point)
-          : null,
+      anchor: null,
+      distanceMeters: null,
       destinationCoordinates,
     };
   }
@@ -553,7 +620,10 @@ export function classifyGeographicAnchor(
   // coordinates); the cast states that explicitly rather than pretending the
   // entries are fully-populated ODPT records.
   const match = resolveOdptStationIdentity(
-    { coordinates: destinationCoordinates },
+    {
+      coordinates: destinationCoordinates,
+      maxDistanceMeters: toleranceMeters,
+    },
     stations as unknown as readonly OdptStation[],
   );
 

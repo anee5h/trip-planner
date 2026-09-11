@@ -254,31 +254,47 @@ describe("KAI-291A final policy — the semantic gate", () => {
 });
 
 /* ────────────────────────────────────────────────────────────────────────────
- * Rule 1 — explicit/canonical evidence outranks geography.
+ * Rule 1 — explicit/canonical evidence outranks geography, but only when the
+ * target is PROVEN in the reviewed pilot index.
  * ──────────────────────────────────────────────────────────────────────────── */
-describe("KAI-291A rule 1 — canonical evidence remains stronger", () => {
-  it("anchors on an explicit station target even for an otherwise-excluded record", () => {
+describe("KAI-291A rule 1 — canonical evidence must be proven in the pilot index", () => {
+  it("anchors when the canonical target is present EXACTLY ONCE in the pilot index", () => {
     const verdict = classifyGeographicAnchor(
-      point("hub-with-mapping", SHINJUKU, {
-        role: "hub",
-        kind: "ward",
-        odptMapping: { station: "odpt.Station:Toei.Mita.Sugamo" },
+      point("canonical-proven", SHINJUKU, {
+        odptMapping: { station: "odpt.Station:OnlyOne" },
       }),
       ONE_STATION,
     );
 
     expect(verdict.status).toBe(ANCHOR_STATUS.CANONICAL_EXPLICIT_STATION);
     expect(verdict.evidencePath).toBe(CANONICAL_EVIDENCE_PATH);
-    expect(verdict.anchor?.odptStationId).toBe("odpt.Station:Toei.Mita.Sugamo");
+    expect(verdict.anchor?.odptStationId).toBe("odpt.Station:OnlyOne");
+    expect(verdict.anchor?.operator).toBe("odpt.Operator:TokyoMetro");
   });
 
-  it("anchors on canonical evidence for a held (unclassified) record too", () => {
+  it("anchors on a proven canonical target even for an otherwise-excluded record", () => {
     const verdict = classifyGeographicAnchor(
-      point("unclassified-with-mapping", SHINJUKU, {
+      point("hub-with-proven-mapping", SHINJUKU, {
+        role: "hub",
+        kind: "ward",
+        odptMapping: { station: "odpt.Station:OnlyOne" },
+      }),
+      ONE_STATION,
+    );
+
+    // Canonical outranks the geographic exclusion when the target is proven.
+    expect(verdict.status).toBe(ANCHOR_STATUS.CANONICAL_EXPLICIT_STATION);
+    expect(verdict.evidencePath).toBe(CANONICAL_EVIDENCE_PATH);
+    expect(verdict.anchor?.odptStationId).toBe("odpt.Station:OnlyOne");
+  });
+
+  it("anchors on proven canonical evidence for a held (unclassified) record too", () => {
+    const verdict = classifyGeographicAnchor(
+      point("unclassified-with-proven-mapping", SHINJUKU, {
         role: null,
         kind: null,
         canonicalMapping: {
-          odptStationId: "odpt.Station:TokyoMetro.Ginza.Ueno",
+          odptStationId: "odpt.Station:OnlyOne",
         },
       }),
       ONE_STATION,
@@ -287,15 +303,105 @@ describe("KAI-291A rule 1 — canonical evidence remains stronger", () => {
     expect(verdict.status).toBe(ANCHOR_STATUS.CANONICAL_EXPLICIT_STATION);
   });
 
-  it("does NOT run the geographic search for a canonically anchored record", () => {
+  it("HOLDS when the canonical target is absent from the pilot index — never production-ready", () => {
     const verdict = classifyGeographicAnchor(
-      point("canonical", SHINJUKU, {
+      point("canonical-absent", SHINJUKU, {
         odptMapping: { station: "odpt.Station:Toei.Mita.Sugamo" },
       }),
       ONE_STATION,
     );
 
+    expect(verdict.status).toBe(ANCHOR_STATUS.HOLD_FOR_REVIEW);
+    expect(verdict.blocker).toBe(
+      HOLD_REASONS.CANONICAL_STATION_NOT_IN_PILOT_INDEX,
+    );
+    expect(verdict.anchor).toBeNull();
+    expect(verdict.evidencePath).toBeNull();
+
+    // Held records never enter the production-ready totals.
+    const report = buildAnchorCoverageReport(
+      [
+        point("canonical-absent", SHINJUKU, {
+          odptMapping: { station: "odpt.Station:Toei.Mita.Sugamo" },
+        }),
+      ],
+      ONE_STATION,
+    );
+    expect(report.productionReadyAnchors).toBe(0);
+    expect(report.holdForReview).toBe(1);
+    expect(
+      report.holdReasons[HOLD_REASONS.CANONICAL_STATION_NOT_IN_PILOT_INDEX],
+    ).toBe(1);
+  });
+
+  it("HOLDS when the canonical target is syntactically ODPT but outside the pilot", () => {
+    // A JR-East identity is well-formed ODPT evidence, but this pilot reviews
+    // only TokyoMetro + Toei — so it is unverifiable here.
+    const verdict = classifyGeographicAnchor(
+      point("canonical-outside-pilot", SHINJUKU, {
+        odptMapping: { station: "odpt.Station:JR-East.Yamanote.Shinjuku" },
+      }),
+      ONE_STATION,
+    );
+
+    expect(verdict.status).toBe(ANCHOR_STATUS.HOLD_FOR_REVIEW);
+    expect(verdict.blocker).toBe(
+      HOLD_REASONS.CANONICAL_STATION_NOT_IN_PILOT_INDEX,
+    );
+    expect(verdict.anchor).toBeNull();
+  });
+
+  it("HOLDS an invalid canonical target for a hub/admin record — NO geographic fallback anchor", () => {
+    // Even though ONE_STATION sits ~111 m away (a geographic anchor if the
+    // mapping were absent), the explicit-but-unverifiable mapping forbids
+    // falling back to geography: the mapping says where it belongs.
+    const verdict = classifyGeographicAnchor(
+      point("hub-with-unproven-mapping", SHINJUKU, {
+        role: "hub",
+        kind: "ward",
+        odptMapping: { station: "odpt.Station:Toei.Mita.Sugamo" },
+      }),
+      ONE_STATION,
+    );
+
+    expect(verdict.status).toBe(ANCHOR_STATUS.HOLD_FOR_REVIEW);
+    expect(verdict.blocker).toBe(
+      HOLD_REASONS.CANONICAL_STATION_NOT_IN_PILOT_INDEX,
+    );
+    expect(verdict.anchor).toBeNull();
+    expect(verdict.status).not.toBe(ANCHOR_STATUS.GEOGRAPHIC_UNIQUE_CANDIDATE);
+  });
+
+  it("is AMBIGUOUS when the reviewed index holds duplicate records for the same identity", () => {
+    const duplicated = [
+      station("odpt.Station:Dupe", NEAR),
+      station("odpt.Station:Dupe", { lat: 35.6902, lng: 139.7006 }),
+    ];
+    const verdict = classifyGeographicAnchor(
+      point("canonical-dupe", SHINJUKU, {
+        odptMapping: { station: "odpt.Station:Dupe" },
+      }),
+      duplicated,
+    );
+
+    // Fail closed: never pick one of several records sharing the identity.
+    expect(verdict.status).toBe(ANCHOR_STATUS.AMBIGUOUS);
+    expect(verdict.blocker).toBe(
+      "multiple_pilot_records_for_canonical_identity",
+    );
+    expect(verdict.anchor).toBeNull();
+  });
+
+  it("does NOT run the geographic search for a canonically anchored record", () => {
+    const verdict = classifyGeographicAnchor(
+      point("canonical", SHINJUKU, {
+        odptMapping: { station: "odpt.Station:OnlyOne" },
+      }),
+      ONE_STATION,
+    );
+
     // Metadata only — no geographic candidate was sought, so the gate is irrelevant.
+    expect(verdict.status).toBe(ANCHOR_STATUS.CANONICAL_EXPLICIT_STATION);
     expect(verdict.candidateCount).toBe(0);
     expect(verdict.evidencePath).not.toBe(ANCHOR_EVIDENCE_PATH);
   });
@@ -430,6 +536,30 @@ describe("KAI-291A geographic rule", () => {
     expect(GEOGRAPHIC_TOLERANCE_METERS).toBe(500);
     expect(inside.status).toBe(ANCHOR_STATUS.GEOGRAPHIC_UNIQUE_CANDIDATE);
     expect(outside.status).toBe(ANCHOR_STATUS.UNAVAILABLE);
+  });
+
+  it("uses ONE tolerance truth: resolver and helper agree at a non-default tolerance", () => {
+    // API-consistency proof only — the production/audit policy stays at 500 m.
+    // A station ~300 m away with tolerance = 100 m must be unavailable by BOTH
+    // the shared resolver result and the audit candidate count/status.
+    const degreesPerMeter = 1 / 111_320;
+    const threeHundredMetersNorth = {
+      lat: SHINJUKU.lat + 300 * degreesPerMeter,
+      lng: SHINJUKU.lng,
+    };
+    const stations = [
+      station("odpt.Station:ThreeHundred", threeHundredMetersNorth),
+    ];
+    const verdict = classifyGeographicAnchor(point("d"), stations, 100);
+
+    expect(verdict.toleranceMeters).toBe(100);
+    expect(verdict.candidateCount).toBe(0);
+    expect(verdict.candidateIdentities).toEqual([]);
+    expect(verdict.status).toBe(ANCHOR_STATUS.UNAVAILABLE);
+    expect(verdict.blocker).toBe("no_pilot_station_within_tolerance");
+    expect(verdict.anchor).toBeNull();
+    // And the reporting helper agrees at the same tolerance.
+    expect(stationsWithinTolerance(SHINJUKU, stations, 100)).toHaveLength(0);
   });
 
   it("uses an evidence path that claims proximity, not a curated mapping", () => {

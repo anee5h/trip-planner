@@ -11,7 +11,14 @@ This branch carries the final anchorability policy and its evidence.
 ```
 1. explicit/canonical exact station evidence
        -> stronger evidence path; the geographic gate is irrelevant
-       (2+ competing canonical targets -> ambiguous, never a pick)
+       zero targets -> continue to the semantic/geographic policy
+       2+ distinct targets -> ambiguous, never a pick
+       exactly 1 target AND exactly 1 matching exact station identity in the
+         reviewed pilot index -> canonical_explicit_station (production-ready)
+       exactly 1 target but NO matching exact station in the pilot index
+         -> hold_for_review (canonical_station_not_in_pilot_index),
+            with NO geographic fallback
+       duplicate pilot-index records for the same exact identity -> ambiguous
 2. kind in {city, ward, town, village, district, historic_town}
        -> not_anchorable_by_geography (administrative_or_locality_kind)
 3. role === "hub"          -> not_anchorable_by_geography (hub_role)
@@ -25,6 +32,10 @@ This branch carries the final anchorability policy and its evidence.
 
 Only then, for anchorable destinations, the fixed 500 m geographic rule:
 `0 → unavailable`, `1 → geographic_unique_candidate`, `>1 → ambiguous`.
+
+One tolerance truth: the classifier passes 500 m explicitly as `maxDistanceMeters`
+on every shared-resolver call, so the resolver and the reporting helper can never
+disagree about the radius. The production/audit policy remains fixed at 500 m.
 
 Rule 2 is role-independent and outranks rules 3–8, so a drifted role can never
 rescue an administrative-kind record. No closest-wins, station complexes are never
@@ -57,7 +68,7 @@ outcome is binary plus hold.
 | `hold_for_review` | **148** |
 | **Sum** | **1130** |
 
-The six sum to exactly **1130** = the catalogue size.
+With zero canonical mappings today, the six sum to exactly **1130** = the catalogue size; in the general case `six + canonical === catalogue size`.
 
 `canonical_explicit_station` is **0** and is reported *outside* this partition. Rule 1
 takes a record out of the geographic rule entirely, so counting a canonical anchor as
@@ -66,6 +77,14 @@ the six geographic statuses still sum to the catalogue size; if a record ever ga
 canonical evidence, the six drop by one and
 `six + canonical === catalogue size` still holds (a test asserts the general form
 against the real catalogue).
+
+Canonical targets fail closed through the shared exact-identity semantics
+(`resolveOdptStationIdentity` with `odptId`): a target anchors only on exactly one
+matching record in the reviewed pilot index. An unverifiable target — absent, or
+syntactically ODPT yet outside TokyoMetro + Toei — holds as
+`canonical_station_not_in_pilot_index` and never falls back to geography, since the
+explicit mapping states where the destination belongs. A proven target still outranks
+the hub/admin exclusions.
 
 **Production-ready anchor totals:** geographic **7** + canonical **0** = **7**.
 
