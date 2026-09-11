@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "scripts/audit/kai-290-odpt-eligibility.mjs",
+  "method": "offline_catalogue_scan",
+  "networkCalls": 0,
+  "providerCalls": 0,
+  "totalCatalogueRecords": 1130,
+  "destinationAnchors": {
+    "exact": 0,
+    "deterministicallyResolvable": 0,
+    "ambiguous": 0,
+    "unavailable": 1130
+  },
+  "inputs": {
+    "originStationIdentity": {
+      "availability": "unavailable",
+      "available": false,
+      "classification": "unavailable"
+    },
+    "destinationStationIdentity": {
+      "availability": "unavailable",
+      "available": false,
+      "classification": "unavailable"
+    },
+    "serviceDate": {
+      "availability": "flow_dependent",
+      "available": false,
+      "classification": "deterministically_resolvable",
+      "evidence": "navState.travelDate|tripContext.travelDate",
+      "flowDependent": true
+    },
+    "departureTimeInput": {
+      "availability": "unavailable",
+      "available": false,
+      "classification": "unavailable"
+    }
+  },
+  "eligibleCohortScope": "catalogue",
+  "blockers": {
+    "destination_station_identity_missing": 1130,
+    "destination_station_identity_ambiguous": 0,
+    "origin_station_identity_missing": 0,
+    "departure_time_input_absent": 0,
+    "service_date_context_absent": 0
+  },
+  "userFacingEligibleCohort": 0,
+  "eligibleRecordIds": [],
+  "notableRecords": []
+}
