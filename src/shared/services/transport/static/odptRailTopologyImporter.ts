@@ -18,12 +18,14 @@
  */
 
 import { sha256Hex, stableStringify } from "./contentHash";
+import { makeTransitEntityId } from "./transitEntityId";
 import type {
   NormalizedTransitGraph,
   TransitCoverageEntry,
   TransitCoverageReport,
   TransitDatasetCompleteness,
   TransitDatasetVersion,
+  TransitSourceType,
   TransitOperator,
   TransitProvenance,
   TransitRoute,
@@ -168,6 +170,28 @@ export function validateImportMetadata(metadata: OdptImportMetadata): void {
         `${JSON.stringify(metadata.completeness)}.`,
     );
   }
+  if (
+    metadata.sourceType !== "fixture" &&
+    metadata.sourceType !== "data_dump" &&
+    metadata.sourceType !== "live_api"
+  ) {
+    fail(
+      `sourceType must be one of fixture, data_dump, live_api, found ` +
+        `${JSON.stringify(metadata.sourceType)}.`,
+    );
+  }
+  // Impossible combinations are rejected, not normalized: a fixture (or any
+  // non-dump source) can never legitimately claim to be a complete provider
+  // dump. Only a validated completeness-oriented data dump earns that claim.
+  if (
+    metadata.completeness === "complete_provider_dump" &&
+    metadata.sourceType !== "data_dump"
+  ) {
+    fail(
+      `completeness complete_provider_dump requires sourceType "data_dump", ` +
+        `found ${JSON.stringify(metadata.sourceType)}.`,
+    );
+  }
 }
 
 /** Raw ODPT-shaped input families (minimal structural view). */
@@ -189,6 +213,11 @@ export interface OdptImportMetadata {
   readonly identityNamespace: string;
   /** e.g. fixture path + scope label. Never a credential. */
   readonly sourceDescriptor: string;
+  /**
+   * How the source dataset was acquired. A fixture can never legitimately
+   * claim to be a complete provider dump (see compatibility validation).
+   */
+  readonly sourceType: TransitSourceType;
   readonly retrievedAt: string;
   readonly checkedAt: string;
   readonly issuedAt?: string | null;
@@ -248,12 +277,17 @@ function provenance(
   };
 }
 
-/** Internal operator id: provider + namespace + provider id. */
+/** Internal operator id: thin wrapper over the generic builder. */
 export function operatorInternalId(
   providerOperatorId: string,
   identityNamespace: string,
 ): string {
-  return `odpt:operator:${identityNamespace}:${providerOperatorId}`;
+  return makeTransitEntityId(
+    "odpt",
+    "operator",
+    identityNamespace,
+    providerOperatorId,
+  );
 }
 
 /** Internal stop id. The providerStopId stays verbatim inside the record. */
@@ -261,23 +295,33 @@ export function stopInternalId(
   providerStopId: string,
   identityNamespace: string,
 ): string {
-  return `odpt:stop:${identityNamespace}:${providerStopId}`;
+  return makeTransitEntityId("odpt", "stop", identityNamespace, providerStopId);
 }
 
-/** Internal route id. */
+/** Internal route id: thin wrapper over the generic builder. */
 export function routeInternalId(
   providerRouteId: string,
   identityNamespace: string,
 ): string {
-  return `odpt:route:${identityNamespace}:${providerRouteId}`;
+  return makeTransitEntityId(
+    "odpt",
+    "route",
+    identityNamespace,
+    providerRouteId,
+  );
 }
 
-/** Internal calendar id. */
+/** Internal calendar id: thin wrapper over the generic builder. */
 export function calendarInternalId(
   providerCalendarId: string,
   identityNamespace: string,
 ): string {
-  return `odpt:calendar:${identityNamespace}:${providerCalendarId}`;
+  return makeTransitEntityId(
+    "odpt",
+    "calendar",
+    identityNamespace,
+    providerCalendarId,
+  );
 }
 
 /**
@@ -464,12 +508,12 @@ export function importOdptRailTopology(
       id: calendarInternalId(sameAs, ns),
       provider: "odpt",
       providerCalendarId: sameAs,
-      // Same convention as the shared boundary: Specific.* outranks base.
-      calendarKind: sameAs.startsWith("odpt.Calendar:Specific.")
-        ? "specific"
-        : "base",
       sourceSemantics: {
         provider: "odpt",
+        // Same convention as the shared boundary: Specific.* outranks base.
+        kind: sameAs.startsWith("odpt.Calendar:Specific.")
+          ? "specific"
+          : "base",
         day,
         duration: optionalString(raw["odpt:duration"]),
       },
@@ -492,7 +536,7 @@ export function importOdptRailTopology(
   const datasetVersion: TransitDatasetVersion = {
     provider: "odpt",
     datasetId: metadata.datasetId,
-    sourceType: "fixture",
+    sourceType: metadata.sourceType,
     sourceDescriptor: metadata.sourceDescriptor,
     retrievedAt: metadata.retrievedAt,
     checkedAt: metadata.checkedAt,

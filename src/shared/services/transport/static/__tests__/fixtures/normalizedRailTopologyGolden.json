@@ -5,6 +5,7 @@
     "datasetId": "odpt-rail-fixture-v1",
     "identityNamespace": "odpt",
     "sourceDescriptor": "fixture: odptRailTopologyFixture.json (contract validation — NOT a full production network import)",
+    "sourceType": "fixture",
     "retrievedAt": "2026-09-11T00:00:00.000Z",
     "checkedAt": "2026-09-11T00:00:00.000Z",
     "completeness": "fixture_subset"
@@ -21,11 +22,11 @@
       "validUntil": null,
       "schemaVersion": "kai-291b1-v2",
       "completeness": "fixture_subset",
-      "contentHash": "46830eaa3ee2219cc6d2aeb0eeefb7791bba2193fdb7b271aa9fe679254eb5be"
+      "contentHash": "3927744492233315628ea4031b8ea526dbf56d3146b406f4406a8af81192b547"
     },
     "operators": [
       {
-        "id": "odpt:operator:odpt:odpt.Operator:Toei",
+        "id": "odpt:operator:odpt:odpt.Operator%3AToei",
         "provider": "odpt",
         "providerOperatorId": "odpt.Operator:Toei",
         "names": {
@@ -42,7 +43,7 @@
         }
       },
       {
-        "id": "odpt:operator:odpt:odpt.Operator:TokyoMetro",
+        "id": "odpt:operator:odpt:odpt.Operator%3ATokyoMetro",
         "provider": "odpt",
         "providerOperatorId": "odpt.Operator:TokyoMetro",
         "names": {
@@ -61,7 +62,7 @@
     ],
     "stops": [
       {
-        "id": "odpt:stop:odpt:odpt.Station:Toei.Mita.Jimbocho",
+        "id": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Jimbocho",
         "provider": "odpt",
         "providerStopId": "odpt.Station:Toei.Mita.Jimbocho",
         "stopType": "station",
@@ -69,7 +70,7 @@
           "lat": 35.695331,
           "lng": 139.758213
         },
-        "operatorIds": ["odpt:operator:odpt:odpt.Operator:Toei"],
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3AToei"],
         "names": {
           "en": "Jimbocho",
           "ja": "神保町"
@@ -85,7 +86,7 @@
         }
       },
       {
-        "id": "odpt:stop:odpt:odpt.Station:Toei.Mita.Mita",
+        "id": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Mita",
         "provider": "odpt",
         "providerStopId": "odpt.Station:Toei.Mita.Mita",
         "stopType": "station",
@@ -93,7 +94,7 @@
           "lat": 35.64865,
           "lng": 139.748998
         },
-        "operatorIds": ["odpt:operator:odpt:odpt.Operator:Toei"],
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3AToei"],
         "names": {
           "en": "Mita",
           "ja": "三田"
@@ -109,7 +110,7 @@
         }
       },
       {
-        "id": "odpt:stop:odpt:odpt.Station:Toei.Mita.Sugamo",
+        "id": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Sugamo",
         "provider": "odpt",
         "providerStopId": "odpt.Station:Toei.Mita.Sugamo",
         "stopType": "station",
@@ -117,7 +118,7 @@
           "lat": 35.733793,
           "lng": 139.738154
         },
-        "operatorIds": ["odpt:operator:odpt:odpt.Operator:Toei"],
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3AToei"],
         "names": {
           "en": "Sugamo",
           "ja": "巣鴨"
@@ -133,7 +134,7 @@
         }
       },
       {
-        "id": "odpt:stop:odpt:odpt.Station:Toei.Shinjuku.Jimbocho",
+        "id": "odpt:stop:odpt:odpt.Station%3AToei.Shinjuku.Jimbocho",
         "provider": "odpt",
         "providerStopId": "odpt.Station:Toei.Shinjuku.Jimbocho",
         "stopType": "station",
@@ -141,7 +142,7 @@
           "lat": 35.695972,
           "lng": 139.757981
         },
-        "operatorIds": ["odpt:operator:odpt:odpt.Operator:Toei"],
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3AToei"],
         "names": {
           "en": "Jimbocho",
           "ja": "神保町"
@@ -157,7 +158,7 @@
         }
       },
       {
-        "id": "odpt:stop:odpt:odpt.Station:Toei.Shinjuku.Shinjuku",
+        "id": "odpt:stop:odpt:odpt.Station%3AToei.Shinjuku.Shinjuku",
         "provider": "odpt",
         "providerStopId": "odpt.Station:Toei.Shinjuku.Shinjuku",
         "stopType": "station",
@@ -165,7 +166,7 @@
           "lat": 35.688433,
           "lng": 139.698418
         },
-        "operatorIds": ["odpt:operator:odpt:odpt.Operator:Toei"],
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3AToei"],
         "names": {
           "en": "Shinjuku",
           "ja": "新宿"
@@ -181,7 +182,7 @@
         }
       },
       {
-        "id": "odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Asakusa",
+        "id": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Asakusa",
         "provider": "odpt",
         "providerStopId": "odpt.Station:TokyoMetro.Ginza.Asakusa",
         "stopType": "station",
@@ -189,7 +190,7 @@
           "lat": 35.710746,
           "lng": 139.797774
         },
-        "operatorIds": ["odpt:operator:odpt:odpt.Operator:TokyoMetro"],
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3ATokyoMetro"],
         "names": {
           "en": "Asakusa",
           "ja": "浅草",
@@ -209,7 +210,7 @@
         }
       },
       {
-        "id": "odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno",
+        "id": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Ueno",
         "provider": "odpt",
         "providerStopId": "odpt.Station:TokyoMetro.Ginza.Ueno",
         "stopType": "station",
@@ -217,7 +218,7 @@
           "lat": 35.711835,
           "lng": 139.775625
         },
-        "operatorIds": ["odpt:operator:odpt:odpt.Operator:TokyoMetro"],
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3ATokyoMetro"],
         "names": {
           "en": "Ueno",
           "ja": "上野",
@@ -237,7 +238,7 @@
         }
       },
       {
-        "id": "odpt:stop:odpt:odpt.Station:TokyoMetro.Marunouchi.Ikebukuro",
+        "id": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Ikebukuro",
         "provider": "odpt",
         "providerStopId": "odpt.Station:TokyoMetro.Marunouchi.Ikebukuro",
         "stopType": "station",
@@ -245,7 +246,7 @@
           "lat": 35.730345,
           "lng": 139.71115
         },
-        "operatorIds": ["odpt:operator:odpt:odpt.Operator:TokyoMetro"],
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3ATokyoMetro"],
         "names": {
           "en": "Ikebukuro",
           "ja": "池袋",
@@ -265,7 +266,7 @@
         }
       },
       {
-        "id": "odpt:stop:odpt:odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
+        "id": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Shinjuku",
         "provider": "odpt",
         "providerStopId": "odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
         "stopType": "station",
@@ -273,7 +274,7 @@
           "lat": 35.692452,
           "lng": 139.700548
         },
-        "operatorIds": ["odpt:operator:odpt:odpt.Operator:TokyoMetro"],
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3ATokyoMetro"],
         "names": {
           "en": "Shinjuku",
           "ja": "新宿",
@@ -293,7 +294,7 @@
         }
       },
       {
-        "id": "odpt:stop:odpt:odpt.Station:TokyoMetro.Marunouchi.Tokyo",
+        "id": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Tokyo",
         "provider": "odpt",
         "providerStopId": "odpt.Station:TokyoMetro.Marunouchi.Tokyo",
         "stopType": "station",
@@ -301,7 +302,7 @@
           "lat": 35.681935,
           "lng": 139.7648
         },
-        "operatorIds": ["odpt:operator:odpt:odpt.Operator:TokyoMetro"],
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3ATokyoMetro"],
         "names": {
           "en": "Tokyo",
           "ja": "東京",
@@ -323,10 +324,10 @@
     ],
     "routes": [
       {
-        "id": "odpt:route:odpt:odpt.Railway:Toei.Mita",
+        "id": "odpt:route:odpt:odpt.Railway%3AToei.Mita",
         "provider": "odpt",
         "providerRouteId": "odpt.Railway:Toei.Mita",
-        "operatorId": "odpt:operator:odpt:odpt.Operator:Toei",
+        "operatorId": "odpt:operator:odpt:odpt.Operator%3AToei",
         "mode": "rail",
         "names": {
           "en": "Mita Line",
@@ -347,10 +348,10 @@
         }
       },
       {
-        "id": "odpt:route:odpt:odpt.Railway:Toei.Shinjuku",
+        "id": "odpt:route:odpt:odpt.Railway%3AToei.Shinjuku",
         "provider": "odpt",
         "providerRouteId": "odpt.Railway:Toei.Shinjuku",
-        "operatorId": "odpt:operator:odpt:odpt.Operator:Toei",
+        "operatorId": "odpt:operator:odpt:odpt.Operator%3AToei",
         "mode": "rail",
         "names": {
           "en": "Shinjuku Line",
@@ -371,10 +372,10 @@
         }
       },
       {
-        "id": "odpt:route:odpt:odpt.Railway:TokyoMetro.Ginza",
+        "id": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Ginza",
         "provider": "odpt",
         "providerRouteId": "odpt.Railway:TokyoMetro.Ginza",
-        "operatorId": "odpt:operator:odpt:odpt.Operator:TokyoMetro",
+        "operatorId": "odpt:operator:odpt:odpt.Operator%3ATokyoMetro",
         "mode": "rail",
         "names": {
           "en": "Ginza Line",
@@ -395,10 +396,10 @@
         }
       },
       {
-        "id": "odpt:route:odpt:odpt.Railway:TokyoMetro.Marunouchi",
+        "id": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Marunouchi",
         "provider": "odpt",
         "providerRouteId": "odpt.Railway:TokyoMetro.Marunouchi",
-        "operatorId": "odpt:operator:odpt:odpt.Operator:TokyoMetro",
+        "operatorId": "odpt:operator:odpt:odpt.Operator%3ATokyoMetro",
         "mode": "rail",
         "names": {
           "en": "Marunouchi Line",
@@ -422,8 +423,8 @@
     ],
     "routeStops": [
       {
-        "routeId": "odpt:route:odpt:odpt.Railway:Toei.Mita",
-        "stopId": "odpt:stop:odpt:odpt.Station:Toei.Mita.Sugamo",
+        "routeId": "odpt:route:odpt:odpt.Railway%3AToei.Mita",
+        "stopId": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Sugamo",
         "order": 1,
         "provenance": {
           "provider": "odpt",
@@ -435,8 +436,8 @@
         }
       },
       {
-        "routeId": "odpt:route:odpt:odpt.Railway:Toei.Mita",
-        "stopId": "odpt:stop:odpt:odpt.Station:Toei.Mita.Jimbocho",
+        "routeId": "odpt:route:odpt:odpt.Railway%3AToei.Mita",
+        "stopId": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Jimbocho",
         "order": 2,
         "provenance": {
           "provider": "odpt",
@@ -448,8 +449,8 @@
         }
       },
       {
-        "routeId": "odpt:route:odpt:odpt.Railway:Toei.Mita",
-        "stopId": "odpt:stop:odpt:odpt.Station:Toei.Mita.Mita",
+        "routeId": "odpt:route:odpt:odpt.Railway%3AToei.Mita",
+        "stopId": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Mita",
         "order": 3,
         "provenance": {
           "provider": "odpt",
@@ -461,8 +462,8 @@
         }
       },
       {
-        "routeId": "odpt:route:odpt:odpt.Railway:Toei.Shinjuku",
-        "stopId": "odpt:stop:odpt:odpt.Station:Toei.Shinjuku.Shinjuku",
+        "routeId": "odpt:route:odpt:odpt.Railway%3AToei.Shinjuku",
+        "stopId": "odpt:stop:odpt:odpt.Station%3AToei.Shinjuku.Shinjuku",
         "order": 1,
         "provenance": {
           "provider": "odpt",
@@ -474,8 +475,8 @@
         }
       },
       {
-        "routeId": "odpt:route:odpt:odpt.Railway:Toei.Shinjuku",
-        "stopId": "odpt:stop:odpt:odpt.Station:Toei.Shinjuku.Jimbocho",
+        "routeId": "odpt:route:odpt:odpt.Railway%3AToei.Shinjuku",
+        "stopId": "odpt:stop:odpt:odpt.Station%3AToei.Shinjuku.Jimbocho",
         "order": 2,
         "provenance": {
           "provider": "odpt",
@@ -487,8 +488,8 @@
         }
       },
       {
-        "routeId": "odpt:route:odpt:odpt.Railway:TokyoMetro.Ginza",
-        "stopId": "odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno",
+        "routeId": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Ginza",
+        "stopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Ueno",
         "order": 1,
         "provenance": {
           "provider": "odpt",
@@ -500,8 +501,8 @@
         }
       },
       {
-        "routeId": "odpt:route:odpt:odpt.Railway:TokyoMetro.Ginza",
-        "stopId": "odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Asakusa",
+        "routeId": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Ginza",
+        "stopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Asakusa",
         "order": 2,
         "provenance": {
           "provider": "odpt",
@@ -513,8 +514,8 @@
         }
       },
       {
-        "routeId": "odpt:route:odpt:odpt.Railway:TokyoMetro.Marunouchi",
-        "stopId": "odpt:stop:odpt:odpt.Station:TokyoMetro.Marunouchi.Ikebukuro",
+        "routeId": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Marunouchi",
+        "stopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Ikebukuro",
         "order": 1,
         "provenance": {
           "provider": "odpt",
@@ -526,8 +527,8 @@
         }
       },
       {
-        "routeId": "odpt:route:odpt:odpt.Railway:TokyoMetro.Marunouchi",
-        "stopId": "odpt:stop:odpt:odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
+        "routeId": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Marunouchi",
+        "stopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Shinjuku",
         "order": 2,
         "provenance": {
           "provider": "odpt",
@@ -539,8 +540,8 @@
         }
       },
       {
-        "routeId": "odpt:route:odpt:odpt.Railway:TokyoMetro.Marunouchi",
-        "stopId": "odpt:stop:odpt:odpt.Station:TokyoMetro.Marunouchi.Tokyo",
+        "routeId": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Marunouchi",
+        "stopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Tokyo",
         "order": 3,
         "provenance": {
           "provider": "odpt",
@@ -554,12 +555,12 @@
     ],
     "calendars": [
       {
-        "id": "odpt:calendar:odpt:odpt.Calendar:SaturdayHoliday",
+        "id": "odpt:calendar:odpt:odpt.Calendar%3ASaturdayHoliday",
         "provider": "odpt",
         "providerCalendarId": "odpt.Calendar:SaturdayHoliday",
-        "calendarKind": "base",
         "sourceSemantics": {
           "provider": "odpt",
+          "kind": "base",
           "day": ["Saturday", "Sunday", "Holiday"],
           "duration": null
         },
@@ -573,12 +574,12 @@
         }
       },
       {
-        "id": "odpt:calendar:odpt:odpt.Calendar:Specific.FixtureNewYear",
+        "id": "odpt:calendar:odpt:odpt.Calendar%3ASpecific.FixtureNewYear",
         "provider": "odpt",
         "providerCalendarId": "odpt.Calendar:Specific.FixtureNewYear",
-        "calendarKind": "specific",
         "sourceSemantics": {
           "provider": "odpt",
+          "kind": "specific",
           "day": ["Holiday"],
           "duration": "2026-01-01/2026-01-03"
         },
@@ -592,12 +593,12 @@
         }
       },
       {
-        "id": "odpt:calendar:odpt:odpt.Calendar:Weekday",
+        "id": "odpt:calendar:odpt:odpt.Calendar%3AWeekday",
         "provider": "odpt",
         "providerCalendarId": "odpt.Calendar:Weekday",
-        "calendarKind": "base",
         "sourceSemantics": {
           "provider": "odpt",
+          "kind": "base",
           "day": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
           "duration": null
         },

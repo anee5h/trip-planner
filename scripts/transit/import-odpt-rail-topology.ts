@@ -40,6 +40,7 @@ export const GOLDEN_IMPORT_METADATA: OdptImportMetadata = {
   sourceDescriptor:
     "fixture: odptRailTopologyFixture.json " +
     "(contract validation — NOT a full production network import)",
+  sourceType: "fixture",
   retrievedAt: "2026-09-11T00:00:00.000Z",
   checkedAt: "2026-09-11T00:00:00.000Z",
   completeness: "fixture_subset",

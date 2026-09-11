@@ -46,9 +46,9 @@ no turn-by-turn, no live departures, no navigation UI.
 | `TransitStop` | internal id + exact provider stop id, station/bus_stop, nullable coordinates, operator ids, open-ended names, station code (metadata, not identity) |
 | `TransitRoute` | internal id + exact provider route id, operator id, mode, names, provider `sourceSemantics` branch |
 | `TransitRouteStop` | route id + stop id + provider order (`odpt:index`), provider order preserved |
-| `TransitServiceCalendar` | exact provider calendar id, base/specific kind, provider `sourceSemantics` branch |
+| `TransitServiceCalendar` | exact provider calendar id + provider `sourceSemantics` branch |
 | `TransitTransfer` | **reserved, empty** — provider-defined only, never proximity-inferred |
-| scheduled services / fares | **reserved, empty** — fares stay unknown-safe (missing is null, never 0) |
+| fares | **reserved, empty** — stay unknown-safe (missing is null, never 0) |
 
 ## Provider identity rules
 

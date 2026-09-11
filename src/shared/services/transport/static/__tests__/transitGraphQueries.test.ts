@@ -33,6 +33,7 @@ const FIXTURE_METADATA: OdptImportMetadata = {
   datasetId: "odpt-rail-fixture-v1",
   identityNamespace: "odpt",
   sourceDescriptor: "test metadata (fixed, deterministic)",
+  sourceType: "fixture",
   retrievedAt: "2026-09-11T00:00:00.000Z",
   checkedAt: "2026-09-11T00:00:00.000Z",
   completeness: "fixture_subset",
@@ -43,11 +44,11 @@ const { graph } = importOdptRailTopology(
   FIXTURE_METADATA,
 );
 
-const MITA = "odpt:route:odpt:odpt.Railway:Toei.Mita";
-const SUGAMO = "odpt:stop:odpt:odpt.Station:Toei.Mita.Sugamo";
-const JIMBOCHO_MITA = "odpt:stop:odpt:odpt.Station:Toei.Mita.Jimbocho";
-const MITA_END = "odpt:stop:odpt:odpt.Station:Toei.Mita.Mita";
-const UENO = "odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno";
+const MITA = "odpt:route:odpt:odpt.Railway%3AToei.Mita";
+const SUGAMO = "odpt:stop:odpt:odpt.Station%3AToei.Mita.Sugamo";
+const JIMBOCHO_MITA = "odpt:stop:odpt:odpt.Station%3AToei.Mita.Jimbocho";
+const MITA_END = "odpt:stop:odpt:odpt.Station%3AToei.Mita.Mita";
+const UENO = "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Ueno";
 
 describe("static queries", () => {
   it("gets stops and routes by internal id, null when unknown", () => {
@@ -79,7 +80,7 @@ describe("static queries", () => {
     expect(mitaJimbocho).toEqual(["odpt.Railway:Toei.Mita"]);
     const shinjukuLineJimbocho = getRoutesForStop(
       graph,
-      "odpt:stop:odpt:odpt.Station:Toei.Shinjuku.Jimbocho",
+      "odpt:stop:odpt:odpt.Station%3AToei.Shinjuku.Jimbocho",
     ).map((route) => route.providerRouteId);
     expect(shinjukuLineJimbocho).toEqual(["odpt.Railway:Toei.Shinjuku"]);
     expect(getRoutesForStop(graph, "odpt:stop:odpt:nope")).toEqual([]);

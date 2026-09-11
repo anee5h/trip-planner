@@ -35,6 +35,7 @@ const METADATA: OdptImportMetadata = {
   datasetId: "odpt-rail-fixture-v1",
   identityNamespace: "odpt",
   sourceDescriptor: "test metadata",
+  sourceType: "fixture",
   retrievedAt: "2026-09-11T00:00:00.000Z",
   checkedAt: "2026-09-11T00:00:00.000Z",
   completeness: "fixture_subset",
@@ -60,13 +61,13 @@ function expectImportError(input: OdptRailTopologyInput, code: string): void {
 describe("normalized identity", () => {
   it("derives deterministic provider-scoped ids, reversible to provider ids", () => {
     expect(operatorInternalId("odpt.Operator:TokyoMetro", "odpt")).toBe(
-      "odpt:operator:odpt:odpt.Operator:TokyoMetro",
+      "odpt:operator:odpt:odpt.Operator%3ATokyoMetro",
     );
     expect(stopInternalId("odpt.Station:TokyoMetro.Ginza.Ueno", "odpt")).toBe(
-      "odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno",
+      "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Ueno",
     );
     expect(routeInternalId("odpt.Railway:TokyoMetro.Ginza", "odpt")).toBe(
-      "odpt:route:odpt:odpt.Railway:TokyoMetro.Ginza",
+      "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Ginza",
     );
     // The authoritative provider id is the providerStopId FIELD — never
     // recovered by stripping prefixes off the internal id.
@@ -91,12 +92,14 @@ describe("normalized identity", () => {
     const ueno = graph.stops.find(
       (stop) => stop.providerStopId === "odpt.Station:TokyoMetro.Ginza.Ueno",
     );
-    expect(ueno?.id).toBe("odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno");
+    expect(ueno?.id).toBe(
+      "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Ueno",
+    );
     // Pure namespaced derivation: the id is the namespace prefix plus the
     // provider identity verbatim — no name lookup contributed anything.
     // (The provider identity itself contains "Ueno"; that is provider data,
     // not a display-name input to identity.)
-    expect(ueno?.id).toBe(`odpt:stop:odpt:${ueno?.providerStopId}`);
+    expect(ueno?.id).toBe(stopInternalId(ueno?.providerStopId ?? "", "odpt"));
     expect(ueno?.names.en).toBe("Ueno");
   });
 
@@ -152,25 +155,27 @@ describe("ODPT rail adapter", () => {
   it("preserves provider route-stop order per railway", () => {
     const { graph } = importOdptRailTopology(loadFixture(), METADATA);
     const mita = graph.routeStops
-      .filter((m) => m.routeId === "odpt:route:odpt:odpt.Railway:Toei.Mita")
+      .filter((m) => m.routeId === "odpt:route:odpt:odpt.Railway%3AToei.Mita")
       .sort((a, b) => a.order - b.order)
       .map((m) => m.stopId);
     expect(mita).toEqual([
-      "odpt:stop:odpt:odpt.Station:Toei.Mita.Sugamo",
-      "odpt:stop:odpt:odpt.Station:Toei.Mita.Jimbocho",
-      "odpt:stop:odpt:odpt.Station:Toei.Mita.Mita",
+      "odpt:stop:odpt:odpt.Station%3AToei.Mita.Sugamo",
+      "odpt:stop:odpt:odpt.Station%3AToei.Mita.Jimbocho",
+      "odpt:stop:odpt:odpt.Station%3AToei.Mita.Mita",
     ]);
   });
 
   it("retains calendar identity, kind and raw semantics for later resolution", () => {
     const { graph } = importOdptRailTopology(loadFixture(), METADATA);
     const byId = new Map(graph.calendars.map((c) => [c.providerCalendarId, c]));
-    expect(byId.get("odpt.Calendar:Weekday")?.calendarKind).toBe("base");
-    expect(byId.get("odpt.Calendar:SaturdayHoliday")?.calendarKind).toBe(
+    expect(byId.get("odpt.Calendar:Weekday")?.sourceSemantics.kind).toBe(
       "base",
     );
+    expect(
+      byId.get("odpt.Calendar:SaturdayHoliday")?.sourceSemantics.kind,
+    ).toBe("base");
     const specific = byId.get("odpt.Calendar:Specific.FixtureNewYear");
-    expect(specific?.calendarKind).toBe("specific");
+    expect(specific?.sourceSemantics.kind).toBe("specific");
     expect(specific?.sourceSemantics.provider).toBe("odpt");
     expect(specific?.sourceSemantics.duration).toBe("2026-01-01/2026-01-03");
     expect(specific?.sourceSemantics.day).toEqual(["Holiday"]);
@@ -430,6 +435,7 @@ describe("coverage registry", () => {
   it("marks imported topology only for a validated complete source (synthetic)", () => {
     const { graph } = importOdptRailTopology(loadFixture(), {
       ...METADATA,
+      sourceType: "data_dump",
       completeness: "complete_provider_dump",
     });
     const coverage = buildOdptCoverageReport(graph);
@@ -442,13 +448,14 @@ describe("coverage registry", () => {
   it("still reports partial for a complete source when a route has no ordered stops", () => {
     const { graph } = importOdptRailTopology(loadFixture(), {
       ...METADATA,
+      sourceType: "data_dump",
       completeness: "complete_provider_dump",
     });
     const emptied = {
       ...graph,
       routes: graph.routes,
       routeStops: graph.routeStops.filter(
-        (m) => m.routeId !== "odpt:route:odpt:odpt.Railway:TokyoMetro.Ginza",
+        (m) => m.routeId !== "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Ginza",
       ),
     };
     const coverage = buildOdptCoverageReport(emptied);
@@ -602,6 +609,40 @@ describe("ingestion metadata validation", () => {
   it("rejects an unknown completeness value", () => {
     expect(() =>
       bad({ completeness: "everything" as OdptImportMetadata["completeness"] }),
+    ).toThrow(/invalid_metadata/);
+  });
+
+  it("accepts fixture + fixture_subset and records both on the version", () => {
+    const { graph } = importOdptRailTopology(loadFixture(), METADATA);
+    expect(graph.datasetVersion.sourceType).toBe("fixture");
+    expect(graph.datasetVersion.completeness).toBe("fixture_subset");
+  });
+
+  it("accepts data_dump + complete_provider_dump", () => {
+    const { graph } = importOdptRailTopology(loadFixture(), {
+      ...METADATA,
+      sourceType: "data_dump",
+      completeness: "complete_provider_dump",
+    });
+    expect(graph.datasetVersion.sourceType).toBe("data_dump");
+    expect(graph.datasetVersion.completeness).toBe("complete_provider_dump");
+  });
+
+  it("rejects fixture + complete_provider_dump as impossible", () => {
+    expect(() =>
+      bad({ sourceType: "fixture", completeness: "complete_provider_dump" }),
+    ).toThrow(/invalid_metadata/);
+  });
+
+  it("rejects live_api + complete_provider_dump as impossible", () => {
+    expect(() =>
+      bad({ sourceType: "live_api", completeness: "complete_provider_dump" }),
+    ).toThrow(/invalid_metadata/);
+  });
+
+  it("rejects an unknown sourceType", () => {
+    expect(() =>
+      bad({ sourceType: "carrier_pigeon" as OdptImportMetadata["sourceType"] }),
     ).toThrow(/invalid_metadata/);
   });
 });

@@ -24,6 +24,7 @@ describe("KAI-291A station identity compatibility", () => {
     datasetId: "compat-check",
     identityNamespace: "odpt",
     sourceDescriptor: "compat test (fixed, deterministic)",
+    sourceType: "fixture",
     retrievedAt: "2026-09-11T00:00:00.000Z",
     checkedAt: "2026-09-11T00:00:00.000Z",
     completeness: "fixture_subset",

@@ -198,14 +198,11 @@ export interface TransitServiceCalendar {
   /** Exact provider identity, e.g. `odpt.Calendar:SaturdayHoliday`. */
   readonly providerCalendarId: string;
   /**
-   * `specific` for `odpt.Calendar:Specific.*` (outranks base), else `base`.
-   * Derived from provider identity by the provider's own naming convention.
-   */
-  readonly calendarKind: "base" | "specific";
-  /**
    * Provider-specific calendar semantics. Raw values pass through verbatim
    * so later work can resolve base calendars, Specific-over-base precedence,
    * Holiday-over-Saturday precedence, and multiple Specifics merging.
+   * Calendar "kind" is provider semantics (ODPT base/specific), NOT a
+   * generic normalized concept — GTFS must never manufacture one.
    */
   readonly sourceSemantics: TransitCalendarSourceSemantics;
   readonly provenance: TransitProvenance;
@@ -214,9 +211,13 @@ export interface TransitServiceCalendar {
 /** Provider-specific calendar semantics. Extended per provider later. */
 export type TransitCalendarSourceSemantics = OdptCalendarSourceSemantics;
 
-/** ODPT calendar semantics: raw `odpt:day` / `odpt:duration`, verbatim. */
+/**
+ * ODPT calendar semantics: base/specific kind plus raw `odpt:day` /
+ * `odpt:duration`, verbatim.
+ */
 export interface OdptCalendarSourceSemantics {
   readonly provider: "odpt";
+  readonly kind: "base" | "specific";
   readonly day: readonly string[];
   readonly duration: string | null;
 }

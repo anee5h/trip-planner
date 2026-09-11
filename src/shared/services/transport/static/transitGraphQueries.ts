@@ -14,7 +14,7 @@ import type {
   TransitStop,
 } from "./transitGraphTypes";
 
-/** Stop by internal id (`odpt:station:…`), or null. */
+/** Stop by internal id (`provider:stop:namespace:providerId`), or null. */
 export function getStop(
   graph: NormalizedTransitGraph,
   stopId: string,
