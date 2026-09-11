@@ -10,6 +10,9 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+# Local-only ingestion stores (KAI-291B2): raw ODPT dumps, staging files and
+# last-known-good snapshots must never be committed (licence/redistribution).
+.cache/
 *.local
 .wrangler
 
@@ -49,6 +52,7 @@ docs/*
 !docs/kai-290-odpt-2d-integration-readiness.md
 !docs/kai-291a-destination-station-identity.md
 !docs/kai-291b1-normalized-transit-graph.md
+!docs/kai-291b2-odpt-dump-refresh.md
 /docs/Roadmapv2.0.md
 # Generated catalogue asset (copied from src/shared/data at build/dev time
 # by scripts/copy-catalogue-assets.mjs — KAI-121 runtime-lazy fetch).
