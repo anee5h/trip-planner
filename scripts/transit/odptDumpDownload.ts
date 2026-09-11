@@ -43,6 +43,7 @@ export type DumpDownloadErrorCode =
   | "provider_not_configured"
   | "invalid_rdf_type"
   | "unapproved_redirect_host"
+  | "redirect_userinfo_forbidden"
   | "redirect_downgrade"
   | "redirect_loop"
   | "too_many_redirects"
@@ -57,6 +58,7 @@ export type DumpDownloadErrorCode =
   | "provider_unreachable"
   | "response_too_large"
   | "unexpected_content_type"
+  | "content_length_mismatch"
   | "empty_body"
   | "truncated_stream";
 
@@ -231,6 +233,9 @@ export async function discoverDumpRedirect(input: {
     );
   }
   const hadSensitiveParts = target.search.length > 0 || target.hash.length > 0;
+  // Reported fields (origin, path) exclude URL userinfo by construction:
+  // URL.origin and pathname never contain username/password, so credentials
+  // in a Location can never reach discovery output.
   return {
     rdfType: input.rdfType,
     initialEndpoint: sanitizeEndpoint(initial),
@@ -382,6 +387,15 @@ export async function downloadDumpResource(
         `redirect target uses ${target.protocol}; HTTPS only.`,
       );
     }
+    // Userinfo is rejected BEFORE origin approval: URL.origin excludes
+    // username/password, so an approved origin alone cannot vouch for a
+    // credential-bearing Location. The credentials are never reproduced.
+    if (target.username.length > 0 || target.password.length > 0) {
+      throw new DumpDownloadError(
+        "redirect_userinfo_forbidden",
+        `redirect from ${sanitizeEndpoint(current)} carries URL userinfo; refusing to follow.`,
+      );
+    }
     if (!options.approvedRedirectOrigins.includes(target.origin)) {
       throw new DumpDownloadError(
         "unapproved_redirect_host",
@@ -479,6 +493,16 @@ async function finishDownload(
   }
   if (bytesDownloaded === 0) {
     throw new DumpDownloadError("empty_body", "downloaded zero bytes.");
+  }
+  // Evidence-backed integrity: the live audit established ODPT sends
+  // matching Content-Length values, so a valid declared length MUST equal
+  // the streamed bytes. A mismatch means truncation or smuggling — fail
+  // closed rather than guessing about transport encoding.
+  if (contentLengthHeader !== null && bytesDownloaded !== contentLengthHeader) {
+    throw new DumpDownloadError(
+      "content_length_mismatch",
+      `declared ${contentLengthHeader} bytes but downloaded ${bytesDownloaded}.`,
+    );
   }
   const bodyBytes = new Uint8Array(bytesDownloaded);
   let offset = 0;

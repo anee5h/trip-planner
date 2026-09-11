@@ -183,6 +183,32 @@ describe("downloader redirect policy", () => {
     );
   });
 
+  it("rejects redirect userinfo even on the approved origin", async () => {
+    for (const location of [
+      "https://user:pass@dump.example/file.json",
+      "https://user@dump.example/file.json",
+      "https://:pass@dump.example/file.json",
+    ]) {
+      const seen = { urls: [] as string[], bodiesConsumed: 0 };
+      const error = await expectCode(
+        downloadDumpResource({
+          ...BASE,
+          fetchImpl: fakeFetch([{ status: 302, location }], seen),
+        }),
+        "redirect_userinfo_forbidden",
+      );
+      // The URL is NEVER followed and credentials never reproduced.
+      // (Matched against credential shapes, not bare substrings: the error
+      // code itself contains the word "userinfo".)
+      expect(seen.urls).toHaveLength(1);
+      const serialized = JSON.stringify(error);
+      expect(serialized).not.toContain("user:pass");
+      expect(serialized).not.toContain("user@");
+      expect(serialized).not.toContain(":pass@");
+      expect(serialized).not.toContain("TESTKEY");
+    }
+  });
+
   it("rejects an unrelated host", async () => {
     const seen = { urls: [] as string[], bodiesConsumed: 0 };
     const error = await expectCode(
@@ -421,6 +447,62 @@ describe("downloader transport semantics", () => {
     });
     expect(record.finalStatus).toBe(200);
     expect(record.contentType).toBe("application/json; charset=utf-8");
+  });
+
+  it("enforces declared Content-Length against streamed bytes", async () => {
+    const seen = { urls: [] as string[], bodiesConsumed: 0 };
+    // Declared 10, downloaded 10: pass.
+    const record = await downloadDumpResource({
+      ...BASE,
+      fetchImpl: fakeFetch(
+        [
+          {
+            status: 200,
+            contentType: "application/json",
+            contentLength: "10",
+            chunks: ["12345", "67890"],
+          },
+        ],
+        seen,
+      ),
+    });
+    expect(record.bytesDownloaded).toBe(10);
+    // Declared 10, downloaded 9: reject.
+    await expectCode(
+      downloadDumpResource({
+        ...BASE,
+        fetchImpl: fakeFetch(
+          [
+            {
+              status: 200,
+              contentType: "application/json",
+              contentLength: "10",
+              chunks: ["123456789"],
+            },
+          ],
+          seen,
+        ),
+      }),
+      "content_length_mismatch",
+    );
+    // Declared 9, downloaded 10: reject.
+    await expectCode(
+      downloadDumpResource({
+        ...BASE,
+        fetchImpl: fakeFetch(
+          [
+            {
+              status: 200,
+              contentType: "application/json",
+              contentLength: "9",
+              chunks: ["1234567890"],
+            },
+          ],
+          seen,
+        ),
+      }),
+      "content_length_mismatch",
+    );
   });
 
   it("rejects truncated streams and empty bodies", async () => {

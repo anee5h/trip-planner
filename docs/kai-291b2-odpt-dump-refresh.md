@@ -58,7 +58,7 @@ proof; `--output-dir` for the store root). No `--key`/`--url` flags exist.
 - `fetch(..., { redirect: "manual" })`; each 3xx Location is validated:
   absolute HTTPS URL, origin in the COMMITTED exact-origin allow-list
   (`APPROVED_DUMP_REDIRECT_ORIGINS`; currently exactly
-  `https://dataodpt.blob.core.windows.net`, observed 2026-09-12 via
+  `https://dataodpt.blob.core.windows.net`, observed 2026-09-11 via
   one-request discovery as a 302 with signed-query Location and explicitly
   approved), no loops, bounded count, no HTTP downgrade, no merged query
   params, no forwarded key. There is no runtime override for normal
@@ -135,7 +135,7 @@ nor exposed as downloadable reusable public data. A later
 production-promotion slice may distinguish internal application use from
 public reusable redistribution — those are NOT the same permission.
 
-## Reviewed transport policy (2026-09-12 live evidence)
+## Reviewed transport policy (2026-09-11 live evidence)
 
 Four-family audit over the approved blob origin, 8 HTTP attempts
 (4 × initial 302 + follow), all finals 200 `application/json`:
@@ -169,6 +169,20 @@ complete network truth.
 
 ## Deferred
 
-B2-downloader feeding (live audit needs `ODPT_API_KEY`, absent locally —
-first live run stays pending), GTFS (KAI-291C), timetable/fares (KAI-291D),
-journey routing (KAI-292).
+GTFS (KAI-291C), timetable/fares (KAI-291D), journey routing (KAI-292).
+
+## Completed live evidence (2026-09-11)
+
+- Redirect discovery complete: initial 302 from `api.odpt.org`, sanitized
+  target origin `https://dataodpt.blob.core.windows.net` (signed-query
+  Location, never logged), exactly 1 provider attempt, nothing followed.
+- Four-family live audit complete over the approved origin: 8 HTTP attempts
+  (4 × initial 302 + follow), all finals 200 `application/json` with
+  matching Content-Length values.
+- Operator 14,195 B / 42 records · Station 604,110 B / 720 records ·
+  Railway 129,403 B / 94 records · Calendar 217,469 B / 174 records.
+- Pilot filtered 2 / 335 / 16 / 174; normalized 2 / 335 / 16 / 336 / 174;
+  KAI-291A continuity 7/7; both required operators exact.
+- Live normalization proven (semantic hash recorded in the audit report).
+- Production/public promotion still intentionally disabled by the licence
+  gate (`productionPromotionAllowed=false`).
