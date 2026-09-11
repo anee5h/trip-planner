@@ -48,6 +48,7 @@ docs/*
 !docs/kai-290-odpt-direct-journey.md
 !docs/kai-290-odpt-2d-integration-readiness.md
 !docs/kai-291a-destination-station-identity.md
+!docs/kai-291b1-normalized-transit-graph.md
 /docs/Roadmapv2.0.md
 # Generated catalogue asset (copied from src/shared/data at build/dev time
 # by scripts/copy-catalogue-assets.mjs — KAI-121 runtime-lazy fetch).
