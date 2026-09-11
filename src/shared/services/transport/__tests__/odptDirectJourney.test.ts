@@ -1069,6 +1069,248 @@ describe("buildDirectJourneyFromOdptTrainTimetable — MEASURED calendar variant
   });
 });
 
+describe("buildDirectJourneyFromOdptTrainTimetable — response scope validation", () => {
+  it("fails closed when a returned record names a DIFFERENT train", () => {
+    // Request narrowing is not response scope: a record for another train must
+    // not prove the candidate just because its stops include the pair.
+    const result = buildDirectJourneyFromOdptTrainTimetable({
+      records: [MARUNOUCHI_TRAIN_TIMETABLE],
+      originStation: marunouchiStation("Shinjuku"),
+      destinationStation: marunouchiStation("Ikebukuro"),
+      expectedTrainIdentity: "odpt.Train:TokyoMetro.Marunouchi.B999",
+    });
+    expect(inconclusiveReason(result)).toBe("train_timetable_scope_mismatch");
+  });
+
+  it("accepts the record when the identity matches the request", () => {
+    const result = buildDirectJourneyFromOdptTrainTimetable({
+      records: [MARUNOUCHI_TRAIN_TIMETABLE],
+      originStation: marunouchiStation("Shinjuku"),
+      destinationStation: marunouchiStation("Ikebukuro"),
+      expectedTrainIdentity: MARUNOUCHI_TRAIN,
+    });
+    expect(result.kind).toBe("verified");
+  });
+
+  it("uses the REQUESTED identity when a record omits train", () => {
+    const noTrainDeclared = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427",
+      train: null,
+      trainNumber: "B427",
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: MARUNOUCHI_TRAIN_TIMETABLE.objects,
+    });
+    const result = verified(
+      buildDirectJourneyFromOdptTrainTimetable({
+        records: [noTrainDeclared],
+        originStation: marunouchiStation("Shinjuku"),
+        destinationStation: marunouchiStation("Ikebukuro"),
+        expectedTrainIdentity: MARUNOUCHI_TRAIN,
+      }),
+    );
+    // Never an empty identity, and never one invented from another id.
+    expect(result.evidence.trainIdentity).toBe(MARUNOUCHI_TRAIN);
+  });
+
+  it("fails closed when a record's calendar contradicts the queried calendar", () => {
+    // Every returned record is provably inapplicable to the requested calendar,
+    // so the response did not actually scope to what was asked for.
+    const offCalendar = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427Holiday",
+      train: MARUNOUCHI_TRAIN,
+      trainNumber: "B427",
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      calendar: "odpt.Calendar:SaturdayHoliday",
+      objects: MARUNOUCHI_TRAIN_TIMETABLE.objects,
+    });
+    const result = buildDirectJourneyFromOdptTrainTimetable({
+      records: [offCalendar],
+      originStation: marunouchiStation("Shinjuku"),
+      destinationStation: marunouchiStation("Ikebukuro"),
+      expectedTrainIdentity: MARUNOUCHI_TRAIN,
+      expectedCalendar: "odpt.Calendar:Weekday",
+    });
+    expect(inconclusiveReason(result)).toBe("calendar_scope_mismatch");
+  });
+
+  it("excludes a provably inapplicable variant and resolves from the matching one", () => {
+    // The requested calendar decides; the other variant is set aside rather than
+    // arbitrarily chosen between.
+    const result = verified(
+      buildDirectJourneyFromOdptTrainTimetable({
+        records: [...MITA_CALENDAR_VARIANTS],
+        originStation: mitaStation("ShirokaneTakanawa"),
+        destinationStation: mitaStation("NishiTakashimadaira"),
+        expectedTrainIdentity: MITA_TRAIN,
+        expectedCalendar: "odpt.Calendar:Weekday",
+      }),
+    );
+    expect(result.durationMinutes).toBe(MITA_VARIANT_MINUTES);
+    expect(result.evidence.calendars).toEqual(["odpt.Calendar:Weekday"]);
+    expect(result.evidence.calendar).toBe("odpt.Calendar:Weekday");
+    // Set aside explicitly, not silently.
+    expect(result.evidence.excludedRecordIds).toEqual([
+      MITA_CALENDAR_VARIANT_IDS[0],
+    ]);
+    expect(result.evidence.timetableRecordIds).toEqual([
+      MITA_CALENDAR_VARIANT_IDS[1],
+    ]);
+  });
+});
+
+describe("buildDirectJourneyFromOdptTrainTimetable — contributing-record provenance", () => {
+  const meguro = mitaStation("Meguro");
+  const sugamo = mitaStation("Sugamo");
+
+  it("takes provenance from the CONTRIBUTING record, not an adjacent no-match one", () => {
+    const irrelevant = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:Toei.Mita.999X",
+      train: MITA_TRAIN,
+      trainNumber: "999X",
+      operator: TOEI_OPERATOR,
+      railway: MITA_RAILWAY,
+      calendar: "odpt.Calendar:SaturdayHoliday",
+      objects: [
+        trainTimetableObject(mitaStationId("ShibaKoen"), null, "09:00"),
+        trainTimetableObject(mitaStationId("Mita"), "09:05", null),
+      ],
+    });
+    const contributing = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:Toei.Mita.535T.Working",
+      train: MITA_TRAIN,
+      trainNumber: "535T",
+      operator: TOEI_OPERATOR,
+      railway: MITA_RAILWAY,
+      calendar: "odpt.Calendar:Weekday",
+      objects: [
+        trainTimetableObject(mitaStationId("Meguro"), null, "10:00"),
+        trainTimetableObject(mitaStationId("Sugamo"), "10:40", null),
+      ],
+    });
+    const result = verified(
+      build({
+        records: [irrelevant, contributing],
+        originStation: meguro,
+        destinationStation: sugamo,
+      }),
+    );
+    // Only the contributing record may supply ids, urls and train metadata.
+    expect(result.evidence.timetableRecordIds).toEqual([
+      "odpt.TrainTimetable:Toei.Mita.535T.Working",
+    ]);
+    expect(result.evidence.trainNumber).toBe("535T");
+    expect(result.evidence.calendar).toBe("odpt.Calendar:Weekday");
+    expect(result.evidence.calendars).toEqual(["odpt.Calendar:Weekday"]);
+  });
+
+  it("fails closed when a RELEVANT sibling is unreadable", () => {
+    const verifiedRecord = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:Toei.Mita.535T.A",
+      train: MITA_TRAIN,
+      trainNumber: "535T",
+      operator: TOEI_OPERATOR,
+      railway: MITA_RAILWAY,
+      objects: [
+        trainTimetableObject(mitaStationId("Meguro"), null, "10:00"),
+        trainTimetableObject(mitaStationId("Sugamo"), "10:40", null),
+      ],
+    });
+    const unreadable = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:Toei.Mita.535T.B",
+      train: MITA_TRAIN,
+      trainNumber: "535T",
+      operator: TOEI_OPERATOR,
+      railway: MITA_RAILWAY,
+      objects: [
+        trainTimetableObject(mitaStationId("Megoro"), null, "not-a-time"),
+        trainTimetableObject(mitaStationId("Sugamo"), "later", null),
+      ],
+    });
+    const result = build({
+      records: [verifiedRecord, unreadable],
+      originStation: meguro,
+      destinationStation: sugamo,
+    });
+    // The unreadable sibling could be the applicable one, so the answer stays
+    // uncertain instead of being reported as verified.
+    expect(inconclusiveReason(result)).toBe("sibling_evidence_inconclusive");
+  });
+
+  it("represents BOTH agreeing calendar variants truthfully", () => {
+    const result = verified(
+      build({
+        records: [...MITA_CALENDAR_VARIANTS],
+        originStation: mitaStation("ShirokaneTakanawa"),
+        destinationStation: mitaStation("NishiTakashimadaira"),
+      }),
+    );
+    expect(result.evidence.calendars).toEqual([
+      "odpt.Calendar:SaturdayHoliday",
+      "odpt.Calendar:Weekday",
+    ]);
+    // Two variants must not be collapsed into one arbitrary value.
+    expect(result.evidence.calendar).toBeNull();
+  });
+
+  it("produces semantically identical evidence in reverse record order", () => {
+    const forward = verified(
+      build({
+        records: [MITA_PART_1, MITA_PART_2],
+        originStation: meguro,
+        destinationStation: sugamo,
+      }),
+    );
+    const reversed = verified(
+      build({
+        records: [MITA_PART_2, MITA_PART_1],
+        originStation: meguro,
+        destinationStation: sugamo,
+      }),
+    );
+    expect(reversed.durationMinutes).toBe(forward.durationMinutes);
+    expect(reversed.evidence.timetableRecordIds).toEqual(
+      forward.evidence.timetableRecordIds,
+    );
+    expect(reversed.evidence.calendars).toEqual(forward.evidence.calendars);
+    expect(reversed.evidence.scheduledDepartureTime).toBe(
+      forward.evidence.scheduledDepartureTime,
+    );
+  });
+
+  it("keeps conflicting sibling times inconclusive", () => {
+    const shift = (value: string | null) => {
+      if (value === null) return null;
+      const [hours, minutes] = value.split(":").map(Number);
+      const total = hours * 60 + minutes + 15;
+      return `${String(Math.floor(total / 60)).padStart(2, "0")}:${String(
+        total % 60,
+      ).padStart(2, "0")}`;
+    };
+    const disagreeing = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:Toei.Mita.535T.Disagreeing",
+      train: MITA_TRAIN,
+      trainNumber: "535T",
+      operator: TOEI_OPERATOR,
+      railway: MITA_RAILWAY,
+      objects: MITA_PART_1.objects.map((object) =>
+        trainTimetableObject(
+          object.arrivalStation,
+          shift(object.arrivalTime),
+          shift(object.departureTime),
+        ),
+      ),
+    });
+    const result = build({
+      records: [MITA_PART_1, disagreeing],
+      originStation: meguro,
+      destinationStation: mitaStation("Mita"),
+    });
+    expect(inconclusiveReason(result)).toBe("ambiguous_split_chain");
+  });
+});
+
 describe("buildDirectJourneyFromOdptTrainTimetable — evidence hygiene", () => {
   it("exposes credential-free source URLs only", () => {
     const withKey = trainTimetableFixture({

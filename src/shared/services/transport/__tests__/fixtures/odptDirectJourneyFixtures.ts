@@ -171,8 +171,13 @@ export function trainTimetableFixture(overrides: {
 }
 
 /**
- * TokyoMetro Marunouchi direct service, single record, 18 ordered stops,
- * Shinjuku (dep 06:00) -> Ikebukuro (arr 06:41) = 41 minutes on-train.
+ * TokyoMetro Marunouchi direct service, single record, 18 ordered stops.
+ *
+ * MEASURED: 18 ordered stops, Shinjuku -> Ikebukuro, on a `SaturdayHoliday`
+ * record spanning 05:00 -> 05:35.
+ * ILLUSTRATIVE: this fixture uses `06:00 -> 06:41` on `Weekday`, chosen so the
+ * unit tests are not coupled to the observed calendar. The 41-minute duration is
+ * a property of THIS fixture, not a claim about the measured service.
  */
 export const MARUNOUCHI_STOPS: readonly {
   readonly suffix: string;
@@ -328,6 +333,12 @@ export function marunouchiStation(suffix: string): OdptStation {
   });
 }
 
+/**
+ * ILLUSTRATIVE DETAIL — the clock times and the intermediate stop list below are
+ * hand-authored. What is MEASURED is: one record, 18 ordered stops, first
+ * departure 05:00 at Shinjuku, last arrival 05:35 at Ikebukuro. Only the
+ * identity/topology shape may be cited as observed; per-stop times may not.
+ */
 export const MARUNOUCHI_TRAIN_TIMETABLE: OdptTrainTimetable =
   trainTimetableFixture({
     sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427",

@@ -25,7 +25,6 @@ import {
 } from "../OdptDirectJourneyService";
 import {
   MARUNOUCHI_EXPECTED_MINUTES,
-  MARUNOUCHI_TRAIN,
   MARUNOUCHI_TRAIN_TIMETABLE,
   MITA_CALENDAR_VARIANTS,
   MITA_EXPECTED_MINUTES,
@@ -96,17 +95,48 @@ function records<T>(operation: string, items: readonly T[]): OdptResult<T> {
   };
 }
 
-/** A Marunouchi record containing a single origin stop only: never the pair. */
-const NO_PAIR_RECORD = trainTimetableFixture({
-  sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.NOPAIR",
-  train: MARUNOUCHI_TRAIN,
-  trainNumber: "NOPAIR",
-  operator: TOKYO_METRO_OPERATOR,
-  railway: "odpt.Railway:TokyoMetro.Marunouchi",
-  objects: [
-    trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
-  ],
-});
+/**
+ * A Marunouchi record for ONE requested train containing a single origin stop
+ * only: it conclusively never carries the pair. Built per requested identity,
+ * because a response for a different train is a scope violation rather than
+ * conclusive evidence about the train that was asked for.
+ */
+function noPairFor(trainIdentity: string): OdptTrainTimetable {
+  return trainTimetableFixture({
+    sameAs: `odpt.TrainTimetable:${trainIdentity}`,
+    train: trainIdentity,
+    trainNumber: trainIdentity.split(".").at(-1) ?? "X",
+    operator: TOKYO_METRO_OPERATOR,
+    railway: "odpt.Railway:TokyoMetro.Marunouchi",
+    objects: [
+      trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
+    ],
+  });
+}
+
+/** A Marunouchi record for ONE requested train that DOES carry the pair. */
+function pairFor(
+  trainIdentity: string,
+  departure: string,
+  durationMinutes = 41,
+): OdptTrainTimetable {
+  const [hours, minutes] = departure.split(":").map(Number);
+  const total = hours * 60 + minutes + durationMinutes;
+  const arrival = `${String(Math.floor(total / 60)).padStart(2, "0")}:${String(
+    total % 60,
+  ).padStart(2, "0")}`;
+  return trainTimetableFixture({
+    sameAs: `odpt.TrainTimetable:${trainIdentity}`,
+    train: trainIdentity,
+    trainNumber: trainIdentity.split(".").at(-1) ?? "X",
+    operator: TOKYO_METRO_OPERATOR,
+    railway: "odpt.Railway:TokyoMetro.Marunouchi",
+    objects: [
+      trainTimetableObject(marunouchiStationId("Shinjuku"), null, departure),
+      trainTimetableObject(marunouchiStationId("Ikebukuro"), arrival, null),
+    ],
+  });
+}
 
 function manyTrains(count: number): OdptStationTimetable {
   const objects = [];
@@ -145,6 +175,16 @@ const MEASURED_VARIANT_TIMETABLE = stationTimetableFixture({
   objects: [stationTimetableObject(MITA_TRAIN, "05:00")],
 });
 
+/** Discovery at the exact origin of the single-part scenario (10:03 departure). */
+const SHIROKANE_SPLIT_TIMETABLE = stationTimetableFixture({
+  sameAs: "odpt.StationTimetable:Toei.Mita.ShirokaneTakanawa",
+  station: mitaStationId("ShirokaneTakanawa"),
+  operator: TOEI_OPERATOR,
+  railway: "odpt.Railway:Toei.Mita",
+  calendar: "odpt.Calendar:SaturdayHoliday",
+  objects: [stationTimetableObject(MITA_TRAIN, "10:03")],
+});
+
 const MORNING_WINDOW = { start: "06:00", end: "08:00" };
 const MIDDAY_WINDOW = { start: "09:30", end: "11:30" };
 /** Covers the measured 535T span (05:00 -> 05:46). */
@@ -158,8 +198,12 @@ const SCENARIOS: readonly BenchScenario[] = [
     window: MORNING_WINDOW,
     stationTimetable: () =>
       records("station_timetable", [SHINJUKU_STATION_TIMETABLE]),
-    trainTimetable: () =>
-      records("train_timetable", [MARUNOUCHI_TRAIN_TIMETABLE]),
+    trainTimetable: (input) => {
+      const train = String(input.train);
+      const departure =
+        train === "odpt.Train:TokyoMetro.Marunouchi.B429" ? "06:04" : "06:00";
+      return records("train_timetable", [pairFor(train, departure)]);
+    },
   },
   {
     name: "toei_split_continuation",
@@ -186,8 +230,10 @@ const SCENARIOS: readonly BenchScenario[] = [
     origin: mitaStation("ShirokaneTakanawa"),
     destination: mitaStation("Mita"),
     window: MIDDAY_WINDOW,
+    // Discovery must be at the REQUESTED origin so its departure is comparable
+    // with the departure the exact timetable proves.
     stationTimetable: () =>
-      records("station_timetable", [MEGURO_SPLIT_TIMETABLE]),
+      records("station_timetable", [SHIROKANE_SPLIT_TIMETABLE]),
     trainTimetable: () => records("train_timetable", [MITA_PART_1]),
   },
   {
@@ -197,7 +243,8 @@ const SCENARIOS: readonly BenchScenario[] = [
     window: MORNING_WINDOW,
     stationTimetable: () =>
       records("station_timetable", [SHINJUKU_STATION_TIMETABLE]),
-    trainTimetable: () => records("train_timetable", [NO_PAIR_RECORD]),
+    trainTimetable: (input) =>
+      records("train_timetable", [noPairFor(String(input.train))]),
   },
   {
     name: "operator_outside_pilot",
@@ -218,7 +265,8 @@ const SCENARIOS: readonly BenchScenario[] = [
     destination: marunouchiStation("Ikebukuro"),
     window: MORNING_WINDOW,
     stationTimetable: () => records("station_timetable", [manyTrains(12)]),
-    trainTimetable: () => records("train_timetable", [NO_PAIR_RECORD]),
+    trainTimetable: (input) =>
+      records("train_timetable", [noPairFor(String(input.train))]),
   },
   {
     name: "empty_window_no_candidates",

@@ -124,15 +124,31 @@ export type OdptDirectJourneyStation = Pick<
 
 export interface OdptDirectJourneyBuildInput {
   /**
-   * Timetable records for ONE service, as returned for one exact train
-   * identity. One record is the ordinary case; two records are a possible split
-   * service and are joined only if the provider explicitly links them.
+   * Timetable records returned for one exact train identity. One record is the
+   * ordinary case; several are either calendar variants of one service, or (only
+   * when the provider explicitly links them) a split continuation.
    */
   readonly records: readonly OdptTrainTimetable[];
   readonly originStation: OdptDirectJourneyStation;
   readonly destinationStation: OdptDirectJourneyStation;
   /** Echoed into evidence for auditability; validated when supplied. */
   readonly serviceDate?: string | null;
+  /**
+   * The EXACT train identity that was requested from the provider.
+   *
+   * Request narrowing is not the same as response scope: a record is only
+   * admissible when it does not contradict this identity. When supplied, any
+   * record declaring a different `odpt:train` fails closed, and a record that
+   * omits `train` does not get to invent one — the requested identity is used.
+   */
+  readonly expectedTrainIdentity?: string | null;
+  /**
+   * The exact calendar the provider query was narrowed to, when one was used.
+   *
+   * When supplied, a record whose non-null calendar disagrees is a scope
+   * violation rather than something to consume or silently drop.
+   */
+  readonly expectedCalendar?: string | null;
 }
 
 /** Why a timetable made NO direct-journey claim. Absence of proof, per record. */
@@ -177,6 +193,20 @@ export type OdptDirectJourneyInconclusiveReason =
   | "split_chain_not_linked"
   /** Explicitly linked records that fail the existing compatibility check. */
   | "split_chain_incompatible"
+  /**
+   * A returned record does not match the exact train identity that was
+   * requested — request narrowing is not evidence that the RESPONSE was scoped.
+   */
+  | "train_timetable_scope_mismatch"
+  /** A returned record's non-null calendar contradicts the calendar queried for. */
+  | "calendar_scope_mismatch"
+  /**
+   * One record proves the pair while a RELEVANT sibling is unreadable
+   * (malformed times, invalid chronology, ambiguous pair). The unreadable
+   * sibling could be the applicable one for this service date, so the answer
+   * stays uncertain instead of being reported as verified.
+   */
+  | "sibling_evidence_inconclusive"
   /** A supplied `serviceDate` was not a real calendar date. */
   | "invalid_service_date";
 
@@ -187,14 +217,27 @@ export interface OdptDirectJourneyEvidence {
   readonly trainNumber: string | null;
   readonly trainType: string | null;
   readonly railway: string | null;
+  /**
+   * The single applicable calendar ONLY when the contributing evidence names
+   * exactly one. Null when several contribute (e.g. the measured Toei pair is
+   * `Weekday` + `SaturdayHoliday`), because reporting one arbitrary variant as
+   * though it were the basis would be a false precision claim.
+   */
   readonly calendar: string | null;
+  /**
+   * Every distinct calendar named by the contributing records, deterministically
+   * ordered. Preserves the variants instead of collapsing them.
+   */
+  readonly calendars: readonly string[];
   readonly railDirection: string | null;
   readonly serviceDate: string | null;
   /** Scheduled clock times actually used, `HH:MM` as supplied by the provider. */
   readonly scheduledDepartureTime: string;
   readonly scheduledArrivalTime: string;
-  /** ODPT timetable record identities that contributed (1, or 2 when split). */
+  /** ODPT timetable record identities that CONTRIBUTED to the conclusion. */
   readonly timetableRecordIds: readonly string[];
+  /** Records set aside because their calendar contradicted the query's calendar. */
+  readonly excludedRecordIds: readonly string[];
   /** Credential-free provider URLs only. */
   readonly sourceUrls: readonly string[];
   readonly retrievedAt: string;
@@ -626,27 +669,69 @@ function pairSignature(pair: VerifiedPair): string {
 }
 
 /**
+ * Record ids that were excluded from consideration because their calendar
+ * provably contradicted the requested calendar. Reported so an audit can see
+ * that a record was deliberately set aside rather than silently ignored.
+ */
+function excludedRecordIds(
+  all: readonly OdptTrainTimetable[],
+  eligible: readonly OdptTrainTimetable[],
+): readonly string[] {
+  const kept = new Set(eligible);
+  return all
+    .filter((record) => !kept.has(record))
+    .map((record) => record.sameAs)
+    .filter((id): id is string => typeof id === "string" && id.length > 0);
+}
+
+/** True when a value is a usable non-empty string. */
+function nonEmpty(value: string | null | undefined): value is string {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+/**
  * Derives a verified direct Journey from the TrainTimetable records returned for
  * ONE exact train identity.
  *
  * Pure: no I/O, no clock reads, no randomness.
  *
- * Two distinct shapes must be handled, and the order matters:
+ * ─── Request scope is NOT response scope ────────────────────────────────────
+ *
+ * Narrowing the request with an exact train identity (and optionally a calendar)
+ * does not by itself make the RESPONSE trustworthy. This primitive claims
+ * verified evidence, so a returned record that contradicts the request is a
+ * scope violation (`train_timetable_scope_mismatch` /
+ * `calendar_scope_mismatch`) rather than something to consume, or to drop
+ * silently and carry on as though the answer were scoped.
+ *
+ * Three record shapes must be handled, in this order:
  *
  * 1. **Records evaluated INDEPENDENTLY first.** An exact train identity can
- *    legitimately return several records for the same service — the measured
- *    Toei case returns one record per calendar (`…535T.Weekday` and
+ *    legitimately return several records for one service — the measured Toei
+ *    case returns one record per calendar (`…535T.Weekday` and
  *    `…535T.SaturdayHoliday`), with NO split link between them. If one record
  *    alone proves the pair, that record is the journey. Treating multiple
  *    records as a mandatory chain would wrongly make every such service
  *    inconclusive.
  * 2. **An explicitly linked split chain**, only when no single record proves the
  *    pair. See `resolveChain`.
+ * 3. **Nothing proved it** — reported as a no-match reason, or as inconclusive
+ *    when any record was unreadable.
  *
- * Several independent records that prove the SAME pair with the SAME scheduled
- * times agree, so the duration is proven whichever one applies. Records that
- * disagree cannot be reconciled without guessing, and fail closed as
- * `ambiguous_split_chain`.
+ * ─── Truthfulness of the conclusion ─────────────────────────────────────────
+ *
+ * - Records that prove the SAME pair with the SAME scheduled times agree, so the
+ *   duration is proven whichever one applies.
+ * - Records that prove it with DIFFERENT times cannot be reconciled without
+ *   knowing which applies, and fail closed (`ambiguous_split_chain`).
+ * - A record that proves the pair while a RELEVANT sibling is unreadable
+ *   (`sibling_evidence_inconclusive`) is NOT reported as verified: the unreadable
+ *   sibling could be the applicable one for this service date, so the answer
+ *   remains uncertain. Only evidence the caller has already excluded — by
+ *   supplying the exact calendar it narrowed the query to — removes that doubt.
+ * - Only records that ACTUALLY CONTRIBUTED enter the provenance. A no-match or
+ *   unreadable sibling adjacent in the provider response is never cited as the
+ *   basis for a journey it did not establish.
  */
 export function buildDirectJourneyFromOdptTrainTimetable(
   input: OdptDirectJourneyBuildInput,
@@ -654,10 +739,9 @@ export function buildDirectJourneyFromOdptTrainTimetable(
   const { originStation, destinationStation } = input;
   const records = input.records ?? [];
 
-  const serviceDate =
-    typeof input.serviceDate === "string" && input.serviceDate.trim().length > 0
-      ? input.serviceDate.trim()
-      : null;
+  const serviceDate = nonEmpty(input.serviceDate)
+    ? input.serviceDate.trim()
+    : null;
   if (input.serviceDate != null && serviceDate === null) {
     return { kind: "inconclusive", reason: "invalid_service_date", notes: [] };
   }
@@ -674,30 +758,101 @@ export function buildDirectJourneyFromOdptTrainTimetable(
     return { kind: "no_match", reason: "timetable_records_empty", notes: [] };
   }
 
+  const expectedTrainIdentity = nonEmpty(input.expectedTrainIdentity)
+    ? input.expectedTrainIdentity.trim()
+    : null;
+  const expectedCalendar = nonEmpty(input.expectedCalendar)
+    ? input.expectedCalendar.trim()
+    : null;
+
+  // ── Response scope validation, before any record is believed ──────────────
+  if (expectedTrainIdentity !== null) {
+    const foreign = records.find(
+      (record) =>
+        nonEmpty(record.train) && record.train.trim() !== expectedTrainIdentity,
+    );
+    if (foreign !== undefined) {
+      return {
+        kind: "inconclusive",
+        reason: "train_timetable_scope_mismatch",
+        notes: [
+          `requested_train:${expectedTrainIdentity}`,
+          `returned_train:${foreign.train ?? "null"}`,
+        ],
+      };
+    }
+  }
+
+  // A record whose non-null calendar contradicts the calendar the query was
+  // narrowed to is PROVABLY inapplicable to the requested service date, so it is
+  // excluded rather than consumed. Nothing is "chosen" here: the requested
+  // calendar decides, and a record that does not declare one stays admissible.
+  const candidates =
+    expectedCalendar === null
+      ? records
+      : records.filter(
+          (record) =>
+            !nonEmpty(record.calendar) ||
+            record.calendar.trim() === expectedCalendar,
+        );
+
+  if (candidates.length === 0) {
+    // Every returned record was provably inapplicable, so the response did not
+    // actually scope to the calendar that was asked for.
+    return {
+      kind: "inconclusive",
+      reason: "calendar_scope_mismatch",
+      notes: [
+        `requested_calendar:${expectedCalendar ?? "null"}`,
+        ...records.map(
+          (record) => `returned_calendar:${record.calendar ?? "null"}`,
+        ),
+      ],
+    };
+  }
+
   // ── Pass 1: each record on its own ────────────────────────────────────────
-  const independent = records.map((record) =>
-    deriveStopPair(
+  const independent = candidates.map((record, index) => ({
+    index,
+    record,
+    outcome: deriveStopPair(
       record.objects ?? [],
       originStation.sameAs,
       destinationStation.sameAs,
     ),
-  );
+  }));
 
-  const proven: { readonly index: number; readonly pair: VerifiedPair }[] = [];
-  independent.forEach((outcome, index) => {
-    if (outcome.kind === "verified") proven.push({ index, pair: outcome.pair });
-  });
-
-  const firstInconclusive = independent.find(
-    (outcome) => outcome.kind === "inconclusive",
+  const proven = independent.filter(
+    (
+      entry,
+    ): entry is {
+      readonly index: number;
+      readonly record: OdptTrainTimetable;
+      readonly outcome: PairOutcome & { readonly kind: "verified" };
+    } => entry.outcome.kind === "verified",
   );
-  const firstNoMatch = independent.find(
-    (outcome) => outcome.kind === "no_match",
+  const unreadable = independent.filter(
+    (entry) => entry.outcome.kind === "inconclusive",
   );
 
   if (proven.length > 0) {
+    // Unreadable competing evidence keeps the answer uncertain: this sibling
+    // could be the one that applies to the requested service date, and nothing
+    // supplied to this function proves otherwise.
+    if (unreadable.length > 0) {
+      return {
+        kind: "inconclusive",
+        reason: "sibling_evidence_inconclusive",
+        notes: unreadable.map((entry) =>
+          entry.outcome.kind === "inconclusive"
+            ? `record_${entry.index}:${entry.outcome.reason}`
+            : `record_${entry.index}:unknown`,
+        ),
+      };
+    }
+
     const signatures = new Set(
-      proven.map((entry) => pairSignature(entry.pair)),
+      proven.map((entry) => pairSignature(entry.outcome.pair)),
     );
     if (signatures.size > 1) {
       // Several records claim the same pair with DIFFERENT scheduled times and
@@ -708,25 +863,28 @@ export function buildDirectJourneyFromOdptTrainTimetable(
         notes: [`competing_records:${proven.length}`],
       };
     }
-    const winner = proven[0];
+
+    // ONLY the records that contributed may supply provenance.
     return assembleJourney({
-      records,
-      pair: winner.pair,
+      records: proven.map((entry) => entry.record),
+      excludedRecordIds: excludedRecordIds(records, candidates),
+      pair: proven[0].outcome.pair,
       serviceDate,
       splitContinuation: false,
+      expectedTrainIdentity,
       originStation,
       destinationStation,
     });
   }
 
   // ── Pass 2: an explicitly linked split chain ──────────────────────────────
-  if (records.length >= 2) {
-    const chain = resolveChain(records);
+  if (candidates.length >= 2) {
+    const chain = resolveChain(candidates);
     if (chain.kind === "too_long") {
       return {
         kind: "inconclusive",
         reason: "split_chain_too_long",
-        notes: [`records:${records.length}`],
+        notes: [`records:${candidates.length}`],
       };
     }
     if (chain.kind === "ambiguous") {
@@ -747,7 +905,7 @@ export function buildDirectJourneyFromOdptTrainTimetable(
       return {
         kind: "inconclusive",
         reason: "split_chain_not_linked",
-        notes: [`records:${records.length}`],
+        notes: [`records:${candidates.length}`],
       };
     }
 
@@ -759,9 +917,11 @@ export function buildDirectJourneyFromOdptTrainTimetable(
     if (joined.kind === "verified") {
       return assembleJourney({
         records: chain.records,
+        excludedRecordIds: excludedRecordIds(records, candidates),
         pair: joined.pair,
         serviceDate,
         splitContinuation: true,
+        expectedTrainIdentity,
         originStation,
         destinationStation,
       });
@@ -777,21 +937,25 @@ export function buildDirectJourneyFromOdptTrainTimetable(
 
   // ── Nothing proved the pair ───────────────────────────────────────────────
   // Unreadable evidence outranks an absence: we may not have read the record.
+  const firstUnreadable = unreadable[0];
   if (
-    firstInconclusive !== undefined &&
-    firstInconclusive.kind === "inconclusive"
+    firstUnreadable !== undefined &&
+    firstUnreadable.outcome.kind === "inconclusive"
   ) {
     return {
       kind: "inconclusive",
-      reason: firstInconclusive.reason,
-      notes: firstInconclusive.notes,
+      reason: firstUnreadable.outcome.reason,
+      notes: firstUnreadable.outcome.notes,
     };
   }
-  if (firstNoMatch !== undefined && firstNoMatch.kind === "no_match") {
+  const firstNoMatch = independent.find(
+    (entry) => entry.outcome.kind === "no_match",
+  );
+  if (firstNoMatch !== undefined && firstNoMatch.outcome.kind === "no_match") {
     return {
       kind: "no_match",
-      reason: firstNoMatch.reason,
-      notes: firstNoMatch.notes,
+      reason: firstNoMatch.outcome.reason,
+      notes: firstNoMatch.outcome.notes,
     };
   }
   return { kind: "no_match", reason: "timetable_objects_empty", notes: [] };
@@ -804,10 +968,14 @@ export function buildDirectJourneyFromOdptTrainTimetable(
  * presentation concerns.
  */
 function assembleJourney(args: {
+  /** ONLY the records that actually contributed to the proven pair. */
   readonly records: readonly OdptTrainTimetable[];
+  readonly excludedRecordIds: readonly string[];
   readonly pair: VerifiedPair;
   readonly serviceDate: string | null;
   readonly splitContinuation: boolean;
+  /** The exact identity requested from the provider, when one was. */
+  readonly expectedTrainIdentity: string | null;
   readonly originStation: OdptDirectJourneyStation;
   readonly destinationStation: OdptDirectJourneyStation;
 }): OdptDirectJourneyBuildResult {
@@ -892,18 +1060,40 @@ function assembleJourney(args: {
     provenance,
   };
 
+  // Calendar evidence must not collapse a measured variant set into one
+  // arbitrary value: report every distinct calendar, and the singular form only
+  // when the contributing records name exactly one.
+  const calendars = [
+    ...new Set(
+      records
+        .map((record) =>
+          nonEmpty(record.calendar) ? record.calendar.trim() : null,
+        )
+        .filter((value): value is string => value !== null),
+    ),
+  ].sort();
+  const singleCalendar = calendars.length === 1 ? calendars[0] : null;
+
+  // The requested identity is authoritative: a record that omits `train` must
+  // not yield an empty identity, and one is never invented by parsing another id.
+  const trainIdentity =
+    args.expectedTrainIdentity ??
+    (nonEmpty(primary.train) ? primary.train : "");
+
   const evidence: OdptDirectJourneyEvidence = {
     operator: primary.operator ?? null,
-    trainIdentity: primary.train ?? "",
+    trainIdentity,
     trainNumber: primary.trainNumber ?? null,
     trainType: primary.trainType ?? null,
     railway: primary.railway ?? null,
-    calendar: primary.calendar ?? null,
+    calendar: singleCalendar,
+    calendars,
     railDirection: primary.railDirection ?? null,
     serviceDate: args.serviceDate,
     scheduledDepartureTime: pair.scheduledDepartureTime,
     scheduledArrivalTime: pair.scheduledArrivalTime,
     timetableRecordIds,
+    excludedRecordIds: args.excludedRecordIds,
     sourceUrls,
     retrievedAt: retrievedAt ?? "",
     splitContinuation: args.splitContinuation,

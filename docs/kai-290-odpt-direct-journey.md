@@ -60,6 +60,96 @@ whole-railway `TrainTimetable` query, and no arbitrary URL / query escape hatch.
 `StationTimetable` ordering is never read as a route: it lists many trains at one
 station, so it is discovery evidence only.
 
+## 3a. Response scope validation — request narrowing is not response scope
+
+This primitive claims **verified** evidence, so sending exact filters is not
+enough: every consumed record must also be consistent with the request.
+
+**StationTimetable (discovery).** Before any object is read:
+
+- `record.station` must equal `originStation.sameAs`. A record naming another
+  station, or omitting its station, is
+  `inconclusive: station_timetable_scope_mismatch`.
+- If `record.operator` is supplied it must be inside the pilot **and** consistent
+  with the requested station's operator. Another pilot operator's station
+  timetable must not seed candidates for this station's journey (also
+  `station_timetable_scope_mismatch`; a non-pilot operator is
+  `operator_outside_timetable_pilot`).
+- Identity is never inferred from names.
+
+**TrainTimetable (duration).** The builder receives the exact requested
+`expectedTrainIdentity` and:
+
+- any record declaring a different `odpt:train` is
+  `inconclusive: train_timetable_scope_mismatch` — a record for another train
+  must not prove this candidate merely because its stops include the pair;
+- a record that **omits** `train` is admissible, but the evidence then reports
+  the **requested** identity — never an empty string, and never one invented by
+  parsing another id.
+
+**Calendar.** When one calendar narrowed the query, a record whose non-null
+calendar disagrees is **provably inapplicable** to the requested date and is set
+aside (listed in `evidence.excludedRecordIds`) rather than consumed — or silently
+dropped. If every returned record is inapplicable, the response did not actually
+scope to the requested calendar: `inconclusive: calendar_scope_mismatch`.
+
+## 3b. Discovery vs duration authority — departure reconciliation
+
+`StationTimetable` only *discovered* the train; `TrainTimetable` is the duration
+authority. A resolved candidate therefore requires the departure proven by the
+exact timetable to be **the same event** that selected this train:
+
+- both values are compared as **parsed service-clock meaning** (`HH:MM:SS` from
+  the provider equals `HH:MM` from discovery — no false mismatch from formatting);
+- the proven departure must equal the discovery departure **and** still lie inside
+  the requested window.
+
+Otherwise the candidate is `inconclusive: departure_evidence_mismatch`. A
+discovery value of 06:10 with a proven 09:30 departure in a 06:00–08:00 window is
+NOT a resolve. `scheduledDepartureMinutes` on every returned candidate always
+describes the **verified** departure, and output ordering uses that value.
+
+## 3c. Duplicate train identities across calendars
+
+Deduplication is by **exact train identity**, preserving all discovery context:
+
+| Occurrences for one identity | Handling |
+| --- | --- |
+| same departure + one calendar | narrow with that calendar |
+| same departure + several distinct calendars | **one** exact-train lookup **without** a calendar filter; the builder reconciles the variants |
+| conflicting departures | `inconclusive: ambiguous_discovery_departure`, no lookup |
+
+Retaining "the first calendar" would arbitrarily pick a variant, and keeping the
+earliest conflicting departure would be a silent guess. Several distinct
+calendars never multiply logical lookups: the fan-out budget is per exact
+candidate.
+
+## 3d. Contributing-record provenance
+
+Only records that **actually contributed** to the verified conclusion may supply
+`timetableRecordIds`, `sourceUrls`, `retrievedAt`, operator, train
+identity/number/type, railway, calendar and rail direction. A no-match or
+unreadable sibling adjacent in the provider response is never cited as the basis
+for a journey it did not establish.
+
+Unreadable competing evidence stays uncertain:
+
+| Sibling shapes | Result |
+| --- | --- |
+| several verified, identical departure + arrival | verified (same Journey) |
+| several verified, different times | `inconclusive: ambiguous_split_chain` |
+| verified + **relevant** unreadable sibling | `inconclusive: sibling_evidence_inconclusive` |
+| verified + irrelevant/no-match record | verified; only the contributing records enter provenance |
+
+A sibling is "relevant" unless the caller's own scope already excludes it — which
+is what supplying the narrowed calendar does.
+
+Because the measured Toei pair is `Weekday` **+** `SaturdayHoliday`,
+`evidence.calendars` carries **every** distinct calendar (deterministically
+ordered) and the singular `evidence.calendar` is populated **only** when exactly
+one applies — otherwise `null`. Reporting one arbitrary variant as the basis
+would be a false precision claim.
+
 ## 4. Departure window
 
 A bounded local window is **required**:
@@ -67,7 +157,14 @@ A bounded local window is **required**:
 - `serviceDate` must be a real Gregorian `YYYY-MM-DD` (impossible dates such as
   `2017-02-29` are rejected — `Date.parse` normalises them, so month, day
   existence and leap years are checked numerically).
-- `departureWindow.start` / `.end` must be usable `HH:MM`, with `start <= end`.
+- `departureWindow.start` / `.end` must satisfy a **strict `HH:MM` grammar**,
+  with `start <= end`: exactly two digits, a colon, two digits. Accepted:
+  `00:00`, `06:30`, `23:59`. Rejected: `6:30`, `06:30:00`, `24:00`, `06:60`, and
+  whitespace-padded values. This is deliberately stricter than the shared
+  `odptChronology` parser, which accepts the provider's own broader value shapes
+  (`H:MM`, `HH:MM:SS`) — the caller-facing window is a documented `HH:MM`
+  contract, and the two grammars must not be conflated. `odptChronology` parsing
+  is unchanged.
 - Maximum width **3 hours**.
 - **No cross-midnight search window** (`23:00 → 01:00`) in this PR: how it maps
   onto service dates is unspecified, so it fails closed rather than being
@@ -184,12 +281,28 @@ ODPT search completeness is not guaranteed, and `[]` is a successful provider
 answer rather than a capability statement. Lack of ODPT evidence never produces
 "transport unavailable".
 
-`resolved` carries `coverage: "complete" | "partial"` (partial when the lookup
-cap truncated inspection) plus safe diagnostics:
+`resolved` carries `coverage: "complete" | "partial"`. **`complete` means every
+discovered candidate was conclusively settled** — not merely that the loop
+finished. `partial` whenever any candidate is inconclusive or was left
+uninspected, because a resolved result must not imply we finished looking:
+
+| Situation | `coverage` |
+| --- | --- |
+| every candidate proven or conclusively no-pair | `complete` |
+| any candidate: provider failure, `too_large`, budget state, invalid chronology, ambiguous pair, unretrieved split continuation, scope mismatch, departure mismatch | `partial` |
+| the fan-out cap left candidates uninspected | `partial` |
+| discovery itself had an unreadable departure | `partial` |
+
+A candidate that was safely inspected and **conclusively** produced no direct
+pair does **not** by itself make coverage partial. A provider method call that
+*failed* is not conclusive evidence inspection, so it counts as inconclusive.
+
+Safe diagnostics:
 
 ```
 stationTimetableLookups, exactTrainLookups, logicalLookups,
 candidatesDiscovered, candidatesInspected,
+candidatesConclusive, candidatesInconclusive,
 candidatesWithoutTrainIdentity, candidateLimitReached, reasons
 ```
 
@@ -198,6 +311,13 @@ candidatesWithoutTrainIdentity, candidateLimitReached, reasons
 | Evidence | Result |
 | --- | --- |
 | `StationTimetable` successful `[]` or documented 404 | `no_direct_service_evidence` |
+| `StationTimetable` record names another station / omits its station / another operator | `inconclusive: station_timetable_scope_mismatch` |
+| `StationTimetable` exact train with a **present but unreadable** departure | `inconclusive: station_timetable_departure_unreadable` |
+| One identity has conflicting discovery departures | `inconclusive: ambiguous_discovery_departure` |
+| `TrainTimetable` record names a different train than requested | `inconclusive: train_timetable_scope_mismatch` |
+| `TrainTimetable` record's calendar contradicts the queried calendar (all records) | `inconclusive: calendar_scope_mismatch` |
+| Proven departure disagrees with discovery, or falls outside the window | `inconclusive: departure_evidence_mismatch` |
+| One record proves the pair while a relevant sibling is unreadable | `inconclusive: sibling_evidence_inconclusive` |
 | `StationTimetable` provider failure / `too_large` / budget state | `inconclusive` |
 | No in-window object with an exact train identity | `no_direct_service_evidence` |
 | `TrainTimetable` successful `[]` or documented 404 | candidate gives no direct evidence |
@@ -233,11 +353,14 @@ when the provider actually supplied them; none are ever invented.
 
 - `__tests__/fixtures/odptDirectJourneyFixtures.ts` — hand-authored, sanitized,
   credential-free, minimal normalized shapes covering **both** pilot operators:
-  the measured TokyoMetro 18-stop Marunouchi single-record direct service, and
-  the measured Toei 25-stop **calendar-variant** pair (two records, no links).
-  A hypothetical explicitly-linked split pair is included too, labelled as
+  the TokyoMetro 18-stop Marunouchi single-record direct service (MEASURED: 18
+  stops, Shinjuku → Ikebukuro, `SaturdayHoliday`, 05:00 → 05:35 — while the
+  fixture's own `Weekday` calendar and 06:00 → 06:41 times are ILLUSTRATIVE), and
+  the measured Toei 25-stop **calendar-variant** pair (two records, no links). A
+  hypothetical explicitly-linked split pair is included too, labelled as
   unmeasured. These are **not** live provider snapshots; only the
-  identity/topology shape is taken from measured evidence.
+  identity/topology shape is taken from measured evidence, and each fixture states
+  which of its details are measured versus illustrative.
 - `__tests__/odptDirectJourneyBench.ts` — offline, deterministic benchmark
   harness reporting per scenario: operator, origin, destination, candidates
   discovered / inspected / verified, failure reasons, logical calls used,

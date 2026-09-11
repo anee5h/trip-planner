@@ -18,8 +18,14 @@
  *   exceed the boundary's 1 MB guard and fail closed. Neither is a runtime
  *   strategy, and this module cannot express either.
  * - An EXACT train identity is the proven TrainTimetable shape, and it is the
- *   ONLY duration authority. Either it is returned for exactly one identity, or
- *   (observed for Toei) several records come back together as one split service.
+ *   ONLY duration authority. One identity may legitimately return MORE than one
+ *   record, and the measured Toei case showed what that means: several
+ *   **CALENDAR VARIANTS of the SAME service** (`…535T.Weekday` and
+ *   `…535T.SaturdayHoliday`), each with the same stops and span and **no
+ *   `odpt:nextTrainTimetable` / `odpt:previousTrainTimetable` link between
+ *   them**. It was NOT a split service. Split-continuation joining is therefore
+ *   defensive and specification-driven rather than something measured, and it is
+ *   only attempted after each record has been evaluated independently.
  *
  * `odpt:StationTimetable` ordering is NOT route ordering — it lists many trains
  * at a single station. It is used here for train identity, scheduled departure
@@ -115,7 +121,26 @@ export type OdptDirectJourneyResolutionReason =
   | "train_timetable_budget_unavailable"
   | "split_continuation_not_retrieved"
   | "journey_budget_exhausted"
-  | "inspection_inconclusive";
+  | "inspection_inconclusive"
+  /**
+   * A returned StationTimetable record does not belong to the exact station that
+   * was requested. Request narrowing is not proof that the response was scoped.
+   */
+  | "station_timetable_scope_mismatch"
+  /** An exact train identity carried a present-but-unreadable departure time. */
+  | "station_timetable_departure_unreadable"
+  /** One train identity appeared with conflicting discovery departure times. */
+  | "ambiguous_discovery_departure"
+  /** A returned TrainTimetable record contradicts the requested train identity. */
+  | "train_timetable_scope_mismatch"
+  /** A returned record's calendar contradicts the calendar queried for. */
+  | "calendar_scope_mismatch"
+  /**
+   * The departure proven by the duration authority disagrees with the discovery
+   * departure, or falls outside the requested window. The two must be the same
+   * event, so a disagreement is uncertainty rather than a usable result.
+   */
+  | "departure_evidence_mismatch";
 
 /**
  * One proven direct journey plus its ODPT audit evidence. The canonical Journey
@@ -140,6 +165,19 @@ export interface OdptDirectJourneyDiagnostics {
   readonly logicalLookups: number;
   readonly candidatesDiscovered: number;
   readonly candidatesInspected: number;
+  /**
+   * Candidates that were safely settled: either proven, or conclusively shown
+   * not to carry the pair. A provider method call that FAILED is not conclusive
+   * evidence inspection, so it is counted as inconclusive instead.
+   */
+  readonly candidatesConclusive: number;
+  /**
+   * Candidates whose evidence could not be safely settled — provider failure,
+   * oversized response, budget state, invalid chronology, ambiguous pair,
+   * unretrieved split continuation, scope mismatch, departure disagreement, or
+   * a discovery-level ambiguity for that identity.
+   */
+  readonly candidatesInconclusive: number;
   /** In-window StationTimetable objects that carried no exact train identity. */
   readonly candidatesWithoutTrainIdentity: number;
   /** True when the journey budget stopped inspection early. */
@@ -183,6 +221,8 @@ interface MutableDiagnostics {
   exactTrainLookups: number;
   candidatesDiscovered: number;
   candidatesInspected: number;
+  candidatesConclusive: number;
+  candidatesInconclusive: number;
   candidatesWithoutTrainIdentity: number;
   candidateLimitReached: boolean;
   reasons: string[];
@@ -197,6 +237,8 @@ function freezeDiagnostics(
     logicalLookups: state.stationTimetableLookups + state.exactTrainLookups,
     candidatesDiscovered: state.candidatesDiscovered,
     candidatesInspected: state.candidatesInspected,
+    candidatesConclusive: state.candidatesConclusive,
+    candidatesInconclusive: state.candidatesInconclusive,
     candidatesWithoutTrainIdentity: state.candidatesWithoutTrainIdentity,
     candidateLimitReached: state.candidateLimitReached,
     reasons: [...state.reasons],
@@ -255,11 +297,54 @@ function reasonForFailure(
     : "train_timetable_provider_error";
 }
 
+/** Strict resolver-input clock grammar: exactly two digits, colon, two digits. */
+const STRICT_HH_MM = /^([0-9]{2}):([0-9]{2})$/;
+
+/**
+ * Parses the resolver's INPUT departure window, which the public contract
+ * documents as strictly `HH:MM`.
+ *
+ * This is deliberately stricter than `parseClockMinutes`: the shared chronology
+ * parser accepts the provider's own value shapes (`H:MM`, `HH:MM:SS`) because
+ * those are what ODPT supplies, whereas a caller-facing window is a documented
+ * `HH:MM` contract. Accepting a broader grammar here would mean accepting input
+ * the docs promise to reject, and the two grammars should not be conflated.
+ * Whitespace-padded values are rejected rather than trimmed, so the contract has
+ * exactly one accepted form.
+ */
+export function parseDepartureWindowBound(
+  value: string | null | undefined,
+): number | null {
+  if (typeof value !== "string") return null;
+  const match = STRICT_HH_MM.exec(value);
+  if (!match) return null;
+  const hours = Number(match[1]);
+  const minutes = Number(match[2]);
+  if (hours > 23 || minutes > 59) return null;
+  return hours * 60 + minutes;
+}
+
+/** One departure observed for a candidate in the discovery response. */
+interface DiscoveryOccurrence {
+  readonly departureMinutes: number;
+  readonly calendar: string | null;
+}
+
 /** A discovered candidate train, before its exact timetable is inspected. */
 interface DiscoveredCandidate {
   readonly trainIdentity: string;
-  readonly departureMinutes: number;
+  /** The single agreed discovery departure, or null when occurrences conflicted. */
+  readonly departureMinutes: number | null;
+  /**
+   * The calendar to narrow the exact-train request with, or null when the
+   * occurrences named several distinct calendars and choosing one would be
+   * arbitrary.
+   */
   readonly calendar: string | null;
+  /** Every distinct calendar seen for this identity, deterministically ordered. */
+  readonly calendars: readonly string[];
+  /** Set when the identity's occurrences could not be reconciled. */
+  readonly ambiguousReason: "ambiguous_discovery_departure" | null;
 }
 
 function isNonEmptyString(value: unknown): value is string {
@@ -282,6 +367,8 @@ export async function resolveOdptDirectJourney(
     exactTrainLookups: 0,
     candidatesDiscovered: 0,
     candidatesInspected: 0,
+    candidatesConclusive: 0,
+    candidatesInconclusive: 0,
     candidatesWithoutTrainIdentity: 0,
     candidateLimitReached: false,
     reasons: [],
@@ -293,11 +380,11 @@ export async function resolveOdptDirectJourney(
       "service_date_not_a_real_calendar_date",
     ]);
   }
-  const windowStart = parseClockMinutes(input.departureWindow?.start ?? null);
-  const windowEnd = parseClockMinutes(input.departureWindow?.end ?? null);
+  const windowStart = parseDepartureWindowBound(input.departureWindow?.start);
+  const windowEnd = parseDepartureWindowBound(input.departureWindow?.end);
   if (windowStart === null || windowEnd === null) {
     return inconclusive("invalid_departure_window", state, [
-      "window_bounds_not_usable_clock_times",
+      "window_bounds_must_be_strict_hh_mm",
     ]);
   }
   if (windowStart > windowEnd) {
@@ -366,45 +453,163 @@ export async function resolveOdptDirectJourney(
     ]);
   }
 
-  // ── Local window filtering + deterministic candidate ordering ─────────────
-  const byTrain = new Map<string, DiscoveredCandidate>();
+  // ── Response scope validation: the REQUEST does not scope the RESPONSE ─────
+  // Sending `station: <exact id>` narrows the query; it does not by itself make
+  // every returned record belong to that station. Discovery evidence feeds a
+  // VERIFIED claim, so a record that identifies another station — or another
+  // operator — must not be allowed to seed candidates.
   for (const record of stationTimetableRecords) {
-    const calendar = isNonEmptyString(record.calendar) ? record.calendar : null;
+    const recordStation = isNonEmptyString(record.station)
+      ? record.station.trim()
+      : null;
+    if (recordStation === null) {
+      // Without a station identity the record cannot be attributed to the
+      // requested station, so it is not admissible discovery evidence.
+      return inconclusive("station_timetable_scope_mismatch", state, [
+        "record_station_absent",
+      ]);
+    }
+    if (recordStation !== originIdentity) {
+      return inconclusive("station_timetable_scope_mismatch", state, [
+        `requested_station:${originIdentity}`,
+        `returned_station:${recordStation}`,
+      ]);
+    }
+    const recordOperator = isNonEmptyString(record.operator)
+      ? record.operator.trim()
+      : null;
+    if (recordOperator === null) continue;
+    if (!isTimetablePilotOperator(recordOperator)) {
+      return inconclusive("operator_outside_timetable_pilot", state, [
+        `station_timetable_operator:${recordOperator}`,
+      ]);
+    }
+    const stationOperator = isNonEmptyString(input.originStation.operator)
+      ? input.originStation.operator.trim()
+      : null;
+    if (stationOperator !== null && recordOperator !== stationOperator) {
+      // Another pilot operator's station timetable must not seed candidates for
+      // this station's journey.
+      return inconclusive("station_timetable_scope_mismatch", state, [
+        `record_operator:${recordOperator}`,
+        `station_operator:${stationOperator}`,
+      ]);
+    }
+  }
+
+  // ── Local window filtering, preserving ALL per-identity context ────────────
+  const occurrencesByTrain = new Map<string, DiscoveryOccurrence[]>();
+  let discoveryUnreadable = false;
+
+  for (const record of stationTimetableRecords) {
+    const calendar = isNonEmptyString(record.calendar)
+      ? record.calendar.trim()
+      : null;
     for (const object of record.objects ?? []) {
-      const departureMinutes = parseClockMinutes(object.departureTime);
-      if (departureMinutes === null) continue;
-      if (departureMinutes < windowStart || departureMinutes > windowEnd) {
-        continue;
-      }
       // An object without an exact train identity cannot produce a verified
       // candidate, and its station-level ordering proves nothing.
       if (!isNonEmptyString(object.train)) {
         state.candidatesWithoutTrainIdentity += 1;
         continue;
       }
-      const trainIdentity = object.train;
-      const existing = byTrain.get(trainIdentity);
-      if (
-        existing === undefined ||
-        departureMinutes < existing.departureMinutes
-      ) {
-        byTrain.set(trainIdentity, {
-          trainIdentity,
-          departureMinutes,
-          calendar: calendar ?? existing?.calendar ?? null,
-        });
+      const trainIdentity = object.train.trim();
+      const departureMinutes = parseClockMinutes(object.departureTime);
+      if (departureMinutes === null) {
+        // A genuinely ABSENT departure time simply is not a direct-departure
+        // candidate. A PRESENT but unreadable one is different: we cannot tell
+        // whether this exact train falls inside the requested window, so
+        // treating it as "no candidate" would turn unreadable evidence into an
+        // absence.
+        if (isNonEmptyString(object.departureTime)) {
+          discoveryUnreadable = true;
+          state.reasons.push(
+            `unreadable_discovery_departure:${trainIdentity}:${object.departureTime.trim()}`,
+          );
+        }
+        continue;
+      }
+      // Bounded local window filter: a readable departure outside the requested
+      // window is safely ignored, because we CAN place it in time.
+      if (departureMinutes < windowStart || departureMinutes > windowEnd) {
+        continue;
+      }
+      const existing = occurrencesByTrain.get(trainIdentity);
+      if (existing === undefined) {
+        occurrencesByTrain.set(trainIdentity, [{ departureMinutes, calendar }]);
+      } else {
+        existing.push({ departureMinutes, calendar });
       }
     }
   }
 
-  const candidates = [...byTrain.values()].sort(
+  // ── Candidate assembly: dedupe by identity, keep every occurrence ──────────
+  const candidates: DiscoveredCandidate[] = [];
+  for (const [trainIdentity, occurrences] of occurrencesByTrain) {
+    const departures = [...new Set(occurrences.map((o) => o.departureMinutes))];
+    const calendars = [
+      ...new Set(
+        occurrences
+          .map((o) => o.calendar)
+          .filter((value): value is string => value !== null),
+      ),
+    ].sort();
+
+    if (departures.length > 1) {
+      // One exact train cannot depart the same station at several times for one
+      // service date; keeping the earliest occurrence would be a silent guess.
+      state.reasons.push(
+        `ambiguous_discovery_departure:${trainIdentity}:${departures
+          .sort((left, right) => left - right)
+          .join(",")}`,
+      );
+      candidates.push({
+        trainIdentity,
+        departureMinutes: null,
+        calendar: null,
+        calendars,
+        ambiguousReason: "ambiguous_discovery_departure",
+      });
+      continue;
+    }
+
+    if (calendars.length > 1) {
+      // The same departure appears under several distinct calendars (the
+      // measured Toei shape). Retaining the first would arbitrarily pick a
+      // variant, so ask WITHOUT a calendar filter — still narrowed by the exact
+      // train identity — and let the builder reconcile what comes back.
+      state.reasons.push(`multiple_discovery_calendars:${trainIdentity}`);
+      candidates.push({
+        trainIdentity,
+        departureMinutes: departures[0],
+        calendar: null,
+        calendars,
+        ambiguousReason: null,
+      });
+      continue;
+    }
+
+    candidates.push({
+      trainIdentity,
+      departureMinutes: departures[0],
+      calendar: calendars[0] ?? null,
+      calendars,
+      ambiguousReason: null,
+    });
+  }
+
+  candidates.sort(
     (left, right) =>
-      left.departureMinutes - right.departureMinutes ||
+      (left.departureMinutes ?? Number.MAX_SAFE_INTEGER) -
+        (right.departureMinutes ?? Number.MAX_SAFE_INTEGER) ||
       left.trainIdentity.localeCompare(right.trainIdentity),
   );
   state.candidatesDiscovered = candidates.length;
 
   if (candidates.length === 0) {
+    if (discoveryUnreadable) {
+      // Unreadable discovery evidence must never be reported as an absence.
+      return inconclusive("station_timetable_departure_unreadable", state, []);
+    }
     // Conclusive for this bounded scope: the origin's own timetable, filtered to
     // the requested window, yielded no exact train identity to inspect.
     return noDirectServiceEvidence(state);
@@ -415,6 +620,14 @@ export async function resolveOdptDirectJourney(
   let inconclusiveReason: OdptDirectJourneyResolutionReason | null = null;
 
   for (const candidate of candidates) {
+    if (candidate.ambiguousReason !== null) {
+      // Discovery could not reconcile this identity, and no lookup can settle a
+      // conflict that exists in the discovery response itself.
+      inconclusiveReason ??= candidate.ambiguousReason;
+      state.candidatesInconclusive += 1;
+      continue;
+    }
+
     if (
       state.exactTrainLookups >= ODPT_DIRECT_JOURNEY_MAX_TRAIN_LOOKUPS ||
       state.stationTimetableLookups + state.exactTrainLookups >=
@@ -443,12 +656,16 @@ export async function resolveOdptDirectJourney(
           result.errorCode,
           "train_timetable",
         );
+        state.candidatesInconclusive += 1;
         state.reasons.push(
           `train_timetable_error:${candidate.trainIdentity}:${result.errorCode ?? "unknown"}`,
         );
         continue;
       }
       if (result.outcome === "no_data") {
+        // A documented 404 for an EXACT identity is a conclusive answer about
+        // this train, unlike a failed or oversized response.
+        state.candidatesConclusive += 1;
         state.reasons.push(
           `train_timetable_no_data:${candidate.trainIdentity}`,
         );
@@ -457,13 +674,14 @@ export async function resolveOdptDirectJourney(
       records = result.records ?? [];
     } catch {
       inconclusiveReason ??= "train_timetable_provider_error";
+      state.candidatesInconclusive += 1;
       state.reasons.push(`train_timetable_threw:${candidate.trainIdentity}`);
       continue;
     }
 
     if (records.length === 0) {
-      // Successful empty answer for one exact identity: no direct evidence from
-      // this candidate.
+      // Successful empty answer for one exact identity: conclusive for it.
+      state.candidatesConclusive += 1;
       state.reasons.push(`train_timetable_empty:${candidate.trainIdentity}`);
       continue;
     }
@@ -485,19 +703,56 @@ export async function resolveOdptDirectJourney(
       originStation: input.originStation,
       destinationStation: input.destinationStation,
       serviceDate: input.serviceDate,
+      // The requested identity scopes the response: a record for a different
+      // train must not prove this candidate.
+      expectedTrainIdentity: candidate.trainIdentity,
+      // Only asserted when the request was actually narrowed by a calendar.
+      expectedCalendar: candidate.calendar,
     });
 
     if (build.kind === "verified") {
+      // StationTimetable is DISCOVERY evidence; TrainTimetable is the duration
+      // authority. The proven departure must be the same event that selected
+      // this train, and must still lie inside the requested window.
+      const verifiedDepartureMinutes = parseClockMinutes(
+        build.evidence.scheduledDepartureTime,
+      );
+      if (
+        verifiedDepartureMinutes === null ||
+        candidate.departureMinutes === null ||
+        verifiedDepartureMinutes !== candidate.departureMinutes ||
+        verifiedDepartureMinutes < windowStart ||
+        verifiedDepartureMinutes > windowEnd
+      ) {
+        inconclusiveReason ??= "departure_evidence_mismatch";
+        state.candidatesInconclusive += 1;
+        state.reasons.push(
+          `departure_evidence_mismatch:${candidate.trainIdentity}:` +
+            `discovery=${candidate.departureMinutes ?? "null"}:` +
+            `exact=${build.evidence.scheduledDepartureTime}`,
+        );
+        continue;
+      }
+      state.candidatesConclusive += 1;
       resolved.push({
         journey: build.journey,
         evidence: build.evidence,
-        scheduledDepartureMinutes: candidate.departureMinutes,
+        // The VERIFIED departure proven by the exact timetable — never the
+        // conflicting discovery value.
+        scheduledDepartureMinutes: verifiedDepartureMinutes,
       });
       continue;
     }
 
     if (build.kind === "inconclusive") {
-      inconclusiveReason ??= "inspection_inconclusive";
+      if (build.reason === "train_timetable_scope_mismatch") {
+        inconclusiveReason ??= "train_timetable_scope_mismatch";
+      } else if (build.reason === "calendar_scope_mismatch") {
+        inconclusiveReason ??= "calendar_scope_mismatch";
+      } else {
+        inconclusiveReason ??= "inspection_inconclusive";
+      }
+      state.candidatesInconclusive += 1;
       state.reasons.push(
         `train_timetable_inconclusive:${candidate.trainIdentity}:${build.reason}`,
       );
@@ -505,31 +760,44 @@ export async function resolveOdptDirectJourney(
     }
 
     // No match from these records. If the provider declared a continuation we
-    // did not receive, evidence remains UNINSPECTED — that is inconclusive, not
-    // an absence.
+    // did not receive, evidence remains UNINSPECTED — inconclusive, not absent.
     if (declaresUnretrievedContinuation(records)) {
       inconclusiveReason ??= "split_continuation_not_retrieved";
+      state.candidatesInconclusive += 1;
       state.reasons.push(
         `split_continuation_not_retrieved:${candidate.trainIdentity}`,
       );
       continue;
     }
+    state.candidatesConclusive += 1;
     state.reasons.push(
       `train_timetable_no_match:${candidate.trainIdentity}:${build.reason}`,
     );
   }
 
   // ── Deterministic aggregation: never a winner ─────────────────────────────
+  // `complete` requires that EVERY discovered candidate was conclusively
+  // settled. Any unreadable candidate, any candidate the cap left uninspected,
+  // and any discovery-level ambiguity all make the answer partial: a resolved
+  // result must not imply we finished looking.
+  const hasUnresolvedUncertainty =
+    state.candidateLimitReached ||
+    discoveryUnreadable ||
+    state.candidatesInconclusive > 0;
+
   if (resolved.length > 0) {
     resolved.sort(
       (left, right) =>
         left.scheduledDepartureMinutes - right.scheduledDepartureMinutes ||
         left.evidence.trainIdentity.localeCompare(right.evidence.trainIdentity),
     );
+    const allSettled =
+      !hasUnresolvedUncertainty &&
+      state.candidatesConclusive === state.candidatesDiscovered;
     return {
       status: "resolved",
       candidates: resolved,
-      coverage: state.candidateLimitReached ? "partial" : "complete",
+      coverage: allSettled ? "complete" : "partial",
       diagnostics: freezeDiagnostics(state),
     };
   }
@@ -540,6 +808,9 @@ export async function resolveOdptDirectJourney(
   }
   if (inconclusiveReason !== null) {
     return inconclusive(inconclusiveReason, state, []);
+  }
+  if (discoveryUnreadable) {
+    return inconclusive("station_timetable_departure_unreadable", state, []);
   }
   // Every discovered candidate was safely inspected and none proved a direct
   // journey. Still not a claim that no direct train exists.

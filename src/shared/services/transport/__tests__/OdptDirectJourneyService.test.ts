@@ -11,9 +11,11 @@ import type {
 import {
   ODPT_DIRECT_JOURNEY_BASE_LOOKUP_BUDGET,
   ODPT_DIRECT_JOURNEY_MAX_TRAIN_LOOKUPS,
+  parseDepartureWindowBound,
   resolveOdptDirectJourney,
   type OdptDirectJourneyResolution,
 } from "../OdptDirectJourneyService";
+import { parseClockMinutes } from "../odptChronology";
 import {
   JR_EAST_OPERATOR,
   MARUNOUCHI_TRAIN,
@@ -121,6 +123,48 @@ function failure<T>(
   };
 }
 
+/**
+ * A Marunouchi-style record for ONE requested train identity, departing at
+ * `departure`. A stub must answer with the train that was actually asked for:
+ * a response for a different train is now a scope violation rather than proof.
+ */
+function marunouchiRecordFor(
+  trainIdentity: string,
+  departure: string,
+  durationMinutes = 41,
+): OdptTrainTimetable {
+  const [hours, minutes] = departure.split(":").map(Number);
+  const total = hours * 60 + minutes + durationMinutes;
+  const arrival = `${String(Math.floor(total / 60)).padStart(2, "0")}:${String(
+    total % 60,
+  ).padStart(2, "0")}`;
+  return trainTimetableFixture({
+    sameAs: `odpt.TrainTimetable:${trainIdentity}`,
+    train: trainIdentity,
+    trainNumber: trainIdentity.split(".").at(-1) ?? "X",
+    operator: TOKYO_METRO_OPERATOR,
+    railway: "odpt.Railway:TokyoMetro.Marunouchi",
+    objects: [
+      trainTimetableObject(marunouchiStationId("Shinjuku"), null, departure),
+      trainTimetableObject(marunouchiStationId("Ikebukuro"), arrival, null),
+    ],
+  });
+}
+
+/** A record for ONE requested train that conclusively does NOT carry the pair. */
+function marunouchiNoPairFor(trainIdentity: string): OdptTrainTimetable {
+  return trainTimetableFixture({
+    sameAs: `odpt.TrainTimetable:${trainIdentity}`,
+    train: trainIdentity,
+    trainNumber: trainIdentity.split(".").at(-1) ?? "X",
+    operator: TOKYO_METRO_OPERATOR,
+    railway: "odpt.Railway:TokyoMetro.Marunouchi",
+    objects: [
+      trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
+    ],
+  });
+}
+
 /** A StationTimetable at the Marunouchi origin listing `count` distinct trains. */
 function shinjukuTimetableWithTrains(count: number): OdptStationTimetable {
   const objects = [];
@@ -174,16 +218,25 @@ function trainCalls(calls: readonly RecordedCall[]): RecordedCall[] {
 
 describe("resolveOdptDirectJourney — resolved path", () => {
   it("resolves a direct service discovered from the origin's own timetable", async () => {
+    // The origin's own timetable lists B427 (06:00) and B429 (06:04), and each
+    // exact lookup answers for the train that was requested.
+    const departures: Record<string, string> = {
+      [MARUNOUCHI_TRAIN]: "06:00",
+      "odpt.Train:TokyoMetro.Marunouchi.B429": "06:04",
+    };
     const { resolution, calls } = await resolve({
       stationTimetable: () =>
         records("station_timetable", [SHINJUKU_STATION_TIMETABLE]),
-      trainTimetable: () =>
-        records("train_timetable", [MARUNOUCHI_TRAIN_TIMETABLE]),
+      trainTimetable: (input) => {
+        const train = String(input.train);
+        return records("train_timetable", [
+          marunouchiRecordFor(train, departures[train] ?? "06:00"),
+        ]);
+      },
     });
 
     expect(resolution.status).toBe("resolved");
     if (resolution.status !== "resolved") return;
-    // The origin's own timetable lists B427 (06:00) and B429 (06:04) in window.
     expect(resolution.candidates).toHaveLength(2);
     expect(resolution.coverage).toBe("complete");
     expect(resolution.candidates[0].journey.legs[0].duration.minutes).toEqual([
@@ -326,10 +379,20 @@ describe("resolveOdptDirectJourney — departure window", () => {
         ),
       ],
     });
+    const departures: Record<string, string> = {
+      "odpt.Train:TokyoMetro.Marunouchi.IN1": "06:00",
+      "odpt.Train:TokyoMetro.Marunouchi.IN2": "07:00",
+      "odpt.Train:TokyoMetro.Marunouchi.IN3": "08:00",
+    };
     const { resolution, calls } = await resolve({
       stationTimetable: () => records("station_timetable", [timetable]),
-      trainTimetable: () =>
-        records("train_timetable", [MARUNOUCHI_TRAIN_TIMETABLE]),
+      trainTimetable: (input) =>
+        records("train_timetable", [
+          marunouchiRecordFor(
+            String(input.train),
+            departures[String(input.train)] ?? "06:00",
+          ),
+        ]),
     });
     // Inclusive bounds: 06:00 and 08:00 are inside, 05:59 and 08:01 are not.
     expect(trainCalls(calls).map((call) => call.input.train)).toEqual([
@@ -407,22 +470,12 @@ describe("resolveOdptDirectJourney — departure window", () => {
 
 describe("resolveOdptDirectJourney — per-journey fan-out budget", () => {
   it("caps a resolution at eight logical lookups and never issues a ninth", async () => {
-    // A record that never contains the requested pair, so no candidate verifies
-    // and the budget cap is what decides the outcome.
-    const noPair = trainTimetableFixture({
-      sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.NOPAIR",
-      train: MARUNOUCHI_TRAIN,
-      trainNumber: "NOPAIR",
-      operator: TOKYO_METRO_OPERATOR,
-      railway: "odpt.Railway:TokyoMetro.Marunouchi",
-      objects: [
-        trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
-      ],
-    });
+    // Every candidate conclusively lacks the pair, so the cap decides the result.
     const { resolution, calls } = await resolve({
       stationTimetable: () =>
         records("station_timetable", [shinjukuTimetableWithTrains(12)]),
-      trainTimetable: () => records("train_timetable", [noPair]),
+      trainTimetable: (input) =>
+        records("train_timetable", [marunouchiNoPairFor(String(input.train))]),
     });
 
     expect(ODPT_DIRECT_JOURNEY_BASE_LOOKUP_BUDGET).toBe(8);
@@ -442,31 +495,52 @@ describe("resolveOdptDirectJourney — per-journey fan-out budget", () => {
   });
 
   it("reports partial coverage when a proven journey coexists with uninspected candidates", async () => {
+    let call = 0;
     const { resolution } = await resolve({
       stationTimetable: () =>
         records("station_timetable", [shinjukuTimetableWithTrains(12)]),
-      trainTimetable: () =>
-        records("train_timetable", [MARUNOUCHI_TRAIN_TIMETABLE]),
+      trainTimetable: (input) => {
+        call += 1;
+        // The first inspected candidate proves the pair; the rest conclusively do
+        // not. Uninspected candidates remain, so coverage cannot be complete.
+        return records("train_timetable", [
+          call === 1
+            ? marunouchiRecordFor(String(input.train), "06:00")
+            : marunouchiNoPairFor(String(input.train)),
+        ]);
+      },
     });
     expect(resolution.status).toBe("resolved");
     if (resolution.status !== "resolved") return;
     expect(resolution.coverage).toBe("partial");
     expect(resolution.diagnostics.candidateLimitReached).toBe(true);
-    expect(resolution.candidates.length).toBeGreaterThan(0);
+    expect(resolution.candidates).toHaveLength(1);
+    expect(resolution.diagnostics.candidatesConclusive).toBe(
+      ODPT_DIRECT_JOURNEY_MAX_TRAIN_LOOKUPS,
+    );
   });
 
   it("uses complete coverage when every discovered candidate was inspected", async () => {
+    const departures = ["06:00", "06:05", "06:10"];
+    let call = 0;
     const { resolution } = await resolve({
       stationTimetable: () =>
         records("station_timetable", [shinjukuTimetableWithTrains(3)]),
-      trainTimetable: () =>
-        records("train_timetable", [MARUNOUCHI_TRAIN_TIMETABLE]),
+      trainTimetable: (input) => {
+        const departure = departures[call] ?? "06:00";
+        call += 1;
+        return records("train_timetable", [
+          marunouchiRecordFor(String(input.train), departure),
+        ]);
+      },
     });
     expect(resolution.status).toBe("resolved");
     if (resolution.status !== "resolved") return;
     expect(resolution.coverage).toBe("complete");
     expect(resolution.diagnostics.candidateLimitReached).toBe(false);
     expect(resolution.diagnostics.logicalLookups).toBe(4);
+    expect(resolution.diagnostics.candidatesInconclusive).toBe(0);
+    expect(resolution.diagnostics.candidatesConclusive).toBe(3);
   });
 
   it("keeps a server-side 503 retry invisible to the client-side fan-out budget", async () => {
@@ -629,6 +703,7 @@ describe("resolveOdptDirectJourney — split continuation", () => {
       station: mitaStationId("Meguro"),
       operator: TOEI_OPERATOR,
       railway: MITA_RAILWAY,
+      calendar: "odpt.Calendar:SaturdayHoliday",
       objects: [stationTimetableObject(MITA_TRAIN, "10:00")],
     });
     const { resolution } = await resolve(
@@ -882,35 +957,27 @@ describe("resolveOdptDirectJourney — never selects a winner", () => {
       ],
     });
     // Distinct durations so a "fastest" policy would visibly pick a different one.
-    const durations: Record<string, number> = {
-      "odpt.Train:TokyoMetro.Marunouchi.FAST": 5,
-      "odpt.Train:TokyoMetro.Marunouchi.MID": 30,
-      "odpt.Train:TokyoMetro.Marunouchi.SLOW": 50,
+    const plan: Record<string, { departure: string; duration: number }> = {
+      "odpt.Train:TokyoMetro.Marunouchi.FAST": {
+        departure: "06:10",
+        duration: 5,
+      },
+      "odpt.Train:TokyoMetro.Marunouchi.MID": {
+        departure: "06:20",
+        duration: 30,
+      },
+      "odpt.Train:TokyoMetro.Marunouchi.SLOW": {
+        departure: "06:30",
+        duration: 50,
+      },
     };
     const { resolution } = await resolve({
       stationTimetable: () => records("station_timetable", [timetable]),
       trainTimetable: (input) => {
-        const minutes = durations[String(input.train)] ?? 10;
+        const train = String(input.train);
+        const entry = plan[train] ?? { departure: "06:00", duration: 10 };
         return records("train_timetable", [
-          trainTimetableFixture({
-            sameAs: `odpt.TrainTimetable:${String(input.train)}`,
-            train: String(input.train),
-            trainNumber: "X",
-            operator: TOKYO_METRO_OPERATOR,
-            railway: "odpt.Railway:TokyoMetro.Marunouchi",
-            objects: [
-              trainTimetableObject(
-                marunouchiStationId("Shinjuku"),
-                null,
-                "06:00",
-              ),
-              trainTimetableObject(
-                marunouchiStationId("Ikebukuro"),
-                `06:${String(minutes).padStart(2, "0")}`,
-                null,
-              ),
-            ],
-          }),
+          marunouchiRecordFor(train, entry.departure, entry.duration),
         ]);
       },
     });
@@ -1010,7 +1077,9 @@ describe("resolveOdptDirectJourney — robustness", () => {
     });
     expect(Object.keys(resolution.diagnostics).sort()).toEqual([
       "candidateLimitReached",
+      "candidatesConclusive",
       "candidatesDiscovered",
+      "candidatesInconclusive",
       "candidatesInspected",
       "candidatesWithoutTrainIdentity",
       "exactTrainLookups",
@@ -1018,5 +1087,500 @@ describe("resolveOdptDirectJourney — robustness", () => {
       "reasons",
       "stationTimetableLookups",
     ]);
+  });
+});
+
+describe("resolveOdptDirectJourney — response scope validation", () => {
+  const discover = (recordsIn: readonly OdptStationTimetable[]) => ({
+    stationTimetable: () => records("station_timetable", recordsIn),
+    trainTimetable: (input: OdptTrainTimetableQuery) =>
+      records("train_timetable", [
+        marunouchiRecordFor(String(input.train), "06:00"),
+      ]),
+  });
+
+  it("fails closed when StationTimetable returns ANOTHER station", async () => {
+    const wrongStation = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Ikebukuro",
+      station: marunouchiStationId("Ikebukuro"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+    });
+    const { resolution, calls } = await resolve(discover([wrongStation]));
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("station_timetable_scope_mismatch");
+    // Discovery only: a scope violation must not seed candidate lookups.
+    expect(calls).toHaveLength(1);
+    expect(resolution.diagnostics.logicalLookups).toBe(1);
+  });
+
+  it("fails closed when a StationTimetable record omits its station", async () => {
+    const noStation = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Anonymous",
+      station: null as unknown as string,
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+    });
+    const { resolution } = await resolve(discover([noStation]));
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("station_timetable_scope_mismatch");
+  });
+
+  it("fails closed when StationTimetable names the OTHER pilot operator", async () => {
+    // Both are pilot operators, so an "inside the pilot" check alone would pass —
+    // the record must still be consistent with the requested station's operator.
+    const foreignOperator = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOEI_OPERATOR,
+      railway: MITA_RAILWAY,
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+    });
+    const { resolution } = await resolve(discover([foreignOperator]));
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("station_timetable_scope_mismatch");
+  });
+
+  it("fails closed when the exact lookup returns a DIFFERENT train", async () => {
+    // Toei is inside the pilot, so only the exact-identity scope check can catch
+    // this: a record for another train must not prove the requested candidate.
+    const otherTrain = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:Toei.Mita.535T",
+      train: MITA_TRAIN,
+      trainNumber: "535T",
+      operator: TOEI_OPERATOR,
+      railway: MITA_RAILWAY,
+      objects: [
+        trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
+        trainTimetableObject(marunouchiStationId("Ikebukuro"), "06:41", null),
+      ],
+    });
+    const { resolution } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", [
+          stationTimetableFixture({
+            sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku",
+            station: marunouchiStationId("Shinjuku"),
+            operator: TOKYO_METRO_OPERATOR,
+            railway: "odpt.Railway:TokyoMetro.Marunouchi",
+            objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+          }),
+        ]),
+      trainTimetable: () => records("train_timetable", [otherTrain]),
+    });
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("train_timetable_scope_mismatch");
+  });
+
+  it("fails closed when the exact lookup returns a contradicting calendar", async () => {
+    const holidayOnly = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427Holiday",
+      train: MARUNOUCHI_TRAIN,
+      trainNumber: "B427",
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      calendar: "odpt.Calendar:SaturdayHoliday",
+      objects: [
+        trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
+        trainTimetableObject(marunouchiStationId("Ikebukuro"), "06:41", null),
+      ],
+    });
+    const { resolution } = await resolve({
+      // Discovery declares Weekday, so the query is narrowed to that calendar…
+      stationTimetable: () =>
+        records("station_timetable", [SHINJUKU_STATION_TIMETABLE]),
+      // …but only a SaturdayHoliday record comes back.
+      trainTimetable: () => records("train_timetable", [holidayOnly]),
+    });
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("calendar_scope_mismatch");
+  });
+});
+
+describe("resolveOdptDirectJourney — discovery vs exact departure reconciliation", () => {
+  const singleTrainTimetable = () =>
+    stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+    });
+
+  it("resolves when the proven departure agrees with discovery", async () => {
+    const { resolution } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", [singleTrainTimetable()]),
+      trainTimetable: (input) =>
+        records("train_timetable", [
+          marunouchiRecordFor(String(input.train), "06:00"),
+        ]),
+    });
+    expect(resolution.status).toBe("resolved");
+  });
+
+  it("compares parsed clock meaning, so HH:MM:SS equals HH:MM", async () => {
+    const secondsRecord = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427",
+      train: MARUNOUCHI_TRAIN,
+      trainNumber: "B427",
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: [
+        trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00:30"),
+        trainTimetableObject(
+          marunouchiStationId("Ikebukuro"),
+          "06:41:00",
+          null,
+        ),
+      ],
+    });
+    const { resolution } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", [singleTrainTimetable()]),
+      trainTimetable: () => records("train_timetable", [secondsRecord]),
+    });
+    // Textual formatting differs; the service-clock meaning does not.
+    expect(resolution.status).toBe("resolved");
+    if (resolution.status !== "resolved") return;
+    expect(resolution.candidates[0].scheduledDepartureMinutes).toBe(6 * 60);
+  });
+
+  it("fails closed when the PROVEN departure is outside the requested window", async () => {
+    const { resolution } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", [singleTrainTimetable()]),
+      trainTimetable: (input) =>
+        records("train_timetable", [
+          marunouchiRecordFor(String(input.train), "09:30"),
+        ]),
+    });
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("departure_evidence_mismatch");
+  });
+
+  it("fails closed when discovery and the exact timetable disagree", async () => {
+    const { resolution } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", [singleTrainTimetable()]),
+      trainTimetable: (input) =>
+        records("train_timetable", [
+          marunouchiRecordFor(String(input.train), "06:10"),
+        ]),
+    });
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("departure_evidence_mismatch");
+  });
+
+  it("reports and orders by the VERIFIED departure", async () => {
+    const timetable = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: [
+        stationTimetableObject(
+          "odpt.Train:TokyoMetro.Marunouchi.LATE",
+          "06:40",
+        ),
+        stationTimetableObject(
+          "odpt.Train:TokyoMetro.Marunouchi.EARLY",
+          "06:05",
+        ),
+      ],
+    });
+    const departures: Record<string, string> = {
+      "odpt.Train:TokyoMetro.Marunouchi.LATE": "06:40",
+      "odpt.Train:TokyoMetro.Marunouchi.EARLY": "06:05",
+    };
+    const { resolution } = await resolve({
+      stationTimetable: () => records("station_timetable", [timetable]),
+      trainTimetable: (input) =>
+        records("train_timetable", [
+          marunouchiRecordFor(
+            String(input.train),
+            departures[String(input.train)] ?? "06:00",
+          ),
+        ]),
+    });
+    expect(resolution.status).toBe("resolved");
+    if (resolution.status !== "resolved") return;
+    expect(
+      resolution.candidates.map(
+        (candidate) => candidate.scheduledDepartureMinutes,
+      ),
+    ).toEqual([6 * 60 + 5, 6 * 60 + 40]);
+  });
+});
+
+describe("resolveOdptDirectJourney — duplicate identity across calendars", () => {
+  it("issues ONE bounded lookup WITHOUT a calendar filter when variants disagree", async () => {
+    // The measured Toei shape: one departure, several distinct calendars.
+    // Retaining the first would arbitrarily pick a variant.
+    const weekday = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku.Weekday",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      calendar: "odpt.Calendar:Weekday",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+    });
+    const holiday = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku.Holiday",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      calendar: "odpt.Calendar:SaturdayHoliday",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+    });
+    const variantRecords = [
+      trainTimetableFixture({
+        sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427.Weekday",
+        train: MARUNOUCHI_TRAIN,
+        trainNumber: "B427",
+        operator: TOKYO_METRO_OPERATOR,
+        railway: "odpt.Railway:TokyoMetro.Marunouchi",
+        calendar: "odpt.Calendar:Weekday",
+        objects: [
+          trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
+          trainTimetableObject(marunouchiStationId("Ikebukuro"), "06:41", null),
+        ],
+      }),
+      trainTimetableFixture({
+        sameAs:
+          "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427.SaturdayHoliday",
+        train: MARUNOUCHI_TRAIN,
+        trainNumber: "B427",
+        operator: TOKYO_METRO_OPERATOR,
+        railway: "odpt.Railway:TokyoMetro.Marunouchi",
+        calendar: "odpt.Calendar:SaturdayHoliday",
+        objects: [
+          trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
+          trainTimetableObject(marunouchiStationId("Ikebukuro"), "06:41", null),
+        ],
+      }),
+    ];
+    const { resolution, calls } = await resolve({
+      stationTimetable: () => records("station_timetable", [weekday, holiday]),
+      trainTimetable: () => records("train_timetable", variantRecords),
+    });
+
+    // One identity → one lookup, despite appearing under two calendars.
+    expect(trainCalls(calls)).toHaveLength(1);
+    // No calendar filter: choosing one variant would be arbitrary.
+    expect(trainCalls(calls)[0].input).toEqual({ train: MARUNOUCHI_TRAIN });
+    expect(resolution.status).toBe("resolved");
+    if (resolution.status !== "resolved") return;
+    expect(resolution.diagnostics.candidatesDiscovered).toBe(1);
+    // Both agreeing variants are represented rather than collapsed.
+    expect(resolution.candidates[0].evidence.calendars).toEqual([
+      "odpt.Calendar:SaturdayHoliday",
+      "odpt.Calendar:Weekday",
+    ]);
+    expect(resolution.candidates[0].evidence.calendar).toBeNull();
+  });
+
+  it("fails closed when one identity has conflicting discovery departures", async () => {
+    const early = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku.Early",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+    });
+    const late = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku.Late",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:30")],
+    });
+    const { resolution, calls } = await resolve({
+      stationTimetable: () => records("station_timetable", [early, late]),
+      trainTimetable: (input) =>
+        records("train_timetable", [
+          marunouchiRecordFor(String(input.train), "06:00"),
+        ]),
+    });
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("ambiguous_discovery_departure");
+    // No lookup can settle a conflict inside the discovery response itself.
+    expect(trainCalls(calls)).toHaveLength(0);
+  });
+});
+
+describe("resolveOdptDirectJourney — coverage completeness", () => {
+  it("is PARTIAL when another candidate was inconclusive", async () => {
+    let call = 0;
+    const { resolution } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", [shinjukuTimetableWithTrains(2)]),
+      trainTimetable: (input) => {
+        call += 1;
+        if (call === 1) {
+          return records("train_timetable", [
+            marunouchiRecordFor(String(input.train), "06:00"),
+          ]);
+        }
+        return failure<OdptTrainTimetable>(
+          "train_timetable",
+          "provider_unavailable",
+        );
+      },
+    });
+    expect(resolution.status).toBe("resolved");
+    if (resolution.status !== "resolved") return;
+    expect(resolution.coverage).toBe("partial");
+    expect(resolution.diagnostics.candidatesInconclusive).toBe(1);
+  });
+
+  it("is COMPLETE only when every discovered candidate was settled", async () => {
+    const { resolution } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", [shinjukuTimetableWithTrains(2)]),
+      trainTimetable: (input) =>
+        records("train_timetable", [marunouchiNoPairFor(String(input.train))]),
+    });
+    // Nothing proven, but every candidate was CONCLUSIVELY settled.
+    expect(resolution.status).toBe("no_direct_service_evidence");
+    expect(resolution.diagnostics.candidatesInconclusive).toBe(0);
+    expect(resolution.diagnostics.candidatesConclusive).toBe(2);
+  });
+
+  it("is INCONCLUSIVE rather than an absence when a candidate is unreadable", async () => {
+    const { resolution } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", [shinjukuTimetableWithTrains(1)]),
+      trainTimetable: () =>
+        failure<OdptTrainTimetable>(
+          "train_timetable",
+          "provider_response_too_large",
+        ),
+    });
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("train_timetable_response_too_large");
+  });
+});
+
+describe("resolveOdptDirectJourney — strict departure-window grammar", () => {
+  it.each([
+    ["00:00", 0],
+    ["06:30", 390],
+    ["23:59", 1439],
+  ])("accepts %s", (value, expected) => {
+    expect(parseDepartureWindowBound(value)).toBe(expected);
+  });
+
+  it.each([
+    ["single-digit hour", "6:30"],
+    ["seconds", "06:30:00"],
+    ["hour 24", "24:00"],
+    ["minute 60", "06:60"],
+    ["leading whitespace", " 06:30"],
+    ["trailing whitespace", "06:30 "],
+    ["no separator", "0630"],
+    ["empty", ""],
+    ["null", null],
+    ["undefined", undefined],
+  ])("rejects %s", (_label, value) => {
+    expect(
+      parseDepartureWindowBound(value as string | null | undefined),
+    ).toBeNull();
+  });
+
+  it("is stricter than the shared chronology parser, by design", () => {
+    // The provider grammar is broader; the caller-facing window is documented as
+    // exactly HH:MM, so the two must not be conflated.
+    expect(parseClockMinutes("6:30")).toBe(390);
+    expect(parseDepartureWindowBound("6:30")).toBeNull();
+    expect(parseClockMinutes("06:30:00")).toBe(390);
+    expect(parseDepartureWindowBound("06:30:00")).toBeNull();
+  });
+
+  it.each([["06:30:00"], [" 06:00"]])(
+    "rejects %s at the resolver boundary without any lookup",
+    async (bound) => {
+      const { resolution, calls } = await resolve(
+        {
+          stationTimetable: () =>
+            records("station_timetable", [SHINJUKU_STATION_TIMETABLE]),
+          trainTimetable: () => records("train_timetable", []),
+        },
+        { departureWindow: { start: bound, end: "08:00" } },
+      );
+      expect(resolution.status).toBe("inconclusive");
+      if (resolution.status !== "inconclusive") return;
+      expect(resolution.reason).toBe("invalid_departure_window");
+      expect(calls).toHaveLength(0);
+    },
+  );
+});
+
+describe("resolveOdptDirectJourney — malformed discovery evidence", () => {
+  it("fails closed when an exact train has a PRESENT but unreadable departure", async () => {
+    const unreadable = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "6:5x")],
+    });
+    const { resolution } = await resolve({
+      stationTimetable: () => records("station_timetable", [unreadable]),
+      trainTimetable: (input) =>
+        records("train_timetable", [
+          marunouchiRecordFor(String(input.train), "06:00"),
+        ]),
+    });
+    // We cannot tell whether this train falls inside the window, so this must
+    // not be reported as an absence.
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("station_timetable_departure_unreadable");
+  });
+
+  it("does not fabricate a candidate from an identity-less object with a bad time", async () => {
+    const noIdentity = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: [stationTimetableObject(null, "6:5x")],
+    });
+    const { resolution } = await resolve({
+      stationTimetable: () => records("station_timetable", [noIdentity]),
+      trainTimetable: () => records("train_timetable", []),
+    });
+    expect(resolution.diagnostics.candidatesDiscovered).toBe(0);
+    expect(resolution.diagnostics.candidatesWithoutTrainIdentity).toBe(1);
+    expect(resolution.status).toBe("no_direct_service_evidence");
+  });
+
+  it("safely ignores a readable departure outside the window", async () => {
+    const outOfWindow = stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "09:30")],
+    });
+    const { resolution } = await resolve({
+      stationTimetable: () => records("station_timetable", [outOfWindow]),
+      trainTimetable: () => records("train_timetable", []),
+    });
+    // We CAN place it in time, so it simply is not a candidate.
+    expect(resolution.diagnostics.candidatesDiscovered).toBe(0);
+    expect(resolution.status).toBe("no_direct_service_evidence");
   });
 });
