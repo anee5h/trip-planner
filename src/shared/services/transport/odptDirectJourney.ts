@@ -46,10 +46,22 @@
  *    plausible ordered pairs, and the record does not say which one is meant.
  *    That is `ambiguous_stop_pair`, not a guess. This primitive prefers "no
  *    verified Journey" to an invented one.
- * 4. A split continuation is joined ONLY through the provider's explicit
+ * 4. Independent sibling records must AGREE. An exact train identity can return
+ *    several records that are not continuations of one another (calendar
+ *    variants). A sibling that does not carry the pair, or cannot be read, is
+ *    NOT thereby irrelevant: with no calendar narrowing we cannot know which
+ *    variant applies, so a claim true under one and false under another must
+ *    never be reported as verified. A sibling counts as irrelevant only when
+ *    applicability was already excluded by trustworthy request scope (a
+ *    contradicting explicit calendar) or when the provider EXPLICITLY links it as
+ *    a continuation of the same service.
+ * 5. A split continuation is joined ONLY through the provider's explicit
  *    `odpt:nextTrainTimetable` / `odpt:previousTrainTimetable` links AND the
  *    existing compatibility check. Matching train numbers, names, operators,
  *    railways, times or terminals are explicitly NOT evidence of continuation.
+ *    A continuation is the same SERVICE, not competing schedule evidence, so a
+ *    pair proven completely inside one record of that service stays verified even
+ *    when the linked continuation does not contain that pair.
  */
 
 import type {
@@ -207,6 +219,18 @@ export type OdptDirectJourneyInconclusiveReason =
    * stays uncertain instead of being reported as verified.
    */
   | "sibling_evidence_inconclusive"
+  /**
+   * One record proves the pair while a RELEVANT sibling does NOT carry it.
+   *
+   * "Did not prove it" is NOT the same as "irrelevant": for unlinked calendar
+   * variants the builder does not know which applies, so the claim would be true
+   * under one unresolved variant and false under another. A sibling counts as
+   * irrelevant only when applicability was already excluded by trustworthy
+   * request scope (a contradicting explicit calendar, filtered before
+   * evaluation), or when the provider explicitly links it as a continuation of
+   * the same service.
+   */
+  | "sibling_evidence_conflict"
   /** A supplied `serviceDate` was not a real calendar date. */
   | "invalid_service_date";
 
@@ -238,6 +262,11 @@ export interface OdptDirectJourneyEvidence {
   readonly timetableRecordIds: readonly string[];
   /** Records set aside because their calendar contradicted the query's calendar. */
   readonly excludedRecordIds: readonly string[];
+  /**
+   * Scalar metadata fields whose contributing records disagreed. Those fields
+   * are emitted as null rather than silently taken from an arbitrary record.
+   */
+  readonly conflictingEvidenceFields: readonly string[];
   /** Credential-free provider URLs only. */
   readonly sourceUrls: readonly string[];
   readonly retrievedAt: string;
@@ -684,6 +713,46 @@ function excludedRecordIds(
     .filter((id): id is string => typeof id === "string" && id.length > 0);
 }
 
+/**
+ * True when `record` is an EXPLICITLY linked, compatible continuation of any
+ * record in `others`, per the provider's own `odpt:nextTrainTimetable` /
+ * `odpt:previousTrainTimetable` links plus the existing compatibility contract.
+ *
+ * This is the ONLY way a record may be treated as part of the same service
+ * rather than as competing evidence. Matching train numbers, names, operators,
+ * railways, times or terminals are deliberately NOT used here.
+ */
+function isExplicitlyLinkedContinuation(
+  record: OdptTrainTimetable,
+  others: readonly OdptTrainTimetable[],
+): boolean {
+  for (const other of others) {
+    const forward = validateSplitTimetablePair(other, record);
+    const backward = validateSplitTimetablePair(record, other);
+    if (forward.compatible || backward.compatible) return true;
+  }
+  return false;
+}
+
+/**
+ * Agrees a scalar across contributing records.
+ *
+ * Returns the value when every non-null occurrence agrees, null when nothing
+ * declared it, and null when values CONFLICT — an ambiguous field is reported as
+ * unknown rather than silently taken from an arbitrary record.
+ */
+function agreedScalar(values: readonly (string | null)[]): {
+  readonly value: string | null;
+  readonly conflict: boolean;
+} {
+  const present = [
+    ...new Set(values.filter((value): value is string => value !== null)),
+  ];
+  if (present.length === 0) return { value: null, conflict: false };
+  if (present.length === 1) return { value: present[0], conflict: false };
+  return { value: null, conflict: true };
+}
+
 /** True when a value is a usable non-empty string. */
 function nonEmpty(value: string | null | undefined): value is string {
   return typeof value === "string" && value.trim().length > 0;
@@ -724,14 +793,28 @@ function nonEmpty(value: string | null | undefined): value is string {
  *   duration is proven whichever one applies.
  * - Records that prove it with DIFFERENT times cannot be reconciled without
  *   knowing which applies, and fail closed (`ambiguous_split_chain`).
- * - A record that proves the pair while a RELEVANT sibling is unreadable
- *   (`sibling_evidence_inconclusive`) is NOT reported as verified: the unreadable
- *   sibling could be the applicable one for this service date, so the answer
- *   remains uncertain. Only evidence the caller has already excluded — by
- *   supplying the exact calendar it narrowed the query to — removes that doubt.
- * - Only records that ACTUALLY CONTRIBUTED enter the provenance. A no-match or
- *   unreadable sibling adjacent in the provider response is never cited as the
- *   basis for a journey it did not establish.
+ * - Every RELEVANT independent sibling must agree before a result is verified:
+ *
+ *   | Sibling shapes                                        | Outcome |
+ *   | ----------------------------------------------------- | ------- |
+ *   | several prove the same pair with equivalent times      | verified |
+ *   | several prove it with different times                  | `ambiguous_split_chain` |
+ *   | one proves it, another does NOT carry the pair         | `sibling_evidence_conflict` |
+ *   | one proves it, another is unreadable                   | `sibling_evidence_inconclusive` |
+ *
+ *   "It did not prove the pair" is explicitly NOT evidence of irrelevance. For
+ *   unlinked calendar variants we cannot know which applies, so a claim true
+ *   under one variant and false under another is never reported as verified.
+ * - A sibling is irrelevant ONLY when (a) applicability was already excluded by
+ *   trustworthy request scope — a contradicting explicit calendar, filtered
+ *   before evaluation — or (b) the provider explicitly links it as a continuation
+ *   of the same service. Continuations are the same SERVICE, so a pair proven
+ *   completely and uniquely inside one record of that service stays verified even
+ *   when the linked continuation does not itself contain the pair.
+ * - Only records that ACTUALLY CONTRIBUTED enter the provenance, ordered by
+ *   stable record identity for independent variants (explicit chains keep their
+ *   meaningful service order) so provider response ordering cannot change the
+ *   audit evidence.
  */
 export function buildDirectJourneyFromOdptTrainTimetable(
   input: OdptDirectJourneyBuildInput,
@@ -779,6 +862,28 @@ export function buildDirectJourneyFromOdptTrainTimetable(
           `requested_train:${expectedTrainIdentity}`,
           `returned_train:${foreign.train ?? "null"}`,
         ],
+      };
+    }
+  }
+
+  if (expectedTrainIdentity === null) {
+    // The caller did not tell us which train was requested, so the response must
+    // at least agree with itself. Several distinct declared identities cannot be
+    // reconciled, and picking one would be a guess about scope.
+    const declared = [
+      ...new Set(
+        records
+          .map((record) =>
+            nonEmpty(record.train) ? record.train.trim() : null,
+          )
+          .filter((value): value is string => value !== null),
+      ),
+    ];
+    if (declared.length > 1) {
+      return {
+        kind: "inconclusive",
+        reason: "train_timetable_scope_mismatch",
+        notes: [`returned_trains:${declared.sort().join(",")}`],
       };
     }
   }
@@ -831,19 +936,47 @@ export function buildDirectJourneyFromOdptTrainTimetable(
       readonly outcome: PairOutcome & { readonly kind: "verified" };
     } => entry.outcome.kind === "verified",
   );
-  const unreadable = independent.filter(
-    (entry) => entry.outcome.kind === "inconclusive",
-  );
-
   if (proven.length > 0) {
-    // Unreadable competing evidence keeps the answer uncertain: this sibling
-    // could be the one that applies to the requested service date, and nothing
-    // supplied to this function proves otherwise.
-    if (unreadable.length > 0) {
+    const provenRecords = proven.map((entry) => entry.record);
+
+    // Competing evidence is every non-proving record that is NOT an explicitly
+    // linked continuation of a proving record. A continuation is the same
+    // service, so it can be a no-match without falsifying a pair proven inside
+    // another record of that service.
+    const competing = independent.filter(
+      (entry) =>
+        entry.outcome.kind !== "verified" &&
+        !isExplicitlyLinkedContinuation(entry.record, provenRecords),
+    );
+
+    // A relevant sibling that does NOT carry the pair keeps the claim uncertain:
+    // the answer would be true under one unresolved variant and false under
+    // another. "It did not prove the pair" is not evidence of irrelevance.
+    const noMatchSiblings = competing.filter(
+      (entry) => entry.outcome.kind === "no_match",
+    );
+    if (noMatchSiblings.length > 0) {
+      return {
+        kind: "inconclusive",
+        reason: "sibling_evidence_conflict",
+        notes: noMatchSiblings.map((entry) =>
+          entry.outcome.kind === "no_match"
+            ? `record_${entry.index}:${entry.outcome.reason}`
+            : `record_${entry.index}:unknown`,
+        ),
+      };
+    }
+
+    // Unreadable competing evidence is equally disqualifying: we may not have
+    // read the variant that applies.
+    const unreadableSiblings = competing.filter(
+      (entry) => entry.outcome.kind === "inconclusive",
+    );
+    if (unreadableSiblings.length > 0) {
       return {
         kind: "inconclusive",
         reason: "sibling_evidence_inconclusive",
-        notes: unreadable.map((entry) =>
+        notes: unreadableSiblings.map((entry) =>
           entry.outcome.kind === "inconclusive"
             ? `record_${entry.index}:${entry.outcome.reason}`
             : `record_${entry.index}:unknown`,
@@ -864,9 +997,16 @@ export function buildDirectJourneyFromOdptTrainTimetable(
       };
     }
 
+    // Independent agreeing variants are canonically ordered by stable record
+    // identity, so provider response ordering cannot change the audit evidence.
+    // (Explicitly linked chains keep their meaningful service order instead.)
+    const contributing = [...provenRecords].sort((left, right) =>
+      (left.sameAs ?? "").localeCompare(right.sameAs ?? ""),
+    );
+
     // ONLY the records that contributed may supply provenance.
     return assembleJourney({
-      records: proven.map((entry) => entry.record),
+      records: contributing,
       excludedRecordIds: excludedRecordIds(records, candidates),
       pair: proven[0].outcome.pair,
       serviceDate,
@@ -937,7 +1077,9 @@ export function buildDirectJourneyFromOdptTrainTimetable(
 
   // ── Nothing proved the pair ───────────────────────────────────────────────
   // Unreadable evidence outranks an absence: we may not have read the record.
-  const firstUnreadable = unreadable[0];
+  const firstUnreadable = independent.find(
+    (entry) => entry.outcome.kind === "inconclusive",
+  );
   if (
     firstUnreadable !== undefined &&
     firstUnreadable.outcome.kind === "inconclusive"
@@ -981,7 +1123,6 @@ function assembleJourney(args: {
 }): OdptDirectJourneyBuildResult {
   const { records, pair, originStation, destinationStation } = args;
 
-  const primary = records[0];
   const retrievedAt = records
     .map((record) => record.provenance?.fetchedAt ?? "")
     .filter((value) => value.length > 0)
@@ -1074,26 +1215,60 @@ function assembleJourney(args: {
   ].sort();
   const singleCalendar = calendars.length === 1 ? calendars[0] : null;
 
+  // Scalar metadata is agreed across the contributing records rather than taken
+  // from an arbitrary one. A field whose records disagree is reported as unknown
+  // and named in `conflictingEvidenceFields`, so no claim silently rests on
+  // `records[0]`.
+  const scalarField = (
+    name: string,
+    read: (record: OdptTrainTimetable) => string | null,
+  ) => {
+    const { value, conflict } = agreedScalar(records.map(read));
+    if (conflict) conflictingFields.push(name);
+    return value;
+  };
+
+  const conflictingFields: string[] = [];
+  const operator = scalarField("operator", (record) =>
+    nonEmpty(record.operator) ? record.operator.trim() : null,
+  );
+  const railway = scalarField("railway", (record) =>
+    nonEmpty(record.railway) ? record.railway.trim() : null,
+  );
+  const trainNumber = scalarField("trainNumber", (record) =>
+    nonEmpty(record.trainNumber) ? record.trainNumber.trim() : null,
+  );
+  const trainType = scalarField("trainType", (record) =>
+    nonEmpty(record.trainType) ? record.trainType.trim() : null,
+  );
+  const railDirection = scalarField("railDirection", (record) =>
+    nonEmpty(record.railDirection) ? record.railDirection.trim() : null,
+  );
+
   // The requested identity is authoritative: a record that omits `train` must
   // not yield an empty identity, and one is never invented by parsing another id.
   const trainIdentity =
     args.expectedTrainIdentity ??
-    (nonEmpty(primary.train) ? primary.train : "");
+    scalarField("train", (record) =>
+      nonEmpty(record.train) ? record.train.trim() : null,
+    ) ??
+    "";
 
   const evidence: OdptDirectJourneyEvidence = {
-    operator: primary.operator ?? null,
+    operator,
     trainIdentity,
-    trainNumber: primary.trainNumber ?? null,
-    trainType: primary.trainType ?? null,
-    railway: primary.railway ?? null,
+    trainNumber,
+    trainType,
+    railway,
     calendar: singleCalendar,
     calendars,
-    railDirection: primary.railDirection ?? null,
+    railDirection,
     serviceDate: args.serviceDate,
     scheduledDepartureTime: pair.scheduledDepartureTime,
     scheduledArrivalTime: pair.scheduledArrivalTime,
     timetableRecordIds,
     excludedRecordIds: args.excludedRecordIds,
+    conflictingEvidenceFields: conflictingFields.sort(),
     sourceUrls,
     retrievedAt: retrievedAt ?? "",
     splitContinuation: args.splitContinuation,

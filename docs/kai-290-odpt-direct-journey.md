@@ -136,13 +136,40 @@ Unreadable competing evidence stays uncertain:
 
 | Sibling shapes | Result |
 | --- | --- |
-| several verified, identical departure + arrival | verified (same Journey) |
+| several verified, equivalent departure + arrival | verified (same Journey) |
 | several verified, different times | `inconclusive: ambiguous_split_chain` |
-| verified + **relevant** unreadable sibling | `inconclusive: sibling_evidence_inconclusive` |
-| verified + irrelevant/no-match record | verified; only the contributing records enter provenance |
+| verified + relevant sibling that does **not** carry the pair | `inconclusive: sibling_evidence_conflict` |
+| verified + relevant unreadable sibling | `inconclusive: sibling_evidence_inconclusive` |
+| verified + a sibling **explicitly linked** as a continuation | verified; only the proving record enters provenance |
 
-A sibling is "relevant" unless the caller's own scope already excludes it — which
-is what supplying the narrowed calendar does.
+**"It did not prove the pair" is explicitly NOT evidence of irrelevance.** For
+unlinked calendar variants the builder cannot know which applies, so a claim that
+holds under one variant and fails under another would be a schedule claim true in
+one unresolved world and false in the other — it is never reported as verified.
+
+A sibling is irrelevant **only** when:
+
+1. applicability was already excluded by trustworthy request scope — a
+   contradicting explicit calendar, filtered out *before* independent evaluation
+   (listed in `excludedRecordIds`); or
+2. the provider **explicitly** links it via
+   `odpt:nextTrainTimetable` / `odpt:previousTrainTimetable` plus the existing
+   compatibility contract, making it the same *service* rather than competing
+   schedule evidence. A pair proven completely and uniquely inside one record of
+   that service stays verified even when the linked continuation does not contain
+   the pair.
+
+Continuation semantics are never inferred from matching train numbers, names,
+operators, railways, times or terminals.
+
+Contributing records for independent agreeing variants are ordered by stable
+record identity before evidence is produced, so provider response ordering cannot
+change `timetableRecordIds`, `sourceUrls` or the scalar metadata. Explicitly
+linked chains keep their meaningful service order. Scalar metadata
+(`operator`, `railway`, `trainNumber`, `trainType`, `railDirection`) is emitted
+only when every non-null value agrees; a conflicting field is emitted as `null`
+and named in `conflictingEvidenceFields` rather than silently taken from
+`records[0]`.
 
 Because the measured Toei pair is `Weekday` **+** `SaturdayHoliday`,
 `evidence.calendars` carries **every** distinct calendar (deterministically

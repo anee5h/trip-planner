@@ -140,7 +140,26 @@ export type OdptDirectJourneyResolutionReason =
    * departure, or falls outside the requested window. The two must be the same
    * event, so a disagreement is uncertainty rather than a usable result.
    */
-  | "departure_evidence_mismatch";
+  | "departure_evidence_mismatch"
+  /**
+   * A returned TrainTimetable record contradicts the requested train identity,
+   * or (with no requested identity) the response declared several.
+   */
+  | "train_timetable_scope_mismatch"
+  /** A returned record's calendar contradicts the calendar queried for. */
+  | "calendar_scope_mismatch"
+  /**
+   * A RELEVANT sibling record for the same exact train does not carry the
+   * requested pair. With no calendar narrowing the builder cannot know which
+   * variant applies, so a schedule claim true under one variant and false under
+   * another is never reported as verified.
+   */
+  | "sibling_evidence_conflict"
+  /**
+   * A relevant sibling record could not be read (malformed times, invalid
+   * chronology, ambiguous pair), so the variant that applies may be unread.
+   */
+  | "sibling_evidence_inconclusive";
 
 /**
  * One proven direct journey plus its ODPT audit evidence. The canonical Journey
@@ -745,10 +764,16 @@ export async function resolveOdptDirectJourney(
     }
 
     if (build.kind === "inconclusive") {
+      // Surface the build's own verdict where it names a distinct failure mode,
+      // so the resolution reason is as specific as the evidence allows.
       if (build.reason === "train_timetable_scope_mismatch") {
         inconclusiveReason ??= "train_timetable_scope_mismatch";
       } else if (build.reason === "calendar_scope_mismatch") {
         inconclusiveReason ??= "calendar_scope_mismatch";
+      } else if (build.reason === "sibling_evidence_conflict") {
+        inconclusiveReason ??= "sibling_evidence_conflict";
+      } else if (build.reason === "sibling_evidence_inconclusive") {
+        inconclusiveReason ??= "sibling_evidence_inconclusive";
       } else {
         inconclusiveReason ??= "inspection_inconclusive";
       }

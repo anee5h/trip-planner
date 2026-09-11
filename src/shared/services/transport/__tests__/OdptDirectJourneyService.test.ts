@@ -1584,3 +1584,160 @@ describe("resolveOdptDirectJourney — malformed discovery evidence", () => {
     expect(resolution.status).toBe("no_direct_service_evidence");
   });
 });
+
+describe("resolveOdptDirectJourney — sibling agreement at the resolver level", () => {
+  // ONE exact train, two calendar variants, only one of which serves the
+  // destination. This is the semantic case that must never resolve unfiltered.
+  const weekdayPair = trainTimetableFixture({
+    sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427.Weekday",
+    train: MARUNOUCHI_TRAIN,
+    trainNumber: "B427",
+    operator: TOKYO_METRO_OPERATOR,
+    railway: "odpt.Railway:TokyoMetro.Marunouchi",
+    calendar: "odpt.Calendar:Weekday",
+    objects: [
+      trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
+      trainTimetableObject(marunouchiStationId("Ikebukuro"), "06:35", null),
+    ],
+  });
+  const holidayNoDestination = trainTimetableFixture({
+    sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427.SaturdayHoliday",
+    train: MARUNOUCHI_TRAIN,
+    trainNumber: "B427",
+    operator: TOKYO_METRO_OPERATOR,
+    railway: "odpt.Railway:TokyoMetro.Marunouchi",
+    calendar: "odpt.Calendar:SaturdayHoliday",
+    objects: [
+      trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
+      trainTimetableObject(marunouchiStationId("Tokyo"), "06:12", null),
+    ],
+  });
+
+  /** Discovery where the SAME departure appears under two distinct calendars. */
+  const twoCalendarDiscovery = () => [
+    stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku.Weekday",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      calendar: "odpt.Calendar:Weekday",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+    }),
+    stationTimetableFixture({
+      sameAs: "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku.Holiday",
+      station: marunouchiStationId("Shinjuku"),
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      calendar: "odpt.Calendar:SaturdayHoliday",
+      objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+    }),
+  ];
+
+  it("A. never resolves when an unfiltered variant lacks the destination", async () => {
+    const { resolution, calls } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", twoCalendarDiscovery()),
+      trainTimetable: () =>
+        records("train_timetable", [weekdayPair, holidayNoDestination]),
+    });
+
+    expect(resolution.status).not.toBe("resolved");
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("sibling_evidence_conflict");
+    // Several calendars => one lookup WITHOUT a calendar filter, never two.
+    expect(trainCalls(calls)).toHaveLength(1);
+    expect(trainCalls(calls)[0].input).toEqual({ train: MARUNOUCHI_TRAIN });
+  });
+
+  it("B. resolves from the narrowed variant once scope excludes the other", async () => {
+    // Discovery declares exactly ONE calendar, so the query IS narrowed and the
+    // contradicting variant is excluded before evaluation.
+    const { resolution, calls } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", [
+          stationTimetableFixture({
+            sameAs:
+              "odpt.StationTimetable:TokyoMetro.Marunouchi.Shinjuku.Weekday",
+            station: marunouchiStationId("Shinjuku"),
+            operator: TOKYO_METRO_OPERATOR,
+            railway: "odpt.Railway:TokyoMetro.Marunouchi",
+            calendar: "odpt.Calendar:Weekday",
+            objects: [stationTimetableObject(MARUNOUCHI_TRAIN, "06:00")],
+          }),
+        ]),
+      trainTimetable: () =>
+        records("train_timetable", [weekdayPair, holidayNoDestination]),
+    });
+
+    expect(resolution.status).toBe("resolved");
+    if (resolution.status !== "resolved") return;
+    expect(resolution.candidates).toHaveLength(1);
+    expect(resolution.candidates[0].journey.legs[0].duration.minutes).toEqual([
+      35, 35,
+    ]);
+    expect(resolution.candidates[0].evidence.calendars).toEqual([
+      "odpt.Calendar:Weekday",
+    ]);
+    // The contradicting variant is set aside explicitly, not silently dropped.
+    expect(resolution.candidates[0].evidence.excludedRecordIds).toEqual([
+      "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427.SaturdayHoliday",
+    ]);
+    expect(trainCalls(calls)[0].input).toEqual({
+      train: MARUNOUCHI_TRAIN,
+      calendar: "odpt.Calendar:Weekday",
+    });
+  });
+
+  it("C. resolves and reports BOTH calendars when unfiltered variants agree", async () => {
+    const holidayTwin = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427.SaturdayHoliday",
+      train: MARUNOUCHI_TRAIN,
+      trainNumber: "B427",
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      calendar: "odpt.Calendar:SaturdayHoliday",
+      objects: weekdayPair.objects,
+    });
+    const { resolution } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", twoCalendarDiscovery()),
+      trainTimetable: () =>
+        records("train_timetable", [holidayTwin, weekdayPair]),
+    });
+
+    expect(resolution.status).toBe("resolved");
+    if (resolution.status !== "resolved") return;
+    expect(resolution.candidates[0].evidence.calendars).toEqual([
+      "odpt.Calendar:SaturdayHoliday",
+      "odpt.Calendar:Weekday",
+    ]);
+    expect(resolution.candidates[0].evidence.calendar).toBeNull();
+    expect(resolution.coverage).toBe("complete");
+  });
+
+  it("D. fails closed when unfiltered variants disagree on times", async () => {
+    const holidayShifted = trainTimetableFixture({
+      sameAs: "odpt.TrainTimetable:TokyoMetro.Marunouchi.B427.SaturdayHoliday",
+      train: MARUNOUCHI_TRAIN,
+      trainNumber: "B427",
+      operator: TOKYO_METRO_OPERATOR,
+      railway: "odpt.Railway:TokyoMetro.Marunouchi",
+      calendar: "odpt.Calendar:SaturdayHoliday",
+      objects: [
+        trainTimetableObject(marunouchiStationId("Shinjuku"), null, "06:00"),
+        trainTimetableObject(marunouchiStationId("Ikebukuro"), "06:50", null),
+      ],
+    });
+    const { resolution } = await resolve({
+      stationTimetable: () =>
+        records("station_timetable", twoCalendarDiscovery()),
+      trainTimetable: () =>
+        records("train_timetable", [weekdayPair, holidayShifted]),
+    });
+    expect(resolution.status).toBe("inconclusive");
+    if (resolution.status !== "inconclusive") return;
+    expect(resolution.reason).toBe("inspection_inconclusive");
+    expect(resolution.diagnostics.candidatesInconclusive).toBe(1);
+  });
+});
