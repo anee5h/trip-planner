@@ -57,9 +57,12 @@ proof; `--output-dir` for the store root). No `--key`/`--url` flags exist.
 - Initial endpoint fixed: `https://api.odpt.org/api/v4/<allow-listed>.json`.
 - `fetch(..., { redirect: "manual" })`; each 3xx Location is validated:
   absolute HTTPS URL, origin in the COMMITTED exact-origin allow-list
-  (`APPROVED_DUMP_REDIRECT_ORIGINS`, empty until review approves one), no
-  loops, bounded count, no HTTP downgrade, no merged query params, no
-  forwarded key. There is no runtime override for normal audit/promote.
+  (`APPROVED_DUMP_REDIRECT_ORIGINS`; currently exactly
+  `https://dataodpt.blob.core.windows.net`, observed 2026-09-12 via
+  one-request discovery as a 302 with signed-query Location and explicitly
+  approved), no loops, bounded count, no HTTP downgrade, no merged query
+  params, no forwarded key. There is no runtime override for normal
+  audit/promote.
 - First contact uses `--discover-redirect-origin`: exactly one authenticated
   initial request, reporting the sanitized target origin WITHOUT following
   it. The observed origin goes to review before anything is approved.

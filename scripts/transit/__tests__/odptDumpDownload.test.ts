@@ -102,9 +102,11 @@ async function expectCode(
 }
 
 describe("downloader request gating", () => {
-  it("ships an empty committed redirect allow-list until review approves one", () => {
+  it("carries exactly the reviewed approved redirect origins", () => {
     // Changing this list is a deliberate reviewed commit, never runtime input.
-    expect(APPROVED_DUMP_REDIRECT_ORIGINS).toEqual([]);
+    expect(APPROVED_DUMP_REDIRECT_ORIGINS).toEqual([
+      "https://dataodpt.blob.core.windows.net",
+    ]);
   });
   it("rejects a non-allow-listed resource with zero fetch calls", async () => {
     const seen = { urls: [] as string[], bodiesConsumed: 0 };
@@ -134,7 +136,7 @@ describe("downloader request gating", () => {
 });
 
 describe("downloader redirect policy", () => {
-  it("follows a documented 301 to an approved origin and records it sanitized", async () => {
+  it("follows a 3xx redirect to an approved origin and records it sanitized", async () => {
     const seen = { urls: [] as string[], bodiesConsumed: 0 };
     const record = await downloadDumpResource({
       ...BASE,

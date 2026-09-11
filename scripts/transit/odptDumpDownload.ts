@@ -145,12 +145,20 @@ export const DUMP_DEFAULT_TIMEOUT_MS = 60_000;
 export const DUMP_DEFAULT_MAX_REDIRECTS = 3;
 
 /**
- * Committed exact-origin allow-list for dump redirects. EMPTY until a
- * redirect target is observed in a controlled discovery and explicitly
- * approved in review: normal audit/promote follows ONLY these origins.
- * Never a wildcard, never runtime-supplied for normal operation.
+ * Committed exact-origin allow-list for dump redirects. Entries are added
+ * ONLY after a controlled discovery is reviewed and explicitly approved:
+ * normal audit/promote follows ONLY these origins. Never a wildcard, never
+ * runtime-supplied for normal operation.
+ *
+ * - https://dataodpt.blob.core.windows.net: observed 2026-09-12 via
+ *   one-request discovery (302 from api.odpt.org, signed-query Location),
+ *   explicitly approved in review. Provider-issued query (SAS-style) on the
+ *   redirect target is followed exactly; the consumer key is never merged
+ *   into it or forwarded.
  */
-export const APPROVED_DUMP_REDIRECT_ORIGINS: readonly string[] = [];
+export const APPROVED_DUMP_REDIRECT_ORIGINS: readonly string[] = [
+  "https://dataodpt.blob.core.windows.net",
+];
 
 function isAllowedResource(value: string): value is DumpResourceType {
   return (DUMP_RESOURCE_ALLOWLIST as readonly string[]).includes(value);
