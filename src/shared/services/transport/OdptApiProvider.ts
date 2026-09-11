@@ -118,8 +118,16 @@ function parseResult<T>(value: unknown, operation: string): OdptResult<T> {
 /**
  * OdptProvider backed by the server-side /api/odpt boundary.
  *
- * No caching is performed in this ticket: ODPT evidence is fetched on demand
- * and provider-frequency strategy for dynamic resources belongs to KAI-290+.
+ * CACHING BOUNDARY — the adapter itself performs NO caching, deliberately:
+ *
+ * - The `/api/odpt` boundary now provides request protection (dedup,
+ *   in-flight coalescing, edge cache, validity-capped TTLs and the per-attempt
+ *   provider budget) server-side, where the shared credential lives. A
+ *   browser-side cache would protect nothing collectively: it would multiply
+ *   per user, and a cold client would still hit the provider.
+ * - This adapter must therefore NOT add another browser cache. Doing so would
+ *   layer a second, differently-keyed store in front of the authoritative
+ *   server contract and make cache behaviour impossible to reason about.
  */
 export class OdptApiProvider implements OdptProvider {
   private readonly endpoint: string;
