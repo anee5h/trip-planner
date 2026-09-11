@@ -242,7 +242,7 @@ describe("manifest", () => {
         {
           rdfType: "odpt:Station",
           initialEndpoint: "https://api.odpt.org/api/v4/odpt:Station.json",
-          initialStatus: 301,
+          initialStatus: 302,
           hops: [
             {
               status: 301,

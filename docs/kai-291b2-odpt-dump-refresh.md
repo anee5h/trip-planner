@@ -135,6 +135,24 @@ nor exposed as downloadable reusable public data. A later
 production-promotion slice may distinguish internal application use from
 public reusable redistribution — those are NOT the same permission.
 
+## Reviewed transport policy (2026-09-12 live evidence)
+
+Four-family audit over the approved blob origin, 8 HTTP attempts
+(4 × initial 302 + follow), all finals 200 `application/json`:
+
+| Family | Bytes | Records | Reviewed cap |
+|---|---|---:|---:|
+| Operator | 14,195 | 42 | 1 MB |
+| Station | 604,110 | 720 | 8 MB |
+| Railway | 129,403 | 94 | 4 MB |
+| Calendar | 217,469 | 174 | 4 MB |
+
+Each cap is an order of magnitude or more above observed size — bounded,
+yet comfortable for ordinary provider growth. Final Content-Types are
+validated against the reviewed legitimate set (`application/json`,
+parameters allowed); `application/octet-stream` stays rejected until a
+live probe confirms it.
+
 ## Failure behavior
 
 401/403/404/429/5xx/timeout map to explicit codes and fail closed — never

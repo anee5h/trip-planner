@@ -247,7 +247,7 @@ describe("downloader redirect policy", () => {
           [
             { status: 301, location: "https://dump.example/a.json" },
             { status: 301, location: "https://dump.example/b.json" },
-            { status: 200, chunks: ["[]"] },
+            { status: 200, contentType: "application/json", chunks: ["[]"] },
           ],
           seen,
         ),
@@ -263,7 +263,7 @@ describe("downloader redirect policy", () => {
       fetchImpl: fakeFetch(
         [
           { status: 301, location: "https://dump.example/f.json?sig=abc" },
-          { status: 200, chunks: ["[]"] },
+          { status: 200, contentType: "application/json", chunks: ["[]"] },
         ],
         seen,
       ),
@@ -340,7 +340,14 @@ describe("downloader transport semantics", () => {
         ...BASE,
         byteCap: 10,
         fetchImpl: fakeFetch(
-          [{ status: 200, contentLength: "999999", chunks: ["[]"] }],
+          [
+            {
+              status: 200,
+              contentType: "application/json",
+              contentLength: "999999",
+              chunks: ["[]"],
+            },
+          ],
           seen,
         ),
       }),
@@ -355,10 +362,65 @@ describe("downloader transport semantics", () => {
       downloadDumpResource({
         ...BASE,
         byteCap: 4,
-        fetchImpl: fakeFetch([{ status: 200, chunks: ["ab", "cde"] }], seen),
+        fetchImpl: fakeFetch(
+          [
+            {
+              status: 200,
+              contentType: "application/json",
+              chunks: ["ab", "cde"],
+            },
+          ],
+          seen,
+        ),
       }),
       "response_too_large",
     );
+  });
+
+  it("rejects unreviewed and missing Content-Types", async () => {
+    const seen = { urls: [] as string[], bodiesConsumed: 0 };
+    await expectCode(
+      downloadDumpResource({
+        ...BASE,
+        fetchImpl: fakeFetch(
+          [
+            {
+              status: 200,
+              contentType: "application/octet-stream",
+              chunks: ["[]"],
+            },
+          ],
+          seen,
+        ),
+      }),
+      "unexpected_content_type",
+    );
+    await expectCode(
+      downloadDumpResource({
+        ...BASE,
+        fetchImpl: fakeFetch([{ status: 200, chunks: ["[]"] }], seen),
+      }),
+      "unexpected_content_type",
+    );
+  });
+
+  it("accepts a reviewed Content-Type with parameters", async () => {
+    const seen = { urls: [] as string[], bodiesConsumed: 0 };
+    const record = await downloadDumpResource({
+      ...BASE,
+      fetchImpl: fakeFetch(
+        [
+          {
+            status: 200,
+            contentType: "application/json; charset=utf-8",
+            chunks: ["[]"],
+          },
+        ],
+        seen,
+      ),
+    });
+    expect(record.finalStatus).toBe(200);
+    expect(record.contentType).toBe("application/json; charset=utf-8");
   });
 
   it("rejects truncated streams and empty bodies", async () => {
@@ -370,6 +432,7 @@ describe("downloader transport semantics", () => {
           [
             {
               status: 200,
+              contentType: "application/json",
               chunks: ["[", "truncated"],
               failWith: "truncated",
             },
@@ -382,7 +445,10 @@ describe("downloader transport semantics", () => {
     const error = await expectCode(
       downloadDumpResource({
         ...BASE,
-        fetchImpl: fakeFetch([{ status: 200, chunks: [] }], seen),
+        fetchImpl: fakeFetch(
+          [{ status: 200, contentType: "application/json", chunks: [] }],
+          seen,
+        ),
       }),
       "empty_body",
     );

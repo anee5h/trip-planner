@@ -56,6 +56,7 @@ export type DumpDownloadErrorCode =
   | "provider_timeout"
   | "provider_unreachable"
   | "response_too_large"
+  | "unexpected_content_type"
   | "empty_body"
   | "truncated_stream";
 
@@ -125,21 +126,26 @@ export interface DumpDownloadOptions {
 }
 
 /**
- * Resource-specific byte caps. Provisional and generous: set without live
- * size observation (no credential locally), so each cap is multiples above
- * any plausible topology payload, with the Content-Length pre-check and
- * streaming abort as the real guards. Adjusted after the first live audit.
+ * Resource-specific byte caps, REVIEWED against live evidence (2026-09-12
+ * four-family audit: Operator 14,195 B / Station 604,110 B / Railway
+ * 129,403 B / Calendar 217,469 B). Each cap is an order of magnitude or more
+ * above the observed size — generous headroom so ordinary provider growth
+ * never breaks refreshes, while staying bounded. Content-Length pre-check
+ * and streaming abort enforce them.
  */
 export const DUMP_BYTE_CAPS: Record<DumpResourceType, number> = {
-  // Small registries: generous single-digit MB headroom.
-  "odpt:Operator": 4 * 1024 * 1024,
-  "odpt:Calendar": 8 * 1024 * 1024,
-  // Railway records carry stationOrder arrays: tens of MB headroom.
-  "odpt:Railway": 16 * 1024 * 1024,
-  // Station is the largest topology family (all operators, coordinates,
-  // multilingual titles). Generous cap; pre-check and streaming abort apply.
-  "odpt:Station": 64 * 1024 * 1024,
+  "odpt:Operator": 1 * 1024 * 1024,
+  "odpt:Calendar": 4 * 1024 * 1024,
+  "odpt:Railway": 4 * 1024 * 1024,
+  "odpt:Station": 8 * 1024 * 1024,
 };
+
+/**
+ * Reviewed legitimate final Content-Types (2026-09-12 live audit: every
+ * family returned `application/json`). `application/octet-stream` was NOT
+ * observed and stays rejected until a live probe confirms it.
+ */
+export const DUMP_ALLOWED_CONTENT_TYPES = ["application/json"];
 
 export const DUMP_DEFAULT_TIMEOUT_MS = 60_000;
 export const DUMP_DEFAULT_MAX_REDIRECTS = 3;
@@ -420,6 +426,16 @@ async function finishDownload(
   },
 ): Promise<DumpDownloadRecord> {
   const contentType = response.headers.get("content-type");
+  const mediaType =
+    contentType === null
+      ? null
+      : contentType.split(";")[0].trim().toLowerCase();
+  if (mediaType === null || !DUMP_ALLOWED_CONTENT_TYPES.includes(mediaType)) {
+    throw new DumpDownloadError(
+      "unexpected_content_type",
+      `final Content-Type ${JSON.stringify(contentType)} is not a reviewed legitimate dump type.`,
+    );
+  }
   const lengthHeader = response.headers.get("content-length");
   const declared =
     lengthHeader === null ? null : Number.parseInt(lengthHeader, 10);

@@ -256,6 +256,7 @@ export function extractPilotScope(
 export interface SnapshotResourceEvidence {
   readonly rdfType: string;
   readonly sanitizedSourceEndpoint: string;
+  readonly initialStatus: number;
   readonly sanitizedFinalHost: string | null;
   readonly sanitizedFinalPath: string | null;
   readonly httpStatus: number;
@@ -487,6 +488,7 @@ export function buildSnapshotManifest(input: {
       return {
         rdfType: download.rdfType,
         sanitizedSourceEndpoint: download.initialEndpoint,
+        initialStatus: download.initialStatus,
         sanitizedFinalHost: lastHop?.targetOrigin ?? null,
         sanitizedFinalPath: lastHop?.targetPath ?? null,
         httpStatus: download.finalStatus,
