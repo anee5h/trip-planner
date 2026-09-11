@@ -1,7 +1,6 @@
 {
   "schemaVersion": 1,
   "generatedBy": "scripts/audit/kai-290-odpt-eligibility.mjs",
-  "baseCommit": null,
   "method": "offline_catalogue_scan",
   "networkCalls": 0,
   "providerCalls": 0,
@@ -14,22 +13,29 @@
   },
   "inputs": {
     "originStationIdentity": {
+      "availability": "unavailable",
       "available": false,
       "classification": "unavailable"
     },
     "destinationStationIdentity": {
+      "availability": "unavailable",
       "available": false,
       "classification": "unavailable"
     },
     "serviceDate": {
+      "availability": "flow_dependent",
       "available": false,
-      "classification": "unavailable"
+      "classification": "deterministically_resolvable",
+      "evidence": "navState.travelDate|tripContext.travelDate",
+      "flowDependent": true
     },
     "departureTimeInput": {
+      "availability": "unavailable",
       "available": false,
       "classification": "unavailable"
     }
   },
+  "eligibleCohortScope": "catalogue",
   "blockers": {
     "destination_station_identity_missing": 1130,
     "destination_station_identity_ambiguous": 0,

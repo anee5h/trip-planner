@@ -41,15 +41,32 @@ async function formatMarkdown(text) {
 
 const records = loadCatalogueRecords();
 const report = buildEligibilityReport(records, {
-  originIdentityAvailable: false,
-  departureTimeInputAvailable: false,
-  serviceDateContextAvailable: false,
+  // Verified on current main by the audit documented in
+  // docs/kai-290-odpt-2d-integration-readiness.md. Declared explicitly so the
+  // report cannot silently claim eligibility it has not measured.
+  originIdentity: "unavailable",
+  departureWindow: "unavailable",
+  // A service date EXISTS deterministically in planner/trip-context flows but not
+  // on every direct-navigation request, so it is `flow_dependent` rather than a
+  // catalogue-wide false.
+  serviceDate: "flow_dependent",
+  // The cohort is evaluated for the catalogue as a whole: no flow is assumed.
+  eligibilityScope: "catalogue",
 });
 
+/**
+ * REPRODUCIBILITY: the committed artifact contains NO ambient environment input.
+ *
+ * An earlier version recorded `baseCommit: process.env.GITHUB_SHA ?? null`, which
+ * meant identical committed inputs produced different bytes locally and in CI —
+ * breaking the byte-identical regeneration contract this artifact claims. The
+ * commit an artifact was generated at is a property of the RUN, not of the data,
+ * so it is not written here at all. Regeneration is therefore environment
+ * independent by construction.
+ */
 const artifact = {
   schemaVersion: 1,
   generatedBy: "scripts/audit/kai-290-odpt-eligibility.mjs",
-  baseCommit: process.env.GITHUB_SHA ?? null,
   // Stated explicitly so the artifact cannot be read as a live measurement.
   method: "offline_catalogue_scan",
   networkCalls: 0,
@@ -76,5 +93,7 @@ process.stdout.write(
     `resolvable=${report.destinationAnchors.deterministicallyResolvable} ` +
     `ambiguous=${report.destinationAnchors.ambiguous} ` +
     `unavailable=${report.destinationAnchors.unavailable} ` +
+    `serviceDate=${report.inputs.serviceDate.availability} ` +
+    `scope=${report.eligibleCohortScope} ` +
     `eligibleCohort=${report.userFacingEligibleCohort}\n`,
 );

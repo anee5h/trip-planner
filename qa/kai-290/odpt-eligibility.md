@@ -8,16 +8,16 @@ Deterministic OFFLINE audit. No network, no provider call, no credential.
 - Ambiguous destination identities: **0**
 - Unavailable destination identities: **1130**
 - Current departure-time input: **absent**
-- Current user-facing eligible cohort: **0**
+- Current user-facing eligible cohort: **0** (scope: `catalogue`)
 
 ## Input availability
 
-| Input                      | Available | Classification |
-| -------------------------- | --------- | -------------- |
-| originStationIdentity      | no        | unavailable    |
-| destinationStationIdentity | no        | unavailable    |
-| serviceDate                | no        | unavailable    |
-| departureTimeInput         | no        | unavailable    |
+| Input                      | Availability   | Available | Classification               | Notes                                                                   |
+| -------------------------- | -------------- | --------- | ---------------------------- | ----------------------------------------------------------------------- |
+| originStationIdentity      | unavailable    | no        | unavailable                  |                                                                         |
+| destinationStationIdentity | unavailable    | no        | unavailable                  |                                                                         |
+| serviceDate                | flow_dependent | no        | deterministically_resolvable | exists only in some flows (navState.travelDate\|tripContext.travelDate) |
+| departureTimeInput         | unavailable    | no        | unavailable                  |                                                                         |
 
 ## Blocking reasons
 
@@ -28,3 +28,8 @@ Deterministic OFFLINE audit. No network, no provider call, no credential.
 | origin_station_identity_missing        | 0       |
 | departure_time_input_absent            | 0       |
 | service_date_context_absent            | 0       |
+
+Eligibility is decided per record by ONE precedence rule, and the cohort above
+is derived directly from those verdicts. Inputs that are absent on current main
+are declared as such rather than inferred, and a `flow_dependent` input can
+satisfy a record only when the evaluation is scoped to a flow that supplies it.

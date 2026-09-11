@@ -76,6 +76,17 @@ export const DESTINATION_ANCHOR_STATUS = Object.freeze({
   UNAVAILABLE: "unavailable",
 });
 
+/**
+ * How available an input is. `flow_dependent` exists because a service date IS
+ * present in some product flows and absent in others: collapsing that into a
+ * catalogue-wide boolean would either hide a real capability or overstate it.
+ */
+export const INPUT_AVAILABILITY = Object.freeze({
+  AVAILABLE: "available",
+  FLOW_DEPENDENT: "flow_dependent",
+  UNAVAILABLE: "unavailable",
+});
+
 /** Blocking reasons, in the precedence order the audit reports them. */
 export const BLOCKER_REASONS = Object.freeze([
   "destination_station_identity_missing",
@@ -151,11 +162,58 @@ export function collectStationIdentitiesAnywhere(record) {
   return [...found].sort();
 }
 
-/** True when a record exposes an explicit canonical-mapping reference. */
+/**
+ * Canonical-mapping fields a registry may use. Each must resolve to an explicit
+ * ODPT station target to count as station evidence.
+ */
+export const CANONICAL_MAPPING_FIELDS = Object.freeze([
+  "odptMapping",
+  "canonicalMapping",
+]);
+
+/**
+ * Keys inside a canonical mapping that can name the station target. Unrelated
+ * mapping metadata (`operator`, `railway`, notes, …) is NOT station evidence.
+ */
+export const CANONICAL_MAPPING_STATION_KEYS = Object.freeze([
+  "station",
+  "stationId",
+  "odptStationId",
+  "arrivalStation",
+  "arrivalStationId",
+  "alternateStation",
+  "alternateStationId",
+  "sameAs",
+  "id",
+]);
+
+/**
+ * Extracts explicit ODPT STATION targets from a record's canonical mapping.
+ *
+ * A mapping is station evidence only when it names a usable station target. A
+ * non-empty mapping that carries only, say, `{ operator: "odpt.Operator:Toei" }`
+ * describes the operator, not the arrival station, so it must not promote the
+ * record — that would let unrelated mapping metadata masquerade as an anchor.
+ */
+export function collectCanonicalMappingStationTargets(record) {
+  if (!isPlainObject(record)) return [];
+  const found = new Set();
+  for (const field of CANONICAL_MAPPING_FIELDS) {
+    const mapping = record[field];
+    if (!isPlainObject(mapping)) continue;
+    for (const key of CANONICAL_MAPPING_STATION_KEYS) {
+      if (!Object.prototype.hasOwnProperty.call(mapping, key)) continue;
+      for (const value of collectStrings(mapping[key])) {
+        if (value.startsWith("odpt.Station:")) found.add(value);
+      }
+    }
+  }
+  return [...found].sort();
+}
+
+/** True when a record exposes a usable canonical STATION mapping. */
 export function hasExplicitCanonicalMapping(record) {
-  if (!isPlainObject(record)) return false;
-  const odptMapping = record.odptMapping ?? record.canonicalMapping;
-  return isPlainObject(odptMapping) && Object.keys(odptMapping).length > 0;
+  return collectCanonicalMappingStationTargets(record).length > 0;
 }
 
 /**
@@ -181,11 +239,21 @@ export function classifyDestinationAnchor(record) {
       path: null,
     };
   }
-  if (hasExplicitCanonicalMapping(record)) {
+  const mappingTargets = collectCanonicalMappingStationTargets(record);
+  if (mappingTargets.length === 1) {
     return {
       status: DESTINATION_ANCHOR_STATUS.DETERMINISTICALLY_RESOLVABLE,
       identities: [],
       path: "explicit_canonical_mapping",
+    };
+  }
+  if (mappingTargets.length > 1) {
+    // Several competing station targets in the mapping: no rule chooses between
+    // them, so this is ambiguous rather than a silent pick.
+    return {
+      status: DESTINATION_ANCHOR_STATUS.AMBIGUOUS,
+      identities: mappingTargets,
+      path: null,
     };
   }
   return {
@@ -205,20 +273,58 @@ export function classifyDestinationAnchor(record) {
  * origin side and the scheduling inputs are uniformly absent — the report states
  * that separately rather than pretending per-record variation exists.
  */
-export function classifyEligibility(record) {
+/**
+ * Normalizes the caller-supplied input availability into the model above.
+ * Anything not explicitly declared is treated as UNAVAILABLE — an audit must not
+ * infer a capability from silence.
+ */
+export function normalizeInputAvailability(value) {
+  if (value === true) return INPUT_AVAILABILITY.AVAILABLE;
+  if (value === false || value == null) return INPUT_AVAILABILITY.UNAVAILABLE;
+  const allowed = new Set(Object.values(INPUT_AVAILABILITY));
+  return allowed.has(value) ? value : INPUT_AVAILABILITY.UNAVAILABLE;
+}
+
+/** Builds the availability context consumed by `classifyEligibility`. */
+export function buildEligibilityContext(options = {}) {
+  return {
+    originIdentity: normalizeInputAvailability(options.originIdentity),
+    departureWindow: normalizeInputAvailability(options.departureWindow),
+    serviceDate: normalizeInputAvailability(options.serviceDate),
+  };
+}
+
+/**
+ * Classifies ONE record's user-facing eligibility, owning the FULL precedence.
+ *
+ * This is the single source of eligibility truth: the cohort is derived from
+ * these verdicts and is never recomputed anywhere else. Precedence, in order:
+ *
+ *   1. destination unavailable              -> destination_station_identity_missing
+ *   2. destination ambiguous                -> destination_station_identity_ambiguous
+ *   3. destination not yet exact            -> destination_station_identity_missing
+ *      (a resolvable-only anchor keeps its truthful status but is not eligible)
+ *   4. exact destination + no origin        -> origin_station_identity_missing
+ *   5. exact destination + no departure     -> departure_time_input_absent
+ *   6. exact destination + no usable date   -> service_date_context_absent
+ *   7. all four satisfied                   -> eligible
+ *
+ * A `flow_dependent` input can satisfy a record ONLY when the caller evaluates it
+ * for a flow in which the input exists (`eligibilityScope: "flow"`). That is how a
+ * planner-originated view can be eligible while a direct-page-load view stays
+ * blocked, without pretending either is universal.
+ */
+export function classifyEligibility(record, context = {}) {
   const anchor = classifyDestinationAnchor(record);
-  if (anchor.status === DESTINATION_ANCHOR_STATUS.EXACT) {
-    return { eligible: true, blocker: null, anchor };
-  }
-  if (
-    anchor.status === DESTINATION_ANCHOR_STATUS.DETERMINISTICALLY_RESOLVABLE
-  ) {
-    // Resolvable, but no origin identity or departure window exists yet, so it is
-    // still not user-facing eligible. Blocked on the inputs, not on the anchor.
+  const resolved = buildEligibilityContext(context);
+  const scope = context.eligibilityScope === "flow" ? "flow" : "catalogue";
+
+  if (anchor.status === DESTINATION_ANCHOR_STATUS.UNAVAILABLE) {
     return {
       eligible: false,
-      blocker: "origin_station_identity_missing",
+      blocker: "destination_station_identity_missing",
       anchor,
+      context: resolved,
     };
   }
   if (anchor.status === DESTINATION_ANCHOR_STATUS.AMBIGUOUS) {
@@ -226,13 +332,53 @@ export function classifyEligibility(record) {
       eligible: false,
       blocker: "destination_station_identity_ambiguous",
       anchor,
+      context: resolved,
     };
   }
-  return {
-    eligible: false,
-    blocker: "destination_station_identity_missing",
-    anchor,
-  };
+  if (
+    anchor.status === DESTINATION_ANCHOR_STATUS.DETERMINISTICALLY_RESOLVABLE
+  ) {
+    // Truthful status is preserved: the anchor is resolvable but NOT exact, and a
+    // resolvable-only anchor can never be user-facing eligible in this PR.
+    return {
+      eligible: false,
+      blocker: "destination_station_identity_missing",
+      anchor,
+      context: resolved,
+    };
+  }
+
+  // From here the destination anchor IS exact; the remaining gates decide.
+  if (resolved.originIdentity !== INPUT_AVAILABILITY.AVAILABLE) {
+    return {
+      eligible: false,
+      blocker: "origin_station_identity_missing",
+      anchor,
+      context: resolved,
+    };
+  }
+  if (resolved.departureWindow !== INPUT_AVAILABILITY.AVAILABLE) {
+    return {
+      eligible: false,
+      blocker: "departure_time_input_absent",
+      anchor,
+      context: resolved,
+    };
+  }
+  if (
+    resolved.serviceDate === INPUT_AVAILABILITY.UNAVAILABLE ||
+    (resolved.serviceDate === INPUT_AVAILABILITY.FLOW_DEPENDENT &&
+      scope !== "flow")
+  ) {
+    // A flow-dependent date is NOT assumed present for every request.
+    return {
+      eligible: false,
+      blocker: "service_date_context_absent",
+      anchor,
+      context: resolved,
+    };
+  }
+  return { eligible: true, blocker: null, anchor, context: resolved };
 }
 
 /**
@@ -241,11 +387,8 @@ export function classifyEligibility(record) {
  * Pure: takes records, returns a report. No I/O, no clock, no randomness.
  */
 export function buildEligibilityReport(records, options = {}) {
-  const originIdentityAvailable = options.originIdentityAvailable === true;
-  const departureTimeInputAvailable =
-    options.departureTimeInputAvailable === true;
-  const serviceDateContextAvailable =
-    options.serviceDateContextAvailable === true;
+  const context = buildEligibilityContext(options);
+  const scope = options.eligibilityScope === "flow" ? "flow" : "catalogue";
 
   const anchorCounts = {
     [DESTINATION_ANCHOR_STATUS.EXACT]: 0,
@@ -257,8 +400,15 @@ export function buildEligibilityReport(records, options = {}) {
     BLOCKER_REASONS.map((reason) => [reason, 0]),
   );
 
+  // EVERY verdict comes from `classifyEligibility`. There is deliberately no
+  // second eligibility calculation here: re-deriving the cohort with a parallel
+  // condition is how the audit came to report `exact anchor => eligible` and a
+  // separately-gated cohort count at the same time.
   const perRecord = records.map((record) => {
-    const verdict = classifyEligibility(record);
+    const verdict = classifyEligibility(record, {
+      ...context,
+      eligibilityScope: scope,
+    });
     anchorCounts[verdict.anchor.status] += 1;
     if (verdict.blocker !== null) blockerCounts[verdict.blocker] += 1;
     return {
@@ -269,20 +419,12 @@ export function buildEligibilityReport(records, options = {}) {
       ...(Array.isArray(verdict.anchor.identitiesElsewhere)
         ? { identitiesElsewhere: verdict.anchor.identitiesElsewhere }
         : {}),
+      eligible: verdict.eligible,
       blocker: verdict.blocker,
     };
   });
 
-  // A record is user-facing eligible only when EVERY input is satisfied: the
-  // anchor is exact AND the origin identity, the departure window and a service
-  // date all exist. Anything less is not shippable, so it is not counted here.
-  const eligibleRecords = perRecord.filter(
-    (entry) =>
-      entry.anchorStatus === DESTINATION_ANCHOR_STATUS.EXACT &&
-      originIdentityAvailable &&
-      departureTimeInputAvailable &&
-      serviceDateContextAvailable,
-  );
+  const eligibleRecords = perRecord.filter((entry) => entry.eligible === true);
 
   return {
     totalCatalogueRecords: records.length,
@@ -293,14 +435,28 @@ export function buildEligibilityReport(records, options = {}) {
       ambiguous: anchorCounts[DESTINATION_ANCHOR_STATUS.AMBIGUOUS],
       unavailable: anchorCounts[DESTINATION_ANCHOR_STATUS.UNAVAILABLE],
     },
+    /**
+     * Input availability, each with an explicit availability state AND a
+     * classification. `serviceDate` is deliberately `flow_dependent`: it exists
+     * deterministically in planner/trip-context flows but NOT on every
+     * direct-navigation request, so a catalogue-wide boolean would either hide a
+     * real capability or overstate it. `eligibleCohortScope` records which flow
+     * the cohort below was evaluated for.
+     */
     inputs: {
       originStationIdentity: {
-        available: originIdentityAvailable,
-        classification: originIdentityAvailable
-          ? "deterministically_resolvable"
-          : "unavailable",
+        availability: context.originIdentity,
+        available: context.originIdentity === INPUT_AVAILABILITY.AVAILABLE,
+        classification:
+          context.originIdentity === INPUT_AVAILABILITY.AVAILABLE
+            ? "deterministically_resolvable"
+            : "unavailable",
       },
       destinationStationIdentity: {
+        availability:
+          anchorCounts[DESTINATION_ANCHOR_STATUS.EXACT] > 0
+            ? INPUT_AVAILABILITY.AVAILABLE
+            : INPUT_AVAILABILITY.UNAVAILABLE,
         available: anchorCounts[DESTINATION_ANCHOR_STATUS.EXACT] > 0,
         classification:
           anchorCounts[DESTINATION_ANCHOR_STATUS.EXACT] > 0
@@ -308,19 +464,33 @@ export function buildEligibilityReport(records, options = {}) {
             : "unavailable",
       },
       serviceDate: {
-        available: serviceDateContextAvailable,
-        classification: serviceDateContextAvailable
-          ? "deterministically_resolvable"
-          : "unavailable",
+        availability: context.serviceDate,
+        available: context.serviceDate === INPUT_AVAILABILITY.AVAILABLE,
+        classification:
+          context.serviceDate === INPUT_AVAILABILITY.UNAVAILABLE
+            ? "unavailable"
+            : "deterministically_resolvable",
+        evidence:
+          context.serviceDate === INPUT_AVAILABILITY.UNAVAILABLE
+            ? null
+            : "navState.travelDate|tripContext.travelDate",
+        /** True when a date exists only in some product flows. */
+        flowDependent:
+          context.serviceDate === INPUT_AVAILABILITY.FLOW_DEPENDENT,
       },
       departureTimeInput: {
-        available: departureTimeInputAvailable,
-        classification: departureTimeInputAvailable
-          ? "deterministically_resolvable"
-          : "unavailable",
+        availability: context.departureWindow,
+        available: context.departureWindow === INPUT_AVAILABILITY.AVAILABLE,
+        classification:
+          context.departureWindow === INPUT_AVAILABILITY.AVAILABLE
+            ? "deterministically_resolvable"
+            : "unavailable",
       },
     },
+    /** Which flow the cohort was evaluated for: `catalogue` | `flow`. */
+    eligibleCohortScope: scope,
     blockers: blockerCounts,
+    // Derived DIRECTLY from the per-record verdicts above — never recomputed.
     userFacingEligibleCohort: eligibleRecords.length,
     eligibleRecordIds: eligibleRecords
       .map((entry) => entry.id)
@@ -355,16 +525,28 @@ export function renderEligibilityMarkdown(report) {
     `- Ambiguous destination identities: **${report.destinationAnchors.ambiguous}**`,
     `- Unavailable destination identities: **${report.destinationAnchors.unavailable}**`,
     `- Current departure-time input: **${report.inputs.departureTimeInput.available ? "present" : "absent"}**`,
-    `- Current user-facing eligible cohort: **${report.userFacingEligibleCohort}**`,
+    `- Current user-facing eligible cohort: **${report.userFacingEligibleCohort}** (scope: \`${report.eligibleCohortScope}\`)`,
     "",
     "## Input availability",
     "",
-    "| Input | Available | Classification |",
-    "| --- | --- | --- |",
+    "| Input | Availability | Available | Classification | Notes |",
+    "| --- | --- | --- | --- | --- |",
   ];
   for (const [name, value] of Object.entries(report.inputs)) {
+    const notes = [];
+    if (value.flowDependent) {
+      // A flow-dependent input is NOT universally available: say so rather than
+      // collapsing it into a misleading catalogue-wide boolean. Pipes are escaped
+      // because the evidence value itself is pipe-separated and would otherwise
+      // break the table.
+      const evidence = value.evidence
+        ? ` (${String(value.evidence).replace(/\|/g, "\\|")})`
+        : "";
+      notes.push(`exists only in some flows${evidence}`);
+    }
     lines.push(
-      `| ${name} | ${value.available ? "yes" : "no"} | ${value.classification} |`,
+      `| ${name} | ${value.availability} | ${value.available ? "yes" : "no"} | ` +
+        `${value.classification} | ${notes.join("; ")} |`,
     );
   }
   lines.push(
@@ -377,16 +559,66 @@ export function renderEligibilityMarkdown(report) {
   for (const reason of BLOCKER_REASONS) {
     lines.push(`| ${reason} | ${report.blockers[reason]} |`);
   }
-  lines.push("");
+  lines.push(
+    "",
+    "Eligibility is decided per record by ONE precedence rule, and the cohort above",
+    "is derived directly from those verdicts. Inputs that are absent on current main",
+    "are declared as such rather than inferred, and a `flow_dependent` input can",
+    "satisfy a record only when the evaluation is scoped to a flow that supplies it.",
+    "",
+  );
   return lines.join("\n");
 }
 
-/** Reads the catalogue artifact. Explicit: called only by the CLI entry point. */
+/** Raised when the catalogue input cannot be understood. */
+export class UnsupportedCatalogueShapeError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "UnsupportedCatalogueShapeError";
+  }
+}
+
+/**
+ * Reads the catalogue artifact. Explicit: called only by the CLI entry point.
+ *
+ * Fails LOUDLY on an unrecognized shape. An evidence audit that silently degrades
+ * an unreadable input into "zero catalogue records" would report a confident
+ * negative result derived from nothing, which is the same class of error as
+ * turning a failed provider read into "the provider has none".
+ */
 export function loadCatalogueRecords(cwd = process.cwd()) {
   const absolute = resolve(cwd, CATALOGUE_PATH);
   const parsed = JSON.parse(readFileSync(absolute, "utf8"));
-  if (Array.isArray(parsed)) return parsed;
-  return parsed.destinations ?? parsed.items ?? [];
+
+  const records = Array.isArray(parsed)
+    ? parsed
+    : isPlainObject(parsed) && Array.isArray(parsed.destinations)
+      ? parsed.destinations
+      : isPlainObject(parsed) && Array.isArray(parsed.items)
+        ? parsed.items
+        : null;
+
+  if (records === null) {
+    const shape = Array.isArray(parsed)
+      ? "array"
+      : isPlainObject(parsed)
+        ? `object with keys [${Object.keys(parsed).slice(0, 8).join(", ")}]`
+        : typeof parsed;
+    throw new UnsupportedCatalogueShapeError(
+      `Unsupported catalogue shape in ${CATALOGUE_PATH}: expected an array, or an ` +
+        `object with a \`destinations\` or \`items\` array; received ${shape}. ` +
+        `Refusing to continue rather than reporting zero catalogue records.`,
+    );
+  }
+  if (records.length === 0) {
+    // An empty catalogue would make every coverage claim vacuous. The exact count
+    // is NOT asserted (it may legitimately change); emptiness is.
+    throw new UnsupportedCatalogueShapeError(
+      `Catalogue at ${CATALOGUE_PATH} is empty. An eligibility audit over zero ` +
+        `records cannot support any coverage claim.`,
+    );
+  }
+  return records;
 }
 
 const isMain =
@@ -398,12 +630,13 @@ const isMain =
 if (isMain) {
   const records = loadCatalogueRecords();
   const report = buildEligibilityReport(records, {
-    // Verified absent on current main by the audit documented in
-    // docs/kai-290-odpt-2d-integration-readiness.md. Passed explicitly so the
+    // Verified on current main by the audit documented in
+    // docs/kai-290-odpt-2d-integration-readiness.md. Declared explicitly so the
     // report cannot silently claim eligibility it has not measured.
-    originIdentityAvailable: false,
-    departureTimeInputAvailable: false,
-    serviceDateContextAvailable: false,
+    originIdentity: "unavailable",
+    departureWindow: "unavailable",
+    serviceDate: "flow_dependent",
+    eligibilityScope: "catalogue",
   });
   // Deterministic JSON: stable key order. `notableRecords` is already the
   // compact exception list, so the whole report is safe to print.

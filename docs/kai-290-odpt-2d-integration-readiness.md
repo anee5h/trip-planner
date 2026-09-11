@@ -23,10 +23,33 @@ From the committed artifact `qa/kai-290/odpt-eligibility.json`:
 | Ambiguous destination identities | **0** |
 | Unavailable destination identities | **1130** |
 | Current departure-time input | **absent** |
-| Current user-facing eligible cohort | **0** |
+| Current user-facing eligible cohort | **0** (scope: `catalogue`) |
 
 Method: offline scan of committed catalogue artifacts. **0 network calls, 0
-provider calls, 0 credentials read.**
+provider calls, 0 credentials read.** Regeneration is **environment independent**:
+the artifact contains no ambient environment input (see §6), so identical committed
+inputs produce identical bytes locally and in CI.
+
+### One eligibility truth
+
+Eligibility is decided per record by a **single** precedence rule, and the cohort
+count is derived directly from those verdicts — there is no second, independently
+computed eligibility condition anywhere. Precedence, in order:
+
+```
+destination unavailable                     -> destination_station_identity_missing
+destination ambiguous                       -> destination_station_identity_ambiguous
+destination resolvable but not yet exact     -> destination_station_identity_missing
+exact destination + no origin identity       -> origin_station_identity_missing
+exact destination + no departure window      -> departure_time_input_absent
+exact destination + no usable service date   -> service_date_context_absent
+all four satisfied                           -> eligible
+```
+
+An exact destination anchor **alone is never eligible**. This matters for the
+KAI-291A re-scope: as anchors are added, records will progress through these gates
+one at a time rather than flipping straight to `eligible`, and the blocker counts
+move with them.
 
 ---
 
@@ -39,7 +62,7 @@ four of these. Each is classified per the audit contract, with the evidence belo
 | --- | --- | --- | --- |
 | A | Origin exact ODPT station identity | **`unavailable`** | Origin data is `{name, lat, lng}` only |
 | B | Destination/arrival exact ODPT station identity | **`unavailable`** | **0 of 1130** records carry any `odpt.*` value |
-| C | Service date | **`deterministically_resolvable`** (trip-context flows only) | `navState.travelDate` / `tripContext.travelDate` |
+| C | Service date | **`deterministically_resolvable`**, availability **`flow_dependent`** | `navState.travelDate` / `tripContext.travelDate` |
 | D | Bounded departure window | **`unavailable`** | No time-of-day input exists anywhere |
 
 A and B are both required and neither is available, so no destination can be
@@ -94,9 +117,23 @@ is available **duration**, not a departure time.
 ### 2.4 Service date — `deterministically_resolvable` (partial)
 
 `DestinationDetails.activeTravelDate` (from `navState.travelDate` /
-`tripContext.travelDate`) supplies a date in planner-originated flows, but not on
-direct navigation. A date alone is insufficient regardless, since the #390 window
-requires a time.
+`tripContext.travelDate`) supplies a date in planner-originated flows, but **not on
+every direct-navigation request**.
+
+Modelled as `availability: "flow_dependent"` rather than a catalogue-wide boolean,
+because a boolean would be wrong either way: `false` would hide a capability that
+genuinely exists in planner flows, and `true` would falsely make every catalogue
+record service-date eligible.
+
+Consequences, stated explicitly:
+
+- it is **not** universally available, and is **not** assumed present for every
+  detail-page request;
+- a `flow_dependent` input satisfies a record **only** when the evaluation is
+  scoped to a flow that supplies it (`eligibleCohortScope: "flow"`);
+- the committed cohort is evaluated `catalogue`-wide, so it stays **0**;
+- a date alone is insufficient regardless, since the #390 window also requires a
+  departure **time**.
 
 ---
 
@@ -133,6 +170,20 @@ evidence of which station the destination arrives at. It is reported in
 real bug caught by the tooling tests: a blind recursive scan let a mapping
 masquerade as an `exact` anchor.
 
+**Canonical-mapping rule.** A mapping counts as station evidence **only** when it
+names an explicit ODPT station **target** in one of the recognized station keys:
+
+| Mapping content | Result |
+| --- | --- |
+| exactly one explicit station target | `deterministically_resolvable` |
+| several competing station targets | `ambiguous` |
+| non-empty mapping with **no** station target (e.g. `{operator: …}`) | `unavailable` |
+| identity buried in notes only | diagnostic only (`identitiesElsewhere`) |
+
+`{ odptMapping: { operator: "odpt.Operator:Toei" } }` describes the *operator*, not
+the arrival station, so it does not promote the record. A real anchor field
+outranks a mapping.
+
 **Forbidden evidence, never accepted by this audit:** fuzzy/partial name matching,
 nearest-station distance guesses, name-only identity, municipality centroid,
 "main station" convention, destination `kind: "station"` without an explicit
@@ -155,6 +206,24 @@ unverifiable surface area:
 
 **Zero production/runtime behaviour changes.** No `src/` file is modified by this
 PR; it adds one audit script, its tests, and documentation/artifacts.
+
+---
+
+## 5a. Artifact reproducibility
+
+The committed artifact is **environment independent by construction**: it contains
+no ambient environment input. An earlier version recorded
+`baseCommit: process.env.GITHUB_SHA ?? null`, which made identical committed inputs
+produce different bytes locally and in CI — silently breaking the byte-identical
+regeneration contract the artifact claims. The commit an artifact was generated at
+is a property of the *run*, not of the data, so it is not written at all. Verified:
+generating with `GITHUB_SHA` unset and with a fake value yields identical bytes.
+
+The audit also **fails loudly on an unrecognized catalogue shape** rather than
+falling through to `[]`. Reporting a confident "zero eligible records" derived from
+an input that could not be read is the same class of error as turning a failed
+provider read into "the provider has none". Emptiness is rejected too; the specific
+count is **not** asserted, since it may legitimately change.
 
 ---
 
