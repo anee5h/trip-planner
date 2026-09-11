@@ -1,14 +1,24 @@
 {
   "schemaVersion": 2,
   "kind": "kai-291a-destination-station-anchors",
-  "auditVersion": "kai-291a-geographic-v2",
+  "auditVersion": "kai-291a-final-policy-v3",
   "evidencePath": "geographic_unique_candidate",
   "method": "offline_geographic_rule_with_anchorability_gate",
   "networkCalls": 0,
   "providerCalls": 0,
   "semantics": "geographic_unique_candidate: under Meguruto's fixed geographic anchor policy exactly one pilot ODPT station was identified for this destination. NOT a destination-recommended arrival station, and no claim about station -> POI access.",
   "anchorabilityPolicy": {
-    "excludedWhenRoleIs": ["hub"],
+    "precedence": [
+      "1. explicit/canonical exact station evidence -> stronger evidence path",
+      "2. administrative/locality kind -> not_anchorable_by_geography",
+      "3. role === hub -> not_anchorable_by_geography",
+      "4. role === standalone -> not_anchorable_by_geography",
+      "5. role === poi -> anchorable (even when kind is null)",
+      "6. role === null && kind === null -> hold_for_review",
+      "7. role === null + known non-administrative kind -> anchorable",
+      "8. any other role -> hold_for_review"
+    ],
+    "knownRoles": ["hub", "poi", "standalone"],
     "excludedWhenKindIs": [
       "city",
       "ward",
@@ -17,25 +27,27 @@
       "district",
       "historic_town"
     ],
-    "reasons": {
+    "notAnchorableReasons": {
       "HUB_ROLE": "hub_role",
+      "STANDALONE_REGIONAL_ROLE": "standalone_regional_role",
       "ADMINISTRATIVE_OR_LOCALITY_KIND": "administrative_or_locality_kind"
     },
-    "notInScopeOfExclusionYet": [
-      "park",
-      "garden",
-      "mountain",
-      "lake",
-      "island",
-      "beach",
-      "market",
-      "street",
-      "nature",
-      "natural",
-      "mixed"
-    ],
-    "semantics": "not_anchorable_by_geography forbids deriving an anchor from an area's representative coordinates. It is NOT a permanent not_anchorable: an explicit canonical mapping or curated access station may still anchor it."
+    "holdReasons": {
+      "DESTINATION_SEMANTICS_UNCLASSIFIED": "destination_semantics_unclassified",
+      "UNKNOWN_OR_LEGACY_ROLE": "unknown_or_legacy_role"
+    },
+    "strictness": "kind exclusions are strict for now; the set is intentionally narrow and may be broadened later with evidence. No kind is 'less anchorable' and none is treated as partially anchorable.",
+    "semantics": "not_anchorable_by_geography forbids deriving an anchor from an area's representative coordinates. It is NOT a permanent not_anchorable: rule 1 explicit evidence may still anchor the same destination."
   },
+  "statusPartition": {
+    "geographic_unique_candidate": 7,
+    "ambiguous": 13,
+    "unavailable": 370,
+    "coordinates_absent": 0,
+    "not_anchorable_by_geography": 592,
+    "hold_for_review": 148
+  },
+  "partitionSemantics": "The six geographic statuses are mutually exclusive and exhaustive over destinations evaluated by the geographic rule, and sum to (destinationsEvaluated - canonicalExplicitStation). canonical_explicit_station is reported separately because rule 1 removes a record from the geographic rule entirely; counting it as a geographic finding would misreport it.",
   "toleranceMeters": 500,
   "inputs": {
     "catalogue": "src/shared/data/destinations-index.json",
@@ -50,39 +62,50 @@
   },
   "summary": {
     "destinationsEvaluated": 1130,
-    "uniqueAnchors": 9,
-    "ambiguous": 24,
-    "unavailable": 886,
+    "uniqueAnchors": 7,
+    "canonicalExplicitStation": 0,
+    "productionReadyAnchors": 7,
+    "ambiguous": 13,
+    "unavailable": 370,
     "coordinatesAbsent": 0,
-    "notAnchorableByGeography": 211,
+    "notAnchorableByGeography": 592,
+    "holdForReview": 148,
+    "notAnchorableReasons": {
+      "administrative_or_locality_kind": 208,
+      "standalone_regional_role": 381,
+      "hub_role": 3
+    },
+    "holdReasons": {
+      "unknown_or_legacy_role": 99,
+      "destination_semantics_unclassified": 49
+    },
     "destinationsWithoutCoordinates": 1,
     "candidateCountDistribution": {
-      "0": 886,
-      "1": 9,
-      "2": 10,
-      "3": 9,
-      "4+": 5
+      "0": 370,
+      "1": 7,
+      "2": 5,
+      "3": 4,
+      "4+": 4
     },
     "anchorsByOperator": {
       "odpt.Operator:TokyoMetro": 3,
-      "odpt.Operator:Toei": 6
+      "odpt.Operator:Toei": 4
     },
     "anchorsByRailway": {
       "odpt.Railway:TokyoMetro.Marunouchi": 1,
-      "odpt.Railway:Toei.Asakusa": 1,
       "odpt.Railway:TokyoMetro.Hibiya": 1,
-      "odpt.Railway:Toei.Oedo": 4,
       "odpt.Railway:TokyoMetro.Ginza": 1,
+      "odpt.Railway:Toei.Oedo": 3,
       "odpt.Railway:Toei.Mita": 1
     },
     "distanceMetersStats": {
-      "min": 142.5594290447575,
-      "median": 376.6157552470208,
+      "min": 247.1677178229855,
+      "median": 378.84586020344176,
       "max": 488.26120341098886,
       "bucketUnder50": 0,
       "bucket50to100": 0,
-      "bucket100to250": 2,
-      "bucket250to500": 7
+      "bucket100to250": 1,
+      "bucket250to500": 6
     }
   },
   "anchors": [
@@ -118,36 +141,7 @@
           "odpt.Operator:Toei": ["2026-09-11T05:23:39.185Z"],
           "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"]
         },
-        "auditVersion": "kai-291a-geographic-v2"
-      }
-    },
-    {
-      "destinationId": "takanawa-gateway-minato",
-      "semanticClassification": "requires_review",
-      "proposedOutcome": "hold_for_review",
-      "odptStationId": "odpt.Station:Toei.Asakusa.Sengakuji",
-      "operator": "odpt.Operator:Toei",
-      "railway": "odpt.Railway:Toei.Asakusa",
-      "stationTitle": {
-        "en": "Sengakuji",
-        "ja": "泉岳寺"
-      },
-      "destinationCoordinates": {
-        "lat": 35.6355,
-        "lng": 139.7407
-      },
-      "distanceMeters": 363.15631598282965,
-      "provenance": {
-        "evidencePath": "geographic_unique_candidate",
-        "toleranceMeters": 500,
-        "candidateCount": 1,
-        "candidateIdentities": ["odpt.Station:Toei.Asakusa.Sengakuji"],
-        "providerBoundary": "https://meguruto.app/api/odpt",
-        "providerRetrievedAt": {
-          "odpt.Operator:Toei": ["2026-09-11T05:23:39.185Z"],
-          "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"]
-        },
-        "auditVersion": "kai-291a-geographic-v2"
+        "auditVersion": "kai-291a-final-policy-v3"
       }
     },
     {
@@ -180,36 +174,7 @@
           "odpt.Operator:Toei": ["2026-09-11T05:23:39.185Z"],
           "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"]
         },
-        "auditVersion": "kai-291a-geographic-v2"
-      }
-    },
-    {
-      "destinationId": "tokyo-metropolitan-government-building-shinjuku",
-      "semanticClassification": "requires_review",
-      "proposedOutcome": "hold_for_review",
-      "odptStationId": "odpt.Station:Toei.Oedo.Tochomae",
-      "operator": "odpt.Operator:Toei",
-      "railway": "odpt.Railway:Toei.Oedo",
-      "stationTitle": {
-        "en": "Tochomae",
-        "ja": "都庁前"
-      },
-      "destinationCoordinates": {
-        "lat": 35.6896,
-        "lng": 139.6917
-      },
-      "distanceMeters": 142.5594290447575,
-      "provenance": {
-        "evidencePath": "geographic_unique_candidate",
-        "toleranceMeters": 500,
-        "candidateCount": 1,
-        "candidateIdentities": ["odpt.Station:Toei.Oedo.Tochomae"],
-        "providerBoundary": "https://meguruto.app/api/odpt",
-        "providerRetrievedAt": {
-          "odpt.Operator:Toei": ["2026-09-11T05:23:39.185Z"],
-          "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"]
-        },
-        "auditVersion": "kai-291a-geographic-v2"
+        "auditVersion": "kai-291a-final-policy-v3"
       }
     },
     {
@@ -242,7 +207,7 @@
           "odpt.Operator:Toei": ["2026-09-11T05:23:39.185Z"],
           "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"]
         },
-        "auditVersion": "kai-291a-geographic-v2"
+        "auditVersion": "kai-291a-final-policy-v3"
       }
     },
     {
@@ -271,7 +236,7 @@
           "odpt.Operator:Toei": ["2026-09-11T05:23:39.185Z"],
           "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"]
         },
-        "auditVersion": "kai-291a-geographic-v2"
+        "auditVersion": "kai-291a-final-policy-v3"
       }
     },
     {
@@ -300,7 +265,7 @@
           "odpt.Operator:Toei": ["2026-09-11T05:23:39.185Z"],
           "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"]
         },
-        "auditVersion": "kai-291a-geographic-v2"
+        "auditVersion": "kai-291a-final-policy-v3"
       }
     },
     {
@@ -329,7 +294,7 @@
           "odpt.Operator:Toei": ["2026-09-11T05:23:39.185Z"],
           "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"]
         },
-        "auditVersion": "kai-291a-geographic-v2"
+        "auditVersion": "kai-291a-final-policy-v3"
       }
     },
     {
@@ -358,28 +323,11 @@
           "odpt.Operator:Toei": ["2026-09-11T05:23:39.185Z"],
           "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"]
         },
-        "auditVersion": "kai-291a-geographic-v2"
+        "auditVersion": "kai-291a-final-policy-v3"
       }
     }
   ],
   "ambiguousDestinations": [
-    {
-      "destinationId": "akasaka-minato",
-      "candidateCount": 3,
-      "candidateIdentities": [
-        "odpt.Station:Toei.Oedo.AoyamaItchome",
-        "odpt.Station:TokyoMetro.Ginza.AoyamaItchome",
-        "odpt.Station:TokyoMetro.Hanzomon.AoyamaItchome"
-      ]
-    },
-    {
-      "destinationId": "akihabara-chiyoda",
-      "candidateCount": 2,
-      "candidateIdentities": [
-        "odpt.Station:Toei.Shinjuku.Iwamotocho",
-        "odpt.Station:TokyoMetro.Hibiya.Akihabara"
-      ]
-    },
     {
       "destinationId": "ameya-yokocho",
       "candidateCount": 5,
@@ -392,78 +340,12 @@
       ]
     },
     {
-      "destinationId": "asakusa-taito",
-      "candidateCount": 3,
-      "candidateIdentities": [
-        "odpt.Station:Toei.Asakusa.Asakusa",
-        "odpt.Station:TokyoMetro.Ginza.Asakusa",
-        "odpt.Station:TokyoMetro.Ginza.Tawaramachi"
-      ]
-    },
-    {
-      "destinationId": "ginza-urban",
-      "candidateCount": 8,
-      "candidateIdentities": [
-        "odpt.Station:Toei.Asakusa.HigashiGinza",
-        "odpt.Station:TokyoMetro.Ginza.Ginza",
-        "odpt.Station:TokyoMetro.Hibiya.Ginza",
-        "odpt.Station:TokyoMetro.Hibiya.Hibiya",
-        "odpt.Station:TokyoMetro.Hibiya.HigashiGinza",
-        "odpt.Station:TokyoMetro.Marunouchi.Ginza",
-        "odpt.Station:TokyoMetro.Yurakucho.GinzaItchome",
-        "odpt.Station:TokyoMetro.Yurakucho.Yurakucho"
-      ]
-    },
-    {
-      "destinationId": "ikebukuro-toshima",
-      "candidateCount": 3,
-      "candidateIdentities": [
-        "odpt.Station:TokyoMetro.Fukutoshin.Ikebukuro",
-        "odpt.Station:TokyoMetro.Marunouchi.Ikebukuro",
-        "odpt.Station:TokyoMetro.Yurakucho.Ikebukuro"
-      ]
-    },
-    {
-      "destinationId": "national-museum-western-art-tokyo",
-      "candidateCount": 2,
-      "candidateIdentities": [
-        "odpt.Station:TokyoMetro.Ginza.Ueno",
-        "odpt.Station:TokyoMetro.Hibiya.Ueno"
-      ]
-    },
-    {
       "destinationId": "omoide-yokocho",
       "candidateCount": 3,
       "candidateIdentities": [
         "odpt.Station:Toei.Oedo.ShinjukuNishiguchi",
         "odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
         "odpt.Station:TokyoMetro.Marunouchi.ShinjukuSanchome"
-      ]
-    },
-    {
-      "destinationId": "roppongi-hills-tokyo-city-view",
-      "candidateCount": 2,
-      "candidateIdentities": [
-        "odpt.Station:Toei.Oedo.Roppongi",
-        "odpt.Station:TokyoMetro.Hibiya.Roppongi"
-      ]
-    },
-    {
-      "destinationId": "shibuya-sky-shibuya",
-      "candidateCount": 3,
-      "candidateIdentities": [
-        "odpt.Station:TokyoMetro.Fukutoshin.Shibuya",
-        "odpt.Station:TokyoMetro.Ginza.Shibuya",
-        "odpt.Station:TokyoMetro.Hanzomon.Shibuya"
-      ]
-    },
-    {
-      "destinationId": "sunshine-60-observatory-ikebukuro",
-      "candidateCount": 3,
-      "candidateIdentities": [
-        "odpt.Station:Toei.Arakawa.HigashiIkebukuroYonchome",
-        "odpt.Station:Toei.Arakawa.Mukohara",
-        "odpt.Station:TokyoMetro.Yurakucho.HigashiIkebukuro"
       ]
     },
     {
@@ -481,22 +363,6 @@
       "candidateIdentities": [
         "odpt.Station:Toei.Arakawa.HigashiIkebukuroYonchome",
         "odpt.Station:TokyoMetro.Yurakucho.HigashiIkebukuro"
-      ]
-    },
-    {
-      "destinationId": "tokyo-skytree-sumida",
-      "candidateCount": 2,
-      "candidateIdentities": [
-        "odpt.Station:Toei.Asakusa.Oshiage",
-        "odpt.Station:TokyoMetro.Hanzomon.Oshiage"
-      ]
-    },
-    {
-      "destinationId": "tokyo-tower-minato",
-      "candidateCount": 2,
-      "candidateIdentities": [
-        "odpt.Station:Toei.Oedo.Akabanebashi",
-        "odpt.Station:TokyoMetro.Hibiya.Kamiyacho"
       ]
     },
     {
@@ -589,137 +455,197 @@
   "notAnchorableDestinations": [
     {
       "destinationId": "abashiri-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "abukuma-cave-fukushima",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "adachi-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "aizuwakamatsu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "akita-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "amami-iriomote-natural-site",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "aomori-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "arakawa-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 2
     },
     {
       "destinationId": "asago-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "asahikawa-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ashigara",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "ashikaga-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "aso-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "atami-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "beppu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "biei-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "bitchu-matsuyama-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "boso-no-mura",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "boso-peninsula",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "bunkyo-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 4
     },
     {
       "destinationId": "chiba-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "chiba-nokogiriyama",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "chiba-sawara",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "chiba-yoro-valley",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "chichibu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "chigasaki-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "chiyoda-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 6
     },
     {
       "destinationId": "chofu-tokyo",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "choshi-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "chuo-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 4
     },
     {
+      "destinationId": "dakigaeri-valley-akita",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "dazaifu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "dewa-sanzan-yamagata",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "edogawa-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "fuji-5-lake",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "fujikawaguchiko-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "fujinomiya-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "fujisawa-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "fujiyoshida-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
@@ -729,32 +655,52 @@
     },
     {
       "destinationId": "fukuoka-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "fukushima-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "funabashi-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "furano-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "gala-yuzawa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "geibikei-gorge-iwate",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "gero-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "gero-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ghibli-museum",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "gifu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
@@ -768,113 +714,188 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "ginzan-onsen-yamagata",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "golden-gai",
       "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 4
     },
     {
+      "destinationId": "goshikinuma-ponds-fukushima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "gotemba-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "gunma-ikaho-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "gunma-kusatsu-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "gunma-shima-onsen",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hachinohe-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hachioji-tokyo",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hakodate-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hakone-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hakuba-village",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hamamatsu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hatsukaichi-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hikone-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "himeji-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hino-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hiraizumi-chusonji-iwate",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hirosaki-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hiroshima-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ibaraki-fukuroda-falls",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ibaraki-hitachi-seaside-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ibaraki-mount-tsukuba",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "ikaruga-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "inuyama-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "ise-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "ishigaki-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "itabashi-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 1
     },
     {
       "destinationId": "ito-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "iwakuni-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "iwami-ginzan-shimane",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "iya-valley-tokushima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "izu",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "izumo-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "izumo-taisha",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "jodogahama-beach-iwate",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "jogashima",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -884,7 +905,7 @@
     },
     {
       "destinationId": "kagoshima-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
@@ -893,8 +914,18 @@
       "observedCandidateCount": 2
     },
     {
+      "destinationId": "kairakuen-mito",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kakegawa-castle-shizuoka",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "kamakura-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
@@ -903,63 +934,88 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "kanazawa-castle-ishikawa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "karuizawa-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "katori-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "katori-jingu",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "katsushika-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kawagoe-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kawaguchi-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kawasaki-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kinugawa-onsen",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kisarazu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kiso",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kita-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 2
     },
     {
       "destinationId": "kitakyushu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kiyotsu-gorge-niigata",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kobe-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kochi-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kofu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
@@ -969,42 +1025,47 @@
     },
     {
       "destinationId": "koriyama-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "koto-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 1
     },
     {
       "destinationId": "koya-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kumamoto-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kurashiki-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kurobe-gorge",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kusatsu-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kushiro-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kyoto-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
@@ -1013,93 +1074,153 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "lake-hamanako",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "lake-sagami",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "lake-towada-aomori",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "machida-tokyo",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "marugame-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "maruoka-castle-fukui",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "matsudo-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "matsue-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "matsumoto-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "matsuyama-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "meguro-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 1
     },
     {
       "destinationId": "minakami-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "minato-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 4
     },
     {
       "destinationId": "mine-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "mito-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "miyakojima-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "miyazaki-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "miyazu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "morioka-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mother-farm-chiba",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "motobu-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "motonosumi-shrine-yamaguchi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mount-bandai-fukushima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mount-fuji",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mount-zao-yamagata",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nagano-bessho-onsen",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "nagano-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nagano-kamikochi",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "nagano-narai-juku",
       "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nagano-suwa",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -1109,27 +1230,27 @@
     },
     {
       "destinationId": "nagasaki-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "nago-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "nagoya-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "naha-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "nakano-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 1
     },
     {
@@ -1138,23 +1259,28 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "naoshima-art-island-kagawa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "nara-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "narita-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "naruto-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "nerima-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 1
     },
     {
@@ -1164,52 +1290,87 @@
     },
     {
       "destinationId": "nikko-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "niseko-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "noto",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "numazu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nyuto-onsen-akita",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "oarai-marine-tower",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "odaiba-minato",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "odawara-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ogasawara-islands-tokyo",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "oirase-gorge-aomori",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "okama-crater-yamagata",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "okayama-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "okazaki-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "okuhida",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "ome-tokyo",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "onomichi-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "osaka-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
@@ -1219,27 +1380,57 @@
     },
     {
       "destinationId": "ota-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "otaru-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "otsu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ouchi-juku-fukushima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "oze-national-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ryugado-cave-kochi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ryusendo-cave-iwate",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sado-island",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "sagamihara-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "saitama-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "saitama-nagatoro",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -1249,52 +1440,62 @@
     },
     {
       "destinationId": "sakai-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sakura-castle-chiba",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "sapporo-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "semboku-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "sendai-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "setagaya-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "shibuya-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 3
     },
     {
       "destinationId": "shimonoseki-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "shinagawa-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "shinjuku-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 5
     },
     {
       "destinationId": "shirahama-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shirakami-sanchi-aomori",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -1303,18 +1504,23 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "shiretoko-national-park-hokkaido",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "shizuoka-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "suginami-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 1
     },
     {
       "destinationId": "sumida-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 2
     },
     {
@@ -1324,7 +1530,7 @@
     },
     {
       "destinationId": "tachikawa-tokyo",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
@@ -1334,22 +1540,22 @@
     },
     {
       "destinationId": "taito-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 3
     },
     {
       "destinationId": "takachiho-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "takahashi-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "takamatsu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
@@ -1358,8 +1564,18 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "takato-castle-nagano",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "takayama-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "takeda-castle-yamanashi",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -1368,13 +1584,38 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "teshima-island-kagawa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tojinbo-cliffs-fukui",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "tokorozawa-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "tokushima-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tokyo-hinohara",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tokyo-mt-mitake",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tokyo-okutama",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -1383,28 +1624,58 @@
       "observedCandidateCount": 3
     },
     {
+      "destinationId": "tomioka-silk-mill-gunma",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "toshima-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 3
     },
     {
       "destinationId": "tottori-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tottori-sand-dunes",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "toyama-alpine",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "toyooka-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "toyota-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "tsukuba-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tsunoshima-bridge-yamaguchi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tsutenkaku",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ueda-castle-nagano",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -1414,47 +1685,87 @@
     },
     {
       "destinationId": "uji-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "urayasu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ushiku-daibutsu",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "utsunomiya-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "uwajima-castle",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "wakayama-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "yakushima-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yamadera-yamagata",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "yamagata-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yamanashi-nishizawa-valley",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yamanashi-shosenkyo-gorge",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "yokohama-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "yokosuka-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yomiuriland",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "yufu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "zao-fox-village-miyagi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "zushi",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -1513,38 +1824,88 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "naminoue-shrine-naha",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "fukushuen-garden-naha",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nago-pineapple-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "busena-marine-park-nago",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "bise-fukugi-tree-road-motobu",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nakijin-castle-ruins-motobu",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tamatorizaki-viewpoint-ishigaki",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yonehara-beach-coral-ishigaki",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "irabu-bridge-irabujima-miyako",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "higashi-hennazaki-cape-miyako",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "karatsu-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "sasebo-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "ibusuki-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "nichinan-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "hita-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "miyoshi-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "uwajima-city",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
@@ -1569,12 +1930,792 @@
     },
     {
       "destinationId": "matsushima-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "kitakata-kura-district",
       "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kenroku-en",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kashima-jingu",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "takaoka-daibutsu",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "miharu-takizakura",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "usuzumi-zakura",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "jindai-zakura",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nemuro-peninsula-chashi-sites",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "goryokaku",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "matsumae-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ne-castle-hachinohe",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "taga-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kubota-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yamagata-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nihonmatsu-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shirakawa-komine-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ashikaga-shi-yakata",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "minowa-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kanayama-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hachigata-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "odawara-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kofu-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "matsushiro-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "komoro-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shibata-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kasugayama-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "takaoka-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nanao-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ichijodani-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "iwamura-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yamanaka-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sunpu-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "okazaki-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nagashino-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "iga-ueno-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "matsusaka-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "odani-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "azuchi-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kannonji-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "chihaya-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sasayama-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "akashi-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ako-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "takatori-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tottori-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "gassantoda-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tsuwano-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tsuyama-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kinojo",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "fukuyama-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yoshida-koriyama-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hagi-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tokushima-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "imabari-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ozu-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ono-castle-dazaifu",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hizen-nagoya-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yoshinogari",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "saga-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hirado-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shimabara-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hitoyoshi-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "funai-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "oka-castle-oita",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kagoshima-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nakagusuku-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "rishiri-rebun-sarobetsu",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "akan-mashu",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kushiro-shitsugen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "daisetsuzan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hidakasanmyaku-erimo-tokachi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shikotsu-toya",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "towada-hachimantai",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sanriku-fukko",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "bandai-asahi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nikko-national-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "joshinetsu-kogen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "myoko-togakushi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "chichibu-tama-kai",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ogasawara-national-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "fuji-hakone-izu",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "chubu-sangaku",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hakusan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "minami-alps",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ise-shima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yoshino-kumano",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sanin-kaigan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "setonaikai",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "daisen-oki",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ashizuri-uwakai",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "saikai",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "unzen-amakusa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "aso-kuju",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kirishima-kinkowan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yakushima-national-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "amami-gunto",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yambaru",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kerama-shoto",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "iriomote-ishigaki",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shokanbetsu-teuri-yagishiri",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "abashiri",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "niseko-shakotan-otaru-kaigan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "onuma",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "akkeshi-kiritappu-konbumori",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shimokita-hanto",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tsugaru",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hayachine",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kurikoma",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "zao",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "oga",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "chokai",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "echigo-sanzan-tadami",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "suigo-tsukuba",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "myogi-arafune-saku-kogen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "minami-boso",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "meiji-no-mori-takao",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tanzawa-oyama",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sado-yahiko-yoneyama",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "noto-hanto",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "echizen-kaga-kaigan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "wakasa-wan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yatsugatake-chushin-kogen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "chuo-alps",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tenryu-okumikawa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ibi-sekigahara-yoro",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hida-kisogawa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ontakesan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "aichi-kogen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mikawa-wan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "suzuka",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "muro-akame-aoyama",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "biwako",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tango-amanohashidate-oeyama",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kyoto-tamba-kogen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "meiji-no-mori-mino",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kongo-ikoma-kisen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hyonosen-ushiro-yama-nagisan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yamato-aogaki",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "koya-ryujin",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hiba-dogo-taishaku",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nishi-chugoku-sanchi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kita-nagato-kaigan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "akiyoshidai",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tsurugisan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "muroto-anan-kaigan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ishizuchi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kitakyushu",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "genkai",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yaba-hita-hikosan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "iki-tsushima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kyushu-chuo-sanchi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nippo-kaigan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sobo-katamuki",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nichinan-kaigan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "koshikijima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "okinawa-kaigan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "okinawa-senseki",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -1588,13 +2729,323 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "sarakurayama",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "fuefukigawa-fruit-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "wakakusayama",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nippara-cave",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hida-cave",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nanatsugama-cave",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kyusendo-cave",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shoryu-cave",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nichinan-kaigan-drive",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "saru-hashi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "akashi-kaikyo-bridge",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "seto-ohashi-bridge",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "rainbow-bridge",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "omishima-bridge",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "farm-tomita",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shikisai-no-oka",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nabana-no-sato",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shomyo-falls",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shiraito-falls",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "taketomi-island",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shodoshima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "inujima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hakone-open-air-museum",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sapporo-art-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kanazawa-21",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ogijima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shikoku-henro",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "saigoku-33",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "junglia-okinawa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "dmm-kariyushi-aquarium",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nakayama-hokekyoji-ichikawa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "akebonoyama-agricultural-park-kashiwa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shimizu-park-noda",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kikkoman-soy-sauce-museum-noda",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "spa-metsa-ootaka-nagareyama",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "national-museum-japanese-history-sakura",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "expo-70-commemorative-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kishiwada-castle",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kishiwada-danjiri-kaikan",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hirakata-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ghibli-park-nagakute",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mt-rokko-kobe",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nokonoshima-island-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sakurai-futamigaura-itoshima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yanagawa-canal-cruise",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "kurokabe-square-nagahama",
       "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "chikubushima-island",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "koka-ninja-house",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "makino-metasequoia-avenue",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "eigenji-higashiomi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "taga-taisha",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "miyama-kayabuki-no-sato",
       "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "maizuru-red-brick-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "izanagi-jingu-awaji",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "awaji-farm-park-england-hill",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sumoto-castle-awaji",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "dorogawa-onsen-tenkawa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mitarai-valley-tenkawa",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nijigen-no-mori-awaji",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "iya-no-kazurabashi-tokushima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "oboke-koboke-gorges-tokushima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shimanto-river-yakatabune-nattoku",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nakatsu-gorge-kochi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shikoku-karst-kochi",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -1608,13 +3059,298 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "toyama-glass-art-museum",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "fukui-prefectural-dinosaur-museum",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shiroyama-park-tateyama",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "awa-shrine-tateyama",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kamogawa-sea-world",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "onjuku-beach",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kasama-inari-shrine",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ibaraki-ceramic-art-museum",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hitachi-kamine-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hitachinokuni-soshagu-shrine",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kumano-hongu-taisha-oyunohara",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kumano-hayatama-taisha-shingu",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yunomine-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kumano-kodo-takijiri-takahara",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "jigokudani-monkey-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tsugaike-nature-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "daio-wasabi-farm",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "senjojiki-cirque",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "suwa-taisha",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "obuse-town",
-      "anchorabilityReason": "hub_role",
+      "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "lake-haruna",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "haruna-shrine",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "lake-okushima",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "fukiware-falls",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "usui-third-bridge",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shorinzan-darumaji",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "onioshidashi-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kagami-pond",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shibu-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shiga-kogen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "utsukushigahara-highlands",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "anrakuji-temple-ueda",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kitamuki-kannon",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yanagimachi-street-ueda",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kirigamine-highlands",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yashimagahara-wetland",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "lake-shirakaba",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hirugami-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ikaho-stone-steps",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mt-myogi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "myogi-shrine",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "usui-pass-railway-heritage-park",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "oigami-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "manza-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mt-akagi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "lake-onuma-akagi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "akagi-shrine",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "watarase-keikoku-railway",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "eiheiji-temple",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mikuni-port-fukui",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "arita-porcelain-town",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "takeo-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ureshino-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "misasa-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kurayoshi",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
       "destinationId": "yonago",
       "anchorabilityReason": "administrative_or_locality_kind",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yamanaka-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "katayamazu-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "wajima-morning-market",
+      "anchorabilityReason": "standalone_regional_role",
       "observedCandidateCount": 0
     },
     {
@@ -1633,6 +3369,21 @@
       "observedCandidateCount": 0
     },
     {
+      "destinationId": "nasu-kogen-highlands",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nasu-steam-onsen",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kumano-kodo",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
       "destinationId": "owase",
       "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
@@ -1641,6 +3392,913 @@
       "destinationId": "kumano-city",
       "anchorabilityReason": "administrative_or_locality_kind",
       "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "chokai-san",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shirakami-sanchi",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "adachi-museum-of-art",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "oki-islands",
+      "anchorabilityReason": "standalone_regional_role",
+      "observedCandidateCount": 0
+    }
+  ],
+  "holdForReviewDestinations": [
+    {
+      "destinationId": "abeno-harukas-300-osaka",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "akasaka-minato",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 3
+    },
+    {
+      "destinationId": "akihabara-chiyoda",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 2
+    },
+    {
+      "destinationId": "akiu-onsen-miyagi",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "akiyoshido-cave-yamaguchi",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "amanohashidate-kyoto",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "arakurayama-sengen-park-yamanashi",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "arima-onsen",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "art-tower-mito",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "asakusa-taito",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 3
+    },
+    {
+      "destinationId": "ashikaga-flower-park-tochigi",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "asuka-fujiwara-nara",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "disneyland",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "disneysea",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "dogo-onsen-ehime",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "dotonbori",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "edo-castle-tokyo",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "fushimi-inari-taisha",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "gifu-castle-gifu",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ginkaku-ji",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ginza-urban",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 8
+    },
+    {
+      "destinationId": "hakkeijima",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hakodate-night-view",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "harry-potter-studio",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "heian-jingu",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "higashiyama-sky-tower-nagoya",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hikone-castle-shiga",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "himeji-castle",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hirosaki-castle",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "horyuji-temple-nara",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ikebukuro-toshima",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 3
+    },
+    {
+      "destinationId": "imperial-palace-chiyoda",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ise-grand-shrine",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "joypolis",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kakunodate-samurai-district-akita",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kegon-falls-nikko",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kennin-ji",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kinkaku-ji",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kinosaki-onsen",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kintai-bridge-yamaguchi",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kitano-ijinkan",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kobe-animal-kingdom",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kobe-harborland",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kobe-maritime-museum",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kobe-maya-night-view",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kobe-port-tower",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kochi-castle",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "korakuen-okayama",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kouri-island-okinawa",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kumano-kodo-koya-wakayama",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kuromon-market",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kyoto-imperial-palace",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kyoto-international-manga-museum",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kyoto-national-museum",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kyoto-railway-museum",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "lake-tazawa-akita",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "marugame-castle",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "matsue-castle",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "matsushima-bay",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "matsuyama-castle-ehime",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "meriken-park",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mito-castle-ibaraki",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mount-yoshino-nara",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mozufuruichi-kofun-osaka",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nachi-falls-wakayama",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nagoya-port-tower",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nankinmachi-chinatown",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nanzen-ji",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nara-historic",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nara-park-todaiji",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "national-museum-western-art-tokyo",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 2
+    },
+    {
+      "destinationId": "nijo-castle-kyoto",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ninna-ji",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nishiki-market",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nunobiki-falls",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nunobiki-herb-gardens",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nunobiki-ropeway",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "osaka-aquarium-kaiyukan",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "osaka-castle",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "osaka-castle-park",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "osaka-museum-of-housing-and-living",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "osaka-station-city",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "philosopher-s-walk",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "roppongi-hills-tokyo-city-view",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 2
+    },
+    {
+      "destinationId": "ryoan-ji",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sanjusangen-do",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sannai-maruyama-jomon-aomori",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shibuya-sky-shibuya",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 3
+    },
+    {
+      "destinationId": "shinsaibashi",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shinsekai",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shuri-castle-okinawa",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sunshine-60-observatory-ikebukuro",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 3
+    },
+    {
+      "destinationId": "takanawa-gateway-minato",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 1
+    },
+    {
+      "destinationId": "takeda-castle-ruins-hyogo",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "teamlab-planets",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tempozan-ferris-wheel",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tennoji-park",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "the-national-museum-of-art-osaka",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "toki-messe-tower-niigata",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tokyo-metropolitan-government-building-shinjuku",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 1
+    },
+    {
+      "destinationId": "tokyo-skytree-sumida",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 2
+    },
+    {
+      "destinationId": "tokyo-tower-minato",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 2
+    },
+    {
+      "destinationId": "tsuruga-castle-fukushima",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "umeda-sky-building",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "universal-studios-japan",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "utsunomiya-oya",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yasaka-shrine",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yokohama-landmark-tower-sky-garden",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yokohama-marine-tower",
+      "holdReason": "destination_semantics_unclassified",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shitennoji",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "nakanoshima-museum-art-osaka",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "osaka-central-public-hall",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "cupnoodles-museum-osaka-ikeda",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "byodoin-temple",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "uji-tea-culture-center",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "mimuroto-ji-temple",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kasamatsu-park-view",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "koko-en-garden",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "engyo-ji-mount-shosha",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "genbudo-cave-park",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ritsuunkyo-viewpoint",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ikuno-silver-mine",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hokki-ji-pagoda",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "chogosonshi-ji-temple",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "enryaku-ji-mount-hiei",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "ukimido-mangetsu-ji",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "genkyuen-garden",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "miho-museum-koka",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kishi-station-tama-cat",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "okunoin-cemetery-koyasan",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "senjojiki-sandanbeki-cliffs",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "sakai-city-museum",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "lake-biwa-shiga",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "meoto-iwa-wedded-rocks",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "wakayama-castle",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kataonami-beach-wakanoura",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "danjo-garan-koyasan",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shirahama-beach-adventure-world",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "toshodai-ji-temple",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yakushi-ji-temple",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "shirahige-shrine-lake-biwa",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "hiei-zan-driveway-observatory",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kimii-dera-temple",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kuroshio-market-marina-city",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "tomogashima-islands",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "churaumi-aquarium-motobu",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "kabira-bay-ishigaki",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    },
+    {
+      "destinationId": "yonaha-maehama-beach-miyako",
+      "holdReason": "unknown_or_legacy_role",
+      "observedCandidateCount": 0
+    }
+  ],
+  "roleDrift": [
+    {
+      "role": "poi",
+      "totalRecords": 407,
+      "knownRole": true,
+      "kindCounts": {
+        "shopping": 6,
+        "museum": 112,
+        "(none)": 29,
+        "park": 32,
+        "shrine": 27,
+        "temple": 36,
+        "aquarium": 7,
+        "tower": 7,
+        "district": 20,
+        "castle": 12,
+        "street": 9,
+        "beach": 4,
+        "market": 8,
+        "garden": 21,
+        "nature": 13,
+        "zoo": 5,
+        "bridge": 1,
+        "mountain": 5,
+        "viewpoint": 5,
+        "mixed": 6,
+        "memorial": 2,
+        "monument": 2,
+        "onsen": 10,
+        "observation": 1,
+        "event": 1,
+        "entertainment": 1,
+        "historic": 6,
+        "natural": 6,
+        "theme_park": 3,
+        "cruise": 2,
+        "cultural": 1,
+        "waterfall": 1,
+        "island": 2,
+        "cliff": 1,
+        "lake": 2,
+        "station": 1
+      },
+      "withMissingKind": 29
+    },
+    {
+      "role": "standalone",
+      "totalRecords": 400,
+      "knownRole": true,
+      "kindCounts": {
+        "(none)": 52,
+        "mountain": 15,
+        "castle": 59,
+        "museum": 11,
+        "nature": 125,
+        "lake": 8,
+        "city": 4,
+        "historic_town": 6,
+        "onsen": 20,
+        "shrine": 14,
+        "district": 1,
+        "island": 7,
+        "village": 3,
+        "tower": 1,
+        "garden": 3,
+        "amusement_park": 2,
+        "park": 16,
+        "viewpoint": 1,
+        "beach": 2,
+        "bridge": 8,
+        "cape": 1,
+        "monument": 1,
+        "natural": 3,
+        "historic": 10,
+        "waterfall": 3,
+        "theme_park": 3,
+        "aquarium": 2,
+        "temple": 6,
+        "cruise": 2,
+        "zoo": 1,
+        "rock_formation": 1,
+        "street": 2,
+        "cultural": 1,
+        "town": 5,
+        "market": 1
+      },
+      "withMissingKind": 52
+    },
+    {
+      "role": "hub",
+      "totalRecords": 164,
+      "knownRole": true,
+      "kindCounts": {
+        "city": 121,
+        "ward": 23,
+        "town": 15,
+        "village": 1,
+        "(none)": 3,
+        "district": 1
+      },
+      "withMissingKind": 3
+    },
+    {
+      "role": "destination",
+      "totalRecords": 107,
+      "knownRole": false,
+      "kindCounts": {
+        "viewpoint": 5,
+        "(none)": 18,
+        "museum": 26,
+        "temple": 19,
+        "shrine": 4,
+        "tower": 1,
+        "island": 2,
+        "market": 3,
+        "park": 3,
+        "street": 1,
+        "garden": 3,
+        "aquarium": 2,
+        "castle": 2,
+        "theme_park": 1,
+        "historic_town": 7,
+        "station": 1,
+        "cemetery": 1,
+        "cliff": 1,
+        "lake": 1,
+        "rock_formation": 1,
+        "beach": 3,
+        "district": 1,
+        "nature": 1
+      },
+      "withMissingKind": 18
+    },
+    {
+      "role": null,
+      "totalRecords": 52,
+      "knownRole": true,
+      "kindCounts": {
+        "(none)": 49,
+        "museum": 2,
+        "island": 1
+      },
+      "withMissingKind": 49
     }
   ],
   "coordinatesAbsentDestinations": [],
@@ -1896,7 +4554,8 @@
       "railway": "odpt.Railway:Toei.Oedo",
       "distanceMeters": 488.26120341098886,
       "semanticClassification": "point/site-like",
-      "proposedOutcome": "geographic_unique_candidate"
+      "proposedOutcome": "geographic_unique_candidate",
+      "reason": null
     },
     {
       "destinationId": "itabashi-city",
@@ -1913,9 +4572,10 @@
       "anchorStationTitleEn": "Itabashi-kuyakushomae",
       "operator": "odpt.Operator:Toei",
       "railway": "odpt.Railway:Toei.Mita",
-      "distanceMeters": 76.42962986581924,
+      "distanceMeters": null,
       "semanticClassification": "administrative/regional",
-      "proposedOutcome": "not_anchorable_by_geography"
+      "proposedOutcome": "not_anchorable_by_geography",
+      "reason": "administrative_or_locality_kind"
     },
     {
       "destinationId": "koto-city",
@@ -1932,9 +4592,10 @@
       "anchorStationTitleEn": "Toyocho",
       "operator": "odpt.Operator:TokyoMetro",
       "railway": "odpt.Railway:TokyoMetro.Tozai",
-      "distanceMeters": 312.46296689794536,
+      "distanceMeters": null,
       "semanticClassification": "administrative/regional",
-      "proposedOutcome": "not_anchorable_by_geography"
+      "proposedOutcome": "not_anchorable_by_geography",
+      "reason": "administrative_or_locality_kind"
     },
     {
       "destinationId": "meguro-city",
@@ -1951,9 +4612,10 @@
       "anchorStationTitleEn": "Naka-meguro",
       "operator": "odpt.Operator:TokyoMetro",
       "railway": "odpt.Railway:TokyoMetro.Hibiya",
-      "distanceMeters": 295.5838332748828,
+      "distanceMeters": null,
       "semanticClassification": "administrative/regional",
-      "proposedOutcome": "not_anchorable_by_geography"
+      "proposedOutcome": "not_anchorable_by_geography",
+      "reason": "administrative_or_locality_kind"
     },
     {
       "destinationId": "nakano-city",
@@ -1970,9 +4632,10 @@
       "anchorStationTitleEn": "Nakano",
       "operator": "odpt.Operator:TokyoMetro",
       "railway": "odpt.Railway:TokyoMetro.Tozai",
-      "distanceMeters": 246.23706919470686,
+      "distanceMeters": null,
       "semanticClassification": "administrative/regional",
-      "proposedOutcome": "not_anchorable_by_geography"
+      "proposedOutcome": "not_anchorable_by_geography",
+      "reason": "administrative_or_locality_kind"
     },
     {
       "destinationId": "nerima-city",
@@ -1989,9 +4652,10 @@
       "anchorStationTitleEn": "Nerima",
       "operator": "odpt.Operator:Toei",
       "railway": "odpt.Railway:Toei.Oedo",
-      "distanceMeters": 341.9535336196838,
+      "distanceMeters": null,
       "semanticClassification": "administrative/regional",
-      "proposedOutcome": "not_anchorable_by_geography"
+      "proposedOutcome": "not_anchorable_by_geography",
+      "reason": "administrative_or_locality_kind"
     },
     {
       "destinationId": "ryogoku-kokugikan-sumo-museum",
@@ -2010,7 +4674,8 @@
       "railway": "odpt.Railway:Toei.Oedo",
       "distanceMeters": 376.6157552470208,
       "semanticClassification": "point/site-like",
-      "proposedOutcome": "geographic_unique_candidate"
+      "proposedOutcome": "geographic_unique_candidate",
+      "reason": null
     },
     {
       "destinationId": "shinjuku-gyo-en",
@@ -2029,7 +4694,8 @@
       "railway": "odpt.Railway:TokyoMetro.Marunouchi",
       "distanceMeters": 378.84586020344176,
       "semanticClassification": "point/site-like",
-      "proposedOutcome": "geographic_unique_candidate"
+      "proposedOutcome": "geographic_unique_candidate",
+      "reason": null
     },
     {
       "destinationId": "sugamo-jizo-dori",
@@ -2048,7 +4714,8 @@
       "railway": "odpt.Railway:Toei.Mita",
       "distanceMeters": 247.1677178229855,
       "semanticClassification": "point/site-like",
-      "proposedOutcome": "geographic_unique_candidate"
+      "proposedOutcome": "geographic_unique_candidate",
+      "reason": null
     },
     {
       "destinationId": "suginami-city",
@@ -2065,9 +4732,10 @@
       "anchorStationTitleEn": "Minami-asagaya",
       "operator": "odpt.Operator:TokyoMetro",
       "railway": "odpt.Railway:TokyoMetro.Marunouchi",
-      "distanceMeters": 74.66548664321675,
+      "distanceMeters": null,
       "semanticClassification": "administrative/regional",
-      "proposedOutcome": "not_anchorable_by_geography"
+      "proposedOutcome": "not_anchorable_by_geography",
+      "reason": "administrative_or_locality_kind"
     },
     {
       "destinationId": "sumida-hokusai-museum",
@@ -2086,7 +4754,8 @@
       "railway": "odpt.Railway:Toei.Oedo",
       "distanceMeters": 281.9091669015319,
       "semanticClassification": "point/site-like",
-      "proposedOutcome": "geographic_unique_candidate"
+      "proposedOutcome": "geographic_unique_candidate",
+      "reason": null
     },
     {
       "destinationId": "takanawa-gateway-minato",
@@ -2103,9 +4772,10 @@
       "anchorStationTitleEn": "Sengakuji",
       "operator": "odpt.Operator:Toei",
       "railway": "odpt.Railway:Toei.Asakusa",
-      "distanceMeters": 363.15631598282965,
+      "distanceMeters": null,
       "semanticClassification": "requires_review",
-      "proposedOutcome": "hold_for_review"
+      "proposedOutcome": "hold_for_review",
+      "reason": "destination_semantics_unclassified"
     },
     {
       "destinationId": "teamlab-borderless-azabudai",
@@ -2124,7 +4794,8 @@
       "railway": "odpt.Railway:TokyoMetro.Hibiya",
       "distanceMeters": 424.36798593210864,
       "semanticClassification": "point/site-like",
-      "proposedOutcome": "geographic_unique_candidate"
+      "proposedOutcome": "geographic_unique_candidate",
+      "reason": null
     },
     {
       "destinationId": "tokyo-metropolitan-government-building-shinjuku",
@@ -2141,9 +4812,10 @@
       "anchorStationTitleEn": "Tochomae",
       "operator": "odpt.Operator:Toei",
       "railway": "odpt.Railway:Toei.Oedo",
-      "distanceMeters": 142.5594290447575,
+      "distanceMeters": null,
       "semanticClassification": "requires_review",
-      "proposedOutcome": "hold_for_review"
+      "proposedOutcome": "hold_for_review",
+      "reason": "destination_semantics_unclassified"
     },
     {
       "destinationId": "ueno-park",
@@ -2162,7 +4834,8 @@
       "railway": "odpt.Railway:TokyoMetro.Ginza",
       "distanceMeters": 409.8163072053551,
       "semanticClassification": "point/site-like",
-      "proposedOutcome": "geographic_unique_candidate"
+      "proposedOutcome": "geographic_unique_candidate",
+      "reason": null
     }
   ],
   "semanticMatrix": [
@@ -2179,8 +4852,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 125,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 125,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "hub",
@@ -2195,8 +4870,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 121
+      "anchorable": 0,
+      "notAnchorableByGeography": 121,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2211,8 +4888,10 @@
         "4+": 2
       },
       "uniqueGeographicCandidates": 3,
-      "provisionallyAnchorable": 112,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 112,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2227,8 +4906,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 59,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 59,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2243,8 +4924,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 52,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 52,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": null,
@@ -2259,8 +4942,10 @@
         "4+": 1
       },
       "uniqueGeographicCandidates": 2,
-      "provisionallyAnchorable": 49,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 49,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2275,8 +4960,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 36,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 36,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2291,8 +4978,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 2,
-      "provisionallyAnchorable": 32,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 32,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2307,8 +4996,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 29,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 29,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2323,8 +5014,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 27,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 27,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "destination",
@@ -2339,8 +5032,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 26,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 26,
+      "legacyRole": true
     },
     {
       "role": "hub",
@@ -2355,8 +5050,10 @@
         "4+": 5
       },
       "uniqueGeographicCandidates": 6,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 23
+      "anchorable": 0,
+      "notAnchorableByGeography": 23,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2371,8 +5068,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 1,
-      "provisionallyAnchorable": 21,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 21,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2387,8 +5086,10 @@
         "4+": 2
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 20
+      "anchorable": 0,
+      "notAnchorableByGeography": 20,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2403,8 +5104,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 20,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 20,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "destination",
@@ -2419,8 +5122,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 19,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 19,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -2435,8 +5140,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 18,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 18,
+      "legacyRole": true
     },
     {
       "role": "standalone",
@@ -2451,8 +5158,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 16,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 16,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "hub",
@@ -2467,8 +5176,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 15
+      "anchorable": 0,
+      "notAnchorableByGeography": 15,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2483,8 +5194,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 15,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 15,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2499,8 +5212,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 14,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 14,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2515,8 +5230,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 13,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 13,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2531,8 +5248,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 12,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 12,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2547,8 +5266,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 11,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 11,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2563,8 +5284,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 10,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 10,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2579,8 +5302,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 10,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 10,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2595,8 +5320,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 1,
-      "provisionallyAnchorable": 9,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 9,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2611,8 +5338,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 8,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 8,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2627,8 +5356,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 8,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 8,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2643,8 +5374,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 8,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 8,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "destination",
@@ -2659,8 +5392,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 7
+      "anchorable": 0,
+      "notAnchorableByGeography": 7,
+      "holdForReview": 0,
+      "legacyRole": true
     },
     {
       "role": "poi",
@@ -2675,8 +5410,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 7,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 7,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2691,8 +5428,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 7,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 7,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2707,8 +5446,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 7,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 7,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2723,8 +5464,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 6,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 6,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2739,8 +5482,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 6,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 6,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2755,8 +5500,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 6,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 6,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2771,8 +5518,10 @@
         "4+": 2
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 6,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 6,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2787,8 +5536,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 6
+      "anchorable": 0,
+      "notAnchorableByGeography": 6,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2803,8 +5554,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 6,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 6,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "destination",
@@ -2819,8 +5572,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 5,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 5,
+      "legacyRole": true
     },
     {
       "role": "poi",
@@ -2835,8 +5590,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 5,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 5,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2851,8 +5608,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 5,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 5,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -2867,8 +5626,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 5,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 5,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2883,8 +5644,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 5
+      "anchorable": 0,
+      "notAnchorableByGeography": 5,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "destination",
@@ -2899,8 +5662,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 4,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 4,
+      "legacyRole": true
     },
     {
       "role": "poi",
@@ -2915,8 +5680,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 4,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 4,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -2931,8 +5698,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 4
+      "anchorable": 0,
+      "notAnchorableByGeography": 4,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "destination",
@@ -2947,8 +5716,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 3,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 3,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -2963,8 +5734,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 3,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 3,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -2979,8 +5752,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 3,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 3,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -2995,8 +5770,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 3,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 3,
+      "legacyRole": true
     },
     {
       "role": "hub",
@@ -3011,8 +5788,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 3
+      "anchorable": 0,
+      "notAnchorableByGeography": 3,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3027,8 +5806,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 3,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 3,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3043,8 +5824,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 3,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 3,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3059,8 +5842,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 3,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 3,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3075,8 +5860,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 3,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 3,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3091,8 +5878,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 3
+      "anchorable": 0,
+      "notAnchorableByGeography": 3,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3107,8 +5896,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 3,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 3,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "destination",
@@ -3123,8 +5914,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 2,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3139,8 +5932,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 2,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3155,8 +5950,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 2,
+      "legacyRole": true
     },
     {
       "role": null,
@@ -3171,8 +5968,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 2,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3187,8 +5986,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 2,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3203,8 +6004,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 2,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3219,8 +6022,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 2,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3235,8 +6040,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 2,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3251,8 +6058,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 2,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3267,8 +6076,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 2,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3283,8 +6094,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 2,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3299,8 +6112,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 2,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3315,8 +6130,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 2,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3331,8 +6148,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 2,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 2,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "destination",
@@ -3347,8 +6166,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 1,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3363,8 +6184,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 1,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3379,8 +6202,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 1
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3395,8 +6220,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 1,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3411,8 +6238,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 1,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3427,8 +6256,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 1,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3443,8 +6274,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 1,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3459,8 +6292,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 1,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3475,8 +6310,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 1,
+      "legacyRole": true
     },
     {
       "role": "destination",
@@ -3491,8 +6328,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 1,
+      "legacyRole": true
     },
     {
       "role": "hub",
@@ -3507,8 +6346,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 1
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "hub",
@@ -3523,8 +6364,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 1
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": null,
@@ -3539,8 +6382,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 1,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3555,8 +6400,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 1,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3571,8 +6418,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 1,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3587,8 +6436,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 1,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3603,8 +6454,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 1,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3619,8 +6472,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 1,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3635,8 +6490,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 1,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3651,8 +6508,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 1,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "poi",
@@ -3667,8 +6526,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 1,
+      "notAnchorableByGeography": 0,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3683,8 +6544,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3699,8 +6562,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3715,8 +6580,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 0,
-      "provisionallyNotAnchorable": 1
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3731,8 +6598,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3747,8 +6616,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3763,8 +6634,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3779,8 +6652,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3795,8 +6670,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     },
     {
       "role": "standalone",
@@ -3811,8 +6688,10 @@
         "4+": 0
       },
       "uniqueGeographicCandidates": 0,
-      "provisionallyAnchorable": 1,
-      "provisionallyNotAnchorable": 0
+      "anchorable": 0,
+      "notAnchorableByGeography": 1,
+      "holdForReview": 0,
+      "legacyRole": false
     }
   ]
 }

@@ -3,266 +3,255 @@
 Coverage and semantic audit for a deterministic **destination → exact ODPT
 arrival-station** anchor registry over the **TokyoMetro + Toei** pilot.
 
-**Status: audit complete, registry NOT production-ready.** The anchorability policy
-below is *proposed* and awaiting a decision. No user-facing integration exists in
-this slice, and none should be added until the policy is settled.
+**Status: audit only. The registry is NOT production-ready and no consumer exists.**
+This branch carries the final anchorability policy and its evidence.
 
-## 1. The rule
-
-Two stages, in this order. Stage 0 decides whether geography may be used *at all*;
-only then does the 500 m rule run.
+## 1. The final policy, in precedence order
 
 ```
-STAGE 0 — anchorability (decided BEFORE any candidate count is interpreted)
-  role === "hub"                                  -> not_anchorable_by_geography (hub_role)
-  kind in {city, ward, town, village,
-           district, historic_town}               -> not_anchorable_by_geography
-                                                     (administrative_or_locality_kind)
-  otherwise                                        -> anchorable, continue to stage 1
-
-STAGE 1 — geographic identity (existing odptStationIdentity path, unchanged)
-  exactly 1 exact pilot station within 500 m       -> geographic_unique_candidate
-  0 stations within 500 m                          -> unavailable
-  >1 stations within 500 m                         -> ambiguous
-  destination carries no coordinates               -> coordinates_absent
+1. explicit/canonical exact station evidence
+       -> stronger evidence path; the geographic gate is irrelevant
+       (2+ competing canonical targets -> ambiguous, never a pick)
+2. kind in {city, ward, town, village, district, historic_town}
+       -> not_anchorable_by_geography (administrative_or_locality_kind)
+3. role === "hub"          -> not_anchorable_by_geography (hub_role)
+4. role === "standalone"   -> not_anchorable_by_geography (standalone_regional_role)
+5. role === "poi"          -> anchorable, even when kind is null
+6. role === null && kind === null
+       -> hold_for_review (destination_semantics_unclassified)
+7. role === null + known non-administrative kind -> anchorable
+8. any other role          -> hold_for_review (unknown_or_legacy_role)
 ```
 
-Forbidden and structurally prevented: choosing the nearest of several candidates, the
-first candidate, a popular station, a name-similar station, or a "main station"; and
-widening the radius until something matches. Nothing here narrows ambiguity by
-distance.
+Only then, for anchorable destinations, the fixed 500 m geographic rule:
+`0 → unavailable`, `1 → geographic_unique_candidate`, `>1 → ambiguous`.
 
-### Why stage 0 exists
+Rule 2 is role-independent and outranks rules 3–8, so a drifted role can never
+rescue an administrative-kind record. No closest-wins, station complexes are never
+collapsed, and the radius is neither enlarged nor tuned.
 
-The geographic resolver is **not** what was wrong. The quality gate found that the
-*input coordinate semantics* were wrong: a ward's coordinate is a representative
-point, not an arrival point. Stage 0 is about coordinate meaning, and it is applied
-before the candidate count so that a hub's 1-in-tolerance station can never become an
-anchor.
+### Why `standalone` is excluded
 
-### `not_anchorable_by_geography` ≠ `not_anchorable`
+`standalone` marks a region-scale record whose coordinate is a representative point
+of an area, not a visitor entrance. When such a record had exactly one station in
+range, geography resolved an "arrival station" the record does not support — the same
+class of defect the ward anchors showed, arriving through a different role. Exclusion
+is a positive semantic decision, and 381 records fall under it.
 
-Deliberately distinct. This status forbids **deriving** an anchor from an area's
-representative coordinates; it does not declare the destination permanently
-incapable. `meguro-city` must not become Naka-meguro merely because the ward's
-representative point sits near it — but a future explicit product rule or curated
-mapping could legitimately say *Meguro hub → Meguro Station* on a different evidence
-path. The rule forbids geographic derivation, not the destination.
+### `not_anchorable_by_geography` is not `not_anchorable`
 
-### Two implementation details that make this real
+It forbids **deriving** an anchor from an area's representative coordinates. It does
+not declare the destination permanently incapable: rule 1 explicit evidence may still
+anchor it. Nothing about "less anchorable" or "partially anchorable" exists — the
+outcome is binary plus hold.
 
-- **Only `coordinates` are passed to the resolver.** Passing a destination *name*
-  would enable the name-based paths, and passing operator/railway would let a
-  multi-candidate result be narrowed by operator. Neither is passed, which is what
-  keeps `>1` at `ambiguous`.
-- **The tolerance is the existing resolver default (500 m)**, not a new KAI-291A
-  policy. The decision never uses a local constant — `resolveOdptStationIdentity` is
-  always called without a tolerance option. A test pins the boundary (just inside
-  499 m anchors, just outside 501 m does not), so the recorded `500` cannot drift.
-
-**Station complexes are left ambiguous.** A physical station served by several
-railways appears once per `(operator, railway)`, so several near-identical candidates
-can fall inside one radius. They are not collapsed by similar name, similar
-coordinates, or a shared label.
-
-## 2. Coverage at 500 m (measured)
+## 2. The six-status partition (mutually exclusive, exhaustive)
 
 | Status | Destinations |
 | --- | --- |
-| Ambiguous (>1 station in tolerance) | 24 |
-| Unavailable (0 in tolerance) | 886 |
-| **Not anchorable by geography** | **211** |
-| Coordinates absent | 0 |
-| **Unique geographic anchors** | **9** |
-| **Total evaluated** | **1130** |
+| `geographic_unique_candidate` | **7** |
+| `ambiguous` | 13 |
+| `unavailable` | 370 |
+| `coordinates_absent` | 0 |
+| `not_anchorable_by_geography` | **592** |
+| `hold_for_review` | **148** |
+| **Sum** | **1130** |
 
-The five statuses partition all 1130 destinations and sum exactly to it.
+The six sum to exactly **1130** = the catalogue size.
 
-`destinationsWithoutCoordinates = 1`, reported **separately and deliberately
-overlapping**: the anchorability gate runs first, so a coordinate-less hub is
-classified `not_anchorable_by_geography`. Counting coordinate absence only through the
-`coordinates_absent` status would report 0 and hide the gap. The two axes are
-independent and neither masks the other.
+`canonical_explicit_station` is **0** and is reported *outside* this partition. Rule 1
+takes a record out of the geographic rule entirely, so counting a canonical anchor as
+a geographic finding would misreport its evidence. Because that bucket is empty today,
+the six geographic statuses still sum to the catalogue size; if a record ever gains
+canonical evidence, the six drop by one and
+`six + canonical === catalogue size` still holds (a test asserts the general form
+against the real catalogue).
 
-Anchorable-only candidate distribution: `0 → 886`, `1 → 9`, `2 → 10`, `3 → 9`,
-`4+ → 5`. Excluded destinations are kept out of this distribution, since their count
-is observational only.
+**Production-ready anchor totals:** geographic **7** + canonical **0** = **7**.
 
-Anchors by operator: TokyoMetro **3**, Toei **6**.
-Distance, destination → its unique anchor: min **142.6 m**, median **376.6 m**, max
-**488.3 m** (<50 m: 0 · 50–100 m: 0 · 100–250 m: 2 · 250–500 m: 7).
+Not anchorable, by reason:
 
-**No target count was used.** Nothing was tuned to reach a number.
+| Reason | Destinations |
+| --- | --- |
+| `standalone_regional_role` | 381 |
+| `administrative_or_locality_kind` | 208 |
+| `hub_role` | 3 |
+| **Total** | **592** |
 
-### The 211 exclusions
+Held, by reason:
 
-`role === "hub"` covers 164 records; the administrative/locality kinds cover 208;
-their **union is 211** (161 satisfy both, 3 are hub with a non-administrative kind).
+| Reason | Destinations |
+| --- | --- |
+| `unknown_or_legacy_role` | 99 |
+| `destination_semantics_unclassified` | 49 |
+| **Total** | **148** |
 
-## 3. Review of every unique geographic candidate (all 15)
+`destinationsWithoutCoordinates = 1`, retained as a deliberately **overlapping**
+diagnostic: the gate runs first, so a coordinate-less hub is counted as
+`not_anchorable_by_geography`, and counting coordinate absence only through its own
+status would report 0.
 
-Every destination geography would resolve uniquely, **including the ones stage 0
-excludes**, so nothing disappears from the audit. Selected by observed candidate
-count, never by destination id.
+The geographic rule therefore actually ran on **390** destinations; the candidate
+distribution over those is `0 → 370`, `1 → 7`, `2 → 5`, `3 → 4`, `4+ → 4`.
 
-| Destination | EN / JA | role | kind | ODPT station | d (m) | classification | proposed outcome |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `hamarikyu-gardens` | Hamarikyu Gardens / 浜離宮恩賜庭園 | poi | garden | `Toei.Oedo.Shiodome` | 488 | point/site-like | `geographic_unique_candidate` |
-| `itabashi-city` | Itabashi City / 板橋区 | hub | ward | `Toei.Mita.ItabashiKuyakushomae` | 76 | administrative/regional | `not_anchorable_by_geography` |
-| `koto-city` | Koto City / 江東区 | hub | ward | `TokyoMetro.Tozai.Toyocho` | 312 | administrative/regional | `not_anchorable_by_geography` |
-| `meguro-city` | Meguro City / 目黒区 | hub | ward | `TokyoMetro.Hibiya.NakaMeguro` | 296 | administrative/regional | `not_anchorable_by_geography` |
-| `nakano-city` | Nakano City / 中野区 | hub | ward | `TokyoMetro.Tozai.Nakano` | 246 | administrative/regional | `not_anchorable_by_geography` |
-| `nerima-city` | Nerima City / 練馬区 | hub | ward | `Toei.Oedo.Nerima` | 342 | administrative/regional | `not_anchorable_by_geography` |
-| `ryogoku-kokugikan-sumo-museum` | Ryogoku Kokugikan and Sumo Museum / 両国国技館・相撲博物館 | poi | museum | `Toei.Oedo.Ryogoku` | 377 | point/site-like | `geographic_unique_candidate` |
-| `shinjuku-gyo-en` | Shinjuku Gyo-en / 新宿御苑 | poi | park | `TokyoMetro.Marunouchi.ShinjukuGyoemmae` | 379 | point/site-like | `geographic_unique_candidate` |
-| `sugamo-jizo-dori` | Sugamo Jizo-dori / 巣鴨地蔵通り商店街 | poi | street | `Toei.Mita.Sugamo` | 247 | point/site-like | `geographic_unique_candidate` |
-| `suginami-city` | Suginami City / 杉並区 | hub | ward | `TokyoMetro.Marunouchi.MinamiAsagaya` | 75 | administrative/regional | `not_anchorable_by_geography` |
-| `sumida-hokusai-museum` | The Sumida Hokusai Museum / すみだ北斎美術館 | poi | museum | `Toei.Oedo.Ryogoku` | 282 | point/site-like | `geographic_unique_candidate` |
-| `takanawa-gateway-minato` | Takanawa Gateway / 高輪ゲートウェイ | (none) | (none) | `Toei.Asakusa.Sengakuji` | 363 | requires_review | `hold_for_review` |
-| `teamlab-borderless-azabudai` | teamLab Borderless / チームラボボーダレス（麻布台ヒルズ） | poi | museum | `TokyoMetro.Hibiya.Kamiyacho` | 424 | point/site-like | `geographic_unique_candidate` |
-| `tokyo-metropolitan-government-building-shinjuku` | Tokyo Metropolitan Government Building Observatories / 東京都庁展望室 | (none) | (none) | `Toei.Oedo.Tochomae` | 143 | requires_review | `hold_for_review` |
-| `ueno-park` | Ueno Park / 上野恩賜公園 | poi | park | `TokyoMetro.Ginza.Ueno` | 410 | point/site-like | `geographic_unique_candidate` |
+## 3. `hold_for_review` is a real status
 
-**Proposed outcomes: 7 `geographic_unique_candidate` · 6
-`not_anchorable_by_geography` · 2 `hold_for_review`.**
+Held records are **excluded** from `anchors[]`, `uniqueAnchors`,
+`anchorsByOperator`, `anchorsByRailway`, `productionReadyAnchors` and the
+candidate-count distribution. They are retained only in a separate
+`holdForReviewDestinations` diagnostic section carrying their observed candidate
+count. Tests assert the exclusion, not just the count.
 
-The six wards fall out of the **general** rule (`role == "hub"`, `kind == "ward"`) —
-no destination id is special-cased, and a test proves it by re-running `meguro-city`
-with point-like semantics and asserting it then anchors.
+## 4. The seven anchors
 
-### The nine non-administrative candidates, reviewed individually
+Operator split: TokyoMetro **3**, Toei **4**. Distance min **247.2 m**, median
+**378.8 m**, max **488.3 m** (100–250 m: 1 · 250–500 m: 6).
 
-The question asked of each was not "is that probably the nearest station?" but "is
-this a concrete visitor location for which a unique 500 m station anchor is
-semantically meaningful?"
+| Destination | EN / JA | role / kind | ODPT station | d (m) |
+| --- | --- | --- | --- | --- |
+| `sugamo-jizo-dori` | Sugamo Jizo-dori / 巣鴨地蔵通り商店街 | poi / street | `Toei.Mita.Sugamo` | 247 |
+| `sumida-hokusai-museum` | The Sumida Hokusai Museum / すみだ北斎美術館 | poi / museum | `Toei.Oedo.Ryogoku` | 282 |
+| `ryogoku-kokugikan-sumo-museum` | Ryogoku Kokugikan and Sumo Museum / 両国国技館・相撲博物館 | poi / museum | `Toei.Oedo.Ryogoku` | 377 |
+| `shinjuku-gyo-en` | Shinjuku Gyo-en / 新宿御苑 | poi / park | `TokyoMetro.Marunouchi.ShinjukuGyoemmae` | 379 |
+| `ueno-park` | Ueno Park / 上野恩賜公園 | poi / park | `TokyoMetro.Ginza.Ueno` | 410 |
+| `teamlab-borderless-azabudai` | teamLab Borderless / チームラボボーダレス（麻布台ヒルズ） | poi / museum | `TokyoMetro.Hibiya.Kamiyacho` | 424 |
+| `hamarikyu-gardens` | Hamarikyu Gardens / 浜離宮恩賜庭園 | poi / garden | `Toei.Oedo.Shiodome` | 488 |
 
-- **Keep (7)** — `ueno-park` → Ueno, `shinjuku-gyo-en` → Shinjuku-gyoemmae,
-  `hamarikyu-gardens` → Shiodome, `sumida-hokusai-museum` → Ryogoku,
-  `ryogoku-kokugikan-sumo-museum` → Ryogoku, `teamlab-borderless-azabudai` →
-  Kamiyacho, `sugamo-jizo-dori` → Sugamo. Each is a specific building, park, garden
-  or named street, and for `shinjuku-gyo-en` the anchored station is literally named
-  for the destination.
-- **Hold for review (2)** — `takanawa-gateway-minato` and
-  `tokyo-metropolitan-government-building-shinjuku`. Both have `role == null` **and**
-  `kind == null`: the catalogue has not classified them, so nothing in the record
-  states what its coordinate denotes, and the audit cannot validate that semantics.
-  `takanawa-gateway-minato` is additionally odd on its own terms — the destination
-  *is* a station complex whose namesake station is outside the pilot operators, so
-  geography resolves it to a *different* station (Sengakuji, 363 m).
+**All seven previously reviewed point anchors survived** — none was lost, and each now
+satisfies the general rule (`role == "poi"`) rather than being accepted by
+assumption. No destination id is special-cased: the audit source contains no
+destination id, and a test re-runs `meguro-city` with point-like semantics to prove
+it then anchors.
 
-The rule that flags them is general, not id-based: **a record with neither `role` nor
-`kind` cannot be semantically validated**, so it is held rather than assumed good.
-Two of the fifteen therefore do not count as trustworthy today. This is reported as
-found rather than rounded up to nine — **7 trustworthy anchors, not 9**.
+## 5. Review of every unique geographic candidate (15)
 
-## 4. Does a non-administrative kind hide the same problem?
+Selection is by observed candidate count, never by id; excluded and held records are
+included so nothing disappears from the audit.
 
-Short answer: **no such case was found**, with one caveat about unclassified records.
+| Destination | role / kind | ODPT station | classification | outcome | reason |
+| --- | --- | --- | --- | --- | --- |
+| `hamarikyu-gardens` | poi / garden | `Toei.Oedo.Shiodome` | point/site-like | `geographic_unique_candidate` | — |
+| `ryogoku-kokugikan-sumo-museum` | poi / museum | `Toei.Oedo.Ryogoku` | point/site-like | `geographic_unique_candidate` | — |
+| `shinjuku-gyo-en` | poi / park | `TokyoMetro.Marunouchi.ShinjukuGyoemmae` | point/site-like | `geographic_unique_candidate` | — |
+| `sugamo-jizo-dori` | poi / street | `Toei.Mita.Sugamo` | point/site-like | `geographic_unique_candidate` | — |
+| `sumida-hokusai-museum` | poi / museum | `Toei.Oedo.Ryogoku` | point/site-like | `geographic_unique_candidate` | — |
+| `teamlab-borderless-azabudai` | poi / museum | `TokyoMetro.Hibiya.Kamiyacho` | point/site-like | `geographic_unique_candidate` | — |
+| `ueno-park` | poi / park | `TokyoMetro.Ginza.Ueno` | point/site-like | `geographic_unique_candidate` | — |
+| `itabashi-city` | hub / ward | `Toei.Mita.ItabashiKuyakushomae` | administrative/regional | `not_anchorable_by_geography` | `administrative_or_locality_kind` |
+| `koto-city` | hub / ward | `TokyoMetro.Tozai.Toyocho` | administrative/regional | `not_anchorable_by_geography` | `administrative_or_locality_kind` |
+| `meguro-city` | hub / ward | `TokyoMetro.Hibiya.NakaMeguro` | administrative/regional | `not_anchorable_by_geography` | `administrative_or_locality_kind` |
+| `nakano-city` | hub / ward | `TokyoMetro.Tozai.Nakano` | administrative/regional | `not_anchorable_by_geography` | `administrative_or_locality_kind` |
+| `nerima-city` | hub / ward | `Toei.Oedo.Nerima` | administrative/regional | `not_anchorable_by_geography` | `administrative_or_locality_kind` |
+| `suginami-city` | hub / ward | `TokyoMetro.Marunouchi.MinamiAsagaya` | administrative/regional | `not_anchorable_by_geography` | `administrative_or_locality_kind` |
+| `takanawa-gateway-minato` | (none) / (none) | `Toei.Asakusa.Sengakuji` | requires_review | `hold_for_review` | `destination_semantics_unclassified` |
+| `tokyo-metropolitan-government-building-shinjuku` | (none) / (none) | `Toei.Oedo.Tochomae` | requires_review | `hold_for_review` | `destination_semantics_unclassified` |
 
-`role × kind` cells that produced a unique geographic candidate:
+Outcomes: **7** `geographic_unique_candidate` · **6**
+`not_anchorable_by_geography` · **2** `hold_for_review`.
 
-| role | kind | n | candidate counts (0/1/2/3/4+) | unique cand. | anchorable | not anchorable |
-| --- | --- | --- | --- | --- | --- | --- |
-| poi | museum | 112 | 104/3/2/1/2 | 3 | 112 | 0 |
-| (none) | (none) | 49 | 36/2/5/5/1 | 2 | 49 | 0 |
-| poi | park | 32 | 30/2/0/0/0 | 2 | 32 | 0 |
-| hub | ward | 23 | 6/6/3/3/5 | 6 | 0 | 23 |
-| poi | garden | 21 | 19/1/1/0/0 | 1 | 21 | 0 |
-| poi | street | 9 | 7/1/1/0/0 | 1 | 9 | 0 |
+Both previously held records remain held, by the general rule 6 (neither carries a
+`role` or a `kind`, so nothing in the record states what its coordinate denotes).
+`takanawa-gateway-minato` remains independently odd: the destination *is* a station
+complex whose namesake station is outside the pilot operators, so geography resolves
+it to a different station entirely.
 
-The large non-administrative cells produced **zero** unique candidates, so they offer
-no evidence of hidden area semantics — and no evidence against it, since they are
-simply outside the pilot network. Every record has `0` candidates in
-`standalone/nature` 125, `standalone/castle` 59, `standalone/(none)` 52,
-`poi/shrine` 27, `destination/museum` 26, `standalone/onsen` 20, `destination/temple`
-19 and `destination/(none)` 18. The one exception is `poi/temple`: 35 of 36 records
-have `0` candidates and **1 has 3** (ambiguous, so it anchors nothing under the
-unique-candidate rule either).
+The six wards are excluded by `kind` (rule 2) rather than by `role`, because the
+administrative-kind reason is the more specific and accurate one.
 
-So the excluded kinds are the only ones that *demonstrated* the area problem. The
-remaining non-administrative kinds are **not** auto-excluded, per instruction: they
-have physical extent but can be concrete visitable places, and the evidence to
-restrict them does not exist yet.
+## 6. Role schema drift — reported, not normalised
 
-**Caveat worth a decision:** 151 records have `kind == null`. Of those, 49 are
-unclassified in both dimensions (the `(none)/(none)` cell, which produced the 2 held
-anchors) and **102 carry a `role` but no `kind`** — partially classified. None of the
-102 currently produces an anchor, so today's count is unaffected, but on this
-treatment they would also be anchorable. If they should instead be held, that is a
-one-line change to the review flag; it does not change the 9.
+`role` is read straight from `destination.role`, so every observed value is reported.
+Missing `kind` is **not** treated as suspicious: a defined role plus a missing kind is
+fully decidable (`poi` anchors; `hub`/`standalone` do not). Only a missing role *and*
+kind is undecidable.
 
-The full 103-cell matrix is in `qa/kai-291/destination-station-anchors.md` (and the
-JSON artifact), including per-cell coordinate coverage and candidate distributions.
+| role | records | defined? | missing kind |
+| --- | --- | --- | --- |
+| `poi` | 407 | yes | 29 |
+| `standalone` | 400 | yes | 52 |
+| `hub` | 164 | yes | 3 |
+| **`destination`** | **107** | **no — schema drift** | **18** |
+| (none) | 52 | — | 49 |
+| **Total** | **1130** | | 151 |
 
-## 5. Validation cohort
+`destination` is **not** treated as `poi`. The two are distinct, and coercing it would
+silently widen the anchor set, so all 107 records are held unless rule 2 already
+excludes them by kind.
 
-The 29 records carrying stronger access evidence
-(`verified_required_access`, `verified_walking`):
+`role × kind` for the legacy role (sums to 107):
+
+| kind | n | outcome |
+| --- | --- | --- |
+| `museum` | 26 | hold (`unknown_or_legacy_role`) |
+| `temple` | 19 | hold |
+| *(none)* | 18 | hold |
+| `historic_town` | 7 | not anchorable (rule 2) |
+| `viewpoint` | 5 | hold |
+| `shrine` | 4 | hold |
+| `beach`, `garden`, `market`, `park` | 3 each | hold |
+| `aquarium`, `castle`, `island` | 2 each | hold |
+| `cemetery`, `cliff`, `district`, `lake`, `nature`, `rock_formation`, `station`, `street`, `theme_park`, `tower` | 1 each | `district` not anchorable (rule 2); the rest hold |
+
+(99 hold + 8 excluded by rule 2 = 107.)
+
+### The 102 role-but-no-kind records
+
+Of the 151 records with no `kind`, 49 have no role either (rule 6 hold) and **102**
+carry a role but no kind:
+
+| role | records | outcome under the final policy |
+| --- | --- | --- |
+| `standalone` | 52 | not anchorable (rule 4) |
+| `poi` | 29 | **anchorable** (rule 5) |
+| `destination` | 18 | hold (rule 8) |
+| `hub` | 3 | not anchorable (rule 3) |
+
+None of the 29 `poi`-without-kind records currently produces an anchor (no pilot
+station in range), so the anchor count is unaffected — but they are anchorable by
+policy, and that is the intended behaviour rather than an oversight.
+
+## 7. Role × kind matrix
+
+All 103 cells are in `qa/kai-291/destination-station-anchors.md` and the JSON artifact
+with per-cell coordinate coverage, candidate distributions and all three gate
+outcomes. The full JSON artifact also carries `statusPartition`,
+`holdForReviewDestinations`, `roleDrift`, `anchorReviewTable` and `semanticMatrix`.
+
+## 8. Validation cohort
+
+The 29 records carrying stronger access evidence:
 
 | Verdict | Records |
 | --- | --- |
 | `agreement` | 1 |
 | `contradiction` | **0** |
-| `comparable_no_station_named` | 0 |
 | `not_comparable_anchor_absent` | 28 |
 
-Zero contradictions. This cohort is a weak validator, though: 28 of 29 lie outside the
-TokyoMetro + Toei pilot area, so they are simply not comparable. Geography was not
-overridden by this evidence in any case.
+Zero contradictions, but a weak validator: 28 of 29 lie outside the pilot area, so they
+are not comparable. `localTransport` availability does not decide geographic
+anchorability — a test asserts that two records with identical semantics and opposite
+evidence states classify identically.
 
-**`localTransport` availability does not decide geographic anchorability.** Two
-records with identical semantics and opposite evidence states classify identically,
-and a test asserts it. The relevant axes are destination semantics and coordinate
-meaning.
-
-## 6. Proposed production policy
-
-The smallest deterministic rule the evidence supports:
-
-```
-if an explicit/canonical station anchor exists:
-    use the stronger evidence path      (geographic derivation is not used)
-else if not geographically anchorable:
-    role === "hub"                      -> not_anchorable_by_geography (hub_role)
-    kind in {city, ward, town,
-             village, district,
-             historic_town}             -> not_anchorable_by_geography
-                                           (administrative_or_locality_kind)
-else if the record is semantically unclassified (role and kind both absent):
-    hold_for_review
-else:
-    fixed 500 m rule
-    0 candidates                        -> unavailable
-    1 exact candidate                   -> geographic_unique_candidate
-    >1                                  -> ambiguous
-```
-
-No closest-wins. Station complexes are never collapsed. Nothing widens the radius.
-The 500 m tolerance is not lowered and not tuned.
-
-## 7. Not done in this slice
+## 9. Not done in this slice
 
 No user-facing integration, no departure-time control, no origin-side resolution, no
 transfers, no walking or feeder legs, no fares, no recommendation/ranking/feasibility
 or budget change, no production caller, and no change to `src/` runtime behaviour.
-The artifact records `networkCalls = 0` and `providerCalls = 0`; the classification
+The artifact records `networkCalls = 0` and `providerCalls = 0`: the classification
 reuses the already-committed candidate evidence and made no live ODPT request.
 
-## 8. Inputs and regeneration
+## 10. Inputs and regeneration
 
 - `qa/kai-291/pilot-station-index.json` — reviewed static evidence, 335 stations
-  (186 TokyoMetro + 149 Toei, all coordinate-bearing). A normalized, credential-free
-  index (`sameAs`, `operator`, `railway`, `stationCode`, `coordinates`, localized
-  names) — not a raw provider dump. Retrieved once through
+  (186 TokyoMetro + 149 Toei), normalized and credential-free, retrieved once through
   `https://meguruto.app/api/odpt` with operator-narrowed `station` queries.
 - `src/shared/data/destinations-index.json` — the catalogue.
-
-The registry is a committed static artifact; normal app use never calls the provider
-to learn a destination anchor.
 
 ```
 npx tsx scripts/audit/kai-291a-destination-station-identity.ts
 ```
 
 Deterministic and environment independent: identical inputs produce identical bytes
-locally and in CI, with or without `GITHUB_SHA`.
+locally and in CI, with or without `GITHUB_SHA`. The generator emits
+repository-formatted bytes so the committed artifacts satisfy the format gate and
+regeneration reproduces them exactly.

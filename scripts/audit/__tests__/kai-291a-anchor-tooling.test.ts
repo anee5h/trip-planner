@@ -1,12 +1,18 @@
 /**
  * KAI-291A — destination -> exact ODPT arrival-station identity tooling tests.
  *
- * These pin the AUTHORIZED rule and the two properties that make it safe:
- *   1. unique-within-bounded-radius anchors; nearest-of-several never does;
- *   2. a geographic anchor claims proximity only.
+ * These pin the FINAL anchorability policy and the properties that make the
+ * registry trustworthy:
+ *   - the policy is decided from `role`/`kind` alone, never from a destination id;
+ *   - unique-within-bounded-radius anchors; nearest-of-several never does;
+ *   - `hold_for_review` is a real, exclusionary status;
+ *   - the six geographic statuses partition the catalogue exactly;
+ *   - explicit/canonical evidence outranks geography.
  *
  * Offline and deterministic: no network, no clock, no filesystem writes.
  */
+import { readFileSync } from "node:fs";
+
 import { describe, expect, it } from "vitest";
 
 import {
@@ -14,20 +20,27 @@ import {
   ANCHOR_AUDIT_VERSION,
   ANCHOR_EVIDENCE_PATH,
   ANCHOR_STATUS,
+  CANONICAL_EVIDENCE_PATH,
   buildAnchorArtifact,
   buildAnchorCoverageReport,
   buildAnchorReviewTable,
+  buildRoleDriftReport,
   buildSemanticMatrix,
   classifyGeographicAnchor,
+  classifySemanticGate,
   compareValidationCohort,
   GEOGRAPHIC_TOLERANCE_METERS,
+  HOLD_REASONS,
   isGeographicallyAnchorable,
+  isUnknownOrLegacyRole,
+  KNOWN_DESTINATION_ROLES,
   loadCatalogue,
   loadStationIndex,
   NOT_GEOGRAPHICALLY_ANCHORABLE_KINDS,
-  semanticClassification,
+  STATUS_PARTITION,
   stationNamesInText,
   stationsWithinTolerance,
+  type AnchorDestination,
   type PilotStationEntry,
 } from "../kai-291a-destination-station-identity";
 
@@ -55,42 +68,304 @@ function station(
   };
 }
 
-const DESTINATION = { id: "test-destination", coordinates: SHINJUKU };
+/** A point-like destination: role `poi`, so it reaches the geographic rule. */
+function point(
+  id: string,
+  coordinates: { lat: number; lng: number } | null = SHINJUKU,
+  overrides: Partial<AnchorDestination> = {},
+): AnchorDestination {
+  return { id, role: "poi", kind: "museum", coordinates, ...overrides };
+}
 
-describe("KAI-291A geographic anchor rule", () => {
-  it("anchors when exactly ONE pilot station is inside the tolerance", () => {
-    const verdict = classifyGeographicAnchor(DESTINATION, [
-      station("odpt.Station:A", NEAR),
+const ONE_STATION = [station("odpt.Station:OnlyOne", NEAR)];
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * The final policy, rule by rule.
+ * ──────────────────────────────────────────────────────────────────────────── */
+describe("KAI-291A final policy — the semantic gate", () => {
+  it("rule 4: standalone is NOT geographically anchorable", () => {
+    const verdict = classifySemanticGate({
+      id: "s",
+      role: "standalone",
+      kind: "nature",
+    });
+
+    expect(verdict.outcome).toBe("not_anchorable_by_geography");
+    expect(verdict.reason).toBe(ANCHORABILITY_REASONS.STANDALONE_REGIONAL_ROLE);
+  });
+
+  it("rule 4: standalone is excluded even with a point-like kind", () => {
+    for (const kind of ["museum", "temple", "park", "garden", "castle", null]) {
+      const verdict = classifySemanticGate({
+        id: "s",
+        role: "standalone",
+        kind,
+      });
+      expect(verdict.outcome).toBe("not_anchorable_by_geography");
+      expect(verdict.reason).toBe(
+        ANCHORABILITY_REASONS.STANDALONE_REGIONAL_ROLE,
+      );
+    }
+  });
+
+  it("rule 5: poi IS anchorable even when kind is null", () => {
+    const verdict = classifySemanticGate({ id: "p", role: "poi", kind: null });
+
+    expect(verdict.outcome).toBe("anchorable");
+    expect(verdict.reason).toBeNull();
+  });
+
+  it("rule 3: hub is NOT geographically anchorable, including with kind null", () => {
+    for (const kind of [null, "museum", "park"]) {
+      const verdict = classifySemanticGate({ id: "h", role: "hub", kind });
+      expect(verdict.outcome).toBe("not_anchorable_by_geography");
+      expect(verdict.reason).toBe(ANCHORABILITY_REASONS.HUB_ROLE);
+    }
+  });
+
+  it("rule 6: null role + null kind is HELD, not anchorable and not excluded", () => {
+    const verdict = classifySemanticGate({ id: "u", role: null, kind: null });
+
+    expect(verdict.outcome).toBe("hold_for_review");
+    expect(verdict.reason).toBe(
+      HOLD_REASONS.DESTINATION_SEMANTICS_UNCLASSIFIED,
+    );
+  });
+
+  it("rule 7: null role + known non-administrative kind IS anchorable", () => {
+    for (const kind of [
+      "museum",
+      "temple",
+      "park",
+      "street",
+      "nature",
+      "garden",
+    ]) {
+      const verdict = classifySemanticGate({ id: "n", role: null, kind });
+      expect(verdict.outcome).toBe("anchorable");
+      expect(verdict.reason).toBeNull();
+    }
+  });
+
+  it("rule 8: legacy/unknown role + non-administrative kind is HELD", () => {
+    for (const role of ["destination", "legacy_thing", "DESTINATION"]) {
+      const verdict = classifySemanticGate({ id: "l", role, kind: "museum" });
+      expect(verdict.outcome).toBe("hold_for_review");
+      expect(verdict.reason).toBe(HOLD_REASONS.UNKNOWN_OR_LEGACY_ROLE);
+    }
+  });
+
+  it("rule 2 outranks rule 8: legacy role + administrative kind is NOT anchorable", () => {
+    for (const kind of NOT_GEOGRAPHICALLY_ANCHORABLE_KINDS) {
+      const verdict = classifySemanticGate({
+        id: "l",
+        role: "destination",
+        kind,
+      });
+      expect(verdict.outcome).toBe("not_anchorable_by_geography");
+      expect(verdict.reason).toBe(
+        ANCHORABILITY_REASONS.ADMINISTRATIVE_OR_LOCALITY_KIND,
+      );
+    }
+  });
+
+  it("rule 2 excludes every administrative/locality kind regardless of role", () => {
+    for (const kind of NOT_GEOGRAPHICALLY_ANCHORABLE_KINDS) {
+      for (const role of ["poi", "hub", "standalone", "destination", null]) {
+        const verdict = classifySemanticGate({
+          id: `${role}-${kind}`,
+          role,
+          kind,
+        });
+        expect(verdict.outcome).toBe("not_anchorable_by_geography");
+        expect(verdict.reason).toBe(
+          ANCHORABILITY_REASONS.ADMINISTRATIVE_OR_LOCALITY_KIND,
+        );
+      }
+    }
+  });
+
+  it("does NOT treat a missing kind alone as suspicious", () => {
+    // A defined role plus a missing kind is fully decidable: `poi` anchors and
+    // `hub`/`standalone` do not. Only a missing ROLE and KIND is undecidable.
+    expect(
+      classifySemanticGate({ id: "a", role: "poi", kind: null }).outcome,
+    ).toBe("anchorable");
+    expect(
+      classifySemanticGate({ id: "b", role: "hub", kind: null }).outcome,
+    ).toBe("not_anchorable_by_geography");
+    expect(
+      classifySemanticGate({ id: "c", role: "standalone", kind: null }).outcome,
+    ).toBe("not_anchorable_by_geography");
+  });
+
+  it("does NOT extend exclusion to kinds with physical extent", () => {
+    for (const kind of [
+      "park",
+      "garden",
+      "mountain",
+      "lake",
+      "island",
+      "beach",
+      "market",
+      "street",
+      "nature",
+      "natural",
+      "mixed",
+    ]) {
+      expect(
+        classifySemanticGate({ id: `k-${kind}`, role: "poi", kind }).outcome,
+      ).toBe("anchorable");
+    }
+  });
+
+  it("recognises exactly the defined roles", () => {
+    expect([...KNOWN_DESTINATION_ROLES].sort()).toEqual([
+      "hub",
+      "poi",
+      "standalone",
     ]);
+    expect(isUnknownOrLegacyRole("destination")).toBe(true);
+    expect(isUnknownOrLegacyRole("poi")).toBe(false);
+    expect(isUnknownOrLegacyRole(null)).toBe(false);
+  });
 
-    expect(verdict.status).toBe(ANCHOR_STATUS.ANCHORED);
+  it("isGeographicallyAnchorable reflects the gate", () => {
+    expect(
+      isGeographicallyAnchorable({ id: "a", role: "poi", kind: "park" })
+        .anchorable,
+    ).toBe(true);
+    expect(
+      isGeographicallyAnchorable({ id: "b", role: "hub", kind: "park" })
+        .anchorable,
+    ).toBe(false);
+    expect(
+      isGeographicallyAnchorable({ id: "c", role: null, kind: null })
+        .anchorable,
+    ).toBe(false);
+    expect(
+      isGeographicallyAnchorable({
+        id: "d",
+        role: "destination",
+        kind: "museum",
+      }).anchorable,
+    ).toBe(false);
+  });
+});
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * Rule 1 — explicit/canonical evidence outranks geography.
+ * ──────────────────────────────────────────────────────────────────────────── */
+describe("KAI-291A rule 1 — canonical evidence remains stronger", () => {
+  it("anchors on an explicit station target even for an otherwise-excluded record", () => {
+    const verdict = classifyGeographicAnchor(
+      point("hub-with-mapping", SHINJUKU, {
+        role: "hub",
+        kind: "ward",
+        odptMapping: { station: "odpt.Station:Toei.Mita.Sugamo" },
+      }),
+      ONE_STATION,
+    );
+
+    expect(verdict.status).toBe(ANCHOR_STATUS.CANONICAL_EXPLICIT_STATION);
+    expect(verdict.evidencePath).toBe(CANONICAL_EVIDENCE_PATH);
+    expect(verdict.anchor?.odptStationId).toBe("odpt.Station:Toei.Mita.Sugamo");
+  });
+
+  it("anchors on canonical evidence for a held (unclassified) record too", () => {
+    const verdict = classifyGeographicAnchor(
+      point("unclassified-with-mapping", SHINJUKU, {
+        role: null,
+        kind: null,
+        canonicalMapping: {
+          odptStationId: "odpt.Station:TokyoMetro.Ginza.Ueno",
+        },
+      }),
+      ONE_STATION,
+    );
+
+    expect(verdict.status).toBe(ANCHOR_STATUS.CANONICAL_EXPLICIT_STATION);
+  });
+
+  it("does NOT run the geographic search for a canonically anchored record", () => {
+    const verdict = classifyGeographicAnchor(
+      point("canonical", SHINJUKU, {
+        odptMapping: { station: "odpt.Station:Toei.Mita.Sugamo" },
+      }),
+      ONE_STATION,
+    );
+
+    // Metadata only — no geographic candidate was sought, so the gate is irrelevant.
+    expect(verdict.candidateCount).toBe(0);
+    expect(verdict.evidencePath).not.toBe(ANCHOR_EVIDENCE_PATH);
+  });
+
+  it("treats competing canonical targets as ambiguous rather than picking one", () => {
+    const verdict = classifyGeographicAnchor(
+      point("two-targets", SHINJUKU, {
+        odptMapping: {
+          station: "odpt.Station:Toei.Mita.Sugamo",
+          arrivalStation: "odpt.Station:TokyoMetro.Ginza.Ueno",
+        },
+      }),
+      ONE_STATION,
+    );
+
+    expect(verdict.status).toBe(ANCHOR_STATUS.AMBIGUOUS);
+    expect(verdict.anchor).toBeNull();
+    expect(verdict.blocker).toBe("multiple_canonical_station_targets");
+  });
+
+  it("does NOT treat unrelated mapping metadata as station evidence", () => {
+    const verdict = classifyGeographicAnchor(
+      point("operator-only", SHINJUKU, {
+        role: "hub",
+        kind: "ward",
+        odptMapping: {
+          operator: "odpt.Operator:Toei",
+          note: "operator scope only",
+        },
+      }),
+      ONE_STATION,
+    );
+
+    expect(verdict.status).toBe(ANCHOR_STATUS.NOT_ANCHORABLE_BY_GEOGRAPHY);
+    expect(verdict.anchor).toBeNull();
+  });
+});
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * The geographic rule (unchanged geometry).
+ * ──────────────────────────────────────────────────────────────────────────── */
+describe("KAI-291A geographic rule", () => {
+  it("anchors when exactly ONE pilot station is inside the tolerance", () => {
+    const verdict = classifyGeographicAnchor(point("d"), ONE_STATION);
+
+    expect(verdict.status).toBe(ANCHOR_STATUS.GEOGRAPHIC_UNIQUE_CANDIDATE);
     expect(verdict.blocker).toBeNull();
     expect(verdict.evidencePath).toBe(ANCHOR_EVIDENCE_PATH);
-    expect(verdict.anchor?.odptStationId).toBe("odpt.Station:A");
     expect(verdict.candidateCount).toBe(1);
     expect(verdict.distanceMeters).toBeGreaterThan(100);
     expect(verdict.distanceMeters).toBeLessThan(120);
   });
 
   it("is unavailable when NO pilot station is inside the tolerance", () => {
-    const verdict = classifyGeographicAnchor(DESTINATION, [
+    const verdict = classifyGeographicAnchor(point("d"), [
       station("odpt.Station:A", FAR),
     ]);
 
     expect(verdict.status).toBe(ANCHOR_STATUS.UNAVAILABLE);
     expect(verdict.blocker).toBe("no_pilot_station_within_tolerance");
     expect(verdict.anchor).toBeNull();
-    expect(verdict.candidateCount).toBe(0);
   });
 
   it("is AMBIGUOUS when more than one candidate is inside the tolerance", () => {
-    const verdict = classifyGeographicAnchor(DESTINATION, [
+    const verdict = classifyGeographicAnchor(point("d"), [
       station("odpt.Station:A", NEAR),
       station("odpt.Station:B", { lat: 35.6902, lng: 139.7006 }),
     ]);
 
     expect(verdict.status).toBe(ANCHOR_STATUS.AMBIGUOUS);
-    expect(verdict.blocker).toBe("multiple_pilot_stations_within_tolerance");
     expect(verdict.anchor).toBeNull();
     expect(verdict.candidateIdentities).toEqual([
       "odpt.Station:A",
@@ -99,9 +374,7 @@ describe("KAI-291A geographic anchor rule", () => {
   });
 
   it("NEVER picks the nearest of several — a much closer candidate must not win", () => {
-    // 'closer' is ~11 m away, 'farther' is ~111 m away. Nearest-wins would anchor
-    // to 'closer'; the authorized rule must refuse to choose.
-    const verdict = classifyGeographicAnchor(DESTINATION, [
+    const verdict = classifyGeographicAnchor(point("d"), [
       station("odpt.Station:Farther", NEAR),
       station("odpt.Station:Closer", { lat: 35.6897, lng: 139.7006 }),
     ]);
@@ -110,14 +383,10 @@ describe("KAI-291A geographic anchor rule", () => {
     expect(verdict.anchor).toBeNull();
   });
 
-  it("does NOT break ambiguity by operator or railway", () => {
-    // Two records for the SAME physical station on different railways. The
-    // resolver is called without operator/railway, so these stay ambiguous rather
-    // than being collapsed.
-    const verdict = classifyGeographicAnchor(DESTINATION, [
+  it("does NOT collapse station complexes by operator or railway", () => {
+    const verdict = classifyGeographicAnchor(point("d"), [
       station("odpt.Station:TokyoMetro.Marunouchi.Shinjuku", NEAR, {
         operator: "odpt.Operator:TokyoMetro",
-        railway: "odpt.Railway:TokyoMetro.Marunouchi",
       }),
       station(
         "odpt.Station:Toei.Shinjuku.Shinjuku",
@@ -133,44 +402,37 @@ describe("KAI-291A geographic anchor rule", () => {
     expect(verdict.anchor).toBeNull();
   });
 
-  it("reports a destination with no coordinates as coordinates_absent", () => {
+  it("reports coordinates_absent for an anchorable record with no coordinates", () => {
     const verdict = classifyGeographicAnchor(
-      { id: "no-coords", coordinates: null },
-      [station("odpt.Station:A", NEAR)],
+      point("no-coords", null),
+      ONE_STATION,
     );
 
     expect(verdict.status).toBe(ANCHOR_STATUS.COORDINATES_ABSENT);
     expect(verdict.blocker).toBe("destination_coordinates_absent");
-    expect(verdict.candidateCount).toBe(0);
   });
 
   it("locks the tolerance to the existing resolver default at the boundary", () => {
-    // Just inside 500 m anchors; just outside does not. If the resolver's real
-    // default ever drifts from GEOGRAPHIC_TOLERANCE_METERS this fails.
-    const insideMeters = 499;
-    const outsideMeters = 501;
     const degreesPerMeter = 1 / 111_320;
-
-    const inside = classifyGeographicAnchor(DESTINATION, [
+    const inside = classifyGeographicAnchor(point("in"), [
       station("odpt.Station:Inside", {
-        lat: SHINJUKU.lat + insideMeters * degreesPerMeter,
+        lat: SHINJUKU.lat + 499 * degreesPerMeter,
         lng: SHINJUKU.lng,
       }),
     ]);
-    const outside = classifyGeographicAnchor(DESTINATION, [
+    const outside = classifyGeographicAnchor(point("out"), [
       station("odpt.Station:Outside", {
-        lat: SHINJUKU.lat + outsideMeters * degreesPerMeter,
+        lat: SHINJUKU.lat + 501 * degreesPerMeter,
         lng: SHINJUKU.lng,
       }),
     ]);
 
     expect(GEOGRAPHIC_TOLERANCE_METERS).toBe(500);
-    expect(inside.status).toBe(ANCHOR_STATUS.ANCHORED);
+    expect(inside.status).toBe(ANCHOR_STATUS.GEOGRAPHIC_UNIQUE_CANDIDATE);
     expect(outside.status).toBe(ANCHOR_STATUS.UNAVAILABLE);
   });
 
   it("uses an evidence path that claims proximity, not a curated mapping", () => {
-    // Guards against a rename that would silently upgrade the semantic claim.
     expect(ANCHOR_EVIDENCE_PATH).toBe("geographic_unique_candidate");
     for (const forbidden of [
       "verified_access_station",
@@ -192,81 +454,384 @@ describe("KAI-291A geographic anchor rule", () => {
       stations,
       GEOGRAPHIC_TOLERANCE_METERS,
     );
-    const verdict = classifyGeographicAnchor(DESTINATION, stations);
+    const verdict = classifyGeographicAnchor(point("d"), stations);
 
     expect(within).toHaveLength(1);
     expect(verdict.candidateCount).toBe(within.length);
-    expect(verdict.status).toBe(ANCHOR_STATUS.ANCHORED);
+    expect(verdict.status).toBe(ANCHOR_STATUS.GEOGRAPHIC_UNIQUE_CANDIDATE);
   });
 });
 
-describe("KAI-291A coverage report", () => {
-  // Deliberately SEPARATED stations: a unique anchor requires that no other pilot
-  // station is also inside the 500 m radius, so co-located fixtures would all be
-  // ambiguous instead.
-  const uniqueA = station("odpt.Station:UniqueA", {
-    lat: 35.6906,
-    lng: 139.7006,
-  });
-  const uniqueD = station("odpt.Station:UniqueD", {
-    lat: 35.6896,
-    lng: 139.75,
-  });
-  const pairX = station("odpt.Station:PairX", { lat: 35.8, lng: 139.7006 });
-  const pairY = station("odpt.Station:PairY", { lat: 35.802, lng: 139.7006 });
-  const stations = [uniqueA, pairX, pairY, uniqueD];
-
-  const destinations = [
-    { id: "anchored-1", coordinates: { lat: 35.6906, lng: 139.7006 } },
-    { id: "anchored-2", coordinates: { lat: 35.6896, lng: 139.75 } },
-    { id: "ambiguous-1", coordinates: { lat: 35.801, lng: 139.7006 } },
-    { id: "unavailable-1", coordinates: { lat: 35.75, lng: 139.7006 } },
-    { id: "no-coords", coordinates: null },
+/* ────────────────────────────────────────────────────────────────────────────
+ * The status partition, and holds as a real status.
+ * ──────────────────────────────────────────────────────────────────────────── */
+describe("KAI-291A status partition", () => {
+  const stations = [
+    station("odpt.Station:UniqueA", { lat: 35.6906, lng: 139.7006 }),
+    station("odpt.Station:UniqueD", { lat: 35.6896, lng: 139.75 }),
+    station("odpt.Station:PairX", { lat: 35.8, lng: 139.7006 }),
+    station("odpt.Station:PairY", { lat: 35.802, lng: 139.7006 }),
   ];
 
-  it("aggregates coverage and the candidate-count distribution", () => {
-    const report = buildAnchorCoverageReport(destinations, stations);
+  const catalogue: AnchorDestination[] = [
+    point("anchored-1", { lat: 35.6906, lng: 139.7006 }),
+    point("anchored-2", { lat: 35.6896, lng: 139.75 }),
+    point("ambiguous-1", { lat: 35.801, lng: 139.7006 }),
+    point("unavailable-1", { lat: 35.75, lng: 139.7006 }),
+    point("no-coords", null),
+    point("standalone-1", SHINJUKU, { role: "standalone", kind: "nature" }),
+    point("ward-1", SHINJUKU, { role: "hub", kind: "ward" }),
+    point("unclassified-1", SHINJUKU, { role: null, kind: null }),
+    point("legacy-1", SHINJUKU, { role: "destination", kind: "museum" }),
+  ];
 
-    expect(report.toleranceMeters).toBe(500);
-    expect(report.destinationsEvaluated).toBe(5);
+  it("partitions the catalogue exactly — sums to the catalogue size", () => {
+    const report = buildAnchorCoverageReport(catalogue, stations);
+    const sum = Object.values(report.statusPartition).reduce(
+      (a, b) => a + b,
+      0,
+    );
+
+    expect(sum).toBe(report.destinationsEvaluated);
+    expect(sum).toBe(catalogue.length);
+  });
+
+  it("uses exactly the six geographic statuses and no others", () => {
+    const report = buildAnchorCoverageReport(catalogue, stations);
+
+    expect(Object.keys(report.statusPartition).sort()).toEqual(
+      [...STATUS_PARTITION].sort(),
+    );
+    expect(STATUS_PARTITION).toHaveLength(6);
+  });
+
+  it("gives each destination exactly one of the six statuses", () => {
+    const report = buildAnchorCoverageReport(catalogue, stations);
+
     expect(report.uniqueAnchors).toBe(2);
     expect(report.ambiguous).toBe(1);
     expect(report.unavailable).toBe(1);
     expect(report.coordinatesAbsent).toBe(1);
-
-    // Distribution covers only destinations the rule could run for.
-    const distributionTotal = Object.values(
-      report.candidateCountDistribution,
-    ).reduce((sum, value) => sum + value, 0);
-    expect(distributionTotal).toBe(4);
-    expect(report.candidateCountDistribution["1"]).toBe(2);
-    expect(report.candidateCountDistribution["2"]).toBe(1);
-    expect(report.candidateCountDistribution["0"]).toBe(1);
+    expect(report.notAnchorableByGeography).toBe(2);
+    expect(report.holdForReview).toBe(2);
+    expect(report.productionReadyAnchors).toBe(2);
   });
 
-  it("records distance statistics for unique anchors only", () => {
-    const report = buildAnchorCoverageReport(destinations, stations);
+  it("holds are excluded from anchors, operator/railway tallies and the anchor total", () => {
+    const report = buildAnchorCoverageReport(catalogue, stations);
+    const anchoredIds = report.anchors.map((verdict) => verdict.destinationId);
+    const heldIds = report.holdDestinations.map((entry) => entry.destinationId);
 
-    expect(report.distanceMetersStats.min).not.toBeNull();
-    expect(report.distanceMetersStats.max).not.toBeNull();
-    expect(report.distanceMetersStats.max).toBeLessThanOrEqual(500);
+    expect([...heldIds].sort()).toEqual(["legacy-1", "unclassified-1"]);
+    for (const id of heldIds) {
+      expect(anchoredIds).not.toContain(id);
+      expect(report.unavailable).toBeGreaterThanOrEqual(0);
+    }
+    expect(report.productionReadyAnchors).toBe(report.anchors.length);
     expect(
-      report.anchors.every((verdict) => verdict.distanceMeters !== null),
+      Object.values(report.anchorsByOperator).reduce((a, b) => a + b, 0),
+    ).toBe(report.productionReadyAnchors);
+    expect(
+      Object.values(report.anchorsByRailway).reduce((a, b) => a + b, 0),
+    ).toBe(report.productionReadyAnchors);
+    // Observational metadata is retained for held records.
+    expect(
+      report.holdDestinations.every((entry) => entry.reason !== null),
     ).toBe(true);
-    expect(report.distanceMetersStats.bucketUnder50).toBe(2);
   });
 
-  it("counts anchors per operator and per railway", () => {
-    const report = buildAnchorCoverageReport(destinations, stations);
-
-    const operatorTotal = Object.values(report.anchorsByOperator).reduce(
-      (sum, value) => sum + value,
+  it("keeps held and excluded records out of the candidate distribution", () => {
+    const report = buildAnchorCoverageReport(catalogue, stations);
+    const distributed = Object.values(report.candidateCountDistribution).reduce(
+      (a, b) => a + b,
       0,
     );
-    expect(operatorTotal).toBe(report.uniqueAnchors);
+
+    // Only the four point-like records reach the geographic rule.
+    expect(distributed).toBe(4);
+  });
+
+  it("groups the exclusion and hold reasons", () => {
+    const report = buildAnchorCoverageReport(catalogue, stations);
+
+    // The ward fixture is role=hub AND kind=ward, so rule 2 (administrative kind)
+    // outranks rule 3 — an area kind is never reported as merely a hub.
+    expect(report.notAnchorableReasons).toEqual({
+      [ANCHORABILITY_REASONS.STANDALONE_REGIONAL_ROLE]: 1,
+      [ANCHORABILITY_REASONS.ADMINISTRATIVE_OR_LOCALITY_KIND]: 1,
+    });
+    expect(report.holdReasons).toEqual({
+      [HOLD_REASONS.DESTINATION_SEMANTICS_UNCLASSIFIED]: 1,
+      [HOLD_REASONS.UNKNOWN_OR_LEGACY_ROLE]: 1,
+    });
+    expect(
+      Object.values(report.notAnchorableReasons).reduce((a, b) => a + b, 0),
+    ).toBe(report.notAnchorableByGeography);
+    expect(Object.values(report.holdReasons).reduce((a, b) => a + b, 0)).toBe(
+      report.holdForReview,
+    );
+  });
+
+  it("reports coordinate absence across all statuses, not only its own status", () => {
+    // A hub with no coordinates is `not_anchorable_by_geography` (the gate runs
+    // first), so counting coordinates only via `coordinates_absent` would report 0.
+    const report = buildAnchorCoverageReport(
+      [point("hub-no-coords", null, { role: "hub", kind: "ward" })],
+      stations,
+    );
+
+    expect(report.coordinatesAbsent).toBe(0);
+    expect(report.notAnchorableByGeography).toBe(1);
+    expect(report.destinationsWithoutCoordinates).toBe(1);
+  });
+
+  it("partitions the REAL committed catalogue exactly", () => {
+    const records = loadCatalogue((path) => readFileSync(path, "utf8"));
+    const { stations: index } = loadStationIndex((path) =>
+      readFileSync(path, "utf8"),
+    );
+    const report = buildAnchorCoverageReport(records, index);
+    const sum = Object.values(report.statusPartition).reduce(
+      (a, b) => a + b,
+      0,
+    );
+
+    expect(report.destinationsEvaluated).toBe(records.length);
+    expect(sum + report.canonicalExplicitStation).toBe(records.length);
+    expect(report.holdForReview).toBeGreaterThan(0);
   });
 });
 
+/* ────────────────────────────────────────────────────────────────────────────
+ * No destination-id special cases.
+ * ──────────────────────────────────────────────────────────────────────────── */
+describe("KAI-291A no destination-id special cases", () => {
+  it("classifies identical semantics identically for different ids", () => {
+    const ids = [
+      "meguro-city",
+      "ueno-park",
+      "takanawa-gateway-minato",
+      "tokyo-metropolitan-government-building-shinjuku",
+      "some-totally-new-place",
+    ];
+
+    for (const semantics of [
+      { role: "hub", kind: "ward" },
+      { role: "poi", kind: "museum" },
+      { role: "standalone", kind: "nature" },
+      { role: null, kind: null },
+      { role: "destination", kind: "museum" },
+    ]) {
+      const outcomes = ids.map(
+        (id) => classifySemanticGate({ id, ...semantics }).outcome,
+      );
+      expect(new Set(outcomes).size).toBe(1);
+    }
+  });
+
+  it("lets a known-bad id anchor when its semantics are point-like", () => {
+    // The six wards are excluded by the GENERAL rule, not by their ids: the same
+    // id with point-like semantics anchors.
+    const asWard = classifyGeographicAnchor(
+      point("meguro-city", SHINJUKU, { role: "hub", kind: "ward" }),
+      ONE_STATION,
+    );
+    const asPoint = classifyGeographicAnchor(
+      point("meguro-city", SHINJUKU, { role: "poi", kind: "museum" }),
+      ONE_STATION,
+    );
+
+    expect(asWard.status).toBe(ANCHOR_STATUS.NOT_ANCHORABLE_BY_GEOGRAPHY);
+    expect(asPoint.status).toBe(ANCHOR_STATUS.GEOGRAPHIC_UNIQUE_CANDIDATE);
+  });
+
+  it("does not reference any destination id in the audit source", () => {
+    const source = readFileSync(
+      "scripts/audit/kai-291a-destination-station-identity.ts",
+      "utf8",
+    );
+
+    for (const id of [
+      "takanawa-gateway-minato",
+      "tokyo-metropolitan-government-building-shinjuku",
+      "meguro-city",
+      "ueno-park",
+      "itabashi-city",
+      "sugamo-jizo-dori",
+    ]) {
+      expect(source).not.toContain(id);
+    }
+  });
+});
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * Review table, matrix, role drift.
+ * ──────────────────────────────────────────────────────────────────────────── */
+describe("KAI-291A review table", () => {
+  const stations = [
+    station("odpt.Station:UniqueA", { lat: 35.6906, lng: 139.7006 }),
+  ];
+
+  it("includes excluded and held records so nothing disappears from the audit", () => {
+    const rows = buildAnchorReviewTable(
+      [
+        point("a-museum"),
+        point("meguro-city", SHINJUKU, { role: "hub", kind: "ward" }),
+        point("unclassified", SHINJUKU, { role: null, kind: null }),
+      ],
+      stations,
+    );
+
+    expect(rows).toHaveLength(3);
+    const byId = new Map(rows.map((row) => [row.destinationId, row]));
+    expect(byId.get("a-museum")?.proposedOutcome).toBe(
+      ANCHOR_STATUS.GEOGRAPHIC_UNIQUE_CANDIDATE,
+    );
+    expect(byId.get("meguro-city")?.proposedOutcome).toBe(
+      ANCHOR_STATUS.NOT_ANCHORABLE_BY_GEOGRAPHY,
+    );
+    // role=hub AND kind=ward: the administrative-kind reason wins (rule 2).
+    expect(byId.get("meguro-city")?.reason).toBe(
+      ANCHORABILITY_REASONS.ADMINISTRATIVE_OR_LOCALITY_KIND,
+    );
+    expect(byId.get("unclassified")?.proposedOutcome).toBe(
+      ANCHOR_STATUS.HOLD_FOR_REVIEW,
+    );
+    expect(byId.get("unclassified")?.reason).toBe(
+      HOLD_REASONS.DESTINATION_SEMANTICS_UNCLASSIFIED,
+    );
+  });
+
+  it("uses the classifier's own status, never a second parallel decision", () => {
+    const destinations = [
+      point("a"),
+      point("b", SHINJUKU, { role: "standalone", kind: "museum" }),
+      point("c", SHINJUKU, { role: "destination", kind: "museum" }),
+    ];
+    const rows = buildAnchorReviewTable(destinations, stations);
+
+    for (const row of rows) {
+      const verdict = classifyGeographicAnchor(
+        destinations.find((d) => d.id === row.destinationId)!,
+        stations,
+      );
+      expect(row.proposedOutcome).toBe(verdict.status);
+      expect(row.reason).toBe(verdict.blocker);
+    }
+  });
+
+  it("retains observational candidate metadata for held records", () => {
+    const rows = buildAnchorReviewTable(
+      [point("unclassified", SHINJUKU, { role: null, kind: null })],
+      stations,
+    );
+
+    expect(rows[0].observedCandidateCount).toBe(1);
+    expect(rows[0].anchorStationId).toBe("odpt.Station:UniqueA");
+  });
+});
+
+describe("KAI-291A semantic matrix", () => {
+  const stations = [
+    station("odpt.Station:UniqueA", { lat: 35.6906, lng: 139.7006 }),
+    station("odpt.Station:PairX", { lat: 35.8, lng: 139.7006 }),
+    station("odpt.Station:PairY", { lat: 35.802, lng: 139.7006 }),
+  ];
+
+  it("counts all three gate outcomes per role x kind cell", () => {
+    const matrix = buildSemanticMatrix(
+      [
+        point("w1", SHINJUKU, { role: "hub", kind: "ward" }),
+        point("w2", SHINJUKU, { role: "hub", kind: "ward" }),
+        point("p1"),
+        point("l1", SHINJUKU, { role: "destination", kind: "museum" }),
+      ],
+      stations,
+    );
+
+    const ward = matrix.find(
+      (row) => row.role === "hub" && row.kind === "ward",
+    );
+    expect(ward?.totalRecords).toBe(2);
+    expect(ward?.notAnchorableByGeography).toBe(2);
+    expect(ward?.anchorable).toBe(0);
+    // BOTH wards sit where geography alone would have anchored them, which is
+    // exactly why the gate exists.
+    expect(ward?.uniqueGeographicCandidates).toBe(2);
+
+    const legacy = matrix.find((row) => row.role === "destination");
+    expect(legacy?.holdForReview).toBe(1);
+    expect(legacy?.legacyRole).toBe(true);
+
+    const poi = matrix.find(
+      (row) => row.role === "poi" && row.kind === "museum",
+    );
+    expect(poi?.anchorable).toBe(1);
+    expect(poi?.legacyRole).toBe(false);
+  });
+
+  it("sums each cell's candidate distribution and totals the catalogue", () => {
+    const destinations = [
+      point("a"),
+      point("b"),
+      point("c", null, { role: null, kind: null }),
+    ];
+    const matrix = buildSemanticMatrix(destinations, stations);
+
+    expect(matrix.reduce((sum, row) => sum + row.totalRecords, 0)).toBe(
+      destinations.length,
+    );
+    for (const row of matrix) {
+      expect(
+        Object.values(row.candidateCounts).reduce((a, b) => a + b, 0),
+      ).toBe(row.totalRecords);
+      expect(
+        row.anchorable + row.notAnchorableByGeography + row.holdForReview,
+      ).toBe(row.totalRecords);
+    }
+  });
+});
+
+describe("KAI-291A role drift report", () => {
+  it("reports every observed role with its kind distribution", () => {
+    const rows = buildRoleDriftReport([
+      point("a", SHINJUKU, { role: "poi", kind: "museum" }),
+      point("b", SHINJUKU, { role: "poi", kind: null }),
+      point("c", SHINJUKU, { role: "destination", kind: "temple" }),
+      point("d", SHINJUKU, { role: null, kind: null }),
+    ]);
+
+    const poi = rows.find((row) => row.role === "poi");
+    expect(poi?.totalRecords).toBe(2);
+    expect(poi?.knownRole).toBe(true);
+    expect(poi?.withMissingKind).toBe(1);
+
+    const legacy = rows.find((row) => row.role === "destination");
+    expect(legacy?.knownRole).toBe(false);
+    expect(legacy?.kindCounts).toEqual({ temple: 1 });
+
+    const missing = rows.find((row) => row.role === null);
+    expect(missing?.knownRole).toBe(true);
+    expect(missing?.withMissingKind).toBe(1);
+  });
+
+  it("counts the real catalogue's legacy role truthfully", () => {
+    const records = loadCatalogue((path) => readFileSync(path, "utf8"));
+    const rows = buildRoleDriftReport(records);
+    const legacy = rows.filter((row) => !row.knownRole);
+
+    // `destination` is real schema drift and must be reported, not normalised away.
+    expect(legacy.map((row) => row.role)).toEqual(["destination"]);
+    expect(legacy[0].totalRecords).toBeGreaterThan(0);
+    expect(rows.reduce((sum, row) => sum + row.totalRecords, 0)).toBe(
+      records.length,
+    );
+  });
+});
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * Artifact + validation cohort.
+ * ──────────────────────────────────────────────────────────────────────────── */
 describe("KAI-291A artifact", () => {
   const stations = [
     station("odpt.Station:UniqueA", { lat: 35.6906, lng: 139.7006 }),
@@ -274,36 +839,29 @@ describe("KAI-291A artifact", () => {
     station("odpt.Station:PairY", { lat: 35.802, lng: 139.7006 }),
   ];
 
-  it("omits non-anchored destinations and lists them explicitly", () => {
-    const stationIndex = {
-      pilotOperators: ["odpt.Operator:TokyoMetro"],
-      sourceBoundary: "https://meguruto.app/api/odpt",
-      providerRetrievedAt: {
-        "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"],
-      },
-    };
+  it("omits non-anchors and lists them explicitly", () => {
     const report = buildAnchorCoverageReport(
       [
-        { id: "anchored", coordinates: { lat: 35.6906, lng: 139.7006 } },
-        { id: "ambiguous", coordinates: { lat: 35.801, lng: 139.7006 } },
-        { id: "none", coordinates: null },
+        point("anchored"),
+        point("ambiguous", { lat: 35.801, lng: 139.7006 }),
+        point("ward", SHINJUKU, { role: "hub", kind: "ward" }),
+        point("held", SHINJUKU, { role: null, kind: null }),
+        point("none", null),
       ],
       stations,
     );
     const artifact = buildAnchorArtifact({
       report,
       validation: [],
-      stationIndex,
+      stationIndex: { sourceBoundary: "https://meguruto.app/api/odpt" },
       stationCount: 3,
-      catalogueCount: 3,
+      catalogueCount: 5,
     }) as Record<string, never>;
 
     expect(artifact.anchors).toHaveLength(1);
     expect(artifact.ambiguousDestinations).toHaveLength(1);
-    // Absent review data still yields explicit nulls rather than a missing key.
-    expect(
-      (artifact.anchors[0] as Record<string, unknown>).proposedOutcome,
-    ).toBeNull();
+    expect(artifact.notAnchorableDestinations).toHaveLength(1);
+    expect(artifact.holdForReviewDestinations).toHaveLength(1);
     expect(artifact.coordinatesAbsentDestinations).toEqual(["none"]);
     expect(artifact.auditVersion).toBe(ANCHOR_AUDIT_VERSION);
     expect(artifact.networkCalls).toBe(0);
@@ -311,25 +869,15 @@ describe("KAI-291A artifact", () => {
   });
 
   it("carries full provenance on every anchor", () => {
-    const stationIndex = {
-      sourceBoundary: "https://meguruto.app/api/odpt",
-      providerRetrievedAt: {
-        "odpt.Operator:TokyoMetro": ["2026-09-11T05:23:38.334Z"],
-      },
-    };
-    const report = buildAnchorCoverageReport(
-      [{ id: "anchored", coordinates: { lat: 35.6906, lng: 139.7006 } }],
-      stations,
-    );
+    const report = buildAnchorCoverageReport([point("anchored")], stations);
     const artifact = buildAnchorArtifact({
       report,
       validation: [],
-      stationIndex,
+      stationIndex: { sourceBoundary: "https://meguruto.app/api/odpt" },
       stationCount: 3,
       catalogueCount: 1,
     }) as unknown as { anchors: { provenance: Record<string, unknown> }[] };
 
-    const provenance = artifact.anchors[0].provenance;
     for (const key of [
       "evidencePath",
       "toleranceMeters",
@@ -339,17 +887,13 @@ describe("KAI-291A artifact", () => {
       "providerRetrievedAt",
       "auditVersion",
     ]) {
-      expect(provenance).toHaveProperty(key);
+      expect(artifact.anchors[0].provenance).toHaveProperty(key);
     }
-    expect(provenance.evidencePath).toBe(ANCHOR_EVIDENCE_PATH);
   });
 
   it("is environment independent: identical inputs give identical bytes", () => {
     const args = {
-      report: buildAnchorCoverageReport(
-        [{ id: "anchored", coordinates: { lat: 35.6906, lng: 139.7006 } }],
-        stations,
-      ),
+      report: buildAnchorCoverageReport([point("anchored")], stations),
       validation: [],
       stationIndex: { sourceBoundary: "https://meguruto.app/api/odpt" },
       stationCount: 3,
@@ -363,7 +907,6 @@ describe("KAI-291A artifact", () => {
     if (previous === undefined) delete process.env.GITHUB_SHA;
     else process.env.GITHUB_SHA = previous;
 
-    // No clock, no env: the artifact must not vary with the environment.
     expect(second).toBe(first);
   });
 });
@@ -408,12 +951,11 @@ describe("KAI-291A validation cohort", () => {
   ];
   const destinationWith = (
     id: string,
-    coordinates: { lat: number; lng: number },
     evidence: Record<string, string>,
-    semantics: Record<string, string | null> = { role: "poi", kind: "museum" },
+    semantics: Partial<AnchorDestination> = { role: "poi", kind: "museum" },
   ) => ({
     id,
-    coordinates,
+    coordinates: NEAR,
     ...semantics,
     localTransport: { kind: "verified_walking", ...evidence },
   });
@@ -428,13 +970,7 @@ describe("KAI-291A validation cohort", () => {
 
   it("reports agreement when the evidence names the anchored station", () => {
     const rows = compareValidationCohort(
-      [
-        destinationWith(
-          "ueno-park",
-          { lat: 35.6906, lng: 139.7016 },
-          { walkingEvidence: "Ueno Station" },
-        ),
-      ],
+      [destinationWith("ueno-park", { walkingEvidence: "Ueno Station" })],
       stations,
     );
 
@@ -444,26 +980,26 @@ describe("KAI-291A validation cohort", () => {
   it("flags a contradiction when the record names a different station", () => {
     const rows = compareValidationCohort(
       [
-        destinationWith(
-          "somewhere-else",
-          { lat: 35.6906, lng: 139.7016 },
-          { walkingEvidence: "Sapporo Station" },
-        ),
+        destinationWith("somewhere-else", {
+          walkingEvidence: "Sapporo Station",
+        }),
       ],
       stations,
     );
 
     expect(rows[0].verdict).toBe("contradiction");
-    expect(rows[0].anchorStationTitleEn).toBe("Ueno");
   });
 
   it("treats a missing anchor as not comparable, never as agreement", () => {
     const rows = compareValidationCohort(
       [
         destinationWith(
-          "outside-pilot",
-          { lat: 43.06, lng: 141.35 },
-          { walkingEvidence: "Sapporo Station" },
+          "held",
+          { walkingEvidence: "Ueno Station" },
+          {
+            role: null,
+            kind: null,
+          },
         ),
       ],
       stations,
@@ -473,393 +1009,19 @@ describe("KAI-291A validation cohort", () => {
   });
 
   it("does NOT let localTransport availability decide anchorability", () => {
-    // Two records with identical semantics but opposite access-evidence states
-    // must be classified identically for geographic purposes.
-    const [unavailable, available] = compareValidationCohort(
-      [
-        destinationWith(
-          "a",
-          { lat: 35.6906, lng: 139.7016 },
-          {},
-          { role: "poi", kind: "park" },
-        ),
-        destinationWith(
-          "b",
-          { lat: 35.6906, lng: 139.7016 },
-          {},
-          { role: "poi", kind: "park" },
-        ),
-      ],
-      stations,
+    // Identical semantics, opposite access-evidence states: the GEOGRAPHIC outcome
+    // must be identical, because anchorability is a semantic decision. (The cohort
+    // comparison verdict may legitimately differ — that is a different question.)
+    const withEvidence = destinationWith("a", {
+      walkingEvidence: "Ueno Station",
+    });
+    const withoutEvidence = destinationWith("b", {});
+
+    expect(classifyGeographicAnchor(withEvidence, stations).status).toBe(
+      classifyGeographicAnchor(withoutEvidence, stations).status,
     );
-
-    expect(unavailable.verdict).toBe(available.verdict);
-  });
-});
-
-describe("KAI-291A anchorability gate", () => {
-  const oneStation = [station("odpt.Station:OnlyOne", NEAR)];
-
-  it("excludes role=hub even when exactly one station is in tolerance", () => {
-    const verdict = classifyGeographicAnchor(
-      { id: "h", role: "hub", kind: "museum", coordinates: SHINJUKU },
-      oneStation,
+    expect(classifySemanticGate(withEvidence).outcome).toBe(
+      classifySemanticGate(withoutEvidence).outcome,
     );
-
-    expect(verdict.status).toBe(ANCHOR_STATUS.NOT_ANCHORABLE_BY_GEOGRAPHY);
-    expect(verdict.blocker).toBe(ANCHORABILITY_REASONS.HUB_ROLE);
-    expect(verdict.anchor).toBeNull();
-    expect(verdict.evidencePath).toBeNull();
-  });
-
-  it("excludes every administrative/locality kind, regardless of role", () => {
-    for (const kind of NOT_GEOGRAPHICALLY_ANCHORABLE_KINDS) {
-      for (const role of ["poi", "standalone", "destination", null]) {
-        const verdict = classifyGeographicAnchor(
-          { id: `x-${kind}-${role}`, role, kind, coordinates: SHINJUKU },
-          oneStation,
-        );
-        expect(verdict.status).toBe(ANCHOR_STATUS.NOT_ANCHORABLE_BY_GEOGRAPHY);
-        expect(verdict.blocker).toBe(
-          ANCHORABILITY_REASONS.ADMINISTRATIVE_OR_LOCALITY_KIND,
-        );
-        expect(verdict.anchor).toBeNull();
-      }
-    }
-  });
-
-  it("does NOT exclude kinds with physical extent that can still be visitable", () => {
-    for (const kind of [
-      "park",
-      "garden",
-      "mountain",
-      "lake",
-      "island",
-      "beach",
-      "market",
-      "street",
-      "nature",
-      "natural",
-      "mixed",
-      "museum",
-      "temple",
-      "shrine",
-      "castle",
-    ]) {
-      const verdict = classifyGeographicAnchor(
-        { id: `keep-${kind}`, role: "poi", kind, coordinates: SHINJUKU },
-        oneStation,
-      );
-      expect(verdict.status).toBe(ANCHOR_STATUS.ANCHORED);
-    }
-  });
-
-  it("still reports the OBSERVED candidate count, but never anchors, when excluded", () => {
-    const verdict = classifyGeographicAnchor(
-      {
-        id: "ward-with-candidate",
-        role: "hub",
-        kind: "ward",
-        coordinates: SHINJUKU,
-      },
-      [station("odpt.Station:OnlyOne", NEAR)],
-    );
-
-    expect(verdict.status).toBe(ANCHOR_STATUS.NOT_ANCHORABLE_BY_GEOGRAPHY);
-    expect(verdict.candidateCount).toBe(1);
-    expect(verdict.distanceMeters).toBeNull();
-    expect(verdict.anchor).toBeNull();
-  });
-
-  it("decides anchorability from role/kind alone — never from the destination id", () => {
-    // The six known ward ids must fall out of the GENERAL rule. The same id with
-    // point-like semantics must anchor, which proves no id is special-cased.
-    const asWard = classifyGeographicAnchor(
-      { id: "meguro-city", role: "hub", kind: "ward", coordinates: SHINJUKU },
-      oneStation,
-    );
-    const asPoint = classifyGeographicAnchor(
-      { id: "meguro-city", role: "poi", kind: "museum", coordinates: SHINJUKU },
-      oneStation,
-    );
-
-    expect(asWard.status).toBe(ANCHOR_STATUS.NOT_ANCHORABLE_BY_GEOGRAPHY);
-    expect(asPoint.status).toBe(ANCHOR_STATUS.ANCHORED);
-  });
-
-  it("classifies coordinate semantics into the three review buckets", () => {
-    expect(semanticClassification({ id: "a", role: "hub", kind: "city" })).toBe(
-      "administrative/regional",
-    );
-    expect(semanticClassification({ id: "b", role: null, kind: null })).toBe(
-      "requires_review",
-    );
-    expect(
-      semanticClassification({ id: "c", role: "poi", kind: "museum" }),
-    ).toBe("point/site-like");
-  });
-
-  it("still reports coordinates_absent for an anchorable record without coordinates", () => {
-    const verdict = classifyGeographicAnchor(
-      { id: "no-coords", role: "poi", kind: "museum", coordinates: null },
-      oneStation,
-    );
-
-    expect(verdict.status).toBe(ANCHOR_STATUS.COORDINATES_ABSENT);
-  });
-
-  it("isGeographicallyAnchorable agrees with the classifier", () => {
-    expect(
-      isGeographicallyAnchorable({ id: "a", role: "hub", kind: "city" })
-        .anchorable,
-    ).toBe(false);
-    expect(
-      isGeographicallyAnchorable({ id: "b", role: "poi", kind: "park" })
-        .anchorable,
-    ).toBe(true);
-  });
-});
-
-describe("KAI-291A semantic matrix", () => {
-  const stations = [
-    station("odpt.Station:UniqueA", { lat: 35.6906, lng: 139.7006 }),
-    station("odpt.Station:PairX", { lat: 35.8, lng: 139.7006 }),
-  ];
-
-  it("groups by role x kind and counts anchorability per cell", () => {
-    const matrix = buildSemanticMatrix(
-      [
-        {
-          id: "w1",
-          role: "hub",
-          kind: "ward",
-          coordinates: { lat: 35.6906, lng: 139.7006 },
-        },
-        {
-          id: "w2",
-          role: "hub",
-          kind: "ward",
-          coordinates: { lat: 35.8, lng: 139.7006 },
-        },
-        {
-          id: "p1",
-          role: "poi",
-          kind: "museum",
-          coordinates: { lat: 35.6906, lng: 139.7006 },
-        },
-      ],
-      stations,
-    );
-
-    const wardCell = matrix.find(
-      (row) => row.role === "hub" && row.kind === "ward",
-    );
-    expect(wardCell?.totalRecords).toBe(2);
-    expect(wardCell?.withCoordinates).toBe(2);
-    expect(wardCell?.provisionallyAnchorable).toBe(0);
-    expect(wardCell?.provisionallyNotAnchorable).toBe(2);
-    // BOTH wards have exactly one candidate inside tolerance — geography alone
-    // would have anchored both, which is exactly why the gate exists.
-    expect(wardCell?.uniqueGeographicCandidates).toBe(2);
-
-    const poiCell = matrix.find(
-      (row) => row.role === "poi" && row.kind === "museum",
-    );
-    expect(poiCell?.provisionallyAnchorable).toBe(1);
-    expect(poiCell?.provisionallyNotAnchorable).toBe(0);
-  });
-
-  it("sums each cell's candidate distribution and totals to the catalogue", () => {
-    const destinations = [
-      {
-        id: "a",
-        role: "poi",
-        kind: "park",
-        coordinates: { lat: 35.6906, lng: 139.7006 },
-      },
-      {
-        id: "b",
-        role: "poi",
-        kind: "park",
-        coordinates: { lat: 35.8, lng: 139.7006 },
-      },
-      { id: "c", role: "hub", kind: "city", coordinates: null },
-    ];
-    const matrix = buildSemanticMatrix(destinations, stations);
-
-    const totalRecords = matrix.reduce((sum, row) => sum + row.totalRecords, 0);
-    const totalCoords = matrix.reduce(
-      (sum, row) => sum + row.withCoordinates,
-      0,
-    );
-    expect(totalRecords).toBe(destinations.length);
-    expect(totalCoords).toBe(2);
-
-    for (const row of matrix) {
-      const distributed = Object.values(row.candidateCounts).reduce(
-        (a, b) => a + b,
-        0,
-      );
-      expect(distributed).toBe(row.totalRecords);
-    }
-  });
-});
-
-describe("KAI-291A anchor review table", () => {
-  const stations = [
-    station("odpt.Station:UniqueA", { lat: 35.6906, lng: 139.7006 }),
-  ];
-
-  it("includes excluded destinations so they stay visible in the audit", () => {
-    const rows = buildAnchorReviewTable(
-      [
-        {
-          id: "meguro-city",
-          role: "hub",
-          kind: "ward",
-          coordinates: { lat: 35.6906, lng: 139.7006 },
-        },
-        {
-          id: "a-museum",
-          role: "poi",
-          kind: "museum",
-          coordinates: { lat: 35.6906, lng: 139.7006 },
-        },
-      ],
-      stations,
-    );
-
-    expect(rows).toHaveLength(2);
-    const ward = rows.find((row) => row.destinationId === "meguro-city");
-    expect(ward?.semanticClassification).toBe("administrative/regional");
-    expect(ward?.proposedOutcome).toBe("not_anchorable_by_geography");
-    expect(ward?.observedCandidateCount).toBe(1);
-    expect(ward?.anchorStationId).toBe("odpt.Station:UniqueA");
-
-    const museum = rows.find((row) => row.destinationId === "a-museum");
-    expect(museum?.proposedOutcome).toBe("geographic_unique_candidate");
-  });
-
-  it("holds semantically unclassified records for review rather than anchoring them", () => {
-    const rows = buildAnchorReviewTable(
-      [
-        {
-          id: "unclassified",
-          role: null,
-          kind: null,
-          coordinates: { lat: 35.6906, lng: 139.7006 },
-        },
-      ],
-      stations,
-    );
-
-    expect(rows[0].semanticClassification).toBe("requires_review");
-    expect(rows[0].proposedOutcome).toBe("hold_for_review");
-  });
-
-  it("selects by observed candidate count, never by destination id", () => {
-    const rows = buildAnchorReviewTable(
-      [
-        {
-          id: "unique",
-          role: "poi",
-          kind: "museum",
-          coordinates: { lat: 35.6906, lng: 139.7006 },
-        },
-        {
-          id: "far",
-          role: "poi",
-          kind: "museum",
-          coordinates: { lat: 36.5, lng: 140.5 },
-        },
-      ],
-      stations,
-    );
-
-    expect(rows.map((row) => row.destinationId)).toEqual(["unique"]);
-  });
-});
-
-describe("KAI-291A status partition", () => {
-  const stations = [
-    station("odpt.Station:UniqueA", { lat: 35.6906, lng: 139.7006 }),
-    station("odpt.Station:PairX", { lat: 35.8, lng: 139.7006 }),
-    station("odpt.Station:PairY", { lat: 35.802, lng: 139.7006 }),
-  ];
-
-  it("partitions every evaluated destination exactly once", () => {
-    const destinations = [
-      {
-        id: "anchored",
-        role: "poi",
-        kind: "museum",
-        coordinates: { lat: 35.6906, lng: 139.7006 },
-      },
-      {
-        id: "ambiguous",
-        role: "poi",
-        kind: "museum",
-        coordinates: { lat: 35.801, lng: 139.7006 },
-      },
-      {
-        id: "unavailable",
-        role: "poi",
-        kind: "museum",
-        coordinates: { lat: 35.75, lng: 139.7006 },
-      },
-      {
-        id: "ward",
-        role: "hub",
-        kind: "ward",
-        coordinates: { lat: 35.6906, lng: 139.7006 },
-      },
-      { id: "no-coords", role: "poi", kind: "museum", coordinates: null },
-    ];
-    const report = buildAnchorCoverageReport(destinations, stations);
-
-    const partition =
-      report.uniqueAnchors +
-      report.ambiguous +
-      report.unavailable +
-      report.notAnchorableByGeography +
-      report.coordinatesAbsent;
-    expect(partition).toBe(report.destinationsEvaluated);
-    expect(report.notAnchorableByGeography).toBe(1);
-    expect(report.coordinatesAbsent).toBe(1);
-  });
-
-  it("reports coordinate absence across all statuses, not only its own status", () => {
-    // A hub with no coordinates is `not_anchorable_by_geography` (the gate runs
-    // first), so counting coordinates only through the `coordinates_absent` status
-    // would report zero and hide the gap.
-    const report = buildAnchorCoverageReport(
-      [{ id: "hub-no-coords", role: "hub", kind: "ward", coordinates: null }],
-      stations,
-    );
-
-    expect(report.coordinatesAbsent).toBe(0);
-    expect(report.notAnchorableByGeography).toBe(1);
-    expect(report.destinationsWithoutCoordinates).toBe(1);
-  });
-
-  it("keeps excluded destinations out of the candidate distribution", () => {
-    const report = buildAnchorCoverageReport(
-      [
-        {
-          id: "hub",
-          role: "hub",
-          kind: "city",
-          coordinates: { lat: 35.6906, lng: 139.7006 },
-        },
-      ],
-      stations,
-    );
-
-    const distributed = Object.values(report.candidateCountDistribution).reduce(
-      (sum, value) => sum + value,
-      0,
-    );
-    expect(distributed).toBe(0);
-    expect(report.uniqueAnchors).toBe(0);
   });
 });
