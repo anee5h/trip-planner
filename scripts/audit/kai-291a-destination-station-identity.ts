@@ -78,7 +78,46 @@ export const ANCHOR_STATUS = Object.freeze({
   AMBIGUOUS: "ambiguous",
   /** The destination carries no coordinates, so the rule cannot run. */
   COORDINATES_ABSENT: "coordinates_absent",
+  /**
+   * The destination's own coordinates do NOT represent a localised visitor
+   * destination, so geographic derivation is forbidden for it.
+   *
+   * Deliberately NOT `not_anchorable`: an administrative area could later receive
+   * an anchor through an explicit canonical mapping or a curated access station.
+   * What is forbidden is deriving that anchor from its REPRESENTATIVE coordinates.
+   */
+  NOT_ANCHORABLE_BY_GEOGRAPHY: "not_anchorable_by_geography",
 });
+
+/**
+ * Why a destination may not be geographically anchored.
+ *
+ * These are reasons about COORDINATE SEMANTICS, not about the geographic
+ * resolver, which is correct.
+ */
+export const ANCHORABILITY_REASONS = Object.freeze({
+  HUB_ROLE: "hub_role",
+  ADMINISTRATIVE_OR_LOCALITY_KIND: "administrative_or_locality_kind",
+});
+
+/**
+ * PROVISIONAL hard exclusions: kinds whose catalogue coordinate represents an
+ * area/locality rather than a visitor entrance or station-access point.
+ *
+ * Deliberately NOT included: park, garden, mountain, lake, island, beach, market,
+ * street, nature, natural, mixed. Those have physical extent but may still be
+ * concrete visitable places; restricting them needs evidence, which the semantic
+ * matrix provides rather than assuming.
+ */
+export const NOT_GEOGRAPHICALLY_ANCHORABLE_KINDS: readonly string[] =
+  Object.freeze([
+    "city",
+    "ward",
+    "town",
+    "village",
+    "district",
+    "historic_town",
+  ]);
 
 /** Reasons an anchor could not be established. */
 export const ANCHOR_BLOCKERS = Object.freeze([
@@ -106,8 +145,58 @@ export interface PilotStationEntry {
 export interface AnchorDestination {
   readonly id: string;
   readonly name?: string | null;
+  readonly nameJa?: string | null;
+  readonly role?: string | null;
+  readonly kind?: string | null;
   readonly coordinates?: AnchorCoordinates | null;
   readonly localTransport?: unknown;
+}
+
+/** Whether a destination's coordinates may be used for geographic derivation. */
+export interface AnchorabilityVerdict {
+  readonly anchorable: boolean;
+  readonly reason: string | null;
+}
+
+/**
+ * Decides anchorability from the destination's OWN semantics, BEFORE any ODPT
+ * candidate count is interpreted.
+ *
+ * A hub or an administrative/locality kind is excluded regardless of how many or
+ * how few stations sit inside the tolerance.
+ */
+export function isGeographicallyAnchorable(
+  destination: AnchorDestination,
+): AnchorabilityVerdict {
+  if (destination.role === "hub") {
+    return { anchorable: false, reason: ANCHORABILITY_REASONS.HUB_ROLE };
+  }
+  const kind = destination.kind ?? null;
+  if (kind !== null && NOT_GEOGRAPHICALLY_ANCHORABLE_KINDS.includes(kind)) {
+    return {
+      anchorable: false,
+      reason: ANCHORABILITY_REASONS.ADMINISTRATIVE_OR_LOCALITY_KIND,
+    };
+  }
+  return { anchorable: true, reason: null };
+}
+
+/** Audit-only semantic classification of a record's coordinate meaning. */
+export function semanticClassification(
+  destination: AnchorDestination,
+): "administrative/regional" | "requires_review" | "point/site-like" {
+  if (!isGeographicallyAnchorable(destination).anchorable) {
+    return "administrative/regional";
+  }
+  // An UNCLASSIFIED record cannot be semantically validated: neither role nor kind
+  // says what its coordinate denotes. Flagged generally rather than by id.
+  if (
+    (destination.role ?? null) === null &&
+    (destination.kind ?? null) === null
+  ) {
+    return "requires_review";
+  }
+  return "point/site-like";
 }
 
 export interface GeographicAnchorVerdict {
@@ -175,6 +264,35 @@ export function classifyGeographicAnchor(
   const destinationCoordinates = isValidCoordinates(destination.coordinates)
     ? destination.coordinates
     : null;
+
+  // ── Anchorability FIRST. A destination whose coordinates denote an area rather
+  // than a localised visitor destination never reaches the geographic rule, so its
+  // candidate count can never become an anchor.
+  const anchorability = isGeographicallyAnchorable(destination);
+  if (!anchorability.anchorable) {
+    const observed =
+      destinationCoordinates === null
+        ? 0
+        : stationsWithinTolerance(
+            destinationCoordinates,
+            stations,
+            toleranceMeters,
+          ).length;
+    return {
+      destinationId: destination.id,
+      status: ANCHOR_STATUS.NOT_ANCHORABLE_BY_GEOGRAPHY,
+      blocker: anchorability.reason,
+      evidencePath: null,
+      toleranceMeters,
+      // Observational only. Recorded so the semantic matrix can show what
+      // geography WOULD have said, without ever emitting an anchor from it.
+      candidateCount: observed,
+      candidateIdentities: [],
+      anchor: null,
+      distanceMeters: null,
+      destinationCoordinates,
+    };
+  }
 
   if (destinationCoordinates === null) {
     return {
@@ -263,6 +381,17 @@ export interface AnchorCoverageReport {
   readonly ambiguous: number;
   readonly unavailable: number;
   readonly coordinatesAbsent: number;
+  /** Excluded before the geographic rule by coordinate semantics. */
+  readonly notAnchorableByGeography: number;
+  /**
+   * Destinations lacking usable coordinates, counted across ALL statuses.
+   *
+   * Deliberately OVERLAPPING with the status partition above rather than folded
+   * into it: the anchorability gate runs first, so a hub with no coordinates is
+   * reported as `not_anchorable_by_geography`. Counting coordinate absence only
+   * through the `coordinates_absent` status would hide that gap (and report zero).
+   */
+  readonly destinationsWithoutCoordinates: number;
   /** Histogram of stations-within-tolerance counts, keyed as "0","1","2","3","4+". */
   readonly candidateCountDistribution: Readonly<Record<string, number>>;
   readonly anchorsByOperator: Readonly<Record<string, number>>;
@@ -283,6 +412,11 @@ export interface AnchorCoverageReport {
     readonly candidateIdentities: readonly string[];
   }[];
   readonly coordinatesAbsentDestinations: readonly string[];
+  readonly notAnchorableDestinations: readonly {
+    readonly destinationId: string;
+    readonly reason: string | null;
+    readonly observedCandidateCount: number;
+  }[];
 }
 
 function histogramBucket(count: number): string {
@@ -320,9 +454,24 @@ export function buildAnchorCoverageReport(
     candidateIdentities: readonly string[];
   }[] = [];
   const coordinatesAbsentDestinations: string[] = [];
+  const notAnchorableDestinations: {
+    readonly destinationId: string;
+    readonly reason: string | null;
+    readonly observedCandidateCount: number;
+  }[] = [];
   const distances: number[] = [];
 
   for (const verdict of verdicts) {
+    // Excluded by coordinate semantics before the geographic rule ran, so its
+    // candidate count is observational and must not enter the distribution.
+    if (verdict.status === ANCHOR_STATUS.NOT_ANCHORABLE_BY_GEOGRAPHY) {
+      notAnchorableDestinations.push({
+        destinationId: verdict.destinationId,
+        reason: verdict.blocker,
+        observedCandidateCount: verdict.candidateCount,
+      });
+      continue;
+    }
     // The distribution is over destinations the rule could actually run for.
     if (verdict.destinationCoordinates !== null) {
       const bucket = histogramBucket(verdict.candidateCount);
@@ -376,10 +525,173 @@ export function buildAnchorCoverageReport(
       bucket100to250: within(100, 250),
       bucket250to500: within(250, 501),
     },
+    notAnchorableByGeography: notAnchorableDestinations.length,
+    destinationsWithoutCoordinates: destinations.filter(
+      (destination) => !isValidCoordinates(destination.coordinates),
+    ).length,
     anchors,
     ambiguousDestinations,
     coordinatesAbsentDestinations,
+    notAnchorableDestinations,
   };
+}
+
+/** One `role x kind` row of the catalogue-wide semantic matrix. */
+export interface SemanticMatrixRow {
+  readonly role: string | null;
+  readonly kind: string | null;
+  readonly totalRecords: number;
+  readonly withCoordinates: number;
+  /** Observed count of pilot stations inside tolerance, 0 through "4+". */
+  readonly candidateCounts: Readonly<Record<string, number>>;
+  /** Destinations in this cell that a unique candidate would anchor today. */
+  readonly uniqueGeographicCandidates: number;
+  readonly provisionallyAnchorable: number;
+  readonly provisionallyNotAnchorable: number;
+}
+
+/**
+ * Catalogue-wide `role x kind` semantic matrix.
+ *
+ * Pure and offline: it consumes the committed station index, so no provider call
+ * is made and the committed candidate evidence is reused as-is.
+ */
+export function buildSemanticMatrix(
+  destinations: readonly AnchorDestination[],
+  stations: readonly PilotStationEntry[],
+  toleranceMeters: number = GEOGRAPHIC_TOLERANCE_METERS,
+): readonly SemanticMatrixRow[] {
+  const cells = new Map<
+    string,
+    SemanticMatrixRow & { candidateCounts: Record<string, number> }
+  >();
+
+  for (const destination of destinations) {
+    const role = destination.role ?? null;
+    const kind = destination.kind ?? null;
+    const key = `${role ?? "\u0000"}||${kind ?? "\u0000"}`;
+    let cell = cells.get(key);
+    if (cell === undefined) {
+      cell = {
+        role,
+        kind,
+        totalRecords: 0,
+        withCoordinates: 0,
+        candidateCounts: { "0": 0, "1": 0, "2": 0, "3": 0, "4+": 0 },
+        uniqueGeographicCandidates: 0,
+        provisionallyAnchorable: 0,
+        provisionallyNotAnchorable: 0,
+      };
+      cells.set(key, cell);
+    }
+
+    const anchorable = isGeographicallyAnchorable(destination).anchorable;
+    const hasCoordinates = isValidCoordinates(destination.coordinates);
+    const observed = hasCoordinates
+      ? stationsWithinTolerance(
+          destination.coordinates as AnchorCoordinates,
+          stations,
+          toleranceMeters,
+        ).length
+      : 0;
+
+    cell.totalRecords += 1;
+    if (hasCoordinates) cell.withCoordinates += 1;
+    cell.candidateCounts[histogramBucket(observed)] += 1;
+    if (observed === 1) cell.uniqueGeographicCandidates += 1;
+    if (anchorable) cell.provisionallyAnchorable += 1;
+    else cell.provisionallyNotAnchorable += 1;
+  }
+
+  return [...cells.values()].sort(
+    (left, right) =>
+      right.totalRecords - left.totalRecords ||
+      String(left.role).localeCompare(String(right.role)) ||
+      String(left.kind).localeCompare(String(right.kind)),
+  );
+}
+
+/** One row of the review of every unique geographic candidate. */
+export interface AnchorReviewRow {
+  readonly destinationId: string;
+  readonly name: string | null;
+  readonly nameJa: string | null;
+  readonly role: string | null;
+  readonly kind: string | null;
+  readonly destinationCoordinates: AnchorCoordinates | null;
+  readonly observedCandidateCount: number;
+  readonly anchorStationId: string | null;
+  readonly anchorStationTitleEn: string | null;
+  readonly operator: string | null;
+  readonly railway: string | null;
+  readonly distanceMeters: number | null;
+  readonly semanticClassification:
+    "administrative/regional" | "requires_review" | "point/site-like";
+  readonly proposedOutcome:
+    | "geographic_unique_candidate"
+    | "not_anchorable_by_geography"
+    | "hold_for_review";
+}
+
+/**
+ * Reviews EVERY destination that geography would resolve uniquely, including those
+ * the anchorability rule excludes — so the excluded ones stay visible with their
+ * observed count instead of disappearing from the audit.
+ *
+ * Selection is by observed candidate count, never by destination id.
+ */
+export function buildAnchorReviewTable(
+  destinations: readonly AnchorDestination[],
+  stations: readonly PilotStationEntry[],
+  toleranceMeters: number = GEOGRAPHIC_TOLERANCE_METERS,
+): readonly AnchorReviewRow[] {
+  const rows: AnchorReviewRow[] = [];
+  for (const destination of destinations) {
+    if (!isValidCoordinates(destination.coordinates)) continue;
+    const within = stationsWithinTolerance(
+      destination.coordinates,
+      stations,
+      toleranceMeters,
+    );
+    if (within.length !== 1) continue;
+
+    const classification = semanticClassification(destination);
+    const verdict = classifyGeographicAnchor(
+      destination,
+      stations,
+      toleranceMeters,
+    );
+    const anchorable = isGeographicallyAnchorable(destination).anchorable;
+    const proposedOutcome: AnchorReviewRow["proposedOutcome"] = !anchorable
+      ? "not_anchorable_by_geography"
+      : classification === "requires_review"
+        ? "hold_for_review"
+        : "geographic_unique_candidate";
+
+    const stationEntry = within[0];
+    rows.push({
+      destinationId: destination.id,
+      name: destination.name ?? null,
+      nameJa: destination.nameJa ?? null,
+      role: destination.role ?? null,
+      kind: destination.kind ?? null,
+      destinationCoordinates: destination.coordinates,
+      observedCandidateCount: within.length,
+      anchorStationId: stationEntry.sameAs,
+      anchorStationTitleEn: stationEntry.stationTitle?.en ?? null,
+      operator: stationEntry.operator,
+      railway: stationEntry.railway,
+      distanceMeters:
+        stationEntry.coordinates === null
+          ? null
+          : distanceMeters(destination.coordinates, stationEntry.coordinates),
+      semanticClassification: classification,
+      proposedOutcome,
+    });
+  }
+  return rows.sort((left, right) =>
+    left.destinationId.localeCompare(right.destinationId),
+  );
 }
 
 /** One row of the validation-cohort comparison. */
@@ -390,11 +702,10 @@ export interface ValidationRow {
   readonly anchorStationTitle: string | null;
   readonly anchorStationTitleEn: string | null;
   readonly verdict:
-    | "agrees"
-    | "names_other_station"
-    | "no_station_named"
-    | "anchor_unavailable"
-    | "anchor_ambiguous";
+    | "agreement"
+    | "contradiction"
+    | "comparable_no_station_named"
+    | "not_comparable_anchor_absent";
 }
 
 const STATION_NAME_PATTERN =
@@ -425,11 +736,12 @@ function normalizeName(value: string): string {
 }
 
 /**
- * Compares the geographic anchor against a record's EXISTING stronger access
+ * Compares the geographic result against a record's EXISTING stronger access
  * evidence, where that evidence is specific enough to compare.
  *
- * Reports agreement only; it never overrides geography, and a disagreement is
- * surfaced rather than silently reconciled.
+ * Destination semantics and coordinate meaning decide geographic ANCHORABILITY;
+ * `localTransport` availability never does. This comparison is reported only and
+ * never overrides geography.
  */
 export function compareValidationCohort(
   cohort: readonly (AnchorDestination & {
@@ -459,12 +771,11 @@ export function compareValidationCohort(
     const anchorTitleEn = verdict.anchor?.stationTitle?.en ?? null;
 
     let result: ValidationRow["verdict"];
-    if (verdict.status === ANCHOR_STATUS.AMBIGUOUS) {
-      result = "anchor_ambiguous";
-    } else if (verdict.status !== ANCHOR_STATUS.ANCHORED) {
-      result = "anchor_unavailable";
+    if (verdict.status !== ANCHOR_STATUS.ANCHORED) {
+      // No anchor exists to compare against, for any reason.
+      result = "not_comparable_anchor_absent";
     } else if (names.length === 0) {
-      result = "no_station_named";
+      result = "comparable_no_station_named";
     } else {
       const wanted = [anchorTitle, anchorTitleEn]
         .filter((value): value is string => typeof value === "string")
@@ -477,7 +788,7 @@ export function compareValidationCohort(
             (candidate.includes(normalized) || normalized.includes(candidate)),
         );
       });
-      result = agrees ? "agrees" : "names_other_station";
+      result = agrees ? "agreement" : "contradiction";
     }
 
     return {
@@ -495,11 +806,18 @@ export function compareValidationCohort(
 export function renderAnchorReport(
   report: AnchorCoverageReport,
   validation: readonly ValidationRow[],
+  reviewTable: readonly AnchorReviewRow[],
+  matrix: readonly SemanticMatrixRow[],
 ): string {
-  const validationCounts: Record<string, number> = {};
-  for (const row of validation) {
-    validationCounts[row.verdict] = (validationCounts[row.verdict] ?? 0) + 1;
-  }
+  const count = (values: readonly string[]) => {
+    const out: Record<string, number> = {};
+    for (const value of values) out[value] = (out[value] ?? 0) + 1;
+    return out;
+  };
+  const validationCounts = count(validation.map((row) => row.verdict));
+  const reviewCounts = count(reviewTable.map((row) => row.proposedOutcome));
+
+  const cell = (value: string | null) => value ?? "(none)";
   const lines = [
     "# KAI-291A — destination → exact ODPT arrival-station identity coverage",
     "",
@@ -511,9 +829,16 @@ export function renderAnchorReport(
     `- Unique geographic anchors: **${report.uniqueAnchors}**`,
     `- Ambiguous (more than one station within tolerance): **${report.ambiguous}**`,
     `- Unavailable (no station within tolerance): **${report.unavailable}**`,
-    `- Coordinates absent: **${report.coordinatesAbsent}**`,
+    `- **Not anchorable by geography** (coordinates denote an area): **${report.notAnchorableByGeography}**`,
+    `- Coordinates absent (status): **${report.coordinatesAbsent}**`,
+    `- Destinations without coordinates (any status, overlapping): **${report.destinationsWithoutCoordinates}**`,
     "",
-    "## Candidate-count distribution (stations within tolerance)",
+    "The five statuses above partition all evaluated destinations (they sum to the",
+    "total). The coordinate diagnostic is deliberately overlapping, because the",
+    "anchorability gate runs first and would otherwise mask a coordinate-less hub.",
+    "",
+
+    "## Candidate-count distribution (anchorable destinations)",
     "",
     "| Candidates | Destinations |",
     "| --- | --- |",
@@ -528,10 +853,8 @@ export function renderAnchorReport(
     "| Operator | Anchors |",
     "| --- | --- |",
   );
-  for (const [operator, count] of Object.entries(
-    report.anchorsByOperator,
-  ).sort()) {
-    lines.push(`| ${operator} | ${count} |`);
+  for (const [operator, n] of Object.entries(report.anchorsByOperator).sort()) {
+    lines.push(`| ${operator} | ${n} |`);
   }
   lines.push(
     "",
@@ -540,10 +863,8 @@ export function renderAnchorReport(
     "| Railway | Anchors |",
     "| --- | --- |",
   );
-  for (const [railway, count] of Object.entries(
-    report.anchorsByRailway,
-  ).sort()) {
-    lines.push(`| ${railway} | ${count} |`);
+  for (const [railway, n] of Object.entries(report.anchorsByRailway).sort()) {
+    lines.push(`| ${railway} | ${n} |`);
   }
   const d = report.distanceMetersStats;
   lines.push(
@@ -556,15 +877,57 @@ export function renderAnchorReport(
     `- <50 m: ${d.bucketUnder50} · 50–100 m: ${d.bucket50to100} · ` +
       `100–250 m: ${d.bucket100to250} · 250–500 m: ${d.bucket250to500}`,
     "",
+    "## Review of every unique geographic candidate",
+    "",
+    "Every destination geography would resolve uniquely, **including the ones the",
+    "anchorability rule excludes**, so nothing disappears from the audit. Selection is",
+    "by observed candidate count, never by destination id.",
+    "",
+    "| Destination | EN / JA | role | kind | ODPT station | railway | d (m) | classification | proposed outcome |",
+    "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+  );
+  for (const row of reviewTable) {
+    lines.push(
+      `| \`${row.destinationId}\` | ${cell(row.name)} / ${cell(row.nameJa)} | ` +
+        `${cell(row.role)} | ${cell(row.kind)} | \`${cell(row.anchorStationId)}\` | ` +
+        `${cell(row.railway)} | ${row.distanceMeters === null ? "n/a" : row.distanceMeters.toFixed(0)} | ` +
+        `${row.semanticClassification} | ${row.proposedOutcome} |`,
+    );
+  }
+  lines.push(
+    "",
+    `Proposed outcomes: ${Object.entries(reviewCounts)
+      .sort()
+      .map(([k, v]) => `**${k}** ${v}`)
+      .join(" · ")}`,
+    "",
+    "## Semantic matrix (role × kind, whole catalogue)",
+    "",
+    "| role | kind | total | w/ coords | 0 | 1 | 2 | 3 | 4+ | unique cand. | anchorable | not anchorable |",
+    "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+  );
+  for (const row of matrix) {
+    const c = row.candidateCounts;
+    lines.push(
+      `| ${cell(row.role)} | ${cell(row.kind)} | ${row.totalRecords} | ${row.withCoordinates} | ` +
+        `${c["0"]} | ${c["1"]} | ${c["2"]} | ${c["3"]} | ${c["4+"]} | ` +
+        `${row.uniqueGeographicCandidates} | ${row.provisionallyAnchorable} | ` +
+        `${row.provisionallyNotAnchorable} |`,
+    );
+  }
+  lines.push(
+    "",
     "## Validation cohort (existing stronger access evidence)",
     "",
-    "Reported for comparison only — it never overrides geography.",
+    "Reported for comparison only. Geographic **anchorability** is decided by",
+    "destination semantics and coordinate meaning, never by `localTransport`",
+    "availability.",
     "",
     "| Verdict | Records |",
     "| --- | --- |",
   );
-  for (const [verdict, count] of Object.entries(validationCounts).sort()) {
-    lines.push(`| ${verdict} | ${count} |`);
+  for (const [verdict, n] of Object.entries(validationCounts).sort()) {
+    lines.push(`| ${verdict} | ${n} |`);
   }
   lines.push(
     "",
@@ -575,6 +938,31 @@ export function renderAnchorReport(
     "station could be identified for this destination. It does **not** claim the",
     "destination recommends that station, and it carries **no** claim about",
     "station → POI access.",
+    "",
+    "`not_anchorable_by_geography` is **not** `not_anchorable`. It forbids deriving an",
+    "anchor from an area's representative coordinates; a stronger explicit evidence",
+    "path (canonical mapping, curated access station) may still anchor such a",
+    "destination later.",
+    "",
+    "## Proposed production policy",
+    "",
+    "The smallest deterministic rule the evidence supports:",
+    "",
+    "```",
+    "if an explicit/canonical station anchor exists:",
+    "    use the stronger evidence path   (geographic derivation is not used)",
+    "else if not geographically anchorable:",
+    '    role === "hub"  ->  not_anchorable_by_geography (hub_role)',
+    "    kind in {city, ward, town, village, district, historic_town}",
+    "                     ->  not_anchorable_by_geography (administrative_or_locality_kind)",
+    "else:",
+    "    fixed 500 m rule",
+    "    0 candidates      ->  unavailable",
+    "    1 exact candidate ->  geographic_unique_candidate",
+    "    >1                ->  ambiguous",
+    "```",
+    "",
+    "No closest-wins. Station complexes are never collapsed. Nothing widens the radius.",
     "",
   );
   return lines.join("\n");
@@ -592,7 +980,7 @@ export function renderAnchorReport(
  * ──────────────────────────────────────────────────────────────────────────── */
 
 /** Bumped when the anchor RULE changes, so an artifact's age is legible. */
-export const ANCHOR_AUDIT_VERSION = "kai-291a-geographic-v1";
+export const ANCHOR_AUDIT_VERSION = "kai-291a-geographic-v2";
 
 export const CATALOGUE_INPUT_PATH = "src/shared/data/destinations-index.json";
 export const STATION_INDEX_INPUT_PATH = "qa/kai-291/pilot-station-index.json";
@@ -614,10 +1002,7 @@ interface StationIndexFile {
   readonly stations?: readonly PilotStationEntry[];
 }
 
-interface CatalogueRecord {
-  readonly id?: string;
-  readonly name?: string;
-  readonly coordinates?: AnchorCoordinates | null;
+interface CatalogueRecord extends AnchorDestination {
   readonly localTransport?: {
     readonly kind?: string;
     readonly basis?: string;
@@ -679,16 +1064,20 @@ export function buildAnchorArtifact(args: {
   readonly stationIndex: StationIndexFile;
   readonly stationCount: number;
   readonly catalogueCount: number;
+  readonly reviewTable?: readonly AnchorReviewRow[];
 }): Record<string, unknown> {
   const { report, validation, stationIndex, stationCount } = args;
   const providerRetrievedAt = stationIndex.providerRetrievedAt ?? {};
+  const reviewByDestination = new Map(
+    (args.reviewTable ?? []).map((row) => [row.destinationId, row]),
+  );
 
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     kind: "kai-291a-destination-station-anchors",
     auditVersion: ANCHOR_AUDIT_VERSION,
     evidencePath: ANCHOR_EVIDENCE_PATH,
-    method: "offline_geographic_rule",
+    method: "offline_geographic_rule_with_anchorability_gate",
     networkCalls: 0,
     providerCalls: 0,
     /**
@@ -701,6 +1090,33 @@ export function buildAnchorArtifact(args: {
       "policy exactly one pilot ODPT station was identified for this " +
       "destination. NOT a destination-recommended arrival station, and no claim " +
       "about station -> POI access.",
+    /**
+     * Anchorability is decided BEFORE any candidate count is interpreted, from the
+     * destination's own coordinate semantics. Excluded destinations may still be
+     * anchored later through a stronger explicit evidence path.
+     */
+    anchorabilityPolicy: {
+      excludedWhenRoleIs: ["hub"],
+      excludedWhenKindIs: NOT_GEOGRAPHICALLY_ANCHORABLE_KINDS,
+      reasons: ANCHORABILITY_REASONS,
+      notInScopeOfExclusionYet: [
+        "park",
+        "garden",
+        "mountain",
+        "lake",
+        "island",
+        "beach",
+        "market",
+        "street",
+        "nature",
+        "natural",
+        "mixed",
+      ],
+      semantics:
+        "not_anchorable_by_geography forbids deriving an anchor from an area's " +
+        "representative coordinates. It is NOT a permanent not_anchorable: an " +
+        "explicit canonical mapping or curated access station may still anchor it.",
+    },
     toleranceMeters: report.toleranceMeters,
     inputs: {
       catalogue: CATALOGUE_INPUT_PATH,
@@ -716,35 +1132,51 @@ export function buildAnchorArtifact(args: {
       ambiguous: report.ambiguous,
       unavailable: report.unavailable,
       coordinatesAbsent: report.coordinatesAbsent,
+      notAnchorableByGeography: report.notAnchorableByGeography,
+      destinationsWithoutCoordinates: report.destinationsWithoutCoordinates,
       candidateCountDistribution: report.candidateCountDistribution,
       anchorsByOperator: report.anchorsByOperator,
       anchorsByRailway: report.anchorsByRailway,
       distanceMetersStats: report.distanceMetersStats,
     },
     /**
-     * The registry. A destination ABSENT from this list has no anchor (it was
-     * either `unavailable`, `ambiguous`, or had no coordinates) — see the
-     * summary and the two explicit lists below.
+     * The registry. A destination ABSENT from this list has no geographic anchor —
+     * see `summary`, `ambiguousDestinations`, `notAnchorableDestinations` and
+     * `coordinatesAbsentDestinations`.
      */
-    anchors: report.anchors.map((verdict) => ({
-      destinationId: verdict.destinationId,
-      odptStationId: verdict.anchor?.odptStationId ?? null,
-      operator: verdict.anchor?.operator ?? null,
-      railway: verdict.anchor?.railway ?? null,
-      stationTitle: verdict.anchor?.stationTitle ?? null,
-      destinationCoordinates: verdict.destinationCoordinates,
-      distanceMeters: verdict.distanceMeters,
-      provenance: {
-        evidencePath: verdict.evidencePath,
-        toleranceMeters: verdict.toleranceMeters,
-        candidateCount: verdict.candidateCount,
-        candidateIdentities: verdict.candidateIdentities,
-        providerBoundary: stationIndex.sourceBoundary ?? null,
-        providerRetrievedAt,
-        auditVersion: ANCHOR_AUDIT_VERSION,
-      },
-    })),
+    anchors: report.anchors.map((verdict) => {
+      // Carry the semantic verdict onto each registry entry, so a consumer cannot
+      // mistake a `hold_for_review` anchor for a trustworthy one.
+      const review = reviewByDestination.get(verdict.destinationId);
+      return {
+        destinationId: verdict.destinationId,
+        semanticClassification: review?.semanticClassification ?? null,
+        proposedOutcome: review?.proposedOutcome ?? null,
+        odptStationId: verdict.anchor?.odptStationId ?? null,
+        operator: verdict.anchor?.operator ?? null,
+        railway: verdict.anchor?.railway ?? null,
+        stationTitle: verdict.anchor?.stationTitle ?? null,
+        destinationCoordinates: verdict.destinationCoordinates,
+        distanceMeters: verdict.distanceMeters,
+        provenance: {
+          evidencePath: verdict.evidencePath,
+          toleranceMeters: verdict.toleranceMeters,
+          candidateCount: verdict.candidateCount,
+          candidateIdentities: verdict.candidateIdentities,
+          providerBoundary: stationIndex.sourceBoundary ?? null,
+          providerRetrievedAt,
+          auditVersion: ANCHOR_AUDIT_VERSION,
+        },
+      };
+    }),
     ambiguousDestinations: report.ambiguousDestinations,
+    notAnchorableDestinations: report.notAnchorableDestinations.map(
+      (entry) => ({
+        destinationId: entry.destinationId,
+        anchorabilityReason: entry.reason,
+        observedCandidateCount: entry.observedCandidateCount,
+      }),
+    ),
     coordinatesAbsentDestinations: report.coordinatesAbsentDestinations,
     validationCohort: validation,
   };
@@ -776,6 +1208,8 @@ if (isMain()) {
   const catalogue = loadCatalogue(readFile);
 
   const report = buildAnchorCoverageReport(catalogue, stations);
+  const matrix = buildSemanticMatrix(catalogue, stations);
+  const reviewTable = buildAnchorReviewTable(catalogue, stations);
   const validation = compareValidationCohort(
     catalogue.filter((record) =>
       VALIDATION_EVIDENCE_KINDS.includes(record.localTransport?.kind ?? ""),
@@ -786,10 +1220,13 @@ if (isMain()) {
   const artifact = buildAnchorArtifact({
     report,
     validation,
+    reviewTable,
     stationIndex,
     stationCount: stations.length,
     catalogueCount: catalogue.length,
   });
+  (artifact as Record<string, unknown>).anchorReviewTable = reviewTable;
+  (artifact as Record<string, unknown>).semanticMatrix = matrix;
 
   for (const path of [ANCHORS_ARTIFACT_PATH, REPORT_ARTIFACT_PATH]) {
     mkdirSync(dirname(path), { recursive: true });
@@ -801,10 +1238,19 @@ if (isMain()) {
   );
   writeFileSync(
     REPORT_ARTIFACT_PATH,
-    await formatMarkdown(`${renderAnchorReport(report, validation)}\n`),
+    await formatMarkdown(
+      `${renderAnchorReport(report, validation, reviewTable, matrix)}\n`,
+    ),
     "utf8",
   );
 
+  const tally = (values: readonly string[]) =>
+    JSON.stringify(
+      values.reduce<Record<string, number>>((acc, value) => {
+        acc[value] = (acc[value] ?? 0) + 1;
+        return acc;
+      }, {}),
+    );
   const d = report.distanceMetersStats;
   process.stdout.write(
     `wrote ${ANCHORS_ARTIFACT_PATH} and ${REPORT_ARTIFACT_PATH}\n` +
@@ -813,17 +1259,18 @@ if (isMain()) {
       `anchors=${report.uniqueAnchors} ` +
       `ambiguous=${report.ambiguous} ` +
       `unavailable=${report.unavailable} ` +
-      `noCoords=${report.coordinatesAbsent}\n` +
+      `notAnchorableByGeography=${report.notAnchorableByGeography} ` +
+      `coordsAbsentStatus=${report.coordinatesAbsent} ` +
+      `withoutCoords=${report.destinationsWithoutCoordinates}\n` +
       `  distribution=${JSON.stringify(report.candidateCountDistribution)}\n` +
       `  byOperator=${JSON.stringify(report.anchorsByOperator)}\n` +
       `  distance min=${d.min?.toFixed(1) ?? "n/a"} median=${
         d.median?.toFixed(1) ?? "n/a"
       } max=${d.max?.toFixed(1) ?? "n/a"}\n` +
-      `  validation=${JSON.stringify(
-        validation.reduce<Record<string, number>>((acc, row) => {
-          acc[row.verdict] = (acc[row.verdict] ?? 0) + 1;
-          return acc;
-        }, {}),
-      )}\n`,
+      `  uniqueCandidates reviewed=${reviewTable.length} proposals=${tally(
+        reviewTable.map((row) => row.proposedOutcome),
+      )}\n` +
+      `  matrixCells=${matrix.length}\n` +
+      `  validation=${tally(validation.map((row) => row.verdict))}\n`,
   );
 }
