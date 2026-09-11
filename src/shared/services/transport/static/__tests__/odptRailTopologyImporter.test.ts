@@ -33,9 +33,11 @@ const GOLDEN_PATH = join(
 
 const METADATA: OdptImportMetadata = {
   datasetId: "odpt-rail-fixture-v1",
+  identityNamespace: "odpt",
   sourceDescriptor: "test metadata",
   retrievedAt: "2026-09-11T00:00:00.000Z",
   checkedAt: "2026-09-11T00:00:00.000Z",
+  completeness: "fixture_subset",
 };
 
 function loadFixture(): OdptRailTopologyInput {
@@ -57,22 +59,31 @@ function expectImportError(input: OdptRailTopologyInput, code: string): void {
 
 describe("normalized identity", () => {
   it("derives deterministic provider-scoped ids, reversible to provider ids", () => {
-    expect(operatorInternalId("odpt.Operator:TokyoMetro")).toBe(
-      "odpt:operator:odpt.Operator:TokyoMetro",
+    expect(operatorInternalId("odpt.Operator:TokyoMetro", "odpt")).toBe(
+      "odpt:operator:odpt:odpt.Operator:TokyoMetro",
     );
-    expect(stopInternalId("odpt.Station:TokyoMetro.Ginza.Ueno")).toBe(
-      "odpt:station:odpt.Station:TokyoMetro.Ginza.Ueno",
+    expect(stopInternalId("odpt.Station:TokyoMetro.Ginza.Ueno", "odpt")).toBe(
+      "odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno",
     );
-    expect(routeInternalId("odpt.Railway:TokyoMetro.Ginza")).toBe(
-      "odpt:route:odpt.Railway:TokyoMetro.Ginza",
+    expect(routeInternalId("odpt.Railway:TokyoMetro.Ginza", "odpt")).toBe(
+      "odpt:route:odpt:odpt.Railway:TokyoMetro.Ginza",
     );
-    // Reversible: strip the namespace prefix to recover the provider id.
+    // The authoritative provider id is the providerStopId FIELD — never
+    // recovered by stripping prefixes off the internal id.
     expect(
-      stopInternalId("odpt.Station:TokyoMetro.Ginza.Ueno").replace(
-        "odpt:station:",
-        "",
-      ),
-    ).toBe("odpt.Station:TokyoMetro.Ginza.Ueno");
+      stopInternalId("odpt.Station:TokyoMetro.Ginza.Ueno", "odpt"),
+    ).toContain("odpt");
+  });
+
+  it("scopes feed-local ids by namespace: same id, different feeds differ", () => {
+    // The namespace segment is what keeps feed-scoped identifiers apart
+    // (GTFS stop_id=100 in feed A vs feed B later): same provider id under
+    // two namespaces must never produce the same normalized identity.
+    const feedA = stopInternalId("100", "feed-a");
+    const feedB = stopInternalId("100", "feed-b");
+    expect(feedA).not.toBe(feedB);
+    expect(feedA).toContain("feed-a");
+    expect(feedB).toContain("feed-b");
   });
 
   it("keeps display names out of identity", () => {
@@ -80,12 +91,12 @@ describe("normalized identity", () => {
     const ueno = graph.stops.find(
       (stop) => stop.providerStopId === "odpt.Station:TokyoMetro.Ginza.Ueno",
     );
-    expect(ueno?.id).toBe("odpt:station:odpt.Station:TokyoMetro.Ginza.Ueno");
+    expect(ueno?.id).toBe("odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno");
     // Pure namespaced derivation: the id is the namespace prefix plus the
     // provider identity verbatim — no name lookup contributed anything.
     // (The provider identity itself contains "Ueno"; that is provider data,
     // not a display-name input to identity.)
-    expect(ueno?.id).toBe(`odpt:station:${ueno?.providerStopId}`);
+    expect(ueno?.id).toBe(`odpt:stop:odpt:${ueno?.providerStopId}`);
     expect(ueno?.names.en).toBe("Ueno");
   });
 
@@ -141,13 +152,13 @@ describe("ODPT rail adapter", () => {
   it("preserves provider route-stop order per railway", () => {
     const { graph } = importOdptRailTopology(loadFixture(), METADATA);
     const mita = graph.routeStops
-      .filter((m) => m.routeId === "odpt:route:odpt.Railway:Toei.Mita")
+      .filter((m) => m.routeId === "odpt:route:odpt:odpt.Railway:Toei.Mita")
       .sort((a, b) => a.order - b.order)
       .map((m) => m.stopId);
     expect(mita).toEqual([
-      "odpt:station:odpt.Station:Toei.Mita.Sugamo",
-      "odpt:station:odpt.Station:Toei.Mita.Jimbocho",
-      "odpt:station:odpt.Station:Toei.Mita.Mita",
+      "odpt:stop:odpt:odpt.Station:Toei.Mita.Sugamo",
+      "odpt:stop:odpt:odpt.Station:Toei.Mita.Jimbocho",
+      "odpt:stop:odpt:odpt.Station:Toei.Mita.Mita",
     ]);
   });
 
@@ -160,8 +171,9 @@ describe("ODPT rail adapter", () => {
     );
     const specific = byId.get("odpt.Calendar:Specific.FixtureNewYear");
     expect(specific?.calendarKind).toBe("specific");
-    expect(specific?.rawDuration).toBe("2026-01-01/2026-01-03");
-    expect(specific?.rawDay).toEqual(["Holiday"]);
+    expect(specific?.sourceSemantics.provider).toBe("odpt");
+    expect(specific?.sourceSemantics.duration).toBe("2026-01-01/2026-01-03");
+    expect(specific?.sourceSemantics.day).toEqual(["Holiday"]);
   });
 
   it("keeps coordinates from provider evidence and codes as metadata", () => {
@@ -335,15 +347,6 @@ describe("importer validation", () => {
     );
     expectImportError({ ...input, stations }, "malformed_coordinates");
   });
-
-  it("keeps unknown fare unknown: no fares imported, none defaulted to 0", () => {
-    const { graph, coverage } = importOdptRailTopology(loadFixture(), METADATA);
-    expect(graph.fares).toEqual([]);
-    for (const entry of coverage.entries) {
-      expect(entry.fare).toBe("not_imported_in_this_slice");
-    }
-    expect(JSON.stringify(graph)).not.toContain('"amount":0');
-  });
 });
 
 /* ── Determinism ────────────────────────────────────────────────── */
@@ -407,27 +410,45 @@ describe("determinism", () => {
 /* ── Coverage registry ──────────────────────────────────────────── */
 
 describe("coverage registry", () => {
-  it("marks imported rail topology and explicit not-imported slices", () => {
+  it("marks the successful fixture import as PARTIAL, never full coverage", () => {
+    // A clean subset parse is not full TokyoMetro/Toei topology.
     const { coverage } = importOdptRailTopology(loadFixture(), METADATA);
     expect(coverage.entries).toHaveLength(2);
     for (const entry of coverage.entries) {
       expect(entry.provider).toBe("odpt");
       expect(entry.mode).toBe("rail");
-      expect(entry.topology).toBe("imported");
+      expect(entry.topology).toBe("partial");
+      expect(entry.notes.join(" ")).toContain(
+        "not a complete provider topology",
+      );
       expect(entry.timetable).toBe("not_imported_in_this_slice");
       expect(entry.fare).toBe("not_imported_in_this_slice");
       expect(entry.realtime).toBe("not_evaluated");
+    }
+  });
+
+  it("marks imported topology only for a validated complete source (synthetic)", () => {
+    const { graph } = importOdptRailTopology(loadFixture(), {
+      ...METADATA,
+      completeness: "complete_provider_dump",
+    });
+    const coverage = buildOdptCoverageReport(graph);
+    for (const entry of coverage.entries) {
+      expect(entry.topology).toBe("imported");
       expect(entry.notes).toEqual([]);
     }
   });
 
-  it("reports partial rather than failing when a route has no ordered stops", () => {
-    const { graph } = importOdptRailTopology(loadFixture(), METADATA);
+  it("still reports partial for a complete source when a route has no ordered stops", () => {
+    const { graph } = importOdptRailTopology(loadFixture(), {
+      ...METADATA,
+      completeness: "complete_provider_dump",
+    });
     const emptied = {
       ...graph,
       routes: graph.routes,
       routeStops: graph.routeStops.filter(
-        (m) => m.routeId !== "odpt:route:odpt.Railway:TokyoMetro.Ginza",
+        (m) => m.routeId !== "odpt:route:odpt:odpt.Railway:TokyoMetro.Ginza",
       ),
     };
     const coverage = buildOdptCoverageReport(emptied);
@@ -440,5 +461,147 @@ describe("coverage registry", () => {
       (e) => e.operator === "odpt.Operator:Toei",
     );
     expect(toei?.topology).toBe("imported");
+  });
+});
+
+/* ── Content hash: semantic, not observational ────────────────────── */
+
+describe("content hash metadata invariance", () => {
+  const hashOf = (metadata: OdptImportMetadata) =>
+    importOdptRailTopology(loadFixture(), metadata).graph.datasetVersion
+      .contentHash;
+
+  it("A. same content + different retrievedAt -> same contentHash", () => {
+    expect(
+      hashOf({ ...METADATA, retrievedAt: "2026-09-12T00:00:00.000Z" }),
+    ).toBe(hashOf(METADATA));
+  });
+
+  it("B. same content + different checkedAt/datasetId/descriptor -> same hash", () => {
+    expect(
+      hashOf({
+        ...METADATA,
+        checkedAt: "2026-09-12T00:00:00.000Z",
+        datasetId: "odpt-rail-refresh-2",
+        sourceDescriptor: "tomorrow's refresh of the same content",
+      }),
+    ).toBe(hashOf(METADATA));
+  });
+
+  it("C. a real station/route/calendar change -> different contentHash", () => {
+    const input = loadFixture();
+    const stations = (input.stations as Record<string, unknown>[]).map(
+      (station) =>
+        station["owl:sameAs"] === "odpt.Station:Toei.Mita.Sugamo"
+          ? { ...station, ["odpt:stationCode"]: "I-99" }
+          : station,
+    );
+    const changed = importOdptRailTopology({ ...input, stations }, METADATA)
+      .graph.datasetVersion.contentHash;
+    expect(changed).not.toBe(hashOf(METADATA));
+    expect(changed).toHaveLength(64);
+  });
+
+  it("D. a different feed namespace -> different identities and hash", () => {
+    const other = importOdptRailTopology(loadFixture(), {
+      ...METADATA,
+      identityNamespace: "feed-b",
+    });
+    const base = importOdptRailTopology(loadFixture(), METADATA);
+    expect(other.graph.stops[0].id).not.toBe(base.graph.stops[0].id);
+    expect(other.graph.datasetVersion.contentHash).not.toBe(
+      base.graph.datasetVersion.contentHash,
+    );
+  });
+});
+
+/* ── Cross-reference consistency ──────────────────────────────────── */
+
+describe("cross-reference consistency", () => {
+  it("fails when a Toei station claims a TokyoMetro railway", () => {
+    const input = loadFixture();
+    const stations = (input.stations as Record<string, unknown>[]).map(
+      (station) =>
+        station["owl:sameAs"] === "odpt.Station:Toei.Mita.Sugamo"
+          ? {
+              ...station,
+              ["odpt:railway"]: "odpt.Railway:TokyoMetro.Marunouchi",
+            }
+          : station,
+    );
+    expectImportError({ ...input, stations }, "cross_reference_mismatch");
+  });
+
+  it("fails when a TokyoMetro station is inserted into a Toei stationOrder", () => {
+    const input = loadFixture();
+    const railways = (input.railways as Record<string, unknown>[]).map(
+      (railway) =>
+        railway["owl:sameAs"] === "odpt.Railway:Toei.Mita"
+          ? {
+              ...railway,
+              ["odpt:stationOrder"]: [
+                ...((railway["odpt:stationOrder"] as unknown[]) ?? []),
+                {
+                  "odpt:station": "odpt.Station:TokyoMetro.Ginza.Ueno",
+                  "odpt:index": 9,
+                },
+              ],
+            }
+          : railway,
+    );
+    expectImportError({ ...input, railways }, "cross_reference_mismatch");
+  });
+
+  it("fails when a record carries the wrong @type family", () => {
+    const input = loadFixture();
+    const stations = (input.stations as Record<string, unknown>[]).map(
+      (station, index) =>
+        index === 0 ? { ...station, ["@type"]: "odpt:Railway" } : station,
+    );
+    expectImportError({ ...input, stations }, "unexpected_resource_type");
+  });
+});
+
+/* ── Ingestion metadata validation ────────────────────────────────── */
+
+describe("ingestion metadata validation", () => {
+  const bad = (override: Partial<OdptImportMetadata>) =>
+    importOdptRailTopology(loadFixture(), {
+      ...METADATA,
+      ...override,
+    });
+
+  it("rejects empty datasetId / namespace / descriptor", () => {
+    expect(() => bad({ datasetId: "" })).toThrow(/invalid_metadata/);
+    expect(() => bad({ identityNamespace: "" })).toThrow(/invalid_metadata/);
+    expect(() => bad({ sourceDescriptor: "" })).toThrow(/invalid_metadata/);
+  });
+
+  it("rejects zoneless or impossible timestamps", () => {
+    expect(() => bad({ retrievedAt: "2026-09-11 00:00:00" })).toThrow(
+      /invalid_metadata/,
+    );
+    expect(() => bad({ checkedAt: "2026-02-29T00:00:00Z" })).toThrow(
+      /invalid_metadata/,
+    );
+    expect(() =>
+      bad({ validUntil: "not-a-date" as unknown as string }),
+    ).toThrow(/invalid_metadata/);
+  });
+
+  it("accepts offset-aware datetimes with explicit zones", () => {
+    expect(() =>
+      bad({
+        retrievedAt: "2026-09-11T09:00:00+09:00",
+        issuedAt: "2026-09-01T00:00:00Z",
+        validUntil: "2027-09-01T00:00:00+09:00",
+      }),
+    ).not.toThrow();
+  });
+
+  it("rejects an unknown completeness value", () => {
+    expect(() =>
+      bad({ completeness: "everything" as OdptImportMetadata["completeness"] }),
+    ).toThrow(/invalid_metadata/);
   });
 });

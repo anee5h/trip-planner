@@ -22,6 +22,7 @@ import type {
   NormalizedTransitGraph,
   TransitCoverageEntry,
   TransitCoverageReport,
+  TransitDatasetCompleteness,
   TransitDatasetVersion,
   TransitOperator,
   TransitProvenance,
@@ -33,7 +34,13 @@ import type {
 } from "./transitGraphTypes";
 
 /** Normalized-contract version stamped on every B1 dataset. */
-export const TRANSIT_GRAPH_SCHEMA_VERSION = "kai-291b1-v1";
+export const TRANSIT_GRAPH_SCHEMA_VERSION = "kai-291b1-v2";
+
+/**
+ * The stable identity namespace for the single ODPT feed. Stable across
+ * refreshes of the same logical dataset — never a snapshot id or timestamp.
+ */
+export const ODPT_IDENTITY_NAMESPACE = "odpt";
 
 /** Machine-readable import failure reasons. */
 export type OdptImportErrorCode =
@@ -46,7 +53,10 @@ export type OdptImportErrorCode =
   | "unknown_station_reference"
   | "invalid_station_order"
   | "duplicate_station_order_index"
-  | "malformed_coordinates";
+  | "malformed_coordinates"
+  | "cross_reference_mismatch"
+  | "unexpected_resource_type"
+  | "invalid_metadata";
 
 /** Fail-closed importer error: the topology is rejected, never repaired. */
 export class OdptImportError extends Error {
@@ -55,6 +65,108 @@ export class OdptImportError extends Error {
     super(`odpt-rail-import[${code}]: ${message}`);
     this.name = "OdptImportError";
     this.code = code;
+  }
+}
+
+const COMPLETENESS_VALUES: readonly TransitDatasetCompleteness[] = [
+  "fixture_subset",
+  "bounded_subset",
+  "complete_provider_dump",
+  "unknown",
+];
+
+/**
+ * Offset-aware ISO 8601 datetime (date + clock + explicit zone).
+ * Structural check plus real calendar validation (month 1..12, a day that
+ * exists in that Gregorian month incl. leap years, hour/minute/second
+ * ranges) — `Date.parse` alone normalizes impossible dates into real ones.
+ * No ambient current time is read; the value is only validated.
+ */
+export function isOffsetAwareDatetime(value: unknown): value is string {
+  if (typeof value !== "string") return false;
+  const match =
+    /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(?:\.\d{1,3})?)?(Z|[+-]\d{2}:?\d{2})$/.exec(
+      value,
+    );
+  if (match === null) return false;
+  const [, y, mo, d, h, mi, s = "00", zone] = match;
+  const year = Number(y);
+  const month = Number(mo);
+  const day = Number(d);
+  const hour = Number(h);
+  const minute = Number(mi);
+  const second = Number(s);
+  if (month < 1 || month > 12 || hour > 23 || minute > 59 || second > 60) {
+    return false;
+  }
+  const leap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? 1 : 0;
+  const daysInMonth = [31, 28 + leap, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][
+    month - 1
+  ];
+  if (day < 1 || day > daysInMonth) return false;
+  if (zone !== "Z") {
+    const offset = /^([+-])(\d{2}):?(\d{2})$/.exec(zone);
+    if (offset === null) return false;
+    if (Number(offset[2]) > 23 || Number(offset[3]) > 59) return false;
+  }
+  return true;
+}
+
+/**
+ * Fail loudly on clearly invalid explicit metadata. Provenance and
+ * versioning are contract now, so a nameless dataset or a zoneless
+ * timestamp must not silently enter the registry.
+ */
+export function validateImportMetadata(metadata: OdptImportMetadata): void {
+  const fail = (message: string): never => {
+    throw new OdptImportError("invalid_metadata", message);
+  };
+  if (
+    typeof metadata.datasetId !== "string" ||
+    metadata.datasetId.length === 0
+  ) {
+    fail("datasetId must be a non-empty string.");
+  }
+  if (
+    typeof metadata.identityNamespace !== "string" ||
+    metadata.identityNamespace.length === 0
+  ) {
+    fail("identityNamespace must be a non-empty stable feed scope.");
+  }
+  if (
+    typeof metadata.sourceDescriptor !== "string" ||
+    metadata.sourceDescriptor.length === 0
+  ) {
+    fail("sourceDescriptor must be a non-empty string.");
+  }
+  if (!isOffsetAwareDatetime(metadata.retrievedAt)) {
+    fail(
+      `retrievedAt must be an offset-aware datetime, found ${JSON.stringify(metadata.retrievedAt)}.`,
+    );
+  }
+  if (!isOffsetAwareDatetime(metadata.checkedAt)) {
+    fail(
+      `checkedAt must be an offset-aware datetime, found ${JSON.stringify(metadata.checkedAt)}.`,
+    );
+  }
+  for (const field of ["issuedAt", "validUntil"] as const) {
+    const value = metadata[field];
+    if (
+      value !== undefined &&
+      value !== null &&
+      !isOffsetAwareDatetime(value)
+    ) {
+      fail(
+        `${field} must be an offset-aware datetime when present, found ` +
+          `${JSON.stringify(value)}.`,
+      );
+    }
+  }
+  if (!COMPLETENESS_VALUES.includes(metadata.completeness)) {
+    fail(
+      `completeness must be one of ${COMPLETENESS_VALUES.join(", ")}, found ` +
+        `${JSON.stringify(metadata.completeness)}.`,
+    );
   }
 }
 
@@ -69,12 +181,24 @@ export interface OdptRailTopologyInput {
 /** Explicit ingestion metadata — supplied by the caller, never ambient. */
 export interface OdptImportMetadata {
   readonly datasetId: string;
+  /**
+   * Stable identity namespace / feed scope for every internal id built by
+   * this import (e.g. `odpt`). Stable across refreshes — never a snapshot
+   * id, timestamp, or retrieval value.
+   */
+  readonly identityNamespace: string;
   /** e.g. fixture path + scope label. Never a credential. */
   readonly sourceDescriptor: string;
   readonly retrievedAt: string;
   readonly checkedAt: string;
   readonly issuedAt?: string | null;
   readonly validUntil?: string | null;
+  /**
+   * Declared source completeness. A subset stays a subset no matter how
+   * well it parses; only a validated completeness-oriented dump earns
+   * `complete_provider_dump`.
+   */
+  readonly completeness: TransitDatasetCompleteness;
 }
 
 export interface OdptImportResult {
@@ -116,6 +240,7 @@ function provenance(
 ): TransitProvenance {
   return {
     provider: "odpt",
+    identityNamespace: metadata.identityNamespace,
     providerId,
     sourceResourceType,
     datasetId: metadata.datasetId,
@@ -123,24 +248,36 @@ function provenance(
   };
 }
 
-/** Internal operator id: deterministic, reversible, name-independent. */
-export function operatorInternalId(providerOperatorId: string): string {
-  return `odpt:operator:${providerOperatorId}`;
+/** Internal operator id: provider + namespace + provider id. */
+export function operatorInternalId(
+  providerOperatorId: string,
+  identityNamespace: string,
+): string {
+  return `odpt:operator:${identityNamespace}:${providerOperatorId}`;
 }
 
 /** Internal stop id. The providerStopId stays verbatim inside the record. */
-export function stopInternalId(providerStopId: string): string {
-  return `odpt:station:${providerStopId}`;
+export function stopInternalId(
+  providerStopId: string,
+  identityNamespace: string,
+): string {
+  return `odpt:stop:${identityNamespace}:${providerStopId}`;
 }
 
 /** Internal route id. */
-export function routeInternalId(providerRouteId: string): string {
-  return `odpt:route:${providerRouteId}`;
+export function routeInternalId(
+  providerRouteId: string,
+  identityNamespace: string,
+): string {
+  return `odpt:route:${identityNamespace}:${providerRouteId}`;
 }
 
 /** Internal calendar id. */
-export function calendarInternalId(providerCalendarId: string): string {
-  return `odpt:calendar:${providerCalendarId}`;
+export function calendarInternalId(
+  providerCalendarId: string,
+  identityNamespace: string,
+): string {
+  return `odpt:calendar:${identityNamespace}:${providerCalendarId}`;
 }
 
 /**
@@ -169,6 +306,9 @@ export function importOdptRailTopology(
     );
   }
 
+  validateImportMetadata(metadata);
+  const ns = metadata.identityNamespace;
+
   // Index each family by exact provider identity first, so every later
   // reference resolves against the closed input — never against thin air.
   const operators = indexFamily(input.operators, "odpt:Operator");
@@ -176,10 +316,21 @@ export function importOdptRailTopology(
   const railways = indexFamily(input.railways, "odpt:Railway");
   const calendars = indexFamily(rawCalendars, "odpt:Calendar");
 
+  // Exact railway -> operator evidence, built BEFORE stations normalize, so
+  // cross-reference contradictions fail closed instead of silently passing on
+  // existence alone.
+  const railwayOperators = new Map<string, string>();
+  for (const raw of railways) {
+    railwayOperators.set(identityOf(raw), requireOperatorRef(raw, "railway"));
+  }
+  const stationsByIdentity = new Map(
+    stations.map((raw) => [identityOf(raw), raw] as const),
+  );
+
   const normalizedOperators: TransitOperator[] = operators.map((raw) => {
     const sameAs = identityOf(raw);
     return {
-      id: operatorInternalId(sameAs),
+      id: operatorInternalId(sameAs, ns),
       provider: "odpt",
       providerOperatorId: sameAs,
       names: passthroughTitles(raw["odpt:operatorTitle"]),
@@ -190,11 +341,8 @@ export function importOdptRailTopology(
 
   const normalizedStops: TransitStop[] = stations.map((raw) => {
     const sameAs = identityOf(raw);
-    const operatorRef = optionalString(raw["odpt:operator"]);
-    if (
-      operatorRef === null ||
-      !operatorIds.has(operatorInternalId(operatorRef))
-    ) {
+    const operatorRef = requireOperatorRef(raw, "station", sameAs);
+    if (!operatorIds.has(operatorInternalId(operatorRef, ns))) {
       throw new OdptImportError(
         "unknown_operator_reference",
         `station ${sameAs} references operator ${JSON.stringify(operatorRef)} ` +
@@ -202,23 +350,32 @@ export function importOdptRailTopology(
       );
     }
     const railwayRef = optionalString(raw["odpt:railway"]);
-    if (
-      railwayRef === null ||
-      !railways.some((r) => identityOf(r) === railwayRef)
-    ) {
+    const railwayOperator =
+      railwayRef === null ? undefined : railwayOperators.get(railwayRef);
+    if (railwayRef === null || railwayOperator === undefined) {
       throw new OdptImportError(
         "unknown_railway_reference",
         `station ${sameAs} references railway ${JSON.stringify(railwayRef)} ` +
           `outside the imported scope.`,
       );
     }
+    // The station's own operator must agree with its railway's operator.
+    // A Toei station claiming a TokyoMetro railway (or vice versa) is a
+    // contradiction: fail, never move the station between railways.
+    if (railwayOperator !== operatorRef) {
+      throw new OdptImportError(
+        "cross_reference_mismatch",
+        `station ${sameAs} claims operator ${operatorRef} but its railway ` +
+          `${railwayRef} belongs to operator ${railwayOperator}.`,
+      );
+    }
     return {
-      id: stopInternalId(sameAs),
+      id: stopInternalId(sameAs, ns),
       provider: "odpt",
       providerStopId: sameAs,
       stopType: "station",
       coordinates: coordinatesOf(raw, sameAs),
-      operatorIds: [operatorInternalId(operatorRef)],
+      operatorIds: [operatorInternalId(operatorRef, ns)],
       names: passthroughTitles(raw["odpt:stationTitle"]),
       stationCode: optionalString(raw["odpt:stationCode"]),
       provenance: provenance(sameAs, "odpt:Station", metadata),
@@ -230,38 +387,56 @@ export function importOdptRailTopology(
   const normalizedRouteStops: TransitRouteStop[] = [];
   for (const raw of railways) {
     const sameAs = identityOf(raw);
-    const operatorRef = optionalString(raw["odpt:operator"]);
-    if (
-      operatorRef === null ||
-      !operatorIds.has(operatorInternalId(operatorRef))
-    ) {
+    const operatorRef = requireOperatorRef(raw, "railway", sameAs);
+    if (!operatorIds.has(operatorInternalId(operatorRef, ns))) {
       throw new OdptImportError(
         "unknown_operator_reference",
         `railway ${sameAs} references operator ${JSON.stringify(operatorRef)} ` +
           `outside the imported scope.`,
       );
     }
-    const routeId = routeInternalId(sameAs);
+    const routeId = routeInternalId(sameAs, ns);
     normalizedRoutes.push({
       id: routeId,
       provider: "odpt",
       providerRouteId: sameAs,
-      operatorId: operatorInternalId(operatorRef),
+      operatorId: operatorInternalId(operatorRef, ns),
       mode: "rail",
       names: passthroughTitles(raw["odpt:railwayTitle"]),
-      ascendingDirectionId: optionalString(raw["odpt:ascendingRailDirection"]),
-      descendingDirectionId: optionalString(
-        raw["odpt:descendingRailDirection"],
-      ),
+      sourceSemantics: {
+        provider: "odpt",
+        ascendingDirectionId: optionalString(
+          raw["odpt:ascendingRailDirection"],
+        ),
+        descendingDirectionId: optionalString(
+          raw["odpt:descendingRailDirection"],
+        ),
+      },
       provenance: provenance(sameAs, "odpt:Railway", metadata),
     });
     for (const entry of routeStopsOf(raw, sameAs)) {
-      const stopId = stopInternalId(entry.station);
+      const stopId = stopInternalId(entry.station, ns);
       if (!stopIds.has(stopId)) {
         throw new OdptImportError(
           "unknown_station_reference",
           `railway ${sameAs} orders station ${entry.station} outside the ` +
             `imported scope.`,
+        );
+      }
+      // The ordered station must itself claim THIS railway (and therefore its
+      // operator). A TokyoMetro station inserted into a Toei stationOrder is
+      // a contradiction: fail, never repair the source data.
+      const ordered = stationsByIdentity.get(entry.station);
+      const orderedRailway =
+        ordered === undefined ? null : optionalString(ordered["odpt:railway"]);
+      const orderedOperator =
+        ordered === undefined ? null : optionalString(ordered["odpt:operator"]);
+      if (orderedRailway !== sameAs || orderedOperator !== operatorRef) {
+        throw new OdptImportError(
+          "cross_reference_mismatch",
+          `railway ${sameAs} orders station ${entry.station}, which claims ` +
+            `railway ${JSON.stringify(orderedRailway)} / operator ` +
+            `${JSON.stringify(orderedOperator)}.`,
         );
       }
       normalizedRouteStops.push({
@@ -270,6 +445,7 @@ export function importOdptRailTopology(
         order: entry.index,
         provenance: {
           provider: "odpt",
+          identityNamespace: ns,
           providerId: entry.station,
           sourceResourceType: "odpt:Railway.stationOrder",
           datasetId: metadata.datasetId,
@@ -285,15 +461,18 @@ export function importOdptRailTopology(
       ? raw["odpt:day"].filter((d): d is string => typeof d === "string")
       : [];
     return {
-      id: calendarInternalId(sameAs),
+      id: calendarInternalId(sameAs, ns),
       provider: "odpt",
       providerCalendarId: sameAs,
       // Same convention as the shared boundary: Specific.* outranks base.
       calendarKind: sameAs.startsWith("odpt.Calendar:Specific.")
         ? "specific"
         : "base",
-      rawDay: day,
-      rawDuration: optionalString(raw["odpt:duration"]),
+      sourceSemantics: {
+        provider: "odpt",
+        day,
+        duration: optionalString(raw["odpt:duration"]),
+      },
       provenance: provenance(sameAs, "odpt:Calendar", metadata),
     };
   });
@@ -320,6 +499,7 @@ export function importOdptRailTopology(
     issuedAt: metadata.issuedAt ?? null,
     validUntil: metadata.validUntil ?? null,
     schemaVersion: TRANSIT_GRAPH_SCHEMA_VERSION,
+    completeness: metadata.completeness,
     contentHash: contentHashOf({
       operators: normalizedOperators,
       stops: normalizedStops,
@@ -337,7 +517,6 @@ export function importOdptRailTopology(
     routeStops: normalizedRouteStops,
     calendars: normalizedCalendars,
     transfers: [],
-    scheduledServices: [],
     fares: [],
   };
 
@@ -356,6 +535,15 @@ function indexFamily(
       throw new OdptImportError(
         "malformed_record",
         `${resourceType} entry is not an object.`,
+      );
+    }
+    // A wrong-family record must not pass merely because it carries an
+    // owl:sameAs: the declared resource type is part of the evidence.
+    if (record["@type"] !== resourceType) {
+      throw new OdptImportError(
+        "unexpected_resource_type",
+        `expected @type ${JSON.stringify(resourceType)} but found ` +
+          `${JSON.stringify(record["@type"])}.`,
       );
     }
     const sameAs = optionalString(record["owl:sameAs"]);
@@ -381,6 +569,27 @@ function indexFamily(
     out.push(record);
   }
   return out;
+}
+
+/**
+ * The station/railway's declared operator. Absence is not a defaultable
+ * detail: an operator reference outside the imported scope fails downstream,
+ * and a missing one fails here.
+ */
+function requireOperatorRef(
+  raw: Record<string, unknown>,
+  kind: "station" | "railway",
+  sameAs?: string,
+): string {
+  const operatorRef = optionalString(raw["odpt:operator"]);
+  if (operatorRef === null) {
+    throw new OdptImportError(
+      "unknown_operator_reference",
+      `${kind}${sameAs === undefined ? "" : ` ${sameAs}`} declares no ` +
+        `odpt:operator.`,
+    );
+  }
+  return operatorRef;
 }
 
 function identityOf(raw: Record<string, unknown>): string {
@@ -474,8 +683,14 @@ function routeStopsOf(
 }
 
 /**
- * Content hash over the canonical serialization of the normalized entities.
- * The dataset version (which carries the hash) is excluded by construction.
+ * Content hash over the normalized SEMANTIC content.
+ *
+ * Volatile observation metadata is projected OUT before hashing: `datasetId`
+ * and `retrievedAt` in every provenance record. Stable identity scope
+ * (`identityNamespace`) and provider identities stay represented, so the
+ * same provider content retrieved tomorrow — or under a new snapshot id —
+ * hashes identically, while a real station/route/calendar change (or a
+ * different feed namespace) changes the hash.
  */
 export function contentHashOf(entities: {
   readonly operators: readonly TransitOperator[];
@@ -484,13 +699,25 @@ export function contentHashOf(entities: {
   readonly routeStops: readonly TransitRouteStop[];
   readonly calendars: readonly TransitServiceCalendar[];
 }): string {
+  const semanticProvenance = (provenance: TransitProvenance) => ({
+    provider: provenance.provider,
+    identityNamespace: provenance.identityNamespace,
+    providerId: provenance.providerId,
+    sourceResourceType: provenance.sourceResourceType,
+  });
+  const semantic = <T extends { provenance: TransitProvenance }>(
+    entity: T,
+  ) => ({
+    ...entity,
+    provenance: semanticProvenance(entity.provenance),
+  });
   return sha256Hex(
     stableStringify({
-      calendars: entities.calendars,
-      operators: entities.operators,
-      routeStops: entities.routeStops,
-      routes: entities.routes,
-      stops: entities.stops,
+      calendars: entities.calendars.map(semantic),
+      operators: entities.operators.map(semantic),
+      routeStops: entities.routeStops.map(semantic),
+      routes: entities.routes.map(semantic),
+      stops: entities.stops.map(semantic),
     }),
   );
 }
@@ -517,6 +744,16 @@ export function buildOdptCoverageReport(
     routesByOperator.set(route.operatorId, list);
   }
 
+  // Completeness is DECLARED, never inferred: a clean subset import is not
+  // full operator coverage, no matter how well it parses. Only a validated
+  // completeness-oriented dump earns `imported` topology.
+  const completeSource =
+    graph.datasetVersion.completeness === "complete_provider_dump";
+  const scopeNote =
+    `source is not a complete provider topology ` +
+    `(${graph.datasetVersion.completeness}): importer succeeded but operator ` +
+    `coverage is partial`;
+
   const entries: TransitCoverageEntry[] = graph.operators.map((operator) => {
     const routes = routesByOperator.get(operator.id) ?? [];
     const emptyRoutes = routes.filter(
@@ -524,7 +761,10 @@ export function buildOdptCoverageReport(
     );
     const notes: string[] = [];
     let topology: TransitCoverageEntry["topology"];
-    if (routes.length === 0) {
+    if (!completeSource) {
+      topology = "partial";
+      notes.push(scopeNote);
+    } else if (routes.length === 0) {
       topology = "partial";
       notes.push("operator carries no imported routes in this dataset");
     } else if (emptyRoutes.length > 0) {

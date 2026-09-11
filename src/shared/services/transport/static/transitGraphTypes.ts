@@ -6,10 +6,13 @@
  * and nothing here connects to Journey/TripDuration/recommendation.
  *
  * Identity rule (load-bearing): provider identity stays explicit. Internal ids
- * are deterministic, namespaced derivations of `provider + exact provider
- * identity` — never names, never coordinate buckets. Two provider records that
- * look like the same physical station stay distinct unless a deterministic
- * crosswalk explicitly proves equivalence (that crosswalk is later work).
+ * are deterministic derivations of `provider + identityNamespace + entityKind
+ * + exact provider identity` — never names, never coordinate buckets. The
+ * namespace is the stable feed scope (`odpt` for the single ODPT feed, a feed
+ * id for GTFS later): stable across refreshes, distinct from any snapshot or
+ * version id. Two provider records that look like the same physical station
+ * stay distinct unless a deterministic crosswalk explicitly proves equivalence
+ * (that crosswalk is later work).
  *
  * Pure types only: no I/O, no clock, no randomness.
  */
@@ -34,6 +37,14 @@ export type TransitRouteMode = "rail" | "bus" | "ferry" | "tram" | "other";
 export interface TransitProvenance {
   /** Normalizing provider, e.g. `odpt`. */
   readonly provider: TransitProvider;
+  /**
+   * Stable identity namespace / feed scope, e.g. `odpt` for the single ODPT
+   * feed, or a GTFS feed id later. Stable across refreshes of the same
+   * logical dataset — NEVER a per-refresh snapshot id or timestamp — and
+   * part of every internal id, so `stop_id=100` in feed A and feed B can
+   * never collide.
+   */
+  readonly identityNamespace: string;
   /** Exact provider identity, e.g. `odpt.Station:TokyoMetro.Ginza.Ueno`. */
   readonly providerId: string;
   /** Raw resource family, e.g. `odpt:Station`. */
@@ -43,6 +54,7 @@ export interface TransitProvenance {
   /**
    * Check/retrieval timestamp SUPPLIED as explicit ingestion metadata.
    * Never `Date.now()`: identical inputs must produce identical bytes.
+   * Observation metadata only — excluded from the content hash.
    */
   readonly retrievedAt: string;
 }
@@ -69,16 +81,26 @@ export interface TransitDatasetVersion {
   /** Normalized-contract version that produced this dataset. */
   readonly schemaVersion: string;
   /**
-   * SHA-256 over the canonical serialization of the normalized entities.
-   * Computed AFTER import; identical fixture bytes + identical explicit
-   * metadata always yield the identical hash.
+   * Declared source completeness (explicit ingestion metadata). A clean
+   * subset import stays `fixture_subset`/`bounded_subset` no matter how
+   * well it parses — only a validated completeness-oriented dump earns
+   * `complete_provider_dump`.
+   */
+  readonly completeness: TransitDatasetCompleteness;
+  /**
+   * SHA-256 over the canonical serialization of the normalized SEMANTIC
+   * content. Volatile observation metadata (retrievedAt, checkedAt,
+   * per-refresh dataset id, source descriptor) is excluded: identical
+   * provider content retrieved tomorrow hashes identically, which is what
+   * makes B2 refresh/no-op detection possible. Stable identity scope and
+   * provider identities stay represented.
    */
   readonly contentHash: string;
 }
 
 /** A normalized transit operator. */
 export interface TransitOperator {
-  /** Deterministic internal id, e.g. `odpt:operator:odpt.Operator:TokyoMetro`. */
+  /** Deterministic internal id, e.g. `odpt:operator:odpt:odpt.Operator:TokyoMetro`. */
   readonly id: string;
   readonly provider: TransitProvider;
   /** Exact provider identity, e.g. `odpt.Operator:TokyoMetro`. */
@@ -90,7 +112,12 @@ export interface TransitOperator {
 
 /** A normalized stop (station or bus stop). */
 export interface TransitStop {
-  /** E.g. `odpt:station:odpt.Station:TokyoMetro.Ginza.Ueno`. */
+  /**
+   * E.g. `odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno`
+   * (`provider:stop:identityNamespace:providerId`). The subtype lives in
+   * `stopType`, never in the id namespace. The authoritative provider id is
+   * the `providerStopId` field — never recover it by stripping prefixes.
+   */
   readonly id: string;
   readonly provider: TransitProvider;
   /** Exact provider identity — the SAME string KAI-291A anchors carry. */
@@ -112,7 +139,7 @@ export interface TransitStop {
 
 /** A normalized route (one provider railway/line). */
 export interface TransitRoute {
-  /** E.g. `odpt:route:odpt.Railway:TokyoMetro.Ginza`. */
+  /** E.g. `odpt:route:odpt:odpt.Railway:TokyoMetro.Ginza`. */
   readonly id: string;
   readonly provider: TransitProvider;
   /** Exact provider identity, e.g. `odpt.Railway:TokyoMetro.Ginza`. */
@@ -123,12 +150,25 @@ export interface TransitRoute {
   /** Localized display names, passed through open-ended. */
   readonly names: Readonly<Record<string, string>>;
   /**
-   * Provider direction evidence retained for later topology use
-   * (`odpt:ascendingRailDirection` / `odpt:descendingRailDirection`).
+   * Provider-specific semantics that have no generic normalized form.
+   * The generic core must never force a future provider to manufacture
+   * ODPT concepts; each provider adds its own branch later.
    */
+  readonly sourceSemantics: TransitRouteSourceSemantics;
+  readonly provenance: TransitProvenance;
+}
+
+/** Provider-specific route semantics. Extended with a new branch per provider. */
+export type TransitRouteSourceSemantics = OdptRouteSourceSemantics;
+
+/**
+ * ODPT route semantics retained for later topology/timetable use
+ * (`odpt:ascendingRailDirection` / `odpt:descendingRailDirection`).
+ */
+export interface OdptRouteSourceSemantics {
+  readonly provider: "odpt";
   readonly ascendingDirectionId: string | null;
   readonly descendingDirectionId: string | null;
-  readonly provenance: TransitProvenance;
 }
 
 /** One ordered membership of a stop in a route. */
@@ -152,7 +192,7 @@ export interface TransitRouteStop {
  * precedence, and multiple Specific calendars merging.
  */
 export interface TransitServiceCalendar {
-  /** E.g. `odpt:calendar:odpt.Calendar:Weekday`. */
+  /** E.g. `odpt:calendar:odpt:odpt.Calendar:Weekday`. */
   readonly id: string;
   readonly provider: TransitProvider;
   /** Exact provider identity, e.g. `odpt.Calendar:SaturdayHoliday`. */
@@ -162,11 +202,23 @@ export interface TransitServiceCalendar {
    * Derived from provider identity by the provider's own naming convention.
    */
   readonly calendarKind: "base" | "specific";
-  /** Raw `odpt:day` values, passed through verbatim. */
-  readonly rawDay: readonly string[];
-  /** Raw `odpt:duration` value, passed through verbatim. */
-  readonly rawDuration: string | null;
+  /**
+   * Provider-specific calendar semantics. Raw values pass through verbatim
+   * so later work can resolve base calendars, Specific-over-base precedence,
+   * Holiday-over-Saturday precedence, and multiple Specifics merging.
+   */
+  readonly sourceSemantics: TransitCalendarSourceSemantics;
   readonly provenance: TransitProvenance;
+}
+
+/** Provider-specific calendar semantics. Extended per provider later. */
+export type TransitCalendarSourceSemantics = OdptCalendarSourceSemantics;
+
+/** ODPT calendar semantics: raw `odpt:day` / `odpt:duration`, verbatim. */
+export interface OdptCalendarSourceSemantics {
+  readonly provider: "odpt";
+  readonly day: readonly string[];
+  readonly duration: string | null;
 }
 
 /** A provider-defined transfer. B1 imports none; the container is reserved. */
@@ -201,11 +253,17 @@ export interface NormalizedTransitGraph {
   readonly calendars: readonly TransitServiceCalendar[];
   /** Reserved: provider-defined transfers only (never proximity-inferred). */
   readonly transfers: readonly TransitTransfer[];
-  /** Reserved: scheduled services / stop times (KAI-291D). */
-  readonly scheduledServices: readonly unknown[];
   /** Reserved: fare metadata (KAI-291D). Unknown-safe, never defaulted. */
   readonly fares: readonly TransitFareMetadata[];
 }
+
+/**
+ * How completely the source dataset covers its provider scope.
+ * Supplied as explicit ingestion metadata — never inferred from a
+ * successful parse, since a clean subset import is not full coverage.
+ */
+export type TransitDatasetCompleteness =
+  "fixture_subset" | "bounded_subset" | "complete_provider_dump" | "unknown";
 
 /** Coverage states for one provider/operator/mode scope. */
 export type TransitCoverageState =

@@ -16,6 +16,7 @@ import { fileURLToPath } from "node:url";
 
 import {
   importOdptRailTopology,
+  ODPT_IDENTITY_NAMESPACE,
   type OdptImportMetadata,
 } from "../../src/shared/services/transport/static/odptRailTopologyImporter";
 
@@ -35,11 +36,13 @@ const GOLDEN_PATH = join(
  */
 export const GOLDEN_IMPORT_METADATA: OdptImportMetadata = {
   datasetId: "odpt-rail-fixture-v1",
+  identityNamespace: ODPT_IDENTITY_NAMESPACE,
   sourceDescriptor:
     "fixture: odptRailTopologyFixture.json " +
     "(contract validation — NOT a full production network import)",
   retrievedAt: "2026-09-11T00:00:00.000Z",
   checkedAt: "2026-09-11T00:00:00.000Z",
+  completeness: "fixture_subset",
 };
 
 function isMain(): boolean {

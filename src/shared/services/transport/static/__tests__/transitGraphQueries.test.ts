@@ -21,7 +21,7 @@ import {
   getRoute,
   getRoutesForStop,
   getStop,
-  hasDirectStaticRoute,
+  shareStaticRouteMembership,
 } from "../transitGraphQueries";
 
 const FIXTURE_PATH = join(
@@ -31,9 +31,11 @@ const FIXTURE_PATH = join(
 
 const FIXTURE_METADATA: OdptImportMetadata = {
   datasetId: "odpt-rail-fixture-v1",
+  identityNamespace: "odpt",
   sourceDescriptor: "test metadata (fixed, deterministic)",
   retrievedAt: "2026-09-11T00:00:00.000Z",
   checkedAt: "2026-09-11T00:00:00.000Z",
+  completeness: "fixture_subset",
 };
 
 const { graph } = importOdptRailTopology(
@@ -41,22 +43,22 @@ const { graph } = importOdptRailTopology(
   FIXTURE_METADATA,
 );
 
-const MITA = "odpt:route:odpt.Railway:Toei.Mita";
-const SUGAMO = "odpt:station:odpt.Station:Toei.Mita.Sugamo";
-const JIMBOCHO_MITA = "odpt:station:odpt.Station:Toei.Mita.Jimbocho";
-const MITA_END = "odpt:station:odpt.Station:Toei.Mita.Mita";
-const UENO = "odpt:station:odpt.Station:TokyoMetro.Ginza.Ueno";
+const MITA = "odpt:route:odpt:odpt.Railway:Toei.Mita";
+const SUGAMO = "odpt:stop:odpt:odpt.Station:Toei.Mita.Sugamo";
+const JIMBOCHO_MITA = "odpt:stop:odpt:odpt.Station:Toei.Mita.Jimbocho";
+const MITA_END = "odpt:stop:odpt:odpt.Station:Toei.Mita.Mita";
+const UENO = "odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno";
 
 describe("static queries", () => {
   it("gets stops and routes by internal id, null when unknown", () => {
     expect(getStop(graph, SUGAMO)?.providerStopId).toBe(
       "odpt.Station:Toei.Mita.Sugamo",
     );
-    expect(getStop(graph, "odpt:station:nope")).toBeNull();
+    expect(getStop(graph, "odpt:stop:odpt:nope")).toBeNull();
     expect(getRoute(graph, MITA)?.providerRouteId).toBe(
       "odpt.Railway:Toei.Mita",
     );
-    expect(getRoute(graph, "odpt:route:nope")).toBeNull();
+    expect(getRoute(graph, "odpt:route:odpt:nope")).toBeNull();
   });
 
   it("returns route stops in provider order", () => {
@@ -67,7 +69,7 @@ describe("static queries", () => {
       "odpt.Station:Toei.Mita.Jimbocho",
       "odpt.Station:Toei.Mita.Mita",
     ]);
-    expect(getOrderedStopsForRoute(graph, "odpt:route:nope")).toEqual([]);
+    expect(getOrderedStopsForRoute(graph, "odpt:route:odpt:nope")).toEqual([]);
   });
 
   it("lists every route serving a stop (interchange twins differ)", () => {
@@ -77,21 +79,21 @@ describe("static queries", () => {
     expect(mitaJimbocho).toEqual(["odpt.Railway:Toei.Mita"]);
     const shinjukuLineJimbocho = getRoutesForStop(
       graph,
-      "odpt:station:odpt.Station:Toei.Shinjuku.Jimbocho",
+      "odpt:stop:odpt:odpt.Station:Toei.Shinjuku.Jimbocho",
     ).map((route) => route.providerRouteId);
     expect(shinjukuLineJimbocho).toEqual(["odpt.Railway:Toei.Shinjuku"]);
-    expect(getRoutesForStop(graph, "odpt:station:nope")).toEqual([]);
+    expect(getRoutesForStop(graph, "odpt:stop:odpt:nope")).toEqual([]);
   });
 
   it("answers same-route reachability from topology alone", () => {
-    expect(hasDirectStaticRoute(graph, SUGAMO, MITA_END)).toBe(true);
+    expect(shareStaticRouteMembership(graph, SUGAMO, MITA_END)).toBe(true);
     // Different railways, no shared route: not directly connected here.
     // (A physical interchange exists in the real world; B1 records no
     // transfers, so the graph honestly reports no connection.)
-    expect(hasDirectStaticRoute(graph, SUGAMO, UENO)).toBe(false);
-    expect(hasDirectStaticRoute(graph, SUGAMO, SUGAMO)).toBe(false);
-    expect(hasDirectStaticRoute(graph, SUGAMO, "odpt:station:nope")).toBe(
-      false,
-    );
+    expect(shareStaticRouteMembership(graph, SUGAMO, UENO)).toBe(false);
+    expect(shareStaticRouteMembership(graph, SUGAMO, SUGAMO)).toBe(false);
+    expect(
+      shareStaticRouteMembership(graph, SUGAMO, "odpt:stop:odpt:nope"),
+    ).toBe(false);
   });
 });

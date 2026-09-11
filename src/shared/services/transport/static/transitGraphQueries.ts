@@ -66,11 +66,11 @@ export function getRoutesForStop(
 }
 
 /**
- * True when both stops share at least one route — reachable without a
- * transfer on static topology alone. This is NOT a journey: it says nothing
- * about timetables, directions, or whether any service actually connects them.
+ * True when both stops share at least one route — static route membership
+ * only. This deliberately says NOTHING about scheduled direct service, and
+ * must never be read as journey evidence (KAI-292 owns journey semantics).
  */
-export function hasDirectStaticRoute(
+export function shareStaticRouteMembership(
   graph: NormalizedTransitGraph,
   stopAId: string,
   stopBId: string,
