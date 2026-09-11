@@ -96,7 +96,7 @@ fails closed:
 |---|---|
 | `station_timetable` by `operator` (TokyoMetro, Toei) | `provider_response_too_large` |
 | `train_timetable` by whole `railway` | `provider_response_too_large` |
-| `train_timetable` by exact `train` identity | **1 record, 19 ordered stop objects** |
+| `train_timetable` by exact `train` identity | **1 record, 18 ordered stop objects** |
 
 **The boundary is correctly failing closed, and the cap must not be raised to normalise broad
 timetable requests.** The guard is doing useful work: it is an enforced expression of "broad

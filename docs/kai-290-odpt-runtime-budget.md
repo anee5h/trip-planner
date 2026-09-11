@@ -426,22 +426,31 @@ satisfy the same `acquire()` contract later without touching callers.
 ### 6.2 `budget_exhausted` is its own state
 
 When the budget refuses a fetch, the boundary returns the canonical envelope with
-`outcome: "error"`, `errorCode: "budget_exhausted"`, empty `records`, and an empty
-`sourceUrl` (no provider request was issued). It is:
+`outcome: "error"`, `errorCode: "budget_exhausted"`, and empty `records`. It is:
 
 - **not** `no_data` (the provider was never asked),
 - **not** an empty success (nothing was confirmed),
 - **not** a provider failure (the provider never failed).
 
-It is never cached.
+`sourceUrl` is truthful rather than uniformly empty, because a refusal can happen
+at two different phases:
+
+| Refusal phase | Provider request before the refusal | `sourceUrl` |
+| --- | --- | --- |
+| first attempt | none | **empty** (no URL could honestly be reported) |
+| retry after a real attempt | the initial attempt was actually made | the **safe credential-free URL** of that real attempt |
+
+A refusal is never cached.
 
 ### 6.2.1 `budget_unavailable` is a DISTINCT state
 
 If the budget mechanism itself fails — it throws or rejects, so no trustworthy
 decision can be obtained — that is **not** ordinary exhaustion and **not** a
 provider failure. The boundary returns the canonical envelope with
-`outcome: "error"`, `errorCode: "budget_unavailable"`, empty `records`, and an
-empty `sourceUrl`.
+`outcome: "error"`, `errorCode: "budget_unavailable"`, and empty `records`. As
+with `budget_exhausted`, `sourceUrl` follows the same phase rule: empty when no
+provider attempt happened, the safe credential-free URL of the real attempt when
+the decision failed before a bounded retry.
 
 | State | Meaning | Provider request issued? |
 | --- | --- | --- |
@@ -481,13 +490,32 @@ be reported as `budget_exhausted`. Malformed decisions are counted separately
 (`budgetMalformed`) from explicit refusals (`budgetRejected`) and from backend
 failures (`budgetUnavailable`).
 
-### 6.3 Per-journey budget — DESIGN ONLY, not implemented
+### 6.3 Per-journey budget
 
-A per-journey cap of **12 provider calls** (8 base + 4 per transfer, max 1
-transfer) remains the plan for the later timetable-Journey PR, where it will fail
-closed into the existing conservative estimator rather than inventing data. No
-part of that is implemented in this PR, and no runtime path currently derives a
-Journey from ODPT evidence.
+A **separate** budget from the server-side provider-attempt budget above. They
+solve different problems:
+
+| Budget | Protects | Scope | Counts |
+| --- | --- | --- | --- |
+| §6 provider budget | shared provider traffic at the server boundary | isolate-local, per `/api/odpt` request | actual outbound **attempts** |
+| per-journey budget | one journey resolution fanning out across unbounded train lookups | one `resolveOdptDirectJourney` call | **logical** provider method calls |
+
+**Implemented in KAI-290 PR 2C for direct (zero-transfer) journeys**: a base cap
+of **8 logical ODPT boundary lookups per resolution** — one narrow
+`StationTimetable` discovery lookup plus at most **7** exact-train
+`TrainTimetable` lookups. The eighth lookup is allowed; a ninth is never issued.
+When the cap stops inspection before every discovered candidate was checked, the
+resolution reports `coverage: "partial"` if something was proven, and
+`inconclusive: journey_budget_exhausted` if nothing was — never
+`no_direct_service_evidence`, because uninspected evidence remains.
+
+A server-side 503 retry is owned and accounted by §2.2/§6, so it does **not**
+consume a second slot here: the client-side counter counts provider method calls,
+not HTTP attempts, and the client never retries manually.
+
+The transfer allowance (a larger cap once transfer routing exists) remains
+**design only** and is not implemented. Nothing in this document changes any
+existing runtime path.
 
 ---
 
