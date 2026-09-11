@@ -58,6 +58,7 @@ export type OdptImportErrorCode =
   | "malformed_coordinates"
   | "cross_reference_mismatch"
   | "unexpected_resource_type"
+  | "invalid_calendar_semantics"
   | "invalid_metadata";
 
 /** Fail-closed importer error: the topology is rejected, never repaired. */
@@ -134,6 +135,17 @@ export function validateImportMetadata(metadata: OdptImportMetadata): void {
     metadata.identityNamespace.length === 0
   ) {
     fail("identityNamespace must be a non-empty stable feed scope.");
+  }
+  // ODPT has exactly one stable identity namespace. The generic builder
+  // supports arbitrary feed scopes (GTFS later), but THIS importer normalizes
+  // the ODPT feed only — an arbitrary namespace here would mint identities
+  // outside the reviewed ODPT scope.
+  if (metadata.identityNamespace !== ODPT_IDENTITY_NAMESPACE) {
+    fail(
+      `ODPT imports require identityNamespace ` +
+        `${JSON.stringify(ODPT_IDENTITY_NAMESPACE)}, found ` +
+        `${JSON.stringify(metadata.identityNamespace)}.`,
+    );
   }
   if (
     typeof metadata.sourceDescriptor !== "string" ||
@@ -501,9 +513,43 @@ export function importOdptRailTopology(
 
   const normalizedCalendars: TransitServiceCalendar[] = calendars.map((raw) => {
     const sameAs = identityOf(raw);
-    const day = Array.isArray(raw["odpt:day"])
-      ? raw["odpt:day"].filter((d): d is string => typeof d === "string")
-      : [];
+    // Calendar source semantics pass through verbatim — but only when they
+    // are well-formed. Malformed day/duration values are import failures,
+    // never silently filtered or coerced, so the preserved semantics stay
+    // truthful to the provider record.
+    const rawDay = raw["odpt:day"];
+    let day: string[];
+    if (rawDay === undefined || rawDay === null) {
+      day = [];
+    } else if (
+      Array.isArray(rawDay) &&
+      rawDay.every(
+        (entry): entry is string =>
+          typeof entry === "string" && entry.length > 0,
+      )
+    ) {
+      day = [...rawDay];
+    } else {
+      throw new OdptImportError(
+        "invalid_calendar_semantics",
+        `calendar ${sameAs}: odpt:day must be absent or an array of ` +
+          `non-empty strings.`,
+      );
+    }
+    const rawDuration = raw["odpt:duration"];
+    let duration: string | null;
+    if (rawDuration === undefined || rawDuration === null) {
+      duration = null;
+    } else {
+      const parsed = optionalString(rawDuration);
+      if (parsed === null) {
+        throw new OdptImportError(
+          "invalid_calendar_semantics",
+          `calendar ${sameAs}: odpt:duration must be absent or a non-empty string.`,
+        );
+      }
+      duration = parsed;
+    }
     return {
       id: calendarInternalId(sameAs, ns),
       provider: "odpt",
@@ -515,7 +561,7 @@ export function importOdptRailTopology(
           ? "specific"
           : "base",
         day,
-        duration: optionalString(raw["odpt:duration"]),
+        duration,
       },
       provenance: provenance(sameAs, "odpt:Calendar", metadata),
     };
@@ -650,9 +696,10 @@ function identityOf(raw: Record<string, unknown>): string {
 }
 
 /**
- * Coordinates stay null when the provider record legitimately lacks them.
- * A present-but-malformed coordinate is a data defect, not an absence:
- * fail rather than nulling it away.
+ * Coordinates stay null ONLY when the provider record legitimately lacks
+ * both. A half-present pair, a non-numeric value, or an out-of-range degree
+ * is a data defect, not an absence: fail rather than silently downgrading it
+ * to null.
  */
 function coordinatesOf(
   raw: Record<string, unknown>,
@@ -660,15 +707,21 @@ function coordinatesOf(
 ): { readonly lat: number; readonly lng: number } | null {
   const lat = raw["geo:lat"];
   const lng = raw["geo:long"];
-  if (lat === undefined || lat === null || lng === undefined || lng === null) {
-    return null;
-  }
+  const latAbsent = lat === undefined || lat === null;
+  const lngAbsent = lng === undefined || lng === null;
+  if (latAbsent && lngAbsent) return null;
   const latN = finiteNumber(lat);
   const lngN = finiteNumber(lng);
   if (latN === null || lngN === null) {
     throw new OdptImportError(
       "malformed_coordinates",
-      `station ${sameAs} carries non-numeric coordinates.`,
+      `station ${sameAs} carries an incomplete or non-numeric coordinate pair.`,
+    );
+  }
+  if (latN < -90 || latN > 90 || lngN < -180 || lngN > 180) {
+    throw new OdptImportError(
+      "malformed_coordinates",
+      `station ${sameAs} carries out-of-range coordinates (${latN}, ${lngN}).`,
     );
   }
   return { lat: latN, lng: lngN };

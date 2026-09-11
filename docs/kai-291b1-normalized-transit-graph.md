@@ -55,11 +55,11 @@ no turn-by-turn, no live departures, no navigation UI.
 - Internal ids derive deterministically from
   `provider + identityNamespace + entityKind + exact provider identity`,
   e.g. `odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno`.
-- The namespace is the stable feed scope (`odpt` for the single ODPT feed,
-  a feed id for GTFS later): stable across refreshes, distinct from any
-  snapshot/version id. Feed A `stop_id=100` and feed B `stop_id=100` can
-  never collide. Never put `retrievedAt` or a per-refresh dataset id in an
-  internal id.
+- The namespace is the stable feed scope: `odpt` for the single ODPT feed
+  (pinned — the ODPT importer rejects any other namespace), a feed id for
+  GTFS later. Stable across refreshes, distinct from any snapshot/version
+  id. Feed A `stop_id=100` and feed B `stop_id=100` can never collide.
+  Never put `retrievedAt` or a per-refresh dataset id in an internal id.
 - Deterministic and collision-resistant, independent of localized display
   names. The authoritative provider id is the `providerStopId` FIELD —
   never recovered by stripping prefixes.
@@ -129,7 +129,7 @@ fixture represents complete Tokyo coverage.
 The importer rejects rather than repairs: route ordering an unknown
 station, duplicate provider identities (even byte-identical), non-numeric
 or duplicate `odpt:index`, operator/railway references outside the
-imported scope, present-but-malformed coordinates, cross-reference
+imported scope, half-present/non-numeric/out-of-range coordinates, malformed calendar day/duration, cross-reference
 contradictions (station ↔ railway ↔ operator must agree both ways),
 wrong `@type` family records, and invalid ingestion metadata (empty
 ids/descriptor/namespace, zoneless or impossible timestamps, unknown

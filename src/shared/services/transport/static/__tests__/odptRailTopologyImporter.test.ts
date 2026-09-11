@@ -23,6 +23,7 @@ import {
   type OdptImportMetadata,
   type OdptRailTopologyInput,
 } from "../odptRailTopologyImporter";
+import { makeTransitEntityId } from "../transitEntityId";
 
 const FIXTURE_DIR = dirname(fileURLToPath(import.meta.url));
 const FIXTURE_PATH = join(FIXTURE_DIR, "fixtures/odptRailTopologyFixture.json");
@@ -352,6 +353,56 @@ describe("importer validation", () => {
     );
     expectImportError({ ...input, stations }, "malformed_coordinates");
   });
+
+  it("fails on a half-present coordinate pair instead of downgrading to null", () => {
+    for (const patch of [
+      { ["geo:lat"]: undefined, ["geo:long"]: 139.738154 },
+      { ["geo:lat"]: 35.733793, ["geo:long"]: undefined },
+    ]) {
+      const input = loadFixture();
+      const stations = (input.stations as Record<string, unknown>[]).map(
+        (station) =>
+          station["owl:sameAs"] === "odpt.Station:Toei.Mita.Sugamo"
+            ? { ...station, ...patch }
+            : station,
+      );
+      // JSON drops undefined: the record genuinely carries half a pair.
+      const parsed = JSON.parse(JSON.stringify({ ...input, stations }));
+      expectImportError(parsed, "malformed_coordinates");
+    }
+  });
+
+  it("fails on out-of-range degrees", () => {
+    for (const patch of [
+      { ["geo:lat"]: 91, ["geo:long"]: 139.738154 },
+      { ["geo:lat"]: 35.733793, ["geo:long"]: 181 },
+    ]) {
+      const input = loadFixture();
+      const stations = (input.stations as Record<string, unknown>[]).map(
+        (station) =>
+          station["owl:sameAs"] === "odpt.Station:Toei.Mita.Sugamo"
+            ? { ...station, ...patch }
+            : station,
+      );
+      expectImportError({ ...input, stations }, "malformed_coordinates");
+    }
+  });
+
+  it("fails on malformed calendar day and duration instead of coercing them", () => {
+    const withCalendars = (calendars: readonly unknown[]) =>
+      expectImportError(
+        { ...loadFixture(), calendars },
+        "invalid_calendar_semantics",
+      );
+    const base = (loadFixture().calendars as Record<string, unknown>[])[0];
+    // Day present but not an array; array with non-string / empty members.
+    withCalendars([{ ...base, ["odpt:day"]: "Monday" }]);
+    withCalendars([{ ...base, ["odpt:day"]: ["Monday", 42] }]);
+    withCalendars([{ ...base, ["odpt:day"]: [""] }]);
+    // Duration present but empty or non-string.
+    withCalendars([{ ...base, ["odpt:duration"]: "" }]);
+    withCalendars([{ ...base, ["odpt:duration"]: 20260101 }]);
+  });
 });
 
 /* ── Determinism ────────────────────────────────────────────────── */
@@ -510,14 +561,38 @@ describe("content hash metadata invariance", () => {
   });
 
   it("D. a different feed namespace -> different identities and hash", () => {
-    const other = importOdptRailTopology(loadFixture(), {
-      ...METADATA,
-      identityNamespace: "feed-b",
+    // Generic-level proof (no ODPT importer namespace override: the ODPT
+    // adapter pins its own namespace). Same semantic entities under two
+    // feed scopes hash differently because the namespace stays represented.
+    const entitiesFor = (identityNamespace: string) => ({
+      operators: [
+        {
+          id: makeTransitEntityId(
+            "odpt",
+            "operator",
+            identityNamespace,
+            "odpt.Operator:TokyoMetro",
+          ),
+          provider: "odpt" as const,
+          providerOperatorId: "odpt.Operator:TokyoMetro",
+          names: {},
+          provenance: {
+            provider: "odpt" as const,
+            identityNamespace,
+            providerId: "odpt.Operator:TokyoMetro",
+            sourceResourceType: "odpt:Operator",
+            datasetId: "d",
+            retrievedAt: "2026-09-11T00:00:00.000Z",
+          },
+        },
+      ],
+      stops: [],
+      routes: [],
+      routeStops: [],
+      calendars: [],
     });
-    const base = importOdptRailTopology(loadFixture(), METADATA);
-    expect(other.graph.stops[0].id).not.toBe(base.graph.stops[0].id);
-    expect(other.graph.datasetVersion.contentHash).not.toBe(
-      base.graph.datasetVersion.contentHash,
+    expect(contentHashOf(entitiesFor("feed-a"))).not.toBe(
+      contentHashOf(entitiesFor("feed-b")),
     );
   });
 });
@@ -644,5 +719,16 @@ describe("ingestion metadata validation", () => {
     expect(() =>
       bad({ sourceType: "carrier_pigeon" as OdptImportMetadata["sourceType"] }),
     ).toThrow(/invalid_metadata/);
+  });
+
+  it("accepts the pinned ODPT namespace and rejects any other", () => {
+    expect(() =>
+      importOdptRailTopology(loadFixture(), {
+        ...METADATA,
+        identityNamespace: "other",
+      }),
+    ).toThrow(/invalid_metadata/);
+    // "odpt" passes: every other test in this file imports with it.
+    expect(() => importOdptRailTopology(loadFixture(), METADATA)).not.toThrow();
   });
 });
