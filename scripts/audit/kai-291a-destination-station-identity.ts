@@ -1541,9 +1541,19 @@ interface StationIndexFile {
   readonly pilotOperators?: readonly string[];
   readonly sourceBoundary?: string;
   readonly stationCount?: number;
+  readonly perOperatorCounts?: Readonly<Record<string, number>>;
   readonly providerRetrievedAt?: Readonly<Record<string, readonly string[]>>;
   readonly stations?: readonly PilotStationEntry[];
 }
+
+/**
+ * The authorized pilot operators. KAI-291A proves coverage ONLY against this
+ * set: canonical validation promises "exactly once in the reviewed pilot
+ * index" and geography must never anchor against an out-of-pilot record that
+ * slipped into the static evidence file. Both guarantees are vacuous unless
+ * the index itself proves every record belongs to the pilot.
+ */
+export const AUTHORIZED_PILOT_OPERATORS: readonly string[] = PILOT_OPERATORS;
 
 interface CatalogueRecord extends AnchorDestination {
   readonly localTransport?: {
@@ -1554,7 +1564,7 @@ interface CatalogueRecord extends AnchorDestination {
   } | null;
 }
 
-/** Loads and validates the reviewed station index. */
+/** Loads and validates the reviewed station index. Fail-loud boundary checks. */
 export function loadStationIndex(
   readFile: (path: string) => string,
   path: string = STATION_INDEX_INPUT_PATH,
@@ -1570,16 +1580,147 @@ export function loadStationIndex(
         `anchor registry from an unreadable or empty station set.`,
     );
   }
-  const withCoordinates = stations.filter((station) =>
-    isValidCoordinates(station.coordinates),
-  );
-  if (withCoordinates.length === 0) {
+  validatePilotIndexBoundary(file, stations, path);
+  return { stations, file };
+}
+
+/**
+ * Fail-loud boundary validation for the REVIEWED pilot station index.
+ *
+ * The classifier keeps its own defensive handling for synthetic tests and
+ * arbitrary caller data (duplicate canonical identities -> ambiguous), but the
+ * committed reviewed index itself must prove every record belongs to the
+ * TokyoMetro + Toei pilot. Without this, "resolves exactly once in the
+ * reviewed index" and "exactly one pilot station in range" could both be
+ * satisfied by an out-of-pilot record inserted into the static evidence file.
+ */
+export function validatePilotIndexBoundary(
+  file: StationIndexFile,
+  stations: readonly PilotStationEntry[],
+  path: string,
+): void {
+  // 1. The pilot operator set must exist and equal the authorized set exactly.
+  // Ordering is normalized: ["Toei","TokyoMetro"] and ["TokyoMetro","Toei"]
+  // describe the same pilot.
+  const declared = file.pilotOperators;
+  const normalize = (values: readonly string[]) => [...values].sort();
+  const authorized = normalize(AUTHORIZED_PILOT_OPERATORS);
+  if (
+    !Array.isArray(declared) ||
+    normalize(declared as readonly string[]).length !== authorized.length ||
+    normalize(declared as readonly string[]).some(
+      (operator, index) => operator !== authorized[index],
+    )
+  ) {
     throw new Error(
-      `Pilot station index at ${path} has no coordinate-bearing stations, so the ` +
-        `geographic rule cannot run.`,
+      `Pilot station index at ${path} declares pilotOperators ` +
+        `${JSON.stringify(declared)}; expected exactly ` +
+        `${JSON.stringify([...AUTHORIZED_PILOT_OPERATORS])} (order-insensitive). ` +
+        `Refusing to audit against an index whose pilot scope is unproven.`,
     );
   }
-  return { stations, file };
+  const pilotSet = new Set<string>(declared as readonly string[]);
+
+  // 2. Every entry belongs to the pilot: non-empty identity, pilot operator,
+  // and a railway inside that operator's namespace. The railway check reuses
+  // only the provider's own naming convention (`odpt.Railway:<Operator>.<Line>`)
+  // and invents no new mapping semantics.
+  const seen = new Set<string>();
+  const duplicates = new Set<string>();
+  const badEntries: string[] = [];
+  const coordinateLess: string[] = [];
+  for (const station of stations) {
+    const id =
+      typeof station.sameAs === "string" && station.sameAs.length > 0
+        ? station.sameAs
+        : null;
+    if (id === null) {
+      badEntries.push("(missing sameAs)");
+      continue;
+    }
+    if (seen.has(id)) duplicates.add(id);
+    else seen.add(id);
+    if (!pilotSet.has(station.operator as string)) {
+      badEntries.push(`${id} (operator ${JSON.stringify(station.operator)})`);
+      continue;
+    }
+    const operatorShort = (station.operator as string).split(":").at(-1) ?? "";
+    const railway = typeof station.railway === "string" ? station.railway : "";
+    if (!railway.startsWith(`odpt.Railway:${operatorShort}.`)) {
+      badEntries.push(`${id} (railway ${JSON.stringify(station.railway)})`);
+    }
+    if (!isValidCoordinates(station.coordinates)) {
+      coordinateLess.push(id);
+    }
+  }
+  if (badEntries.length > 0) {
+    throw new Error(
+      `Pilot station index at ${path} holds ${badEntries.length} record(s) ` +
+        `outside the reviewed pilot (bad identity, non-pilot operator, or ` +
+        `railway outside the operator namespace): ` +
+        `${badEntries.slice(0, 5).join("; ")}` +
+        (badEntries.length > 5 ? `; … +${badEntries.length - 5} more` : "") +
+        `. Refusing to audit against an index that may anchor out-of-pilot records.`,
+    );
+  }
+
+  // 3. Exact identities are unique. Duplicates would make "exactly once"
+  // unprovable, so the reviewed index is invalid rather than tolerated.
+  if (duplicates.size > 0) {
+    throw new Error(
+      `Pilot station index at ${path} repeats ${duplicates.size} exact station ` +
+        `identit(ies): ${[...duplicates].slice(0, 5).join(", ")}` +
+        (duplicates.size > 5 ? `, …` : "") +
+        `. The reviewed index must carry each identity once; refusing to audit.`,
+    );
+  }
+
+  // 4. Declared tallies must agree with the records exactly.
+  if (
+    typeof file.stationCount === "number" &&
+    file.stationCount !== stations.length
+  ) {
+    throw new Error(
+      `Pilot station index at ${path} declares stationCount ${file.stationCount} ` +
+        `but carries ${stations.length} station records. Refusing to report ` +
+        `coverage from inconsistent evidence.`,
+    );
+  }
+  if (file.perOperatorCounts !== undefined && file.perOperatorCounts !== null) {
+    const recomputed: Record<string, number> = {};
+    for (const station of stations) {
+      const operator = station.operator as string;
+      recomputed[operator] = (recomputed[operator] ?? 0) + 1;
+    }
+    const declaredCounts = file.perOperatorCounts as Record<string, number>;
+    const keys = new Set([
+      ...Object.keys(recomputed),
+      ...Object.keys(declaredCounts),
+    ]);
+    const mismatched = [...keys].filter(
+      (key) => (recomputed[key] ?? 0) !== (declaredCounts[key] ?? 0),
+    );
+    if (mismatched.length > 0) {
+      throw new Error(
+        `Pilot station index at ${path} declares perOperatorCounts ` +
+          `${JSON.stringify(declaredCounts)} but the records recompute to ` +
+          `${JSON.stringify(recomputed)}. Refusing to report coverage from ` +
+          `inconsistent evidence.`,
+      );
+    }
+  }
+
+  // 5. For THIS reviewed geographic index every production candidate used by
+  // geography must carry valid coordinates. Silently shrinking the candidate
+  // set and calling the resulting coverage complete is forbidden.
+  if (coordinateLess.length > 0) {
+    throw new Error(
+      `Pilot station index at ${path} holds ${coordinateLess.length} ` +
+        `coordinate-less record(s) (e.g. ${coordinateLess.slice(0, 3).join(", ")}): ` +
+        `the reviewed geographic index must be fully coordinate-bearing. ` +
+        `Refusing to audit against a shrunk candidate set.`,
+    );
+  }
 }
 
 /** Loads the catalogue. Fails loudly on an unrecognized shape. */

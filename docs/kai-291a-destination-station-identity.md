@@ -264,6 +264,11 @@ reuses the already-committed candidate evidence and made no live ODPT request.
 - `qa/kai-291/pilot-station-index.json` — reviewed static evidence, 335 stations
   (186 TokyoMetro + 149 Toei), normalized and credential-free, retrieved once through
   `https://meguruto.app/api/odpt` with operator-narrowed `station` queries.
+  `loadStationIndex()` proves the boundary fail-loud: `pilotOperators` must equal
+  exactly `{TokyoMetro, Toei}`, every entry needs a non-empty `sameAs`, a pilot
+  operator and a railway inside that operator's namespace, no `sameAs` may repeat,
+  `stationCount`/`perOperatorCounts` must recompute exactly, and all 335 entries
+  must be coordinate-bearing — otherwise no coverage is reported.
 - `src/shared/data/destinations-index.json` — the catalogue.
 
 ```

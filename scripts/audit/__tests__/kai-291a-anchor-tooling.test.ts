@@ -1041,21 +1041,123 @@ describe("KAI-291A artifact", () => {
   });
 });
 
-describe("KAI-291A input loading", () => {
+describe("KAI-291A input loading — the reviewed pilot index boundary", () => {
+  const PILOT = ["odpt.Operator:TokyoMetro", "odpt.Operator:Toei"];
+  const metroStation = (sameAs: string, overrides = {}) => ({
+    sameAs,
+    operator: "odpt.Operator:TokyoMetro",
+    railway: "odpt.Railway:TokyoMetro.Marunouchi",
+    stationCode: "M-01",
+    coordinates: { lat: 35.6906, lng: 139.7006 },
+    title: "X",
+    stationTitle: { en: "X", ja: "X" },
+    ...overrides,
+  });
+  const toeiStation = (sameAs: string, overrides = {}) => ({
+    sameAs,
+    operator: "odpt.Operator:Toei",
+    railway: "odpt.Railway:Toei.Mita",
+    stationCode: "I-01",
+    coordinates: { lat: 35.6896, lng: 139.7006 },
+    title: "Y",
+    stationTitle: { en: "Y", ja: "Y" },
+    ...overrides,
+  });
+  const validFile = (overrides = {}) => ({
+    pilotOperators: PILOT,
+    stationCount: 2,
+    perOperatorCounts: {
+      "odpt.Operator:TokyoMetro": 1,
+      "odpt.Operator:Toei": 1,
+    },
+    stations: [
+      metroStation("odpt.Station:TokyoMetro.Marunouchi.A"),
+      toeiStation("odpt.Station:Toei.Mita.B"),
+    ],
+    ...overrides,
+  });
+  const load = (file: unknown) => loadStationIndex(() => JSON.stringify(file));
+
   it("refuses an empty station index instead of reporting zero coverage", () => {
     expect(() =>
       loadStationIndex(() => JSON.stringify({ stations: [] })),
     ).toThrow(/carries no stations/);
   });
 
-  it("refuses a station index whose entries have no coordinates", () => {
+  it("accepts a valid TokyoMetro + Toei index", () => {
+    const { stations } = load(validFile());
+    expect(stations).toHaveLength(2);
+  });
+
+  it("accepts the committed 335-station reviewed index unchanged", () => {
+    const { stations } = loadStationIndex((path) => readFileSync(path, "utf8"));
+    expect(stations).toHaveLength(335);
+  });
+
+  it("refuses an index whose pilotOperators are not exactly the authorized set", () => {
     expect(() =>
-      loadStationIndex(() =>
-        JSON.stringify({
-          stations: [{ sameAs: "odpt.Station:A", coordinates: null }],
+      load(validFile({ pilotOperators: ["odpt.Operator:TokyoMetro"] })),
+    ).toThrow(/pilotOperators/);
+    expect(() => load(validFile({ pilotOperators: undefined }))).toThrow(
+      /pilotOperators/,
+    );
+  });
+
+  it("refuses an unexpected operator entry (e.g. JR-East)", () => {
+    const file = validFile();
+    (file.stations as ReturnType<typeof metroStation>[])[1] = toeiStation(
+      "odpt.Station:JR-East.Yamanote.Shinjuku",
+      {
+        operator: "odpt.Operator:JR-East",
+        railway: "odpt.Railway:JR-East.Yamanote",
+      },
+    );
+    expect(() => load(file)).toThrow(/outside the reviewed pilot/);
+  });
+
+  it("refuses a railway outside its operator namespace", () => {
+    const file = validFile();
+    (file.stations as ReturnType<typeof metroStation>[])[0] = metroStation(
+      "odpt.Station:TokyoMetro.Marunouchi.A",
+      { railway: "odpt.Railway:Toei.Mita" },
+    );
+    expect(() => load(file)).toThrow(/outside the reviewed pilot/);
+  });
+
+  it("refuses a duplicate exact station identity", () => {
+    const dupe = metroStation("odpt.Station:TokyoMetro.Marunouchi.A");
+    const file = validFile({
+      stationCount: 2,
+      perOperatorCounts: { "odpt.Operator:TokyoMetro": 2 },
+      stations: [dupe, { ...dupe }],
+    });
+    expect(() => load(file)).toThrow(/repeats .* exact station/);
+  });
+
+  it("refuses a stationCount mismatch", () => {
+    expect(() => load(validFile({ stationCount: 3 }))).toThrow(/stationCount/);
+  });
+
+  it("refuses a perOperatorCounts mismatch", () => {
+    expect(() =>
+      load(
+        validFile({
+          perOperatorCounts: {
+            "odpt.Operator:TokyoMetro": 2,
+            "odpt.Operator:Toei": 0,
+          },
         }),
       ),
-    ).toThrow(/no coordinate-bearing stations/);
+    ).toThrow(/perOperatorCounts/);
+  });
+
+  it("refuses a coordinate-less entry: the reviewed index must be fully coordinate-bearing", () => {
+    const file = validFile();
+    (file.stations as ReturnType<typeof metroStation>[])[0] = metroStation(
+      "odpt.Station:TokyoMetro.Marunouchi.A",
+      { coordinates: null },
+    );
+    expect(() => load(file)).toThrow(/coordinate-less/);
   });
 
   it("refuses an unrecognized catalogue shape", () => {
