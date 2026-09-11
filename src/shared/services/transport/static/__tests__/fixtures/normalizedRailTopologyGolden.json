@@ -1,0 +1,650 @@
+{
+  "generator": "scripts/transit/import-odpt-rail-topology.ts",
+  "fixture": "odptRailTopologyFixture.json",
+  "metadata": {
+    "datasetId": "odpt-rail-fixture-v1",
+    "identityNamespace": "odpt",
+    "sourceDescriptor": "fixture: odptRailTopologyFixture.json (contract validation — NOT a full production network import)",
+    "sourceType": "fixture",
+    "retrievedAt": "2026-09-11T00:00:00.000Z",
+    "checkedAt": "2026-09-11T00:00:00.000Z",
+    "completeness": "fixture_subset"
+  },
+  "graph": {
+    "datasetVersion": {
+      "provider": "odpt",
+      "datasetId": "odpt-rail-fixture-v1",
+      "sourceType": "fixture",
+      "sourceDescriptor": "fixture: odptRailTopologyFixture.json (contract validation — NOT a full production network import)",
+      "retrievedAt": "2026-09-11T00:00:00.000Z",
+      "checkedAt": "2026-09-11T00:00:00.000Z",
+      "issuedAt": null,
+      "validUntil": null,
+      "schemaVersion": "kai-291b1-v2",
+      "completeness": "fixture_subset",
+      "contentHash": "3927744492233315628ea4031b8ea526dbf56d3146b406f4406a8af81192b547"
+    },
+    "operators": [
+      {
+        "id": "odpt:operator:odpt:odpt.Operator%3AToei",
+        "provider": "odpt",
+        "providerOperatorId": "odpt.Operator:Toei",
+        "names": {
+          "en": "Toei Transportation",
+          "ja": "東京都交通局"
+        },
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Operator:Toei",
+          "sourceResourceType": "odpt:Operator",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:operator:odpt:odpt.Operator%3ATokyoMetro",
+        "provider": "odpt",
+        "providerOperatorId": "odpt.Operator:TokyoMetro",
+        "names": {
+          "en": "Tokyo Metro",
+          "ja": "東京メトロ"
+        },
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Operator:TokyoMetro",
+          "sourceResourceType": "odpt:Operator",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      }
+    ],
+    "stops": [
+      {
+        "id": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Jimbocho",
+        "provider": "odpt",
+        "providerStopId": "odpt.Station:Toei.Mita.Jimbocho",
+        "stopType": "station",
+        "coordinates": {
+          "lat": 35.695331,
+          "lng": 139.758213
+        },
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3AToei"],
+        "names": {
+          "en": "Jimbocho",
+          "ja": "神保町"
+        },
+        "stationCode": "I-10",
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:Toei.Mita.Jimbocho",
+          "sourceResourceType": "odpt:Station",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Mita",
+        "provider": "odpt",
+        "providerStopId": "odpt.Station:Toei.Mita.Mita",
+        "stopType": "station",
+        "coordinates": {
+          "lat": 35.64865,
+          "lng": 139.748998
+        },
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3AToei"],
+        "names": {
+          "en": "Mita",
+          "ja": "三田"
+        },
+        "stationCode": "I-04",
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:Toei.Mita.Mita",
+          "sourceResourceType": "odpt:Station",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Sugamo",
+        "provider": "odpt",
+        "providerStopId": "odpt.Station:Toei.Mita.Sugamo",
+        "stopType": "station",
+        "coordinates": {
+          "lat": 35.733793,
+          "lng": 139.738154
+        },
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3AToei"],
+        "names": {
+          "en": "Sugamo",
+          "ja": "巣鴨"
+        },
+        "stationCode": "I-15",
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:Toei.Mita.Sugamo",
+          "sourceResourceType": "odpt:Station",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:stop:odpt:odpt.Station%3AToei.Shinjuku.Jimbocho",
+        "provider": "odpt",
+        "providerStopId": "odpt.Station:Toei.Shinjuku.Jimbocho",
+        "stopType": "station",
+        "coordinates": {
+          "lat": 35.695972,
+          "lng": 139.757981
+        },
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3AToei"],
+        "names": {
+          "en": "Jimbocho",
+          "ja": "神保町"
+        },
+        "stationCode": "S-06",
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:Toei.Shinjuku.Jimbocho",
+          "sourceResourceType": "odpt:Station",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:stop:odpt:odpt.Station%3AToei.Shinjuku.Shinjuku",
+        "provider": "odpt",
+        "providerStopId": "odpt.Station:Toei.Shinjuku.Shinjuku",
+        "stopType": "station",
+        "coordinates": {
+          "lat": 35.688433,
+          "lng": 139.698418
+        },
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3AToei"],
+        "names": {
+          "en": "Shinjuku",
+          "ja": "新宿"
+        },
+        "stationCode": "S-01",
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:Toei.Shinjuku.Shinjuku",
+          "sourceResourceType": "odpt:Station",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Asakusa",
+        "provider": "odpt",
+        "providerStopId": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+        "stopType": "station",
+        "coordinates": {
+          "lat": 35.710746,
+          "lng": 139.797774
+        },
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3ATokyoMetro"],
+        "names": {
+          "en": "Asakusa",
+          "ja": "浅草",
+          "ko": "아사쿠사",
+          "ja-Hrkt": "あさくさ",
+          "zh-Hans": "浅草",
+          "zh-Hant": "淺草"
+        },
+        "stationCode": "G19",
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+          "sourceResourceType": "odpt:Station",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Ueno",
+        "provider": "odpt",
+        "providerStopId": "odpt.Station:TokyoMetro.Ginza.Ueno",
+        "stopType": "station",
+        "coordinates": {
+          "lat": 35.711835,
+          "lng": 139.775625
+        },
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3ATokyoMetro"],
+        "names": {
+          "en": "Ueno",
+          "ja": "上野",
+          "ko": "우에노",
+          "ja-Hrkt": "うえの",
+          "zh-Hans": "上野",
+          "zh-Hant": "上野"
+        },
+        "stationCode": "G16",
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Ueno",
+          "sourceResourceType": "odpt:Station",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Ikebukuro",
+        "provider": "odpt",
+        "providerStopId": "odpt.Station:TokyoMetro.Marunouchi.Ikebukuro",
+        "stopType": "station",
+        "coordinates": {
+          "lat": 35.730345,
+          "lng": 139.71115
+        },
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3ATokyoMetro"],
+        "names": {
+          "en": "Ikebukuro",
+          "ja": "池袋",
+          "ko": "이케부쿠로",
+          "ja-Hrkt": "いけぶくろ",
+          "zh-Hans": "池袋",
+          "zh-Hant": "池袋"
+        },
+        "stationCode": "M25",
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Marunouchi.Ikebukuro",
+          "sourceResourceType": "odpt:Station",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Shinjuku",
+        "provider": "odpt",
+        "providerStopId": "odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
+        "stopType": "station",
+        "coordinates": {
+          "lat": 35.692452,
+          "lng": 139.700548
+        },
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3ATokyoMetro"],
+        "names": {
+          "en": "Shinjuku",
+          "ja": "新宿",
+          "ko": "신주쿠",
+          "ja-Hrkt": "しんじゅく",
+          "zh-Hans": "新宿",
+          "zh-Hant": "新宿"
+        },
+        "stationCode": "M08",
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
+          "sourceResourceType": "odpt:Station",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Tokyo",
+        "provider": "odpt",
+        "providerStopId": "odpt.Station:TokyoMetro.Marunouchi.Tokyo",
+        "stopType": "station",
+        "coordinates": {
+          "lat": 35.681935,
+          "lng": 139.7648
+        },
+        "operatorIds": ["odpt:operator:odpt:odpt.Operator%3ATokyoMetro"],
+        "names": {
+          "en": "Tokyo",
+          "ja": "東京",
+          "ko": "도쿄",
+          "ja-Hrkt": "とうきょう",
+          "zh-Hans": "东京",
+          "zh-Hant": "東京"
+        },
+        "stationCode": "M17",
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Marunouchi.Tokyo",
+          "sourceResourceType": "odpt:Station",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "odpt:route:odpt:odpt.Railway%3AToei.Mita",
+        "provider": "odpt",
+        "providerRouteId": "odpt.Railway:Toei.Mita",
+        "operatorId": "odpt:operator:odpt:odpt.Operator%3AToei",
+        "mode": "rail",
+        "names": {
+          "en": "Mita Line",
+          "ja": "三田線"
+        },
+        "sourceSemantics": {
+          "provider": "odpt",
+          "ascendingDirectionId": null,
+          "descendingDirectionId": null
+        },
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Railway:Toei.Mita",
+          "sourceResourceType": "odpt:Railway",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:route:odpt:odpt.Railway%3AToei.Shinjuku",
+        "provider": "odpt",
+        "providerRouteId": "odpt.Railway:Toei.Shinjuku",
+        "operatorId": "odpt:operator:odpt:odpt.Operator%3AToei",
+        "mode": "rail",
+        "names": {
+          "en": "Shinjuku Line",
+          "ja": "新宿線"
+        },
+        "sourceSemantics": {
+          "provider": "odpt",
+          "ascendingDirectionId": null,
+          "descendingDirectionId": null
+        },
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Railway:Toei.Shinjuku",
+          "sourceResourceType": "odpt:Railway",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Ginza",
+        "provider": "odpt",
+        "providerRouteId": "odpt.Railway:TokyoMetro.Ginza",
+        "operatorId": "odpt:operator:odpt:odpt.Operator%3ATokyoMetro",
+        "mode": "rail",
+        "names": {
+          "en": "Ginza Line",
+          "ja": "銀座線"
+        },
+        "sourceSemantics": {
+          "provider": "odpt",
+          "ascendingDirectionId": null,
+          "descendingDirectionId": null
+        },
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Railway:TokyoMetro.Ginza",
+          "sourceResourceType": "odpt:Railway",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Marunouchi",
+        "provider": "odpt",
+        "providerRouteId": "odpt.Railway:TokyoMetro.Marunouchi",
+        "operatorId": "odpt:operator:odpt:odpt.Operator%3ATokyoMetro",
+        "mode": "rail",
+        "names": {
+          "en": "Marunouchi Line",
+          "ja": "丸ノ内線",
+          "ko": "마루노우치선"
+        },
+        "sourceSemantics": {
+          "provider": "odpt",
+          "ascendingDirectionId": "odpt.RailDirection:TokyoMetro.Marunouchi.Ascending",
+          "descendingDirectionId": "odpt.RailDirection:TokyoMetro.Marunouchi.Descending"
+        },
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Railway:TokyoMetro.Marunouchi",
+          "sourceResourceType": "odpt:Railway",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      }
+    ],
+    "routeStops": [
+      {
+        "routeId": "odpt:route:odpt:odpt.Railway%3AToei.Mita",
+        "stopId": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Sugamo",
+        "order": 1,
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:Toei.Mita.Sugamo",
+          "sourceResourceType": "odpt:Railway.stationOrder",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "routeId": "odpt:route:odpt:odpt.Railway%3AToei.Mita",
+        "stopId": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Jimbocho",
+        "order": 2,
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:Toei.Mita.Jimbocho",
+          "sourceResourceType": "odpt:Railway.stationOrder",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "routeId": "odpt:route:odpt:odpt.Railway%3AToei.Mita",
+        "stopId": "odpt:stop:odpt:odpt.Station%3AToei.Mita.Mita",
+        "order": 3,
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:Toei.Mita.Mita",
+          "sourceResourceType": "odpt:Railway.stationOrder",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "routeId": "odpt:route:odpt:odpt.Railway%3AToei.Shinjuku",
+        "stopId": "odpt:stop:odpt:odpt.Station%3AToei.Shinjuku.Shinjuku",
+        "order": 1,
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:Toei.Shinjuku.Shinjuku",
+          "sourceResourceType": "odpt:Railway.stationOrder",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "routeId": "odpt:route:odpt:odpt.Railway%3AToei.Shinjuku",
+        "stopId": "odpt:stop:odpt:odpt.Station%3AToei.Shinjuku.Jimbocho",
+        "order": 2,
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:Toei.Shinjuku.Jimbocho",
+          "sourceResourceType": "odpt:Railway.stationOrder",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "routeId": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Ginza",
+        "stopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Ueno",
+        "order": 1,
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Ueno",
+          "sourceResourceType": "odpt:Railway.stationOrder",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "routeId": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Ginza",
+        "stopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Asakusa",
+        "order": 2,
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+          "sourceResourceType": "odpt:Railway.stationOrder",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "routeId": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Marunouchi",
+        "stopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Ikebukuro",
+        "order": 1,
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Marunouchi.Ikebukuro",
+          "sourceResourceType": "odpt:Railway.stationOrder",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "routeId": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Marunouchi",
+        "stopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Shinjuku",
+        "order": 2,
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
+          "sourceResourceType": "odpt:Railway.stationOrder",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "routeId": "odpt:route:odpt:odpt.Railway%3ATokyoMetro.Marunouchi",
+        "stopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Marunouchi.Tokyo",
+        "order": 3,
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Marunouchi.Tokyo",
+          "sourceResourceType": "odpt:Railway.stationOrder",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      }
+    ],
+    "calendars": [
+      {
+        "id": "odpt:calendar:odpt:odpt.Calendar%3ASaturdayHoliday",
+        "provider": "odpt",
+        "providerCalendarId": "odpt.Calendar:SaturdayHoliday",
+        "sourceSemantics": {
+          "provider": "odpt",
+          "kind": "base",
+          "day": ["Saturday", "Sunday", "Holiday"],
+          "duration": null
+        },
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Calendar:SaturdayHoliday",
+          "sourceResourceType": "odpt:Calendar",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:calendar:odpt:odpt.Calendar%3ASpecific.FixtureNewYear",
+        "provider": "odpt",
+        "providerCalendarId": "odpt.Calendar:Specific.FixtureNewYear",
+        "sourceSemantics": {
+          "provider": "odpt",
+          "kind": "specific",
+          "day": ["Holiday"],
+          "duration": "2026-01-01/2026-01-03"
+        },
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Calendar:Specific.FixtureNewYear",
+          "sourceResourceType": "odpt:Calendar",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "odpt:calendar:odpt:odpt.Calendar%3AWeekday",
+        "provider": "odpt",
+        "providerCalendarId": "odpt.Calendar:Weekday",
+        "sourceSemantics": {
+          "provider": "odpt",
+          "kind": "base",
+          "day": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "duration": null
+        },
+        "provenance": {
+          "provider": "odpt",
+          "identityNamespace": "odpt",
+          "providerId": "odpt.Calendar:Weekday",
+          "sourceResourceType": "odpt:Calendar",
+          "datasetId": "odpt-rail-fixture-v1",
+          "retrievedAt": "2026-09-11T00:00:00.000Z"
+        }
+      }
+    ],
+    "transfers": [],
+    "fares": []
+  },
+  "coverage": {
+    "datasetId": "odpt-rail-fixture-v1",
+    "schemaVersion": "kai-291b1-v2",
+    "entries": [
+      {
+        "provider": "odpt",
+        "operator": "odpt.Operator:Toei",
+        "mode": "rail",
+        "topology": "partial",
+        "timetable": "not_imported_in_this_slice",
+        "fare": "not_imported_in_this_slice",
+        "realtime": "not_evaluated",
+        "datasetId": "odpt-rail-fixture-v1",
+        "notes": [
+          "source is not a complete provider topology (fixture_subset): importer succeeded but operator coverage is partial"
+        ]
+      },
+      {
+        "provider": "odpt",
+        "operator": "odpt.Operator:TokyoMetro",
+        "mode": "rail",
+        "topology": "partial",
+        "timetable": "not_imported_in_this_slice",
+        "fare": "not_imported_in_this_slice",
+        "realtime": "not_evaluated",
+        "datasetId": "odpt-rail-fixture-v1",
+        "notes": [
+          "source is not a complete provider topology (fixture_subset): importer succeeded but operator coverage is partial"
+        ]
+      }
+    ]
+  }
+}

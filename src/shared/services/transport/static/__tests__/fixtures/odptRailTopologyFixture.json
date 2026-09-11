@@ -1,0 +1,340 @@
+{
+  "fixtureNote": "KAI-291B1 contract-validation fixture (NOT a full production network import). Raw ODPT v4.16-shaped records for a TokyoMetro + Toei rail subset. Station identities, coordinates and multilingual titles are real values reused from the reviewed KAI-291A pilot index; railway stationOrder indexes, direction ids and calendar day/duration values are illustrative carriers that preserve the real parsing shape. Shinjuku and Jimbocho each appear as TWO distinct provider records (interchange twins) that must never merge.",
+  "operators": [
+    {
+      "@type": "odpt:Operator",
+      "owl:sameAs": "odpt.Operator:TokyoMetro",
+      "dc:title": "東京メトロ",
+      "odpt:operatorTitle": {
+        "en": "Tokyo Metro",
+        "ja": "東京メトロ"
+      }
+    },
+    {
+      "@type": "odpt:Operator",
+      "owl:sameAs": "odpt.Operator:Toei",
+      "dc:title": "東京都交通局",
+      "odpt:operatorTitle": {
+        "en": "Toei Transportation",
+        "ja": "東京都交通局"
+      }
+    }
+  ],
+  "stations": [
+    {
+      "@type": "odpt:Station",
+      "owl:sameAs": "odpt.Station:TokyoMetro.Marunouchi.Ikebukuro",
+      "dc:title": "池袋",
+      "geo:lat": 35.730345,
+      "geo:long": 139.71115,
+      "odpt:stationTitle": {
+        "en": "Ikebukuro",
+        "ja": "池袋",
+        "ko": "이케부쿠로",
+        "ja-Hrkt": "いけぶくろ",
+        "zh-Hans": "池袋",
+        "zh-Hant": "池袋"
+      },
+      "odpt:operator": "odpt.Operator:TokyoMetro",
+      "odpt:railway": "odpt.Railway:TokyoMetro.Marunouchi",
+      "odpt:stationCode": "M25"
+    },
+    {
+      "@type": "odpt:Station",
+      "owl:sameAs": "odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
+      "dc:title": "新宿",
+      "geo:lat": 35.692452,
+      "geo:long": 139.700548,
+      "odpt:stationTitle": {
+        "en": "Shinjuku",
+        "ja": "新宿",
+        "ko": "신주쿠",
+        "ja-Hrkt": "しんじゅく",
+        "zh-Hans": "新宿",
+        "zh-Hant": "新宿"
+      },
+      "odpt:operator": "odpt.Operator:TokyoMetro",
+      "odpt:railway": "odpt.Railway:TokyoMetro.Marunouchi",
+      "odpt:stationCode": "M08"
+    },
+    {
+      "@type": "odpt:Station",
+      "owl:sameAs": "odpt.Station:TokyoMetro.Marunouchi.Tokyo",
+      "dc:title": "東京",
+      "geo:lat": 35.681935,
+      "geo:long": 139.7648,
+      "odpt:stationTitle": {
+        "en": "Tokyo",
+        "ja": "東京",
+        "ko": "도쿄",
+        "ja-Hrkt": "とうきょう",
+        "zh-Hans": "东京",
+        "zh-Hant": "東京"
+      },
+      "odpt:operator": "odpt.Operator:TokyoMetro",
+      "odpt:railway": "odpt.Railway:TokyoMetro.Marunouchi",
+      "odpt:stationCode": "M17"
+    },
+    {
+      "@type": "odpt:Station",
+      "owl:sameAs": "odpt.Station:TokyoMetro.Ginza.Ueno",
+      "dc:title": "上野",
+      "geo:lat": 35.711835,
+      "geo:long": 139.775625,
+      "odpt:stationTitle": {
+        "en": "Ueno",
+        "ja": "上野",
+        "ko": "우에노",
+        "ja-Hrkt": "うえの",
+        "zh-Hans": "上野",
+        "zh-Hant": "上野"
+      },
+      "odpt:operator": "odpt.Operator:TokyoMetro",
+      "odpt:railway": "odpt.Railway:TokyoMetro.Ginza",
+      "odpt:stationCode": "G16"
+    },
+    {
+      "@type": "odpt:Station",
+      "owl:sameAs": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+      "dc:title": "浅草",
+      "geo:lat": 35.710746,
+      "geo:long": 139.797774,
+      "odpt:stationTitle": {
+        "en": "Asakusa",
+        "ja": "浅草",
+        "ko": "아사쿠사",
+        "ja-Hrkt": "あさくさ",
+        "zh-Hans": "浅草",
+        "zh-Hant": "淺草"
+      },
+      "odpt:operator": "odpt.Operator:TokyoMetro",
+      "odpt:railway": "odpt.Railway:TokyoMetro.Ginza",
+      "odpt:stationCode": "G19"
+    },
+    {
+      "@type": "odpt:Station",
+      "owl:sameAs": "odpt.Station:Toei.Mita.Sugamo",
+      "dc:title": "巣鴨",
+      "geo:lat": 35.733793,
+      "geo:long": 139.738154,
+      "odpt:stationTitle": {
+        "en": "Sugamo",
+        "ja": "巣鴨"
+      },
+      "odpt:operator": "odpt.Operator:Toei",
+      "odpt:railway": "odpt.Railway:Toei.Mita",
+      "odpt:stationCode": "I-15"
+    },
+    {
+      "@type": "odpt:Station",
+      "owl:sameAs": "odpt.Station:Toei.Mita.Jimbocho",
+      "dc:title": "神保町",
+      "geo:lat": 35.695331,
+      "geo:long": 139.758213,
+      "odpt:stationTitle": {
+        "en": "Jimbocho",
+        "ja": "神保町"
+      },
+      "odpt:operator": "odpt.Operator:Toei",
+      "odpt:railway": "odpt.Railway:Toei.Mita",
+      "odpt:stationCode": "I-10"
+    },
+    {
+      "@type": "odpt:Station",
+      "owl:sameAs": "odpt.Station:Toei.Mita.Mita",
+      "dc:title": "三田",
+      "geo:lat": 35.64865,
+      "geo:long": 139.748998,
+      "odpt:stationTitle": {
+        "en": "Mita",
+        "ja": "三田"
+      },
+      "odpt:operator": "odpt.Operator:Toei",
+      "odpt:railway": "odpt.Railway:Toei.Mita",
+      "odpt:stationCode": "I-04"
+    },
+    {
+      "@type": "odpt:Station",
+      "owl:sameAs": "odpt.Station:Toei.Shinjuku.Shinjuku",
+      "dc:title": "新宿",
+      "geo:lat": 35.688433,
+      "geo:long": 139.698418,
+      "odpt:stationTitle": {
+        "en": "Shinjuku",
+        "ja": "新宿"
+      },
+      "odpt:operator": "odpt.Operator:Toei",
+      "odpt:railway": "odpt.Railway:Toei.Shinjuku",
+      "odpt:stationCode": "S-01"
+    },
+    {
+      "@type": "odpt:Station",
+      "owl:sameAs": "odpt.Station:Toei.Shinjuku.Jimbocho",
+      "dc:title": "神保町",
+      "geo:lat": 35.695972,
+      "geo:long": 139.757981,
+      "odpt:stationTitle": {
+        "en": "Jimbocho",
+        "ja": "神保町"
+      },
+      "odpt:operator": "odpt.Operator:Toei",
+      "odpt:railway": "odpt.Railway:Toei.Shinjuku",
+      "odpt:stationCode": "S-06"
+    }
+  ],
+  "railways": [
+    {
+      "@type": "odpt:Railway",
+      "owl:sameAs": "odpt.Railway:TokyoMetro.Marunouchi",
+      "dc:title": "丸ノ内線",
+      "odpt:railwayTitle": {
+        "en": "Marunouchi Line",
+        "ja": "丸ノ内線",
+        "ko": "마루노우치선"
+      },
+      "odpt:operator": "odpt.Operator:TokyoMetro",
+      "odpt:lineCode": "M",
+      "odpt:ascendingRailDirection": "odpt.RailDirection:TokyoMetro.Marunouchi.Ascending",
+      "odpt:descendingRailDirection": "odpt.RailDirection:TokyoMetro.Marunouchi.Descending",
+      "odpt:stationOrder": [
+        {
+          "odpt:station": "odpt.Station:TokyoMetro.Marunouchi.Ikebukuro",
+          "odpt:index": 1,
+          "odpt:stationTitle": {
+            "en": "Ikebukuro",
+            "ja": "池袋"
+          }
+        },
+        {
+          "odpt:station": "odpt.Station:TokyoMetro.Marunouchi.Shinjuku",
+          "odpt:index": 2,
+          "odpt:stationTitle": {
+            "en": "Shinjuku",
+            "ja": "新宿"
+          }
+        },
+        {
+          "odpt:station": "odpt.Station:TokyoMetro.Marunouchi.Tokyo",
+          "odpt:index": 3,
+          "odpt:stationTitle": {
+            "en": "Tokyo",
+            "ja": "東京"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "odpt:Railway",
+      "owl:sameAs": "odpt.Railway:TokyoMetro.Ginza",
+      "dc:title": "銀座線",
+      "odpt:railwayTitle": {
+        "en": "Ginza Line",
+        "ja": "銀座線"
+      },
+      "odpt:operator": "odpt.Operator:TokyoMetro",
+      "odpt:lineCode": "G",
+      "odpt:stationOrder": [
+        {
+          "odpt:station": "odpt.Station:TokyoMetro.Ginza.Ueno",
+          "odpt:index": 1,
+          "odpt:stationTitle": {
+            "en": "Ueno",
+            "ja": "上野"
+          }
+        },
+        {
+          "odpt:station": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+          "odpt:index": 2,
+          "odpt:stationTitle": {
+            "en": "Asakusa",
+            "ja": "浅草"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "odpt:Railway",
+      "owl:sameAs": "odpt.Railway:Toei.Mita",
+      "dc:title": "三田線",
+      "odpt:railwayTitle": {
+        "en": "Mita Line",
+        "ja": "三田線"
+      },
+      "odpt:operator": "odpt.Operator:Toei",
+      "odpt:lineCode": "I",
+      "odpt:stationOrder": [
+        {
+          "odpt:station": "odpt.Station:Toei.Mita.Sugamo",
+          "odpt:index": 1,
+          "odpt:stationTitle": {
+            "en": "Sugamo",
+            "ja": "巣鴨"
+          }
+        },
+        {
+          "odpt:station": "odpt.Station:Toei.Mita.Jimbocho",
+          "odpt:index": 2,
+          "odpt:stationTitle": {
+            "en": "Jimbocho",
+            "ja": "神保町"
+          }
+        },
+        {
+          "odpt:station": "odpt.Station:Toei.Mita.Mita",
+          "odpt:index": 3,
+          "odpt:stationTitle": {
+            "en": "Mita",
+            "ja": "三田"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "odpt:Railway",
+      "owl:sameAs": "odpt.Railway:Toei.Shinjuku",
+      "dc:title": "新宿線",
+      "odpt:railwayTitle": {
+        "en": "Shinjuku Line",
+        "ja": "新宿線"
+      },
+      "odpt:operator": "odpt.Operator:Toei",
+      "odpt:lineCode": "S",
+      "odpt:stationOrder": [
+        {
+          "odpt:station": "odpt.Station:Toei.Shinjuku.Shinjuku",
+          "odpt:index": 1,
+          "odpt:stationTitle": {
+            "en": "Shinjuku",
+            "ja": "新宿"
+          }
+        },
+        {
+          "odpt:station": "odpt.Station:Toei.Shinjuku.Jimbocho",
+          "odpt:index": 2,
+          "odpt:stationTitle": {
+            "en": "Jimbocho",
+            "ja": "神保町"
+          }
+        }
+      ]
+    }
+  ],
+  "calendars": [
+    {
+      "@type": "odpt:Calendar",
+      "owl:sameAs": "odpt.Calendar:Weekday",
+      "odpt:day": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    },
+    {
+      "@type": "odpt:Calendar",
+      "owl:sameAs": "odpt.Calendar:SaturdayHoliday",
+      "odpt:day": ["Saturday", "Sunday", "Holiday"]
+    },
+    {
+      "@type": "odpt:Calendar",
+      "owl:sameAs": "odpt.Calendar:Specific.FixtureNewYear",
+      "odpt:day": ["Holiday"],
+      "odpt:duration": "2026-01-01/2026-01-03"
+    }
+  ]
+}
