@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "scripts/audit/kai-290-odpt-eligibility.mjs",
+  "baseCommit": null,
+  "method": "offline_catalogue_scan",
+  "networkCalls": 0,
+  "providerCalls": 0,
+  "totalCatalogueRecords": 1130,
+  "destinationAnchors": {
+    "exact": 0,
+    "deterministicallyResolvable": 0,
+    "ambiguous": 0,
+    "unavailable": 1130
+  },
+  "inputs": {
+    "originStationIdentity": {
+      "available": false,
+      "classification": "unavailable"
+    },
+    "destinationStationIdentity": {
+      "available": false,
+      "classification": "unavailable"
+    },
+    "serviceDate": {
+      "available": false,
+      "classification": "unavailable"
+    },
+    "departureTimeInput": {
+      "available": false,
+      "classification": "unavailable"
+    }
+  },
+  "blockers": {
+    "destination_station_identity_missing": 1130,
+    "destination_station_identity_ambiguous": 0,
+    "origin_station_identity_missing": 0,
+    "departure_time_input_absent": 0,
+    "service_date_context_absent": 0
+  },
+  "userFacingEligibleCohort": 0,
+  "eligibleRecordIds": [],
+  "notableRecords": []
+}
