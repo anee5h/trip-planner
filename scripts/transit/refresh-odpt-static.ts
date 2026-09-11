@@ -23,10 +23,12 @@ import { dirname, isAbsolute, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import {
+  APPROVED_DUMP_REDIRECT_ORIGINS,
   DUMP_BYTE_CAPS,
   DUMP_DEFAULT_MAX_REDIRECTS,
   DUMP_DEFAULT_TIMEOUT_MS,
   DUMP_RESOURCE_ALLOWLIST,
+  discoverDumpRedirect,
   downloadDumpResource,
   DumpDownloadError,
   type DumpDownloadRecord,
@@ -42,9 +44,11 @@ import {
   LKG_STAGING_DIRNAME,
   loadAnchorStationIds,
   missingAnchorIdentities,
+  missingRequiredPilotOperators,
   normalizePilotExtraction,
   promoteToLastKnownGood,
   readLastKnownGood,
+  recordSuccessfulCheck,
   snapshotIdFor,
   validateDumpFamily,
   type LicenseStatus,
@@ -75,45 +79,45 @@ interface CliOptions {
   readonly audit: boolean;
   readonly promote: boolean;
   readonly offlineFixture: boolean;
+  readonly discoverRedirectOrigin: boolean;
   readonly outputDir: string;
-  readonly approvedRedirectOrigins: readonly string[];
 }
 
 function usage(): string {
   return [
     "usage: refresh-odpt-static.ts [--audit] [--promote] [--offline-fixture]",
-    "  [--output-dir <dir>] [--approve-redirect-origin <origin>]...",
+    "  [--discover-redirect-origin] [--output-dir <dir>]",
     "",
     "--audit (default): download + validate + report, LKG untouched.",
     "--promote: additionally promote a passing candidate to LOCAL ignored LKG.",
     "--offline-fixture: run the pipeline on the committed B1 fixture, no network.",
+    "--discover-redirect-origin: ONE authenticated initial request for",
+    "  odpt:Operator; report the sanitized redirect target WITHOUT following",
+    "  it. Exactly 1 provider attempt. For controlled first-contact review.",
     "--output-dir: ignored local store root (default .cache/transit/odpt).",
-    "--approve-redirect-origin: exact https origin redirects may target.",
+    "",
+    "Redirects for audit/promote follow ONLY the committed exact-origin",
+    "allow-list (APPROVED_DUMP_REDIRECT_ORIGINS); no runtime override exists.",
   ].join("\n");
 }
 
 function parseArgs(argv: string[]): CliOptions {
   let promote = false;
   let offlineFixture = false;
+  let discoverRedirectOrigin = false;
   let outputDir = DEFAULT_STORE_DIR;
-  const approvedRedirectOrigins: string[] = [];
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === "--audit") continue;
     else if (arg === "--promote") promote = true;
     else if (arg === "--offline-fixture") offlineFixture = true;
+    else if (arg === "--discover-redirect-origin")
+      discoverRedirectOrigin = true;
     else if (arg === "--output-dir") {
       const next = argv[i + 1];
       if (next === undefined)
         throw new Error(`${usage()}\n--output-dir needs a value.`);
       outputDir = next;
-      i++;
-    } else if (arg === "--approve-redirect-origin") {
-      const next = argv[i + 1];
-      if (next === undefined) {
-        throw new Error(`${usage()}\n--approve-redirect-origin needs a value.`);
-      }
-      approvedRedirectOrigins.push(next);
       i++;
     } else if (arg === "--help" || arg === "-h") {
       process.stdout.write(`${usage()}\n`);
@@ -126,8 +130,8 @@ function parseArgs(argv: string[]): CliOptions {
     audit: true,
     promote,
     offlineFixture,
+    discoverRedirectOrigin,
     outputDir,
-    approvedRedirectOrigins,
   };
 }
 
@@ -169,6 +173,9 @@ async function run(options: CliOptions): Promise<void> {
       "refusing --promote with --offline-fixture: LKG must come from live validated dumps, not fixture data.",
     );
   }
+  if (options.discoverRedirectOrigin) {
+    return runRedirectDiscovery();
+  }
 
   let downloads: DumpDownloadRecord[] = [];
   let bodies = new Map<string, string>();
@@ -198,7 +205,7 @@ async function run(options: CliOptions): Promise<void> {
       const record = await downloadDumpResource({
         rdfType,
         apiKey,
-        approvedRedirectOrigins: options.approvedRedirectOrigins,
+        approvedRedirectOrigins: APPROVED_DUMP_REDIRECT_ORIGINS,
         byteCap: DUMP_BYTE_CAPS[rdfType],
         timeoutMs: DUMP_DEFAULT_TIMEOUT_MS,
         maxRedirects: DUMP_DEFAULT_MAX_REDIRECTS,
@@ -261,14 +268,11 @@ async function run(options: CliOptions): Promise<void> {
   const previous = readLastKnownGood(storeDir);
   const comparison = compareCandidate(graph, previous?.graph ?? null);
 
-  const removedRequiredOperator =
-    previous !== null &&
-    previous.graph.operators.length > 0 &&
-    graph.operators.length === 0;
+  const missingRequiredOperators = missingRequiredPilotOperators(graph);
   const decision = decidePromotion({
     missingAnchors,
     removedIdentities: comparison.removedIdentities,
-    removedRequiredOperator,
+    missingRequiredOperators,
     licenseStatus,
     completenessIsComplete: metadata.completeness === "complete_provider_dump",
   });
@@ -325,8 +329,12 @@ async function run(options: CliOptions): Promise<void> {
 
   if (options.promote) {
     if (semanticUnchanged) {
+      // The graph is untouched, but the successful check is recorded: the
+      // operational LKG freshness reads the pointer's lastCheckedAt.
+      const pointer = recordSuccessfulCheck({ storeDir, checkedAt: nowIso });
       process.stdout.write(
-        `semantic unchanged vs LKG (${graph.datasetVersion.contentHash}); LKG untouched.\n`,
+        `semantic unchanged vs LKG (${graph.datasetVersion.contentHash}); ` +
+          `graph retained, lastCheckedAt=${pointer.lastCheckedAt}.\n`,
       );
     } else if (decision.decision !== "promote_local") {
       throw new DumpPipelineError(
@@ -350,6 +358,7 @@ async function run(options: CliOptions): Promise<void> {
     }
   }
 
+  const operational = readLastKnownGood(storeDir);
   const lines = [
     `snapshot=${snapshotId}`,
     `resources=${downloads.length} httpAttempts=${downloads.reduce((n, d) => n + d.httpAttempts, 0)}`,
@@ -357,14 +366,46 @@ async function run(options: CliOptions): Promise<void> {
     `filtered=${JSON.stringify(extraction.filteredCounts)}`,
     `normalized=operators:${graph.operators.length} stops:${graph.stops.length} routes:${graph.routes.length} routeStops:${graph.routeStops.length} calendars:${graph.calendars.length}`,
     `anchorsPresent=${anchorIds.length - missingAnchors.length}/${anchorIds.length} missing=[${missingAnchors.join(",")}]`,
+    `missingRequiredOperators=[${missingRequiredOperators.join(",")}]`,
     `semanticHash=${graph.datasetVersion.contentHash} unchanged=${semanticUnchanged}`,
     `coverage=${coverage.entries.map((e) => `${e.operator.split(":").at(-1)}:${e.topology}`).join(",")}`,
     `licence=${licenseStatus} productionPromotionAllowed=false`,
-    `freshness=${freshnessStatus(nowIso, Date.parse(nowIso))}`,
+    `lkgFreshness=${operational === null ? "none" : freshnessStatus(operational.pointer.lastCheckedAt, Date.parse(nowIso))}`,
     `decision=${decision.decision} (${decision.reasons.join("; ")})`,
     `staged=${stagingPath}`,
   ];
   process.stdout.write(`${lines.join("\n")}\n`);
+}
+
+/**
+ * Controlled first-contact discovery: ONE authenticated initial request for
+ * odpt:Operator, reporting the sanitized redirect target WITHOUT following
+ * it. Exactly 1 provider attempt. The observed origin goes to review; only
+ * an explicitly approved origin ever enters the committed allow-list.
+ */
+async function runRedirectDiscovery(): Promise<void> {
+  const apiKey = process.env.ODPT_API_KEY ?? "";
+  if (apiKey.length === 0) {
+    throw new DumpDownloadError(
+      "provider_not_configured",
+      "ODPT_API_KEY is absent; refusing to issue any dump request.",
+    );
+  }
+  const discovery = await discoverDumpRedirect({
+    rdfType: "odpt:Operator",
+    apiKey,
+    timeoutMs: DUMP_DEFAULT_TIMEOUT_MS,
+    fetchImpl: fetch as never,
+  });
+  process.stdout.write(
+    [
+      `initialEndpoint=${discovery.initialEndpoint}`,
+      `initialStatus=${discovery.initialStatus}`,
+      `redirectTargetOrigin=${discovery.targetOrigin}`,
+      `redirectHadQueryOrFragment=${discovery.hadSensitiveParts}`,
+      "followed=false (discovery only; host goes to review)",
+    ].join("\n") + "\n",
+  );
 }
 
 function familyKey(rdfType: DumpResourceType): string {

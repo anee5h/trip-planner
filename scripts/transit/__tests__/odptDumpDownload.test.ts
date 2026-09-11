@@ -8,9 +8,11 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  APPROVED_DUMP_REDIRECT_ORIGINS,
   DUMP_BYTE_CAPS,
   DUMP_DEFAULT_MAX_REDIRECTS,
   DUMP_DEFAULT_TIMEOUT_MS,
+  discoverDumpRedirect,
   downloadDumpResource,
   DumpDownloadError,
   type DumpFetch,
@@ -100,6 +102,10 @@ async function expectCode(
 }
 
 describe("downloader request gating", () => {
+  it("ships an empty committed redirect allow-list until review approves one", () => {
+    // Changing this list is a deliberate reviewed commit, never runtime input.
+    expect(APPROVED_DUMP_REDIRECT_ORIGINS).toEqual([]);
+  });
   it("rejects a non-allow-listed resource with zero fetch calls", async () => {
     const seen = { urls: [] as string[], bodiesConsumed: 0 };
     await expectCode(
@@ -379,5 +385,44 @@ describe("downloader transport semantics", () => {
       "empty_body",
     );
     expect(JSON.stringify(error)).not.toContain("TESTKEY");
+  });
+});
+
+describe("redirect discovery (first contact)", () => {
+  it("reports the redirect target with exactly one request, never following", async () => {
+    const seen = { urls: [] as string[], bodiesConsumed: 0 };
+    const discovery = await discoverDumpRedirect({
+      rdfType: "odpt:Operator",
+      apiKey: TESTKEY,
+      timeoutMs: DUMP_DEFAULT_TIMEOUT_MS,
+      fetchImpl: fakeFetch(
+        [{ status: 301, location: "https://dump.example/op.json" }],
+        seen,
+      ),
+    });
+    expect(seen.urls).toHaveLength(1);
+    expect(discovery).toEqual({
+      rdfType: "odpt:Operator",
+      initialEndpoint: "https://api.odpt.org/api/v4/odpt:Operator.json",
+      initialStatus: 301,
+      targetOrigin: "https://dump.example",
+      targetPath: "/op.json",
+      hadSensitiveParts: false,
+    });
+    expect(JSON.stringify(discovery)).not.toContain("TESTKEY");
+  });
+
+  it("refuses discovery without a credential and without any request", async () => {
+    const seen = { urls: [] as string[], bodiesConsumed: 0 };
+    await expectCode(
+      discoverDumpRedirect({
+        rdfType: "odpt:Operator",
+        apiKey: "",
+        timeoutMs: DUMP_DEFAULT_TIMEOUT_MS,
+        fetchImpl: fakeFetch([{ status: 301 }], seen),
+      }),
+      "provider_not_configured",
+    );
+    expect(seen.urls).toEqual([]);
   });
 });

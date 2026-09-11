@@ -30,6 +30,23 @@ export const PILOT_OPERATORS = [
   "odpt.Operator:Toei",
 ] as const;
 
+/**
+ * Required pilot operators missing from a candidate graph (each must exist
+ * exactly once; the B1 importer already rejects duplicate identities, so
+ * this checks exact presence). Checked against the candidate itself — never
+ * inferred from anchor survival, and applied to first-LKG candidates too.
+ */
+export function missingRequiredPilotOperators(
+  graph: NormalizedTransitGraph,
+): string[] {
+  const present = new Set(
+    graph.operators.map((operator) => operator.providerOperatorId),
+  );
+  return (PILOT_OPERATORS as readonly string[]).filter(
+    (required) => !present.has(required),
+  );
+}
+
 export type DumpPipelineErrorCode =
   | "invalid_json"
   | "html_error_page"
@@ -288,6 +305,12 @@ export interface LastKnownGoodPointer {
   readonly snapshotId: string;
   readonly contentHash: string;
   readonly promotedAt: string;
+  /**
+   * Last successful provider check (wall-clock at the acquisition boundary).
+   * Freshness for the operational LKG reads THIS, not the retrievedAt frozen
+   * inside the unchanged semantic snapshot.
+   */
+  readonly lastCheckedAt: string;
 }
 
 export function snapshotIdFor(retrievedAt: string, rawSha256: string): string {
@@ -390,7 +413,7 @@ export type PromotionDecision =
 export function decidePromotion(input: {
   readonly missingAnchors: readonly string[];
   readonly removedIdentities: readonly string[];
-  readonly removedRequiredOperator: boolean;
+  readonly missingRequiredOperators: readonly string[];
   readonly licenseStatus: LicenseStatus;
   readonly completenessIsComplete: boolean;
 }): PromotionDecision {
@@ -411,10 +434,12 @@ export function decidePromotion(input: {
       ],
     };
   }
-  if (input.removedRequiredOperator) {
+  if (input.missingRequiredOperators.length > 0) {
     return {
       decision: "requires_review",
-      reasons: ["a required pilot operator disappeared"],
+      reasons: [
+        `required pilot operators absent: ${input.missingRequiredOperators.join(", ")}`,
+      ],
     };
   }
   if (!licenceAllowsLocalSnapshot(input.licenseStatus)) {
@@ -534,6 +559,7 @@ export const LKG_SNAPSHOTS_DIRNAME = "snapshots";
  * Atomically promotes a candidate snapshot to last-known-good: writes graph
  * + manifest under their snapshot ids, then swaps the pointer via
  * write-tmp-and-rename. Callers must only reach here after every gate.
+ * First promotion sets promotedAt and lastCheckedAt together.
  */
 export function promoteToLastKnownGood(input: {
   readonly storeDir: string;
@@ -565,11 +591,43 @@ export function promoteToLastKnownGood(input: {
     snapshotId: input.snapshotId,
     contentHash: input.graph.datasetVersion.contentHash,
     promotedAt: input.promotedAt,
+    lastCheckedAt: input.promotedAt,
   };
-  const pointerPath = join(input.storeDir, LKG_POINTER_FILENAME);
+  writePointerAtomically(input.storeDir, pointer);
+  return pointer;
+}
+
+function writePointerAtomically(
+  storeDir: string,
+  pointer: LastKnownGoodPointer,
+): void {
+  const pointerPath = join(storeDir, LKG_POINTER_FILENAME);
   const tmpPath = `${pointerPath}.tmp`;
   writeFileSync(tmpPath, `${JSON.stringify(pointer, null, 2)}\n`, "utf8");
   renameSync(tmpPath, pointerPath);
+}
+
+/**
+ * Records a successful provider check that changed nothing semantically:
+ * snapshotId, contentHash and promotedAt stay put, lastCheckedAt advances.
+ * The graph bytes are never rewritten. Atomic; failures leave LKG untouched.
+ */
+export function recordSuccessfulCheck(input: {
+  readonly storeDir: string;
+  readonly checkedAt: string;
+}): LastKnownGoodPointer {
+  const existing = readLastKnownGood(input.storeDir);
+  if (existing === null) {
+    throw new DumpPipelineError(
+      "promotion_refused",
+      "no last-known-good exists; a first promotion is required before recording checks.",
+    );
+  }
+  const pointer: LastKnownGoodPointer = {
+    ...existing.pointer,
+    lastCheckedAt: input.checkedAt,
+  };
+  writePointerAtomically(input.storeDir, pointer);
   return pointer;
 }
 
@@ -586,6 +644,13 @@ export function readLastKnownGood(storeDir: string): {
     return null;
   }
   const pointer = JSON.parse(pointerRaw) as LastKnownGoodPointer;
+  const normalizedPointer: LastKnownGoodPointer = {
+    snapshotId: pointer.snapshotId,
+    contentHash: pointer.contentHash,
+    promotedAt: pointer.promotedAt,
+    // Pointers written before lastCheckedAt existed predate any real LKG.
+    lastCheckedAt: pointer.lastCheckedAt ?? pointer.promotedAt,
+  };
   const graph = JSON.parse(
     readFileSync(
       join(storeDir, LKG_SNAPSHOTS_DIRNAME, `${pointer.snapshotId}.graph.json`),
@@ -602,5 +667,5 @@ export function readLastKnownGood(storeDir: string): {
       "utf8",
     ),
   ) as SnapshotManifest;
-  return { pointer, graph, manifest };
+  return { pointer: normalizedPointer, graph, manifest };
 }

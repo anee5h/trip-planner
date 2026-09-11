@@ -56,9 +56,13 @@ proof; `--output-dir` for the store root). No `--key`/`--url` flags exist.
 
 - Initial endpoint fixed: `https://api.odpt.org/api/v4/<allow-listed>.json`.
 - `fetch(..., { redirect: "manual" })`; each 3xx Location is validated:
-  absolute HTTPS URL, origin in the explicit approved list (default empty —
-  any redirect host must come from review, never guessed), no loops, bounded
-  count, no HTTP downgrade, no merged query params, no forwarded key.
+  absolute HTTPS URL, origin in the COMMITTED exact-origin allow-list
+  (`APPROVED_DUMP_REDIRECT_ORIGINS`, empty until review approves one), no
+  loops, bounded count, no HTTP downgrade, no merged query params, no
+  forwarded key. There is no runtime override for normal audit/promote.
+- First contact uses `--discover-redirect-origin`: exactly one authenticated
+  initial request, reporting the sanitized target origin WITHOUT following
+  it. The observed origin goes to review before anything is approved.
 - The consumer key belongs ONLY on the initial ODPT request unless a
   documented provider flow proves otherwise. Records log origin + path;
   query/fragment presence is a boolean, values never recorded.
@@ -91,7 +95,10 @@ pointer swap is the promotion — prior snapshot files remain for audit.
 Pure helper with injected now: checked within 7 days → `fresh`; older →
 `stale`; never/invalid/future → `unknown`. An internal safety threshold,
 not an ODPT data-change guarantee. `Date.now()` never enters normalization;
-the CLI supplies wall-clock time at the acquisition boundary.
+the CLI supplies wall-clock time at the acquisition boundary. The
+operational LKG freshness reads the pointer's `lastCheckedAt`: first
+promotion sets `promotedAt = lastCheckedAt = now`; a semantic no-op keeps
+the snapshot (no graph churn) and advances `lastCheckedAt` only.
 
 ## Licence gate
 
@@ -103,6 +110,27 @@ Licence is never inferred from operator names. Challenge/restricted
 datasets stay out of the public repo until explicitly allow-listed after
 review. No full live dump, filtered dataset, full normalized graph, or
 live-data LKG payload is committed in B2.
+
+Reviewed licence evidence for this slice (recorded, NOT yet an
+allow-listing):
+
+- Tokyo Metro JSON Station/Route data: Public Transportation Open Data
+  Basic License.
+- Toei JSON Station/Route data: CC BY 4.0.
+- The Tokyo Metro Basic License permits application/Deliverable use, but
+  prohibits publishing or redistributing reusable underlying data or
+  derivatives without prior written approval.
+- The Challenge Limited License is a SEPARATE licence and must never be
+  inferred as ordinary production permission.
+
+The full B2 candidate therefore stays OFF `reviewed_allowed`: a complete
+dump may contain other licensed scopes, calendar licence/scope is not yet
+conclusively mapped, and B2 has no production/public artifact anyway.
+`productionPromotionAllowed` remains `false`. Raw dumps live in ignored
+local audit storage only; the normalized full graph is neither committed
+nor exposed as downloadable reusable public data. A later
+production-promotion slice may distinguish internal application use from
+public reusable redistribution — those are NOT the same permission.
 
 ## Failure behavior
 

@@ -144,8 +144,87 @@ export const DUMP_BYTE_CAPS: Record<DumpResourceType, number> = {
 export const DUMP_DEFAULT_TIMEOUT_MS = 60_000;
 export const DUMP_DEFAULT_MAX_REDIRECTS = 3;
 
+/**
+ * Committed exact-origin allow-list for dump redirects. EMPTY until a
+ * redirect target is observed in a controlled discovery and explicitly
+ * approved in review: normal audit/promote follows ONLY these origins.
+ * Never a wildcard, never runtime-supplied for normal operation.
+ */
+export const APPROVED_DUMP_REDIRECT_ORIGINS: readonly string[] = [];
+
 function isAllowedResource(value: string): value is DumpResourceType {
   return (DUMP_RESOURCE_ALLOWLIST as readonly string[]).includes(value);
+}
+
+/** Sanitized redirect discovery: origin only, never query or key. */
+export interface DumpRedirectDiscovery {
+  readonly rdfType: DumpResourceType;
+  readonly initialEndpoint: string;
+  readonly initialStatus: number;
+  readonly targetOrigin: string;
+  readonly targetPath: string | null;
+  readonly hadSensitiveParts: boolean;
+}
+
+/**
+ * Performs ONLY the authenticated initial request for one dump family and
+ * reports the redirect target WITHOUT following it. Used for controlled
+ * first-contact discovery: the observed origin goes to review, and only an
+ * explicitly approved origin ever enters the committed allow-list.
+ */
+export async function discoverDumpRedirect(input: {
+  readonly rdfType: string;
+  readonly apiKey: string;
+  readonly timeoutMs: number;
+  readonly fetchImpl: DumpFetch;
+}): Promise<DumpRedirectDiscovery> {
+  if (!isAllowedResource(input.rdfType)) {
+    throw new DumpDownloadError(
+      "invalid_rdf_type",
+      `resource ${JSON.stringify(input.rdfType)} is not an acquirable dump family.`,
+    );
+  }
+  if (input.apiKey.length === 0) {
+    throw new DumpDownloadError(
+      "provider_not_configured",
+      "ODPT_API_KEY is absent; refusing to issue any dump request.",
+    );
+  }
+  const initial = new URL(
+    `${DUMP_ENTRY_ORIGIN}${dumpEntryPath(input.rdfType)}?acl:consumerKey=${encodeURIComponent(input.apiKey)}`,
+  );
+  const response = await fetchOne(input.fetchImpl, initial, input.timeoutMs);
+  if (response.status < 300 || response.status >= 400) {
+    throw new DumpDownloadError(
+      "provider_unavailable",
+      `discovery expected a redirect but observed status ${response.status}.`,
+    );
+  }
+  const location = response.headers.get("location");
+  if (location === null || location.length === 0) {
+    throw new DumpDownloadError(
+      "missing_location",
+      `redirect from ${sanitizeEndpoint(initial)} carries no Location.`,
+    );
+  }
+  let target: URL;
+  try {
+    target = new URL(location, initial);
+  } catch {
+    throw new DumpDownloadError(
+      "malformed_location",
+      `redirect from ${sanitizeEndpoint(initial)} carries an unparsable Location.`,
+    );
+  }
+  const hadSensitiveParts = target.search.length > 0 || target.hash.length > 0;
+  return {
+    rdfType: input.rdfType,
+    initialEndpoint: sanitizeEndpoint(initial),
+    initialStatus: response.status,
+    targetOrigin: target.origin,
+    targetPath: hadSensitiveParts ? null : target.pathname,
+    hadSensitiveParts,
+  };
 }
 
 function sanitizeEndpoint(url: URL): string {

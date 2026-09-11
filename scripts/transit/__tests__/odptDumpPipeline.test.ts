@@ -24,9 +24,11 @@ import {
   licenceAllowsProductionPromotion,
   loadAnchorStationIds,
   missingAnchorIdentities,
+  missingRequiredPilotOperators,
   normalizePilotExtraction,
   promoteToLastKnownGood,
   readLastKnownGood,
+  recordSuccessfulCheck,
   snapshotIdFor,
   validateDumpFamily,
 } from "../odptDumpPipeline";
@@ -275,34 +277,34 @@ describe("manifest", () => {
   });
 });
 
+function candidateGraph() {
+  return syntheticGraph();
+}
+
+function candidateManifest(graph: NormalizedTransitGraph) {
+  return buildSnapshotManifest({
+    snapshotId: "odpt-test-snap1",
+    checkedAt: METADATA.checkedAt,
+    retrievedAt: METADATA.retrievedAt,
+    downloads: [],
+    rawCounts: {},
+    filteredCounts: {},
+    graph,
+    coverage: normalizePilotExtraction(
+      extractPilotScope(
+        syntheticFamilies() as Record<
+          string,
+          readonly Record<string, unknown>[]
+        >,
+      ),
+      METADATA,
+    ).coverage,
+    licenseStatus: "unknown",
+    promotion: { status: "candidate", reason: "test" },
+  });
+}
+
 describe("last-known-good promotion", () => {
-  function candidateGraph() {
-    return syntheticGraph();
-  }
-
-  function candidateManifest(graph: NormalizedTransitGraph) {
-    return buildSnapshotManifest({
-      snapshotId: "odpt-test-snap1",
-      checkedAt: METADATA.checkedAt,
-      retrievedAt: METADATA.retrievedAt,
-      downloads: [],
-      rawCounts: {},
-      filteredCounts: {},
-      graph,
-      coverage: normalizePilotExtraction(
-        extractPilotScope(
-          syntheticFamilies() as Record<
-            string,
-            readonly Record<string, unknown>[]
-          >,
-        ),
-        METADATA,
-      ).coverage,
-      licenseStatus: "unknown",
-      promotion: { status: "candidate", reason: "test" },
-    });
-  }
-
   it("A. promotes a valid first snapshot with no previous LKG", () => {
     const store = mkStore();
     try {
@@ -366,7 +368,7 @@ describe("last-known-good promotion", () => {
       const decision = decidePromotion({
         missingAnchors: ["odpt.Station:TokyoMetro.Ginza.Ueno"],
         removedIdentities: [],
-        removedRequiredOperator: false,
+        missingRequiredOperators: [],
         licenseStatus: "unknown",
         completenessIsComplete: true,
       });
@@ -413,6 +415,108 @@ describe("last-known-good promotion", () => {
 });
 
 describe("continuity, comparison, freshness, licence", () => {
+  it("requires both exact pilot operators, never a third party", () => {
+    const graphWith = (...operators: string[]) =>
+      ({
+        operators: operators.map((providerOperatorId) => ({
+          providerOperatorId,
+        })),
+      }) as NormalizedTransitGraph;
+    expect(
+      missingRequiredPilotOperators(
+        graphWith("odpt.Operator:TokyoMetro", "odpt.Operator:Toei"),
+      ),
+    ).toEqual([]);
+    expect(
+      missingRequiredPilotOperators(graphWith("odpt.Operator:TokyoMetro")),
+    ).toEqual(["odpt.Operator:Toei"]);
+    expect(
+      missingRequiredPilotOperators(graphWith("odpt.Operator:Toei")),
+    ).toEqual(["odpt.Operator:TokyoMetro"]);
+    expect(missingRequiredPilotOperators(graphWith())).toEqual([
+      "odpt.Operator:TokyoMetro",
+      "odpt.Operator:Toei",
+    ]);
+    // An arbitrary third operator satisfies nothing.
+    expect(
+      missingRequiredPilotOperators(graphWith("odpt.Operator:JR-East")),
+    ).toEqual(["odpt.Operator:TokyoMetro", "odpt.Operator:Toei"]);
+  });
+
+  it("forces requires_review when a required operator is absent", () => {
+    for (const missing of [
+      ["odpt.Operator:Toei"],
+      ["odpt.Operator:TokyoMetro"],
+      ["odpt.Operator:TokyoMetro", "odpt.Operator:Toei"],
+    ]) {
+      const decision = decidePromotion({
+        missingAnchors: [],
+        removedIdentities: [],
+        missingRequiredOperators: missing,
+        licenseStatus: "unknown",
+        completenessIsComplete: true,
+      });
+      expect(decision.decision).toBe("requires_review");
+    }
+  });
+
+  it("records no-op check freshness without churning graph bytes", () => {
+    const store = mkStore();
+    try {
+      const graph = candidateGraph();
+      promoteToLastKnownGood({
+        storeDir: store,
+        snapshotId: "odpt-test-snap1",
+        graph,
+        manifest: candidateManifest(graph),
+        promotedAt: "2026-09-01T00:00:00.000Z",
+      });
+      const first = readLastKnownGood(store)?.pointer;
+      expect(first?.lastCheckedAt).toBe("2026-09-01T00:00:00.000Z");
+      const graphBefore = readBytes(
+        `${store}/snapshots/odpt-test-snap1.graph.json`,
+      );
+
+      // Semantic no-op: same content, later successful check.
+      const pointer = recordSuccessfulCheck({
+        storeDir: store,
+        checkedAt: "2026-09-05T00:00:00.000Z",
+      });
+      expect(pointer.snapshotId).toBe("odpt-test-snap1");
+      expect(pointer.promotedAt).toBe("2026-09-01T00:00:00.000Z");
+      expect(pointer.lastCheckedAt).toBe("2026-09-05T00:00:00.000Z");
+      expect(pointer.contentHash).toBe(first?.contentHash);
+      expect(readBytes(`${store}/snapshots/odpt-test-snap1.graph.json`)).toBe(
+        graphBefore,
+      );
+
+      // Failed refresh never advances lastCheckedAt.
+      expectPipelineCode(
+        () => validateDumpFamily("odpt:Station", "not json"),
+        "invalid_json",
+      );
+      expect(readLastKnownGood(store)?.pointer.lastCheckedAt).toBe(
+        "2026-09-05T00:00:00.000Z",
+      );
+
+      // Stale LKG becomes fresh after a successful no-op check.
+      expect(
+        freshnessStatus(
+          "2026-09-01T00:00:00.000Z",
+          Date.parse("2026-09-12T00:00:00.000Z"),
+        ),
+      ).toBe("stale");
+      expect(
+        freshnessStatus(
+          readLastKnownGood(store)?.pointer.lastCheckedAt ?? null,
+          Date.parse("2026-09-12T00:00:00.000Z"),
+        ),
+      ).toBe("fresh");
+    } finally {
+      rmStore(store);
+    }
+  });
+
   it("loads trusted anchor identities from the committed KAI-291A artifact", () => {
     const repoRoot = dirname(fileURLToPath(import.meta.url));
     const root = join(repoRoot, "..", "..", "..");
@@ -435,7 +539,7 @@ describe("continuity, comparison, freshness, licence", () => {
     const decision = decidePromotion({
       missingAnchors: missing,
       removedIdentities: [],
-      removedRequiredOperator: false,
+      missingRequiredOperators: [],
       licenseStatus: "unknown",
       completenessIsComplete: true,
     });
@@ -479,7 +583,7 @@ describe("continuity, comparison, freshness, licence", () => {
     const rejected = decidePromotion({
       missingAnchors: [],
       removedIdentities: [],
-      removedRequiredOperator: false,
+      missingRequiredOperators: [],
       licenseStatus: "restricted",
       completenessIsComplete: true,
     });
