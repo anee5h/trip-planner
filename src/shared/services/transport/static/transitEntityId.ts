@@ -1,8 +1,8 @@
 /**
  * KAI-291B1 — provider-agnostic normalized entity ids.
  *
- * One builder for every current and future provider adapter (ODPT now, GTFS /
- * GTFS-JP later). Plain concatenation with a `:` delimiter is ambiguous when
+ * One builder for every provider adapter (ODPT and GTFS / GTFS-JP). Plain
+ * concatenation with a `:` delimiter is ambiguous when
  * a namespace or provider id itself contains the delimiter
  * (`ns="a", id="b:c"` vs `ns="a:b", id="c"`), so each variable component is
  * `encodeURIComponent`-escaped independently: the escape encodes every

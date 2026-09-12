@@ -53,6 +53,7 @@ docs/*
 !docs/kai-291a-destination-station-identity.md
 !docs/kai-291b1-normalized-transit-graph.md
 !docs/kai-291b2-odpt-dump-refresh.md
+!docs/kai-291c1-gtfs-topology.md
 /docs/Roadmapv2.0.md
 # Generated catalogue asset (copied from src/shared/data at build/dev time
 # by scripts/copy-catalogue-assets.mjs — KAI-121 runtime-lazy fetch).

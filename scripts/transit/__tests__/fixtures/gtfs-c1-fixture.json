@@ -1,0 +1,9 @@
+{
+  "agency.txt": "\ufeffagency_id,agency_name,agency_url,agency_timezone,agency_lang\r\na1,Alpha Transit,https://alpha.example,Asia/Tokyo,ja\r\na2,Beta Transit,https://beta.example,Asia/Tokyo,ja\r\n",
+  "stops.txt": "stop_id,stop_name,stop_lat,stop_lon,location_type,parent_station,platform_code\nA,\"Harbor, West\",35.000000,135.000000,0,D,\nB,\"The \"\"Hub\"\"\",35.100000,135.100000,0,,\nC,East,35.200000,135.200000,0,,\nD,Terminal,35.300000,135.300000,1,,\n",
+  "routes.txt": "route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color\nr1,a1,R1,Alpha Loop,3,FF0000,FFFFFF\nr2,a2,,Beta Rail,2,00FF00,000000\n",
+  "trips.txt": "route_id,service_id,trip_id,trip_headsign,direction_id\nr1,weekday,t1,Eastbound,0\nr1,weekday,t2,Westbound,1\nr2,weekend,t3,Terminal,\n",
+  "stop_times.txt": "trip_id,arrival_time,departure_time,stop_id,stop_sequence\nt1,08:00:00,08:00:00,A,1\nt1,08:05:00,08:05:00,B,2\nt1,08:10:00,08:10:00,C,3\nt2,09:00:00,09:00:00,C,1\nt2,09:05:00,09:05:00,B,2\nt2,09:10:00,09:10:00,A,3\nt3,10:00:00,10:00:00,A,1\nt3,10:05:00,10:05:00,C,2\n",
+  "feed_info.txt": "feed_publisher_name,feed_publisher_url,feed_lang,feed_version\nFixture Publisher,https://fixture.example,ja,c1\n",
+  "routes_jp.txt": "route_id,route_update_date\nr1,20260901\nr2,20260901\n"
+}

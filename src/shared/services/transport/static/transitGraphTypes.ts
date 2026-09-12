@@ -1,7 +1,7 @@
 /**
  * KAI-291B1 — normalized static transit graph contract.
  *
- * Provider-agnostic records that later ODPT and GTFS/GTFS-JP imports both
+ * Provider-agnostic records that ODPT and GTFS/GTFS-JP imports both
  * target. This PR is NOT the router: the graph carries static topology only,
  * and nothing here connects to Journey/TripDuration/recommendation.
  *
@@ -9,7 +9,7 @@
  * are deterministic derivations of `provider + identityNamespace + entityKind
  * + exact provider identity` — never names, never coordinate buckets. The
  * namespace is the stable feed scope (`odpt` for the single ODPT feed, a feed
- * id for GTFS later): stable across refreshes, distinct from any snapshot or
+ * id for a GTFS feed): stable across refreshes, distinct from any snapshot or
  * version id. Two provider records that look like the same physical station
  * stay distinct unless a deterministic crosswalk explicitly proves equivalence
  * (that crosswalk is later work).
@@ -17,16 +17,16 @@
  * Pure types only: no I/O, no clock, no randomness.
  */
 
-/** Providers the normalized model accepts. `odpt` now; `gtfs`/`gtfs-jp` later. */
+/** Providers the normalized model accepts. */
 export type TransitProvider = "odpt" | "gtfs" | "gtfs-jp";
 
-/** How the source dataset was acquired. B1 only produces `fixture`. */
+/** How the source dataset was acquired. */
 export type TransitSourceType = "fixture" | "data_dump" | "live_api";
 
-/** Stop kinds the model distinguishes. B1 imports stations only. */
-export type TransitStopType = "station" | "bus_stop";
+/** Stop kinds the model distinguishes. */
+export type TransitStopType = "station" | "bus_stop" | "platform";
 
-/** Route modes. B1 imports rail only. */
+/** Route modes represented by the supported provider adapters. */
 export type TransitRouteMode = "rail" | "bus" | "ferry" | "tram" | "other";
 
 /**
@@ -39,7 +39,7 @@ export interface TransitProvenance {
   readonly provider: TransitProvider;
   /**
    * Stable identity namespace / feed scope, e.g. `odpt` for the single ODPT
-   * feed, or a GTFS feed id later. Stable across refreshes of the same
+   * feed, or a GTFS feed id. Stable across refreshes of the same
    * logical dataset — NEVER a per-refresh snapshot id or timestamp — and
    * part of every internal id, so `stop_id=100` in feed A and feed B can
    * never collide.
@@ -57,6 +57,8 @@ export interface TransitProvenance {
    * Observation metadata only — excluded from the content hash.
    */
   readonly retrievedAt: string;
+  /** Explicit evidence-check timestamp; optional for legacy B1 records. */
+  readonly checkedAt?: string;
 }
 
 /** One versioned source dataset the graph was built from. */
@@ -65,7 +67,7 @@ export interface TransitDatasetVersion {
   readonly provider: TransitProvider;
   /** Caller-supplied dataset identity, e.g. `odpt-rail-fixture-v1`. */
   readonly datasetId: string;
-  /** Acquisition kind. B1: `fixture` (contract validation, not a full import). */
+  /** Acquisition kind for this static source import. */
   readonly sourceType: TransitSourceType;
   /**
    * Human/machine descriptor of the source, e.g. the fixture path plus its
@@ -78,6 +80,11 @@ export interface TransitDatasetVersion {
   /** Provider-supplied issue/expiry, when the provider declares them. */
   readonly issuedAt: string | null;
   readonly validUntil: string | null;
+  /** Small publisher identity from feed_info.txt, when supplied. */
+  readonly publisher?: {
+    readonly name: string;
+    readonly url: string | null;
+  };
   /** Normalized-contract version that produced this dataset. */
   readonly schemaVersion: string;
   /**
@@ -110,7 +117,7 @@ export interface TransitOperator {
   readonly provenance: TransitProvenance;
 }
 
-/** A normalized stop (station or bus stop). */
+/** A normalized stop (station, bus stop, or platform). */
 export interface TransitStop {
   /**
    * E.g. `odpt:stop:odpt:odpt.Station:TokyoMetro.Ginza.Ueno`
@@ -134,6 +141,8 @@ export interface TransitStop {
   readonly names: Readonly<Record<string, string>>;
   /** Provider station code (e.g. `G-16`), when supplied. Not identity. */
   readonly stationCode: string | null;
+  /** Provider-specific stop semantics, when the source exposes them. */
+  readonly sourceSemantics?: TransitStopSourceSemantics;
   readonly provenance: TransitProvenance;
 }
 
@@ -159,7 +168,10 @@ export interface TransitRoute {
 }
 
 /** Provider-specific route semantics. Extended with a new branch per provider. */
-export type TransitRouteSourceSemantics = OdptRouteSourceSemantics;
+export type TransitRouteSourceSemantics =
+  | OdptRouteSourceSemantics
+  | GtfsRouteSourceSemantics
+  | GtfsJpRouteSourceSemantics;
 
 /**
  * ODPT route semantics retained for later topology/timetable use
@@ -171,13 +183,66 @@ export interface OdptRouteSourceSemantics {
   readonly descendingDirectionId: string | null;
 }
 
+/** Compact evidence retained from one ordered GTFS route pattern. */
+export interface GtfsRoutePatternSourceSemantics {
+  readonly patternId: string;
+  readonly tripIds: readonly string[];
+  readonly serviceIds: readonly string[];
+}
+
+/** Standard GTFS route fields that have no generic normalized equivalent. */
+export interface GtfsRouteSourceSemantics {
+  readonly provider: "gtfs";
+  readonly routeType: number;
+  readonly agencyId: string | null;
+  readonly shortName: string | null;
+  readonly longName: string | null;
+  readonly routeColor: string | null;
+  readonly textColor: string | null;
+  readonly patterns: readonly GtfsRoutePatternSourceSemantics[];
+}
+
+/** GTFS-JP route evidence, including its route update extension. */
+export interface GtfsJpRouteSourceSemantics {
+  readonly provider: "gtfs-jp";
+  readonly routeType: number;
+  readonly agencyId: string | null;
+  readonly shortName: string | null;
+  readonly longName: string | null;
+  readonly routeColor: string | null;
+  readonly textColor: string | null;
+  readonly routeUpdateDate: string | null;
+  readonly patterns: readonly GtfsRoutePatternSourceSemantics[];
+}
+
+/** Provider-specific stop fields needed to preserve GTFS location semantics. */
+export type TransitStopSourceSemantics =
+  GtfsStopSourceSemantics | GtfsJpStopSourceSemantics;
+
+export interface GtfsStopSourceSemantics {
+  readonly provider: "gtfs";
+  readonly locationType: number;
+  readonly parentStation: string | null;
+  readonly platformCode: string | null;
+}
+
+export interface GtfsJpStopSourceSemantics {
+  readonly provider: "gtfs-jp";
+  readonly locationType: number;
+  readonly parentStation: string | null;
+  readonly platformCode: string | null;
+}
+
 /** One ordered membership of a stop in a route. */
 export interface TransitRouteStop {
   readonly routeId: string;
   readonly stopId: string;
+  /** Stable ordered-pattern discriminator for feeds with route variants. */
+  readonly patternId?: string;
   /**
-   * Provider ordering evidence (`odpt:index`). Uniqueness per route is
-   * validated on import; provider order is preserved, never re-sorted.
+   * Canonical ordinal position: ODPT preserves `odpt:index`; GTFS derives it
+   * from `stop_sequence`. GTFS retains raw `stop_sequence` in provenance.
+   * Uniqueness per route and optional pattern is validated on import.
    */
   readonly order: number;
   readonly provenance: TransitProvenance;

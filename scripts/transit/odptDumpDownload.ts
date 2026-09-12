@@ -128,7 +128,7 @@ export interface DumpDownloadOptions {
 }
 
 /**
- * Resource-specific byte caps, REVIEWED against live evidence (2026-09-12
+ * Resource-specific byte caps, REVIEWED against live evidence (2026-09-11
  * four-family audit: Operator 14,195 B / Station 604,110 B / Railway
  * 129,403 B / Calendar 217,469 B). Each cap is an order of magnitude or more
  * above the observed size — generous headroom so ordinary provider growth
@@ -143,7 +143,7 @@ export const DUMP_BYTE_CAPS: Record<DumpResourceType, number> = {
 };
 
 /**
- * Reviewed legitimate final Content-Types (2026-09-12 live audit: every
+ * Reviewed legitimate final Content-Types (2026-09-11 live audit: every
  * family returned `application/json`). `application/octet-stream` was NOT
  * observed and stays rejected until a live probe confirms it.
  */
@@ -158,7 +158,7 @@ export const DUMP_DEFAULT_MAX_REDIRECTS = 3;
  * normal audit/promote follows ONLY these origins. Never a wildcard, never
  * runtime-supplied for normal operation.
  *
- * - https://dataodpt.blob.core.windows.net: observed 2026-09-12 via
+ * - https://dataodpt.blob.core.windows.net: observed 2026-09-11 via
  *   one-request discovery (302 from api.odpt.org, signed-query Location),
  *   explicitly approved in review. Provider-issued query (SAS-style) on the
  *   redirect target is followed exactly; the consumer key is never merged
