@@ -3,7 +3,7 @@
  *
  * The reader inspects ZIP central-directory metadata before inflating anything,
  * never extracts to the repository, rejects unsafe names, and returns only the
- * C1 allow-listed tables. It has no network path by design.
+ * C1/C2 allow-listed tables. It has no network path by design.
  */
 
 import { inflateRawSync } from "node:zlib";
@@ -24,7 +24,12 @@ export const GTFS_REQUIRED_FILES = [
   "stop_times.txt",
 ] as const;
 
-const GTFS_OPTIONAL_FILES = ["feed_info.txt", "routes_jp.txt"] as const;
+const GTFS_OPTIONAL_FILES = [
+  "feed_info.txt",
+  "routes_jp.txt",
+  "calendar.txt",
+  "calendar_dates.txt",
+] as const;
 const GTFS_READ_FILES = new Set<string>([
   ...GTFS_REQUIRED_FILES,
   ...GTFS_OPTIONAL_FILES,
@@ -413,7 +418,7 @@ function validateLimits(limits: GtfsZipLimits): void {
   }
 }
 
-/** Read only safe, allow-listed C1 members from an in-memory ZIP. */
+/** Read only safe, allow-listed C1/C2 members from an in-memory ZIP. */
 export function readBoundedGtfsZip(
   input: Uint8Array | ArrayBuffer,
   suppliedLimits: GtfsZipLimits = DEFAULT_GTFS_ZIP_LIMITS,
@@ -502,7 +507,7 @@ function parseCsv(filename: string, text: string): readonly GtfsTableRow[] {
   }
 }
 
-/** Decode required/optional C1 tables from the reader's allow-listed files. */
+/** Decode required/optional C1/C2 tables from allow-listed files. */
 export function parseGtfsFeed(
   files: ReadonlyMap<string, string>,
 ): GtfsFeedTables {
@@ -522,6 +527,12 @@ export function parseGtfsFeed(
     routes: table("routes.txt"),
     trips: table("trips.txt"),
     stopTimes: table("stop_times.txt"),
+    calendar: files.has("calendar.txt")
+      ? parseCsv("calendar.txt", files.get("calendar.txt") ?? "")
+      : undefined,
+    calendarDates: files.has("calendar_dates.txt")
+      ? parseCsv("calendar_dates.txt", files.get("calendar_dates.txt") ?? "")
+      : undefined,
     feedInfo: files.has("feed_info.txt")
       ? parseCsv("feed_info.txt", files.get("feed_info.txt") ?? "")
       : undefined,

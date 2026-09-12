@@ -9,13 +9,15 @@
 /** One CSV record with raw string values preserved. */
 export type GtfsTableRow = Readonly<Record<string, string>>;
 
-/** Required and C1-allow-listed GTFS/GTFS-JP tables. */
+/** Required and C1/C2-allow-listed GTFS/GTFS-JP tables. */
 export interface GtfsFeedTables {
   readonly agency: readonly GtfsTableRow[];
   readonly stops: readonly GtfsTableRow[];
   readonly routes: readonly GtfsTableRow[];
   readonly trips: readonly GtfsTableRow[];
   readonly stopTimes: readonly GtfsTableRow[];
+  readonly calendar?: readonly GtfsTableRow[];
+  readonly calendarDates?: readonly GtfsTableRow[];
   readonly feedInfo?: readonly GtfsTableRow[];
   readonly routesJp?: readonly GtfsTableRow[];
 }

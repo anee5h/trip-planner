@@ -470,7 +470,8 @@ function classifyPatterns(
     : "multiple_conflicting";
 }
 
-function patternIdFor(
+/** Canonical C1 route-pattern identity shared by later schedule slices. */
+export function gtfsPatternIdFor(
   routeProviderId: string,
   stopIds: readonly string[],
 ): string {
@@ -539,7 +540,8 @@ function sourceSemanticsForRoute(
   return { provider, ...common };
 }
 
-function routeStopsForSemanticHash(
+/** Keep C1 raw stop-time provenance out of topology semantic hashes. */
+export function gtfsRouteStopsForSemanticHash(
   routeStops: readonly TransitRouteStop[],
 ): readonly TransitRouteStop[] {
   return routeStops.map((routeStop) => ({
@@ -883,7 +885,7 @@ export function importGtfsTopology(
       order: index + 1,
     }));
     const stopIds = canonical.map((entry) => entry.stopId);
-    const patternId = patternIdFor(trip.route.providerId, stopIds);
+    const patternId = gtfsPatternIdFor(trip.route.providerId, stopIds);
     const patterns = patternsByRoute.get(trip.route.providerId) ?? [];
     const existing = patterns.find(
       (pattern) => pattern.patternId === patternId,
@@ -1085,7 +1087,7 @@ export function importGtfsTopology(
       operators: normalizedOperators,
       stops: normalizedStops,
       routes: normalizedRoutes,
-      routeStops: routeStopsForSemanticHash(normalizedRouteStops),
+      routeStops: gtfsRouteStopsForSemanticHash(normalizedRouteStops),
       calendars: [],
     }),
   };

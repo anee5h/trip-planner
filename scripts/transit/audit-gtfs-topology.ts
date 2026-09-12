@@ -8,16 +8,14 @@
  * Run with:
  *   npx tsx scripts/transit/audit-gtfs-topology.ts [local-zip-path]
  */
-import { closeSync, fstatSync, openSync, readSync } from "node:fs";
 import { resolve } from "node:path";
 
 import {
-  DEFAULT_GTFS_ZIP_LIMITS,
-  GtfsZipError,
+  listBoundedGtfsZipEntryNames,
   parseGtfsFeed,
   readBoundedGtfsZip,
-  listBoundedGtfsZipEntryNames,
 } from "./gtfsFeedReader";
+import { readBoundedLocalGtfsFile } from "./readBoundedLocalGtfsFile";
 import {
   importGtfsTopology,
   type GtfsImportMetadata,
@@ -30,39 +28,8 @@ export const WAKASA_DATASET_ID = "gtfs-jp-wakasa-bus-20260401_A0001";
 
 const DEFAULT_FEED_PATH = ".cache/transit/gtfs/wakasa-bus/wakasa_bus.zip";
 
-function readBoundedLocalFile(feedPath: string): Uint8Array {
-  const descriptor = openSync(feedPath, "r");
-  try {
-    const size = fstatSync(descriptor).size;
-    if (
-      !Number.isSafeInteger(size) ||
-      size > DEFAULT_GTFS_ZIP_LIMITS.maxCompressedBytes
-    ) {
-      throw new GtfsZipError(
-        "compressed_size_too_large",
-        "local feed is larger than the bounded ZIP input cap.",
-      );
-    }
-    const bytes = Buffer.alloc(size);
-    let offset = 0;
-    while (offset < size) {
-      const count = readSync(descriptor, bytes, offset, size - offset, offset);
-      if (count === 0) {
-        throw new GtfsZipError(
-          "malformed_archive",
-          "local feed changed while being read.",
-        );
-      }
-      offset += count;
-    }
-    return bytes;
-  } finally {
-    closeSync(descriptor);
-  }
-}
-
 export function auditGtfsZip(feedPath: string): Record<string, unknown> {
-  const bytes = readBoundedLocalFile(feedPath);
+  const bytes = readBoundedLocalGtfsFile(feedPath);
   const metadata: GtfsImportMetadata = {
     provider: "gtfs-jp",
     datasetId: WAKASA_DATASET_ID,

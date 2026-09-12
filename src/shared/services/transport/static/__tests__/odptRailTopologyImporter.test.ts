@@ -169,17 +169,24 @@ describe("ODPT rail adapter", () => {
   it("retains calendar identity, kind and raw semantics for later resolution", () => {
     const { graph } = importOdptRailTopology(loadFixture(), METADATA);
     const byId = new Map(graph.calendars.map((c) => [c.providerCalendarId, c]));
-    expect(byId.get("odpt.Calendar:Weekday")?.sourceSemantics.kind).toBe(
-      "base",
-    );
-    expect(
-      byId.get("odpt.Calendar:SaturdayHoliday")?.sourceSemantics.kind,
-    ).toBe("base");
     const specific = byId.get("odpt.Calendar:Specific.FixtureNewYear");
-    expect(specific?.sourceSemantics.kind).toBe("specific");
-    expect(specific?.sourceSemantics.provider).toBe("odpt");
-    expect(specific?.sourceSemantics.duration).toBe("2026-01-01/2026-01-03");
-    expect(specific?.sourceSemantics.day).toEqual(["Holiday"]);
+    const weekdaySemantics = byId.get("odpt.Calendar:Weekday")?.sourceSemantics;
+    const saturdaySemantics = byId.get(
+      "odpt.Calendar:SaturdayHoliday",
+    )?.sourceSemantics;
+    const specificSemantics = specific?.sourceSemantics;
+    if (
+      weekdaySemantics?.provider !== "odpt" ||
+      saturdaySemantics?.provider !== "odpt" ||
+      specificSemantics?.provider !== "odpt"
+    ) {
+      throw new Error("expected ODPT calendar source semantics");
+    }
+    expect(weekdaySemantics.kind).toBe("base");
+    expect(saturdaySemantics.kind).toBe("base");
+    expect(specificSemantics.kind).toBe("specific");
+    expect(specificSemantics.duration).toBe("2026-01-01/2026-01-03");
+    expect(specificSemantics.day).toEqual(["Holiday"]);
   });
 
   it("keeps coordinates from provider evidence and codes as metadata", () => {
