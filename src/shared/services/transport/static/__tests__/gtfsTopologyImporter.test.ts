@@ -324,14 +324,14 @@ describe("GTFS topology adapter", () => {
           trip_id: "t-branch",
           arrival_time: "11:05:00",
           departure_time: "11:05:00",
-          stop_id: "B",
+          stop_id: "C",
           stop_sequence: "2",
         },
         {
           trip_id: "t-branch",
           arrival_time: "11:10:00",
           departure_time: "11:10:00",
-          stop_id: "D",
+          stop_id: "B",
           stop_sequence: "3",
         },
       ],
@@ -380,6 +380,45 @@ describe("GTFS topology adapter", () => {
 });
 
 describe("GTFS validation", () => {
+  it("requires stop_times.stop_id to reference a location_type 0 stop", () => {
+    const valid = importGtfsTopology(loadTables(), METADATA);
+    expect(valid.graph.routeStops).toHaveLength(8);
+    expectImportError(
+      withRows("stopTimes", (rows) =>
+        rows.map((row) =>
+          row.trip_id === "t3" && row.stop_sequence === "2"
+            ? { ...row, stop_id: "D" }
+            : row,
+        ),
+      ),
+      "invalid_stop_time_location",
+    );
+  });
+
+  it("requires every trip to have at least two serviced stops", () => {
+    const twoStops = withRows("stopTimes", (rows) =>
+      rows.map((row) =>
+        row.trip_id === "t3" && row.stop_sequence === "2"
+          ? { ...row, stop_sequence: "23" }
+          : row,
+      ),
+    );
+    expect(importGtfsTopology(twoStops, METADATA).graph.routes).toHaveLength(2);
+
+    expectImportError(
+      withRows("stopTimes", (rows) =>
+        rows.filter((row) => row.trip_id !== "t3"),
+      ),
+      "missing_stop_times",
+    );
+    expectImportError(
+      withRows("stopTimes", (rows) =>
+        rows.filter((row) => row.trip_id !== "t3" || row.stop_sequence === "1"),
+      ),
+      "missing_stop_times",
+    );
+  });
+
   it("maps only explicitly reviewed route types", () => {
     expect(mapGtfsRouteType(0)).toBe("tram");
     expect(mapGtfsRouteType(1)).toBe("rail");
@@ -593,7 +632,7 @@ describe("GTFS semantic hash", () => {
     const changed = withRows("stopTimes", (rows) =>
       rows.map((row) =>
         row.trip_id === "t1" && row.stop_id === "C"
-          ? { ...row, stop_id: "D" }
+          ? { ...row, stop_id: "B" }
           : row,
       ),
     );

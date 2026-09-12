@@ -89,7 +89,9 @@ No arbitrary archive path is written to the repository filesystem.
 
 A normalized `TransitRoute` remains one GTFS `route_id`; `trip_id` is never
 turned into a route. Each trip's `stop_times` rows are validated for resolved
-trip/stop references, integer unique `stop_sequence`, and non-empty topology.
+trip/stop references, a `stop_id` that resolves to `location_type=0`, integer
+unique `stop_sequence`, and at least two serviced stops. Consecutive
+`stop_sequence` values are not required.
 Trips with identical ordered stop IDs share a deterministic pattern ID derived
 from the route ID and ordered stop IDs. Different patterns receive different
 IDs. Pattern evidence retains only compact `tripIds` and `serviceIds` arrays in
@@ -187,8 +189,10 @@ The raw ZIP is local-only and is not tracked.
 
 CI uses only `scripts/transit/__tests__/fixtures/gtfs-c1-fixture.json`, which
 is converted to an in-memory ZIP in tests. It covers two agencies, quoted CSV,
-escaped quotes, BOM, CRLF/LF, a simple route, opposite-direction patterns,
-feed-scoped IDs, same-looking cross-provider identity separation, malformed
-references, duplicate IDs, duplicate stop sequences, coordinates, service ID
+escaped quotes, BOM, CRLF/LF, station/platform/bus-stop semantics with a
+parent station, bus and rail routes, opposite-direction patterns, feed-scoped
+IDs, same-looking cross-provider identity separation, malformed references,
+duplicate IDs, duplicate stop sequences, non-consecutive stop sequences,
+zero/one-stop trips, station-targeting stop_times, coordinates, service ID
 retention, and unsupported route/location values. No test performs a network
 request.

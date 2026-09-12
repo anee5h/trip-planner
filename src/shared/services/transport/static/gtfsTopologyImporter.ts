@@ -48,6 +48,7 @@ export type GtfsImportErrorCode =
   | "unknown_route_reference"
   | "unknown_trip_reference"
   | "unknown_stop_reference"
+  | "invalid_stop_time_location"
   | "invalid_route_type"
   | "invalid_location_type"
   | "unsupported_route_type"
@@ -836,6 +837,11 @@ export function importGtfsTopology(
         "unknown_stop_reference",
         `trip ${tripId} references unknown stop ${stopId}.`,
       );
+    if (locationTypes.get(stopId) !== 0)
+      throw new GtfsImportError(
+        "invalid_stop_time_location",
+        `trip ${tripId} stop_times.stop_id ${stopId} must reference a location_type 0 stop.`,
+      );
     const order = parseInteger(
       required(row, "stop_sequence", "stop_times"),
       `trip ${tripId}.stop_sequence`,
@@ -860,10 +866,10 @@ export function importGtfsTopology(
   const patternsByRoute = new Map<string, PatternInfo[]>();
   for (const trip of trips.values()) {
     const stopTimes = stopTimesByTrip.get(trip.providerId);
-    if (stopTimes === undefined || stopTimes.length === 0) {
+    if (stopTimes === undefined || stopTimes.length < 2) {
       throw new GtfsImportError(
         "missing_stop_times",
-        `trip ${trip.providerId} has no stop_times rows.`,
+        `trip ${trip.providerId} requires at least two stop_times rows.`,
       );
     }
     const ordered = [...stopTimes].sort(

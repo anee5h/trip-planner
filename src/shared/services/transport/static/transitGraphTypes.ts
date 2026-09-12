@@ -240,9 +240,9 @@ export interface TransitRouteStop {
   /** Stable ordered-pattern discriminator for feeds with route variants. */
   readonly patternId?: string;
   /**
-   * Provider ordering evidence (`odpt:index` / GTFS `stop_sequence`).
-   * Uniqueness per route and optional pattern is validated on import; provider
-   * order is preserved, never re-sorted.
+   * Canonical ordinal position: ODPT preserves `odpt:index`; GTFS derives it
+   * from `stop_sequence`. GTFS retains raw `stop_sequence` in provenance.
+   * Uniqueness per route and optional pattern is validated on import.
    */
   readonly order: number;
   readonly provenance: TransitProvenance;
