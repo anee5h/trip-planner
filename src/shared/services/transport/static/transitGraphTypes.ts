@@ -273,8 +273,97 @@ export interface TransitServiceCalendar {
   readonly provenance: TransitProvenance;
 }
 
-/** Provider-specific calendar semantics. Extended per provider later. */
-export type TransitCalendarSourceSemantics = OdptCalendarSourceSemantics;
+/** Provider-specific calendar semantics. */
+export type TransitCalendarSourceSemantics =
+  | OdptCalendarSourceSemantics
+  | GtfsCalendarSourceSemantics
+  | GtfsJpCalendarSourceSemantics;
+
+/** Compact GTFS scheduled-trip evidence retained for later routing. */
+export interface GtfsScheduledServiceSourceSemantics {
+  readonly provider: "gtfs";
+  readonly tripHeadsign: string | null;
+  readonly directionId: string | null;
+  readonly blockId: string | null;
+}
+
+/** Compact GTFS-JP scheduled-trip evidence retained for later routing. */
+export interface GtfsJpScheduledServiceSourceSemantics {
+  readonly provider: "gtfs-jp";
+  readonly tripHeadsign: string | null;
+  readonly directionId: string | null;
+  readonly blockId: string | null;
+}
+
+export type TransitScheduledServiceSourceSemantics =
+  GtfsScheduledServiceSourceSemantics | GtfsJpScheduledServiceSourceSemantics;
+
+interface TransitScheduledServiceBase {
+  readonly id: string;
+  readonly providerServiceId: string;
+  readonly routeId: string;
+  readonly patternId: string;
+  readonly calendarId: string;
+  readonly provenance: TransitProvenance;
+}
+
+/** One normalized GTFS trip linked to C1 route/pattern and a service calendar. */
+export type TransitScheduledService =
+  | (TransitScheduledServiceBase & {
+      readonly provider: "gtfs";
+      readonly sourceSemantics: GtfsScheduledServiceSourceSemantics;
+    })
+  | (TransitScheduledServiceBase & {
+      readonly provider: "gtfs-jp";
+      readonly sourceSemantics: GtfsJpScheduledServiceSourceSemantics;
+    });
+
+/** Provider-specific source facts retained for one scheduled stop event. */
+export interface GtfsScheduledStopTimeSourceSemantics {
+  readonly provider: "gtfs";
+  readonly rawArrivalTime: string | null;
+  readonly rawDepartureTime: string | null;
+  readonly rawStopSequence: number;
+  readonly pickupType: string | null;
+  readonly dropOffType: string | null;
+  readonly timepoint: 0 | 1 | null;
+}
+
+export interface GtfsJpScheduledStopTimeSourceSemantics {
+  readonly provider: "gtfs-jp";
+  readonly rawArrivalTime: string | null;
+  readonly rawDepartureTime: string | null;
+  readonly rawStopSequence: number;
+  readonly pickupType: string | null;
+  readonly dropOffType: string | null;
+  readonly timepoint: 0 | 1 | null;
+}
+
+export type TransitScheduledStopTimeSourceSemantics =
+  GtfsScheduledStopTimeSourceSemantics | GtfsJpScheduledStopTimeSourceSemantics;
+
+interface TransitScheduledStopTimeBase {
+  readonly serviceId: string;
+  readonly stopId: string;
+  readonly patternId: string;
+  readonly order: number;
+  readonly provenance: TransitProvenance;
+}
+
+/** One normalized scheduled stop fact; no interpolation is implied. */
+export type TransitScheduledStopTime =
+  | (TransitScheduledStopTimeBase & {
+      readonly provider: "gtfs";
+      readonly arrivalServiceSeconds: number | null;
+      readonly departureServiceSeconds: number | null;
+      readonly sourceSemantics: GtfsScheduledStopTimeSourceSemantics;
+    })
+  | (TransitScheduledStopTimeBase & {
+      readonly provider: "gtfs-jp";
+      readonly arrivalServiceSeconds: number | null;
+      readonly departureServiceSeconds: number | null;
+      readonly sourceSemantics: GtfsJpScheduledStopTimeSourceSemantics;
+    });
 
 /**
  * ODPT calendar semantics: base/specific kind plus raw `odpt:day` /
@@ -285,6 +374,39 @@ export interface OdptCalendarSourceSemantics {
   readonly kind: "base" | "specific";
   readonly day: readonly string[];
   readonly duration: string | null;
+}
+
+/** One GTFS weekly service calendar, represented in canonical GTFS date form. */
+export interface GtfsCalendarBase {
+  readonly monday: 0 | 1;
+  readonly tuesday: 0 | 1;
+  readonly wednesday: 0 | 1;
+  readonly thursday: 0 | 1;
+  readonly friday: 0 | 1;
+  readonly saturday: 0 | 1;
+  readonly sunday: 0 | 1;
+  readonly startDate: string;
+  readonly endDate: string;
+}
+
+/** One explicit GTFS calendar exception. */
+export interface GtfsCalendarException {
+  readonly date: string;
+  readonly exceptionType: "added" | "removed";
+}
+
+/** GTFS calendar semantics; deliberately distinct from ODPT precedence rules. */
+export interface GtfsCalendarSourceSemantics {
+  readonly provider: "gtfs";
+  readonly base: GtfsCalendarBase | null;
+  readonly exceptions: readonly GtfsCalendarException[];
+}
+
+/** GTFS-JP calendar semantics; deliberately distinct from ODPT precedence rules. */
+export interface GtfsJpCalendarSourceSemantics {
+  readonly provider: "gtfs-jp";
+  readonly base: GtfsCalendarBase | null;
+  readonly exceptions: readonly GtfsCalendarException[];
 }
 
 /** A provider-defined transfer. B1 imports none; the container is reserved. */
@@ -317,6 +439,10 @@ export interface NormalizedTransitGraph {
   /** Ordered route memberships; provider order preserved per route. */
   readonly routeStops: readonly TransitRouteStop[];
   readonly calendars: readonly TransitServiceCalendar[];
+  /** Optional C2 scheduled trips; absent on pre-C2 ODPT/C1 graphs. */
+  readonly scheduledServices?: readonly TransitScheduledService[];
+  /** Optional C2 scheduled stop facts; absent on pre-C2 ODPT/C1 graphs. */
+  readonly scheduledStopTimes?: readonly TransitScheduledStopTime[];
   /** Reserved: provider-defined transfers only (never proximity-inferred). */
   readonly transfers: readonly TransitTransfer[];
   /** Reserved: fare metadata (KAI-291D). Unknown-safe, never defaulted. */

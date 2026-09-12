@@ -26,6 +26,7 @@
     "check:bundle-budget": "node scripts/check-bundle-budget.mjs",
     "audit:catalog-integrity": "tsx scripts/audit-catalog-integrity.ts",
     "audit:gtfs-topology": "tsx scripts/transit/audit-gtfs-topology.ts",
+    "audit:gtfs-schedule": "tsx scripts/transit/audit-gtfs-schedule.ts",
     "audit:wikipedia": "tsx scripts/audit-wikipedia-mappings.ts",
     "migrate:wikipedia-legacy": "tsx scripts/migrate-wikipedia-legacy-provenance.ts",
     "enrich:wikipedia-unmapped": "tsx scripts/enrich-wikipedia-unmapped.ts",

@@ -11,8 +11,14 @@
 import type {
   NormalizedTransitGraph,
   TransitRoute,
+  TransitScheduledService,
+  TransitScheduledStopTime,
   TransitStop,
 } from "./transitGraphTypes";
+import {
+  isGtfsServiceActiveOnDate,
+  type GtfsServiceDateEvaluation,
+} from "./gtfsScheduleImporter";
 
 /** Stop by internal id (`provider:stop:namespace:providerId`), or null. */
 export function getStop(
@@ -109,4 +115,63 @@ export function shareStaticRouteMembership(
     (membership) =>
       membership.stopId === stopBId && routesA.has(membership.routeId),
   );
+}
+
+/** Scheduled service by normalized service id, or null. */
+export function getScheduledService(
+  graph: NormalizedTransitGraph,
+  serviceId: string,
+): TransitScheduledService | null {
+  return (
+    graph.scheduledServices?.find((service) => service.id === serviceId) ?? null
+  );
+}
+
+/** Scheduled stop facts for one service, in canonical pattern order. */
+export function getScheduledStopTimesForService(
+  graph: NormalizedTransitGraph,
+  serviceId: string,
+): TransitScheduledStopTime[] {
+  return (graph.scheduledStopTimes ?? [])
+    .filter((stopTime) => stopTime.serviceId === serviceId)
+    .sort(
+      (a, b) =>
+        a.order - b.order ||
+        (a.stopId < b.stopId ? -1 : a.stopId > b.stopId ? 1 : 0),
+    );
+}
+
+/** Evaluate one scheduled service's GTFS calendar on a strict service date. */
+export function isScheduledServiceActiveOnDate(
+  graph: NormalizedTransitGraph,
+  serviceId: string,
+  date: string,
+): GtfsServiceDateEvaluation | null {
+  const service = getScheduledService(graph, serviceId);
+  if (service === null) return null;
+  const calendar =
+    graph.calendars.find((candidate) => candidate.id === service.calendarId) ??
+    null;
+  if (calendar === null) return null;
+  return isGtfsServiceActiveOnDate(calendar, date);
+}
+
+/** Services active on one route pattern and date; no route search is performed. */
+export function getActiveScheduledServicesForRoutePattern(
+  graph: NormalizedTransitGraph,
+  routeId: string,
+  patternId: string,
+  date: string,
+): TransitScheduledService[] {
+  return (graph.scheduledServices ?? [])
+    .filter(
+      (service) =>
+        service.routeId === routeId && service.patternId === patternId,
+    )
+    .filter(
+      (service) =>
+        isScheduledServiceActiveOnDate(graph, service.id, date)?.active ===
+        true,
+    )
+    .sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 }

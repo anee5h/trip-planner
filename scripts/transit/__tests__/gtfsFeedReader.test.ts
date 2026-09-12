@@ -136,6 +136,22 @@ describe("bounded GTFS ZIP reader", () => {
     ]);
   });
 
+  it("reads optional calendar schedule members without widening the required families", () => {
+    const files = readBoundedGtfsZip(
+      fixtureZip({
+        "calendar.txt":
+          "service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date\nweekday,1,1,1,1,1,0,0,20260401,20260430\n",
+        "calendar_dates.txt":
+          "service_id,date,exception_type\nweekday,20260402,2\n",
+      }),
+    );
+    const tables = parseGtfsFeed(files);
+    expect(tables.calendar).toHaveLength(1);
+    expect(tables.calendarDates).toEqual([
+      { service_id: "weekday", date: "20260402", exception_type: "2" },
+    ]);
+  });
+
   it("fails when a required file is missing", () => {
     const entries = Object.entries(FIXTURE).filter(
       ([name]) => name !== "agency.txt",
