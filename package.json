@@ -25,6 +25,7 @@
     "validate-all": "tsx scripts/validate-all.ts",
     "check:bundle-budget": "node scripts/check-bundle-budget.mjs",
     "audit:catalog-integrity": "tsx scripts/audit-catalog-integrity.ts",
+    "audit:gtfs-topology": "tsx scripts/transit/audit-gtfs-topology.ts",
     "audit:wikipedia": "tsx scripts/audit-wikipedia-mappings.ts",
     "migrate:wikipedia-legacy": "tsx scripts/migrate-wikipedia-legacy-provenance.ts",
     "enrich:wikipedia-unmapped": "tsx scripts/enrich-wikipedia-unmapped.ts",
@@ -159,8 +160,8 @@
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.63.0",
     "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/leaflet": "^1.9.22",
     "@types/node": "^26.4.1",
@@ -170,6 +171,7 @@
     "allure-commandline": "^2.43.0",
     "allure-playwright": "^3.12.0",
     "autoprefixer": "^10.5.5",
+    "csv-parse": "^7.0.2",
     "husky": "^9.1.7",
     "jsdom": "^30.0.1",
     "lint-staged": "^17.5.0",

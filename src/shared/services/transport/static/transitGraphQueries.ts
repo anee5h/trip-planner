@@ -31,16 +31,39 @@ export function getRoute(
 }
 
 /**
- * Stops of a route in provider order. Empty when the route is unknown or
- * carries no ordered memberships.
+ * Stops of a route in provider order. A route with multiple provider patterns
+ * returns no flattened answer; callers must select a pattern explicitly.
  */
 export function getOrderedStopsForRoute(
   graph: NormalizedTransitGraph,
   routeId: string,
 ): TransitStop[] {
+  const patterns = new Set(
+    graph.routeStops
+      .filter((membership) => membership.routeId === routeId)
+      .map((membership) => membership.patternId ?? ""),
+  );
+  if (patterns.size !== 1) return [];
+  return getOrderedStopsForRoutePattern(graph, routeId, [...patterns][0] ?? "");
+}
+
+/** Stops of one explicitly selected ordered route pattern. */
+export function getOrderedStopsForRoutePattern(
+  graph: NormalizedTransitGraph,
+  routeId: string,
+  patternId: string,
+): TransitStop[] {
   const memberships = graph.routeStops
-    .filter((membership) => membership.routeId === routeId)
-    .sort((a, b) => a.order - b.order);
+    .filter(
+      (membership) =>
+        membership.routeId === routeId &&
+        (membership.patternId ?? "") === patternId,
+    )
+    .sort(
+      (a, b) =>
+        a.order - b.order ||
+        (a.stopId < b.stopId ? -1 : a.stopId > b.stopId ? 1 : 0),
+    );
   const byId = new Map(graph.stops.map((stop) => [stop.id, stop]));
   const out: TransitStop[] = [];
   for (const membership of memberships) {
