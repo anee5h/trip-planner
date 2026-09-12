@@ -17,7 +17,9 @@ import {
   buildSnapshotManifest,
   compareCandidate,
   decidePromotion,
+  decidePromoteOutcome,
   DumpPipelineError,
+  executePromoteOutcome,
   extractPilotScope,
   freshnessStatus,
   licenceAllowsLocalSnapshot,
@@ -32,6 +34,7 @@ import {
   snapshotIdFor,
   validateDumpFamily,
 } from "../odptDumpPipeline";
+import { resolveStoreDir } from "../refresh-odpt-static";
 
 let storeCounter = 0;
 function mkStore(): string {
@@ -415,6 +418,115 @@ describe("last-known-good promotion", () => {
 });
 
 describe("continuity, comparison, freshness, licence", () => {
+  it("contains output dirs separator-safely inside .cache only", () => {
+    // Allowed: .cache itself and true descendants.
+    expect(resolveStoreDir(".cache")).toContain(`.cache`);
+    expect(resolveStoreDir(".cache/transit/odpt")).toContain(
+      `.cache${"/"}transit`,
+    );
+    // Rejected: prefix-sibling names the gitignore does NOT cover.
+    for (const dir of [".cache-live", ".cache2", ".cache-odpt"]) {
+      expect(() => resolveStoreDir(dir)).toThrow(/tracked tree/);
+    }
+    // Rejected: other tracked in-repo dirs.
+    expect(() => resolveStoreDir("scripts")).toThrow(/tracked tree/);
+    expect(() => resolveStoreDir(".")).toThrow(/tracked tree/);
+  });
+
+  it("keeps the default store git-ignored", () => {
+    const root = join(
+      dirname(fileURLToPath(import.meta.url)),
+      "..",
+      "..",
+      "..",
+    );
+    const gitignore = readFileSync(join(root, ".gitignore"), "utf8");
+    expect(
+      gitignore
+        .split("\n")
+        .map((line) => line.trim())
+        .includes(".cache/"),
+    ).toBe(true);
+  });
+
+  it("A. no-op + promote_local keeps snapshot and advances lastCheckedAt", () => {
+    expect(
+      decidePromoteOutcome({
+        promotionDecision: "promote_local",
+        semanticUnchanged: true,
+      }),
+    ).toBe("record_check");
+    const store = mkStore();
+    try {
+      const graph = candidateGraph();
+      promoteToLastKnownGood({
+        storeDir: store,
+        snapshotId: "odpt-test-snap1",
+        graph,
+        manifest: candidateManifest(graph),
+        promotedAt: "2026-09-01T00:00:00.000Z",
+      });
+      const graphBefore = readBytes(
+        `${store}/snapshots/odpt-test-snap1.graph.json`,
+      );
+      const pointer = executePromoteOutcome({
+        storeDir: store,
+        outcome: "record_check",
+        refuseReason: "unused",
+        snapshotId: "odpt-test-snap1",
+        graph,
+        manifest: candidateManifest(graph),
+        promotedAt: "2026-09-01T00:00:00.000Z",
+        checkedAt: "2026-09-05T00:00:00.000Z",
+      });
+      expect(pointer.snapshotId).toBe("odpt-test-snap1");
+      expect(pointer.lastCheckedAt).toBe("2026-09-05T00:00:00.000Z");
+      expect(readBytes(`${store}/snapshots/odpt-test-snap1.graph.json`)).toBe(
+        graphBefore,
+      );
+    } finally {
+      rmStore(store);
+    }
+  });
+
+  it("B/C. no-op + requires_review/reject leaves the pointer byte-identical", () => {
+    for (const promotionDecision of ["requires_review", "reject"] as const) {
+      expect(
+        decidePromoteOutcome({ promotionDecision, semanticUnchanged: true }),
+      ).toBe("refuse");
+      const store = mkStore();
+      try {
+        const graph = candidateGraph();
+        promoteToLastKnownGood({
+          storeDir: store,
+          snapshotId: "odpt-test-snap1",
+          graph,
+          manifest: candidateManifest(graph),
+          promotedAt: "2026-09-01T00:00:00.000Z",
+        });
+        const pointerBefore = readBytes(`${store}/last-known-good.json`);
+        expect(() =>
+          executePromoteOutcome({
+            storeDir: store,
+            outcome: "refuse",
+            refuseReason: `${promotionDecision}: simulated gate failure`,
+            snapshotId: "odpt-test-other",
+            graph,
+            manifest: candidateManifest(graph),
+            promotedAt: "2026-09-05T00:00:00.000Z",
+            checkedAt: "2026-09-05T00:00:00.000Z",
+          }),
+        ).toThrow(/LKG untouched/);
+        // Pointer byte-identical: lastCheckedAt NOT advanced past the refusal.
+        expect(readBytes(`${store}/last-known-good.json`)).toBe(pointerBefore);
+        expect(readLastKnownGood(store)?.pointer.lastCheckedAt).toBe(
+          "2026-09-01T00:00:00.000Z",
+        );
+      } finally {
+        rmStore(store);
+      }
+    }
+  });
   it("requires both exact pilot operators, never a third party", () => {
     const graphWith = (...operators: string[]) =>
       ({

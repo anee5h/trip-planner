@@ -2,8 +2,7 @@
  * KAI-291B2 — ODPT static dump refresh CLI (maintenance only).
  *
  *   npx tsx scripts/transit/refresh-odpt-static.ts [--audit] [--promote]
- *     [--offline-fixture] [--output-dir <dir>]
- *     [--approve-redirect-origin <origin>]...
+ *     [--offline-fixture] [--discover-redirect-origin] [--output-dir <dir>]
  *
  * Default is AUDIT / DRY RUN: downloads, validates, normalizes and reports
  * without touching last-known-good. `--promote` additionally promotes a
@@ -19,7 +18,7 @@
  */
 
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname, isAbsolute, join, resolve } from "node:path";
+import { dirname, isAbsolute, join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import {
@@ -38,7 +37,9 @@ import {
   buildSnapshotManifest,
   compareCandidate,
   decidePromotion,
+  decidePromoteOutcome,
   DumpPipelineError,
+  executePromoteOutcome,
   extractPilotScope,
   freshnessStatus,
   LKG_STAGING_DIRNAME,
@@ -46,9 +47,7 @@ import {
   missingAnchorIdentities,
   missingRequiredPilotOperators,
   normalizePilotExtraction,
-  promoteToLastKnownGood,
   readLastKnownGood,
-  recordSuccessfulCheck,
   snapshotIdFor,
   validateDumpFamily,
   type LicenseStatus,
@@ -136,7 +135,7 @@ function parseArgs(argv: string[]): CliOptions {
 }
 
 /** Refuses tracked in-repo output dirs: live data must stay ignored. */
-function resolveStoreDir(outputDir: string): string {
+export function resolveStoreDir(outputDir: string): string {
   const resolved = isAbsolute(outputDir)
     ? outputDir
     : resolve(process.cwd(), outputDir);
@@ -146,7 +145,11 @@ function resolveStoreDir(outputDir: string): string {
     relative.startsWith(`${REPO_ROOT}/`) ||
     relative.startsWith(`${REPO_ROOT}\\`)
   ) {
-    if (!relative.startsWith(join(REPO_ROOT, ".cache"))) {
+    // Separator-aware containment: only .cache itself or a true descendant
+    // qualifies — sibling names like .cache-live or .cache2 must not pass
+    // merely by sharing a string prefix (.gitignore covers .cache/ only).
+    const cacheRoot = join(REPO_ROOT, ".cache");
+    if (relative !== cacheRoot && !relative.startsWith(cacheRoot + sep)) {
       throw new Error(
         `refusing output dir inside the tracked tree: ${resolved} ` +
           `(live ODPT data must stay in ignored storage such as .cache/).`,
@@ -328,34 +331,36 @@ async function run(options: CliOptions): Promise<void> {
   writeFileSync(stagingPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
 
   if (options.promote) {
-    if (semanticUnchanged) {
-      // The graph is untouched, but the successful check is recorded: the
-      // operational LKG freshness reads the pointer's lastCheckedAt.
-      const pointer = recordSuccessfulCheck({ storeDir, checkedAt: nowIso });
-      process.stdout.write(
-        `semantic unchanged vs LKG (${graph.datasetVersion.contentHash}); ` +
-          `graph retained, lastCheckedAt=${pointer.lastCheckedAt}.\n`,
-      );
-    } else if (decision.decision !== "promote_local") {
-      throw new DumpPipelineError(
-        "promotion_refused",
-        `promotion refused (${decision.decision}): ${decision.reasons.join("; ")}. LKG untouched.`,
-      );
-    } else {
-      const pointer = promoteToLastKnownGood({
-        storeDir,
-        snapshotId,
-        graph,
-        manifest: {
-          ...manifest,
-          promotion: { status: "promoted_local", reason: promotionReason },
-        },
-        promotedAt: nowIso,
-      });
-      process.stdout.write(
-        `promoted local LKG ${pointer.snapshotId} (${pointer.contentHash}).\n`,
-      );
-    }
+    // Current gates run FIRST: semantic equivalence never overrides a
+    // requires_review/reject decision, so a stale-but-unchanged graph cannot
+    // advance freshness past a policy failure. The pointer (including
+    // lastCheckedAt) is untouched on refusal.
+    const outcome = decidePromoteOutcome({
+      promotionDecision: decision.decision,
+      semanticUnchanged,
+    });
+    const pointer = executePromoteOutcome({
+      storeDir,
+      outcome,
+      refuseReason: `${decision.decision}: ${decision.reasons.join("; ")}`,
+      snapshotId,
+      graph,
+      manifest:
+        outcome === "promote_new"
+          ? {
+              ...manifest,
+              promotion: { status: "promoted_local", reason: promotionReason },
+            }
+          : manifest,
+      promotedAt: nowIso,
+      checkedAt: nowIso,
+    });
+    process.stdout.write(
+      outcome === "record_check"
+        ? `semantic unchanged vs LKG (${graph.datasetVersion.contentHash}); ` +
+            `graph retained, lastCheckedAt=${pointer.lastCheckedAt}.\n`
+        : `promoted local LKG ${pointer.snapshotId} (${pointer.contentHash}).\n`,
+    );
   }
 
   const operational = readLastKnownGood(storeDir);

@@ -633,6 +633,54 @@ export function recordSuccessfulCheck(input: {
   return pointer;
 }
 
+/**
+ * Which filesystem effect a --promote run performs. The CURRENT gate
+ * decision leads: refuse on anything but promote_local, so semantic
+ * equivalence can never override a requires_review/reject.
+ */
+export function decidePromoteOutcome(input: {
+  readonly promotionDecision: "promote_local" | "requires_review" | "reject";
+  readonly semanticUnchanged: boolean;
+}): "refuse" | "record_check" | "promote_new" {
+  if (input.promotionDecision !== "promote_local") return "refuse";
+  return input.semanticUnchanged ? "record_check" : "promote_new";
+}
+
+/**
+ * Executes one promote outcome against the store. Refuse throws WITHOUT
+ * touching the pointer (lastCheckedAt included); record_check advances only
+ * lastCheckedAt; promote_new swaps in the candidate snapshot.
+ */
+export function executePromoteOutcome(input: {
+  readonly storeDir: string;
+  readonly outcome: "refuse" | "record_check" | "promote_new";
+  readonly refuseReason: string;
+  readonly snapshotId: string;
+  readonly graph: NormalizedTransitGraph;
+  readonly manifest: SnapshotManifest;
+  readonly promotedAt: string;
+  readonly checkedAt: string;
+}): LastKnownGoodPointer {
+  if (input.outcome === "refuse") {
+    throw new DumpPipelineError(
+      "promotion_refused",
+      `promotion refused: ${input.refuseReason}. LKG untouched.`,
+    );
+  }
+  if (input.outcome === "record_check") {
+    return recordSuccessfulCheck({
+      storeDir: input.storeDir,
+      checkedAt: input.checkedAt,
+    });
+  }
+  return promoteToLastKnownGood({
+    storeDir: input.storeDir,
+    snapshotId: input.snapshotId,
+    graph: input.graph,
+    manifest: input.manifest,
+    promotedAt: input.promotedAt,
+  });
+}
 /** Reads the LKG pointer and snapshot, or null when no LKG exists yet. */
 export function readLastKnownGood(storeDir: string): {
   readonly pointer: LastKnownGoodPointer;
