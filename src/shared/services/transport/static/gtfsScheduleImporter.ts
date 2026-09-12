@@ -425,6 +425,7 @@ function parseAndValidateTripTimes(
     const arrivalSeconds = parseGtfsServiceTime(rawArrival ?? "");
     const departureSeconds = parseGtfsServiceTime(rawDeparture ?? "");
     const timepoint = parseTimepoint(row, tripId);
+    const effectiveTimepoint = timepoint ?? 1;
     if (
       (index === 0 || index === ordered.length - 1) &&
       arrivalSeconds === null
@@ -435,7 +436,7 @@ function parseAndValidateTripTimes(
       );
     }
     if (
-      timepoint === 1 &&
+      effectiveTimepoint === 1 &&
       (arrivalSeconds === null || departureSeconds === null)
     ) {
       throw new GtfsScheduleImportError(

@@ -146,6 +146,7 @@ describe("GTFS schedule/calendar importer", () => {
       rawStopSequence: 1,
       timepoint: null,
     });
+    expect(t1Times[0]?.sourceSemantics.timepoint).toBeNull();
     const t4 = serviceByProviderId(result, "t4");
     expect(
       getScheduledStopTimesForService(result.graph, t4.id).map(
@@ -305,7 +306,12 @@ describe("GTFS schedule/calendar importer", () => {
     const tables = withRows("stopTimes", (rows) =>
       rows.map((row) =>
         row.trip_id === "t1" && row.stop_sequence === "2"
-          ? { ...row, arrival_time: "", departure_time: "" }
+          ? {
+              ...row,
+              arrival_time: "",
+              departure_time: "",
+              timepoint: "0",
+            }
           : row,
       ),
     );
@@ -314,6 +320,7 @@ describe("GTFS schedule/calendar importer", () => {
     const middle = getScheduledStopTimesForService(result.graph, t1.id)[1];
     expect(middle?.arrivalServiceSeconds).toBeNull();
     expect(middle?.departureServiceSeconds).toBeNull();
+    expect(middle?.sourceSemantics.timepoint).toBe(0);
     expect(
       result.coverage.entries.find(
         (entry) => entry.operator === "a1" && entry.mode === "bus",
@@ -324,6 +331,19 @@ describe("GTFS schedule/calendar importer", () => {
         (entry) => entry.operator === "a2" && entry.mode === "rail",
       )?.timetable,
     ).toBe("imported");
+  });
+
+  it("treats blank timepoint as exact while preserving null source evidence", () => {
+    expectScheduleError(
+      withRows("stopTimes", (rows) =>
+        rows.map((row) =>
+          row.trip_id === "t1" && row.stop_sequence === "2"
+            ? { ...row, arrival_time: "", departure_time: "", timepoint: "" }
+            : row,
+        ),
+      ),
+      "missing_required_time",
+    );
   });
 
   it("rejects unknown services and topology-pattern divergence", () => {

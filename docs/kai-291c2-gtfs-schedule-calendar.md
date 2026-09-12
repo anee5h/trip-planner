@@ -164,6 +164,9 @@ For each trip, C2 validates known times in canonical stop order:
 `timepoint=0` is retained as a provider fact. It does not authorize C2 to
 interpolate a missing value.
 
+A blank GTFS `timepoint` is preserved as `null` source evidence but is treated
+as exact for schedule validation, following GTFS's default semantics.
+
 This is intentionally different from ODPT chronology. GTFS explicitly encodes
 post-midnight service-day values above 24 hours; the ODPT 23-to-00 chronology
 rule is not reused.
