@@ -797,6 +797,7 @@ export function contentHashOf(entities: {
   readonly calendars: readonly TransitServiceCalendar[];
   readonly scheduledServices?: NormalizedTransitGraph["scheduledServices"];
   readonly scheduledStopTimes?: NormalizedTransitGraph["scheduledStopTimes"];
+  readonly transfers?: NormalizedTransitGraph["transfers"];
 }): string {
   const semanticProvenance = (provenance: TransitProvenance) => ({
     provider: provenance.provider,
@@ -823,6 +824,9 @@ export function contentHashOf(entities: {
       ...(entities.scheduledStopTimes === undefined
         ? {}
         : { scheduledStopTimes: entities.scheduledStopTimes.map(semantic) }),
+      ...(entities.transfers === undefined
+        ? {}
+        : { transfers: entities.transfers.map(semantic) }),
     }),
   );
 }

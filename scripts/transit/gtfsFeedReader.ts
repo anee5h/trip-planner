@@ -29,6 +29,7 @@ const GTFS_OPTIONAL_FILES = [
   "routes_jp.txt",
   "calendar.txt",
   "calendar_dates.txt",
+  "transfers.txt",
 ] as const;
 const GTFS_READ_FILES = new Set<string>([
   ...GTFS_REQUIRED_FILES,
@@ -538,6 +539,9 @@ export function parseGtfsFeed(
       : undefined,
     routesJp: files.has("routes_jp.txt")
       ? parseCsv("routes_jp.txt", files.get("routes_jp.txt") ?? "")
+      : undefined,
+    transfers: files.has("transfers.txt")
+      ? parseCsv("transfers.txt", files.get("transfers.txt") ?? "")
       : undefined,
   };
 }

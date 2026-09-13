@@ -20,4 +20,5 @@ export interface GtfsFeedTables {
   readonly calendarDates?: readonly GtfsTableRow[];
   readonly feedInfo?: readonly GtfsTableRow[];
   readonly routesJp?: readonly GtfsTableRow[];
+  readonly transfers?: readonly GtfsTableRow[];
 }

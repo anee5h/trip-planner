@@ -152,6 +152,28 @@ describe("bounded GTFS ZIP reader", () => {
     ]);
   });
 
+  it("reads optional transfer evidence and leaves it absent when the file is absent", () => {
+    const withTransfers = parseGtfsFeed(
+      readBoundedGtfsZip(
+        fixtureZip({
+          "transfers.txt":
+            "from_stop_id,to_stop_id,transfer_type,min_transfer_time\ns1,s1,2,90\n",
+        }),
+      ),
+    );
+    expect(withTransfers.transfers).toEqual([
+      {
+        from_stop_id: "s1",
+        to_stop_id: "s1",
+        transfer_type: "2",
+        min_transfer_time: "90",
+      },
+    ]);
+    expect(parseGtfsFeed(readBoundedGtfsZip(fixtureZip())).transfers).toBe(
+      undefined,
+    );
+  });
+
   it("fails when a required file is missing", () => {
     const entries = Object.entries(FIXTURE).filter(
       ([name]) => name !== "agency.txt",
