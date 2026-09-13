@@ -1,28 +1,39 @@
-# KAI-292C4A — real Meguruto corridor identity audit
+# KAI-292C4A — real corridor identity audit
 
 ## Result
 
 **Blocked: no real Meguruto origin → destination scheduled-transit corridor is
-currently evidenced.** This slice preserves the blocker and does not promote the
-Sakata pilot as product coverage.
+currently evidenced.** The audit is data-driven and still returns the concrete
+blocker: current C2 crosswalk entries are the two non-catalogue Sakata pilot
+identities, while the C4A identity-evidence file contains no reviewed product
+origin identity.
 
-The deterministic audit is:
+Run the deterministic audit with:
 
 ```bash
 npm run audit:kai-292c4a
 ```
 
-It reads the canonical catalogue, the registered deployable normalized-transit
-assets, and the explicit endpoint crosswalk. It performs no network calls and
-never uses display names, coordinates, nearest-stop selection, parent-station
-matching, route membership, or fuzzy matching.
+It reads:
 
-## Audited evidence
+- `src/shared/data/destinations-index.json` for stable catalogue destination IDs;
+- `src/shared/data/scheduled-transit-endpoint-crosswalk.json` for explicit exact
+  endpoint mappings;
+- `qa/kai-292c4a/real-corridor-identity-evidence.json` for reviewed product
+  origin identities; and
+- the registered normalized dataset descriptors and their assets.
+
+The audit does not infer an identity from a display name, coordinates, nearest
+stop, parent station, route membership, or fuzzy match. `realCorridors` is a
+computed `RealCorridor[]`, not a permanently empty type.
+
+## Current evidence
 
 | Evidence | Observed result |
 | --- | --- |
-| Canonical catalogue (`src/shared/data/destinations-index.json`) | 1,130 records; 1,130 unique stable destination IDs |
+| Canonical catalogue | 1,130 records; 1,130 unique stable destination IDs |
 | Explicit catalogue destination crosswalk entries | 0 |
+| Reviewed product origin identities | 0 |
 | Registered normalized scheduled-transit datasets | 1: `sakata-runrunbus` |
 | Valid registered normalized assets | 1: `public/data/transit/sakata-runrunbus.json` |
 | Sakata normalized graph | 252 stops, 6 routes, 49 scheduled services, 1,961 scheduled stop-time facts |
@@ -30,56 +41,85 @@ matching, route membership, or fuzzy matching.
 | Crosswalk entries | 2, both non-catalogue boundary-pilot product IDs |
 | Real corridors returned | 0 |
 
-The two existing crosswalk entries are deliberately retained as C2 boundary
-proof:
+The existing crosswalk entries remain C2 boundary proof only:
 
 - `kai-292c2-pilot-origin-sakata-100-01` → GTFS `100_01`;
 - `kai-292c2-pilot-destination-sakata-17-01` → GTFS `17_01`.
 
-Neither product ID is a current catalogue destination ID. The valid Sakata graph
-therefore proves normalized scheduled-transit data exists, but it does not prove
-that a Meguruto catalogue destination or current user origin has been mapped to
-that graph.
+Their IDs are deliberately not Meguruto product identities. The valid Sakata
+artifact proves that normalized scheduled-transit data exists; it does not
+prove a current Meguruto origin or catalogue destination corridor.
+
+## Candidate acceptance contract
+
+For every candidate pair, the audit requires all of the following:
+
+1. a reviewed, stable product origin identity (`identityKind: "product"`,
+   `identityStability: "stable_product_id"`, and `reviewStatus: "reviewed"`) in
+   `real-corridor-identity-evidence.json`;
+2. a destination mapping whose exact `productId` is present in the current
+   catalogue;
+3. exactly one explicit exact mapping for each endpoint;
+4. the same registered dataset ID, provider, and identity namespace on both
+   mappings;
+5. a valid registered asset whose graph stop, canonical normalized ID, stop
+   provenance, provider, dataset, and namespace all agree with both mappings;
+6. imported timetable coverage with scheduled services and stop-time facts; and
+7. at least one shared scheduled service containing both mapped stops.
+
+A candidate that fails any gate is reported in `candidateBlockers` and is not
+returned in `realCorridors`. Unregistered assets, invalid registered assets,
+wrong provider/dataset/namespace, ambiguous mappings, graph/provenance errors,
+and missing or non-shared timetable coverage remain blocked.
+
+Future reviewed data can change the result by adding an origin identity to the
+identity-evidence file and adding exact origin/destination mappings to the
+crosswalk. The audit logic does not need to change. Sakata pilot IDs must remain
+non-product identities; they must not be relabelled as catalogue coverage.
+
+## KAI-291A reviewed anchors
+
+The audit reports the seven reviewed TokyoMetro/Toei geographic anchors from
+`qa/kai-291/destination-station-anchors.json` as:
+
+| Destination | Reviewed station identity | Operator |
+| --- | --- | --- |
+| `shinjuku-gyo-en` | `odpt.Station:TokyoMetro.Marunouchi.ShinjukuGyoemmae` | TokyoMetro |
+| `teamlab-borderless-azabudai` | `odpt.Station:TokyoMetro.Hibiya.Kamiyacho` | TokyoMetro |
+| `ueno-park` | `odpt.Station:TokyoMetro.Ginza.Ueno` | TokyoMetro |
+| `hamarikyu-gardens` | `odpt.Station:Toei.Oedo.Shiodome` | Toei |
+| `sumida-hokusai-museum` | `odpt.Station:Toei.Oedo.Ryogoku` | Toei |
+| `ryogoku-kokugikan-sumo-museum` | `odpt.Station:Toei.Oedo.Ryogoku` | Toei |
+| `sugamo-jizo-dori` | `odpt.Station:Toei.Mita.Sugamo` | Toei |
+
+These are reviewed geographic station candidates, not C2 production crosswalks.
+They are therefore marked `reviewed_insufficient_for_corridor`, with
+`productionCrosswalk: false`. They do **not** prove station-to-POI access, so
+`stationToPoiAccess` remains `unproven`. No anchor is promoted into
+`realCorridors` without the C4A identity, exact mapping, registered dataset,
+graph/provenance, and timetable gates above.
 
 ## Concrete blockers
 
-1. **`missing_catalogue_destination_crosswalk`** — no exact crosswalk maps any of
-   the 1,130 catalogue destination IDs to a normalized stop.
-2. **`missing_canonical_origin_identity`** — the current origin flow in
-   `src/shared/components/StationInput.tsx` stores a station label and
-   coordinates. It does not expose a canonical Meguruto product identity or an
-   exact normalized scheduled-transit stop ID.
-3. **`pilot_only_normalized_evidence`** — the only valid registered normalized
-   asset is the bounded Sakata RunRunBus pilot, and its two crosswalk product IDs
-   are explicitly non-catalogue pilot identities.
-
-A future corridor slice must first add reviewed, explicit endpoint identities: a
-real catalogue destination product ID and a canonical origin product identity,
-then map both to the same exact dataset/provider/identity namespace and provider
-stop IDs. It must retain source evidence for each mapping. No route, duration,
-feasibility, recommendation, planner, UI, or temporal-policy integration belongs
-in that prerequisite.
-
-## Identity safety proof
-
-The focused C4A tests cover:
-
-- the actual catalogue audit result and all three blockers;
-- a real catalogue ID remaining `unmapped` when no explicit crosswalk exists,
-  even though catalogue records have display and coordinate fields;
-- wrong dataset, provider, and identity namespace remaining unmapped;
-- unknown mappings remaining unmapped;
-- conflicting explicit mappings returning `ambiguous` rather than selecting one;
-- no name, coordinate, nearest, or fuzzy fallback path.
-
-The existing endpoint resolver validates the exact loaded dataset/provider/
-identity namespace and the normalized stop's provider provenance before returning
-`resolved`. C4A does not weaken that boundary or alter the Sakata crosswalk.
-
-## Validation
-
-- `npm run audit:kai-292c4a` — passes; reports the blocked result above.
-- `npx vitest run scripts/transit/__tests__/kai-292c4a-real-corridor.test.ts --no-file-parallelism --maxWorkers=1` — 6 tests passed.
+1. **`missing_catalogue_destination_crosswalk`** — no exact crosswalk maps any
+   current catalogue destination ID to a normalized stop.
+2. **`missing_canonical_origin_identity`** — the current origin evidence has no
+   reviewed canonical product identity; the origin flow's station label and
+   coordinates are not identity evidence.
+3. **`pilot_only_normalized_evidence`** — the only valid registered asset is the
+   bounded Sakata RunRunBus pilot, whose crosswalk product IDs are explicitly
+   non-catalogue pilot identities.
 
 This is an identity prerequisite/blocker result, not a claim of real Sakata
 product coverage.
+
+## Validation surface
+
+The focused tests cover:
+
+- the current blocker and non-product Sakata pilot treatment;
+- synthetic future valid-candidate discovery by changing only data files;
+- wrong dataset, provider, and identity namespace rejection;
+- missing shared scheduled-timetable rejection;
+- reporting of all seven KAI-291A anchors as insufficient evidence; and
+- no name, coordinate, nearest, or geographic-anchor fallback.
