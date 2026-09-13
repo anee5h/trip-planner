@@ -121,7 +121,7 @@ export type ScheduledJourneyRouteResult =
       readonly notes: readonly string[];
     };
 
-interface IndexedGraph {
+export interface IndexedGraph {
   readonly stops: ReadonlyMap<string, TransitStop>;
   readonly operators: ReadonlyMap<string, TransitOperator>;
   readonly routes: ReadonlyMap<string, TransitRoute>;
@@ -134,7 +134,7 @@ interface IndexedGraph {
   readonly serviceIdsByStop: ReadonlyMap<string, ReadonlySet<string>>;
 }
 
-interface ValidatedService {
+export interface ValidatedService {
   readonly service: TransitScheduledService;
   readonly calendar: TransitServiceCalendar;
   readonly calendarEvaluation: GtfsServiceDateEvaluation;
@@ -145,7 +145,7 @@ interface ValidatedService {
   readonly routeName: string | null;
 }
 
-interface ValidPair {
+export interface ValidPair {
   readonly origin: TransitScheduledStopTime;
   readonly destination: TransitScheduledStopTime;
   readonly departureSeconds: number;
@@ -155,7 +155,7 @@ interface ValidPair {
   readonly alightingRequiresArrangement: boolean;
 }
 
-type EndpointRequirement =
+export type EndpointRequirement =
   "regular" | "prohibited" | "requires_arrangement" | "unsupported";
 
 type CandidateOutcome =
@@ -189,7 +189,7 @@ function inconclusive(
   return { kind: "inconclusive", reason, notes };
 }
 
-function mapMode(mode: TransitRouteMode): TransportMode | null {
+export function mapMode(mode: TransitRouteMode): TransportMode | null {
   switch (mode) {
     case "rail":
       return "train";
@@ -202,7 +202,7 @@ function mapMode(mode: TransitRouteMode): TransportMode | null {
   }
 }
 
-function routeName(route: TransitRoute): string | null {
+export function routeName(route: TransitRoute): string | null {
   const semantics = route.sourceSemantics;
   if ("shortName" in semantics && semantics.shortName !== null) {
     return semantics.shortName;
@@ -223,7 +223,7 @@ function stopName(stop: TransitStop): string | undefined {
   return name || undefined;
 }
 
-function stopEndpoint(stop: TransitStop): JourneyEndpoint {
+export function stopEndpoint(stop: TransitStop): JourneyEndpoint {
   const name = stopName(stop);
   return {
     kind: "station",
@@ -234,14 +234,14 @@ function stopEndpoint(stop: TransitStop): JourneyEndpoint {
   };
 }
 
-function formatServiceSeconds(seconds: number): string {
+export function formatServiceSeconds(seconds: number): string {
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds % 3600) / 60);
   const remainder = seconds % 60;
   return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(remainder).padStart(2, "0")}`;
 }
 
-function unknownSafeCost(): Journey["legs"][number]["cost"] {
+export function unknownSafeCost(): Journey["legs"][number]["cost"] {
   return {
     currency: "JPY",
     representation: null,
@@ -266,7 +266,7 @@ function indexUnique<T>(
   return result;
 }
 
-function buildIndex(graph: NormalizedTransitGraph): IndexedGraph | null {
+export function buildIndex(graph: NormalizedTransitGraph): IndexedGraph | null {
   const stops = indexUnique(graph.stops, (stop) => stop.id);
   const operators = indexUnique(graph.operators, (operator) => operator.id);
   const routes = indexUnique(graph.routes, (route) => route.id);
@@ -340,7 +340,7 @@ function datasetCoverageReason(
   return null;
 }
 
-function coverageReason(
+export function coverageReason(
   graph: NormalizedTransitGraph,
   coverage: TransitCoverageReport | undefined,
   route: TransitRoute,
@@ -410,7 +410,7 @@ function coverageReason(
   return null;
 }
 
-function endpointRequirement(
+export function endpointRequirement(
   value: string | null | undefined,
 ): EndpointRequirement {
   if (value === null || value === "0") return "regular";
@@ -517,7 +517,7 @@ function validateFacts(
   return samePattern ? null : "broken_graph_reference";
 }
 
-function validateService(
+export function validateService(
   graph: NormalizedTransitGraph,
   index: IndexedGraph,
   service: TransitScheduledService,
@@ -583,7 +583,7 @@ function validateService(
   };
 }
 
-function directPair(
+export function directPair(
   candidate: ValidatedService,
   originStopId: string,
   destinationStopId: string,

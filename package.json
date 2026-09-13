@@ -29,6 +29,7 @@
     "audit:gtfs-schedule": "tsx scripts/transit/audit-gtfs-schedule.ts",
     "audit:gtfs-transfers": "tsx scripts/transit/audit-gtfs-transfers.ts",
     "audit:kai-292a": "tsx scripts/transit/audit-kai-292a-direct-journeys.ts",
+    "audit:kai-292b": "tsx scripts/transit/audit-kai-292b-sakata.ts",
     "audit:wikipedia": "tsx scripts/audit-wikipedia-mappings.ts",
     "migrate:wikipedia-legacy": "tsx scripts/migrate-wikipedia-legacy-provenance.ts",
     "enrich:wikipedia-unmapped": "tsx scripts/enrich-wikipedia-unmapped.ts",
