@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mappings": [
+    {
+      "mappingId": "kai-292c2-pilot-origin-sakata-100-01",
+      "endpoint": {
+        "kind": "origin",
+        "productId": "kai-292c2-pilot-origin-sakata-100-01"
+      },
+      "datasetId": "gtfs-jp-sakata-runrunbus-20260401",
+      "provider": "gtfs",
+      "identityNamespace": "gtfs:sakata-runrunbus",
+      "providerStopId": "100_01",
+      "normalizedStopId": "gtfs:stop:gtfs%3Asakata-runrunbus:100_01",
+      "provenance": {
+        "kind": "explicit_crosswalk",
+        "evidenceId": "kai-292c2-sakata-stops-100-01",
+        "statement": "The bounded C2 pilot endpoint is explicitly assigned to the exact provider stop_id 100_01 in the Sakata feed; no name, coordinate, or proximity inference is used.",
+        "sourceUrl": "https://www.city.sakata.lg.jp/shisei/opendata/opendata_busu.html",
+        "checkedAt": "2026-09-13T00:00:00.000Z"
+      }
+    },
+    {
+      "mappingId": "kai-292c2-pilot-destination-sakata-17-01",
+      "endpoint": {
+        "kind": "destination",
+        "productId": "kai-292c2-pilot-destination-sakata-17-01"
+      },
+      "datasetId": "gtfs-jp-sakata-runrunbus-20260401",
+      "provider": "gtfs",
+      "identityNamespace": "gtfs:sakata-runrunbus",
+      "providerStopId": "17_01",
+      "normalizedStopId": "gtfs:stop:gtfs%3Asakata-runrunbus:17_01",
+      "provenance": {
+        "kind": "explicit_crosswalk",
+        "evidenceId": "kai-292c2-sakata-stops-17-01",
+        "statement": "The bounded C2 pilot endpoint is explicitly assigned to the exact provider stop_id 17_01 in the Sakata feed; no name, coordinate, or proximity inference is used.",
+        "sourceUrl": "https://www.city.sakata.lg.jp/shisei/opendata/opendata_busu.html",
+        "checkedAt": "2026-09-13T00:00:00.000Z"
+      }
+    }
+  ]
+}
