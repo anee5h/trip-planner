@@ -142,6 +142,150 @@ describe("product-neutral transport duration evidence", () => {
     expect(result.journey.legs[0]?.cost).toBe(unknownCost);
   });
 
+  it("accepts a scheduled Journey only when its provenance and every leg are verified", () => {
+    const journey = scheduledJourney();
+    const result = getTransportDurationEvidence({
+      scheduledJourney: {
+        journey,
+        transferCount: 1,
+        schedule: schedule(86_400 + 300, 86_400 + 5_700),
+        totalDurationSeconds: 5_400,
+      },
+    });
+
+    expect(result.kind).toBe("scheduled_journey");
+    if (result.kind !== "scheduled_journey") return;
+
+    expect(result.evidence).toBe("verified");
+    expect(result.provenance.duration).toBe("verified");
+    expect(
+      result.journey.legs.every(
+        ({ duration }) => duration.evidence === "verified",
+      ),
+    ).toBe(true);
+  });
+
+  it("rejects estimated Journey provenance as scheduled duration evidence", () => {
+    const journey: Journey = {
+      ...scheduledJourney(),
+      provenance: {
+        ...scheduledJourney().provenance,
+        duration: "estimated",
+      },
+    };
+    const result = getTransportDurationEvidence({
+      scheduledJourney: {
+        journey,
+        transferCount: 1,
+        schedule: schedule(86_400 + 300, 86_400 + 5_700),
+        totalDurationSeconds: 5_400,
+      },
+    });
+
+    expect(result).toEqual({
+      kind: "unknown",
+      evidence: "unknown",
+      reason: "invalid_scheduled_journey",
+      scheduledRejection: {
+        kind: "scheduled_rejection",
+        reason: "unverified_scheduled_duration",
+      },
+    });
+  });
+
+  it("rejects a Journey with an estimated leg as scheduled duration evidence", () => {
+    const journey = scheduledJourney();
+    const estimatedLeg: JourneyLeg = {
+      ...journey.legs[1]!,
+      duration: {
+        ...journey.legs[1]!.duration,
+        evidence: "estimated",
+      },
+    };
+    const journeyWithEstimatedLeg: Journey = {
+      ...journey,
+      legs: [journey.legs[0]!, estimatedLeg],
+    };
+    const result = getTransportDurationEvidence({
+      scheduledJourney: {
+        journey: journeyWithEstimatedLeg,
+        transferCount: 1,
+        schedule: schedule(86_400 + 300, 86_400 + 5_700),
+        totalDurationSeconds: 5_400,
+      },
+    });
+
+    expect(result).toMatchObject({
+      kind: "unknown",
+      evidence: "unknown",
+      reason: "invalid_scheduled_journey",
+      scheduledRejection: {
+        kind: "scheduled_rejection",
+        reason: "unverified_scheduled_duration",
+      },
+    });
+  });
+
+  it("returns usable legacy evidence with a scheduled rejection marker", () => {
+    const journey: Journey = {
+      ...scheduledJourney(),
+      provenance: {
+        ...scheduledJourney().provenance,
+        duration: "estimated",
+      },
+    };
+    const estimate = legacyEstimate();
+    const result = getTransportDurationEvidence({
+      scheduledJourney: {
+        journey,
+        transferCount: 1,
+        schedule: schedule(86_400 + 300, 86_400 + 5_700),
+        totalDurationSeconds: 5_400,
+      },
+      legacyEstimate: estimate,
+    });
+
+    expect(result).toMatchObject({
+      kind: "legacy_estimate",
+      estimate,
+      scheduledRejection: {
+        kind: "scheduled_rejection",
+        reason: "unverified_scheduled_duration",
+      },
+    });
+    if (result.kind !== "legacy_estimate") return;
+    expect(result.estimate).toBe(estimate);
+  });
+
+  it("returns explicit unknown evidence when rejected scheduled evidence has no usable legacy fallback", () => {
+    const journey: Journey = {
+      ...scheduledJourney(),
+      provenance: {
+        ...scheduledJourney().provenance,
+        duration: "estimated",
+      },
+    };
+    const result = getTransportDurationEvidence({
+      scheduledJourney: {
+        journey,
+        transferCount: 1,
+        schedule: schedule(86_400 + 300, 86_400 + 5_700),
+        totalDurationSeconds: 5_400,
+      },
+      legacyEstimate: legacyEstimate({ evidence: "unknown" }),
+    });
+
+    expect(result).toEqual({
+      kind: "unknown",
+      evidence: "unknown",
+      reason: "invalid_scheduled_journey",
+      scheduledRejection: {
+        kind: "scheduled_rejection",
+        reason: "unverified_scheduled_duration",
+      },
+    });
+  });
+
   it("preserves a one-transfer Journey, all legs, exact duration, and unknown fare", () => {
     const journey = scheduledJourney();
     const scheduledSchedule = schedule(86_400 + 300, 86_400 + 5_700);

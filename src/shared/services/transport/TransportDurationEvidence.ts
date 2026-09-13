@@ -22,6 +22,7 @@ export interface ScheduledJourneySchedule {
 
 export type ScheduledJourneyRejectionReason =
   | "invalid_journey"
+  | "unverified_scheduled_duration"
   | "invalid_transfer_count"
   | "missing_schedule"
   | "invalid_service_date"
@@ -59,7 +60,7 @@ export interface TransportDurationEvidenceInput {
 export interface ScheduledTransportDurationEvidence {
   readonly kind: "scheduled_journey";
   readonly source: "scheduled_journey";
-  readonly evidence: Exclude<JourneyEvidence, "unknown">;
+  readonly evidence: "verified";
   readonly journey: Journey;
   readonly transferCount: number;
   readonly schedule: ScheduledJourneySchedule;
@@ -125,23 +126,28 @@ function scheduledRejectionReason(
     journeyValue.legs.length === 0 ||
     journeyValue.availability !== "available" ||
     journeyValue.completeness !== "complete" ||
-    !isRecord(journeyValue.provenance) ||
-    (journeyValue.provenance.duration !== "verified" &&
-      journeyValue.provenance.duration !== "estimated")
+    !isRecord(journeyValue.provenance)
   ) {
     return "invalid_journey";
   }
-  if (
-    journeyValue.legs.some(
-      (leg) =>
-        !isRecord(leg) ||
-        leg.availability !== "available" ||
-        !isRecord(leg.duration) ||
-        (leg.duration.evidence !== "verified" &&
-          leg.duration.evidence !== "estimated"),
-    )
-  ) {
-    return "invalid_journey";
+  if (journeyValue.provenance.duration !== "verified") {
+    return journeyValue.provenance.duration === "estimated"
+      ? "unverified_scheduled_duration"
+      : "invalid_journey";
+  }
+  for (const leg of journeyValue.legs) {
+    if (
+      !isRecord(leg) ||
+      leg.availability !== "available" ||
+      !isRecord(leg.duration)
+    ) {
+      return "invalid_journey";
+    }
+    if (leg.duration.evidence !== "verified") {
+      return leg.duration.evidence === "estimated"
+        ? "unverified_scheduled_duration"
+        : "invalid_journey";
+    }
   }
   if (
     !Number.isSafeInteger(candidate.transferCount) ||
@@ -216,9 +222,9 @@ function toScheduledEvidence(
   input: ScheduledJourneyDurationInput,
 ): ScheduledTransportDurationEvidence {
   const evidence = input.journey.provenance.duration;
-  if (evidence === "unknown") {
+  if (evidence !== "verified") {
     throw new Error(
-      "Cannot build scheduled evidence without duration evidence",
+      "Cannot build scheduled evidence without verified duration evidence",
     );
   }
   const minutes = input.totalDurationSeconds / 60;
