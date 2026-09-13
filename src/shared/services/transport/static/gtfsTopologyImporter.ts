@@ -240,7 +240,8 @@ function ensureFamilies(input: GtfsFeedTables): void {
   }
   if (
     (input.feedInfo !== undefined && !Array.isArray(input.feedInfo)) ||
-    (input.routesJp !== undefined && !Array.isArray(input.routesJp))
+    (input.routesJp !== undefined && !Array.isArray(input.routesJp)) ||
+    (input.transfers !== undefined && !Array.isArray(input.transfers))
   ) {
     throw new GtfsImportError(
       "missing_family",

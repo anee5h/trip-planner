@@ -14,6 +14,7 @@ import type {
   TransitScheduledService,
   TransitScheduledStopTime,
   TransitStop,
+  TransitTransfer,
 } from "./transitGraphTypes";
 import {
   isGtfsServiceActiveOnDate,
@@ -114,6 +115,195 @@ export function shareStaticRouteMembership(
   return graph.routeStops.some(
     (membership) =>
       membership.stopId === stopBId && routesA.has(membership.routeId),
+  );
+}
+
+function isStationStop(stop: TransitStop): boolean {
+  const semantics = stop.sourceSemantics;
+  return semantics !== undefined && semantics.locationType === 1
+    ? true
+    : stop.stopType === "station";
+}
+
+/** Apply the GTFS station rule to its exact normalized child stops. */
+function transferStopMatches(
+  graph: NormalizedTransitGraph,
+  ruleStopId: string | null,
+  queryStopId: string,
+): boolean {
+  // A linked-trip rule may omit its stop fields in current GTFS. That is
+  // retained as evidence, but it cannot be safely matched to an arbitrary
+  // caller-supplied stop pair without a later endpoint-resolution policy.
+  if (ruleStopId === null) return false;
+  if (ruleStopId === queryStopId) return true;
+  const ruleStop = getStop(graph, ruleStopId);
+  const queryStop = getStop(graph, queryStopId);
+  if (ruleStop === null || queryStop === null) return false;
+  if (
+    ruleStop.provider !== queryStop.provider ||
+    ruleStop.provenance.identityNamespace !==
+      queryStop.provenance.identityNamespace
+  ) {
+    return false;
+  }
+  const querySemantics = queryStop.sourceSemantics;
+  return (
+    isStationStop(ruleStop) &&
+    querySemantics !== undefined &&
+    querySemantics.locationType === 0 &&
+    querySemantics.parentStation === ruleStop.providerStopId
+  );
+}
+
+function transferIdOrder(a: TransitTransfer, b: TransitTransfer): number {
+  return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+}
+
+/** Transfer evidence whose origin scope includes one exact normalized stop. */
+export function getTransfersFromStop(
+  graph: NormalizedTransitGraph,
+  stopId: string,
+): TransitTransfer[] {
+  return graph.transfers
+    .filter(
+      (transfer) =>
+        transfer.fromStopId !== null &&
+        transferStopMatches(graph, transfer.fromStopId, stopId),
+    )
+    .sort(transferIdOrder);
+}
+
+/** All explicit rules whose stop scopes include this ordered stop pair. */
+export function getTransfersBetweenStops(
+  graph: NormalizedTransitGraph,
+  fromStopId: string,
+  toStopId: string,
+): TransitTransfer[] {
+  return graph.transfers
+    .filter(
+      (transfer) =>
+        transfer.fromStopId !== null &&
+        transfer.toStopId !== null &&
+        transferStopMatches(graph, transfer.fromStopId, fromStopId) &&
+        transferStopMatches(graph, transfer.toStopId, toStopId),
+    )
+    .sort(transferIdOrder);
+}
+
+export interface TransitTransferApplicabilityQuery {
+  readonly fromStopId: string;
+  readonly toStopId: string;
+  readonly incomingRouteId?: string;
+  readonly outgoingRouteId?: string;
+  readonly incomingServiceId?: string;
+  readonly outgoingServiceId?: string;
+}
+
+function transferSpecificity(transfer: TransitTransfer): number {
+  const fromTrip = transfer.fromServiceId !== null;
+  const toTrip = transfer.toServiceId !== null;
+  const fromRoute = transfer.fromRouteId !== null;
+  const toRoute = transfer.toRouteId !== null;
+  if (fromTrip && toTrip) return 6;
+  if ((fromTrip && toRoute) || (fromRoute && toTrip)) return 5;
+  if (fromTrip || toTrip) return 4;
+  if (fromRoute && toRoute) return 3;
+  if (fromRoute || toRoute) return 2;
+  return 1;
+}
+
+function transferSideApplies(
+  scopedServiceId: string | null,
+  scopedRouteId: string | null,
+  queryServiceId: string | undefined,
+  queryRouteId: string | undefined,
+): boolean {
+  if (scopedServiceId !== null) {
+    return (
+      queryServiceId === scopedServiceId &&
+      (scopedRouteId === null ||
+        queryRouteId === undefined ||
+        queryRouteId === scopedRouteId)
+    );
+  }
+  if (scopedRouteId !== null) return queryRouteId === scopedRouteId;
+  return true;
+}
+
+function applicabilityQueryIsKnown(
+  graph: NormalizedTransitGraph,
+  serviceId: string | undefined,
+  routeId: string | undefined,
+): boolean {
+  if (serviceId !== undefined) {
+    const service = getScheduledService(graph, serviceId);
+    if (service === null) return false;
+    return routeId === undefined || service.routeId === routeId;
+  }
+  return routeId === undefined || getRoute(graph, routeId) !== null;
+}
+
+/**
+ * Return the GTFS-maximal applicable rules for one incoming/outgoing pair.
+ * More than one result is deliberately preserved when the feed contains an
+ * equally specific tie; callers must treat that as ambiguous/fail closed.
+ */
+export function getApplicableTransfers(
+  graph: NormalizedTransitGraph,
+  query: TransitTransferApplicabilityQuery,
+): TransitTransfer[] {
+  if (
+    !applicabilityQueryIsKnown(
+      graph,
+      query.incomingServiceId,
+      query.incomingRouteId,
+    ) ||
+    !applicabilityQueryIsKnown(
+      graph,
+      query.outgoingServiceId,
+      query.outgoingRouteId,
+    )
+  ) {
+    return [];
+  }
+  const incomingService =
+    query.incomingServiceId === undefined
+      ? null
+      : getScheduledService(graph, query.incomingServiceId);
+  const outgoingService =
+    query.outgoingServiceId === undefined
+      ? null
+      : getScheduledService(graph, query.outgoingServiceId);
+  const incomingRouteId = query.incomingRouteId ?? incomingService?.routeId;
+  const outgoingRouteId = query.outgoingRouteId ?? outgoingService?.routeId;
+  const applicable = graph.transfers
+    .filter(
+      (transfer) =>
+        transferStopMatches(graph, transfer.fromStopId, query.fromStopId) &&
+        transferStopMatches(graph, transfer.toStopId, query.toStopId) &&
+        transferSideApplies(
+          transfer.fromServiceId,
+          transfer.fromRouteId,
+          query.incomingServiceId,
+          incomingRouteId,
+        ) &&
+        transferSideApplies(
+          transfer.toServiceId,
+          transfer.toRouteId,
+          query.outgoingServiceId,
+          outgoingRouteId,
+        ),
+    )
+    .sort(
+      (a, b) =>
+        transferSpecificity(b) - transferSpecificity(a) ||
+        transferIdOrder(a, b),
+    );
+  const maximum = applicable[0];
+  if (maximum === undefined) return [];
+  const specificity = transferSpecificity(maximum);
+  return applicable.filter(
+    (transfer) => transferSpecificity(transfer) === specificity,
   );
 }
 

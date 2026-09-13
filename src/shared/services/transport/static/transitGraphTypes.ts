@@ -409,14 +409,56 @@ export interface GtfsJpCalendarSourceSemantics {
   readonly exceptions: readonly GtfsCalendarException[];
 }
 
-/** A provider-defined transfer. B1 imports none; the container is reserved. */
-export interface TransitTransfer {
-  readonly id: string;
-  readonly provider: TransitProvider;
-  readonly fromStopId: string;
-  readonly toStopId: string;
-  readonly provenance: TransitProvenance;
+/** Current GTFS `transfers.txt` transfer_type values. */
+export type GtfsTransferType = 0 | 1 | 2 | 3 | 4 | 5;
+
+/** GTFS transfer semantics retained without translating the provider rule. */
+export interface GtfsTransferSourceSemantics {
+  readonly provider: "gtfs";
+  readonly transferType: GtfsTransferType;
 }
+
+/** GTFS-JP transfer semantics retained in its own provider branch. */
+export interface GtfsJpTransferSourceSemantics {
+  readonly provider: "gtfs-jp";
+  readonly transferType: GtfsTransferType;
+}
+
+export type TransitTransferSourceSemantics =
+  GtfsTransferSourceSemantics | GtfsJpTransferSourceSemantics;
+
+/** One normalized GTFS/GTFS-JP transfer rule; B1 still imports none. */
+export type TransitTransfer =
+  | {
+      readonly id: string;
+      readonly provider: "gtfs";
+      /** Null only when the current GTFS linked-trip form omits the stop. */
+      readonly fromStopId: string | null;
+      readonly toStopId: string | null;
+      readonly fromRouteId: string | null;
+      readonly toRouteId: string | null;
+      readonly fromServiceId: string | null;
+      readonly toServiceId: string | null;
+      /** Null means the provider supplied no exact minimum. */
+      readonly minimumTransferSeconds: number | null;
+      readonly sourceSemantics: GtfsTransferSourceSemantics;
+      readonly provenance: TransitProvenance;
+    }
+  | {
+      readonly id: string;
+      readonly provider: "gtfs-jp";
+      /** Null only when the current GTFS linked-trip form omits the stop. */
+      readonly fromStopId: string | null;
+      readonly toStopId: string | null;
+      readonly fromRouteId: string | null;
+      readonly toRouteId: string | null;
+      readonly fromServiceId: string | null;
+      readonly toServiceId: string | null;
+      /** Null means the provider supplied no exact minimum. */
+      readonly minimumTransferSeconds: number | null;
+      readonly sourceSemantics: GtfsJpTransferSourceSemantics;
+      readonly provenance: TransitProvenance;
+    };
 
 /**
  * Fare metadata. Unknown stays unknown: a missing fare is null, NEVER 0.
@@ -476,6 +518,8 @@ export interface TransitCoverageEntry {
   readonly mode: TransitRouteMode;
   readonly topology: TransitCoverageState;
   readonly timetable: TransitCoverageState;
+  /** Optional so B1/C1/C2 serialized coverage stays byte-compatible. */
+  readonly transfers?: TransitCoverageState;
   readonly fare: TransitCoverageState;
   readonly realtime: TransitCoverageState;
   readonly datasetId: string;

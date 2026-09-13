@@ -17,7 +17,7 @@ import type { TransitProvider } from "./transitGraphTypes";
 
 /** Entity kinds with normalized identities. */
 export type TransitEntityKind =
-  "operator" | "stop" | "route" | "calendar" | "scheduled_service";
+  "operator" | "stop" | "route" | "calendar" | "scheduled_service" | "transfer";
 
 /**
  * Builds one normalized internal id from provider + kind + stable identity
