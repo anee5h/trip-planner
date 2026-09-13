@@ -64,13 +64,20 @@ For every candidate pair, the audit requires all of the following:
    mappings;
 5. a valid registered asset whose graph stop, canonical normalized ID, stop
    provenance, provider, dataset, and namespace all agree with both mappings;
-6. imported timetable coverage with scheduled services and stop-time facts; and
-7. at least one shared scheduled service containing both mapped stops.
+6. imported topology/timetable coverage with scheduled services and stop-time
+   facts; and
+7. direct or exactly-one-transfer supported scheduled corridor topology. A
+   transfer path requires one sufficient, exact, unambiguous, trusted explicit
+   transfer rule from the normalized graph.
 
 A candidate that fails any gate is reported in `candidateBlockers` and is not
 returned in `realCorridors`. Unregistered assets, invalid registered assets,
 wrong provider/dataset/namespace, ambiguous mappings, graph/provenance errors,
-and missing or non-shared timetable coverage remain blocked.
+missing timetable coverage, two-transfer-only structures, and inconclusive,
+ambiguous, or untrusted transfer evidence remain blocked. The structural result
+does not construct or claim a runtime `Journey`: C4A has no authoritative
+service date or departure time, so runtime verification remains
+`not_evaluated`.
 
 Future reviewed data can change the result by adding an origin identity to the
 identity-evidence file and adding exact origin/destination mappings to the
@@ -120,6 +127,8 @@ The focused tests cover:
 - the current blocker and non-product Sakata pilot treatment;
 - synthetic future valid-candidate discovery by changing only data files;
 - wrong dataset, provider, and identity namespace rejection;
-- missing shared scheduled-timetable rejection;
+- direct, exactly-one-transfer, two-transfer-only, and transfer-evidence
+  coverage decisions;
+- missing direct or exactly-one-transfer scheduled-support rejection;
 - reporting of all seven KAI-291A anchors as insufficient evidence; and
 - no name, coordinate, nearest, or geographic-anchor fallback.

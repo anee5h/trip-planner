@@ -4,7 +4,8 @@
  * This is an identity audit, not a route finder. It reads explicit identity
  * evidence, the current catalogue/crosswalk, and registered normalized assets.
  * A corridor is returned only when both endpoint mappings resolve into the
- * same registered dataset scope and share usable scheduled timetable coverage.
+ * same registered dataset scope and have direct or exactly-one-transfer
+ * supported scheduled corridor coverage.
  * Names, coordinates, nearest-stop rules, and fuzzy matching are deliberately
  * outside the audit.
  */
@@ -23,11 +24,21 @@ import {
   type ScheduledTransitDataset,
 } from "../../src/shared/services/transport/static/scheduledTransitDataset";
 import {
+  buildIndex,
+  type IndexedGraph,
+} from "../../src/shared/services/transport/static/scheduledJourneyRouter";
+import {
   SCHEDULED_TRANSIT_DATASETS,
   type ScheduledTransitDatasetDescriptor,
   type ScheduledTransitDatasetKey,
 } from "../../src/shared/services/transport/static/scheduledTransitDatasetRegistry";
-import type { TransitProvider } from "../../src/shared/services/transport/static/transitGraphTypes";
+import { resolveApplicableTransfers } from "../../src/shared/services/transport/static/transitGraphQueries";
+import type {
+  TransitProvider,
+  TransitScheduledService,
+  TransitScheduledStopTime,
+  TransitTransfer,
+} from "../../src/shared/services/transport/static/transitGraphTypes";
 
 const CATALOGUE_RELATIVE_PATH = "src/shared/data/destinations-index.json";
 const CROSSWALK_RELATIVE_PATH =
@@ -38,7 +49,7 @@ const REVIEWED_ANCHORS_RELATIVE_PATH =
   "qa/kai-291/destination-station-anchors.json";
 const TRANSIT_ASSET_RELATIVE_PATH = "public/data/transit";
 
-export const REAL_CORRIDOR_AUDIT_SCHEMA_VERSION = "kai-292c4a-v2";
+export const REAL_CORRIDOR_AUDIT_SCHEMA_VERSION = "kai-292c4a-v3";
 
 export type RealCorridorAuditStatus =
   "blocked_no_real_catalogue_corridor" | "real_corridor_evidenced";
@@ -52,6 +63,39 @@ export type RealCorridorCandidateBlockerCode =
   | "invalid_registered_dataset"
   | "graph_stop_provenance_invalid"
   | "missing_scheduled_timetable";
+
+export type ScheduledRoutingCoverageBlockReason =
+  | "missing_scheduled_timetable"
+  | "no_direct_or_one_transfer_supported_topology"
+  | "transfer_evidence_missing"
+  | "transfer_evidence_ambiguous"
+  | "transfer_evidence_inconclusive"
+  | "transfer_evidence_untrusted"
+  | "broken_graph_reference";
+
+export interface ScheduledRoutingCoverageSupport {
+  readonly kind: "supported";
+  readonly topology: "direct" | "exactly_one_transfer";
+  readonly transferCount: 0 | 1;
+  readonly scheduledServiceCount: number;
+  readonly scheduledStopTimeCount: number;
+  readonly directServiceIds: readonly string[];
+  readonly transfer?: {
+    readonly fromStopId: string;
+    readonly toStopId: string;
+    readonly firstServiceId: string;
+    readonly secondServiceId: string;
+    readonly ruleId: string;
+    readonly transferType: number;
+  };
+}
+
+export type ScheduledRoutingCoverageResult =
+  | ScheduledRoutingCoverageSupport
+  | {
+      readonly kind: "blocked";
+      readonly reason: ScheduledRoutingCoverageBlockReason;
+    };
 
 export interface RealCorridorBlocker {
   readonly code:
@@ -68,6 +112,7 @@ export interface RealCorridorCandidateBlocker {
   readonly destinationProductId: string;
   readonly mappingIds: readonly string[];
   readonly statement: string;
+  readonly scheduledRoutingReason?: ScheduledRoutingCoverageBlockReason;
 }
 
 export interface RealCorridor {
@@ -92,7 +137,11 @@ export interface RealCorridor {
   readonly timetable: {
     readonly scheduledServiceCount: number;
     readonly scheduledStopTimeCount: number;
-    readonly commonServiceCount: number;
+  };
+  readonly scheduledRouting: ScheduledRoutingCoverageSupport;
+  readonly runtimeVerification: {
+    readonly status: "not_evaluated";
+    readonly reason: "no_authoritative_service_date_or_departure_time";
   };
 }
 
@@ -441,6 +490,7 @@ function candidateBlocker(
   destinationProductId: string,
   mappings: readonly ScheduledTransitCrosswalkEntry[],
   statement: string,
+  scheduledRoutingReason?: ScheduledRoutingCoverageBlockReason,
 ): RealCorridorCandidateBlocker {
   return {
     code,
@@ -448,61 +498,411 @@ function candidateBlocker(
     destinationProductId,
     mappingIds: mappings.map((mapping) => mapping.mappingId).sort(),
     statement,
+    ...(scheduledRoutingReason === undefined ? {} : { scheduledRoutingReason }),
   };
 }
 
-function serviceIdsForStop(
+function lexical(left: string, right: string): number {
+  return left < right ? -1 : left > right ? 1 : 0;
+}
+
+function provenanceMatches(
+  provenance: {
+    readonly provider: TransitProvider;
+    readonly datasetId: string;
+    readonly identityNamespace: string;
+  },
   dataset: ScheduledTransitDataset,
-  stopId: string,
-): ReadonlySet<string> {
-  const scheduledServices = new Set(
-    (dataset.graph.scheduledServices ?? []).map((service) => service.id),
-  );
-  return new Set(
-    (dataset.graph.scheduledStopTimes ?? [])
-      .filter(
-        (stopTime) =>
-          stopTime.stopId === stopId &&
-          scheduledServices.has(stopTime.serviceId),
-      )
-      .map((stopTime) => stopTime.serviceId),
+): boolean {
+  return (
+    provenance.provider === dataset.metadata.provider &&
+    provenance.datasetId === dataset.metadata.datasetId &&
+    provenance.identityNamespace === dataset.metadata.identityNamespace
   );
 }
 
-function timetableCoverage(
+function serviceFacts(
+  index: IndexedGraph,
+  serviceId: string,
+): readonly TransitScheduledStopTime[] {
+  return [...(index.factsByService.get(serviceId) ?? [])].sort(
+    (left, right) =>
+      left.order - right.order || lexical(left.stopId, right.stopId),
+  );
+}
+
+function structurallyValidService(
+  dataset: ScheduledTransitDataset,
+  index: IndexedGraph,
+  service: TransitScheduledService,
+): boolean {
+  const route = index.routes.get(service.routeId);
+  const calendar = index.calendars.get(service.calendarId);
+  const operator =
+    route === undefined ? undefined : index.operators.get(route.operatorId);
+  if (
+    route === undefined ||
+    calendar === undefined ||
+    operator === undefined ||
+    service.provider !== dataset.metadata.provider ||
+    route.provider !== service.provider ||
+    calendar.provider !== service.provider ||
+    operator.provider !== service.provider ||
+    !provenanceMatches(service.provenance, dataset) ||
+    !provenanceMatches(route.provenance, dataset) ||
+    !provenanceMatches(calendar.provenance, dataset) ||
+    !provenanceMatches(operator.provenance, dataset)
+  ) {
+    return false;
+  }
+  const pattern = route.sourceSemantics.patterns.find(
+    (candidate) => candidate.patternId === service.patternId,
+  );
+  if (
+    route.sourceSemantics.provider !== service.provider ||
+    service.sourceSemantics.provider !== service.provider ||
+    pattern === undefined ||
+    !pattern.tripIds.includes(service.providerServiceId)
+  ) {
+    return false;
+  }
+
+  const facts = serviceFacts(index, service.id);
+  if (facts.length < 2) return false;
+  const memberships = dataset.graph.routeStops
+    .filter(
+      (membership) =>
+        membership.routeId === route.id &&
+        (membership.patternId ?? "") === service.patternId,
+    )
+    .sort(
+      (left, right) =>
+        left.order - right.order || lexical(left.stopId, right.stopId),
+    );
+  if (memberships.length !== facts.length) return false;
+
+  const seenOrders = new Set<number>();
+  for (const [indexInService, fact] of facts.entries()) {
+    const stop = index.stops.get(fact.stopId);
+    if (
+      fact.provider !== service.provider ||
+      fact.patternId !== service.patternId ||
+      fact.order !== indexInService + 1 ||
+      seenOrders.has(fact.order) ||
+      stop === undefined ||
+      stop.provider !== fact.provider ||
+      !provenanceMatches(fact.provenance, dataset) ||
+      !provenanceMatches(stop.provenance, dataset) ||
+      fact.sourceSemantics.provider !== fact.provider ||
+      fact.arrivalServiceSeconds === null ||
+      fact.departureServiceSeconds === null ||
+      !Number.isSafeInteger(fact.arrivalServiceSeconds) ||
+      !Number.isSafeInteger(fact.departureServiceSeconds) ||
+      fact.arrivalServiceSeconds < 0 ||
+      fact.departureServiceSeconds < 0 ||
+      memberships[indexInService]?.order !== fact.order ||
+      memberships[indexInService]?.stopId !== fact.stopId
+    ) {
+      return false;
+    }
+    seenOrders.add(fact.order);
+  }
+  return true;
+}
+
+function serviceCoverage(
+  dataset: ScheduledTransitDataset,
+  index: IndexedGraph,
+  service: TransitScheduledService,
+): {
+  readonly timetableImported: boolean;
+  readonly transfersImported: boolean;
+} | null {
+  const route = index.routes.get(service.routeId);
+  const operator =
+    route === undefined ? undefined : index.operators.get(route.operatorId);
+  if (route === undefined || operator === undefined) return null;
+  const entries = dataset.coverage.entries.filter(
+    (entry) =>
+      entry.provider === service.provider &&
+      entry.operator === operator.providerOperatorId &&
+      entry.mode === route.mode &&
+      entry.datasetId === dataset.metadata.datasetId,
+  );
+  if (entries.length !== 1) return null;
+  const entry = entries[0];
+  if (entry === undefined) return null;
+  return {
+    timetableImported:
+      entry.topology === "imported" && entry.timetable === "imported",
+    transfersImported: entry.transfers === "imported",
+  };
+}
+
+function endpointFact(
+  facts: readonly TransitScheduledStopTime[],
+  stopId: string,
+): TransitScheduledStopTime | null {
+  const matches = facts.filter((fact) => fact.stopId === stopId);
+  return matches.length === 1 ? (matches[0] ?? null) : null;
+}
+
+function hasOrderedSegment(
+  facts: readonly TransitScheduledStopTime[],
+  fromStopId: string,
+  toStopId: string,
+): boolean {
+  const from = endpointFact(facts, fromStopId);
+  const to = endpointFact(facts, toStopId);
+  return from !== null && to !== null && from.order < to.order;
+}
+
+function transferEvidenceStructurallyValid(
+  transfer: TransitTransfer,
+  dataset: ScheduledTransitDataset,
+): boolean {
+  return (
+    transfer.provider === dataset.metadata.provider &&
+    transfer.sourceSemantics.provider === transfer.provider &&
+    transfer.sourceSemantics.transferType >= 0 &&
+    transfer.sourceSemantics.transferType <= 5 &&
+    Number.isInteger(transfer.sourceSemantics.transferType) &&
+    transfer.fromStopId !== null &&
+    transfer.toStopId !== null &&
+    provenanceMatches(transfer.provenance, dataset)
+  );
+}
+
+function blockedCoverage(
+  reason: ScheduledRoutingCoverageBlockReason,
+): ScheduledRoutingCoverageResult {
+  return { kind: "blocked", reason };
+}
+
+/**
+ * Assess static scheduled-routing support without selecting a service date,
+ * departure, or runtime Journey. Only direct service or one explicit transfer
+ * is inspected; no general route search or inferred transfer is performed.
+ */
+export function assessScheduledRoutingCoverage(
   dataset: ScheduledTransitDataset,
   originStopId: string,
   destinationStopId: string,
-): {
-  readonly usable: boolean;
-  readonly scheduledServiceCount: number;
-  readonly scheduledStopTimeCount: number;
-  readonly commonServiceCount: number;
-} {
+): ScheduledRoutingCoverageResult {
   const scheduledServices = dataset.graph.scheduledServices ?? [];
   const scheduledStopTimes = dataset.graph.scheduledStopTimes ?? [];
-  const coverageImported = dataset.coverage.entries.some(
-    (entry) =>
-      entry.provider === dataset.metadata.provider &&
-      entry.datasetId === dataset.metadata.datasetId &&
-      entry.topology === "imported" &&
-      entry.timetable === "imported",
-  );
-  const commonServiceCount = [
-    ...serviceIdsForStop(dataset, originStopId),
-  ].filter((serviceId) =>
-    serviceIdsForStop(dataset, destinationStopId).has(serviceId),
-  ).length;
-  return {
-    usable:
-      coverageImported &&
-      scheduledServices.length > 0 &&
-      scheduledStopTimes.length > 0 &&
-      commonServiceCount > 0,
-    scheduledServiceCount: scheduledServices.length,
-    scheduledStopTimeCount: scheduledStopTimes.length,
-    commonServiceCount,
-  };
+  if (
+    scheduledServices.length === 0 ||
+    scheduledStopTimes.length === 0 ||
+    dataset.graph.stops.length === 0
+  ) {
+    return blockedCoverage("missing_scheduled_timetable");
+  }
+
+  let index: IndexedGraph | null;
+  try {
+    index = buildIndex(dataset.graph);
+  } catch {
+    index = null;
+  }
+  if (
+    index === null ||
+    !index.stops.has(originStopId) ||
+    !index.stops.has(destinationStopId)
+  ) {
+    return blockedCoverage("broken_graph_reference");
+  }
+
+  const structurallyValidServices = scheduledServices
+    .filter((service) => {
+      try {
+        return structurallyValidService(dataset, index, service);
+      } catch {
+        return false;
+      }
+    })
+    .sort((left, right) => lexical(left.id, right.id));
+  const directServiceIds: string[] = [];
+  const usableServices = new Map<
+    string,
+    {
+      readonly service: TransitScheduledService;
+      readonly facts: readonly TransitScheduledStopTime[];
+      readonly transfersImported: boolean;
+    }
+  >();
+  let sawUntrustedSchedule = false;
+  for (const service of structurallyValidServices) {
+    const coverage = serviceCoverage(dataset, index, service);
+    if (coverage === null || !coverage.timetableImported) {
+      sawUntrustedSchedule = true;
+      continue;
+    }
+    const facts = serviceFacts(index, service.id);
+    usableServices.set(service.id, {
+      service,
+      facts,
+      transfersImported: coverage.transfersImported,
+    });
+    if (hasOrderedSegment(facts, originStopId, destinationStopId)) {
+      directServiceIds.push(service.id);
+    }
+  }
+
+  if (directServiceIds.length > 0) {
+    return {
+      kind: "supported",
+      topology: "direct",
+      transferCount: 0,
+      scheduledServiceCount: scheduledServices.length,
+      scheduledStopTimeCount: scheduledStopTimes.length,
+      directServiceIds: directServiceIds.sort(lexical),
+    };
+  }
+  if (sawUntrustedSchedule && usableServices.size === 0) {
+    return blockedCoverage("missing_scheduled_timetable");
+  }
+
+  const transferPairs = [
+    ...new Set(
+      dataset.graph.transfers
+        .filter(
+          (transfer) =>
+            transfer.fromStopId !== null && transfer.toStopId !== null,
+        )
+        .map((transfer) => `${transfer.fromStopId}\u0000${transfer.toStopId}`),
+    ),
+  ]
+    .map((key) => {
+      const [fromStopId, toStopId] = key.split("\u0000");
+      return { fromStopId: fromStopId ?? "", toStopId: toStopId ?? "" };
+    })
+    .sort(
+      (left, right) =>
+        lexical(left.fromStopId, right.fromStopId) ||
+        lexical(left.toStopId, right.toStopId),
+    );
+  const oneTransferCandidates: ScheduledRoutingCoverageSupport[] = [];
+  let sawTransferEvidenceMissing = transferPairs.length === 0;
+  let sawTransferEvidenceAmbiguous = false;
+  let sawTransferEvidenceInconclusive = false;
+  let sawTransferEvidenceUntrusted = false;
+
+  for (const first of usableServices.values()) {
+    const originFact = endpointFact(first.facts, originStopId);
+    if (originFact === null) continue;
+    const firstLaterFacts = first.facts.filter(
+      (fact) => fact.order > originFact.order,
+    );
+    for (const firstFact of firstLaterFacts) {
+      for (const transferPair of transferPairs) {
+        for (const second of usableServices.values()) {
+          if (second.service.id === first.service.id) continue;
+          const destinationFact = endpointFact(second.facts, destinationStopId);
+          const transferToFact = endpointFact(
+            second.facts,
+            transferPair.toStopId,
+          );
+          if (
+            destinationFact === null ||
+            transferToFact === null ||
+            transferToFact.order >= destinationFact.order
+          ) {
+            continue;
+          }
+          if (!first.transfersImported || !second.transfersImported) {
+            sawTransferEvidenceUntrusted = true;
+            continue;
+          }
+          let query: ReturnType<typeof resolveApplicableTransfers>;
+          try {
+            query = resolveApplicableTransfers(dataset.graph, {
+              fromStopId: firstFact.stopId,
+              toStopId: transferToFact.stopId,
+              incomingRouteId: first.service.routeId,
+              outgoingRouteId: second.service.routeId,
+              incomingServiceId: first.service.id,
+              outgoingServiceId: second.service.id,
+            });
+          } catch {
+            sawTransferEvidenceInconclusive = true;
+            continue;
+          }
+          if (query.status === "invalid_query") {
+            sawTransferEvidenceInconclusive = true;
+            continue;
+          }
+          if (query.transfers.length === 0) continue;
+          if (query.transfers.length > 1) {
+            sawTransferEvidenceAmbiguous = true;
+            continue;
+          }
+          const transfer = query.transfers[0];
+          let structurallyValid = false;
+          try {
+            structurallyValid =
+              transfer !== undefined &&
+              transferEvidenceStructurallyValid(transfer, dataset);
+          } catch {
+            structurallyValid = false;
+          }
+          if (!structurallyValid || transfer === undefined) {
+            sawTransferEvidenceInconclusive = true;
+            continue;
+          }
+          const transferType = transfer.sourceSemantics.transferType;
+          if (transferType === 3 || transferType === 4 || transferType === 5) {
+            sawTransferEvidenceInconclusive = true;
+            continue;
+          }
+          oneTransferCandidates.push({
+            kind: "supported",
+            topology: "exactly_one_transfer",
+            transferCount: 1,
+            scheduledServiceCount: scheduledServices.length,
+            scheduledStopTimeCount: scheduledStopTimes.length,
+            directServiceIds: [],
+            transfer: {
+              fromStopId: firstFact.stopId,
+              toStopId: transferToFact.stopId,
+              firstServiceId: first.service.id,
+              secondServiceId: second.service.id,
+              ruleId: transfer.id,
+              transferType,
+            },
+          });
+        }
+      }
+    }
+  }
+
+  oneTransferCandidates.sort((left, right) => {
+    const leftTransfer = left.transfer;
+    const rightTransfer = right.transfer;
+    if (leftTransfer === undefined || rightTransfer === undefined) return 0;
+    return (
+      lexical(leftTransfer.firstServiceId, rightTransfer.firstServiceId) ||
+      lexical(leftTransfer.secondServiceId, rightTransfer.secondServiceId) ||
+      lexical(leftTransfer.fromStopId, rightTransfer.fromStopId) ||
+      lexical(leftTransfer.toStopId, rightTransfer.toStopId) ||
+      lexical(leftTransfer.ruleId, rightTransfer.ruleId)
+    );
+  });
+  const selected = oneTransferCandidates[0];
+  if (selected !== undefined) return selected;
+  if (sawTransferEvidenceUntrusted) {
+    return blockedCoverage("transfer_evidence_untrusted");
+  }
+  if (sawTransferEvidenceAmbiguous) {
+    return blockedCoverage("transfer_evidence_ambiguous");
+  }
+  if (sawTransferEvidenceInconclusive) {
+    return blockedCoverage("transfer_evidence_inconclusive");
+  }
+  if (sawTransferEvidenceMissing) {
+    return blockedCoverage("transfer_evidence_missing");
+  }
+  return blockedCoverage("no_direct_or_one_transfer_supported_topology");
 }
 
 function evaluateMappedPair(input: {
@@ -594,12 +994,12 @@ function evaluateMappedPair(input: {
     };
   }
 
-  const timetable = timetableCoverage(
+  const scheduledRouting = assessScheduledRoutingCoverage(
     dataset,
     origin.normalizedStopId,
     destination.normalizedStopId,
   );
-  if (!timetable.usable) {
+  if (scheduledRouting.kind !== "supported") {
     return {
       kind: "blocked",
       blocker: candidateBlocker(
@@ -607,7 +1007,8 @@ function evaluateMappedPair(input: {
         originIdentity.productId,
         destinationMapping.endpoint.productId,
         mappings,
-        "Both mapped stops must share usable imported scheduled-service and stop-time coverage.",
+        `Both mapped stops must have direct or exactly-one-transfer supported scheduled corridor coverage (${scheduledRouting.reason}).`,
+        scheduledRouting.reason,
       ),
     };
   }
@@ -633,7 +1034,15 @@ function evaluateMappedPair(input: {
         provider: dataset.metadata.provider,
         identityNamespace: dataset.metadata.identityNamespace,
       },
-      timetable,
+      timetable: {
+        scheduledServiceCount: scheduledRouting.scheduledServiceCount,
+        scheduledStopTimeCount: scheduledRouting.scheduledStopTimeCount,
+      },
+      scheduledRouting,
+      runtimeVerification: {
+        status: "not_evaluated",
+        reason: "no_authoritative_service_date_or_departure_time",
+      },
     },
   };
 }
@@ -642,8 +1051,9 @@ function evaluateMappedPair(input: {
  * Reads current reviewed identity evidence and all registered deployable
  * normalized assets. A corridor is never inferred: it requires a reviewed
  * product origin identity, a catalogue destination, two exact mappings, one
- * registered dataset scope, graph/provenance validity, and shared timetable
- * coverage.
+ * registered dataset scope, graph/provenance validity, and direct or
+ * exactly-one-transfer supported scheduled coverage. It does not construct a
+ * runtime Journey because C4A has no authoritative service date/departure time.
  */
 export function auditRealMegurutoCorridor(
   rootDir = process.cwd(),
