@@ -168,6 +168,16 @@ function compactDateFromInput(value: string): string {
   return compact;
 }
 
+/** Strict Gregorian service-date validation shared by timetable consumers. */
+export function isRealGtfsServiceDate(value: string): boolean {
+  try {
+    compactDateFromInput(value);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function weekdayIndex(parts: {
   readonly year: number;
   readonly month: number;
