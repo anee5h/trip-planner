@@ -23,7 +23,9 @@ import {
   type GtfsTransferMetadata,
 } from "../gtfsTransferImporter";
 import type { GtfsFeedTables, GtfsTableRow } from "../gtfsTypes";
+import type { TransitTransfer } from "../transitGraphTypes";
 import {
+  type ApplicableTransferResult,
   getApplicableTransfers,
   getTransfersBetweenStops,
   getTransfersFromStop,
@@ -61,6 +63,20 @@ function loadTables(): GtfsFeedTables {
 
 function baseSchedule() {
   return importGtfsSchedule(loadTables(), METADATA);
+}
+
+function completeSchedule() {
+  return importGtfsSchedule(loadTables(), COMPLETE_METADATA);
+}
+
+function enrichComplete(rows: readonly GtfsTableRow[]) {
+  const tables = loadTables();
+  const c2 = completeSchedule();
+  return importGtfsTransfers(
+    c2,
+    { ...tables, transfers: rows },
+    COMPLETE_METADATA,
+  );
 }
 
 function transferRow(overrides: Partial<GtfsTableRow> = {}): GtfsTableRow {
@@ -104,6 +120,16 @@ function serviceId(providerId: string): string {
   return `gtfs-jp:scheduled_service:gtfs%3Afixture-wakasa:${providerId}`;
 }
 
+function resolvedTransfers(
+  result: ApplicableTransferResult,
+): readonly TransitTransfer[] {
+  expect(result.status).toBe("resolved");
+  if (result.status !== "resolved") {
+    throw new Error(`expected resolved query, got ${result.reason}`);
+  }
+  return result.transfers;
+}
+
 function expectTransferError(
   rows: readonly GtfsTableRow[],
   code: GtfsTransferImportError["code"],
@@ -144,10 +170,12 @@ describe("GTFS transfer evidence enrichment", () => {
 
   it("retains prohibited evidence and does not turn it into an inferred edge", () => {
     const result = enrich([transferRow({ transfer_type: "3" })]);
-    const applicable = getApplicableTransfers(result.graph, {
-      fromStopId: stopId("A"),
-      toStopId: stopId("C"),
-    });
+    const applicable = resolvedTransfers(
+      getApplicableTransfers(result.graph, {
+        fromStopId: stopId("A"),
+        toStopId: stopId("C"),
+      }),
+    );
     expect(applicable).toHaveLength(1);
     expect(applicable[0]?.sourceSemantics.transferType).toBe(3);
     expect(getTransfersFromStop(result.graph, stopId("A"))).toHaveLength(1);
@@ -166,22 +194,26 @@ describe("GTFS transfer evidence enrichment", () => {
         min_transfer_time: "240",
       }),
     ]);
-    const routeScoped = getApplicableTransfers(result.graph, {
-      fromStopId: stopId("A"),
-      toStopId: stopId("C"),
-      incomingRouteId: routeId("r1"),
-      outgoingRouteId: routeId("r2"),
-    });
+    const routeScoped = resolvedTransfers(
+      getApplicableTransfers(result.graph, {
+        fromStopId: stopId("A"),
+        toStopId: stopId("C"),
+        incomingRouteId: routeId("r1"),
+        outgoingRouteId: routeId("r2"),
+      }),
+    );
     expect(routeScoped).toHaveLength(1);
     expect(routeScoped[0]?.fromRouteId).toBe(routeId("r1"));
     expect(routeScoped[0]?.toRouteId).toBe(routeId("r2"));
 
-    const tripScoped = getApplicableTransfers(result.graph, {
-      fromStopId: stopId("A"),
-      toStopId: stopId("C"),
-      incomingServiceId: serviceId("t1"),
-      outgoingServiceId: serviceId("t3"),
-    });
+    const tripScoped = resolvedTransfers(
+      getApplicableTransfers(result.graph, {
+        fromStopId: stopId("A"),
+        toStopId: stopId("C"),
+        incomingServiceId: serviceId("t1"),
+        outgoingServiceId: serviceId("t3"),
+      }),
+    );
     expect(tripScoped).toHaveLength(1);
     expect(tripScoped[0]?.sourceSemantics.transferType).toBe(2);
     expect(tripScoped[0]?.minimumTransferSeconds).toBe(240);
@@ -192,51 +224,127 @@ describe("GTFS transfer evidence enrichment", () => {
       transferRow({ from_route_id: "r1", to_route_id: "r2" }),
     ]);
     expect(
-      getApplicableTransfers(routeResult.graph, {
-        fromStopId: stopId("A"),
-        toStopId: stopId("C"),
-        incomingRouteId: routeId("r2"),
-        outgoingRouteId: routeId("r1"),
-      }),
+      resolvedTransfers(
+        getApplicableTransfers(routeResult.graph, {
+          fromStopId: stopId("A"),
+          toStopId: stopId("C"),
+          incomingRouteId: routeId("r2"),
+          outgoingRouteId: routeId("r1"),
+        }),
+      ),
     ).toEqual([]);
 
     const tripResult = enrich([
       transferRow({ from_trip_id: "t1", to_trip_id: "t3" }),
     ]);
     expect(
-      getApplicableTransfers(tripResult.graph, {
-        fromStopId: stopId("A"),
-        toStopId: stopId("C"),
-        incomingServiceId: serviceId("t2"),
-        outgoingServiceId: serviceId("t3"),
-      }),
+      resolvedTransfers(
+        getApplicableTransfers(tripResult.graph, {
+          fromStopId: stopId("A"),
+          toStopId: stopId("C"),
+          incomingServiceId: serviceId("t2"),
+          outgoingServiceId: serviceId("t3"),
+        }),
+      ),
     ).toEqual([]);
     expect(
-      getApplicableTransfers(tripResult.graph, {
-        fromStopId: stopId("A"),
-        toStopId: stopId("C"),
-        incomingServiceId: serviceId("t1"),
-        outgoingServiceId: serviceId("t4"),
-      }),
+      resolvedTransfers(
+        getApplicableTransfers(tripResult.graph, {
+          fromStopId: stopId("A"),
+          toStopId: stopId("C"),
+          incomingServiceId: serviceId("t1"),
+          outgoingServiceId: serviceId("t4"),
+        }),
+      ),
     ).toEqual([]);
   });
 
-  it("fails closed for unknown applicability query references", () => {
+  it("returns a resolved empty result when no explicit rule applies", () => {
     const result = enrich([transferRow()]);
     expect(
       getApplicableTransfers(result.graph, {
+        fromStopId: stopId("B"),
+        toStopId: stopId("C"),
+        incomingRouteId: routeId("r2"),
+        outgoingRouteId: routeId("r1"),
+      }),
+    ).toEqual({ status: "resolved", transfers: [] });
+  });
+
+  it.each([
+    [
+      "unknown from stop",
+      { fromStopId: stopId("missing"), toStopId: stopId("C") },
+      "unknown_from_stop",
+    ],
+    [
+      "unknown to stop",
+      { fromStopId: stopId("A"), toStopId: stopId("missing") },
+      "unknown_to_stop",
+    ],
+    [
+      "unknown incoming route",
+      {
         fromStopId: stopId("A"),
         toStopId: stopId("C"),
-        incomingServiceId: serviceId("missing"),
-      }),
-    ).toEqual([]);
-    expect(
-      getApplicableTransfers(result.graph, {
+        incomingRouteId: routeId("missing"),
+      },
+      "unknown_incoming_route",
+    ],
+    [
+      "unknown outgoing route",
+      {
         fromStopId: stopId("A"),
         toStopId: stopId("C"),
         outgoingRouteId: routeId("missing"),
+      },
+      "unknown_outgoing_route",
+    ],
+    [
+      "unknown incoming service",
+      {
+        fromStopId: stopId("A"),
+        toStopId: stopId("C"),
+        incomingServiceId: serviceId("missing"),
+      },
+      "unknown_incoming_service",
+    ],
+    [
+      "unknown outgoing service",
+      {
+        fromStopId: stopId("A"),
+        toStopId: stopId("C"),
+        outgoingServiceId: serviceId("missing"),
+      },
+      "unknown_outgoing_service",
+    ],
+    [
+      "incoming service route mismatch",
+      {
+        fromStopId: stopId("A"),
+        toStopId: stopId("C"),
+        incomingServiceId: serviceId("t1"),
+        incomingRouteId: routeId("r2"),
+      },
+      "service_route_mismatch",
+    ],
+    [
+      "outgoing service route mismatch",
+      {
+        fromStopId: stopId("A"),
+        toStopId: stopId("C"),
+        outgoingServiceId: serviceId("t3"),
+        outgoingRouteId: routeId("r1"),
+      },
+      "service_route_mismatch",
+    ],
+  ] as const)("distinguishes %s", (_label, query, reason) => {
+    const result = enrich([transferRow()]);
+    expect(
+      getApplicableTransfers(result.graph, {
+        ...query,
       }),
-    ).toEqual([]);
+    ).toEqual({ status: "invalid_query", reason });
   });
 
   it("expands a station-scoped provider rule only to its exact child stop", () => {
@@ -268,12 +376,14 @@ describe("GTFS transfer evidence enrichment", () => {
       sourceSemantics: { transferType: 4 },
     });
     expect(
-      getApplicableTransfers(result.graph, {
-        fromStopId: stopId("A"),
-        toStopId: stopId("C"),
-        incomingServiceId: serviceId("t1"),
-        outgoingServiceId: serviceId("t3"),
-      }),
+      resolvedTransfers(
+        getApplicableTransfers(result.graph, {
+          fromStopId: stopId("A"),
+          toStopId: stopId("C"),
+          incomingServiceId: serviceId("t1"),
+          outgoingServiceId: serviceId("t3"),
+        }),
+      ),
     ).toEqual([]);
   });
 
@@ -400,5 +510,71 @@ describe("GTFS transfer evidence enrichment", () => {
         (entry) => entry.transfers === "unsupported",
       ),
     ).toBe(false);
+  });
+
+  it("marks a present empty transfer file as imported explicit-rule coverage", () => {
+    const result = enrichComplete([]);
+    expect(result.graph.transfers).toEqual([]);
+    expect(result.coverage.entries).toHaveLength(2);
+    expect(
+      result.coverage.entries.every((entry) => entry.transfers === "imported"),
+    ).toBe(true);
+    expect(
+      result.coverage.entries.flatMap((entry) => entry.notes),
+    ).not.toContain("transfers are impossible");
+  });
+
+  it("marks populated transfer rows as imported explicit-rule coverage", () => {
+    const result = enrichComplete([transferRow()]);
+    expect(result.importedTransferCount).toBe(1);
+    expect(
+      result.coverage.entries.every((entry) => entry.transfers === "imported"),
+    ).toBe(true);
+  });
+
+  it("does not infer unrelated coverage in the graph-only API", () => {
+    const tables = loadTables();
+    const result = importGtfsTransfers(
+      baseSchedule().graph,
+      { ...tables, transfers: [] },
+      COMPLETE_METADATA,
+    );
+    expect(
+      result.coverage.entries.every(
+        (entry) =>
+          entry.topology === "not_evaluated" &&
+          entry.timetable === "not_evaluated" &&
+          entry.transfers === "imported",
+      ),
+    ).toBe(true);
+  });
+
+  it("preserves C2 topology and timetable coverage when supplied", () => {
+    const c2 = completeSchedule();
+    const result = importGtfsTransfers(
+      c2,
+      { ...loadTables(), transfers: [] },
+      COMPLETE_METADATA,
+    );
+    expect(
+      result.coverage.entries.map((entry) => [
+        entry.provider,
+        entry.operator,
+        entry.mode,
+        entry.topology,
+        entry.timetable,
+      ]),
+    ).toEqual(
+      c2.coverage.entries.map((entry) => [
+        entry.provider,
+        entry.operator,
+        entry.mode,
+        entry.topology,
+        entry.timetable,
+      ]),
+    );
+    expect(
+      result.coverage.entries.every((entry) => entry.transfers === "imported"),
+    ).toBe(true);
   });
 });

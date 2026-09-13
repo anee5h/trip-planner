@@ -199,6 +199,25 @@ export interface TransitTransferApplicabilityQuery {
   readonly outgoingServiceId?: string;
 }
 
+export type ApplicableTransferInvalidQueryReason =
+  | "unknown_from_stop"
+  | "unknown_to_stop"
+  | "unknown_incoming_route"
+  | "unknown_outgoing_route"
+  | "unknown_incoming_service"
+  | "unknown_outgoing_service"
+  | "service_route_mismatch";
+
+export type ApplicableTransferResult =
+  | {
+      readonly status: "resolved";
+      readonly transfers: readonly TransitTransfer[];
+    }
+  | {
+      readonly status: "invalid_query";
+      readonly reason: ApplicableTransferInvalidQueryReason;
+    };
+
 function transferSpecificity(transfer: TransitTransfer): number {
   const fromTrip = transfer.fromServiceId !== null;
   const toTrip = transfer.toServiceId !== null;
@@ -230,42 +249,72 @@ function transferSideApplies(
   return true;
 }
 
-function applicabilityQueryIsKnown(
+function applicabilityQueryInvalidReason(
   graph: NormalizedTransitGraph,
-  serviceId: string | undefined,
-  routeId: string | undefined,
-): boolean {
-  if (serviceId !== undefined) {
-    const service = getScheduledService(graph, serviceId);
-    if (service === null) return false;
-    return routeId === undefined || service.routeId === routeId;
+  query: TransitTransferApplicabilityQuery,
+): ApplicableTransferInvalidQueryReason | null {
+  if (getStop(graph, query.fromStopId) === null) return "unknown_from_stop";
+  if (getStop(graph, query.toStopId) === null) return "unknown_to_stop";
+
+  const incomingService =
+    query.incomingServiceId === undefined
+      ? null
+      : getScheduledService(graph, query.incomingServiceId);
+  if (query.incomingServiceId !== undefined && incomingService === null) {
+    return "unknown_incoming_service";
   }
-  return routeId === undefined || getRoute(graph, routeId) !== null;
+  if (
+    query.incomingRouteId !== undefined &&
+    getRoute(graph, query.incomingRouteId) === null
+  ) {
+    return "unknown_incoming_route";
+  }
+  if (
+    incomingService !== null &&
+    query.incomingRouteId !== undefined &&
+    incomingService.routeId !== query.incomingRouteId
+  ) {
+    return "service_route_mismatch";
+  }
+
+  const outgoingService =
+    query.outgoingServiceId === undefined
+      ? null
+      : getScheduledService(graph, query.outgoingServiceId);
+  if (query.outgoingServiceId !== undefined && outgoingService === null) {
+    return "unknown_outgoing_service";
+  }
+  if (
+    query.outgoingRouteId !== undefined &&
+    getRoute(graph, query.outgoingRouteId) === null
+  ) {
+    return "unknown_outgoing_route";
+  }
+  if (
+    outgoingService !== null &&
+    query.outgoingRouteId !== undefined &&
+    outgoingService.routeId !== query.outgoingRouteId
+  ) {
+    return "service_route_mismatch";
+  }
+  return null;
 }
 
 /**
- * Return the GTFS-maximal applicable rules for one incoming/outgoing pair.
+ * Resolve the GTFS-maximal applicable rules for one incoming/outgoing pair.
+ * A valid query with no explicit rule is distinct from an invalid query.
  * More than one result is deliberately preserved when the feed contains an
  * equally specific tie; callers must treat that as ambiguous/fail closed.
  */
-export function getApplicableTransfers(
+export function resolveApplicableTransfers(
   graph: NormalizedTransitGraph,
   query: TransitTransferApplicabilityQuery,
-): TransitTransfer[] {
-  if (
-    !applicabilityQueryIsKnown(
-      graph,
-      query.incomingServiceId,
-      query.incomingRouteId,
-    ) ||
-    !applicabilityQueryIsKnown(
-      graph,
-      query.outgoingServiceId,
-      query.outgoingRouteId,
-    )
-  ) {
-    return [];
+): ApplicableTransferResult {
+  const invalidReason = applicabilityQueryInvalidReason(graph, query);
+  if (invalidReason !== null) {
+    return { status: "invalid_query", reason: invalidReason };
   }
+
   const incomingService =
     query.incomingServiceId === undefined
       ? null
@@ -300,11 +349,22 @@ export function getApplicableTransfers(
         transferIdOrder(a, b),
     );
   const maximum = applicable[0];
-  if (maximum === undefined) return [];
+  if (maximum === undefined) return { status: "resolved", transfers: [] };
   const specificity = transferSpecificity(maximum);
-  return applicable.filter(
-    (transfer) => transferSpecificity(transfer) === specificity,
-  );
+  return {
+    status: "resolved",
+    transfers: applicable.filter(
+      (transfer) => transferSpecificity(transfer) === specificity,
+    ),
+  };
+}
+
+/** Backward-named alias with the same discriminated result contract. */
+export function getApplicableTransfers(
+  graph: NormalizedTransitGraph,
+  query: TransitTransferApplicabilityQuery,
+): ApplicableTransferResult {
+  return resolveApplicableTransfers(graph, query);
 }
 
 /** Scheduled service by normalized service id, or null. */

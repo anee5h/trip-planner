@@ -17,6 +17,16 @@ Checked 2026-09-13 against the [official GTFS Schedule Reference](https://gtfs.o
 
 The full row key is `(from_stop_id, to_stop_id, from_trip_id, to_trip_id, from_route_id, to_route_id)`. The field meanings and presence rules above are from the `transfers.txt` section of the [GTFS Schedule Reference](https://gtfs.org/documentation/schedule/reference/#transfers-txt).
 
+## Coverage meaning
+
+The normalized `transfers` coverage dimension describes ingestion of explicit provider transfer rules from `transfers.txt` only. `imported` means the supplied explicit rule set was parsed and normalized. It does **not** mean that all physically possible transfers are enumerated, and an absent row does not prohibit a transfer: `transfers.txt` is a rules/override input, not an exhaustive connectivity graph. A missing file is therefore `not_imported_in_this_slice`, not `unsupported`.
+
+## Bounded real-feed audit
+
+The ignored local Wakasa GTFS-JP feed contains no `transfers.txt`; the correct result is: **Wakasa has no explicit `transfers.txt` evidence**. Sakata City's official CC BY 4.0 GTFS-JP feed contains `transfers.txt`, but it has zero data rows. Sakata validates optional-file reading, empty-file handling, and empty explicit-rule-set enrichment only; it does not validate normalization of a real non-empty transfer row.
+
+No suitable non-empty official Japanese `transfers.txt` feed was found in the bounded audit search; D1 transfer-row semantics are therefore validated synthetically, while Wakasa and Sakata validate real-feed absence/empty-file behavior.
+
 ## Applicability and precedence
 
 For a given ordered pair of arriving and departing trips, select the applicable row with the greatest specificity. The current order is:

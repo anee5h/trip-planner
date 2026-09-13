@@ -40,6 +40,9 @@ export const SAKATA_TRANSFER_LICENSE =
 export const SAKATA_TRANSFER_DATASET_ID = "gtfs-jp-sakata-runrunbus-20260401";
 export const SAKATA_TRANSFER_IDENTITY_NAMESPACE = "gtfs:sakata-runrunbus";
 
+export const NON_EMPTY_TRANSFER_FEED_AUDIT_NOTE =
+  "No suitable non-empty official Japanese transfers.txt feed was found in the bounded audit search; D1 transfer-row semantics are therefore validated synthetically, while Wakasa and Sakata validate real-feed absence/empty-file behavior.";
+
 interface FeedConfig {
   readonly label: string;
   readonly format: "GTFS" | "GTFS-JP";
@@ -191,7 +194,18 @@ function auditFeed(config: FeedConfig): Record<string, unknown> {
         }
       : {
           ...transferRowSummary(transferRows),
-          status: d1 === null ? "rejected" : "audited",
+          status:
+            d1 === null
+              ? "rejected"
+              : transferRows.length === 0
+                ? "audited_empty_file"
+                : "audited",
+          ...(transferRows.length === 0
+            ? {
+                evidence:
+                  "transfers.txt is present but contains zero data rows; this validates empty explicit-rule-set handling only.",
+              }
+            : {}),
           importedCount: d1?.importedTransferCount ?? 0,
           rejectedCount: d1 === null ? transferRows.length : 0,
           ...(transferImportError === null ? {} : { transferImportError }),
@@ -200,7 +214,11 @@ function auditFeed(config: FeedConfig): Record<string, unknown> {
   return {
     label: config.label,
     status:
-      transferRows === undefined ? "no_explicit_transfer_file" : "audited",
+      transferRows === undefined
+        ? "no_explicit_transfer_file"
+        : transferRows.length === 0
+          ? "audited_empty_file"
+          : "audited",
     format: config.format,
     datasetId: config.metadata.datasetId,
     feedVersion:
@@ -229,6 +247,8 @@ function auditFeed(config: FeedConfig): Record<string, unknown> {
 export function auditGtfsTransferFeeds(): Record<string, unknown> {
   return {
     checkedDate: "2026-09-13",
+    nonEmptyOfficialJapaneseTransferFeedFound: false,
+    nonEmptyTransferFeedAuditNote: NON_EMPTY_TRANSFER_FEED_AUDIT_NOTE,
     feeds: FEEDS.map(auditFeed),
   };
 }

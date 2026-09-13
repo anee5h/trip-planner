@@ -639,14 +639,8 @@ function fallbackCoverage(
       provider: graph.datasetVersion.provider,
       operator: group.operator,
       mode: group.mode,
-      topology:
-        graph.datasetVersion.completeness === "complete_provider_dump"
-          ? "imported"
-          : "partial",
-      timetable:
-        graph.scheduledServices === undefined
-          ? "not_imported_in_this_slice"
-          : "imported",
+      topology: "not_evaluated",
+      timetable: "not_evaluated",
       transfers: transferState,
       fare: "not_imported_in_this_slice",
       realtime: "not_evaluated",

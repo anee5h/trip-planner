@@ -518,7 +518,12 @@ export interface TransitCoverageEntry {
   readonly mode: TransitRouteMode;
   readonly topology: TransitCoverageState;
   readonly timetable: TransitCoverageState;
-  /** Optional so B1/C1/C2 serialized coverage stays byte-compatible. */
+  /**
+   * Explicit provider transfer-rule coverage from `transfers.txt` only.
+   * `imported` means the supplied explicit rule set was parsed and normalized;
+   * it does not mean all physically possible transfers are enumerated, and an
+   * absent row does not prohibit a transfer.
+   */
   readonly transfers?: TransitCoverageState;
   readonly fare: TransitCoverageState;
   readonly realtime: TransitCoverageState;
