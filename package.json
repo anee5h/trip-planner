@@ -31,6 +31,7 @@
     "audit:kai-292a": "tsx scripts/transit/audit-kai-292a-direct-journeys.ts",
     "audit:kai-292b": "tsx scripts/transit/audit-kai-292b-sakata.ts",
     "audit:kai-292c1": "tsx scripts/transit/audit-kai-292c1-sakata.ts",
+    "test:kai-292c3": "vitest run src/shared/services/transport/static/__tests__/scheduledRoutingTemporal.test.ts src/shared/services/transport/static/__tests__/scheduledTransitRoutingBoundary.test.ts --no-file-parallelism --maxWorkers=1",
     "audit:kai-292c2-boundary": "tsx scripts/transit/audit-kai-292c2-boundary.ts",
     "generate:kai-292c2-dataset": "tsx scripts/transit/generate-kai-292c2-sakata-dataset.ts",
     "audit:wikipedia": "tsx scripts/audit-wikipedia-mappings.ts",
