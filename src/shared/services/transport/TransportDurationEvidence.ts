@@ -1,14 +1,40 @@
 import type {
+  ScheduledRoutingServiceDate,
+  ScheduledRoutingServiceDaySeconds,
+} from "./static/scheduledRoutingTemporal";
+import { isScheduledRoutingServiceDate } from "./static/scheduledRoutingTemporal";
+import type {
   Journey,
   JourneyEvidence,
   JourneyProvenance,
 } from "@/shared/types/journey";
 import type { OriginAwareTransportEstimate } from "./OriginAwareTransportService";
 
-/** A schedule timestamp without coupling this seam to a provider. */
-export interface ScheduledJourneyTimestamp {
-  readonly serviceSeconds: number;
-  readonly time: string;
+/**
+ * One coherent service-day schedule. Service-day seconds are absolute and may
+ * exceed 24 hours, so no display clock is stored or derived here.
+ */
+export interface ScheduledJourneySchedule {
+  readonly serviceDate: ScheduledRoutingServiceDate;
+  readonly departureServiceSeconds: ScheduledRoutingServiceDaySeconds;
+  readonly arrivalServiceSeconds: ScheduledRoutingServiceDaySeconds;
+}
+
+export type ScheduledJourneyRejectionReason =
+  | "invalid_journey"
+  | "invalid_transfer_count"
+  | "missing_schedule"
+  | "invalid_service_date"
+  | "invalid_departure_service_seconds"
+  | "invalid_arrival_service_seconds"
+  | "arrival_before_departure"
+  | "invalid_total_duration_seconds"
+  | "duration_mismatch";
+
+/** Machine-readable observability for supplied scheduled evidence rejected here. */
+export interface ScheduledJourneyRejection {
+  readonly kind: "scheduled_rejection";
+  readonly reason: ScheduledJourneyRejectionReason;
 }
 
 /**
@@ -19,8 +45,7 @@ export interface ScheduledJourneyTimestamp {
 export interface ScheduledJourneyDurationInput {
   readonly journey: Journey;
   readonly transferCount: number;
-  readonly departure: ScheduledJourneyTimestamp;
-  readonly arrival: ScheduledJourneyTimestamp;
+  readonly schedule: ScheduledJourneySchedule;
   readonly totalDurationSeconds: number;
 }
 
@@ -37,8 +62,7 @@ export interface ScheduledTransportDurationEvidence {
   readonly evidence: Exclude<JourneyEvidence, "unknown">;
   readonly journey: Journey;
   readonly transferCount: number;
-  readonly departure: ScheduledJourneyTimestamp;
-  readonly arrival: ScheduledJourneyTimestamp;
+  readonly schedule: ScheduledJourneySchedule;
   readonly totalDurationSeconds: number;
   readonly durationMinutes: readonly [number, number];
   readonly confidence: Journey["confidence"];
@@ -53,18 +77,26 @@ export interface LegacyTransportDurationEvidence {
   readonly durationMinutes: readonly [number, number];
   readonly confidence: Journey["confidence"];
   readonly provenance: JourneyProvenance;
+  /** Present only when supplied scheduled evidence was rejected. */
+  readonly scheduledRejection?: ScheduledJourneyRejection;
 }
 
 export interface UnknownTransportDurationEvidence {
   readonly kind: "unknown";
   readonly evidence: "unknown";
-  readonly reason: "no_usable_duration_evidence";
+  readonly reason: "no_usable_duration_evidence" | "invalid_scheduled_journey";
+  /** Present only when supplied scheduled evidence was rejected. */
+  readonly scheduledRejection?: ScheduledJourneyRejection;
 }
 
 export type TransportDurationEvidence =
   | ScheduledTransportDurationEvidence
   | LegacyTransportDurationEvidence
   | UnknownTransportDurationEvidence;
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
 
 function isFiniteNonNegative(value: number): boolean {
   return Number.isFinite(value) && value >= 0;
@@ -81,48 +113,80 @@ function isValidRange(
   );
 }
 
-function isUsableScheduledJourney(
+function scheduledRejectionReason(
   input: ScheduledJourneyDurationInput,
-): boolean {
-  const { journey, transferCount, departure, arrival, totalDurationSeconds } =
-    input;
+): ScheduledJourneyRejectionReason | undefined {
+  const candidate = input as unknown as Record<string, unknown>;
+  const journeyValue = candidate.journey;
+  if (!isRecord(journeyValue)) return "invalid_journey";
   if (
-    journey.kind !== "journey" ||
-    !Array.isArray(journey.legs) ||
-    journey.legs.length === 0 ||
-    journey.availability !== "available" ||
-    journey.completeness !== "complete" ||
-    journey.provenance.duration === "unknown"
+    journeyValue.kind !== "journey" ||
+    !Array.isArray(journeyValue.legs) ||
+    journeyValue.legs.length === 0 ||
+    journeyValue.availability !== "available" ||
+    journeyValue.completeness !== "complete" ||
+    !isRecord(journeyValue.provenance) ||
+    (journeyValue.provenance.duration !== "verified" &&
+      journeyValue.provenance.duration !== "estimated")
   ) {
-    return false;
+    return "invalid_journey";
   }
   if (
-    journey.legs.some(
+    journeyValue.legs.some(
       (leg) =>
-        leg.availability !== "available" || leg.duration.evidence === "unknown",
+        !isRecord(leg) ||
+        leg.availability !== "available" ||
+        !isRecord(leg.duration) ||
+        (leg.duration.evidence !== "verified" &&
+          leg.duration.evidence !== "estimated"),
     )
   ) {
-    return false;
-  }
-  if (!Number.isSafeInteger(transferCount) || transferCount < 0) {
-    return false;
+    return "invalid_journey";
   }
   if (
-    !Number.isSafeInteger(departure.serviceSeconds) ||
-    !Number.isSafeInteger(arrival.serviceSeconds) ||
-    departure.serviceSeconds < 0 ||
-    arrival.serviceSeconds < departure.serviceSeconds ||
-    typeof departure.time !== "string" ||
-    typeof arrival.time !== "string" ||
-    departure.time.trim().length === 0 ||
-    arrival.time.trim().length === 0
+    !Number.isSafeInteger(candidate.transferCount) ||
+    (candidate.transferCount as number) < 0
   ) {
-    return false;
+    return "invalid_transfer_count";
   }
-  return (
-    isFiniteNonNegative(totalDurationSeconds) &&
-    totalDurationSeconds === arrival.serviceSeconds - departure.serviceSeconds
-  );
+
+  const scheduleValue = candidate.schedule;
+  if (!isRecord(scheduleValue)) return "missing_schedule";
+  if (!isScheduledRoutingServiceDate(scheduleValue.serviceDate)) {
+    return "invalid_service_date";
+  }
+  if (
+    !Number.isSafeInteger(scheduleValue.departureServiceSeconds) ||
+    (scheduleValue.departureServiceSeconds as number) < 0
+  ) {
+    return "invalid_departure_service_seconds";
+  }
+  if (
+    !Number.isSafeInteger(scheduleValue.arrivalServiceSeconds) ||
+    (scheduleValue.arrivalServiceSeconds as number) < 0
+  ) {
+    return "invalid_arrival_service_seconds";
+  }
+  if (
+    (scheduleValue.arrivalServiceSeconds as number) <
+    (scheduleValue.departureServiceSeconds as number)
+  ) {
+    return "arrival_before_departure";
+  }
+  if (
+    !Number.isSafeInteger(candidate.totalDurationSeconds) ||
+    (candidate.totalDurationSeconds as number) < 0
+  ) {
+    return "invalid_total_duration_seconds";
+  }
+  if (
+    (candidate.totalDurationSeconds as number) !==
+    (scheduleValue.arrivalServiceSeconds as number) -
+      (scheduleValue.departureServiceSeconds as number)
+  ) {
+    return "duration_mismatch";
+  }
+  return undefined;
 }
 
 function legacyConfidence(
@@ -164,8 +228,7 @@ function toScheduledEvidence(
     evidence,
     journey: input.journey,
     transferCount: input.transferCount,
-    departure: input.departure,
-    arrival: input.arrival,
+    schedule: input.schedule,
     totalDurationSeconds: input.totalDurationSeconds,
     durationMinutes: [minutes, minutes],
     confidence: input.journey.confidence,
@@ -175,6 +238,7 @@ function toScheduledEvidence(
 
 function toLegacyEvidence(
   estimate: OriginAwareTransportEstimate,
+  scheduledRejection: ScheduledJourneyRejection | undefined,
 ): LegacyTransportDurationEvidence | null {
   if (estimate.evidence === "unknown" || !isValidRange(estimate.timeRange)) {
     return null;
@@ -187,33 +251,47 @@ function toLegacyEvidence(
     durationMinutes: estimate.timeRange,
     confidence: legacyConfidence(estimate),
     provenance: legacyProvenance(estimate),
+    ...(scheduledRejection === undefined ? {} : { scheduledRejection }),
   };
 }
 
 /**
  * Resolve duration truth without changing existing recommendation or planner
- * behavior: canonical scheduled Journeys win, then legacy estimates, and an
- * absent/invalid source remains explicitly unknown.
+ * behavior: canonical scheduled Journeys win, then legacy estimates. Absent
+ * scheduled evidence remains distinct from supplied scheduled evidence that
+ * fails validation.
  */
 export function getTransportDurationEvidence(
   input: TransportDurationEvidenceInput,
 ): TransportDurationEvidence {
-  if (
-    input.scheduledJourney !== null &&
-    input.scheduledJourney !== undefined &&
-    isUsableScheduledJourney(input.scheduledJourney)
-  ) {
+  const scheduledRejection =
+    input.scheduledJourney === null || input.scheduledJourney === undefined
+      ? undefined
+      : scheduledRejectionReason(input.scheduledJourney);
+
+  if (scheduledRejection === undefined && input.scheduledJourney != null) {
     return toScheduledEvidence(input.scheduledJourney);
   }
 
+  const rejection =
+    scheduledRejection === undefined
+      ? undefined
+      : {
+          kind: "scheduled_rejection" as const,
+          reason: scheduledRejection,
+        };
   if (input.legacyEstimate !== null && input.legacyEstimate !== undefined) {
-    const legacy = toLegacyEvidence(input.legacyEstimate);
+    const legacy = toLegacyEvidence(input.legacyEstimate, rejection);
     if (legacy !== null) return legacy;
   }
 
   return {
     kind: "unknown",
     evidence: "unknown",
-    reason: "no_usable_duration_evidence",
+    reason:
+      rejection === undefined
+        ? "no_usable_duration_evidence"
+        : "invalid_scheduled_journey",
+    ...(rejection === undefined ? {} : { scheduledRejection: rejection }),
   };
 }
