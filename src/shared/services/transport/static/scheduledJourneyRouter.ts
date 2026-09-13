@@ -706,9 +706,6 @@ function makeJourney(
           source: GTFS_DIRECT_JOURNEY_SOURCE,
           serviceName: candidate.routeName ?? undefined,
           operator: candidate.operator.providerOperatorId,
-          reservationRequired:
-            pair.boardingRequiresArrangement ||
-            pair.alightingRequiresArrangement,
         },
       },
     ],

@@ -401,7 +401,7 @@ describe("KAI-292A direct scheduled journey router", () => {
     });
   });
 
-  it("fails closed for missing, stale, and duplicate coverage evidence", () => {
+  it("fails closed for missing, mismatched, and duplicate coverage evidence", () => {
     const source = imported();
     const originStopId = stopId(source.graph, "A");
     const destinationStopId = stopId(source.graph, "C");
@@ -416,16 +416,16 @@ describe("KAI-292A direct scheduled journey router", () => {
       routeDirectScheduledJourney({ ...input, coverage: undefined }),
     ).toMatchObject({ kind: "inconclusive", reason: "unsupported_coverage" });
 
-    const staleCoverage = {
+    const mismatchedCoverage = {
       ...source.coverage,
-      datasetId: "stale-dataset",
+      datasetId: "mismatched-dataset",
       entries: source.coverage.entries.map((entry) => ({
         ...entry,
-        datasetId: "stale-dataset",
+        datasetId: "mismatched-dataset",
       })),
     };
     expect(
-      routeDirectScheduledJourney({ ...input, coverage: staleCoverage }),
+      routeDirectScheduledJourney({ ...input, coverage: mismatchedCoverage }),
     ).toMatchObject({ kind: "inconclusive", reason: "unsupported_coverage" });
 
     const entry = source.coverage.entries[0];
@@ -564,34 +564,156 @@ describe("KAI-292A direct scheduled journey router", () => {
     ).toMatchObject({ kind: "inconclusive", reason: "broken_graph_reference" });
   });
 
-  it("rejects explicit no-pickup and no-drop-off endpoint facts", () => {
-    const pickup = imported(
-      withRows("stopTimes", (rows) =>
-        rows.map((row) =>
-          row.trip_id === "t1" && row.stop_id === "A"
-            ? { ...row, pickup_type: "1" }
-            : row,
+  it("treats null, blank, and zero endpoint restrictions as regular", () => {
+    const regularCases = [
+      { label: "null", result: imported() },
+      {
+        label: "blank",
+        result: imported(
+          withRows("stopTimes", (rows) =>
+            rows.map((row) =>
+              row.trip_id === "t1" &&
+              (row.stop_id === "A" || row.stop_id === "C")
+                ? { ...row, pickup_type: "", drop_off_type: "" }
+                : row,
+            ),
+          ),
         ),
-      ),
-    );
-    expect(query(pickup, "A", "B")).toMatchObject({
-      kind: "inconclusive",
-      reason: "pickup_prohibited",
-    });
+      },
+      {
+        label: "zero",
+        result: imported(
+          withRows("stopTimes", (rows) =>
+            rows.map((row) =>
+              row.trip_id === "t1" &&
+              (row.stop_id === "A" || row.stop_id === "C")
+                ? { ...row, pickup_type: "0", drop_off_type: "0" }
+                : row,
+            ),
+          ),
+        ),
+      },
+    ];
+    for (const testCase of regularCases) {
+      const result = verified(query(testCase.result, "A", "C"));
+      expect(result.evidence.boardingRequiresArrangement).toBe(false);
+      expect(result.evidence.alightingRequiresArrangement).toBe(false);
+      expect(result.journey.legs[0]?.routeMetadata?.reservationRequired).toBe(
+        undefined,
+      );
+    }
+  });
 
-    const dropoff = imported(
-      withRows("stopTimes", (rows) =>
-        rows.map((row) =>
-          row.trip_id === "t1" && row.stop_id === "C"
-            ? { ...row, drop_off_type: "1" }
-            : row,
+  it("rejects explicit no-pickup and no-drop-off endpoint facts", () => {
+    const cases = [
+      {
+        label: "pickup",
+        field: "pickup_type",
+        stop: "A",
+        reason: "pickup_prohibited",
+      },
+      {
+        label: "drop-off",
+        field: "drop_off_type",
+        stop: "C",
+        reason: "dropoff_prohibited",
+      },
+    ] as const;
+    for (const testCase of cases) {
+      const result = imported(
+        withRows("stopTimes", (rows) =>
+          rows.map((row) =>
+            row.trip_id === "t1" && row.stop_id === testCase.stop
+              ? { ...row, [testCase.field]: "1" }
+              : row,
+          ),
         ),
-      ),
-    );
-    expect(query(dropoff, "A", "C")).toMatchObject({
-      kind: "inconclusive",
-      reason: "dropoff_prohibited",
-    });
+      );
+      expect(query(result, "A", "C")).toMatchObject({
+        kind: "inconclusive",
+        reason: testCase.reason,
+      });
+    }
+  });
+
+  it("retains arrangement evidence without claiming reservation is required", () => {
+    const cases = [
+      {
+        label: "pickup 2",
+        stop: "A",
+        field: "pickup_type",
+        value: "2",
+        evidence: "boardingRequiresArrangement",
+      },
+      {
+        label: "drop-off 2",
+        stop: "C",
+        field: "drop_off_type",
+        value: "2",
+        evidence: "alightingRequiresArrangement",
+      },
+      {
+        label: "pickup 3",
+        stop: "A",
+        field: "pickup_type",
+        value: "3",
+        evidence: "boardingRequiresArrangement",
+      },
+      {
+        label: "drop-off 3",
+        stop: "C",
+        field: "drop_off_type",
+        value: "3",
+        evidence: "alightingRequiresArrangement",
+      },
+    ] as const;
+    for (const testCase of cases) {
+      const result = verified(
+        query(
+          imported(
+            withRows("stopTimes", (rows) =>
+              rows.map((row) =>
+                row.trip_id === "t1" && row.stop_id === testCase.stop
+                  ? { ...row, [testCase.field]: testCase.value }
+                  : row,
+              ),
+            ),
+          ),
+          "A",
+          "C",
+        ),
+      );
+      const arrangementEvidence =
+        testCase.evidence === "boardingRequiresArrangement"
+          ? result.evidence.boardingRequiresArrangement
+          : result.evidence.alightingRequiresArrangement;
+      expect(arrangementEvidence).toBe(true);
+      expect(result.journey.legs[0]?.routeMetadata?.reservationRequired).toBe(
+        undefined,
+      );
+    }
+  });
+
+  it("fails closed for unsupported pickup and drop-off values", () => {
+    const cases = [
+      { field: "pickup_type", stop: "A" },
+      { field: "drop_off_type", stop: "C" },
+    ] as const;
+    for (const testCase of cases) {
+      const result = imported(
+        withRows("stopTimes", (rows) =>
+          rows.map((row) =>
+            row.trip_id === "t1" && row.stop_id === testCase.stop
+              ? { ...row, [testCase.field]: "4" }
+              : row,
+          ),
+        ),
+      );
+      expect(query(result, "A", "C")).toMatchObject({
+        kind: "inconclusive",
+        reason: "unsupported_pickup_dropoff",
+      });
+    }
   });
 
   it("does not change when graph arrays are reversed", () => {
