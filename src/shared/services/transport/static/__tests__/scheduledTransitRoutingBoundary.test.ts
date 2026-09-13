@@ -19,6 +19,7 @@ import {
 import {
   routeScheduledTransitWithTemporalContext,
   type ScheduledTransitRoutingBoundaryInput,
+  type ScheduledTransitRoutingDirection,
 } from "../scheduledTransitRoutingBoundary";
 
 const DATASET = validateScheduledTransitDataset(
@@ -137,7 +138,7 @@ describe("scheduled transit temporal routing boundary", () => {
 
     const result = routeScheduledTransitWithTemporalContext({
       ...baseInput(),
-      direction: "sideways",
+      direction: "sideways" as unknown as ScheduledTransitRoutingDirection,
     });
 
     expect(result).toMatchObject({

@@ -29,7 +29,7 @@ export interface ScheduledTransitRoutingBoundaryInput {
   readonly origin: ScheduledTransitEndpointResolution;
   readonly destination: ScheduledTransitEndpointResolution;
   readonly temporal: ScheduledRoutingTemporalResolution;
-  readonly direction: unknown;
+  readonly direction: ScheduledTransitRoutingDirection;
 }
 
 export type ScheduledTransitRoutingBoundaryResult =
