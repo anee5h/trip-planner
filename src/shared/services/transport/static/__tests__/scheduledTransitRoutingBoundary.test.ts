@@ -7,7 +7,10 @@ import {
   SCHEDULED_TRANSIT_CROSSWALK,
   type ScheduledTransitEndpointResolution,
 } from "../scheduledTransitEndpoint";
-import { validateScheduledTransitDataset } from "../scheduledTransitDataset";
+import {
+  validateScheduledTransitDataset,
+  type ScheduledTransitDataset,
+} from "../scheduledTransitDataset";
 import { SAKATA_RUNRUNBUS_DATASET } from "../scheduledTransitDatasetRegistry";
 import {
   resolveScheduledRoutingTemporalContext,
@@ -127,6 +130,69 @@ describe("scheduled transit temporal routing boundary", () => {
         earliestDepartureServiceSeconds: 90600,
       },
     });
+  });
+
+  it("fails closed for an invalid runtime direction without invoking the composer", () => {
+    const routeSpy = vi.spyOn(composer, "routeBestScheduledJourney");
+
+    const result = routeScheduledTransitWithTemporalContext({
+      ...baseInput(),
+      direction: "sideways",
+    });
+
+    expect(result).toMatchObject({
+      status: "not_routed",
+      reason: "invalid_direction",
+      invalidQuery: {
+        status: "invalid_query",
+        reason: "invalid_direction",
+      },
+    });
+    expect(routeSpy).not.toHaveBeenCalled();
+    routeSpy.mockRestore();
+  });
+
+  it("rejects endpoint resolutions that do not match the supplied dataset", () => {
+    const routeSpy = vi.spyOn(composer, "routeBestScheduledJourney");
+    const mismatchedDataset: ScheduledTransitDataset = {
+      ...DATASET,
+      metadata: {
+        ...DATASET.metadata,
+        identityNamespace: "gtfs:another-feed",
+      },
+    };
+
+    const result = routeScheduledTransitWithTemporalContext({
+      ...baseInput(),
+      dataset: mismatchedDataset,
+    });
+
+    expect(result).toMatchObject({
+      status: "not_routed",
+      reason: "origin_dataset_mismatch",
+    });
+    expect(routeSpy).not.toHaveBeenCalled();
+    routeSpy.mockRestore();
+  });
+
+  it("rejects a resolved endpoint whose normalized stop is absent from the dataset", () => {
+    const routeSpy = vi.spyOn(composer, "routeBestScheduledJourney");
+    const forgedOrigin = {
+      ...origin,
+      normalizedStopId: "gtfs:stop:gtfs%3Asakata-runrunbus:not-in-graph",
+    } as typeof origin;
+
+    const result = routeScheduledTransitWithTemporalContext({
+      ...baseInput(),
+      origin: forgedOrigin,
+    });
+
+    expect(result).toMatchObject({
+      status: "not_routed",
+      reason: "origin_dataset_mismatch",
+    });
+    expect(routeSpy).not.toHaveBeenCalled();
+    routeSpy.mockRestore();
   });
 
   it.each(blockedCases)(

@@ -29,7 +29,7 @@ export interface ScheduledTransitRoutingBoundaryInput {
   readonly origin: ScheduledTransitEndpointResolution;
   readonly destination: ScheduledTransitEndpointResolution;
   readonly temporal: ScheduledRoutingTemporalResolution;
-  readonly direction: ScheduledTransitRoutingDirection;
+  readonly direction: unknown;
 }
 
 export type ScheduledTransitRoutingBoundaryResult =
@@ -43,12 +43,15 @@ export type ScheduledTransitRoutingBoundaryResult =
     }
   | {
       readonly status: "not_routed";
-      readonly direction: ScheduledTransitRoutingDirection;
+      readonly direction: unknown;
       readonly reason:
         | "dataset_unresolved"
         | "origin_unresolved"
         | "destination_unresolved"
-        | "temporal_unresolved";
+        | "temporal_unresolved"
+        | "invalid_direction"
+        | "origin_dataset_mismatch"
+        | "destination_dataset_mismatch";
       readonly diagnostics: {
         readonly dataset: "available" | "unresolved";
         readonly origin: ScheduledTransitEndpointResolution["kind"];
@@ -57,6 +60,10 @@ export type ScheduledTransitRoutingBoundaryResult =
       };
       readonly endpoint?: ScheduledTransitEndpointResolution;
       readonly temporal?: ScheduledRoutingTemporalResolution;
+      readonly invalidQuery?: {
+        readonly status: "invalid_query";
+        readonly reason: "invalid_direction";
+      };
     };
 
 function isResolvedEndpoint(
@@ -65,11 +72,43 @@ function isResolvedEndpoint(
   return value.kind === "resolved";
 }
 
+function isValidDirection(
+  value: unknown,
+): value is ScheduledTransitRoutingDirection {
+  return value === "outbound" || value === "return";
+}
+
+function endpointMatchesDataset(
+  endpoint: ResolvedEndpoint,
+  dataset: ScheduledTransitDataset,
+): boolean {
+  if (
+    endpoint.provider !== dataset.metadata.provider ||
+    endpoint.identityNamespace !== dataset.metadata.identityNamespace
+  ) {
+    return false;
+  }
+  const stop = dataset.graph.stops.find(
+    (candidate) => candidate.id === endpoint.normalizedStopId,
+  );
+  if (stop === undefined) return false;
+  const provenance = stop.provenance;
+  return (
+    stop.provider === endpoint.provider &&
+    stop.providerStopId === endpoint.providerStopId &&
+    provenance.identityNamespace === endpoint.identityNamespace &&
+    provenance.datasetId === dataset.metadata.datasetId
+  );
+}
+
 type BlockedReason =
   | "dataset_unresolved"
   | "origin_unresolved"
   | "destination_unresolved"
-  | "temporal_unresolved";
+  | "temporal_unresolved"
+  | "invalid_direction"
+  | "origin_dataset_mismatch"
+  | "destination_dataset_mismatch";
 
 function blocked(
   input: ScheduledTransitRoutingBoundaryInput,
@@ -106,11 +145,26 @@ export function routeScheduledTransitWithTemporalContext(
   if (input.dataset === null || input.dataset === undefined) {
     return blocked(input, "dataset_unresolved");
   }
+  if (!isValidDirection(input.direction)) {
+    return {
+      ...blocked(input, "invalid_direction"),
+      invalidQuery: {
+        status: "invalid_query",
+        reason: "invalid_direction",
+      },
+    };
+  }
   if (!isResolvedEndpoint(input.origin)) {
     return blocked(input, "origin_unresolved");
   }
   if (!isResolvedEndpoint(input.destination)) {
     return blocked(input, "destination_unresolved");
+  }
+  if (!endpointMatchesDataset(input.origin, input.dataset)) {
+    return blocked(input, "origin_dataset_mismatch");
+  }
+  if (!endpointMatchesDataset(input.destination, input.dataset)) {
+    return blocked(input, "destination_dataset_mismatch");
   }
   if (input.temporal.status !== "resolved") {
     return blocked(input, "temporal_unresolved");
