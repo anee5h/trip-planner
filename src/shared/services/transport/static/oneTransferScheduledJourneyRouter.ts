@@ -107,7 +107,8 @@ export interface OneTransferScheduledJourneyEvidence {
   readonly outgoingDepartureServiceSeconds: number;
   /** Scheduled connection time, not walking time. */
   readonly transferWaitSeconds: number;
-  readonly requiredTransferSeconds: number;
+  /** Null means timed-transfer semantics without a claimed numeric minimum. */
+  readonly requiredTransferSeconds: number | null;
   readonly transferBasis: OneTransferTransferBasis;
   /** Conservative summary of the two relevant D1 transfer states. */
   readonly coverageState: OneTransferCoverageState;
@@ -203,7 +204,7 @@ interface ValidTransferCandidate {
   readonly transferFromStopId: string;
   readonly transferToStopId: string;
   readonly transferWaitSeconds: number;
-  readonly requiredTransferSeconds: number;
+  readonly requiredTransferSeconds: number | null;
   readonly transferBasis: OneTransferTransferBasis;
   readonly transferRule: TransitTransfer | null;
 }
@@ -211,7 +212,7 @@ interface ValidTransferCandidate {
 type TransferConnectionOutcome =
   | {
       readonly kind: "valid";
-      readonly requiredTransferSeconds: number;
+      readonly requiredTransferSeconds: number | null;
       readonly transferBasis: OneTransferTransferBasis;
       readonly transferRule: TransitTransfer | null;
     }
@@ -302,6 +303,8 @@ function explicitTransferTargets(
 
 function linkedTripTransferType(
   graph: NormalizedTransitGraph,
+  transferFromStopId: string,
+  transferToStopId: string,
   incomingServiceId: string,
   outgoingServiceId: string,
 ): GtfsTransferType | null {
@@ -310,6 +313,10 @@ function linkedTripTransferType(
       (transfer) =>
         transfer.fromServiceId === incomingServiceId &&
         transfer.toServiceId === outgoingServiceId &&
+        (transfer.fromStopId === null ||
+          stopScopeMatches(graph, transfer.fromStopId, transferFromStopId)) &&
+        (transfer.toStopId === null ||
+          stopScopeMatches(graph, transfer.toStopId, transferToStopId)) &&
         (transfer.sourceSemantics.transferType === 4 ||
           transfer.sourceSemantics.transferType === 5),
     )
@@ -418,6 +425,8 @@ function evaluateConnection(
   const transferRule = query.transfers[0] ?? null;
   const linkedType = linkedTripTransferType(
     graph,
+    transferFromStopId,
+    transferToStopId,
     incoming.service.id,
     outgoing.service.id,
   );
@@ -467,7 +476,7 @@ function evaluateConnection(
   if (transferType === 1) {
     return {
       kind: "valid",
-      requiredTransferSeconds: 0,
+      requiredTransferSeconds: null,
       transferBasis: "gtfs_timed",
       transferRule,
     };
@@ -605,7 +614,7 @@ function leg(
     cost: unknownSafeCost(),
     availability: "available",
     confidence: "high",
-    provenance,
+    provenance: { ...provenance, confidence: "high" },
     routeMetadata: {
       source,
       serviceName: candidate.routeName ?? undefined,
@@ -637,9 +646,11 @@ function makeVerifiedResult(
   const transferFrom = stopEndpoint(transferFromStop);
   const transferTo = stopEndpoint(transferToStop);
   const destination = stopEndpoint(destinationStop);
+  const journeyConfidence =
+    candidate.transferBasis === "meguruto_same_stop_policy" ? "medium" : "high";
   const provenance: JourneyProvenance = {
     source: GTFS_ONE_TRANSFER_JOURNEY_SOURCE,
-    confidence: "high",
+    confidence: journeyConfidence,
     duration: "verified",
     cost: "unknown",
     checkedAt: input.graph.datasetVersion.checkedAt,
@@ -685,7 +696,7 @@ function makeVerifiedResult(
     ),
     legs: [firstLeg, secondLeg],
     availability: "available",
-    confidence: "high",
+    confidence: journeyConfidence,
     provenance,
   };
   const firstEvidence = legEvidence(

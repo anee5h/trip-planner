@@ -329,8 +329,16 @@ describe("KAI-292B one-transfer scheduled journey router", () => {
       directionality: "multi_leg",
       completeness: "complete",
       availability: "available",
+      confidence: "medium",
+      provenance: { confidence: "medium" },
     });
     expect(result.journey.legs).toHaveLength(2);
+    expect(result.journey.legs.every((leg) => leg.confidence === "high")).toBe(
+      true,
+    );
+    expect(
+      result.journey.legs.every((leg) => leg.provenance.confidence === "high"),
+    ).toBe(true);
     expect(result.journey.legs[0]).toMatchObject({
       mode: "bus",
       origin: { id: stopId(importedWithoutTransferFile(), "A") },
@@ -386,6 +394,15 @@ describe("KAI-292B one-transfer scheduled journey router", () => {
       transferWaitSeconds: 120,
       transferType: 2,
     });
+    expect(accepted.journey.confidence).toBe("high");
+    expect(
+      accepted.journey.legs.every((leg) => leg.confidence === "high"),
+    ).toBe(true);
+    expect(
+      accepted.journey.legs.every(
+        (leg) => leg.provenance.confidence === "high",
+      ),
+    ).toBe(true);
 
     expect(
       query(
@@ -429,10 +446,17 @@ describe("KAI-292B one-transfer scheduled journey router", () => {
     );
     expect(result.evidence).toMatchObject({
       transferBasis: "gtfs_timed",
-      requiredTransferSeconds: 0,
+      requiredTransferSeconds: null,
       transferWaitSeconds: 1,
       transferType: 1,
     });
+    expect(result.journey.confidence).toBe("high");
+    expect(result.journey.legs.every((leg) => leg.confidence === "high")).toBe(
+      true,
+    );
+    expect(
+      result.journey.legs.every((leg) => leg.provenance.confidence === "high"),
+    ).toBe(true);
   });
 
   it("enforces an explicit type-0 minimum and preserves its basis", () => {
@@ -479,6 +503,8 @@ describe("KAI-292B one-transfer scheduled journey router", () => {
   it("accepts exact same-stop policy with an evaluated empty transfer file", () => {
     const result = verified(query(imported(connectionTables(), [])));
     expect(result.evidence.transferBasis).toBe("meguruto_same_stop_policy");
+    expect(result.journey.confidence).toBe("medium");
+    expect(result.journey.provenance.confidence).toBe("medium");
     expect(result.evidence.coverageState).toBe("imported");
     expect(result.evidence.firstLeg.coverageState).toBe("imported");
     expect(result.evidence.secondLeg.coverageState).toBe("imported");
@@ -648,6 +674,45 @@ describe("KAI-292B one-transfer scheduled journey router", () => {
       });
     },
   );
+
+  it("scopes linked-trip evidence to the actual transfer stops", () => {
+    for (const transferType of ["4", "5"] as const) {
+      expect(
+        query(
+          imported(connectionTables(), [
+            transferRow({
+              from_stop_id: "",
+              to_stop_id: "",
+              from_trip_id: "t1",
+              to_trip_id: "t5",
+              transfer_type: transferType,
+            }),
+          ]),
+        ),
+      ).toMatchObject({
+        kind: "inconclusive",
+        reason: "transfer_type_not_supported",
+      });
+    }
+
+    const differentPair = query(
+      imported(connectionTables(), [
+        transferRow({
+          from_stop_id: "A",
+          to_stop_id: "C",
+          from_trip_id: "t1",
+          to_trip_id: "t5",
+          transfer_type: "4",
+        }),
+      ]),
+    );
+    expect(differentPair).toMatchObject({ kind: "verified" });
+    if (differentPair.kind === "verified") {
+      expect(differentPair.evidence.transferBasis).toBe(
+        "meguruto_same_stop_policy",
+      );
+    }
+  });
 
   it("fails closed for a negative timed-transfer gap", () => {
     expect(

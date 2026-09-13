@@ -12,7 +12,7 @@ All scheduled times remain absolute GTFS service-day seconds. A journey may cros
 
 Different-stop movement requires an applicable explicit D1 rule with usable semantics. Parent-station relationships, coordinates, names, shared routes, and proximity never create a transfer in this slice. An explicit type-0 rule without a numeric minimum remains provider recommendation evidence, but Phase B may accept it only at the same exact normalized stop using the separate 300-second Meguruto policy; the policy value is not claimed as provider evidence. A provider `transfers: "imported"` coverage state means only that the explicit `transfers.txt` rule set was parsed and normalized; it does not enumerate every physically possible transfer.
 
-Type 2 numeric minimums are enforced; a missing type-2 minimum is unknown and never zero. Type 1 uses nonnegative schedule chronology without the Meguruto 300-second buffer. Type 3 prohibits the candidate. Types 4 and 5 remain linked-trip evidence and are not ordinary passenger-transfer edges.
+Type 2 numeric minimums are enforced; a missing type-2 minimum is unknown and never zero. Type 1 uses nonnegative schedule chronology without the Meguruto 300-second buffer: `requiredTransferSeconds` remains `null` because no numeric minimum is claimed, and feasibility comes from the provider's timed-transfer semantics. Type 3 prohibits the candidate. Types 4 and 5 remain linked-trip evidence and are not ordinary passenger-transfer edges.
 
 The router returns a canonical `Journey` with two transit legs and a separate evidence wrapper containing transfer wait, required transfer time, transfer basis, service/route/pattern/calendar provenance, and total scheduled duration. Fares remain unknown and no walking leg is fabricated.
 
