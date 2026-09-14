@@ -60,7 +60,7 @@
         "artifactValid": true,
         "productionScheduledDatasetEligible": true,
         "registeredDatasetKeys": [
-          "odpt-tokyometro-ginza-a501",
+          "odpt-tokyometro-ginza-a501-b515",
           "sakata-runrunbus"
         ],
         "registeredProviders": ["gtfs", "odpt"],
@@ -128,7 +128,7 @@
         "artifactValid": true,
         "productionScheduledDatasetEligible": true,
         "registeredDatasetKeys": [
-          "odpt-tokyometro-ginza-a501",
+          "odpt-tokyometro-ginza-a501-b515",
           "sakata-runrunbus"
         ],
         "registeredProviders": ["gtfs", "odpt"],
@@ -196,7 +196,7 @@
         "artifactValid": true,
         "productionScheduledDatasetEligible": true,
         "registeredDatasetKeys": [
-          "odpt-tokyometro-ginza-a501",
+          "odpt-tokyometro-ginza-a501-b515",
           "sakata-runrunbus"
         ],
         "registeredProviders": ["gtfs", "odpt"],
@@ -264,7 +264,7 @@
         "artifactValid": true,
         "productionScheduledDatasetEligible": true,
         "registeredDatasetKeys": [
-          "odpt-tokyometro-ginza-a501",
+          "odpt-tokyometro-ginza-a501-b515",
           "sakata-runrunbus"
         ],
         "registeredProviders": ["gtfs", "odpt"],
@@ -332,7 +332,7 @@
         "artifactValid": true,
         "productionScheduledDatasetEligible": true,
         "registeredDatasetKeys": [
-          "odpt-tokyometro-ginza-a501",
+          "odpt-tokyometro-ginza-a501-b515",
           "sakata-runrunbus"
         ],
         "registeredProviders": ["gtfs", "odpt"],
@@ -400,7 +400,7 @@
         "artifactValid": true,
         "productionScheduledDatasetEligible": true,
         "registeredDatasetKeys": [
-          "odpt-tokyometro-ginza-a501",
+          "odpt-tokyometro-ginza-a501-b515",
           "sakata-runrunbus"
         ],
         "registeredProviders": ["gtfs", "odpt"],
@@ -468,7 +468,7 @@
         "artifactValid": true,
         "productionScheduledDatasetEligible": true,
         "registeredDatasetKeys": [
-          "odpt-tokyometro-ginza-a501",
+          "odpt-tokyometro-ginza-a501-b515",
           "sakata-runrunbus"
         ],
         "registeredProviders": ["gtfs", "odpt"],
@@ -629,10 +629,13 @@
     "inspectedProviderNormalizer": "functions/api/odpt-core.js"
   },
   "c2Boundary": {
-    "registeredDatasetKeys": ["odpt-tokyometro-ginza-a501", "sakata-runrunbus"],
+    "registeredDatasetKeys": [
+      "odpt-tokyometro-ginza-a501-b515",
+      "sakata-runrunbus"
+    ],
     "registeredProviders": ["gtfs", "odpt"],
-    "artifactValidOdptDatasetKeys": ["odpt-tokyometro-ginza-a501"],
-    "productionEligibleOdptDatasetKeys": ["odpt-tokyometro-ginza-a501"],
+    "artifactValidOdptDatasetKeys": ["odpt-tokyometro-ginza-a501-b515"],
+    "productionEligibleOdptDatasetKeys": ["odpt-tokyometro-ginza-a501-b515"],
     "odptEvidenceCanEnterTrustedDataset": true,
     "reason": "registered_odpt_scheduled_dataset",
     "importerBoundary": {

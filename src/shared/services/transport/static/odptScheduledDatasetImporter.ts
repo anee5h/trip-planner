@@ -63,8 +63,8 @@ export interface OdptScheduledDatasetInput {
   readonly railways: readonly OdptRailway[];
   readonly calendars: readonly OdptCalendar[];
   readonly trainTimetables: readonly OdptTrainTimetable[];
-  /** The exact provider train identity whose returned records define the scope. */
-  readonly declaredTrainIdentity: string;
+  /** Exact provider train identities whose returned records define the scope. */
+  readonly declaredTrainIdentities: readonly string[];
 }
 
 export interface OdptScheduledDatasetImportResult {
@@ -325,8 +325,11 @@ export function importOdptScheduledDataset(
   metadata: OdptScheduledDatasetImportMetadata,
 ): OdptScheduledDatasetImportResult {
   validateMetadata(metadata);
-  if (!nonEmpty(input.declaredTrainIdentity)) {
-    fail("invalid_metadata", "declaredTrainIdentity must be non-empty.");
+  if (
+    input.declaredTrainIdentities.length === 0 ||
+    input.declaredTrainIdentities.some((identity) => !nonEmpty(identity))
+  ) {
+    fail("invalid_metadata", "declaredTrainIdentities must be non-empty.");
   }
   const operatorRecords = uniqueBy(
     input.operators,
@@ -547,7 +550,8 @@ export function importOdptScheduledDataset(
     const providerRailwayId = record.railway;
     const providerCalendarId = record.calendar;
     if (
-      record.train !== input.declaredTrainIdentity ||
+      record.train === null ||
+      !input.declaredTrainIdentities.includes(record.train) ||
       record.operator === null ||
       providerRailwayId === null ||
       providerCalendarId === null
@@ -569,7 +573,7 @@ export function importOdptScheduledDataset(
         "unknown_calendar_reference",
         `timetable ${timetableId} references ${providerCalendarId}.`,
       );
-    const patternId = routePatternId(route.id, input.declaredTrainIdentity);
+    const patternId = routePatternId(route.id, record.train);
     const serviceId = makeTransitEntityId(
       "odpt",
       "scheduled_service",
@@ -700,12 +704,14 @@ export function importOdptScheduledDataset(
 
   const patternsByRoute = new Map<string, OdptRoutePatternSourceSemantics[]>();
   for (const route of routes) {
-    const patternId = routePatternId(route.id, input.declaredTrainIdentity);
-    const serviceIds = patternServices.get(patternId) ?? [];
-    const tripIds = patternTripIds.get(patternId) ?? [];
     const patterns = patternsByRoute.get(route.id) ?? [];
-    if (serviceIds.length > 0)
+    for (const trainIdentity of input.declaredTrainIdentities) {
+      const patternId = routePatternId(route.id, trainIdentity);
+      const serviceIds = patternServices.get(patternId) ?? [];
+      const tripIds = patternTripIds.get(patternId) ?? [];
+      if (serviceIds.length === 0) continue;
       patterns.push({ patternId, tripIds, serviceIds });
+    }
     patternsByRoute.set(route.id, patterns);
   }
   const finalRoutes = routes.map((route) => ({
@@ -723,43 +729,49 @@ export function importOdptScheduledDataset(
   }
   const finalRouteStops: TransitRouteStop[] = [];
   for (const route of finalRoutes) {
-    const pattern = route.sourceSemantics.patterns?.[0];
-    const service = services.find(
-      (candidate) => candidate.routeId === route.id,
-    );
-    if (pattern === undefined || service === undefined) {
-      fail(
-        "inconsistent_schedule",
-        `route ${route.id} has no declared schedule pattern.`,
-      );
-    }
+    const patterns = route.sourceSemantics.patterns ?? [];
     const baseByStop = new Map(
       (baseRouteStopsByRoute.get(route.id) ?? []).map(
         (membership) => [membership.stopId, membership] as const,
       ),
     );
-    const serviceFacts = scheduledStopTimes
-      .filter((fact) => fact.serviceId === service.id)
-      .sort((left, right) => left.order - right.order);
-    if (serviceFacts.length === 0) {
-      fail(
-        "inconsistent_schedule",
-        `service ${service.providerServiceId} has no stop facts.`,
+    for (const pattern of patterns) {
+      const service = services.find(
+        (candidate) => candidate.patternId === pattern.patternId,
       );
-    }
-    for (const fact of serviceFacts) {
-      const base = baseByStop.get(fact.stopId);
-      if (base === undefined) {
+      if (service === undefined) {
         fail(
-          "unknown_station_reference",
-          `service ${service.providerServiceId} references an unlisted stop.`,
+          "inconsistent_schedule",
+          `pattern ${pattern.patternId} has no declared schedule service.`,
         );
       }
-      finalRouteStops.push({
-        ...base,
-        order: fact.order,
-        patternId: pattern.patternId,
-      });
+      const serviceFacts = scheduledStopTimes
+        .filter(
+          (fact) =>
+            fact.serviceId === service.id &&
+            fact.patternId === service.patternId,
+        )
+        .sort((left, right) => left.order - right.order);
+      if (serviceFacts.length === 0) {
+        fail(
+          "inconsistent_schedule",
+          `service ${service.providerServiceId} has no stop facts.`,
+        );
+      }
+      for (const fact of serviceFacts) {
+        const base = baseByStop.get(fact.stopId);
+        if (base === undefined) {
+          fail(
+            "unknown_station_reference",
+            `service ${service.providerServiceId} references an unlisted stop.`,
+          );
+        }
+        finalRouteStops.push({
+          ...base,
+          order: fact.order,
+          patternId: pattern.patternId,
+        });
+      }
     }
   }
   const finalRouteStopsByRoute = new Map<string, TransitRouteStop[]>();
@@ -770,9 +782,14 @@ export function importOdptScheduledDataset(
   }
   for (const service of services) {
     const facts = scheduledStopTimes
-      .filter((fact) => fact.serviceId === service.id)
+      .filter(
+        (fact) =>
+          fact.serviceId === service.id && fact.patternId === service.patternId,
+      )
       .sort((left, right) => left.order - right.order);
-    const memberships = finalRouteStopsByRoute.get(service.routeId) ?? [];
+    const memberships = (finalRouteStopsByRoute.get(service.routeId) ?? [])
+      .filter((membership) => membership.patternId === service.patternId)
+      .sort((left, right) => left.order - right.order);
     if (
       facts.length !== memberships.length ||
       facts.some((fact, index) => fact.stopId !== memberships[index]?.stopId)
@@ -869,7 +886,7 @@ export function importOdptScheduledDataset(
         realtime: "not_evaluated" as const,
         datasetId: metadata.datasetId,
         notes: [
-          `complete only for exact train scope ${input.declaredTrainIdentity}`,
+          `complete only for exact train scope ${input.declaredTrainIdentities.join(", ")}`,
           "station timetable discovery was bounded and is not part of the routed graph",
         ],
       };

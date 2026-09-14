@@ -38,10 +38,10 @@ export const OUTPUT_PATH = resolve(
 export const ODPT_GINZA_A501_METADATA: OdptScheduledDatasetImportMetadata = {
   provider: "odpt",
   schemaVersion: "kai-291b1-v2",
-  datasetId: "odpt-tokyometro-ginza-a501-v1",
+  datasetId: "odpt-tokyometro-ginza-a501-b515-v1",
   identityNamespace: "odpt",
   sourceDescriptor:
-    "ODPT exact-scope dump: TokyoMetro Ginza railway + odpt.Train:TokyoMetro.Ginza.A501 + returned Weekday/SaturdayHoliday variants; complete for this declared scope only",
+    "ODPT exact-scope dump: TokyoMetro Ginza railway + exact train identities odpt.Train:TokyoMetro.Ginza.A501 and odpt.Train:TokyoMetro.Ginza.B515 + returned Weekday/SaturdayHoliday variants; complete for this declared scope only",
   sourceType: "data_dump",
   retrievedAt: "2026-09-14T06:14:22.314Z",
   checkedAt: "2026-09-14T06:14:22.314Z",
@@ -55,14 +55,23 @@ function loadInput(): OdptScheduledDatasetInput {
     readonly schemaVersion?: unknown;
     readonly credentialIncluded?: unknown;
     readonly records?: unknown;
-    readonly scope?: { readonly train?: unknown };
+    readonly scope?: { readonly trains?: unknown };
   };
   if (source.schemaVersion !== 1 || source.credentialIncluded !== false) {
     throw new Error(
       "C4F source evidence manifest is not trusted or credential-free.",
     );
   }
-  if (source.scope?.train !== "odpt.Train:TokyoMetro.Ginza.A501") {
+  const declaredTrains = [
+    "odpt.Train:TokyoMetro.Ginza.A501",
+    "odpt.Train:TokyoMetro.Ginza.B515",
+  ];
+  const scopedTrains = source.scope?.trains;
+  if (
+    !Array.isArray(scopedTrains) ||
+    scopedTrains.length !== declaredTrains.length ||
+    declaredTrains.some((identity) => !scopedTrains.includes(identity))
+  ) {
     throw new Error("C4F source evidence train scope changed unexpectedly.");
   }
   const records = source.records;
@@ -81,7 +90,10 @@ function loadInput(): OdptScheduledDatasetInput {
     calendars: typed.calendars as OdptScheduledDatasetInput["calendars"],
     trainTimetables:
       typed.trainTimetables as OdptScheduledDatasetInput["trainTimetables"],
-    declaredTrainIdentity: "odpt.Train:TokyoMetro.Ginza.A501",
+    declaredTrainIdentities: [
+      "odpt.Train:TokyoMetro.Ginza.A501",
+      "odpt.Train:TokyoMetro.Ginza.B515",
+    ],
   };
 }
 

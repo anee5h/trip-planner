@@ -23,7 +23,7 @@ import {
   type ScheduledTransitDatasetArtifact,
 } from "../scheduledTransitDataset";
 import {
-  ODPT_TOKYOMETRO_GINZA_A501_DATASET,
+  ODPT_TOKYOMETRO_GINZA_A501_B515_DATASET,
   SAKATA_RUNRUNBUS_DATASET,
 } from "../scheduledTransitDatasetRegistry";
 
@@ -54,7 +54,10 @@ function sourceInput(): OdptScheduledDatasetInput {
       .calendars as OdptScheduledDatasetInput["calendars"],
     trainTimetables: source.records
       .trainTimetables as OdptScheduledDatasetInput["trainTimetables"],
-    declaredTrainIdentity: "odpt.Train:TokyoMetro.Ginza.A501",
+    declaredTrainIdentities: [
+      "odpt.Train:TokyoMetro.Ginza.A501",
+      "odpt.Train:TokyoMetro.Ginza.B515",
+    ],
   };
 }
 
@@ -97,7 +100,7 @@ describe("KAI-292C4F ODPT scheduled dataset bridge", () => {
     const artifact = buildArtifact();
     const loaded = validateScheduledTransitDataset(
       artifact,
-      ODPT_TOKYOMETRO_GINZA_A501_DATASET,
+      ODPT_TOKYOMETRO_GINZA_A501_B515_DATASET,
     );
     expect(
       loaded.graph.operators.map(
@@ -106,10 +109,10 @@ describe("KAI-292C4F ODPT scheduled dataset bridge", () => {
     ).toEqual(["odpt.Operator:TokyoMetro"]);
     expect(loaded.graph.stops).toHaveLength(19);
     expect(loaded.graph.routes).toHaveLength(1);
-    expect(loaded.graph.routeStops).toHaveLength(19);
+    expect(loaded.graph.routeStops).toHaveLength(23);
     expect(loaded.graph.calendars).toHaveLength(2);
-    expect(loaded.graph.scheduledServices).toHaveLength(2);
-    expect(loaded.graph.scheduledStopTimes).toHaveLength(38);
+    expect(loaded.graph.scheduledServices).toHaveLength(3);
+    expect(loaded.graph.scheduledStopTimes).toHaveLength(42);
     expect(loaded.coverage.entries).toMatchObject([
       {
         provider: "odpt",
@@ -134,7 +137,7 @@ describe("KAI-292C4F ODPT scheduled dataset bridge", () => {
     expect(() =>
       validateScheduledTransitDataset(
         artifact,
-        ODPT_TOKYOMETRO_GINZA_A501_DATASET,
+        ODPT_TOKYOMETRO_GINZA_A501_B515_DATASET,
       ),
     ).toThrow(new RegExp(`\\[${code}\\]`));
   });
@@ -149,7 +152,7 @@ describe("KAI-292C4F ODPT scheduled dataset bridge", () => {
     expect(() =>
       validateScheduledTransitDataset(
         artifact,
-        ODPT_TOKYOMETRO_GINZA_A501_DATASET,
+        ODPT_TOKYOMETRO_GINZA_A501_B515_DATASET,
       ),
     ).toThrow(/dataset_mismatch|namespace_mismatch/);
   });
@@ -173,7 +176,7 @@ describe("KAI-292C4F ODPT scheduled dataset bridge", () => {
           ...cloneArtifact(buildArtifact()),
           graph: { ...buildArtifact().graph, scheduledServices: [] },
         },
-        ODPT_TOKYOMETRO_GINZA_A501_DATASET,
+        ODPT_TOKYOMETRO_GINZA_A501_B515_DATASET,
       ),
     ).toThrow(/hash_mismatch/);
     expect(() =>
@@ -182,7 +185,7 @@ describe("KAI-292C4F ODPT scheduled dataset bridge", () => {
           ...cloneArtifact(buildArtifact()),
           graph: { ...buildArtifact().graph, scheduledStopTimes: [] },
         },
-        ODPT_TOKYOMETRO_GINZA_A501_DATASET,
+        ODPT_TOKYOMETRO_GINZA_A501_B515_DATASET,
       ),
     ).toThrow(/hash_mismatch/);
     const brokenService = mutableSourceInput();
@@ -211,7 +214,7 @@ describe("KAI-292C4F ODPT scheduled dataset bridge", () => {
   it("does not qualify partial/bounded completeness as production eligibility", () => {
     const bounded = artifactFromInput(sourceInput(), "bounded_subset");
     const descriptor = {
-      ...ODPT_TOKYOMETRO_GINZA_A501_DATASET,
+      ...ODPT_TOKYOMETRO_GINZA_A501_B515_DATASET,
       key: "synthetic-c4f-bounded",
       completeness: "bounded_subset" as const,
       expectedContentHash: bounded.metadata.datasetHash,
@@ -236,7 +239,7 @@ describe("KAI-292C4F ODPT scheduled dataset bridge", () => {
     expect(report.status).toBe("blocked_prerequisite");
     expect(report.c2Boundary.odptEvidenceCanEnterTrustedDataset).toBe(true);
     expect(report.c2Boundary.productionEligibleOdptDatasetKeys).toEqual([
-      "odpt-tokyometro-ginza-a501",
+      "odpt-tokyometro-ginza-a501-b515",
     ]);
     expect(report.c4a.corridorCount).toBe(0);
     expect(report.exactEndpointIdentityPairs).toEqual([]);
@@ -275,10 +278,10 @@ describe("KAI-292C4F ODPT scheduled dataset bridge", () => {
     try {
       resetScheduledTransitDatasetCache();
       const odpt = await loadScheduledTransitDataset(
-        "odpt-tokyometro-ginza-a501",
+        "odpt-tokyometro-ginza-a501-b515",
       );
       expect(odpt.metadata.provider).toBe("odpt");
-      expect(odpt.graph.scheduledServices?.length).toBe(2);
+      expect(odpt.graph.scheduledServices?.length).toBe(3);
       resetScheduledTransitDatasetCache();
       const sakata = await loadScheduledTransitDataset("sakata-runrunbus");
       expect(sakata.metadata.provider).toBe(SAKATA_RUNRUNBUS_DATASET.provider);

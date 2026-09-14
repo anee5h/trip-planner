@@ -2,9 +2,10 @@
 
 ## Scope decision
 
-The first truthful bounded scope is **Tokyo Metro Ginza Railway + exact ODPT train
-identity `odpt.Train:TokyoMetro.Ginza.A501`**, including every timetable variant
-returned for that identity by the reviewed narrow request:
+The first truthful bounded scope is **Tokyo Metro Ginza Railway plus exact ODPT
+train identities `odpt.Train:TokyoMetro.Ginza.A501` and
+`odpt.Train:TokyoMetro.Ginza.B515`**, including every timetable variant returned
+for those identities by the reviewed narrow requests:
 
 - `odpt.Calendar:Weekday`
 - `odpt.Calendar:SaturdayHoliday`
@@ -24,7 +25,7 @@ normalized responses captured through the existing `/api/odpt` boundary on
 - one exact railway request: 1 record;
 - one railway-scoped station request: 19 records;
 - two exact calendar requests: 1 record each;
-- one exact train-timetable request: 2 records.
+- two exact train-timetable requests: 2 A501 records and 1 B515 record.
 
 The source evidence contains no consumer key. Provider identities, railway and
 station identities, train timetable identities, calendar identities, timetable

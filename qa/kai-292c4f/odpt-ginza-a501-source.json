@@ -7,8 +7,11 @@
     "provider": "odpt",
     "operator": "odpt.Operator:TokyoMetro",
     "railway": "odpt.Railway:TokyoMetro.Ginza",
-    "train": "odpt.Train:TokyoMetro.Ginza.A501",
-    "calendars": ["odpt.Calendar:SaturdayHoliday", "odpt.Calendar:Weekday"]
+    "calendars": ["odpt.Calendar:SaturdayHoliday", "odpt.Calendar:Weekday"],
+    "trains": [
+      "odpt.Train:TokyoMetro.Ginza.A501",
+      "odpt.Train:TokyoMetro.Ginza.B515"
+    ]
   },
   "selectionEvidence": {
     "operation": "station_timetable",
@@ -48,6 +51,11 @@
       "operation": "train_timetable",
       "train": "odpt.Train:TokyoMetro.Ginza.A501",
       "recordCount": 2
+    },
+    {
+      "operation": "train_timetable",
+      "train": "odpt.Train:TokyoMetro.Ginza.B515",
+      "recordCount": 1
     }
   ],
   "records": {
@@ -1694,6 +1702,84 @@
           "fetchedAt": "2026-09-14T06:13:04.614Z",
           "sourceResource": "odpt:TrainTimetable",
           "sourceUrl": "https://api.odpt.org/api/v4/odpt:TrainTimetable?odpt:train=odpt.Train%3ATokyoMetro.Ginza.A501",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.TrainTimetable:TokyoMetro.Ginza.B515.Weekday",
+        "sameAs": "odpt.TrainTimetable:TokyoMetro.Ginza.B515.Weekday",
+        "ucode": "urn:ucode:_00001C00000000000001000003B00DA9",
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "railDirection": "odpt.RailDirection:TokyoMetro.Asakusa",
+        "calendar": "odpt.Calendar:Weekday",
+        "train": "odpt.Train:TokyoMetro.Ginza.B515",
+        "trainNumber": "B515",
+        "trainType": "odpt.TrainType:TokyoMetro.Local",
+        "trainName": [],
+        "trainOwner": null,
+        "originStation": ["odpt.Station:TokyoMetro.Ginza.Ueno"],
+        "destinationStation": ["odpt.Station:TokyoMetro.Ginza.Asakusa"],
+        "viaStation": [],
+        "viaRailway": [],
+        "previousTrainTimetable": [],
+        "nextTrainTimetable": [],
+        "objects": [
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:15",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Ueno",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:16",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Inaricho",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:18",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Tawaramachi",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": "05:20",
+            "arrivalStation": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+            "departureTime": null,
+            "departureStation": null,
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          }
+        ],
+        "objectCount": 4,
+        "needExtraFee": null,
+        "note": null,
+        "date": "2025-03-17T12:00:00+09:00",
+        "issuedAt": "2025-03-15",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.TrainTimetable:TokyoMetro.Ginza.B515.Weekday",
+          "ucode": "urn:ucode:_00001C00000000000001000003B00DA9",
+          "generatedAt": "2025-03-17T12:00:00+09:00",
+          "issuedAt": "2025-03-15",
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T07:45:52.228Z",
+          "sourceResource": "odpt:TrainTimetable",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:TrainTimetable?odpt:train=odpt.Train%3ATokyoMetro.Ginza.B515",
           "coverage": "unknown"
         }
       }
