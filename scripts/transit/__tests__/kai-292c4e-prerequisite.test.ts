@@ -355,7 +355,7 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
     expect(
       report.anchors.every(({ productionCrosswalk }) => !productionCrosswalk),
     ).toBe(true);
-    expect(report.c4a.corridorCount).toBe(0);
+    expect(report.c4a.corridorCount).toBe(1);
     expect(report.promotedAnchorCount).toBe(0);
   });
 
@@ -525,15 +525,13 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
         odptEvidenceCanEnterTrustedDataset: true,
       });
       expect(report.status).toBe("blocked_prerequisite");
-      expect(report.c4a.corridorCount).toBe(0);
+      expect(report.c4a.corridorCount).toBe(1);
       expect(
         report.anchors.every(({ productionCrosswalk }) => !productionCrosswalk),
       ).toBe(true);
       expect(report.corridorReadinessBlockers.map(({ code }) => code)).toEqual([
-        "missing_canonical_product_origin_identity",
         "missing_catalogue_destination_crosswalk",
         "station_to_destination_access_not_exactly_bound",
-        "missing_direct_or_one_transfer_scheduled_support",
       ]);
       for (const anchor of report.anchors) {
         expect(anchor.c2ScheduledTransitDataset).toMatchObject({
@@ -854,8 +852,8 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
         productionCrosswalk: false,
       },
       stationToDestinationAccess: {
-        status: "source_backed_station_label_only",
-        exactStationIdentityBound: false,
+        status: "exact_identity_bound",
+        exactStationIdentityBound: true,
       },
       odptTimetableEvidence: {
         operatorPilotStatus: "included",
@@ -901,9 +899,9 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
     const report = buildKai292C4EPrerequisiteAudit(ROOT);
 
     expect(report.origin).toMatchObject({
-      status: "missing_canonical_product_identity",
+      status: "available",
       freeTextLabelAndCoordinates: "insufficient",
-      exactProductOriginOptions: [],
+      exactProductOriginOptions: ["tokyo-metro-ginza-asakusa"],
     });
     expect(report.origin.rejectedOptions).toEqual(
       expect.arrayContaining([
@@ -985,10 +983,7 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
     const report = buildKai292C4EPrerequisiteAudit(ROOT);
 
     expect(report.blockers.map(({ code }) => code)).toEqual([
-      "missing_canonical_product_origin_identity",
-      "missing_catalogue_destination_crosswalk",
       "station_to_destination_access_not_exactly_bound",
-      "missing_direct_or_one_transfer_scheduled_support",
     ]);
     expect(report.ranking[0]).toMatchObject({
       rank: 1,

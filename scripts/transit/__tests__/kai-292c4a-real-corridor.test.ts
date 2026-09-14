@@ -277,6 +277,9 @@ function futureFixture(
     schemaVersion: number;
     mappings: ScheduledTransitCrosswalkEntry[];
   };
+  crosswalk.mappings = crosswalk.mappings.filter((mapping) =>
+    mapping.mappingId.startsWith("kai-292c2-pilot-"),
+  );
   crosswalk.mappings.push(originMapping, destinationMapping);
   writeJson(root, CROSSWALK_PATH, crosswalk);
 
@@ -832,15 +835,15 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
     },
   );
 
-  it("returns the current concrete blocker without promoting Sakata or anchors", () => {
+  it("reports the one reviewed ODPT corridor without promoting Sakata or anchors", () => {
     const result: RealCorridorAudit = auditRealMegurutoCorridor();
 
     expect(result.schemaVersion).toBe("kai-292c4a-v4");
-    expect(result.status).toBe("blocked_no_real_catalogue_corridor");
+    expect(result.status).toBe("real_corridor_evidenced");
     expect(result.catalogue).toMatchObject({
       destinationCount: 1130,
       uniqueDestinationIdCount: 1130,
-      destinationMappings: [],
+      destinationMappings: ["kai-292c4g-destination-ueno-park"],
     });
     expect(result.normalizedEvidence).toMatchObject({
       registeredDatasetKeys: [
@@ -854,25 +857,27 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
       unregisteredAssetUrls: [],
     });
     expect(result.crosswalk).toMatchObject({
-      mappingCount: 2,
-      catalogueProductMappings: [],
+      mappingCount: 4,
+      catalogueProductMappings: ["kai-292c4g-destination-ueno-park"],
       nonCatalogueMappingIds: [
         "kai-292c2-pilot-destination-sakata-17-01",
         "kai-292c2-pilot-origin-sakata-100-01",
+        "kai-292c4g-origin-ginza-asakusa",
       ],
     });
     expect(result.originIdentity).toMatchObject({
-      status: "missing_canonical_product_identity",
-      reviewedProductIds: [],
+      status: "reviewed_product_identity_present",
+      reviewedProductIds: ["tokyo-metro-ginza-asakusa"],
     });
-    expect(result.realCorridors).toEqual([]);
+    expect(result.realCorridors).toHaveLength(1);
+    expect(result.realCorridors[0]).toMatchObject({
+      origin: { productId: "tokyo-metro-ginza-asakusa" },
+      destination: { productId: "ueno-park" },
+      dataset: { key: "odpt-tokyometro-ginza-a501" },
+    });
     expect(result.candidateBlockers).toEqual([]);
-    expect(result.blockers.map(({ code }) => code)).toEqual([
-      "missing_catalogue_destination_crosswalk",
-      "missing_canonical_origin_identity",
-    ]);
+    expect(result.blockers).toEqual([]);
   });
-
   it("reports the seven reviewed KAI-291A anchors as insufficient evidence", () => {
     const result = auditRealMegurutoCorridor();
 
@@ -893,7 +898,9 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
       "ryogoku-kokugikan-sumo-museum",
       "sugamo-jizo-dori",
     ]);
-    expect(result.crosswalk.catalogueProductMappings).toEqual([]);
+    expect(result.crosswalk.catalogueProductMappings).toEqual([
+      "kai-292c4g-destination-ueno-park",
+    ]);
   });
 
   it("discovers a future valid corridor from reviewed data changes only", () => {
@@ -968,6 +975,6 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
       kind: "unmapped",
       reason: "no_explicit_crosswalk",
     });
-    expect(auditRealMegurutoCorridor().realCorridors).toEqual([]);
+    expect(auditRealMegurutoCorridor().realCorridors).toHaveLength(1);
   });
 });

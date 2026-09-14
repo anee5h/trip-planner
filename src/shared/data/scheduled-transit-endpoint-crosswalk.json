@@ -38,6 +38,44 @@
         "sourceUrl": "https://www.city.sakata.lg.jp/shisei/opendata/opendata_busu.html",
         "checkedAt": "2026-09-13T00:00:00.000Z"
       }
+    },
+    {
+      "mappingId": "kai-292c4g-origin-ginza-asakusa",
+      "endpoint": {
+        "kind": "origin",
+        "productId": "tokyo-metro-ginza-asakusa"
+      },
+      "datasetId": "odpt-tokyometro-ginza-a501-v1",
+      "provider": "odpt",
+      "identityNamespace": "odpt",
+      "providerStopId": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+      "normalizedStopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Asakusa",
+      "provenance": {
+        "kind": "explicit_crosswalk",
+        "evidenceId": "kai-292c4g-origin-ginza-asakusa",
+        "statement": "The reviewed product-state origin is explicitly bound to the exact ODPT station identity and C4F dataset; the operator station code and railway are preserved, with no display-name, coordinate, nearest-station, or fuzzy fallback.",
+        "sourceUrl": "https://www.tokyometro.jp/lang_en/station/asakusa/index.html",
+        "checkedAt": "2026-09-14T06:14:22.314Z"
+      }
+    },
+    {
+      "mappingId": "kai-292c4g-destination-ueno-park",
+      "endpoint": {
+        "kind": "destination",
+        "productId": "ueno-park"
+      },
+      "datasetId": "odpt-tokyometro-ginza-a501-v1",
+      "provider": "odpt",
+      "identityNamespace": "odpt",
+      "providerStopId": "odpt.Station:TokyoMetro.Ginza.Ueno",
+      "normalizedStopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Ueno",
+      "provenance": {
+        "kind": "explicit_crosswalk",
+        "evidenceId": "kai-292c4g-destination-ueno-park",
+        "statement": "Ueno Park's reviewed access source names Ueno Station. The operator Ueno page identifies Ueno as Ginza station G-16, and the C4F ODPT record has exact station identity odpt.Station:TokyoMetro.Ginza.Ueno, stationCode G-16, and railway odpt.Railway:TokyoMetro.Ginza. The binding uses the exact provider station code and railway; it does not use display-name or geographic matching. Full evidence is recorded in qa/kai-292c4g/ueno-park-station-access-evidence.json.",
+        "sourceUrl": "https://www.tokyo-park.or.jp/park/ueno/",
+        "checkedAt": "2026-09-14T06:14:22.314Z"
+      }
     }
   ]
 }

@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "kai-292c4a-v4",
+  "status": "real_corridor_evidenced",
+  "catalogue": {
+    "source": "src/shared/data/destinations-index.json",
+    "destinationCount": 1130,
+    "uniqueDestinationIdCount": 1130,
+    "destinationMappings": ["kai-292c4g-destination-ueno-park"]
+  },
+  "normalizedEvidence": {
+    "assetDirectory": "public/data/transit",
+    "registeredDatasetKeys": ["odpt-tokyometro-ginza-a501", "sakata-runrunbus"],
+    "validRegisteredDatasetKeys": [
+      "odpt-tokyometro-ginza-a501",
+      "sakata-runrunbus"
+    ],
+    "datasets": [
+      {
+        "key": "odpt-tokyometro-ginza-a501",
+        "assetUrl": "/data/transit/odpt-tokyometro-ginza-a501.json",
+        "provider": "odpt",
+        "datasetId": "odpt-tokyometro-ginza-a501-v1",
+        "identityNamespace": "odpt",
+        "state": "valid",
+        "graphCounts": {
+          "operators": 1,
+          "stops": 19,
+          "routes": 1,
+          "routeStops": 19,
+          "calendars": 2,
+          "scheduledServices": 2,
+          "scheduledStopTimes": 38,
+          "transfers": 0,
+          "fares": 0
+        }
+      },
+      {
+        "key": "sakata-runrunbus",
+        "assetUrl": "/data/transit/sakata-runrunbus.json",
+        "provider": "gtfs",
+        "datasetId": "gtfs-jp-sakata-runrunbus-20260401",
+        "identityNamespace": "gtfs:sakata-runrunbus",
+        "state": "valid",
+        "graphCounts": {
+          "operators": 1,
+          "stops": 252,
+          "routes": 6,
+          "routeStops": 915,
+          "calendars": 3,
+          "scheduledServices": 49,
+          "scheduledStopTimes": 1961,
+          "transfers": 0,
+          "fares": 0
+        }
+      }
+    ],
+    "unregisteredAssetUrls": []
+  },
+  "crosswalk": {
+    "source": "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
+    "mappingCount": 4,
+    "catalogueProductMappings": ["kai-292c4g-destination-ueno-park"],
+    "nonCatalogueMappingIds": [
+      "kai-292c2-pilot-destination-sakata-17-01",
+      "kai-292c2-pilot-origin-sakata-100-01",
+      "kai-292c4g-origin-ginza-asakusa"
+    ]
+  },
+  "originIdentity": {
+    "source": "qa/kai-292c4a/real-corridor-identity-evidence.json",
+    "status": "reviewed_product_identity_present",
+    "reviewedProductIds": ["tokyo-metro-ginza-asakusa"],
+    "invalidEvidenceCount": 0,
+    "statement": "Reviewed product origin identities are eligible for exact crosswalk evaluation only."
+  },
+  "reviewedAnchors": {
+    "source": "qa/kai-291/destination-station-anchors.json",
+    "status": "reviewed_insufficient_for_corridor",
+    "productionCrosswalk": false,
+    "stationToPoiAccess": "unproven",
+    "anchors": [
+      {
+        "destinationId": "shinjuku-gyo-en",
+        "stationIdentity": "odpt.Station:TokyoMetro.Marunouchi.ShinjukuGyoemmae",
+        "operator": "odpt.Operator:TokyoMetro"
+      },
+      {
+        "destinationId": "teamlab-borderless-azabudai",
+        "stationIdentity": "odpt.Station:TokyoMetro.Hibiya.Kamiyacho",
+        "operator": "odpt.Operator:TokyoMetro"
+      },
+      {
+        "destinationId": "ueno-park",
+        "stationIdentity": "odpt.Station:TokyoMetro.Ginza.Ueno",
+        "operator": "odpt.Operator:TokyoMetro"
+      },
+      {
+        "destinationId": "hamarikyu-gardens",
+        "stationIdentity": "odpt.Station:Toei.Oedo.Shiodome",
+        "operator": "odpt.Operator:Toei"
+      },
+      {
+        "destinationId": "sumida-hokusai-museum",
+        "stationIdentity": "odpt.Station:Toei.Oedo.Ryogoku",
+        "operator": "odpt.Operator:Toei"
+      },
+      {
+        "destinationId": "ryogoku-kokugikan-sumo-museum",
+        "stationIdentity": "odpt.Station:Toei.Oedo.Ryogoku",
+        "operator": "odpt.Operator:Toei"
+      },
+      {
+        "destinationId": "sugamo-jizo-dori",
+        "stationIdentity": "odpt.Station:Toei.Mita.Sugamo",
+        "operator": "odpt.Operator:Toei"
+      }
+    ]
+  },
+  "realCorridors": [
+    {
+      "origin": {
+        "productId": "tokyo-metro-ginza-asakusa",
+        "mappingId": "kai-292c4g-origin-ginza-asakusa",
+        "normalizedStopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Asakusa",
+        "providerStopId": "odpt.Station:TokyoMetro.Ginza.Asakusa"
+      },
+      "destination": {
+        "productId": "ueno-park",
+        "mappingId": "kai-292c4g-destination-ueno-park",
+        "normalizedStopId": "odpt:stop:odpt:odpt.Station%3ATokyoMetro.Ginza.Ueno",
+        "providerStopId": "odpt.Station:TokyoMetro.Ginza.Ueno"
+      },
+      "dataset": {
+        "key": "odpt-tokyometro-ginza-a501",
+        "datasetId": "odpt-tokyometro-ginza-a501-v1",
+        "provider": "odpt",
+        "identityNamespace": "odpt"
+      },
+      "timetable": {
+        "scheduledServiceCount": 2,
+        "scheduledStopTimeCount": 38
+      },
+      "scheduledRouting": {
+        "kind": "supported",
+        "topology": "direct",
+        "transferCount": 0,
+        "scheduledServiceCount": 2,
+        "scheduledStopTimeCount": 38,
+        "directServiceIds": [
+          "odpt:scheduled_service:odpt:odpt.TrainTimetable%3ATokyoMetro.Ginza.A501.SaturdayHoliday",
+          "odpt:scheduled_service:odpt:odpt.TrainTimetable%3ATokyoMetro.Ginza.A501.Weekday"
+        ]
+      },
+      "runtimeVerification": {
+        "status": "not_evaluated",
+        "reason": "no_authoritative_service_date_or_departure_time"
+      }
+    }
+  ],
+  "candidateBlockers": [],
+  "blockers": []
+}

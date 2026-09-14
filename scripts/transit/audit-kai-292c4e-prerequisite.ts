@@ -29,6 +29,8 @@ import {
 
 const CATALOGUE_PATH = "src/shared/data/destinations-index.json";
 const ANCHOR_PATH = "qa/kai-291/destination-station-anchors.json";
+const EXACT_STATION_ACCESS_PATH =
+  "qa/kai-292c4g/ueno-park-station-access-evidence.json";
 const COVERAGE_PATH = "qa/kai-290/odpt-coverage.json";
 const IDENTITY_EVIDENCE_PATH =
   "qa/kai-292c4a/real-corridor-identity-evidence.json";
@@ -63,6 +65,19 @@ export const KAI_292C4E_ANCHOR_IDS = [
 export const KAI_292C4E_AUDIT_SCHEMA_VERSION = "kai-292c4e-v1" as const;
 
 type JsonRecord = Record<string, unknown>;
+
+interface ExactStationAccessEvidence {
+  readonly destinationId: string;
+  readonly stationIdentity: string;
+  readonly provider: "odpt";
+  readonly identityNamespace: "odpt";
+  readonly datasetId: string;
+  readonly stationCode: string;
+  readonly accessSourceUrl: string;
+  readonly accessStatement: string;
+  readonly operatorSourceUrl: string;
+  readonly operatorStatement: string;
+}
 
 type AnchorId = (typeof KAI_292C4E_ANCHOR_IDS)[number];
 
@@ -185,6 +200,12 @@ export interface Kai292C4EAnchorFinding {
         readonly sourceUrls: readonly string[];
         readonly statement: string;
         readonly missingPrerequisite: "exact_identity_bound_access_evidence";
+      }
+    | {
+        readonly status: "exact_identity_bound";
+        readonly exactStationIdentityBound: true;
+        readonly sourceUrls: readonly string[];
+        readonly statement: string;
       }
     | {
         readonly status: "unavailable";
@@ -1125,11 +1146,91 @@ function timetableProbeFacts(coverage: JsonRecord): {
   };
 }
 
+function readExactStationAccessEvidence(
+  rootDir: string,
+): readonly ExactStationAccessEvidence[] {
+  const path = resolve(rootDir, EXACT_STATION_ACCESS_PATH);
+  if (!existsSync(path)) return [];
+  const root = requireRecord(
+    readJson(rootDir, EXACT_STATION_ACCESS_PATH),
+    EXACT_STATION_ACCESS_PATH,
+  );
+  if (root.schemaVersion !== 1 || !Array.isArray(root.evidence)) {
+    throw new Error(`${EXACT_STATION_ACCESS_PATH} has an unsupported schema`);
+  }
+  return root.evidence.map((value, index) => {
+    const candidate = requireRecord(
+      value,
+      `${EXACT_STATION_ACCESS_PATH}.evidence[${index}]`,
+    );
+    const accessSource = requireRecord(
+      candidate.accessSource,
+      `${EXACT_STATION_ACCESS_PATH}.evidence[${index}].accessSource`,
+    );
+    const operatorSource = requireRecord(
+      candidate.operatorIdentitySource,
+      `${EXACT_STATION_ACCESS_PATH}.evidence[${index}].operatorIdentitySource`,
+    );
+    if (
+      candidate.bindingStatus !== "bound_to_exact_provider_station_identity" ||
+      candidate.provider !== "odpt" ||
+      candidate.identityNamespace !== "odpt"
+    ) {
+      throw new Error(
+        `${EXACT_STATION_ACCESS_PATH}.evidence[${index}] is not an exact ODPT binding`,
+      );
+    }
+    return {
+      destinationId: requireString(candidate.destinationId, "destinationId"),
+      stationIdentity: requireString(
+        candidate.stationIdentity,
+        "stationIdentity",
+      ),
+      provider: "odpt",
+      identityNamespace: "odpt",
+      datasetId: requireString(candidate.datasetId, "datasetId"),
+      stationCode: requireString(candidate.stationCode, "stationCode"),
+      accessSourceUrl: requireString(
+        accessSource.sourceUrl,
+        "accessSource.sourceUrl",
+      ),
+      accessStatement: requireString(
+        accessSource.statement,
+        "accessSource.statement",
+      ),
+      operatorSourceUrl: requireString(
+        operatorSource.sourceUrl,
+        "operatorIdentitySource.sourceUrl",
+      ),
+      operatorStatement: requireString(
+        operatorSource.statement,
+        "operatorIdentitySource.statement",
+      ),
+    };
+  });
+}
+
 function stationAccess(
   destinationId: AnchorId,
   catalogue: JsonRecord,
   stationId: string,
+  exactAccessEvidence: readonly ExactStationAccessEvidence[],
 ): Kai292C4EAnchorFinding["stationToDestinationAccess"] {
+  const exact = exactAccessEvidence.find(
+    (candidate) =>
+      candidate.destinationId === destinationId &&
+      candidate.stationIdentity === stationId &&
+      candidate.provider === "odpt" &&
+      candidate.identityNamespace === "odpt",
+  );
+  if (exact !== undefined) {
+    return {
+      status: "exact_identity_bound",
+      exactStationIdentityBound: true,
+      sourceUrls: [exact.accessSourceUrl, exact.operatorSourceUrl].sort(),
+      statement: `${exact.accessStatement} ${exact.operatorStatement} Exact binding uses ${exact.stationIdentity} with provider station code ${exact.stationCode} in dataset ${exact.datasetId}; no display-name or geographic inference is used.`,
+    };
+  }
   const neutralStatement =
     "No reviewed station-to-destination access evidence is bound to the exact ODPT station identity.";
   const localTransport = catalogue.localTransport;
@@ -1166,6 +1267,7 @@ function anchorFinding(
   coverage: JsonRecord,
   c2State: Kai292C4EC2RegistryState,
   reviewedProductIds: readonly string[],
+  exactAccessEvidence: readonly ExactStationAccessEvidence[],
 ): Kai292C4EAnchorFinding {
   const stationId = requireString(anchor.odptStationId, `${id}.odptStationId`);
   const operator = requireString(anchor.operator, `${id}.operator`);
@@ -1175,7 +1277,7 @@ function anchorFinding(
   }
   const pilotStatus = includedPilotOperator(coverage, operator);
   const sampled = sampledStationIds(coverage, operator);
-  const access = stationAccess(id, catalogue, stationId);
+  const access = stationAccess(id, catalogue, stationId, exactAccessEvidence);
   const c2Missing = c2MissingPrerequisite(c2State);
   const missingPrerequisites = [
     ...(reviewedProductIds.length === 0
@@ -1304,8 +1406,8 @@ function buildCorridorReadinessBlockers(
     blockers.push({
       code: "station_to_destination_access_not_exactly_bound",
       statement:
-        "KAI-291A geographic uniqueness is not station-to-destination access evidence. Ueno has a reviewed station-label walking statement without exact ODPT binding; the other six current catalogue records do not provide usable access evidence.",
-      evidence: [ANCHOR_PATH, CATALOGUE_PATH],
+        "Not every requested anchor has access evidence bound to its exact ODPT station identity; the C4G Ueno binding is recorded separately and the remaining anchors are still unproven.",
+      evidence: [ANCHOR_PATH, EXACT_STATION_ACCESS_PATH, CATALOGUE_PATH],
     });
   }
   if (!gateSatisfied("production_loadable_scheduled_dataset")) {
@@ -1362,15 +1464,9 @@ function rankAnchors(
   return [...anchors]
     .sort((left, right) => {
       const leftScore =
-        left.stationToDestinationAccess.status ===
-        "source_backed_station_label_only"
-          ? 1
-          : 2;
+        left.stationToDestinationAccess.status === "unavailable" ? 2 : 1;
       const rightScore =
-        right.stationToDestinationAccess.status ===
-        "source_backed_station_label_only"
-          ? 1
-          : 2;
+        right.stationToDestinationAccess.status === "unavailable" ? 2 : 1;
       return (
         leftScore - rightScore ||
         left.destinationId.localeCompare(right.destinationId)
@@ -1378,10 +1474,7 @@ function rankAnchors(
     })
     .map((anchor, index) => {
       const score =
-        anchor.stationToDestinationAccess.status ===
-        "source_backed_station_label_only"
-          ? 1
-          : 2;
+        anchor.stationToDestinationAccess.status === "unavailable" ? 2 : 1;
       return {
         rank: score === 1 ? 1 : 2,
         destinationId: anchor.destinationId,
@@ -1391,7 +1484,7 @@ function rankAnchors(
         tieBreakOrder: index + 1,
         reason:
           score === 1
-            ? "Lowest current gap: catalogue identity, reviewed ODPT station, and source-backed station-label access exist, but exact access binding, origin, C2 representation, and schedule proof are still missing."
+            ? "Lowest current gap: catalogue identity, reviewed ODPT station, and reviewed station-access evidence exist; the remaining origin, C2 representation, and schedule prerequisites are still evaluated separately."
             : "No reviewed station-to-destination access evidence is available in the current catalogue record; the shared origin, C2 representation, and schedule prerequisites are also missing.",
       };
     });
@@ -1407,6 +1500,7 @@ export function buildKai292C4EPrerequisiteAudit(
     anchorRecords(rootDir).map((anchor) => [anchor.destinationId, anchor]),
   );
   const coverage = coverageRoot(rootDir, options.odptCoverage);
+  const exactAccessEvidence = readExactStationAccessEvidence(rootDir);
   const descriptors = c2Descriptors(options);
   const c2State = c2RegistryState(
     rootDir,
@@ -1449,6 +1543,7 @@ export function buildKai292C4EPrerequisiteAudit(
       coverage,
       c2State,
       reviewedProductIds,
+      exactAccessEvidence,
     );
   });
   const pilotFacts = timetableProbeFacts(coverage);

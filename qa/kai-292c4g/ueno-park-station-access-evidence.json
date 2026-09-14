@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "evidence": [
+    {
+      "evidenceId": "kai-292c4g-destination-ueno-park",
+      "destinationId": "ueno-park",
+      "stationIdentity": "odpt.Station:TokyoMetro.Ginza.Ueno",
+      "provider": "odpt",
+      "identityNamespace": "odpt",
+      "datasetId": "odpt-tokyometro-ginza-a501-v1",
+      "operator": "odpt.Operator:TokyoMetro",
+      "railway": "odpt.Railway:TokyoMetro.Ginza",
+      "stationCode": "G-16",
+      "bindingStatus": "bound_to_exact_provider_station_identity",
+      "bindingMethod": "exact_provider_station_code_and_railway",
+      "accessSource": {
+        "sourceUrl": "https://www.tokyo-park.or.jp/park/ueno/",
+        "statement": "The Tokyo Metropolitan Park Association's Ueno Park page says 2 minutes on foot from Ueno Station and 1 minute from Keisei Ueno Station."
+      },
+      "operatorIdentitySource": {
+        "sourceUrl": "https://www.tokyometro.jp/lang_en/station/ueno/index.html",
+        "statement": "Tokyo Metro's operator page identifies Ueno Station as G16/H18 and lists the Ginza Line."
+      },
+      "odptArtifactEvidence": {
+        "source": "public/data/transit/odpt-tokyometro-ginza-a501.json",
+        "statement": "The committed C4F graph contains the exact ODPT provider station identity, provider station code G-16, TokyoMetro operator, and TokyoMetro Ginza railway."
+      },
+      "rejectedMethods": [
+        "display_name_matching",
+        "coordinate_matching",
+        "nearest_station_inference",
+        "fuzzy_fallback"
+      ],
+      "checkedAt": "2026-09-14T06:14:22.314Z"
+    }
+  ]
+}

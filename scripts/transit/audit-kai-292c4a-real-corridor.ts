@@ -591,6 +591,8 @@ function structurallyValidService(
   const seenOrders = new Set<number>();
   for (const [indexInService, fact] of facts.entries()) {
     const stop = index.stops.get(fact.stopId);
+    const hasValidTime = (value: number | null): boolean =>
+      value === null || (Number.isSafeInteger(value) && value >= 0);
     if (
       fact.provider !== service.provider ||
       fact.patternId !== service.patternId ||
@@ -601,12 +603,13 @@ function structurallyValidService(
       !provenanceMatches(fact.provenance, dataset) ||
       !provenanceMatches(stop.provenance, dataset) ||
       fact.sourceSemantics.provider !== fact.provider ||
-      fact.arrivalServiceSeconds === null ||
-      fact.departureServiceSeconds === null ||
-      !Number.isSafeInteger(fact.arrivalServiceSeconds) ||
-      !Number.isSafeInteger(fact.departureServiceSeconds) ||
-      fact.arrivalServiceSeconds < 0 ||
-      fact.departureServiceSeconds < 0 ||
+      (fact.arrivalServiceSeconds === null &&
+        fact.departureServiceSeconds === null) ||
+      (indexInService === 0 && fact.departureServiceSeconds === null) ||
+      (indexInService === facts.length - 1 &&
+        fact.arrivalServiceSeconds === null) ||
+      !hasValidTime(fact.arrivalServiceSeconds) ||
+      !hasValidTime(fact.departureServiceSeconds) ||
       memberships[indexInService]?.order !== fact.order ||
       memberships[indexInService]?.stopId !== fact.stopId
     ) {
