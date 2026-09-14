@@ -343,6 +343,8 @@ function assertGraphReferences(
     }
     if (
       membership.patternId !== undefined &&
+      patternsByRoute.get(membership.routeId) !== undefined &&
+      (patternsByRoute.get(membership.routeId)?.size ?? 0) > 0 &&
       !patternsByRoute.get(membership.routeId)?.has(membership.patternId)
     ) {
       invalid(`graph.routeStops[${index}] references an unknown pattern.`);
@@ -360,7 +362,11 @@ function assertGraphReferences(
       );
     }
     const patternIds = patternsByRoute.get(service.routeId);
-    if (patternIds === undefined || !patternIds.has(service.patternId)) {
+    if (
+      patternIds !== undefined &&
+      patternIds.size > 0 &&
+      !patternIds.has(service.patternId)
+    ) {
       invalid(`graph.scheduledServices[${index}] has an unknown pattern.`);
     }
     requireCanonical(

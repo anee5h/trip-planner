@@ -862,10 +862,10 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
         exactStationTimetableStatus: "not_evidenced",
       },
       c2ScheduledTransitDataset: {
-        canEnterTrustedC2: false,
-        artifactValid: false,
-        productionScheduledDatasetEligible: false,
-        reason: "no_registered_odpt_scheduled_dataset",
+        canEnterTrustedC2: true,
+        artifactValid: true,
+        productionScheduledDatasetEligible: true,
+        reason: "registered_trusted_scheduled_dataset",
       },
     });
     expect(ryogoku).toMatchObject({
@@ -894,7 +894,7 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
     }
     expect(report.odptBoundary.liveResultReplayed).toBe(false);
     expect(report.odptBoundary.credentialExposed).toBe(false);
-    expect(report.c2Boundary.odptEvidenceCanEnterTrustedDataset).toBe(false);
+    expect(report.c2Boundary.odptEvidenceCanEnterTrustedDataset).toBe(true);
   });
 
   it("records product-safe origin choices and rejects free text, coordinates, nearest, and Sakata pilot identities", () => {
@@ -988,7 +988,6 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
       "missing_canonical_product_origin_identity",
       "missing_catalogue_destination_crosswalk",
       "station_to_destination_access_not_exactly_bound",
-      "odpt_timetable_not_representable_in_trusted_c2",
       "missing_direct_or_one_transfer_scheduled_support",
     ]);
     expect(report.ranking[0]).toMatchObject({
