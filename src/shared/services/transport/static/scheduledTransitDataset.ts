@@ -1,7 +1,6 @@
-import { contentHashOf } from "./odptRailTopologyImporter";
-import { gtfsRouteStopsForSemanticHash } from "./gtfsTopologyImporter";
 import { makeTransitEntityId } from "./transitEntityId";
 import { sha256Hex, stableStringify } from "./contentHash";
+import { scheduledTransitContentHash } from "./scheduledTransitSemanticHash";
 import {
   getScheduledTransitDatasetDescriptor,
   type ScheduledTransitDatasetDescriptor,
@@ -11,6 +10,7 @@ import type {
   NormalizedTransitGraph,
   TransitDatasetVersion,
   TransitCoverageReport,
+  TransitScheduledStopTime,
 } from "./transitGraphTypes";
 
 export type ScheduledTransitDatasetMetadata = Pick<
@@ -273,6 +273,140 @@ function assertEntityProvenance(
   }
 }
 
+function assertGraphReferences(
+  graph: NormalizedTransitGraph,
+  metadata: ScheduledTransitDatasetMetadata,
+): void {
+  const operatorIds = new Set(graph.operators.map((operator) => operator.id));
+  const stopIds = new Set(graph.stops.map((stop) => stop.id));
+  const routeIds = new Set(graph.routes.map((route) => route.id));
+  const calendarIds = new Set(graph.calendars.map((calendar) => calendar.id));
+  const patternsByRoute = new Map(
+    graph.routes.map((route) => [
+      route.id,
+      new Set(
+        "patterns" in route.sourceSemantics
+          ? route.sourceSemantics.patterns.map((pattern) => pattern.patternId)
+          : [],
+      ),
+    ]),
+  );
+  const requireCanonical = (
+    entityId: string,
+    kind: Parameters<typeof makeTransitEntityId>[1],
+    providerId: string,
+    field: string,
+  ): void => {
+    if (
+      entityId !==
+      makeTransitEntityId(
+        metadata.provider,
+        kind,
+        metadata.identityNamespace,
+        providerId,
+      )
+    ) {
+      invalid(`${field} is not a canonical ${kind} identity.`);
+    }
+  };
+
+  for (const [index, operator] of graph.operators.entries()) {
+    requireCanonical(
+      operator.id,
+      "operator",
+      operator.providerOperatorId,
+      `graph.operators[${index}].id`,
+    );
+  }
+  for (const [index, calendar] of graph.calendars.entries()) {
+    requireCanonical(
+      calendar.id,
+      "calendar",
+      calendar.providerCalendarId,
+      `graph.calendars[${index}].id`,
+    );
+  }
+  for (const [index, route] of graph.routes.entries()) {
+    if (!operatorIds.has(route.operatorId)) {
+      invalid(`graph.routes[${index}] references an unknown operator.`);
+    }
+    requireCanonical(
+      route.id,
+      "route",
+      route.providerRouteId,
+      `graph.routes[${index}].id`,
+    );
+  }
+  for (const [index, membership] of graph.routeStops.entries()) {
+    if (!routeIds.has(membership.routeId) || !stopIds.has(membership.stopId)) {
+      invalid(`graph.routeStops[${index}] has an unknown route or stop.`);
+    }
+    if (
+      membership.patternId !== undefined &&
+      !patternsByRoute.get(membership.routeId)?.has(membership.patternId)
+    ) {
+      invalid(`graph.routeStops[${index}] references an unknown pattern.`);
+    }
+  }
+
+  const factsByService = new Map<string, TransitScheduledStopTime[]>();
+  for (const [index, service] of (graph.scheduledServices ?? []).entries()) {
+    if (
+      !routeIds.has(service.routeId) ||
+      !calendarIds.has(service.calendarId)
+    ) {
+      invalid(
+        `graph.scheduledServices[${index}] has an unknown route/calendar.`,
+      );
+    }
+    const patternIds = patternsByRoute.get(service.routeId);
+    if (patternIds === undefined || !patternIds.has(service.patternId)) {
+      invalid(`graph.scheduledServices[${index}] has an unknown pattern.`);
+    }
+    requireCanonical(
+      service.id,
+      "scheduled_service",
+      service.providerServiceId,
+      `graph.scheduledServices[${index}].id`,
+    );
+    factsByService.set(service.id, []);
+  }
+  for (const [index, fact] of (graph.scheduledStopTimes ?? []).entries()) {
+    const service = graph.scheduledServices?.find(
+      (candidate) => candidate.id === fact.serviceId,
+    );
+    if (
+      service === undefined ||
+      !stopIds.has(fact.stopId) ||
+      fact.patternId !== service.patternId
+    ) {
+      invalid(`graph.scheduledStopTimes[${index}] has an unknown reference.`);
+    }
+    const facts = factsByService.get(fact.serviceId);
+    if (facts === undefined) {
+      invalid(`graph.scheduledStopTimes[${index}] has an unknown service.`);
+    }
+    facts.push(fact);
+    if (!Number.isSafeInteger(fact.order) || fact.order < 1) {
+      invalid(`graph.scheduledStopTimes[${index}] has an invalid order.`);
+    }
+    for (const value of [
+      fact.arrivalServiceSeconds,
+      fact.departureServiceSeconds,
+    ]) {
+      if (value !== null && (!Number.isSafeInteger(value) || value < 0)) {
+        invalid(`graph.scheduledStopTimes[${index}] has an invalid time.`);
+      }
+    }
+  }
+  for (const [serviceId, facts] of factsByService) {
+    const orders = facts.map((fact) => fact.order).sort((a, b) => a - b);
+    if (orders.some((order, index) => order !== index + 1)) {
+      invalid(`service ${serviceId} does not have contiguous stop-time order.`);
+    }
+  }
+}
+
 function assertCoverageMatches(
   metadata: ScheduledTransitDatasetMetadata,
   graph: NormalizedTransitGraph,
@@ -359,21 +493,9 @@ export function validateScheduledTransitDataset(
   assertMetadataMatchesGraph(metadata, graph);
   assertCoverageMatches(metadata, graph, coverage);
   assertEntityProvenance(graph, metadata);
+  assertGraphReferences(graph, metadata);
 
-  const computedContentHash = contentHashOf({
-    operators: graph.operators,
-    stops: graph.stops,
-    routes: graph.routes,
-    routeStops:
-      graph.datasetVersion.provider === "gtfs" ||
-      graph.datasetVersion.provider === "gtfs-jp"
-        ? gtfsRouteStopsForSemanticHash(graph.routeStops)
-        : graph.routeStops,
-    calendars: graph.calendars,
-    scheduledServices: graph.scheduledServices,
-    scheduledStopTimes: graph.scheduledStopTimes,
-    transfers: graph.transfers,
-  });
+  const computedContentHash = scheduledTransitContentHash(graph);
   if (computedContentHash !== metadata.datasetHash) {
     throw new ScheduledTransitDatasetError(
       "hash_mismatch",
