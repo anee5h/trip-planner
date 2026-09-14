@@ -38,6 +38,46 @@
         "sourceUrl": "https://www.city.sakata.lg.jp/shisei/opendata/opendata_busu.html",
         "checkedAt": "2026-09-13T00:00:00.000Z"
       }
+    },
+    {
+      "mappingId": "kai-292c4g-origin-toei-oedo-shinjuku-nishiguchi",
+      "endpoint": {
+        "kind": "origin",
+        "productId": "toei-oedo-shinjuku-nishiguchi"
+      },
+      "datasetId": "toei-oedo-gtfs-20260314",
+      "provider": "gtfs",
+      "identityNamespace": "toei-gtfs",
+      "providerStopId": "402",
+      "providerStationCode": "E-01",
+      "normalizedStopId": "gtfs:stop:toei-gtfs:402",
+      "provenance": {
+        "kind": "explicit_crosswalk",
+        "evidenceId": "kai-292c4g-origin-toei-oedo-shinjuku-nishiguchi",
+        "statement": "The reviewed product-selected origin is explicitly bound to the exact Toei GTFS stop_id=402 / stop_code=E-01 within the complete route_id=4 Oedo dataset scope. No name, coordinate, nearest-station, fuzzy, or current-user inference is used.",
+        "sourceUrl": "https://api-public.odpt.org/api/v4/files/Toei/data/Toei-Train-GTFS.zip",
+        "checkedAt": "2026-09-14"
+      }
+    },
+    {
+      "mappingId": "kai-292c4g-destination-hamarikyu-gardens-shiodome",
+      "endpoint": {
+        "kind": "destination",
+        "productId": "hamarikyu-gardens"
+      },
+      "datasetId": "toei-oedo-gtfs-20260314",
+      "provider": "gtfs",
+      "identityNamespace": "toei-gtfs",
+      "providerStopId": "420",
+      "providerStationCode": "E-19",
+      "normalizedStopId": "gtfs:stop:toei-gtfs:420",
+      "provenance": {
+        "kind": "explicit_crosswalk",
+        "evidenceId": "kai-292c4g-destination-hamarikyu-gardens-shiodome",
+        "statement": "The official Hama-rikyu Gardens access source names Toei O-edo Line Shiodome Sta. E-19 and seven minutes on foot. The pinned Toei GTFS row stop_id=420 has stop_code=E-19 and stop_name=汐留; route_id=4 is the declared Oedo scope. The exact graph identity and full reasoning are recorded in qa/kai-292c4g/hamarikyu-gardens-shiodome-access-evidence.json.",
+        "sourceUrl": "https://www.tokyo-park.or.jp/teien/en/hama-rikyu/access.html",
+        "checkedAt": "2026-09-14"
+      }
     }
   ]
 }

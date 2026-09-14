@@ -26,6 +26,7 @@ export interface ScheduledTransitCrosswalkEntry {
   readonly provider: TransitProvider;
   readonly identityNamespace: string;
   readonly providerStopId: string;
+  readonly providerStationCode?: string;
   readonly normalizedStopId: string;
   readonly provenance: ScheduledTransitCrosswalkProvenance;
 }

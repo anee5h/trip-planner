@@ -34,7 +34,9 @@ const CATALOGUE_PATH = "src/shared/data/destinations-index.json";
 const CROSSWALK_PATH =
   "src/shared/data/scheduled-transit-endpoint-crosswalk.json";
 const IDENTITY_EVIDENCE_PATH =
-  "qa/kai-292c4a/real-corridor-identity-evidence.json";
+  "qa/kai-292c4g/toei-oedo-shinjuku-nishiguchi-origin-evidence.json";
+const ACCESS_EVIDENCE_PATH =
+  "qa/kai-292c4g/hamarikyu-gardens-shiodome-access-evidence.json";
 const PILOT_ANCHORS_PATH = "qa/kai-291/destination-station-anchors.json";
 const DATASET_PATH = "public/data/transit/sakata-runrunbus.json";
 
@@ -240,6 +242,18 @@ function futureFixture(
         "datasetId" | "provider" | "identityNamespace"
       >
     >;
+    readonly originEvidenceScopeChanges?: Partial<
+      Pick<
+        ScheduledTransitCrosswalkEntry,
+        | "datasetId"
+        | "provider"
+        | "identityNamespace"
+        | "providerStopId"
+        | "normalizedStopId"
+      >
+    >;
+    readonly destinationProviderStationCode?: string;
+    readonly accessStationCode?: string;
   } = {},
 ): string {
   const root = mkdtempSync(join(REPOSITORY_ROOT, ".tmp-kai-292c4a-"));
@@ -259,13 +273,18 @@ function futureFixture(
     options.originStopId ?? "100_01",
     options.scopeChanges,
   );
-  const destinationMapping = productMapping(
-    PILOT_DESTINATION,
-    destinationId,
-    "future-destination-exact-mapping",
-    options.destinationStopId ?? "17_01",
-    options.scopeChanges,
-  );
+  const destinationMapping = {
+    ...productMapping(
+      PILOT_DESTINATION,
+      destinationId,
+      "future-destination-exact-mapping",
+      options.destinationStopId ?? "17_01",
+      options.scopeChanges,
+    ),
+    ...(options.destinationProviderStationCode === undefined
+      ? {}
+      : { providerStationCode: options.destinationProviderStationCode }),
+  };
 
   const catalogue = JSON.parse(readText(join(root, CATALOGUE_PATH))) as {
     id: string;
@@ -277,6 +296,9 @@ function futureFixture(
     schemaVersion: number;
     mappings: ScheduledTransitCrosswalkEntry[];
   };
+  crosswalk.mappings = crosswalk.mappings.filter(
+    (mapping) => mapping.datasetId === PILOT_ORIGIN.datasetId,
+  );
   crosswalk.mappings.push(originMapping, destinationMapping);
   writeJson(root, CROSSWALK_PATH, crosswalk);
 
@@ -289,9 +311,52 @@ function futureFixture(
         reviewStatus: "reviewed",
         productId: originProductId,
         evidenceId: "future-origin-product-evidence",
+        datasetId: originMapping.datasetId,
+        provider: originMapping.provider,
+        identityNamespace: originMapping.identityNamespace,
+        providerStopId: originMapping.providerStopId,
+        normalizedStopId: originMapping.normalizedStopId,
+        ...options.originEvidenceScopeChanges,
+        stationCode: "synthetic",
         statement:
           "Synthetic reviewed product identity used only to prove data-driven discovery.",
         sourceUrl: "https://example.invalid/future-origin-evidence",
+        checkedAt: "2026-09-13T00:00:00.000Z",
+      },
+    ],
+  });
+  writeJson(root, ACCESS_EVIDENCE_PATH, {
+    schemaVersion: 1,
+    kind: "synthetic-future-station-access-evidence",
+    evidence: [
+      {
+        evidenceId: "future-destination-access-evidence",
+        destinationId,
+        reviewStatus: "reviewed",
+        bindingStatus: "bound_to_exact_provider_station_identity",
+        bindingMethod: "synthetic_exact_mapping",
+        station: {
+          name: "Future station",
+          line: "Sakata route",
+          operator: "Sakata operator",
+          stationCode: options.accessStationCode ?? "17_01",
+        },
+        dataset: {
+          datasetId: destinationMapping.datasetId,
+          provider: destinationMapping.provider,
+          identityNamespace: destinationMapping.identityNamespace,
+          providerStopId: destinationMapping.providerStopId,
+          normalizedStopId: destinationMapping.normalizedStopId,
+        },
+        accessSource: {
+          sourceUrl: "https://example.invalid/future-access-evidence",
+          statement:
+            "Synthetic exact access evidence for the data-driven fixture.",
+        },
+        identityEquivalence: {
+          reasoning:
+            "Synthetic fixture binds the exact mapping identity without name or coordinate inference.",
+        },
         checkedAt: "2026-09-13T00:00:00.000Z",
       },
     ],
@@ -832,15 +897,17 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
     },
   );
 
-  it("returns the current concrete blocker without promoting Sakata or anchors", () => {
+  it("reports the current concrete Toei corridor without promoting Sakata or anchors", () => {
     const result: RealCorridorAudit = auditRealMegurutoCorridor();
 
     expect(result.schemaVersion).toBe("kai-292c4a-v4");
-    expect(result.status).toBe("blocked_no_real_catalogue_corridor");
+    expect(result.status).toBe("real_corridor_evidenced");
     expect(result.catalogue).toMatchObject({
       destinationCount: 1130,
       uniqueDestinationIdCount: 1130,
-      destinationMappings: [],
+      destinationMappings: [
+        "kai-292c4g-destination-hamarikyu-gardens-shiodome",
+      ],
     });
     expect(result.normalizedEvidence).toMatchObject({
       registeredDatasetKeys: ["sakata-runrunbus", "toei-oedo-gtfs-20260314"],
@@ -851,23 +918,27 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
       unregisteredAssetUrls: [],
     });
     expect(result.crosswalk).toMatchObject({
-      mappingCount: 2,
-      catalogueProductMappings: [],
+      mappingCount: 4,
+      catalogueProductMappings: [
+        "kai-292c4g-destination-hamarikyu-gardens-shiodome",
+      ],
       nonCatalogueMappingIds: [
         "kai-292c2-pilot-destination-sakata-17-01",
         "kai-292c2-pilot-origin-sakata-100-01",
+        "kai-292c4g-origin-toei-oedo-shinjuku-nishiguchi",
       ],
     });
-    expect(result.originIdentity).toMatchObject({
-      status: "missing_canonical_product_identity",
-      reviewedProductIds: [],
+    expect(result.stationAccessEvidence).toMatchObject({
+      status: "reviewed_exact_binding",
+      reviewedDestinationIds: ["hamarikyu-gardens"],
     });
-    expect(result.realCorridors).toEqual([]);
+    expect(result.originIdentity).toMatchObject({
+      status: "reviewed_product_identity_present",
+      reviewedProductIds: ["toei-oedo-shinjuku-nishiguchi"],
+    });
+    expect(result.realCorridors).toHaveLength(1);
     expect(result.candidateBlockers).toEqual([]);
-    expect(result.blockers.map(({ code }) => code)).toEqual([
-      "missing_catalogue_destination_crosswalk",
-      "missing_canonical_origin_identity",
-    ]);
+    expect(result.blockers).toEqual([]);
   });
 
   it("reports the seven reviewed KAI-291A anchors as insufficient evidence", () => {
@@ -890,7 +961,9 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
       "ryogoku-kokugikan-sumo-museum",
       "sugamo-jizo-dori",
     ]);
-    expect(result.crosswalk.catalogueProductMappings).toEqual([]);
+    expect(result.crosswalk.catalogueProductMappings).toEqual([
+      "kai-292c4g-destination-hamarikyu-gardens-shiodome",
+    ]);
   });
 
   it("discovers a future valid corridor from reviewed data changes only", () => {
@@ -933,6 +1006,42 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
   });
 
   it.each([
+    ["dataset", { datasetId: "wrong-dataset" }],
+    ["provider", { provider: "odpt" as const }],
+    ["namespace", { identityNamespace: "wrong-namespace" }],
+  ])(
+    "blocks origin evidence with the wrong %s scope",
+    (_label, originEvidenceScopeChanges) => {
+      const result = auditRealMegurutoCorridor(
+        futureFixture({ originEvidenceScopeChanges }),
+      );
+
+      expect(result.status).toBe("blocked_no_real_catalogue_corridor");
+      expect(result.realCorridors).toEqual([]);
+      expect(result.candidateBlockers).toContainEqual(
+        expect.objectContaining({ code: "invalid_origin_identity_evidence" }),
+      );
+    },
+  );
+
+  it("blocks access evidence whose station code disagrees with the mapping", () => {
+    const result = auditRealMegurutoCorridor(
+      futureFixture({
+        destinationProviderStationCode: "17_01-code",
+        accessStationCode: "wrong-code",
+      }),
+    );
+
+    expect(result.status).toBe("blocked_no_real_catalogue_corridor");
+    expect(result.realCorridors).toEqual([]);
+    expect(result.candidateBlockers).toContainEqual(
+      expect.objectContaining({
+        code: "invalid_station_destination_access_evidence",
+      }),
+    );
+  });
+
+  it.each([
     ["dataset", { datasetId: "unregistered-dataset" }],
     ["provider", { provider: "odpt" as const }],
     ["namespace", { identityNamespace: "gtfs:other-feed" }],
@@ -965,6 +1074,6 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
       kind: "unmapped",
       reason: "no_explicit_crosswalk",
     });
-    expect(auditRealMegurutoCorridor().realCorridors).toEqual([]);
+    expect(auditRealMegurutoCorridor().realCorridors).toHaveLength(1);
   });
 });

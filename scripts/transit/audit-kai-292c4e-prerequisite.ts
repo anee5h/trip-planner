@@ -31,7 +31,7 @@ const CATALOGUE_PATH = "src/shared/data/destinations-index.json";
 const ANCHOR_PATH = "qa/kai-291/destination-station-anchors.json";
 const COVERAGE_PATH = "qa/kai-290/odpt-coverage.json";
 const IDENTITY_EVIDENCE_PATH =
-  "qa/kai-292c4a/real-corridor-identity-evidence.json";
+  "qa/kai-292c4g/toei-oedo-shinjuku-nishiguchi-origin-evidence.json";
 const CROSSWALK_PATH =
   "src/shared/data/scheduled-transit-endpoint-crosswalk.json";
 const DATASET_REGISTRY_PATH =
@@ -1475,12 +1475,11 @@ export function buildKai292C4EPrerequisiteAudit(
     },
     {
       gate: "explicit_reviewed_station_destination_access",
-      satisfied: anchors.every(
-        ({ stationToDestinationAccess }) =>
-          stationToDestinationAccess.exactStationIdentityBound,
-      ),
+      satisfied: c4a.realCorridors.length > 0,
       statement:
-        "No requested anchor has access evidence bound to its exact ODPT station identity.",
+        c4a.realCorridors.length > 0
+          ? "C4A has at least one exact reviewed station-to-destination access binding for a real product corridor."
+          : "No reviewed station-to-destination access evidence is bound to an exact real product corridor.",
     },
     {
       gate: "exact_transit_identities",
