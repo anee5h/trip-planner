@@ -134,7 +134,9 @@ function onlyTrips(
       ...result.graph,
       routes: result.graph.routes.map((route) => {
         const semantics = route.sourceSemantics;
-        if (!("patterns" in semantics)) return route;
+        if (!("patterns" in semantics) || semantics.patterns === undefined) {
+          return route;
+        }
         return {
           ...route,
           sourceSemantics: {

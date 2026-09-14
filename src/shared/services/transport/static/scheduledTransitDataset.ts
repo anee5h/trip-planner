@@ -230,10 +230,25 @@ function assertEntityProvenance(
     if (!isRecord(provenance)) {
       invalid(`graph entity ${index} has no provenance object.`);
     }
-    if (provenance.provider !== metadata.provider) {
+    if (
+      provenance.provider !== metadata.provider ||
+      ("provider" in entity && entity.provider !== metadata.provider)
+    ) {
       throw new ScheduledTransitDatasetError(
         "namespace_mismatch",
-        `graph entity ${index} has provider ${JSON.stringify(provenance.provider)}.`,
+        `graph entity ${index} has provider ${JSON.stringify(
+          "provider" in entity ? entity.provider : provenance.provider,
+        )}.`,
+      );
+    }
+    const sourceSemantics = entity.sourceSemantics;
+    if (
+      isRecord(sourceSemantics) &&
+      sourceSemantics.provider !== metadata.provider
+    ) {
+      throw new ScheduledTransitDatasetError(
+        "namespace_mismatch",
+        `graph entity ${index} has mismatched source semantics provider.`,
       );
     }
     if (provenance.identityNamespace !== metadata.identityNamespace) {

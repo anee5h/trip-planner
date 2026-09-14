@@ -36,6 +36,7 @@
     "audit:kai-292c4a": "tsx --tsconfig tsconfig.app.json scripts/transit/audit-kai-292c4a-real-corridor.ts",
     "audit:kai-292c4e": "tsx --tsconfig tsconfig.app.json scripts/transit/audit-kai-292c4e-prerequisite.ts",
     "check:kai-292c4e": "tsx --tsconfig tsconfig.app.json scripts/transit/audit-kai-292c4e-prerequisite.ts --check",
+    "generate:kai-292c4f": "tsx --tsconfig tsconfig.app.json scripts/transit/build-odpt-kai-292c4f.ts",
     "generate:kai-292c2-dataset": "tsx scripts/transit/generate-kai-292c2-sakata-dataset.ts",
     "audit:wikipedia": "tsx scripts/audit-wikipedia-mappings.ts",
     "migrate:wikipedia-legacy": "tsx scripts/migrate-wikipedia-legacy-provenance.ts",

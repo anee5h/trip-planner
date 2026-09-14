@@ -202,6 +202,15 @@ export function mapMode(mode: TransitRouteMode): TransportMode | null {
   }
 }
 
+export function requireGtfsProvider(
+  provider: TransitProvider,
+): "gtfs" | "gtfs-jp" {
+  if (provider === "odpt") {
+    throw new Error("ODPT scheduled routing is reserved for the C4H adapter.");
+  }
+  return provider;
+}
+
 export function routeName(route: TransitRoute): string | null {
   const semantics = route.sourceSemantics;
   if ("shortName" in semantics && semantics.shortName !== null) {
@@ -426,6 +435,7 @@ function validateFacts(
   route: TransitRoute,
   facts: readonly TransitScheduledStopTime[],
 ): ScheduledJourneyInconclusiveReason | null {
+  if (service.provider === "odpt") return "unsupported_coverage";
   if (facts.length < 2) return "broken_graph_reference";
   const routeSemantics = route.sourceSemantics;
   if (
@@ -532,6 +542,13 @@ export function validateService(
   if (service.provider !== graph.datasetVersion.provider) {
     return { kind: "error", reason: "broken_graph_reference", notes: [] };
   }
+  if (service.provider === "odpt") {
+    return {
+      kind: "error",
+      reason: "unsupported_coverage",
+      notes: ["ODPT scheduled routing is reserved for the C4H adapter."],
+    };
+  }
   const serviceSemantics = service.sourceSemantics;
   if (
     serviceSemantics === undefined ||
@@ -613,6 +630,9 @@ export function directPair(
   const pair = orderedPairs[0];
   if (pair === undefined) return noMatch("no_direct_service");
 
+  if (pair.origin.provider === "odpt" || pair.destination.provider === "odpt") {
+    return inconclusive("unsupported_coverage");
+  }
   const pickup = endpointRequirement(pair.origin.sourceSemantics.pickupType);
   if (pickup === "prohibited") return inconclusive("pickup_prohibited");
   if (pickup === "unsupported") {
@@ -715,7 +735,7 @@ function makeJourney(
   };
   const evidence: ScheduledJourneyEvidence = {
     source: GTFS_DIRECT_JOURNEY_SOURCE,
-    provider: candidate.service.provider,
+    provider: requireGtfsProvider(candidate.service.provider),
     serviceDate: candidate.calendarEvaluation.date,
     calendarReason: candidate.calendarEvaluation.reason,
     calendarId: candidate.calendar.id,

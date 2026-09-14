@@ -19,6 +19,7 @@ import {
   coverageReason,
   directPair,
   formatServiceSeconds,
+  requireGtfsProvider,
   type IndexedGraph,
   type ValidPair,
   stopEndpoint,
@@ -551,7 +552,7 @@ function legEvidence(
   coverageState: OneTransferCoverageState,
 ): OneTransferScheduledJourneyLegEvidence {
   return {
-    provider: candidate.service.provider,
+    provider: requireGtfsProvider(candidate.service.provider),
     serviceDate,
     calendarReason: candidate.calendarEvaluation.reason,
     calendarId: candidate.calendar.id,
@@ -715,7 +716,7 @@ function makeVerifiedResult(
     candidate.secondPair.arrivalSeconds - candidate.firstPair.departureSeconds;
   const evidence: OneTransferScheduledJourneyEvidence = {
     source: GTFS_ONE_TRANSFER_JOURNEY_SOURCE,
-    provider: candidate.first.service.provider,
+    provider: requireGtfsProvider(candidate.first.service.provider),
     serviceDate: input.serviceDate,
     transferCount: 1,
     firstServiceId: candidate.first.service.id,

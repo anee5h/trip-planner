@@ -1,0 +1,1702 @@
+{
+  "schemaVersion": 1,
+  "source": "https://meguruto.app/api/odpt",
+  "acquiredAt": "2026-09-14T06:14:22.314Z",
+  "credentialIncluded": false,
+  "scope": {
+    "provider": "odpt",
+    "operator": "odpt.Operator:TokyoMetro",
+    "railway": "odpt.Railway:TokyoMetro.Ginza",
+    "train": "odpt.Train:TokyoMetro.Ginza.A501",
+    "calendars": ["odpt.Calendar:SaturdayHoliday", "odpt.Calendar:Weekday"]
+  },
+  "selectionEvidence": {
+    "operation": "station_timetable",
+    "station": "odpt.Station:TokyoMetro.Ginza.Ueno",
+    "railway": "odpt.Railway:TokyoMetro.Ginza",
+    "selectedTrain": "odpt.Train:TokyoMetro.Ginza.A501",
+    "outcome": "records",
+    "recordCount": 4
+  },
+  "requests": [
+    {
+      "operation": "operator",
+      "sameAs": "odpt.Operator:TokyoMetro",
+      "recordCount": 1
+    },
+    {
+      "operation": "railway",
+      "sameAs": "odpt.Railway:TokyoMetro.Ginza",
+      "recordCount": 1
+    },
+    {
+      "operation": "station",
+      "railway": "odpt.Railway:TokyoMetro.Ginza",
+      "recordCount": 19
+    },
+    {
+      "operation": "calendar",
+      "sameAs": "odpt.Calendar:Weekday",
+      "recordCount": 1
+    },
+    {
+      "operation": "calendar",
+      "sameAs": "odpt.Calendar:SaturdayHoliday",
+      "recordCount": 1
+    },
+    {
+      "operation": "train_timetable",
+      "train": "odpt.Train:TokyoMetro.Ginza.A501",
+      "recordCount": 2
+    }
+  ],
+  "records": {
+    "operators": [
+      {
+        "id": "odpt.Operator:TokyoMetro",
+        "sameAs": "odpt.Operator:TokyoMetro",
+        "ucode": "urn:ucode:_00001C000000000000010000030E6600",
+        "title": "東京メトロ",
+        "operatorTitle": {
+          "en": "Tokyo Metro",
+          "ja": "東京メトロ"
+        },
+        "date": "2022-02-24T08:00:00+09:00",
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Operator:TokyoMetro",
+          "ucode": "urn:ucode:_00001C000000000000010000030E6600",
+          "generatedAt": "2022-02-24T08:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:41.704Z",
+          "sourceResource": "odpt:Operator",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Operator?owl:sameAs=odpt.Operator%3ATokyoMetro",
+          "coverage": "unknown"
+        }
+      }
+    ],
+    "railways": [
+      {
+        "id": "odpt.Railway:TokyoMetro.Ginza",
+        "sameAs": "odpt.Railway:TokyoMetro.Ginza",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46AC",
+        "title": "銀座線",
+        "railwayTitle": {
+          "en": "Ginza Line",
+          "ja": "銀座線",
+          "ko": "긴자선",
+          "zh-Hans": "银座线",
+          "zh-Hant": "銀座線"
+        },
+        "kana": null,
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "lineCode": "G",
+        "color": "#FF9500",
+        "ascendingRailDirection": "odpt.RailDirection:TokyoMetro.Asakusa",
+        "descendingRailDirection": "odpt.RailDirection:TokyoMetro.Shibuya",
+        "stationOrder": [
+          {
+            "index": 1,
+            "station": "odpt.Station:TokyoMetro.Ginza.Shibuya",
+            "stationTitle": {
+              "en": "Shibuya",
+              "ja": "渋谷",
+              "ko": "시부야",
+              "ja-Hrkt": "しぶや",
+              "zh-Hans": "涩谷",
+              "zh-Hant": "澀谷"
+            }
+          },
+          {
+            "index": 2,
+            "station": "odpt.Station:TokyoMetro.Ginza.OmoteSando",
+            "stationTitle": {
+              "en": "Omote-sando",
+              "ja": "表参道",
+              "ko": "오모테산도",
+              "ja-Hrkt": "おもてさんどう",
+              "zh-Hans": "表参道",
+              "zh-Hant": "表參道"
+            }
+          },
+          {
+            "index": 3,
+            "station": "odpt.Station:TokyoMetro.Ginza.Gaiemmae",
+            "stationTitle": {
+              "en": "Gaiemmae",
+              "ja": "外苑前",
+              "ko": "가이엔마에",
+              "ja-Hrkt": "がいえんまえ",
+              "zh-Hans": "外苑前",
+              "zh-Hant": "外苑前"
+            }
+          },
+          {
+            "index": 4,
+            "station": "odpt.Station:TokyoMetro.Ginza.AoyamaItchome",
+            "stationTitle": {
+              "en": "Aoyama-itchome",
+              "ja": "青山一丁目",
+              "ko": "아오야마잇초메",
+              "ja-Hrkt": "あおやまいっちょうめ",
+              "zh-Hans": "青山一丁目",
+              "zh-Hant": "青山一丁目"
+            }
+          },
+          {
+            "index": 5,
+            "station": "odpt.Station:TokyoMetro.Ginza.AkasakaMitsuke",
+            "stationTitle": {
+              "en": "Akasaka-mitsuke",
+              "ja": "赤坂見附",
+              "ko": "아카사카미쓰케",
+              "ja-Hrkt": "あかさかみつけ",
+              "zh-Hans": "赤坂见附",
+              "zh-Hant": "赤坂見附"
+            }
+          },
+          {
+            "index": 6,
+            "station": "odpt.Station:TokyoMetro.Ginza.TameikeSanno",
+            "stationTitle": {
+              "en": "Tameike-sanno",
+              "ja": "溜池山王",
+              "ko": "다메이케산노",
+              "ja-Hrkt": "ためいけさんのう",
+              "zh-Hans": "溜池山王",
+              "zh-Hant": "溜池山王"
+            }
+          },
+          {
+            "index": 7,
+            "station": "odpt.Station:TokyoMetro.Ginza.Toranomon",
+            "stationTitle": {
+              "en": "Toranomon",
+              "ja": "虎ノ門",
+              "ko": "도라노몬",
+              "ja-Hrkt": "とらのもん",
+              "zh-Hans": "虎之门",
+              "zh-Hant": "虎之門"
+            }
+          },
+          {
+            "index": 8,
+            "station": "odpt.Station:TokyoMetro.Ginza.Shimbashi",
+            "stationTitle": {
+              "en": "Shimbashi",
+              "ja": "新橋",
+              "ko": "신바시",
+              "ja-Hrkt": "しんばし",
+              "zh-Hans": "新桥",
+              "zh-Hant": "新橋"
+            }
+          },
+          {
+            "index": 9,
+            "station": "odpt.Station:TokyoMetro.Ginza.Ginza",
+            "stationTitle": {
+              "en": "Ginza",
+              "ja": "銀座",
+              "ko": "긴자",
+              "ja-Hrkt": "ぎんざ",
+              "zh-Hans": "银座",
+              "zh-Hant": "銀座"
+            }
+          },
+          {
+            "index": 10,
+            "station": "odpt.Station:TokyoMetro.Ginza.Kyobashi",
+            "stationTitle": {
+              "en": "Kyobashi",
+              "ja": "京橋",
+              "ko": "교바시",
+              "ja-Hrkt": "きょうばし",
+              "zh-Hans": "京桥",
+              "zh-Hant": "京橋"
+            }
+          },
+          {
+            "index": 11,
+            "station": "odpt.Station:TokyoMetro.Ginza.Nihombashi",
+            "stationTitle": {
+              "en": "Nihombashi",
+              "ja": "日本橋",
+              "ko": "니혼바시",
+              "ja-Hrkt": "にほんばし",
+              "zh-Hans": "日本桥",
+              "zh-Hant": "日本橋"
+            }
+          },
+          {
+            "index": 12,
+            "station": "odpt.Station:TokyoMetro.Ginza.Mitsukoshimae",
+            "stationTitle": {
+              "en": "Mitsukoshimae",
+              "ja": "三越前",
+              "ko": "미쓰코시마에",
+              "ja-Hrkt": "みつこしまえ",
+              "zh-Hans": "三越前",
+              "zh-Hant": "三越前"
+            }
+          },
+          {
+            "index": 13,
+            "station": "odpt.Station:TokyoMetro.Ginza.Kanda",
+            "stationTitle": {
+              "en": "Kanda",
+              "ja": "神田",
+              "ko": "간다",
+              "ja-Hrkt": "かんだ",
+              "zh-Hans": "神田",
+              "zh-Hant": "神田"
+            }
+          },
+          {
+            "index": 14,
+            "station": "odpt.Station:TokyoMetro.Ginza.Suehirocho",
+            "stationTitle": {
+              "en": "Suehirocho",
+              "ja": "末広町",
+              "ko": "수에히로초",
+              "ja-Hrkt": "すえひろちょう",
+              "zh-Hans": "末广町",
+              "zh-Hant": "末廣町"
+            }
+          },
+          {
+            "index": 15,
+            "station": "odpt.Station:TokyoMetro.Ginza.UenoHirokoji",
+            "stationTitle": {
+              "en": "Ueno-hirokoji",
+              "ja": "上野広小路",
+              "ko": "우에노히로코지",
+              "ja-Hrkt": "うえのひろこうじ",
+              "zh-Hans": "上野广小路",
+              "zh-Hant": "上野廣小路"
+            }
+          },
+          {
+            "index": 16,
+            "station": "odpt.Station:TokyoMetro.Ginza.Ueno",
+            "stationTitle": {
+              "en": "Ueno",
+              "ja": "上野",
+              "ko": "우에노",
+              "ja-Hrkt": "うえの",
+              "zh-Hans": "上野",
+              "zh-Hant": "上野"
+            }
+          },
+          {
+            "index": 17,
+            "station": "odpt.Station:TokyoMetro.Ginza.Inaricho",
+            "stationTitle": {
+              "en": "Inaricho",
+              "ja": "稲荷町",
+              "ko": "이나리초",
+              "ja-Hrkt": "いなりちょう",
+              "zh-Hans": "稻荷町",
+              "zh-Hant": "稻荷町"
+            }
+          },
+          {
+            "index": 18,
+            "station": "odpt.Station:TokyoMetro.Ginza.Tawaramachi",
+            "stationTitle": {
+              "en": "Tawaramachi",
+              "ja": "田原町",
+              "ko": "다와라마치",
+              "ja-Hrkt": "たわらまち",
+              "zh-Hans": "田原町",
+              "zh-Hant": "田原町"
+            }
+          },
+          {
+            "index": 19,
+            "station": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+            "stationTitle": {
+              "en": "Asakusa",
+              "ja": "浅草",
+              "ko": "아사쿠사",
+              "ja-Hrkt": "あさくさ",
+              "zh-Hans": "浅草",
+              "zh-Hant": "淺草"
+            }
+          }
+        ],
+        "date": "2024-06-27T08:00:00+09:00",
+        "issuedAt": null,
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Railway:TokyoMetro.Ginza",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46AC",
+          "generatedAt": "2024-06-27T08:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:11:58.969Z",
+          "sourceResource": "odpt:Railway",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Railway?owl:sameAs=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      }
+    ],
+    "stations": [
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Ueno",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Ueno",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46CA",
+        "title": "上野",
+        "stationTitle": {
+          "en": "Ueno",
+          "ja": "上野",
+          "ko": "우에노",
+          "ja-Hrkt": "うえの",
+          "zh-Hans": "上野",
+          "zh-Hant": "上野"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G16",
+        "coordinates": {
+          "lat": 35.711835,
+          "lng": 139.775625
+        },
+        "connectingRailway": [
+          "odpt.Railway:TokyoMetro.Hibiya",
+          "odpt.Railway:JR-East.AkitaShinkansen",
+          "odpt.Railway:JR-East.HokurikuShinkansen",
+          "odpt.Railway:JR-East.JobanRapid",
+          "odpt.Railway:JR-East.JoetsuShinkansen",
+          "odpt.Railway:JR-East.KeihinTohokuNegishi",
+          "odpt.Railway:JR-East.Takasaki",
+          "odpt.Railway:JR-East.TohokuShinkansen",
+          "odpt.Railway:JR-East.Utsunomiya",
+          "odpt.Railway:JR-East.YamagataShinkansen",
+          "odpt.Railway:JR-East.Yamanote",
+          "odpt.Railway:Keisei.Main"
+        ],
+        "connectingStation": [
+          "odpt.Station:TokyoMetro.Hibiya.Ueno",
+          "odpt.Station:JR-East.AkitaShinkansen.Ueno",
+          "odpt.Station:JR-East.HokurikuShinkansen.Ueno",
+          "odpt.Station:JR-East.JobanRapid.Ueno",
+          "odpt.Station:JR-East.JoetsuShinkansen.Ueno",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Ueno",
+          "odpt.Station:JR-East.Takasaki.Ueno",
+          "odpt.Station:JR-East.TohokuShinkansen.Ueno",
+          "odpt.Station:JR-East.Utsunomiya.Ueno",
+          "odpt.Station:JR-East.YamagataShinkansen.Ueno",
+          "odpt.Station:JR-East.Yamanote.Ueno",
+          "odpt.Station:Keisei.Main.KeiseiUeno"
+        ],
+        "date": "2024-06-27T08:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Ueno",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46CA",
+          "generatedAt": "2024-06-27T08:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Gaiemmae",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Gaiemmae",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46DD",
+        "title": "外苑前",
+        "stationTitle": {
+          "en": "Gaiemmae",
+          "ja": "外苑前",
+          "ko": "가이엔마에",
+          "ja-Hrkt": "がいえんまえ",
+          "zh-Hans": "外苑前",
+          "zh-Hant": "外苑前"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G03",
+        "coordinates": {
+          "lat": 35.670375,
+          "lng": 139.717825
+        },
+        "connectingRailway": [],
+        "connectingStation": [],
+        "date": "2022-03-15T11:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Gaiemmae",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46DD",
+          "generatedAt": "2022-03-15T11:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.AkasakaMitsuke",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.AkasakaMitsuke",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46BA",
+        "title": "赤坂見附",
+        "stationTitle": {
+          "en": "Akasaka-mitsuke",
+          "ja": "赤坂見附",
+          "ko": "아카사카미쓰케",
+          "ja-Hrkt": "あかさかみつけ",
+          "zh-Hans": "赤坂见附",
+          "zh-Hant": "赤坂見附"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G05",
+        "coordinates": {
+          "lat": 35.676845,
+          "lng": 139.737347
+        },
+        "connectingRailway": [
+          "odpt.Railway:TokyoMetro.Hanzomon",
+          "odpt.Railway:TokyoMetro.Marunouchi",
+          "odpt.Railway:TokyoMetro.Namboku",
+          "odpt.Railway:TokyoMetro.Yurakucho"
+        ],
+        "connectingStation": [
+          "odpt.Station:TokyoMetro.Hanzomon.Nagatacho",
+          "odpt.Station:TokyoMetro.Marunouchi.AkasakaMitsuke",
+          "odpt.Station:TokyoMetro.Namboku.Nagatacho",
+          "odpt.Station:TokyoMetro.Yurakucho.Nagatacho"
+        ],
+        "date": "2024-03-27T09:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.AkasakaMitsuke",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46BA",
+          "generatedAt": "2024-03-27T09:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.AoyamaItchome",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.AoyamaItchome",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46B5",
+        "title": "青山一丁目",
+        "stationTitle": {
+          "en": "Aoyama-itchome",
+          "ja": "青山一丁目",
+          "ko": "아오야마잇초메",
+          "ja-Hrkt": "あおやまいっちょうめ",
+          "zh-Hans": "青山一丁目",
+          "zh-Hant": "青山一丁目"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G04",
+        "coordinates": {
+          "lat": 35.67279,
+          "lng": 139.724145
+        },
+        "connectingRailway": [
+          "odpt.Railway:TokyoMetro.Hanzomon",
+          "odpt.Railway:Toei.Oedo"
+        ],
+        "connectingStation": [
+          "odpt.Station:TokyoMetro.Hanzomon.AoyamaItchome",
+          "odpt.Station:Toei.Oedo.AoyamaItchome"
+        ],
+        "date": "2024-06-27T08:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.AoyamaItchome",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46B5",
+          "generatedAt": "2024-06-27T08:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46BC",
+        "title": "浅草",
+        "stationTitle": {
+          "en": "Asakusa",
+          "ja": "浅草",
+          "ko": "아사쿠사",
+          "ja-Hrkt": "あさくさ",
+          "zh-Hans": "浅草",
+          "zh-Hant": "淺草"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G19",
+        "coordinates": {
+          "lat": 35.710746,
+          "lng": 139.797774
+        },
+        "connectingRailway": [
+          "odpt.Railway:Tobu.TobuSkytree",
+          "odpt.Railway:Toei.Asakusa"
+        ],
+        "connectingStation": [
+          "odpt.Station:Tobu.TobuSkytree.Asakusa",
+          "odpt.Station:Toei.Asakusa.Asakusa"
+        ],
+        "date": "2024-03-27T09:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46BC",
+          "generatedAt": "2024-03-27T09:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Ginza",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Ginza",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46F1",
+        "title": "銀座",
+        "stationTitle": {
+          "en": "Ginza",
+          "ja": "銀座",
+          "ko": "긴자",
+          "ja-Hrkt": "ぎんざ",
+          "zh-Hans": "银座",
+          "zh-Hant": "銀座"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G09",
+        "coordinates": {
+          "lat": 35.6715,
+          "lng": 139.765366
+        },
+        "connectingRailway": [
+          "odpt.Railway:TokyoMetro.Hibiya",
+          "odpt.Railway:TokyoMetro.Marunouchi",
+          "odpt.Railway:TokyoMetro.Yurakucho"
+        ],
+        "connectingStation": [
+          "odpt.Station:TokyoMetro.Hibiya.Ginza",
+          "odpt.Station:TokyoMetro.Marunouchi.Ginza",
+          "odpt.Station:TokyoMetro.Yurakucho.GinzaItchome"
+        ],
+        "date": "2024-03-27T09:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Ginza",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46F1",
+          "generatedAt": "2024-03-27T09:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Inaricho",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Inaricho",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46C8",
+        "title": "稲荷町",
+        "stationTitle": {
+          "en": "Inaricho",
+          "ja": "稲荷町",
+          "ko": "이나리초",
+          "ja-Hrkt": "いなりちょう",
+          "zh-Hans": "稻荷町",
+          "zh-Hant": "稻荷町"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G17",
+        "coordinates": {
+          "lat": 35.711389,
+          "lng": 139.78221
+        },
+        "connectingRailway": [],
+        "connectingStation": [],
+        "date": "2022-03-15T11:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Inaricho",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46C8",
+          "generatedAt": "2022-03-15T11:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Kanda",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Kanda",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46E8",
+        "title": "神田",
+        "stationTitle": {
+          "en": "Kanda",
+          "ja": "神田",
+          "ko": "간다",
+          "ja-Hrkt": "かんだ",
+          "zh-Hans": "神田",
+          "zh-Hant": "神田"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G13",
+        "coordinates": {
+          "lat": 35.693715,
+          "lng": 139.77089
+        },
+        "connectingRailway": [
+          "odpt.Railway:JR-East.ChuoRapid",
+          "odpt.Railway:JR-East.KeihinTohokuNegishi",
+          "odpt.Railway:JR-East.Yamanote"
+        ],
+        "connectingStation": [
+          "odpt.Station:JR-East.ChuoRapid.Kanda",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Kanda",
+          "odpt.Station:JR-East.Yamanote.Kanda"
+        ],
+        "date": "2024-03-27T09:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Kanda",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46E8",
+          "generatedAt": "2024-03-27T09:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Kyobashi",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Kyobashi",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46EF",
+        "title": "京橋",
+        "stationTitle": {
+          "en": "Kyobashi",
+          "ja": "京橋",
+          "ko": "교바시",
+          "ja-Hrkt": "きょうばし",
+          "zh-Hans": "京桥",
+          "zh-Hant": "京橋"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G10",
+        "coordinates": {
+          "lat": 35.676704,
+          "lng": 139.77011
+        },
+        "connectingRailway": [],
+        "connectingStation": [],
+        "date": "2022-03-15T11:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Kyobashi",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46EF",
+          "generatedAt": "2022-03-15T11:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Mitsukoshimae",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Mitsukoshimae",
+        "ucode": "urn:ucode:_00001C000000000000010000030C4750",
+        "title": "三越前",
+        "stationTitle": {
+          "en": "Mitsukoshimae",
+          "ja": "三越前",
+          "ko": "미쓰코시마에",
+          "ja-Hrkt": "みつこしまえ",
+          "zh-Hans": "三越前",
+          "zh-Hant": "三越前"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G12",
+        "coordinates": {
+          "lat": 35.687173,
+          "lng": 139.773582
+        },
+        "connectingRailway": [
+          "odpt.Railway:TokyoMetro.Hanzomon",
+          "odpt.Railway:JR-East.SobuRapid"
+        ],
+        "connectingStation": [
+          "odpt.Station:TokyoMetro.Hanzomon.Mitsukoshimae",
+          "odpt.Station:JR-East.SobuRapid.ShinNihombashi"
+        ],
+        "date": "2024-06-27T08:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Mitsukoshimae",
+          "ucode": "urn:ucode:_00001C000000000000010000030C4750",
+          "generatedAt": "2024-06-27T08:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Nihombashi",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Nihombashi",
+        "ucode": "urn:ucode:_00001C000000000000010000030C473B",
+        "title": "日本橋",
+        "stationTitle": {
+          "en": "Nihombashi",
+          "ja": "日本橋",
+          "ko": "니혼바시",
+          "ja-Hrkt": "にほんばし",
+          "zh-Hans": "日本桥",
+          "zh-Hant": "日本橋"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G11",
+        "coordinates": {
+          "lat": 35.681879,
+          "lng": 139.773335
+        },
+        "connectingRailway": [
+          "odpt.Railway:TokyoMetro.Tozai",
+          "odpt.Railway:Toei.Asakusa"
+        ],
+        "connectingStation": [
+          "odpt.Station:TokyoMetro.Tozai.Nihombashi",
+          "odpt.Station:Toei.Asakusa.Nihombashi"
+        ],
+        "date": "2024-06-27T08:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Nihombashi",
+          "ucode": "urn:ucode:_00001C000000000000010000030C473B",
+          "generatedAt": "2024-06-27T08:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.OmoteSando",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.OmoteSando",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46DA",
+        "title": "表参道",
+        "stationTitle": {
+          "en": "Omote-sando",
+          "ja": "表参道",
+          "ko": "오모테산도",
+          "ja-Hrkt": "おもてさんどう",
+          "zh-Hans": "表参道",
+          "zh-Hant": "表參道"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G02",
+        "coordinates": {
+          "lat": 35.665042,
+          "lng": 139.712473
+        },
+        "connectingRailway": [
+          "odpt.Railway:TokyoMetro.Chiyoda",
+          "odpt.Railway:TokyoMetro.Hanzomon"
+        ],
+        "connectingStation": [
+          "odpt.Station:TokyoMetro.Chiyoda.OmoteSando",
+          "odpt.Station:TokyoMetro.Hanzomon.OmoteSando"
+        ],
+        "date": "2024-03-27T09:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.OmoteSando",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46DA",
+          "generatedAt": "2024-03-27T09:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Shibuya",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Shibuya",
+        "ucode": "urn:ucode:_00001C000000000000010000030C4703",
+        "title": "渋谷",
+        "stationTitle": {
+          "en": "Shibuya",
+          "ja": "渋谷",
+          "ko": "시부야",
+          "ja-Hrkt": "しぶや",
+          "zh-Hans": "涩谷",
+          "zh-Hant": "澀谷"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G01",
+        "coordinates": {
+          "lat": 35.659097,
+          "lng": 139.702673
+        },
+        "connectingRailway": [
+          "odpt.Railway:TokyoMetro.Fukutoshin",
+          "odpt.Railway:TokyoMetro.Hanzomon",
+          "odpt.Railway:JR-East.SaikyoKawagoe",
+          "odpt.Railway:JR-East.ShonanShinjuku",
+          "odpt.Railway:JR-East.Yamanote",
+          "odpt.Railway:Keio.Inokashira",
+          "odpt.Railway:Tokyu.DenEnToshi",
+          "odpt.Railway:Tokyu.Toyoko"
+        ],
+        "connectingStation": [
+          "odpt.Station:TokyoMetro.Fukutoshin.Shibuya",
+          "odpt.Station:TokyoMetro.Hanzomon.Shibuya",
+          "odpt.Station:JR-East.SaikyoKawagoe.Shibuya",
+          "odpt.Station:JR-East.ShonanShinjuku.Shibuya",
+          "odpt.Station:JR-East.Yamanote.Shibuya",
+          "odpt.Station:Keio.Inokashira.Shibuya",
+          "odpt.Station:Tokyu.DenEnToshi.Shibuya",
+          "odpt.Station:Tokyu.Toyoko.Shibuya"
+        ],
+        "date": "2024-06-27T08:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Shibuya",
+          "ucode": "urn:ucode:_00001C000000000000010000030C4703",
+          "generatedAt": "2024-06-27T08:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Toranomon",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Toranomon",
+        "ucode": "urn:ucode:_00001C000000000000010000030C472A",
+        "title": "虎ノ門",
+        "stationTitle": {
+          "en": "Toranomon",
+          "ja": "虎ノ門",
+          "ko": "도라노몬",
+          "ja-Hrkt": "とらのもん",
+          "zh-Hans": "虎之门",
+          "zh-Hant": "虎之門"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G07",
+        "coordinates": {
+          "lat": 35.67016,
+          "lng": 139.75012
+        },
+        "connectingRailway": ["odpt.Railway:TokyoMetro.Hibiya"],
+        "connectingStation": ["odpt.Station:TokyoMetro.Hibiya.ToranomonHills"],
+        "date": "2024-03-27T09:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Toranomon",
+          "ucode": "urn:ucode:_00001C000000000000010000030C472A",
+          "generatedAt": "2024-03-27T09:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.UenoHirokoji",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.UenoHirokoji",
+        "ucode": "urn:ucode:_00001C000000000000010000030C46CB",
+        "title": "上野広小路",
+        "stationTitle": {
+          "en": "Ueno-hirokoji",
+          "ja": "上野広小路",
+          "ko": "우에노히로코지",
+          "ja-Hrkt": "うえのひろこうじ",
+          "zh-Hans": "上野广小路",
+          "zh-Hant": "上野廣小路"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G15",
+        "coordinates": {
+          "lat": 35.707765,
+          "lng": 139.773011
+        },
+        "connectingRailway": [
+          "odpt.Railway:TokyoMetro.Hibiya",
+          "odpt.Railway:Toei.Oedo"
+        ],
+        "connectingStation": [
+          "odpt.Station:TokyoMetro.Hibiya.NakaOkachimachi",
+          "odpt.Station:Toei.Oedo.UenoOkachimachi"
+        ],
+        "date": "2024-06-27T08:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.UenoHirokoji",
+          "ucode": "urn:ucode:_00001C000000000000010000030C46CB",
+          "generatedAt": "2024-06-27T08:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Shimbashi",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Shimbashi",
+        "ucode": "urn:ucode:_00001C000000000000010000030C4713",
+        "title": "新橋",
+        "stationTitle": {
+          "en": "Shimbashi",
+          "ja": "新橋",
+          "ko": "신바시",
+          "ja-Hrkt": "しんばし",
+          "zh-Hans": "新桥",
+          "zh-Hant": "新橋"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G08",
+        "coordinates": {
+          "lat": 35.667382,
+          "lng": 139.758512
+        },
+        "connectingRailway": [
+          "odpt.Railway:JR-East.JobanRapid",
+          "odpt.Railway:JR-East.KeihinTohokuNegishi",
+          "odpt.Railway:JR-East.Tokaido",
+          "odpt.Railway:JR-East.Yamanote",
+          "odpt.Railway:JR-East.Yokosuka",
+          "odpt.Railway:Toei.Asakusa",
+          "odpt.Railway:Yurikamome.Yurikamome"
+        ],
+        "connectingStation": [
+          "odpt.Station:JR-East.JobanRapid.Shimbashi",
+          "odpt.Station:JR-East.KeihinTohokuNegishi.Shimbashi",
+          "odpt.Station:JR-East.Tokaido.Shimbashi",
+          "odpt.Station:JR-East.Yamanote.Shimbashi",
+          "odpt.Station:JR-East.Yokosuka.Shimbashi",
+          "odpt.Station:Toei.Asakusa.Shimbashi",
+          "odpt.Station:Yurikamome.Yurikamome.Shimbashi"
+        ],
+        "date": "2024-03-27T09:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Shimbashi",
+          "ucode": "urn:ucode:_00001C000000000000010000030C4713",
+          "generatedAt": "2024-03-27T09:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Suehirocho",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Suehirocho",
+        "ucode": "urn:ucode:_00001C000000000000010000030C4716",
+        "title": "末広町",
+        "stationTitle": {
+          "en": "Suehirocho",
+          "ja": "末広町",
+          "ko": "수에히로초",
+          "ja-Hrkt": "すえひろちょう",
+          "zh-Hans": "末广町",
+          "zh-Hant": "末廣町"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G14",
+        "coordinates": {
+          "lat": 35.70278,
+          "lng": 139.771762
+        },
+        "connectingRailway": [],
+        "connectingStation": [],
+        "date": "2022-03-15T11:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Suehirocho",
+          "ucode": "urn:ucode:_00001C000000000000010000030C4716",
+          "generatedAt": "2022-03-15T11:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.TameikeSanno",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.TameikeSanno",
+        "ucode": "urn:ucode:_00001C000000000000010000030C471F",
+        "title": "溜池山王",
+        "stationTitle": {
+          "en": "Tameike-sanno",
+          "ja": "溜池山王",
+          "ko": "다메이케산노",
+          "ja-Hrkt": "ためいけさんのう",
+          "zh-Hans": "溜池山王",
+          "zh-Hant": "溜池山王"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G06",
+        "coordinates": {
+          "lat": 35.671511,
+          "lng": 139.741943
+        },
+        "connectingRailway": [
+          "odpt.Railway:TokyoMetro.Chiyoda",
+          "odpt.Railway:TokyoMetro.Marunouchi",
+          "odpt.Railway:TokyoMetro.Namboku"
+        ],
+        "connectingStation": [
+          "odpt.Station:TokyoMetro.Chiyoda.KokkaiGijidomae",
+          "odpt.Station:TokyoMetro.Marunouchi.KokkaiGijidomae",
+          "odpt.Station:TokyoMetro.Namboku.TameikeSanno"
+        ],
+        "date": "2024-03-27T09:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.TameikeSanno",
+          "ucode": "urn:ucode:_00001C000000000000010000030C471F",
+          "generatedAt": "2024-03-27T09:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Station:TokyoMetro.Ginza.Tawaramachi",
+        "sameAs": "odpt.Station:TokyoMetro.Ginza.Tawaramachi",
+        "ucode": "urn:ucode:_00001C000000000000010000030C4721",
+        "title": "田原町",
+        "stationTitle": {
+          "en": "Tawaramachi",
+          "ja": "田原町",
+          "ko": "다와라마치",
+          "ja-Hrkt": "たわらまち",
+          "zh-Hans": "田原町",
+          "zh-Hant": "田原町"
+        },
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "stationCode": "G18",
+        "coordinates": {
+          "lat": 35.709917,
+          "lng": 139.790306
+        },
+        "connectingRailway": [],
+        "connectingStation": [],
+        "date": "2022-03-15T11:00:00+09:00",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Station:TokyoMetro.Ginza.Tawaramachi",
+          "ucode": "urn:ucode:_00001C000000000000010000030C4721",
+          "generatedAt": "2022-03-15T11:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:12:02.874Z",
+          "sourceResource": "odpt:Station",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Station?odpt:railway=odpt.Railway%3ATokyoMetro.Ginza",
+          "coverage": "unknown"
+        }
+      }
+    ],
+    "calendars": [
+      {
+        "id": "odpt.Calendar:Weekday",
+        "sameAs": "odpt.Calendar:Weekday",
+        "ucode": "urn:ucode:_00001C000000000000010000030E6567",
+        "title": "平日",
+        "calendarTitle": {
+          "en": "Weekday",
+          "ja": "平日"
+        },
+        "day": [],
+        "duration": null,
+        "isSpecific": false,
+        "date": "2026-07-03T15:00:00+09:00",
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Calendar:Weekday",
+          "ucode": "urn:ucode:_00001C000000000000010000030E6567",
+          "generatedAt": "2026-07-03T15:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:14:40.566Z",
+          "sourceResource": "odpt:Calendar",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Calendar?owl:sameAs=odpt.Calendar%3AWeekday",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.Calendar:SaturdayHoliday",
+        "sameAs": "odpt.Calendar:SaturdayHoliday",
+        "ucode": "urn:ucode:_00001C00000000000001000003200309",
+        "title": "土休日",
+        "calendarTitle": {
+          "en": "Saturday and Holiday",
+          "ja": "土休日"
+        },
+        "day": [],
+        "duration": null,
+        "isSpecific": false,
+        "date": "2026-07-03T15:00:00+09:00",
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.Calendar:SaturdayHoliday",
+          "ucode": "urn:ucode:_00001C00000000000001000003200309",
+          "generatedAt": "2026-07-03T15:00:00+09:00",
+          "issuedAt": null,
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:16:59.882Z",
+          "sourceResource": "odpt:Calendar",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:Calendar?owl:sameAs=odpt.Calendar%3ASaturdayHoliday",
+          "coverage": "unknown"
+        }
+      }
+    ],
+    "trainTimetables": [
+      {
+        "id": "odpt.TrainTimetable:TokyoMetro.Ginza.A501.SaturdayHoliday",
+        "sameAs": "odpt.TrainTimetable:TokyoMetro.Ginza.A501.SaturdayHoliday",
+        "ucode": "urn:ucode:_00001C00000000000001000003106142",
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "railDirection": "odpt.RailDirection:TokyoMetro.Shibuya",
+        "calendar": "odpt.Calendar:SaturdayHoliday",
+        "train": "odpt.Train:TokyoMetro.Ginza.A501",
+        "trainNumber": "A501",
+        "trainType": "odpt.TrainType:TokyoMetro.Local",
+        "trainName": [],
+        "trainOwner": null,
+        "originStation": ["odpt.Station:TokyoMetro.Ginza.Asakusa"],
+        "destinationStation": ["odpt.Station:TokyoMetro.Ginza.Shibuya"],
+        "viaStation": [],
+        "viaRailway": [],
+        "previousTrainTimetable": [],
+        "nextTrainTimetable": [],
+        "objects": [
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:01",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:03",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Tawaramachi",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:04",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Inaricho",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:06",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Ueno",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:08",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.UenoHirokoji",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:10",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Suehirocho",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:12",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Kanda",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:13",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Mitsukoshimae",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:15",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Nihombashi",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:17",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Kyobashi",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:19",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Ginza",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:21",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Shimbashi",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:23",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Toranomon",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:24",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.TameikeSanno",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:26",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.AkasakaMitsuke",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:29",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.AoyamaItchome",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:30",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Gaiemmae",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:32",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.OmoteSando",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": "05:34",
+            "arrivalStation": "odpt.Station:TokyoMetro.Ginza.Shibuya",
+            "departureTime": null,
+            "departureStation": null,
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          }
+        ],
+        "objectCount": 19,
+        "needExtraFee": null,
+        "note": null,
+        "date": "2026-05-28T15:00:00+09:00",
+        "issuedAt": "2025-11-01",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.TrainTimetable:TokyoMetro.Ginza.A501.SaturdayHoliday",
+          "ucode": "urn:ucode:_00001C00000000000001000003106142",
+          "generatedAt": "2026-05-28T15:00:00+09:00",
+          "issuedAt": "2025-11-01",
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:13:04.614Z",
+          "sourceResource": "odpt:TrainTimetable",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:TrainTimetable?odpt:train=odpt.Train%3ATokyoMetro.Ginza.A501",
+          "coverage": "unknown"
+        }
+      },
+      {
+        "id": "odpt.TrainTimetable:TokyoMetro.Ginza.A501.Weekday",
+        "sameAs": "odpt.TrainTimetable:TokyoMetro.Ginza.A501.Weekday",
+        "ucode": "urn:ucode:_00001C0000000000000100000310652B",
+        "operator": "odpt.Operator:TokyoMetro",
+        "operatorTitle": null,
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "railwayTitle": null,
+        "railDirection": "odpt.RailDirection:TokyoMetro.Shibuya",
+        "calendar": "odpt.Calendar:Weekday",
+        "train": "odpt.Train:TokyoMetro.Ginza.A501",
+        "trainNumber": "A501",
+        "trainType": "odpt.TrainType:TokyoMetro.Local",
+        "trainName": [],
+        "trainOwner": null,
+        "originStation": ["odpt.Station:TokyoMetro.Ginza.Asakusa"],
+        "destinationStation": ["odpt.Station:TokyoMetro.Ginza.Shibuya"],
+        "viaStation": [],
+        "viaRailway": [],
+        "previousTrainTimetable": [],
+        "nextTrainTimetable": [],
+        "objects": [
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:01",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Asakusa",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:02",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Tawaramachi",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:04",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Inaricho",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:06",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Ueno",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:08",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.UenoHirokoji",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:10",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Suehirocho",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:12",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Kanda",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:13",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Mitsukoshimae",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:15",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Nihombashi",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:17",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Kyobashi",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:18",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Ginza",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:20",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Shimbashi",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:22",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Toranomon",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:24",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.TameikeSanno",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:26",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.AkasakaMitsuke",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:28",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.AoyamaItchome",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:30",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.Gaiemmae",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": null,
+            "arrivalStation": null,
+            "departureTime": "05:32",
+            "departureStation": "odpt.Station:TokyoMetro.Ginza.OmoteSando",
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          },
+          {
+            "arrivalTime": "05:34",
+            "arrivalStation": "odpt.Station:TokyoMetro.Ginza.Shibuya",
+            "departureTime": null,
+            "departureStation": null,
+            "platformNumber": null,
+            "platformName": null,
+            "note": null
+          }
+        ],
+        "objectCount": 19,
+        "needExtraFee": null,
+        "note": null,
+        "date": "2025-03-17T12:00:00+09:00",
+        "issuedAt": "2025-03-15",
+        "validUntil": null,
+        "provenance": {
+          "provider": "odpt",
+          "providerId": "odpt.TrainTimetable:TokyoMetro.Ginza.A501.Weekday",
+          "ucode": "urn:ucode:_00001C0000000000000100000310652B",
+          "generatedAt": "2025-03-17T12:00:00+09:00",
+          "issuedAt": "2025-03-15",
+          "validUntil": null,
+          "fetchedAt": "2026-09-14T06:13:04.614Z",
+          "sourceResource": "odpt:TrainTimetable",
+          "sourceUrl": "https://api.odpt.org/api/v4/odpt:TrainTimetable?odpt:train=odpt.Train%3ATokyoMetro.Ginza.A501",
+          "coverage": "unknown"
+        }
+      }
+    ]
+  }
+}

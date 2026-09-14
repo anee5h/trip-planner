@@ -516,7 +516,11 @@ function c2RegistryState(
   );
   const artifactAudits: readonly C2ArtifactAudit[] = odptDescriptors.map(
     (descriptor) => {
-      if (!validDescriptor(descriptor)) return { key: descriptor.key };
+      if (!validDescriptor(descriptor)) {
+        return {
+          key: String((descriptor as { readonly key?: unknown }).key ?? ""),
+        };
+      }
       let artifact: unknown;
       const syntheticArtifact = syntheticArtifactsByKey.get(descriptor.key);
       if (syntheticArtifact !== undefined) {
@@ -839,8 +843,13 @@ function validateProbeAggregate(
     actualByState.set(state, (actualByState.get(state) ?? 0) + 1);
   }
   const declaredStates = new Map<string, number>();
-  for (const [state, count] of Object.entries(byState)) {
-    if (!Number.isSafeInteger(count) || count < 0) {
+  for (const [state, rawCount] of Object.entries(byState)) {
+    const count = rawCount;
+    if (
+      typeof count !== "number" ||
+      !Number.isSafeInteger(count) ||
+      count < 0
+    ) {
       throw new Error(
         `${label}.byState.${state} must be a non-negative safe integer`,
       );
@@ -1251,7 +1260,7 @@ function checkedIdentityEvidence(
     );
   return identities
     .filter(
-      (entry) =>
+      (entry): entry is JsonRecord =>
         isRecord(entry) &&
         entry.identityKind === "product" &&
         entry.identityStability === "stable_product_id" &&

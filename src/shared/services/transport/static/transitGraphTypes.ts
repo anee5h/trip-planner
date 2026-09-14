@@ -59,6 +59,8 @@ export interface TransitProvenance {
   readonly retrievedAt: string;
   /** Explicit evidence-check timestamp; optional for legacy B1 records. */
   readonly checkedAt?: string;
+  /** Optional source URL for the exact normalized provider observation. */
+  readonly sourceUrl?: string;
 }
 
 /** One versioned source dataset the graph was built from. */
@@ -177,10 +179,18 @@ export type TransitRouteSourceSemantics =
  * ODPT route semantics retained for later topology/timetable use
  * (`odpt:ascendingRailDirection` / `odpt:descendingRailDirection`).
  */
+export interface OdptRoutePatternSourceSemantics {
+  readonly patternId: string;
+  /** Exact normalized ODPT timetable/service ids in this pattern. */
+  readonly tripIds: readonly string[];
+  readonly serviceIds: readonly string[];
+}
+
 export interface OdptRouteSourceSemantics {
   readonly provider: "odpt";
   readonly ascendingDirectionId: string | null;
   readonly descendingDirectionId: string | null;
+  readonly patterns?: readonly OdptRoutePatternSourceSemantics[];
 }
 
 /** Compact evidence retained from one ordered GTFS route pattern. */
@@ -295,8 +305,23 @@ export interface GtfsJpScheduledServiceSourceSemantics {
   readonly blockId: string | null;
 }
 
+/** ODPT exact-train timetable facts retained for the C2 bridge. */
+export interface OdptScheduledServiceSourceSemantics {
+  readonly provider: "odpt";
+  readonly trainTimetableId: string;
+  readonly trainIdentity: string | null;
+  readonly trainNumber: string;
+  readonly railDirection: string | null;
+  readonly originStation: readonly string[];
+  readonly destinationStation: readonly string[];
+  readonly trainType: string | null;
+  readonly needExtraFee: boolean | null;
+}
+
 export type TransitScheduledServiceSourceSemantics =
-  GtfsScheduledServiceSourceSemantics | GtfsJpScheduledServiceSourceSemantics;
+  | GtfsScheduledServiceSourceSemantics
+  | GtfsJpScheduledServiceSourceSemantics
+  | OdptScheduledServiceSourceSemantics;
 
 interface TransitScheduledServiceBase {
   readonly id: string;
@@ -316,6 +341,10 @@ export type TransitScheduledService =
   | (TransitScheduledServiceBase & {
       readonly provider: "gtfs-jp";
       readonly sourceSemantics: GtfsJpScheduledServiceSourceSemantics;
+    })
+  | (TransitScheduledServiceBase & {
+      readonly provider: "odpt";
+      readonly sourceSemantics: OdptScheduledServiceSourceSemantics;
     });
 
 /** Provider-specific source facts retained for one scheduled stop event. */
@@ -339,8 +368,19 @@ export interface GtfsJpScheduledStopTimeSourceSemantics {
   readonly timepoint: 0 | 1 | null;
 }
 
+export interface OdptScheduledStopTimeSourceSemantics {
+  readonly provider: "odpt";
+  readonly trainTimetableId: string;
+  readonly arrivalStation: string | null;
+  readonly departureStation: string | null;
+  readonly rawArrivalTime: string | null;
+  readonly rawDepartureTime: string | null;
+}
+
 export type TransitScheduledStopTimeSourceSemantics =
-  GtfsScheduledStopTimeSourceSemantics | GtfsJpScheduledStopTimeSourceSemantics;
+  | GtfsScheduledStopTimeSourceSemantics
+  | GtfsJpScheduledStopTimeSourceSemantics
+  | OdptScheduledStopTimeSourceSemantics;
 
 interface TransitScheduledStopTimeBase {
   readonly serviceId: string;
@@ -363,6 +403,12 @@ export type TransitScheduledStopTime =
       readonly arrivalServiceSeconds: number | null;
       readonly departureServiceSeconds: number | null;
       readonly sourceSemantics: GtfsJpScheduledStopTimeSourceSemantics;
+    })
+  | (TransitScheduledStopTimeBase & {
+      readonly provider: "odpt";
+      readonly arrivalServiceSeconds: number | null;
+      readonly departureServiceSeconds: number | null;
+      readonly sourceSemantics: OdptScheduledStopTimeSourceSemantics;
     });
 
 /**

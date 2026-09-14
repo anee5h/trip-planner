@@ -56,12 +56,15 @@
         "credentialSafeStaticClaim": true
       },
       "c2ScheduledTransitDataset": {
-        "canEnterTrustedC2": false,
-        "artifactValid": false,
-        "productionScheduledDatasetEligible": false,
-        "registeredDatasetKeys": ["sakata-runrunbus"],
-        "registeredProviders": ["gtfs"],
-        "reason": "no_registered_odpt_scheduled_dataset",
+        "canEnterTrustedC2": true,
+        "artifactValid": true,
+        "productionScheduledDatasetEligible": true,
+        "registeredDatasetKeys": [
+          "odpt-tokyometro-ginza-a501",
+          "sakata-runrunbus"
+        ],
+        "registeredProviders": ["gtfs", "odpt"],
+        "reason": "registered_odpt_scheduled_dataset",
         "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
         "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
       },
@@ -70,7 +73,6 @@
         "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
-        "registered_odpt_scheduled_dataset_artifact",
         "direct_or_one_transfer_scheduled_support"
       ],
       "productionCrosswalk": false,
@@ -122,12 +124,15 @@
         "credentialSafeStaticClaim": true
       },
       "c2ScheduledTransitDataset": {
-        "canEnterTrustedC2": false,
-        "artifactValid": false,
-        "productionScheduledDatasetEligible": false,
-        "registeredDatasetKeys": ["sakata-runrunbus"],
-        "registeredProviders": ["gtfs"],
-        "reason": "no_registered_odpt_scheduled_dataset",
+        "canEnterTrustedC2": true,
+        "artifactValid": true,
+        "productionScheduledDatasetEligible": true,
+        "registeredDatasetKeys": [
+          "odpt-tokyometro-ginza-a501",
+          "sakata-runrunbus"
+        ],
+        "registeredProviders": ["gtfs", "odpt"],
+        "reason": "registered_odpt_scheduled_dataset",
         "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
         "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
       },
@@ -136,7 +141,6 @@
         "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
-        "registered_odpt_scheduled_dataset_artifact",
         "direct_or_one_transfer_scheduled_support"
       ],
       "productionCrosswalk": false,
@@ -188,12 +192,15 @@
         "credentialSafeStaticClaim": true
       },
       "c2ScheduledTransitDataset": {
-        "canEnterTrustedC2": false,
-        "artifactValid": false,
-        "productionScheduledDatasetEligible": false,
-        "registeredDatasetKeys": ["sakata-runrunbus"],
-        "registeredProviders": ["gtfs"],
-        "reason": "no_registered_odpt_scheduled_dataset",
+        "canEnterTrustedC2": true,
+        "artifactValid": true,
+        "productionScheduledDatasetEligible": true,
+        "registeredDatasetKeys": [
+          "odpt-tokyometro-ginza-a501",
+          "sakata-runrunbus"
+        ],
+        "registeredProviders": ["gtfs", "odpt"],
+        "reason": "registered_odpt_scheduled_dataset",
         "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
         "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
       },
@@ -202,7 +209,6 @@
         "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "exact_identity_bound_access_evidence",
-        "registered_odpt_scheduled_dataset_artifact",
         "direct_or_one_transfer_scheduled_support"
       ],
       "productionCrosswalk": false,
@@ -254,12 +260,15 @@
         "credentialSafeStaticClaim": true
       },
       "c2ScheduledTransitDataset": {
-        "canEnterTrustedC2": false,
-        "artifactValid": false,
-        "productionScheduledDatasetEligible": false,
-        "registeredDatasetKeys": ["sakata-runrunbus"],
-        "registeredProviders": ["gtfs"],
-        "reason": "no_registered_odpt_scheduled_dataset",
+        "canEnterTrustedC2": true,
+        "artifactValid": true,
+        "productionScheduledDatasetEligible": true,
+        "registeredDatasetKeys": [
+          "odpt-tokyometro-ginza-a501",
+          "sakata-runrunbus"
+        ],
+        "registeredProviders": ["gtfs", "odpt"],
+        "reason": "registered_odpt_scheduled_dataset",
         "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
         "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
       },
@@ -268,7 +277,6 @@
         "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
-        "registered_odpt_scheduled_dataset_artifact",
         "direct_or_one_transfer_scheduled_support"
       ],
       "productionCrosswalk": false,
@@ -320,12 +328,15 @@
         "credentialSafeStaticClaim": true
       },
       "c2ScheduledTransitDataset": {
-        "canEnterTrustedC2": false,
-        "artifactValid": false,
-        "productionScheduledDatasetEligible": false,
-        "registeredDatasetKeys": ["sakata-runrunbus"],
-        "registeredProviders": ["gtfs"],
-        "reason": "no_registered_odpt_scheduled_dataset",
+        "canEnterTrustedC2": true,
+        "artifactValid": true,
+        "productionScheduledDatasetEligible": true,
+        "registeredDatasetKeys": [
+          "odpt-tokyometro-ginza-a501",
+          "sakata-runrunbus"
+        ],
+        "registeredProviders": ["gtfs", "odpt"],
+        "reason": "registered_odpt_scheduled_dataset",
         "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
         "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
       },
@@ -334,7 +345,6 @@
         "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
-        "registered_odpt_scheduled_dataset_artifact",
         "direct_or_one_transfer_scheduled_support"
       ],
       "productionCrosswalk": false,
@@ -386,12 +396,15 @@
         "credentialSafeStaticClaim": true
       },
       "c2ScheduledTransitDataset": {
-        "canEnterTrustedC2": false,
-        "artifactValid": false,
-        "productionScheduledDatasetEligible": false,
-        "registeredDatasetKeys": ["sakata-runrunbus"],
-        "registeredProviders": ["gtfs"],
-        "reason": "no_registered_odpt_scheduled_dataset",
+        "canEnterTrustedC2": true,
+        "artifactValid": true,
+        "productionScheduledDatasetEligible": true,
+        "registeredDatasetKeys": [
+          "odpt-tokyometro-ginza-a501",
+          "sakata-runrunbus"
+        ],
+        "registeredProviders": ["gtfs", "odpt"],
+        "reason": "registered_odpt_scheduled_dataset",
         "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
         "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
       },
@@ -400,7 +413,6 @@
         "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
-        "registered_odpt_scheduled_dataset_artifact",
         "direct_or_one_transfer_scheduled_support"
       ],
       "productionCrosswalk": false,
@@ -452,12 +464,15 @@
         "credentialSafeStaticClaim": true
       },
       "c2ScheduledTransitDataset": {
-        "canEnterTrustedC2": false,
-        "artifactValid": false,
-        "productionScheduledDatasetEligible": false,
-        "registeredDatasetKeys": ["sakata-runrunbus"],
-        "registeredProviders": ["gtfs"],
-        "reason": "no_registered_odpt_scheduled_dataset",
+        "canEnterTrustedC2": true,
+        "artifactValid": true,
+        "productionScheduledDatasetEligible": true,
+        "registeredDatasetKeys": [
+          "odpt-tokyometro-ginza-a501",
+          "sakata-runrunbus"
+        ],
+        "registeredProviders": ["gtfs", "odpt"],
+        "reason": "registered_odpt_scheduled_dataset",
         "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
         "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
       },
@@ -466,7 +481,6 @@
         "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
-        "registered_odpt_scheduled_dataset_artifact",
         "direct_or_one_transfer_scheduled_support"
       ],
       "productionCrosswalk": false,
@@ -615,12 +629,12 @@
     "inspectedProviderNormalizer": "functions/api/odpt-core.js"
   },
   "c2Boundary": {
-    "registeredDatasetKeys": ["sakata-runrunbus"],
-    "registeredProviders": ["gtfs"],
-    "artifactValidOdptDatasetKeys": [],
-    "productionEligibleOdptDatasetKeys": [],
-    "odptEvidenceCanEnterTrustedDataset": false,
-    "reason": "no_registered_odpt_scheduled_dataset",
+    "registeredDatasetKeys": ["odpt-tokyometro-ginza-a501", "sakata-runrunbus"],
+    "registeredProviders": ["gtfs", "odpt"],
+    "artifactValidOdptDatasetKeys": ["odpt-tokyometro-ginza-a501"],
+    "productionEligibleOdptDatasetKeys": ["odpt-tokyometro-ginza-a501"],
+    "odptEvidenceCanEnterTrustedDataset": true,
+    "reason": "registered_odpt_scheduled_dataset",
     "importerBoundary": {
       "odptTopologyImporter": "normalized_topology_capability_only",
       "odptTopologyImporterSource": "src/shared/services/transport/static/odptRailTopologyImporter.ts",
@@ -689,8 +703,8 @@
     },
     {
       "gate": "production_loadable_scheduled_dataset",
-      "satisfied": false,
-      "statement": "The current registry has no ODPT scheduled dataset descriptor/artifact; Sakata is not product coverage."
+      "satisfied": true,
+      "statement": "A registered ODPT scheduled dataset is loadable under the trusted C2 contract."
     },
     {
       "gate": "direct_or_one_transfer_structural_support",
@@ -721,16 +735,6 @@
       "evidence": [
         "qa/kai-291/destination-station-anchors.json",
         "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "odpt_timetable_not_representable_in_trusted_c2",
-      "statement": "TokyoMetro/Toei ODPT timetable observations are available only as bounded live-boundary audit evidence and old capability code; the current trusted C2 ScheduledTransitDataset registry has no ODPT scheduled artifact or descriptor.",
-      "evidence": [
-        "qa/kai-290/odpt-coverage.json",
-        "functions/api/odpt-core.js",
-        "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
-        "src/shared/services/transport/static/scheduledTransitDataset.ts"
       ]
     },
     {
@@ -780,16 +784,6 @@
       ]
     },
     {
-      "code": "odpt_timetable_not_representable_in_trusted_c2",
-      "statement": "TokyoMetro/Toei ODPT timetable observations are available only as bounded live-boundary audit evidence and old capability code; the current trusted C2 ScheduledTransitDataset registry has no ODPT scheduled artifact or descriptor.",
-      "evidence": [
-        "qa/kai-290/odpt-coverage.json",
-        "functions/api/odpt-core.js",
-        "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
-        "src/shared/services/transport/static/scheduledTransitDataset.ts"
-      ]
-    },
-    {
       "code": "missing_direct_or_one_transfer_scheduled_support",
       "statement": "No real product origin plus catalogue destination pair reaches the C2 direct/one-transfer structural support gate; the only currently loadable scheduled dataset is the non-product Sakata pilot.",
       "evidence": [
@@ -803,8 +797,7 @@
     "status": "blocked_no_real_catalogue_corridor",
     "inheritedBlockers": [
       "missing_catalogue_destination_crosswalk",
-      "missing_canonical_origin_identity",
-      "pilot_only_normalized_evidence"
+      "missing_canonical_origin_identity"
     ],
     "crosswalkChanged": false
   },

@@ -560,16 +560,19 @@ function scheduleStopTimesForHash(
         provenance,
       };
     }
-    return {
-      ...value,
-      sourceSemantics: {
-        ...value.sourceSemantics,
-        rawArrivalTime: null,
-        rawDepartureTime: null,
-        rawStopSequence: 0,
-      },
-      provenance,
-    };
+    if (value.provider === "gtfs-jp") {
+      return {
+        ...value,
+        sourceSemantics: {
+          ...value.sourceSemantics,
+          rawArrivalTime: null,
+          rawDepartureTime: null,
+          rawStopSequence: 0,
+        },
+        provenance,
+      };
+    }
+    return value;
   });
 }
 
@@ -680,7 +683,9 @@ export function importGtfsSchedule(
     const routeSemantics = route.sourceSemantics;
     if (!(
       "patterns" in routeSemantics &&
-      routeSemantics.patterns.some((pattern) => pattern.patternId === patternId)
+      routeSemantics.patterns?.some(
+        (pattern) => pattern.patternId === patternId,
+      )
     )) {
       throw new GtfsScheduleImportError(
         "topology_schedule_mismatch",

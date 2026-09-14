@@ -146,7 +146,9 @@ describe("GTFS schedule/calendar importer", () => {
       rawStopSequence: 1,
       timepoint: null,
     });
-    expect(t1Times[0]?.sourceSemantics.timepoint).toBeNull();
+    if (t1Times[0]?.provider === "gtfs-jp") {
+      expect(t1Times[0].sourceSemantics.timepoint).toBeNull();
+    }
     const t4 = serviceByProviderId(result, "t4");
     expect(
       getScheduledStopTimesForService(result.graph, t4.id).map(
@@ -320,7 +322,9 @@ describe("GTFS schedule/calendar importer", () => {
     const middle = getScheduledStopTimesForService(result.graph, t1.id)[1];
     expect(middle?.arrivalServiceSeconds).toBeNull();
     expect(middle?.departureServiceSeconds).toBeNull();
-    expect(middle?.sourceSemantics.timepoint).toBe(0);
+    if (middle?.provider === "gtfs") {
+      expect(middle.sourceSemantics.timepoint).toBe(0);
+    }
     expect(
       result.coverage.entries.find(
         (entry) => entry.operator === "a1" && entry.mode === "bus",

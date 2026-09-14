@@ -7,7 +7,10 @@ import type {
 /** Version of the serialized graph + coverage runtime envelope. */
 export const SCHEDULED_TRANSIT_ARTIFACT_SCHEMA_VERSION = "kai-292c2-v1";
 
-export const SCHEDULED_TRANSIT_DATASET_KEYS = ["sakata-runrunbus"] as const;
+export const SCHEDULED_TRANSIT_DATASET_KEYS = [
+  "sakata-runrunbus",
+  "odpt-tokyometro-ginza-a501",
+] as const;
 export type ScheduledTransitDatasetKey =
   (typeof SCHEDULED_TRANSIT_DATASET_KEYS)[number];
 
@@ -46,10 +49,28 @@ export const SAKATA_RUNRUNBUS_DATASET: ScheduledTransitDatasetDescriptor = {
   completeness: "complete_provider_dump",
 };
 
+export const ODPT_TOKYOMETRO_GINZA_A501_DATASET: ScheduledTransitDatasetDescriptor =
+  {
+    key: "odpt-tokyometro-ginza-a501",
+    assetUrl: "/data/transit/odpt-tokyometro-ginza-a501.json",
+    artifactSchemaVersion: SCHEDULED_TRANSIT_ARTIFACT_SCHEMA_VERSION,
+    provider: "odpt",
+    identityNamespace: "odpt",
+    datasetId: "odpt-tokyometro-ginza-a501-v1",
+    schemaVersion: "kai-291b1-v2",
+    expectedContentHash:
+      "c1d4f2246996fefbac95a32543808d78e9f7e3656f8b6cbc656fb50006037f6b",
+    expectedCoverageHash:
+      "54e40b2885ec3bf2bc7b9b5bb185e4c6b56ad06e9af4596ed754e3a16f74c1b8",
+    sourceType: "data_dump",
+    completeness: "complete_provider_dump",
+  };
+
 export const SCHEDULED_TRANSIT_DATASETS: Readonly<
   Record<ScheduledTransitDatasetKey, ScheduledTransitDatasetDescriptor>
 > = {
   "sakata-runrunbus": SAKATA_RUNRUNBUS_DATASET,
+  "odpt-tokyometro-ginza-a501": ODPT_TOKYOMETRO_GINZA_A501_DATASET,
 };
 
 export function getScheduledTransitDatasetDescriptor(
