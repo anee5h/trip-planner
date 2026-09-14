@@ -34,6 +34,8 @@
     "test:kai-292c3": "vitest run src/shared/services/transport/static/__tests__/scheduledRoutingTemporal.test.ts src/shared/services/transport/static/__tests__/scheduledTransitRoutingBoundary.test.ts --no-file-parallelism --maxWorkers=1",
     "audit:kai-292c2-boundary": "tsx scripts/transit/audit-kai-292c2-boundary.ts",
     "audit:kai-292c4a": "tsx --tsconfig tsconfig.app.json scripts/transit/audit-kai-292c4a-real-corridor.ts",
+    "audit:kai-292c4e": "tsx --tsconfig tsconfig.app.json scripts/transit/audit-kai-292c4e-prerequisite.ts",
+    "check:kai-292c4e": "tsx --tsconfig tsconfig.app.json scripts/transit/audit-kai-292c4e-prerequisite.ts --check",
     "generate:kai-292c2-dataset": "tsx scripts/transit/generate-kai-292c2-sakata-dataset.ts",
     "audit:wikipedia": "tsx scripts/audit-wikipedia-mappings.ts",
     "migrate:wikipedia-legacy": "tsx scripts/migrate-wikipedia-legacy-provenance.ts",

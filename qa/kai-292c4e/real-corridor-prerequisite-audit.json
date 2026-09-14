@@ -1,0 +1,834 @@
+{
+  "schemaVersion": "kai-292c4e-v1",
+  "status": "blocked_prerequisite",
+  "generatedBy": "scripts/transit/audit-kai-292c4e-prerequisite.ts",
+  "scope": {
+    "ticket": "KAI-292C4E",
+    "outcome": "Outcome B — reusable prerequisite/blocker report",
+    "networkCalls": 0,
+    "credentialRead": false,
+    "credentialEmitted": false
+  },
+  "anchors": [
+    {
+      "destinationId": "shinjuku-gyo-en",
+      "catalogue": {
+        "status": "present",
+        "productId": "shinjuku-gyo-en",
+        "name": "Shinjuku Gyo-en",
+        "role": "poi",
+        "kind": "park",
+        "source": "src/shared/data/destinations-index.json"
+      },
+      "reviewedStation": {
+        "status": "reviewed_geographic_anchor",
+        "provider": "odpt",
+        "stationId": "odpt.Station:TokyoMetro.Marunouchi.ShinjukuGyoemmae",
+        "operator": "odpt.Operator:TokyoMetro",
+        "railway": "odpt.Railway:TokyoMetro.Marunouchi",
+        "evidencePath": "geographic_unique_candidate",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "productionCrosswalk": false
+      },
+      "stationToDestinationAccess": {
+        "status": "unavailable",
+        "exactStationIdentityBound": false,
+        "sourceUrls": [],
+        "statement": "No reviewed station-to-destination access evidence is bound to the exact ODPT station identity.",
+        "missingPrerequisite": "reviewed_station_to_destination_access_evidence"
+      },
+      "providerOperator": {
+        "provider": "odpt",
+        "operator": "odpt.Operator:TokyoMetro",
+        "railway": "odpt.Railway:TokyoMetro.Marunouchi",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "identityPreserved": true
+      },
+      "odptTimetableEvidence": {
+        "source": "qa/kai-290/odpt-coverage.json",
+        "boundary": "https://meguruto.app/api/odpt",
+        "operatorPilotStatus": "included",
+        "operatorEvidenceScope": "operator_sample_only",
+        "exactStationTimetableStatus": "not_evidenced",
+        "exactStationIdentity": "odpt.Station:TokyoMetro.Marunouchi.ShinjukuGyoemmae",
+        "exactStationSampled": false,
+        "exactTrainTimetableStatus": "not_evidenced_for_anchor",
+        "credentialSafeStaticClaim": true
+      },
+      "c2ScheduledTransitDataset": {
+        "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
+        "registeredDatasetKeys": ["sakata-runrunbus"],
+        "registeredProviders": ["gtfs"],
+        "reason": "no_registered_odpt_scheduled_dataset",
+        "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
+        "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
+      },
+      "exactProductSafeOriginOptions": [],
+      "missingPrerequisites": [
+        "reviewed_stable_product_origin_identity",
+        "explicit_catalogue_destination_crosswalk",
+        "reviewed_station_to_destination_access_evidence",
+        "registered_odpt_scheduled_dataset_artifact",
+        "direct_or_one_transfer_scheduled_support"
+      ],
+      "productionCrosswalk": false,
+      "scheduledSupport": "blocked"
+    },
+    {
+      "destinationId": "teamlab-borderless-azabudai",
+      "catalogue": {
+        "status": "present",
+        "productId": "teamlab-borderless-azabudai",
+        "name": "teamLab Borderless",
+        "role": "poi",
+        "kind": "museum",
+        "source": "src/shared/data/destinations-index.json"
+      },
+      "reviewedStation": {
+        "status": "reviewed_geographic_anchor",
+        "provider": "odpt",
+        "stationId": "odpt.Station:TokyoMetro.Hibiya.Kamiyacho",
+        "operator": "odpt.Operator:TokyoMetro",
+        "railway": "odpt.Railway:TokyoMetro.Hibiya",
+        "evidencePath": "geographic_unique_candidate",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "productionCrosswalk": false
+      },
+      "stationToDestinationAccess": {
+        "status": "unavailable",
+        "exactStationIdentityBound": false,
+        "sourceUrls": [],
+        "statement": "No reviewed station-to-destination access evidence is bound to the exact ODPT station identity.",
+        "missingPrerequisite": "reviewed_station_to_destination_access_evidence"
+      },
+      "providerOperator": {
+        "provider": "odpt",
+        "operator": "odpt.Operator:TokyoMetro",
+        "railway": "odpt.Railway:TokyoMetro.Hibiya",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "identityPreserved": true
+      },
+      "odptTimetableEvidence": {
+        "source": "qa/kai-290/odpt-coverage.json",
+        "boundary": "https://meguruto.app/api/odpt",
+        "operatorPilotStatus": "included",
+        "operatorEvidenceScope": "operator_sample_only",
+        "exactStationTimetableStatus": "not_evidenced",
+        "exactStationIdentity": "odpt.Station:TokyoMetro.Hibiya.Kamiyacho",
+        "exactStationSampled": false,
+        "exactTrainTimetableStatus": "not_evidenced_for_anchor",
+        "credentialSafeStaticClaim": true
+      },
+      "c2ScheduledTransitDataset": {
+        "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
+        "registeredDatasetKeys": ["sakata-runrunbus"],
+        "registeredProviders": ["gtfs"],
+        "reason": "no_registered_odpt_scheduled_dataset",
+        "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
+        "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
+      },
+      "exactProductSafeOriginOptions": [],
+      "missingPrerequisites": [
+        "reviewed_stable_product_origin_identity",
+        "explicit_catalogue_destination_crosswalk",
+        "reviewed_station_to_destination_access_evidence",
+        "registered_odpt_scheduled_dataset_artifact",
+        "direct_or_one_transfer_scheduled_support"
+      ],
+      "productionCrosswalk": false,
+      "scheduledSupport": "blocked"
+    },
+    {
+      "destinationId": "ueno-park",
+      "catalogue": {
+        "status": "present",
+        "productId": "ueno-park",
+        "name": "Ueno Park",
+        "role": "poi",
+        "kind": "park",
+        "source": "src/shared/data/destinations-index.json"
+      },
+      "reviewedStation": {
+        "status": "reviewed_geographic_anchor",
+        "provider": "odpt",
+        "stationId": "odpt.Station:TokyoMetro.Ginza.Ueno",
+        "operator": "odpt.Operator:TokyoMetro",
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "evidencePath": "geographic_unique_candidate",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "productionCrosswalk": false
+      },
+      "stationToDestinationAccess": {
+        "status": "source_backed_station_label_only",
+        "exactStationIdentityBound": false,
+        "sourceUrls": ["https://www.tokyo-park.or.jp/park/ueno/"],
+        "statement": "The Tokyo Metropolitan Park Association's Ueno Park page says 2 minutes on foot from Ueno Station and 1 minute from Keisei Ueno Station.",
+        "missingPrerequisite": "exact_identity_bound_access_evidence"
+      },
+      "providerOperator": {
+        "provider": "odpt",
+        "operator": "odpt.Operator:TokyoMetro",
+        "railway": "odpt.Railway:TokyoMetro.Ginza",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "identityPreserved": true
+      },
+      "odptTimetableEvidence": {
+        "source": "qa/kai-290/odpt-coverage.json",
+        "boundary": "https://meguruto.app/api/odpt",
+        "operatorPilotStatus": "included",
+        "operatorEvidenceScope": "operator_sample_only",
+        "exactStationTimetableStatus": "not_evidenced",
+        "exactStationIdentity": "odpt.Station:TokyoMetro.Ginza.Ueno",
+        "exactStationSampled": false,
+        "exactTrainTimetableStatus": "not_evidenced_for_anchor",
+        "credentialSafeStaticClaim": true
+      },
+      "c2ScheduledTransitDataset": {
+        "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
+        "registeredDatasetKeys": ["sakata-runrunbus"],
+        "registeredProviders": ["gtfs"],
+        "reason": "no_registered_odpt_scheduled_dataset",
+        "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
+        "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
+      },
+      "exactProductSafeOriginOptions": [],
+      "missingPrerequisites": [
+        "reviewed_stable_product_origin_identity",
+        "explicit_catalogue_destination_crosswalk",
+        "exact_identity_bound_access_evidence",
+        "registered_odpt_scheduled_dataset_artifact",
+        "direct_or_one_transfer_scheduled_support"
+      ],
+      "productionCrosswalk": false,
+      "scheduledSupport": "blocked"
+    },
+    {
+      "destinationId": "hamarikyu-gardens",
+      "catalogue": {
+        "status": "present",
+        "productId": "hamarikyu-gardens",
+        "name": "Hamarikyu Gardens",
+        "role": "poi",
+        "kind": "garden",
+        "source": "src/shared/data/destinations-index.json"
+      },
+      "reviewedStation": {
+        "status": "reviewed_geographic_anchor",
+        "provider": "odpt",
+        "stationId": "odpt.Station:Toei.Oedo.Shiodome",
+        "operator": "odpt.Operator:Toei",
+        "railway": "odpt.Railway:Toei.Oedo",
+        "evidencePath": "geographic_unique_candidate",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "productionCrosswalk": false
+      },
+      "stationToDestinationAccess": {
+        "status": "unavailable",
+        "exactStationIdentityBound": false,
+        "sourceUrls": [],
+        "statement": "No reviewed station-to-destination access evidence is bound to the exact ODPT station identity.",
+        "missingPrerequisite": "reviewed_station_to_destination_access_evidence"
+      },
+      "providerOperator": {
+        "provider": "odpt",
+        "operator": "odpt.Operator:Toei",
+        "railway": "odpt.Railway:Toei.Oedo",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "identityPreserved": true
+      },
+      "odptTimetableEvidence": {
+        "source": "qa/kai-290/odpt-coverage.json",
+        "boundary": "https://meguruto.app/api/odpt",
+        "operatorPilotStatus": "included",
+        "operatorEvidenceScope": "operator_sample_only",
+        "exactStationTimetableStatus": "not_evidenced",
+        "exactStationIdentity": "odpt.Station:Toei.Oedo.Shiodome",
+        "exactStationSampled": false,
+        "exactTrainTimetableStatus": "not_evidenced_for_anchor",
+        "credentialSafeStaticClaim": true
+      },
+      "c2ScheduledTransitDataset": {
+        "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
+        "registeredDatasetKeys": ["sakata-runrunbus"],
+        "registeredProviders": ["gtfs"],
+        "reason": "no_registered_odpt_scheduled_dataset",
+        "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
+        "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
+      },
+      "exactProductSafeOriginOptions": [],
+      "missingPrerequisites": [
+        "reviewed_stable_product_origin_identity",
+        "explicit_catalogue_destination_crosswalk",
+        "reviewed_station_to_destination_access_evidence",
+        "registered_odpt_scheduled_dataset_artifact",
+        "direct_or_one_transfer_scheduled_support"
+      ],
+      "productionCrosswalk": false,
+      "scheduledSupport": "blocked"
+    },
+    {
+      "destinationId": "sumida-hokusai-museum",
+      "catalogue": {
+        "status": "present",
+        "productId": "sumida-hokusai-museum",
+        "name": "The Sumida Hokusai Museum",
+        "role": "poi",
+        "kind": "museum",
+        "source": "src/shared/data/destinations-index.json"
+      },
+      "reviewedStation": {
+        "status": "reviewed_geographic_anchor",
+        "provider": "odpt",
+        "stationId": "odpt.Station:Toei.Oedo.Ryogoku",
+        "operator": "odpt.Operator:Toei",
+        "railway": "odpt.Railway:Toei.Oedo",
+        "evidencePath": "geographic_unique_candidate",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "productionCrosswalk": false
+      },
+      "stationToDestinationAccess": {
+        "status": "unavailable",
+        "exactStationIdentityBound": false,
+        "sourceUrls": [],
+        "statement": "No reviewed station-to-destination access evidence is bound to the exact ODPT station identity.",
+        "missingPrerequisite": "reviewed_station_to_destination_access_evidence"
+      },
+      "providerOperator": {
+        "provider": "odpt",
+        "operator": "odpt.Operator:Toei",
+        "railway": "odpt.Railway:Toei.Oedo",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "identityPreserved": true
+      },
+      "odptTimetableEvidence": {
+        "source": "qa/kai-290/odpt-coverage.json",
+        "boundary": "https://meguruto.app/api/odpt",
+        "operatorPilotStatus": "included",
+        "operatorEvidenceScope": "operator_sample_only",
+        "exactStationTimetableStatus": "not_evidenced",
+        "exactStationIdentity": "odpt.Station:Toei.Oedo.Ryogoku",
+        "exactStationSampled": false,
+        "exactTrainTimetableStatus": "not_evidenced_for_anchor",
+        "credentialSafeStaticClaim": true
+      },
+      "c2ScheduledTransitDataset": {
+        "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
+        "registeredDatasetKeys": ["sakata-runrunbus"],
+        "registeredProviders": ["gtfs"],
+        "reason": "no_registered_odpt_scheduled_dataset",
+        "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
+        "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
+      },
+      "exactProductSafeOriginOptions": [],
+      "missingPrerequisites": [
+        "reviewed_stable_product_origin_identity",
+        "explicit_catalogue_destination_crosswalk",
+        "reviewed_station_to_destination_access_evidence",
+        "registered_odpt_scheduled_dataset_artifact",
+        "direct_or_one_transfer_scheduled_support"
+      ],
+      "productionCrosswalk": false,
+      "scheduledSupport": "blocked"
+    },
+    {
+      "destinationId": "ryogoku-kokugikan-sumo-museum",
+      "catalogue": {
+        "status": "present",
+        "productId": "ryogoku-kokugikan-sumo-museum",
+        "name": "Ryogoku Kokugikan and Sumo Museum",
+        "role": "poi",
+        "kind": "museum",
+        "source": "src/shared/data/destinations-index.json"
+      },
+      "reviewedStation": {
+        "status": "reviewed_geographic_anchor",
+        "provider": "odpt",
+        "stationId": "odpt.Station:Toei.Oedo.Ryogoku",
+        "operator": "odpt.Operator:Toei",
+        "railway": "odpt.Railway:Toei.Oedo",
+        "evidencePath": "geographic_unique_candidate",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "productionCrosswalk": false
+      },
+      "stationToDestinationAccess": {
+        "status": "unavailable",
+        "exactStationIdentityBound": false,
+        "sourceUrls": [],
+        "statement": "No reviewed station-to-destination access evidence is bound to the exact ODPT station identity.",
+        "missingPrerequisite": "reviewed_station_to_destination_access_evidence"
+      },
+      "providerOperator": {
+        "provider": "odpt",
+        "operator": "odpt.Operator:Toei",
+        "railway": "odpt.Railway:Toei.Oedo",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "identityPreserved": true
+      },
+      "odptTimetableEvidence": {
+        "source": "qa/kai-290/odpt-coverage.json",
+        "boundary": "https://meguruto.app/api/odpt",
+        "operatorPilotStatus": "included",
+        "operatorEvidenceScope": "operator_sample_only",
+        "exactStationTimetableStatus": "not_evidenced",
+        "exactStationIdentity": "odpt.Station:Toei.Oedo.Ryogoku",
+        "exactStationSampled": false,
+        "exactTrainTimetableStatus": "not_evidenced_for_anchor",
+        "credentialSafeStaticClaim": true
+      },
+      "c2ScheduledTransitDataset": {
+        "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
+        "registeredDatasetKeys": ["sakata-runrunbus"],
+        "registeredProviders": ["gtfs"],
+        "reason": "no_registered_odpt_scheduled_dataset",
+        "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
+        "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
+      },
+      "exactProductSafeOriginOptions": [],
+      "missingPrerequisites": [
+        "reviewed_stable_product_origin_identity",
+        "explicit_catalogue_destination_crosswalk",
+        "reviewed_station_to_destination_access_evidence",
+        "registered_odpt_scheduled_dataset_artifact",
+        "direct_or_one_transfer_scheduled_support"
+      ],
+      "productionCrosswalk": false,
+      "scheduledSupport": "blocked"
+    },
+    {
+      "destinationId": "sugamo-jizo-dori",
+      "catalogue": {
+        "status": "present",
+        "productId": "sugamo-jizo-dori",
+        "name": "Sugamo Jizo-dori",
+        "role": "poi",
+        "kind": "street",
+        "source": "src/shared/data/destinations-index.json"
+      },
+      "reviewedStation": {
+        "status": "reviewed_geographic_anchor",
+        "provider": "odpt",
+        "stationId": "odpt.Station:Toei.Mita.Sugamo",
+        "operator": "odpt.Operator:Toei",
+        "railway": "odpt.Railway:Toei.Mita",
+        "evidencePath": "geographic_unique_candidate",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "productionCrosswalk": false
+      },
+      "stationToDestinationAccess": {
+        "status": "unavailable",
+        "exactStationIdentityBound": false,
+        "sourceUrls": [],
+        "statement": "No reviewed station-to-destination access evidence is bound to the exact ODPT station identity.",
+        "missingPrerequisite": "reviewed_station_to_destination_access_evidence"
+      },
+      "providerOperator": {
+        "provider": "odpt",
+        "operator": "odpt.Operator:Toei",
+        "railway": "odpt.Railway:Toei.Mita",
+        "source": "qa/kai-291/destination-station-anchors.json",
+        "identityPreserved": true
+      },
+      "odptTimetableEvidence": {
+        "source": "qa/kai-290/odpt-coverage.json",
+        "boundary": "https://meguruto.app/api/odpt",
+        "operatorPilotStatus": "included",
+        "operatorEvidenceScope": "operator_sample_only",
+        "exactStationTimetableStatus": "not_evidenced",
+        "exactStationIdentity": "odpt.Station:Toei.Mita.Sugamo",
+        "exactStationSampled": false,
+        "exactTrainTimetableStatus": "not_evidenced_for_anchor",
+        "credentialSafeStaticClaim": true
+      },
+      "c2ScheduledTransitDataset": {
+        "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
+        "registeredDatasetKeys": ["sakata-runrunbus"],
+        "registeredProviders": ["gtfs"],
+        "reason": "no_registered_odpt_scheduled_dataset",
+        "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
+        "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts"
+      },
+      "exactProductSafeOriginOptions": [],
+      "missingPrerequisites": [
+        "reviewed_stable_product_origin_identity",
+        "explicit_catalogue_destination_crosswalk",
+        "reviewed_station_to_destination_access_evidence",
+        "registered_odpt_scheduled_dataset_artifact",
+        "direct_or_one_transfer_scheduled_support"
+      ],
+      "productionCrosswalk": false,
+      "scheduledSupport": "blocked"
+    }
+  ],
+  "exactEndpointIdentityPairs": [],
+  "ranking": [
+    {
+      "rank": 1,
+      "destinationId": "ueno-park",
+      "infrastructureGapScore": 1,
+      "tier": "Tier 1",
+      "tieGroup": "tier-1-gap-score-1",
+      "tieBreakOrder": 1,
+      "reason": "Lowest current gap: catalogue identity, reviewed ODPT station, and source-backed station-label access exist, but exact access binding, origin, C2 representation, and schedule proof are still missing."
+    },
+    {
+      "rank": 2,
+      "destinationId": "hamarikyu-gardens",
+      "infrastructureGapScore": 2,
+      "tier": "Tier 2",
+      "tieGroup": "tier-2-gap-score-2",
+      "tieBreakOrder": 2,
+      "reason": "No reviewed station-to-destination access evidence is available in the current catalogue record; the shared origin, C2 representation, and schedule prerequisites are also missing."
+    },
+    {
+      "rank": 2,
+      "destinationId": "ryogoku-kokugikan-sumo-museum",
+      "infrastructureGapScore": 2,
+      "tier": "Tier 2",
+      "tieGroup": "tier-2-gap-score-2",
+      "tieBreakOrder": 3,
+      "reason": "No reviewed station-to-destination access evidence is available in the current catalogue record; the shared origin, C2 representation, and schedule prerequisites are also missing."
+    },
+    {
+      "rank": 2,
+      "destinationId": "shinjuku-gyo-en",
+      "infrastructureGapScore": 2,
+      "tier": "Tier 2",
+      "tieGroup": "tier-2-gap-score-2",
+      "tieBreakOrder": 4,
+      "reason": "No reviewed station-to-destination access evidence is available in the current catalogue record; the shared origin, C2 representation, and schedule prerequisites are also missing."
+    },
+    {
+      "rank": 2,
+      "destinationId": "sugamo-jizo-dori",
+      "infrastructureGapScore": 2,
+      "tier": "Tier 2",
+      "tieGroup": "tier-2-gap-score-2",
+      "tieBreakOrder": 5,
+      "reason": "No reviewed station-to-destination access evidence is available in the current catalogue record; the shared origin, C2 representation, and schedule prerequisites are also missing."
+    },
+    {
+      "rank": 2,
+      "destinationId": "sumida-hokusai-museum",
+      "infrastructureGapScore": 2,
+      "tier": "Tier 2",
+      "tieGroup": "tier-2-gap-score-2",
+      "tieBreakOrder": 6,
+      "reason": "No reviewed station-to-destination access evidence is available in the current catalogue record; the shared origin, C2 representation, and schedule prerequisites are also missing."
+    },
+    {
+      "rank": 2,
+      "destinationId": "teamlab-borderless-azabudai",
+      "infrastructureGapScore": 2,
+      "tier": "Tier 2",
+      "tieGroup": "tier-2-gap-score-2",
+      "tieBreakOrder": 7,
+      "reason": "No reviewed station-to-destination access evidence is available in the current catalogue record; the shared origin, C2 representation, and schedule prerequisites are also missing."
+    }
+  ],
+  "odptBoundary": {
+    "source": "qa/kai-290/odpt-coverage.json",
+    "boundary": "https://meguruto.app/api/odpt",
+    "liveResultReplayed": false,
+    "credentialExposed": false,
+    "authenticatedAuditClaim": "available_as_committed_static_evidence_only",
+    "measuredPilotOperators": [
+      "odpt.Operator:Toei",
+      "odpt.Operator:TokyoMetro"
+    ],
+    "reviewedStationEvidence": "qa/kai-291/pilot-station-index.json",
+    "broadTimetableResult": "provider_response_too_large",
+    "exactTrainProbeResult": "records",
+    "broadTrainTimetableProbes": [
+      {
+        "operator": "odpt.Operator:Toei",
+        "scope": {
+          "railway": "odpt.Railway:Toei.Asakusa"
+        },
+        "state": "too_large",
+        "detail": "provider_response_too_large",
+        "recordCount": null
+      },
+      {
+        "operator": "odpt.Operator:Toei",
+        "scope": {
+          "railway": "odpt.Railway:Toei.Mita"
+        },
+        "state": "too_large",
+        "detail": "provider_response_too_large",
+        "recordCount": null
+      },
+      {
+        "operator": "odpt.Operator:TokyoMetro",
+        "scope": {
+          "railway": "odpt.Railway:TokyoMetro.Chiyoda"
+        },
+        "state": "too_large",
+        "detail": "provider_response_too_large",
+        "recordCount": null
+      },
+      {
+        "operator": "odpt.Operator:TokyoMetro",
+        "scope": {
+          "railway": "odpt.Railway:TokyoMetro.Marunouchi"
+        },
+        "state": "too_large",
+        "detail": "provider_response_too_large",
+        "recordCount": null
+      }
+    ],
+    "exactTrainIdentityProbes": [
+      {
+        "operator": "odpt.Operator:Toei",
+        "trainIdentity": "odpt.Train:Toei.Mita.535T",
+        "state": "records",
+        "recordCount": 2
+      },
+      {
+        "operator": "odpt.Operator:TokyoMetro",
+        "trainIdentity": "odpt.Train:TokyoMetro.Marunouchi.B427",
+        "state": "records",
+        "recordCount": 1
+      }
+    ],
+    "caveat": "The committed authenticated audit is scoped to its sampled stations/railways. It proves measured provider responses in that corpus, not universal operator or anchor-station coverage.",
+    "oldDirectJourney": {
+      "source": "src/shared/services/transport/OdptDirectJourneyService.ts",
+      "builderSource": "src/shared/services/transport/odptDirectJourney.ts",
+      "status": "capability_only_not_called",
+      "connectedToC4E": false,
+      "connectedToC4C": false
+    },
+    "inspectedProviderNormalizer": "functions/api/odpt-core.js"
+  },
+  "c2Boundary": {
+    "registeredDatasetKeys": ["sakata-runrunbus"],
+    "registeredProviders": ["gtfs"],
+    "artifactValidOdptDatasetKeys": [],
+    "productionEligibleOdptDatasetKeys": [],
+    "odptEvidenceCanEnterTrustedDataset": false,
+    "reason": "no_registered_odpt_scheduled_dataset",
+    "importerBoundary": {
+      "odptTopologyImporter": "normalized_topology_capability_only",
+      "odptTopologyImporterSource": "src/shared/services/transport/static/odptRailTopologyImporter.ts",
+      "gtfsScheduleImporter": "current_scheduled_dataset_path",
+      "gtfsScheduleImporterSource": "src/shared/services/transport/static/gtfsScheduleImporter.ts"
+    },
+    "registrySource": "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
+    "loaderSource": "src/shared/services/transport/static/scheduledTransitDataset.ts",
+    "crosswalkSource": "src/shared/data/scheduled-transit-endpoint-crosswalk.json"
+  },
+  "origin": {
+    "status": "missing_canonical_product_identity",
+    "source": "qa/kai-292c4a/real-corridor-identity-evidence.json",
+    "reviewedProductIds": [],
+    "exactProductOriginOptions": [],
+    "freeTextLabelAndCoordinates": "insufficient",
+    "rejectedOptions": [
+      {
+        "kind": "free_text_label_and_coordinates",
+        "status": "rejected",
+        "reason": "Current product input is not a stable provider/product identity."
+      },
+      {
+        "kind": "nearest_station",
+        "status": "rejected",
+        "reason": "Nearest/proximity matching would infer an identity and is forbidden."
+      },
+      {
+        "kind": "geographic_anchor",
+        "status": "rejected",
+        "reason": "KAI-291A destination geography is audit evidence only and is not an origin identity."
+      },
+      {
+        "kind": "sakata_pilot_identity",
+        "status": "rejected",
+        "reason": "Sakata IDs are bounded C2 pilot identities, not Meguruto product coverage."
+      },
+      {
+        "kind": "old_odpt_direct_journey_input",
+        "status": "rejected",
+        "reason": "Old ODPT Journey code is not a trusted C2 dataset and must not bypass the C2 boundary."
+      }
+    ],
+    "missingPrerequisite": "reviewed_stable_product_origin_identity"
+  },
+  "gates": [
+    {
+      "gate": "real_meguruto_origin",
+      "satisfied": false,
+      "statement": "A reviewed stable product origin identity is required; none is currently present."
+    },
+    {
+      "gate": "real_catalogue_destination",
+      "satisfied": true,
+      "statement": "All seven requested destination IDs are present in the current catalogue."
+    },
+    {
+      "gate": "explicit_reviewed_station_destination_access",
+      "satisfied": false,
+      "statement": "No requested anchor has access evidence bound to its exact ODPT station identity."
+    },
+    {
+      "gate": "exact_transit_identities",
+      "satisfied": false,
+      "statement": "No compatible reviewed-origin and catalogue-destination exact endpoint pair exists in a registered dataset scope."
+    },
+    {
+      "gate": "production_loadable_scheduled_dataset",
+      "satisfied": false,
+      "statement": "The current registry has no ODPT scheduled dataset descriptor/artifact; Sakata is not product coverage."
+    },
+    {
+      "gate": "direct_or_one_transfer_structural_support",
+      "satisfied": false,
+      "statement": "C4A has zero real product corridors and no supported direct/one-transfer pair to evaluate."
+    }
+  ],
+  "corridorReadinessBlockers": [
+    {
+      "code": "missing_canonical_product_origin_identity",
+      "statement": "The current origin evidence contains no reviewed stable Meguruto product identity; free-text origin labels and coordinates are not a canonical transit endpoint.",
+      "evidence": [
+        "qa/kai-292c4a/real-corridor-identity-evidence.json",
+        "src/shared/data/destinations-index.json"
+      ]
+    },
+    {
+      "code": "missing_catalogue_destination_crosswalk",
+      "statement": "No exact scheduled-transit crosswalk maps a current catalogue destination ID; the two existing mappings are non-product Sakata pilot IDs.",
+      "evidence": [
+        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
+        "src/shared/data/destinations-index.json"
+      ]
+    },
+    {
+      "code": "station_to_destination_access_not_exactly_bound",
+      "statement": "KAI-291A geographic uniqueness is not station-to-destination access evidence. Ueno has a reviewed station-label walking statement without exact ODPT binding; the other six current catalogue records do not provide usable access evidence.",
+      "evidence": [
+        "qa/kai-291/destination-station-anchors.json",
+        "src/shared/data/destinations-index.json"
+      ]
+    },
+    {
+      "code": "odpt_timetable_not_representable_in_trusted_c2",
+      "statement": "TokyoMetro/Toei ODPT timetable observations are available only as bounded live-boundary audit evidence and old capability code; the current trusted C2 ScheduledTransitDataset registry has no ODPT scheduled artifact or descriptor.",
+      "evidence": [
+        "qa/kai-290/odpt-coverage.json",
+        "functions/api/odpt-core.js",
+        "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
+        "src/shared/services/transport/static/scheduledTransitDataset.ts"
+      ]
+    },
+    {
+      "code": "missing_direct_or_one_transfer_scheduled_support",
+      "statement": "No real product origin plus catalogue destination pair reaches the C2 direct/one-transfer structural support gate; the only currently loadable scheduled dataset is the non-product Sakata pilot.",
+      "evidence": [
+        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
+        "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts"
+      ]
+    }
+  ],
+  "c4dBlockers": [
+    {
+      "code": "no_authoritative_service_date_or_departure_time",
+      "statement": "C3 supplies a fail-closed temporal contract, but the current product flow does not supply an authoritative scheduled service date and departure time.",
+      "evidence": ["docs/kai-292c3-scheduled-routing-temporal-contract.md"]
+    },
+    {
+      "code": "runtime_journey_verification_not_evaluated",
+      "statement": "Runtime Journey verification is not evaluated from prerequisite gates alone; C4D remains blocked until authoritative runtime evidence is supplied.",
+      "evidence": ["docs/kai-292c3-scheduled-routing-temporal-contract.md"]
+    }
+  ],
+  "blockers": [
+    {
+      "code": "missing_canonical_product_origin_identity",
+      "statement": "The current origin evidence contains no reviewed stable Meguruto product identity; free-text origin labels and coordinates are not a canonical transit endpoint.",
+      "evidence": [
+        "qa/kai-292c4a/real-corridor-identity-evidence.json",
+        "src/shared/data/destinations-index.json"
+      ]
+    },
+    {
+      "code": "missing_catalogue_destination_crosswalk",
+      "statement": "No exact scheduled-transit crosswalk maps a current catalogue destination ID; the two existing mappings are non-product Sakata pilot IDs.",
+      "evidence": [
+        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
+        "src/shared/data/destinations-index.json"
+      ]
+    },
+    {
+      "code": "station_to_destination_access_not_exactly_bound",
+      "statement": "KAI-291A geographic uniqueness is not station-to-destination access evidence. Ueno has a reviewed station-label walking statement without exact ODPT binding; the other six current catalogue records do not provide usable access evidence.",
+      "evidence": [
+        "qa/kai-291/destination-station-anchors.json",
+        "src/shared/data/destinations-index.json"
+      ]
+    },
+    {
+      "code": "odpt_timetable_not_representable_in_trusted_c2",
+      "statement": "TokyoMetro/Toei ODPT timetable observations are available only as bounded live-boundary audit evidence and old capability code; the current trusted C2 ScheduledTransitDataset registry has no ODPT scheduled artifact or descriptor.",
+      "evidence": [
+        "qa/kai-290/odpt-coverage.json",
+        "functions/api/odpt-core.js",
+        "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts",
+        "src/shared/services/transport/static/scheduledTransitDataset.ts"
+      ]
+    },
+    {
+      "code": "missing_direct_or_one_transfer_scheduled_support",
+      "statement": "No real product origin plus catalogue destination pair reaches the C2 direct/one-transfer structural support gate; the only currently loadable scheduled dataset is the non-product Sakata pilot.",
+      "evidence": [
+        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
+        "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts"
+      ]
+    }
+  ],
+  "c4a": {
+    "corridorCount": 0,
+    "status": "blocked_no_real_catalogue_corridor",
+    "inheritedBlockers": [
+      "missing_catalogue_destination_crosswalk",
+      "missing_canonical_origin_identity",
+      "pilot_only_normalized_evidence"
+    ],
+    "crosswalkChanged": false
+  },
+  "promotedAnchorCount": 0,
+  "identityResolutionPolicy": {
+    "nameFallback": false,
+    "coordinateFallback": false,
+    "nearestFallback": false,
+    "geographicAnchorPromotion": false
+  },
+  "c4d": {
+    "status": "blocked",
+    "reason": "c4e_prerequisites_not_satisfied",
+    "blockers": [
+      {
+        "code": "no_authoritative_service_date_or_departure_time",
+        "statement": "C3 supplies a fail-closed temporal contract, but the current product flow does not supply an authoritative scheduled service date and departure time.",
+        "evidence": ["docs/kai-292c3-scheduled-routing-temporal-contract.md"]
+      },
+      {
+        "code": "runtime_journey_verification_not_evaluated",
+        "statement": "Runtime Journey verification is not evaluated from prerequisite gates alone; C4D remains blocked until authoritative runtime evidence is supplied.",
+        "evidence": ["docs/kai-292c3-scheduled-routing-temporal-contract.md"]
+      }
+    ]
+  }
+}
