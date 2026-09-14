@@ -23,6 +23,7 @@ import {
 } from "../../../src/shared/services/transport/static/scheduledTransitEndpoint";
 import { validateScheduledTransitDataset } from "../../../src/shared/services/transport/static/scheduledTransitDataset";
 import { SAKATA_RUNRUNBUS_DATASET } from "../../../src/shared/services/transport/static/scheduledTransitDatasetRegistry";
+import { MEGURUTO_SAME_STOP_TRANSFER_MIN_SECONDS } from "../../../src/shared/services/transport/static/oneTransferScheduledJourneyRouter";
 import type {
   TransitCoverageState,
   TransitTransfer,
@@ -148,6 +149,27 @@ function datasetWithTransfers(
         ...entry,
         transfers: transferCoverage,
       })),
+    },
+  };
+}
+
+function datasetWithServices(
+  serviceIds: readonly string[],
+  transfers: readonly TransitTransfer[] = [],
+  transferCoverage: TransitCoverageState = "imported",
+) {
+  const allowedServiceIds = new Set(serviceIds);
+  const source = datasetWithTransfers(transfers, transferCoverage);
+  return {
+    ...source,
+    graph: {
+      ...source.graph,
+      scheduledServices: source.graph.scheduledServices!.filter((service) =>
+        allowedServiceIds.has(service.id),
+      ),
+      scheduledStopTimes: source.graph.scheduledStopTimes!.filter((fact) =>
+        allowedServiceIds.has(fact.serviceId),
+      ),
     },
   };
 }
@@ -297,29 +319,107 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
         fromStopId: providerStopId("69_01"),
         toStopId: providerStopId("1_01"),
         ruleId: "synthetic-one-transfer",
+        transferBasis: "provider_transfer_rule",
       },
     });
     expect("journey" in result).toBe(false);
   });
 
+  it("supports an exact same normalized stop without an explicit provider rule", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithTransfers([], "not_imported_in_this_slice"),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      providerStopId("14_01"),
+    );
+
+    expect(MEGURUTO_SAME_STOP_TRANSFER_MIN_SECONDS).toBe(300);
+
+    expect(result).toMatchObject({
+      kind: "supported",
+      topology: "exactly_one_transfer",
+      transferCount: 1,
+      transfer: {
+        fromStopId: providerStopId("16_01"),
+        toStopId: providerStopId("16_01"),
+        firstServiceId: FIRST_STRUCTURAL_SERVICE.id,
+        secondServiceId: SECOND_STRUCTURAL_SERVICE.id,
+        transferBasis: "meguruto_same_stop_policy",
+      },
+    });
+    if (result.kind !== "supported" || result.transfer === undefined) {
+      throw new Error("expected same-stop structural support");
+    }
+    expect(result.transfer.fromStopId).toBe(result.transfer.toStopId);
+    expect(result.transfer.ruleId).toBeUndefined();
+    expect(result.transfer.transferType).toBeUndefined();
+  });
+
+  it("blocks different stops without an explicit provider rule", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithServices([
+        FIRST_STRUCTURAL_SERVICE.id,
+        THIRD_STRUCTURAL_SERVICE.id,
+      ]),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      providerStopId("27_02"),
+    );
+
+    expect(result).toMatchObject({
+      kind: "blocked",
+      reason: "transfer_evidence_missing",
+    });
+  });
+
+  it("blocks an exact same stop when a type-3 provider rule prohibits it", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithServices(
+        [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+        [
+          explicitTransfer(
+            "synthetic-same-stop-prohibition",
+            FIRST_STRUCTURAL_SERVICE.id,
+            SECOND_STRUCTURAL_SERVICE.id,
+            "16_01",
+            "16_01",
+            3,
+          ),
+        ],
+      ),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      providerStopId("14_01"),
+    );
+
+    expect(result).toMatchObject({
+      kind: "blocked",
+      reason: "transfer_evidence_inconclusive",
+    });
+  });
+
   it("blocks a structure that requires two explicit transfers", () => {
     const result = assessScheduledRoutingCoverage(
-      datasetWithTransfers([
-        explicitTransfer(
-          "synthetic-first-transfer",
+      datasetWithServices(
+        [
           FIRST_STRUCTURAL_SERVICE.id,
           SECOND_STRUCTURAL_SERVICE.id,
-          "69_01",
-          "1_01",
-        ),
-        explicitTransfer(
-          "synthetic-second-transfer",
-          SECOND_STRUCTURAL_SERVICE.id,
           THIRD_STRUCTURAL_SERVICE.id,
-          "2_02",
-          "5_01",
-        ),
-      ]),
+        ],
+        [
+          explicitTransfer(
+            "synthetic-first-transfer",
+            FIRST_STRUCTURAL_SERVICE.id,
+            SECOND_STRUCTURAL_SERVICE.id,
+            "69_01",
+            "1_01",
+          ),
+          explicitTransfer(
+            "synthetic-second-transfer",
+            SECOND_STRUCTURAL_SERVICE.id,
+            THIRD_STRUCTURAL_SERVICE.id,
+            "2_02",
+            "5_01",
+          ),
+        ],
+      ),
       STRUCTURAL_ORIGIN_STOP_ID,
       STRUCTURAL_TWO_TRANSFER_DESTINATION_STOP_ID,
     );
@@ -331,7 +431,6 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
   });
 
   it.each([
-    ["missing", [] as readonly TransitTransfer[], "transfer_evidence_missing"],
     [
       "ambiguous",
       [
@@ -383,7 +482,8 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
     "blocks %s transfer evidence for an otherwise one-transfer topology",
     (_label, transfers, reason) => {
       const result = assessScheduledRoutingCoverage(
-        datasetWithTransfers(
+        datasetWithServices(
+          [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
           transfers,
           _label === "untrusted" ? "partial" : "imported",
         ),
@@ -398,6 +498,7 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
   it("returns the current concrete blocker without promoting Sakata or anchors", () => {
     const result: RealCorridorAudit = auditRealMegurutoCorridor();
 
+    expect(result.schemaVersion).toBe("kai-292c4a-v4");
     expect(result.status).toBe("blocked_no_real_catalogue_corridor");
     expect(result.catalogue).toMatchObject({
       destinationCount: 1130,
@@ -508,22 +609,6 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
       );
     },
   );
-
-  it("blocks a candidate without direct or exactly-one-transfer scheduled support", () => {
-    const result = auditRealMegurutoCorridor(
-      futureFixture({ originStopId: "70_01", destinationStopId: "1_01" }),
-    );
-
-    expect(result.realCorridors).toEqual([]);
-    expect(result.candidateBlockers).toContainEqual(
-      expect.objectContaining({ code: "missing_scheduled_timetable" }),
-    );
-    expect(result.candidateBlockers).toContainEqual(
-      expect.objectContaining({
-        scheduledRoutingReason: "transfer_evidence_missing",
-      }),
-    );
-  });
 
   it("does not use names, coordinates, nearest, or reviewed geographic anchors as fallbacks", () => {
     const chokai = CATALOGUE.find((record) => record.id === "chokai");

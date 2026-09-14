@@ -32,7 +32,12 @@ import {
   type ScheduledTransitDatasetDescriptor,
   type ScheduledTransitDatasetKey,
 } from "../../src/shared/services/transport/static/scheduledTransitDatasetRegistry";
-import { resolveApplicableTransfers } from "../../src/shared/services/transport/static/transitGraphQueries";
+import { GTFS_TRANSFER_SCHEMA_VERSION } from "../../src/shared/services/transport/static/gtfsTransferImporter";
+import { MEGURUTO_SAME_STOP_TRANSFER_MIN_SECONDS } from "../../src/shared/services/transport/static/oneTransferScheduledJourneyRouter";
+import {
+  resolveApplicableTransfers,
+  type ApplicableTransferResult,
+} from "../../src/shared/services/transport/static/transitGraphQueries";
 import type {
   TransitProvider,
   TransitScheduledService,
@@ -49,7 +54,7 @@ const REVIEWED_ANCHORS_RELATIVE_PATH =
   "qa/kai-291/destination-station-anchors.json";
 const TRANSIT_ASSET_RELATIVE_PATH = "public/data/transit";
 
-export const REAL_CORRIDOR_AUDIT_SCHEMA_VERSION = "kai-292c4a-v3";
+export const REAL_CORRIDOR_AUDIT_SCHEMA_VERSION = "kai-292c4a-v4";
 
 export type RealCorridorAuditStatus =
   "blocked_no_real_catalogue_corridor" | "real_corridor_evidenced";
@@ -85,8 +90,10 @@ export interface ScheduledRoutingCoverageSupport {
     readonly toStopId: string;
     readonly firstServiceId: string;
     readonly secondServiceId: string;
-    readonly ruleId: string;
-    readonly transferType: number;
+    readonly transferBasis:
+      "provider_transfer_rule" | "meguruto_same_stop_policy";
+    readonly ruleId?: string;
+    readonly transferType?: number;
   };
 }
 
@@ -616,7 +623,8 @@ function serviceCoverage(
   service: TransitScheduledService,
 ): {
   readonly timetableImported: boolean;
-  readonly transfersImported: boolean;
+  readonly transferRulesImported: boolean;
+  readonly sameStopPolicyEvidenceSufficient: boolean;
 } | null {
   const route = index.routes.get(service.routeId);
   const operator =
@@ -635,7 +643,13 @@ function serviceCoverage(
   return {
     timetableImported:
       entry.topology === "imported" && entry.timetable === "imported",
-    transfersImported: entry.transfers === "imported",
+    transferRulesImported: entry.transfers === "imported",
+    sameStopPolicyEvidenceSufficient:
+      entry.transfers === "imported" ||
+      (entry.transfers === "not_imported_in_this_slice" &&
+        dataset.graph.datasetVersion.schemaVersion ===
+          GTFS_TRANSFER_SCHEMA_VERSION &&
+        dataset.graph.datasetVersion.completeness === "complete_provider_dump"),
   };
 }
 
@@ -681,8 +695,10 @@ function blockedCoverage(
 
 /**
  * Assess static scheduled-routing support without selecting a service date,
- * departure, or runtime Journey. Only direct service or one explicit transfer
- * is inspected; no general route search or inferred transfer is performed.
+ * departure, or runtime Journey. Direct service or exactly one transfer is
+ * inspected; one transfer is supported by either an explicit valid provider
+ * rule or the exact-same-normalized-stop Meguruto policy. No general route
+ * search or inferred transfer is performed.
  */
 export function assessScheduledRoutingCoverage(
   dataset: ScheduledTransitDataset,
@@ -728,7 +744,8 @@ export function assessScheduledRoutingCoverage(
     {
       readonly service: TransitScheduledService;
       readonly facts: readonly TransitScheduledStopTime[];
-      readonly transfersImported: boolean;
+      readonly transferRulesImported: boolean;
+      readonly sameStopPolicyEvidenceSufficient: boolean;
     }
   >();
   let sawUntrustedSchedule = false;
@@ -742,7 +759,9 @@ export function assessScheduledRoutingCoverage(
     usableServices.set(service.id, {
       service,
       facts,
-      transfersImported: coverage.transfersImported,
+      transferRulesImported: coverage.transferRulesImported,
+      sameStopPolicyEvidenceSufficient:
+        coverage.sameStopPolicyEvidenceSufficient,
     });
     if (hasOrderedSegment(facts, originStopId, destinationStopId)) {
       directServiceIds.push(service.id);
@@ -795,7 +814,18 @@ export function assessScheduledRoutingCoverage(
       (fact) => fact.order > originFact.order,
     );
     for (const firstFact of firstLaterFacts) {
-      for (const transferPair of transferPairs) {
+      const transferPairCandidates = [
+        ...transferPairs.map((transferPair) => ({
+          ...transferPair,
+          allowSameStopPolicy: false,
+        })),
+        {
+          fromStopId: firstFact.stopId,
+          toStopId: firstFact.stopId,
+          allowSameStopPolicy: true,
+        },
+      ];
+      for (const transferPair of transferPairCandidates) {
         for (const second of usableServices.values()) {
           if (second.service.id === first.service.id) continue;
           const destinationFact = endpointFact(second.facts, destinationStopId);
@@ -810,11 +840,7 @@ export function assessScheduledRoutingCoverage(
           ) {
             continue;
           }
-          if (!first.transfersImported || !second.transfersImported) {
-            sawTransferEvidenceUntrusted = true;
-            continue;
-          }
-          let query: ReturnType<typeof resolveApplicableTransfers>;
+          let query: ApplicableTransferResult;
           try {
             query = resolveApplicableTransfers(dataset.graph, {
               fromStopId: firstFact.stopId,
@@ -832,21 +858,64 @@ export function assessScheduledRoutingCoverage(
             sawTransferEvidenceInconclusive = true;
             continue;
           }
-          if (query.transfers.length === 0) continue;
           if (query.transfers.length > 1) {
             sawTransferEvidenceAmbiguous = true;
             continue;
           }
           const transfer = query.transfers[0];
+          if (transfer === undefined) {
+            if (!transferPair.allowSameStopPolicy) continue;
+            if (firstFact.stopId !== transferToFact.stopId) {
+              sawTransferEvidenceInconclusive = true;
+              continue;
+            }
+            if (
+              !first.sameStopPolicyEvidenceSufficient ||
+              !second.sameStopPolicyEvidenceSufficient
+            ) {
+              sawTransferEvidenceUntrusted = true;
+              continue;
+            }
+            const transferWaitSeconds =
+              (transferToFact.departureServiceSeconds ?? Number.NaN) -
+              (firstFact.arrivalServiceSeconds ?? Number.NaN);
+            if (
+              !Number.isSafeInteger(transferWaitSeconds) ||
+              transferWaitSeconds < MEGURUTO_SAME_STOP_TRANSFER_MIN_SECONDS
+            ) {
+              continue;
+            }
+            oneTransferCandidates.push({
+              kind: "supported",
+              topology: "exactly_one_transfer",
+              transferCount: 1,
+              scheduledServiceCount: scheduledServices.length,
+              scheduledStopTimeCount: scheduledStopTimes.length,
+              directServiceIds: [],
+              transfer: {
+                fromStopId: firstFact.stopId,
+                toStopId: transferToFact.stopId,
+                firstServiceId: first.service.id,
+                secondServiceId: second.service.id,
+                transferBasis: "meguruto_same_stop_policy",
+              },
+            });
+            continue;
+          }
+          if (!first.transferRulesImported || !second.transferRulesImported) {
+            sawTransferEvidenceUntrusted = true;
+            continue;
+          }
           let structurallyValid = false;
           try {
-            structurallyValid =
-              transfer !== undefined &&
-              transferEvidenceStructurallyValid(transfer, dataset);
+            structurallyValid = transferEvidenceStructurallyValid(
+              transfer,
+              dataset,
+            );
           } catch {
             structurallyValid = false;
           }
-          if (!structurallyValid || transfer === undefined) {
+          if (!structurallyValid) {
             sawTransferEvidenceInconclusive = true;
             continue;
           }
@@ -867,6 +936,7 @@ export function assessScheduledRoutingCoverage(
               toStopId: transferToFact.stopId,
               firstServiceId: first.service.id,
               secondServiceId: second.service.id,
+              transferBasis: "provider_transfer_rule",
               ruleId: transfer.id,
               transferType,
             },
@@ -885,7 +955,7 @@ export function assessScheduledRoutingCoverage(
       lexical(leftTransfer.secondServiceId, rightTransfer.secondServiceId) ||
       lexical(leftTransfer.fromStopId, rightTransfer.fromStopId) ||
       lexical(leftTransfer.toStopId, rightTransfer.toStopId) ||
-      lexical(leftTransfer.ruleId, rightTransfer.ruleId)
+      lexical(leftTransfer.ruleId ?? "", rightTransfer.ruleId ?? "")
     );
   });
   const selected = oneTransferCandidates[0];

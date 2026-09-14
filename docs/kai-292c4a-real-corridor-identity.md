@@ -67,8 +67,12 @@ For every candidate pair, the audit requires all of the following:
 6. imported topology/timetable coverage with scheduled services and stop-time
    facts; and
 7. direct or exactly-one-transfer supported scheduled corridor topology. A
-   transfer path requires one sufficient, exact, unambiguous, trusted explicit
-   transfer rule from the normalized graph.
+   one-transfer path is supported either by one sufficient, exact,
+   unambiguous, trusted explicit provider transfer rule or by the
+   `meguruto_same_stop_policy`: both transfer endpoints must be the exact same
+   normalized stop, no applicable explicit provider rule may exist, the
+   imported evidence must be sufficient, and the scheduled gap must meet
+   `MEGURUTO_SAME_STOP_TRANSFER_MIN_SECONDS` (300 seconds).
 
 A candidate that fails any gate is reported in `candidateBlockers` and is not
 returned in `realCorridors`. Unregistered assets, invalid registered assets,
@@ -127,7 +131,8 @@ The focused tests cover:
 - the current blocker and non-product Sakata pilot treatment;
 - synthetic future valid-candidate discovery by changing only data files;
 - wrong dataset, provider, and identity namespace rejection;
-- direct, exactly-one-transfer, two-transfer-only, and transfer-evidence
+- direct, exactly-one-transfer, and exact-same-normalized-stop policy coverage;
+- explicit provider-rule, two-transfer-only, and transfer-evidence
   coverage decisions;
 - missing direct or exactly-one-transfer scheduled-support rejection;
 - reporting of all seven KAI-291A anchors as insufficient evidence; and
