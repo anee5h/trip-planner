@@ -28,9 +28,13 @@ import {
 } from "./OpeningHoursPolicy";
 import { getDistance } from "@/shared/utils/distance";
 import { calculateGeneratedPlanCost } from "../budget/GeneratedPlanCostService";
+import type { ScheduledTransportDurationEvidence } from "@/shared/services/transport/TransportDurationEvidence";
+import { getScheduledProductJourney } from "@/shared/services/transport/ScheduledProductJourneyService";
+import { resolveScheduledRoutingTemporalContext } from "@/shared/services/transport/static/scheduledRoutingTemporal";
 
 export type ReturnMode = "anchor" | "nearest_station" | "none";
 export type DayPlanPace = "relaxed" | "balanced" | "packed";
+export type PlannerStartTimeProvenance = "explicit" | "default";
 export type DayPlanType = "half_day" | "full_day";
 export type { CatchmentScope } from "@/shared/types/planner";
 
@@ -195,6 +199,7 @@ export interface RouteLeg {
   curatedFare?: { min: number; max: number };
   source: TransitEstimateResult["source"];
   confidence: TransitEstimateResult["confidence"];
+  scheduledTransit?: boolean;
 }
 
 export interface PlanAssumption {
@@ -243,6 +248,7 @@ export interface DayPlan {
   assumptions?: PlanAssumption[];
   returnMode?: ReturnMode;
   returnEndpointId?: string;
+  scheduledTransit?: ScheduledTransportDurationEvidence;
   totalDurationMinutes: number;
   /**
    * KAI-260: optional when the generated plan has a bounded cost estimate.
@@ -263,6 +269,7 @@ export interface DayPlan {
     returnMode: ReturnMode;
     pace: DayPlanPace;
     catchmentScope: CatchmentScope;
+    scheduledTransit?: boolean;
   };
   uncertainHoursDisclosures: Array<{ destinationId: string; name: string }>;
 }
@@ -274,6 +281,12 @@ export interface DayPlanOptions {
   startTime?: string;
   /** Optional ISO date used to enforce represented closed weekdays. */
   travelDate?: string;
+  /** Whether startTime was explicitly supplied by the planner user. */
+  startTimeProvenance?: PlannerStartTimeProvenance;
+  /** Exact origin product identity when the planner has one. */
+  scheduledOriginProductId?: string;
+  /** Verified scheduled evidence supplied by the async planner adapter. */
+  scheduledTransit?: ScheduledTransportDurationEvidence;
   availableMinutes?: number;
   pace?: DayPlanPace;
   partySize?: number;
@@ -555,6 +568,7 @@ export function generateDayPlan(
       false,
       true,
       options?.travelDate,
+      options?.scheduledTransit,
     );
     let usedMin = false;
     let actual = route.totalMins;
@@ -572,6 +586,7 @@ export function generateDayPlan(
         false,
         false,
         options?.travelDate,
+        options?.scheduledTransit,
       );
       actual = route.totalMins;
     }
@@ -589,6 +604,7 @@ export function generateDayPlan(
         false,
         true,
         options?.travelDate,
+        options?.scheduledTransit,
       );
       usedMin = true;
       actual = route.totalMins;
@@ -743,6 +759,7 @@ export function generateDayPlan(
         false,
         true,
         options?.travelDate,
+        index === 0 ? options?.scheduledTransit : undefined,
       );
       if (!dayRoute.feasible) return builtRoute;
 
@@ -799,6 +816,7 @@ export function generateDayPlan(
     assumptions: routeForPlan.assumptions,
     returnMode,
     returnEndpointId: routeForPlan.returnEndpoint?.id,
+    scheduledTransit: options?.scheduledTransit,
     totalDurationMinutes: routeForPlan.totalMins,
     // KAI-260: totalBudgetRange is assigned below whenever the generated
     // aggregate is bounded, including model/profile-derived estimates.
@@ -813,6 +831,7 @@ export function generateDayPlan(
       returnMode,
       pace,
       catchmentScope,
+      scheduledTransit: Boolean(options?.scheduledTransit),
     },
   };
 
@@ -832,6 +851,57 @@ export function generateDayPlan(
   return rawPlan;
 }
 
+/**
+ * Planner adapter for the one supported scheduled corridor. The existing
+ * synchronous generator remains the fallback; scheduled evidence is added
+ * only when the planner supplies an exact origin identity and marks its date
+ * and start time as explicit.
+ */
+export async function generateDayPlanWithScheduledTransit(
+  primary: Destination,
+  options?: DayPlanOptions,
+): Promise<DayPlan> {
+  if (
+    options === undefined ||
+    options.startTimeProvenance !== "explicit" ||
+    options.scheduledOriginProductId === undefined ||
+    options.travelDate === undefined ||
+    options.startTime === undefined
+  ) {
+    return generateDayPlan(primary, options);
+  }
+
+  const { scheduledOriginProductId, travelDate, startTime } = options;
+
+  const temporal = resolveScheduledRoutingTemporalContext({
+    serviceDate: travelDate,
+    earliestDepartureTime: startTime,
+    source: "explicit_planner_generated_time_window",
+    evidenceId: `planner:${options.scheduledOriginProductId}:${primary.id}:${options.travelDate}:${options.startTime}`,
+  });
+
+  if (temporal.status !== "resolved") {
+    return generateDayPlan(primary, options);
+  }
+
+  const scheduled = await getScheduledProductJourney({
+    originProductId: scheduledOriginProductId,
+    destinationProductId: primary.id,
+    direction: "outbound",
+    temporal,
+  });
+  const scheduledTransit =
+    scheduled.status === "routed" &&
+    scheduled.feasibility.kind === "verified_scheduled_journey"
+      ? scheduled.feasibility.durationEvidence
+      : undefined;
+
+  return generateDayPlan(primary, {
+    ...options,
+    scheduledTransit,
+  });
+}
+
 function simulateRouteIncremental(
   primary: Destination,
   isPrimaryHub: boolean,
@@ -844,6 +914,7 @@ function simulateRouteIncremental(
   preserveOrder: boolean = false,
   includeLunch: boolean = true,
   travelDate?: string,
+  scheduledOriginTransit?: ScheduledTransportDurationEvidence,
 ) {
   const steps: DayPlanStep[] = [];
   const routeLegs: RouteLeg[] = [];
@@ -855,6 +926,34 @@ function simulateRouteIncremental(
   let visitedPoiCount = 0;
   const remaining = [...candidates];
   const categoryCounts = new Map<string, number>();
+
+  if (scheduledOriginTransit) {
+    const scheduledMinutes = Math.ceil(
+      scheduledOriginTransit.totalDurationSeconds / 60,
+    );
+    const primaryLocEn = getLocalizedPlace(primary, "en");
+    const primaryLocJa = getLocalizedPlace(primary, "ja");
+    steps.push({
+      id: `scheduled-transit-to-${primary.id}`,
+      type: "travel",
+      timeBlock: getTimeBlock(currentMins),
+      startTime: formatTimeFromMidnight(currentMins),
+      endTime: formatTimeFromMidnight(currentMins + scheduledMinutes),
+      durationMinutes: scheduledMinutes,
+      title: {
+        en: `Scheduled transit to ${primaryLocEn.name}`,
+        ja: `${primaryLocJa.name}へ定刻運行で移動`,
+      },
+    });
+    routeLegs.push({
+      toDestinationId: primary.id,
+      durationMinutes: scheduledMinutes,
+      source: "curated",
+      confidence: "verified",
+      scheduledTransit: true,
+    });
+    currentMins += scheduledMinutes;
+  }
 
   while (remaining.length > 0) {
     let nextCand: PlannedCandidate;
@@ -1253,6 +1352,9 @@ export function rebuildPlanFromEditedStops(
     returnMode,
     getFullPlaces(),
     preserveOrder,
+    true,
+    undefined,
+    originalPlan.scheduledTransit,
   );
 
   if (!rebuilt.feasible) {
