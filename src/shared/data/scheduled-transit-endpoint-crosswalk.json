@@ -45,7 +45,7 @@
         "kind": "origin",
         "productId": "tokyo-metro-ginza-asakusa"
       },
-      "datasetId": "odpt-tokyometro-ginza-a501-v1",
+      "datasetId": "odpt-tokyometro-ginza-a501-b515-v1",
       "provider": "odpt",
       "identityNamespace": "odpt",
       "providerStopId": "odpt.Station:TokyoMetro.Ginza.Asakusa",
@@ -64,7 +64,7 @@
         "kind": "destination",
         "productId": "ueno-park"
       },
-      "datasetId": "odpt-tokyometro-ginza-a501-v1",
+      "datasetId": "odpt-tokyometro-ginza-a501-b515-v1",
       "provider": "odpt",
       "identityNamespace": "odpt",
       "providerStopId": "odpt.Station:TokyoMetro.Ginza.Ueno",

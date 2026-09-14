@@ -171,7 +171,7 @@
           "https://www.tokyo-park.or.jp/park/ueno/",
           "https://www.tokyometro.jp/lang_en/station/ueno/index.html"
         ],
-        "statement": "The Tokyo Metropolitan Park Association's Ueno Park page says 2 minutes on foot from Ueno Station and 1 minute from Keisei Ueno Station. Tokyo Metro's operator page identifies Ueno Station as G16/H18 and lists the Ginza Line. Exact binding uses odpt.Station:TokyoMetro.Ginza.Ueno with provider station code G-16 in dataset odpt-tokyometro-ginza-a501-v1; no display-name or geographic inference is used."
+        "statement": "The Tokyo Metropolitan Park Association's Ueno Park page says 2 minutes on foot from Ueno Station and 1 minute from Keisei Ueno Station. Tokyo Metro's operator page identifies Ueno Station as G16/H18 and lists the Ginza Line. Exact binding uses odpt.Station:TokyoMetro.Ginza.Ueno with provider station code G-16 in dataset odpt-tokyometro-ginza-a501-b515-v1; no display-name or geographic inference is used."
       },
       "providerOperator": {
         "provider": "odpt",
@@ -487,7 +487,7 @@
       "destinationProductId": "ueno-park",
       "originMappingId": "kai-292c4g-origin-ginza-asakusa",
       "destinationMappingId": "kai-292c4g-destination-ueno-park",
-      "datasetId": "odpt-tokyometro-ginza-a501-v1",
+      "datasetId": "odpt-tokyometro-ginza-a501-b515-v1",
       "provider": "odpt",
       "identityNamespace": "odpt"
     }

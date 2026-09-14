@@ -9,27 +9,30 @@
   },
   "normalizedEvidence": {
     "assetDirectory": "public/data/transit",
-    "registeredDatasetKeys": ["odpt-tokyometro-ginza-a501", "sakata-runrunbus"],
+    "registeredDatasetKeys": [
+      "odpt-tokyometro-ginza-a501-b515",
+      "sakata-runrunbus"
+    ],
     "validRegisteredDatasetKeys": [
-      "odpt-tokyometro-ginza-a501",
+      "odpt-tokyometro-ginza-a501-b515",
       "sakata-runrunbus"
     ],
     "datasets": [
       {
-        "key": "odpt-tokyometro-ginza-a501",
+        "key": "odpt-tokyometro-ginza-a501-b515",
         "assetUrl": "/data/transit/odpt-tokyometro-ginza-a501.json",
         "provider": "odpt",
-        "datasetId": "odpt-tokyometro-ginza-a501-v1",
+        "datasetId": "odpt-tokyometro-ginza-a501-b515-v1",
         "identityNamespace": "odpt",
         "state": "valid",
         "graphCounts": {
           "operators": 1,
           "stops": 19,
           "routes": 1,
-          "routeStops": 19,
+          "routeStops": 23,
           "calendars": 2,
-          "scheduledServices": 2,
-          "scheduledStopTimes": 38,
+          "scheduledServices": 3,
+          "scheduledStopTimes": 42,
           "transfers": 0,
           "fares": 0
         }
@@ -131,21 +134,21 @@
         "providerStopId": "odpt.Station:TokyoMetro.Ginza.Ueno"
       },
       "dataset": {
-        "key": "odpt-tokyometro-ginza-a501",
-        "datasetId": "odpt-tokyometro-ginza-a501-v1",
+        "key": "odpt-tokyometro-ginza-a501-b515",
+        "datasetId": "odpt-tokyometro-ginza-a501-b515-v1",
         "provider": "odpt",
         "identityNamespace": "odpt"
       },
       "timetable": {
-        "scheduledServiceCount": 2,
-        "scheduledStopTimeCount": 38
+        "scheduledServiceCount": 3,
+        "scheduledStopTimeCount": 42
       },
       "scheduledRouting": {
         "kind": "supported",
         "topology": "direct",
         "transferCount": 0,
-        "scheduledServiceCount": 2,
-        "scheduledStopTimeCount": 38,
+        "scheduledServiceCount": 3,
+        "scheduledStopTimeCount": 42,
         "directServiceIds": [
           "odpt:scheduled_service:odpt:odpt.TrainTimetable%3ATokyoMetro.Ginza.A501.SaturdayHoliday",
           "odpt:scheduled_service:odpt:odpt.TrainTimetable%3ATokyoMetro.Ginza.A501.Weekday"

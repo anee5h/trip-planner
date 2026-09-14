@@ -873,7 +873,7 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
     expect(result.realCorridors[0]).toMatchObject({
       origin: { productId: "tokyo-metro-ginza-asakusa" },
       destination: { productId: "ueno-park" },
-      dataset: { key: "odpt-tokyometro-ginza-a501" },
+      dataset: { key: "odpt-tokyometro-ginza-a501-b515" },
     });
     expect(result.candidateBlockers).toEqual([]);
     expect(result.blockers).toEqual([]);

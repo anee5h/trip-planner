@@ -7,7 +7,7 @@
       "stationIdentity": "odpt.Station:TokyoMetro.Ginza.Ueno",
       "provider": "odpt",
       "identityNamespace": "odpt",
-      "datasetId": "odpt-tokyometro-ginza-a501-v1",
+      "datasetId": "odpt-tokyometro-ginza-a501-b515-v1",
       "operator": "odpt.Operator:TokyoMetro",
       "railway": "odpt.Railway:TokyoMetro.Ginza",
       "stationCode": "G-16",

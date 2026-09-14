@@ -12,7 +12,7 @@ import {
   type ScheduledTransitCrosswalkEntry,
 } from "../../../src/shared/services/transport/static/scheduledTransitEndpoint";
 import { validateScheduledTransitDataset } from "../../../src/shared/services/transport/static/scheduledTransitDataset";
-import { ODPT_TOKYOMETRO_GINZA_A501_DATASET } from "../../../src/shared/services/transport/static/scheduledTransitDatasetRegistry";
+import { ODPT_TOKYOMETRO_GINZA_A501_B515_DATASET } from "../../../src/shared/services/transport/static/scheduledTransitDatasetRegistry";
 
 const ROOT = process.cwd();
 const DATASET = validateScheduledTransitDataset(
@@ -22,7 +22,7 @@ const DATASET = validateScheduledTransitDataset(
       "utf8",
     ),
   ) as unknown,
-  ODPT_TOKYOMETRO_GINZA_A501_DATASET,
+  ODPT_TOKYOMETRO_GINZA_A501_B515_DATASET,
 );
 const ORIGIN_PRODUCT_ID = "tokyo-metro-ginza-asakusa";
 const DESTINATION_PRODUCT_ID = "ueno-park";
@@ -147,7 +147,7 @@ describe("KAI-292C4G first real ODPT endpoint pair", () => {
         providerStopId: "odpt.Station:TokyoMetro.Ginza.Ueno",
       },
       dataset: {
-        key: "odpt-tokyometro-ginza-a501",
+        key: "odpt-tokyometro-ginza-a501-b515",
         provider: "odpt",
         identityNamespace: "odpt",
       },

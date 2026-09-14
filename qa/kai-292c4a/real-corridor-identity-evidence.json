@@ -9,7 +9,7 @@
       "stationId": "odpt.Station:TokyoMetro.Ginza.Asakusa",
       "provider": "odpt",
       "identityNamespace": "odpt",
-      "datasetId": "odpt-tokyometro-ginza-a501-v1",
+      "datasetId": "odpt-tokyometro-ginza-a501-b515-v1",
       "stationCode": "G-19",
       "evidenceId": "kai-292c4g-origin-ginza-asakusa",
       "statement": "Explicit product-state station selection for the first corridor: the exact ODPT station odpt.Station:TokyoMetro.Ginza.Asakusa in the C4F dataset. Tokyo Metro's operator page identifies Asakusa Station/G19/G18; the C4F ODPT record supplies the exact G-19 station code on the exact Ginza railway. This is an explicit identity contract, not display-name, coordinate, nearest-station, or fuzzy matching.",
