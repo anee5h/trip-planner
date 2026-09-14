@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "provider": "gtfs",
+  "operator": "toei",
+  "source": {
+    "datasetUrl": "https://ckan.odpt.org/dataset/train-toei",
+    "resourceUrl": "https://api-public.odpt.org/api/v4/files/Toei/data/Toei-Train-GTFS.zip",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Bureau of Transportation, Tokyo Metropolitan Government / Association for Open Data of Public Transportation",
+    "feedVersion": "20260314",
+    "sourceFilename": "Toei-Train-GTFS.zip",
+    "sourceZipSha256": "2ff2c07c700e470de9766efa22fc41877b1bbe20cec61490420ca4464783ff17",
+    "acquiredAt": "2026-09-14T09:00:39.429Z",
+    "checkedAt": "2026-09-14T00:00:00+09:00"
+  },
+  "declaredScope": {
+    "routeId": "4",
+    "routeName": "大江戸線",
+    "scopeStatement": "All records for Toei GTFS route_id 4, including every referenced trip, stop-time, calendar, and calendar-date record; not a sample."
+  },
+  "sourceCounts": {
+    "agency": 1,
+    "stops": 149,
+    "routes": 6,
+    "trips": 5600,
+    "stopTimes": 122798,
+    "calendar": 4,
+    "calendarDates": 39,
+    "feedInfo": 1,
+    "transfers": 0
+  },
+  "scopeVerification": {
+    "routeSelection": "exact route_id=4 retained; five other source routes excluded",
+    "tripReferences": "all retained trips have route_id=4 and every route_id=4 trip is retained",
+    "stopTimeReferences": "all stop_times for retained trips are retained",
+    "stopReferences": "all stop_ids referenced by retained stop_times are retained",
+    "calendarReferences": "all retained service_ids are represented by retained calendar or calendar_dates rows",
+    "agencyReferences": "all retained route agency_ids are represented by retained agency rows",
+    "transfers": "transfers.txt absent from pinned source; normalized transfers are empty"
+  },
+  "filteredCounts": {
+    "agency": 1,
+    "stops": 38,
+    "routes": 1,
+    "trips": 839,
+    "stopTimes": 30323,
+    "calendar": 2,
+    "calendarDates": 26,
+    "feedInfo": 1
+  },
+  "transformation": "The committed artifact is a deterministic normalization of the filtered Toei GTFS records into Meguruto's existing ScheduledTransitDataset graph. It modifies/transforms source rows; it does not claim to be the unmodified source feed."
+}

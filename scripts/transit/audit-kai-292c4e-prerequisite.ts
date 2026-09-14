@@ -102,7 +102,8 @@ type C2BoundaryReason =
   | "no_registered_odpt_scheduled_dataset"
   | "registered_odpt_dataset_not_loadable"
   | "registered_odpt_dataset_not_production_eligible"
-  | "registered_odpt_scheduled_dataset";
+  | "registered_odpt_scheduled_dataset"
+  | "registered_trusted_scheduled_dataset";
 
 type OdptEvidenceSummary =
   | "provider_response_too_large"
@@ -445,8 +446,7 @@ function productionScheduledDatasetEligible(
 ): boolean {
   const { graph, metadata, coverage } = dataset;
   if (
-    metadata.provider !== "odpt" ||
-    graph.datasetVersion.provider !== "odpt" ||
+    metadata.provider !== graph.datasetVersion.provider ||
     metadata.sourceType !== "data_dump" ||
     graph.datasetVersion.sourceType !== "data_dump" ||
     metadata.completeness !== "complete_provider_dump" ||
@@ -473,7 +473,7 @@ function productionScheduledDatasetEligible(
     coverage.entries
       .filter(
         (entry) =>
-          entry.provider === "odpt" &&
+          entry.provider === metadata.provider &&
           entry.datasetId === metadata.datasetId &&
           entry.topology === "imported" &&
           entry.timetable === "imported",
@@ -509,14 +509,18 @@ function c2RegistryState(
     ...new Set(descriptors.map(({ provider }) => provider).filter(nonEmpty)),
   ].sort();
   const odptDescriptors = descriptors.filter(
-    ({ provider }) => provider === "odpt",
+    ({ provider, upstreamSource }) =>
+      provider === "odpt" || upstreamSource === "odpt",
   );
   const syntheticArtifactsByKey = new Map(
     syntheticArtifacts.map(({ key, artifact }) => [key, artifact] as const),
   );
   const artifactAudits: readonly C2ArtifactAudit[] = odptDescriptors.map(
     (descriptor) => {
-      if (!validDescriptor(descriptor)) return { key: descriptor.key };
+      const rawDescriptor: unknown = descriptor;
+      if (!validDescriptor(rawDescriptor)) {
+        return { key: String(descriptor.key ?? "") };
+      }
       let artifact: unknown;
       const syntheticArtifact = syntheticArtifactsByKey.get(descriptor.key);
       if (syntheticArtifact !== undefined) {
@@ -561,11 +565,16 @@ function c2RegistryState(
     )
     .map(({ key }) => key)
     .sort();
+  const hasNonOdptTrustedDescriptor = descriptors.some(
+    ({ provider }) => provider !== "odpt",
+  );
   const reason: C2BoundaryReason =
     odptDescriptors.length === 0
       ? "no_registered_odpt_scheduled_dataset"
       : productionEligibleOdptDatasetKeys.length > 0
-        ? "registered_odpt_scheduled_dataset"
+        ? hasNonOdptTrustedDescriptor
+          ? "registered_trusted_scheduled_dataset"
+          : "registered_odpt_scheduled_dataset"
         : artifactValidOdptDatasetKeys.length > 0
           ? "registered_odpt_dataset_not_production_eligible"
           : "registered_odpt_dataset_not_loadable";
@@ -840,7 +849,11 @@ function validateProbeAggregate(
   }
   const declaredStates = new Map<string, number>();
   for (const [state, count] of Object.entries(byState)) {
-    if (!Number.isSafeInteger(count) || count < 0) {
+    if (
+      typeof count !== "number" ||
+      !Number.isSafeInteger(count) ||
+      count < 0
+    ) {
       throw new Error(
         `${label}.byState.${state} must be a non-negative safe integer`,
       );
@@ -1258,7 +1271,7 @@ function checkedIdentityEvidence(
         entry.reviewStatus === "reviewed" &&
         nonEmpty(entry.productId),
     )
-    .map((entry) => entry.productId as string)
+    .map((entry) => (entry as { readonly productId: string }).productId)
     .filter((productId) => !productId.startsWith("kai-292c2-pilot-"))
     .filter(
       (productId, index, productIds) => productIds.indexOf(productId) === index,

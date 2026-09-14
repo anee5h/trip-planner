@@ -562,9 +562,12 @@ function structurallyValidService(
   ) {
     return false;
   }
-  const pattern = route.sourceSemantics.patterns.find(
-    (candidate) => candidate.patternId === service.patternId,
-  );
+  const pattern =
+    "patterns" in route.sourceSemantics
+      ? route.sourceSemantics.patterns.find(
+          (candidate) => candidate.patternId === service.patternId,
+        )
+      : undefined;
   if (
     route.sourceSemantics.provider !== service.provider ||
     service.sourceSemantics.provider !== service.provider ||
@@ -953,17 +956,24 @@ export function assessScheduledRoutingCoverage(
             sawTransferEvidenceInconclusive = true;
             continue;
           }
+          const effectiveMinimumTransferSeconds =
+            minimumTransferSeconds === undefined
+              ? null
+              : minimumTransferSeconds;
           let transferBasis:
             "provider_transfer_rule" | "meguruto_same_stop_policy" =
             "provider_transfer_rule";
           if (transferType === 2) {
-            if (minimumTransferSeconds === null) {
+            if (effectiveMinimumTransferSeconds === null) {
               sawTransferEvidenceInconclusive = true;
               continue;
             }
-            if (transferWaitSeconds < minimumTransferSeconds) continue;
-          } else if (transferType === 0 && minimumTransferSeconds !== null) {
-            if (transferWaitSeconds < minimumTransferSeconds) continue;
+            if (transferWaitSeconds < effectiveMinimumTransferSeconds) continue;
+          } else if (
+            transferType === 0 &&
+            effectiveMinimumTransferSeconds !== null
+          ) {
+            if (transferWaitSeconds < effectiveMinimumTransferSeconds) continue;
           } else if (transferType === 0) {
             if (firstFact.stopId !== transferToFact.stopId) {
               sawTransferEvidenceInconclusive = true;
