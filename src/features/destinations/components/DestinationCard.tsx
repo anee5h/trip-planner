@@ -44,6 +44,7 @@ import {
 } from "@/shared/services/budget/BudgetService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { formatTravelEstimateLabel } from "@/shared/services/transport/formatters";
+import type { TravelDurationEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import {
   estimateDayTripDuration,
   estimateTripDuration,
@@ -65,7 +66,7 @@ import { getPrimaryDisplayReason } from "@/shared/services/recommendation/Recomm
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import { resolveDestinationTransportZone } from "@/shared/services/transport/TransportTopologyService";
 import { destinationSharesOriginAnchor } from "@/shared/services/transport/JourneyEndpoints";
-import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
+
 import {
   buildTokyoWardsLink,
   getWardGroup,
@@ -85,8 +86,8 @@ import {
 export interface OvernightCardSummary {
   placeCount: number;
   capacityMinutes: number;
-  oneWayMinutes?: number;
-  bestMode?: string;
+  /** The canonical estimate used by the primary transport row. */
+  travelEstimate?: TravelDurationEstimate;
 }
 
 interface DestinationCardProps {
@@ -138,15 +139,7 @@ export default function DestinationCard({
   const isSavedVariant = variant === "saved";
   const wardGroup = getWardGroup(destination);
   const virtualGroup = destination.virtualGroup;
-  const modeLabels = {
-    train: t("home.transportModes.train"),
-    shinkansen: t("home.transportModes.shinkansen"),
-    bus: t("home.transportModes.bus"),
-    flight: t("home.transportModes.flight"),
-    ferry: t("home.transportModes.ferry"),
-    car: t("home.transportModes.car"),
-    my_car: t("home.transportModes.my_car"),
-  } as const;
+
   const localizedDestination = getLocalizedPlace(destination, locale);
   const parent =
     DestinationRelationshipService.getParentDestination(destination);
@@ -158,9 +151,15 @@ export default function DestinationCard({
     localizedParent?.name ?? null,
   );
   const area = getCityArea(destination.areaId);
-  const locationLabel = localizedParent
+  const locationLabelWithoutType = localizedParent
     ? `${area ? area.name[locale] : localizedParent.name}${area ? ` · ${localizedParent.name}` : ""}`
     : formatPrefecture(destination.prefecture, locale);
+  const typeLabel = destination.kind
+    ? localizePlaceLabel(destination.kind, locale)
+    : null;
+  const locationLabel = [locationLabelWithoutType, typeLabel]
+    .filter(Boolean)
+    .join(" · ");
   const location = useLocation();
   const {
     isVisited,
@@ -206,7 +205,7 @@ export default function DestinationCard({
     locale === "ja"
       ? {
           match: "マッチ度",
-          explore: "詳しく見る",
+          viewDetails: t("ui.view"),
           add: "旅程に追加",
           compare: "比較に追加",
           removeCompare: "比較から削除",
@@ -218,7 +217,7 @@ export default function DestinationCard({
         }
       : {
           match: "Match Confidence",
-          explore: "Explore",
+          viewDetails: t("ui.view"),
           add: "Add to Itinerary",
           compare: "Add to Compare",
           removeCompare: "Remove from Compare",
@@ -609,7 +608,7 @@ export default function DestinationCard({
         {!isMultiPlaceGroup && (
           <div className="mt-0.5 flex h-5 min-w-0 items-center text-xs font-medium text-slate-500 dark:text-slate-300 md:mt-1 md:text-sm">
             <MapPin className="mr-1 size-3.5 shrink-0 text-emerald-500" />
-            <span className="truncate">{locationLabel}</span>
+            <span className="truncate capitalize">{locationLabel}</span>
           </div>
         )}
 
@@ -636,7 +635,7 @@ export default function DestinationCard({
 
       <CardContent
         data-testid="destination-card-content"
-        className={`${isSavedVariant ? "col-span-2 col-start-1 row-start-2 min-w-0 p-2 pb-1 pt-0" : "flex-grow p-3 pb-2 pt-0"} md:col-auto md:row-auto md:flex-grow md:p-3 md:pb-2 md:pt-0`}
+        className={`${isSavedVariant ? "col-span-2 col-start-1 row-start-2 min-w-0 p-2 pb-1 pt-0" : "p-3 pb-2 pt-0"} md:col-auto md:row-auto md:flex-grow md:p-3 md:pb-2 md:pt-0`}
       >
         {isMultiPlaceGroup ? null : (
           <>
@@ -706,7 +705,6 @@ export default function DestinationCard({
                     // The Tokyo wards group shows the fastest shared gateway
                     // estimate across its members, not legacy transport options.
                     const gateway = wardGroup?.gatewayEstimate;
-                    const mode = gateway?.mode ?? preferredTransport?.mode;
 
                     // KAI-275: an explicit transport icon per mode. MapPin is a
                     // LOCATION icon (used only on the location row above) and
@@ -726,7 +724,13 @@ export default function DestinationCard({
                     };
                     const transport = localAccessUnavailable
                       ? null
-                      : (gateway ?? preferredTransport);
+                      : (gateway ??
+                        preferredTransport ??
+                        overnightSummary?.travelEstimate);
+                    const mode = transport?.mode;
+                    const modeLabel = mode
+                      ? t(`home.transportModes.${mode}`)
+                      : undefined;
                     // KAI-278: same-origin destinations render an explicit
                     // state rather than a journey estimate (no mode claim).
                     const isSameAnchor = sameOriginAnchor && !gateway;
@@ -780,6 +784,14 @@ export default function DestinationCard({
                             ? t("compare.driving")
                             : ""}
                         </span>
+                        {modeLabel && !isSameAnchor && (
+                          <span
+                            data-testid="destination-card-transport-mode"
+                            className="shrink-0 text-[10px] font-bold text-slate-500 dark:text-slate-400 md:text-xs"
+                          >
+                            {modeLabel}
+                          </span>
+                        )}
                       </div>
                     );
                   })()}
@@ -921,22 +933,7 @@ export default function DestinationCard({
                             })}
                       </span>
                     )}
-                    {overnightSummary.oneWayMinutes !== undefined &&
-                      overnightSummary.bestMode && (
-                        <span className="text-slate-500">
-                          ·{" "}
-                          {t("destination.tripAreas.travelBy", {
-                            time: formatWeekendMinutes(
-                              overnightSummary.oneWayMinutes,
-                              locale,
-                            ),
-                            mode:
-                              modeLabels[
-                                overnightSummary.bestMode as keyof typeof modeLabels
-                              ] ?? overnightSummary.bestMode,
-                          })}
-                        </span>
-                      )}
+
                   </div>
                 )}
               </div>
@@ -1053,7 +1050,7 @@ export default function DestinationCard({
                 : "min-h-11 bg-emerald-700 px-4 font-semibold text-white shadow-sm hover:bg-emerald-800"
             }
           >
-            {cardCopy.explore}
+            {cardCopy.viewDetails}
           </Button>
         </Link>
       </CardFooter>

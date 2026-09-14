@@ -569,7 +569,7 @@
       "3d2n": "3 days / 2 nights"
     },
     "tripAreas": {
-      "summary": "{{areas}} trip areas · {{places}} places",
+      "summary": "{{areas}} areas · {{places}} places",
       "show": "Show {{count}} trip areas",
       "places": "{{places}} places",
       "plentyForDays": "Plenty for {{days}} days",

@@ -73,6 +73,12 @@ vi.mock("@/shared/services/analytics/RecommendationAnalyticsService", () => ({
 const destination = destinations.find(
   (candidate) => candidate.id === "hikone-castle-shiga",
 ) as Destination;
+const hakoneTown = destinations.find(
+  (candidate) => candidate.id === "hakone-town",
+) as Destination;
+const bosoPeninsula = destinations.find(
+  (candidate) => candidate.id === "boso-peninsula",
+) as Destination;
 
 let root: Root;
 let host: HTMLDivElement;
@@ -114,7 +120,7 @@ describe("DestinationCard responsive content", () => {
     // KAI-89: sun/shade splits are unsourced and removed; the sun badge no
     // longer renders (no fabricated sun-exposure claim).
     expect(host.textContent).not.toContain("Low sun");
-    expect(host.textContent).toContain("Explore");
+    expect(host.textContent).toContain("ui.view");
     expect(
       host
         .querySelector('[data-testid="destination-card-image"] img')
@@ -126,11 +132,11 @@ describe("DestinationCard responsive content", () => {
     expect(defaultBookmark?.className).toContain("size-10");
     expect(defaultBookmark?.parentElement?.className).toContain("right-3");
     expect(defaultBookmark?.parentElement?.className).toContain("top-3");
-    const defaultExplore = Array.from(host.querySelectorAll("button")).find(
-      (button) => button.textContent?.includes("Explore"),
+    const defaultViewDetails = Array.from(host.querySelectorAll("button")).find(
+      (button) => button.textContent?.includes("ui.view"),
     );
-    expect(defaultExplore?.className).toContain("px-4");
-    expect(defaultExplore?.className).not.toContain("text-xs");
+    expect(defaultViewDetails?.className).toContain("px-4");
+    expect(defaultViewDetails?.className).not.toContain("text-xs");
 
     const mobileCost = Array.from(host.querySelectorAll("span")).find((node) =>
       node.textContent?.includes(" for 2"),
@@ -366,11 +372,11 @@ describe("DestinationCard responsive content", () => {
     );
     expect(title?.getAttribute("title")).toBe(destination.name);
 
-    const explore = Array.from(host.querySelectorAll("button")).find(
-      (node) => node.textContent === "Explore",
+    const viewDetails = Array.from(host.querySelectorAll("button")).find(
+      (node) => node.textContent === "ui.view",
     );
-    expect(explore?.parentElement?.className).toContain("ml-auto");
-    expect(explore?.className).toContain("min-h-11");
+    expect(viewDetails?.parentElement?.className).toContain("ml-auto");
+    expect(viewDetails?.className).toContain("min-h-11");
   });
 
   it("disables profile mutation controls without disabling navigation actions", () => {
@@ -576,7 +582,14 @@ describe("DestinationCard badges", () => {
     expect(warningText?.className).not.toContain("truncate");
   });
 
-  it("keeps weekend place count, capacity, and verified travel summary", () => {
+  it("uses one canonical weekend estimate and keeps suitability copy transport-free", () => {
+    const estimate = {
+      mode: "train" as const,
+      timeRange: [88, 173] as [number, number],
+      source: "verified_ground_route" as const,
+      evidence: "verified" as const,
+    };
+
     act(() =>
       root.render(
         <MemoryRouter>
@@ -586,8 +599,7 @@ describe("DestinationCard badges", () => {
             overnightSummary={{
               placeCount: 4,
               capacityMinutes: 720,
-              oneWayMinutes: 90,
-              bestMode: "train",
+              travelEstimate: estimate,
             }}
           />
         </MemoryRouter>,
@@ -597,8 +609,53 @@ describe("DestinationCard badges", () => {
     const text = host.textContent ?? "";
     expect(text).toContain("destination.tripAreas.places");
     expect(text).toContain("destination.tripAreas.plentyForDays");
-    expect(text).toContain("destination.tripAreas.travelBy");
+    expect(text).toContain(
+      formatTravelEstimateLabel(estimate, "en", { compact: true }),
+    );
+    expect(text).toContain("home.transportModes.train");
+    expect(text).not.toContain("destination.tripAreas.travelBy");
   });
+
+  it.each([
+    [hakoneTown, [88, 173] as [number, number], "1h 28m – 2h 53m"],
+    [bosoPeninsula, [161, 161] as [number, number], "2h 41m"],
+  ])(
+    "keeps the %s-style Explore card consistent with its concrete Home travel estimate",
+    (fixture, timeRange, expectedTime) => {
+      const estimate = {
+        mode: "train" as const,
+        timeRange,
+        source: "verified_ground_route" as const,
+        evidence: "verified" as const,
+      };
+
+      act(() =>
+        root.render(
+          <MemoryRouter>
+            <DestinationCard
+              destination={fixture}
+              duration="2d1n"
+              overnightSummary={{
+                placeCount: 4,
+                capacityMinutes: 720,
+                travelEstimate: estimate,
+              }}
+            />
+          </MemoryRouter>,
+        ),
+      );
+
+      const travelRow = host.querySelector(
+        '[data-testid="destination-card-travel-time"]',
+      );
+      expect(travelRow?.textContent).toContain(expectedTime);
+      expect(travelRow?.textContent).toContain("home.transportModes.train");
+      expect(travelRow?.textContent).not.toContain(
+        "home.transportModes.travelUnavailable",
+      );
+      expect(host.textContent).not.toContain("destination.tripAreas.travelBy");
+    },
+  );
 
   it("keeps the transport-cost warning visible on compact recommendation cards", () => {
     renderDest({
