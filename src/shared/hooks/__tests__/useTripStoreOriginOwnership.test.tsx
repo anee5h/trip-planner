@@ -109,6 +109,29 @@ describe("TripStore — guest origin ownership (provider level)", () => {
     expect(saved.source).toBe("station");
   });
 
+  it("carries an explicitly reviewed scheduled origin identity through the active origin", () => {
+    render();
+    act(() =>
+      store.setOriginLocation({
+        label: "Shinjukunishiguchi Station (新宿西口駅), Tokyo",
+        coordinates: { lat: 35.693315, lng: 139.699155 },
+        source: "station",
+        scheduledTransitProductId: "toei-oedo-shinjuku-nishiguchi",
+      }),
+    );
+
+    expect(store.scheduledTransitOriginProductId).toBe(
+      "toei-oedo-shinjuku-nishiguchi",
+    );
+
+    act(() => store.setCurrentLocationOrigin(shibuyaCoordinates));
+    expect(store.scheduledTransitOriginProductId).toBeUndefined();
+    act(() => store.restoreSavedOrigin());
+    expect(store.scheduledTransitOriginProductId).toBe(
+      "toei-oedo-shinjuku-nishiguchi",
+    );
+  });
+
   it("provider remount restores the selected guest origin", () => {
     localStorage.setItem(
       "meguruto-guest-origin",

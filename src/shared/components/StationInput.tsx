@@ -2,6 +2,7 @@ import { LocateFixed, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { resolveOriginTransportZone } from "@/shared/services/transport/OriginTransportZone";
+import { getScheduledTransitOriginProductIdForExactStation } from "@/shared/services/transport/scheduledTransitOriginIdentity";
 
 import { useState, useEffect, useMemo } from "react";
 import { OriginLocationDisplay } from "@/shared/components/OriginLocationDisplay";
@@ -174,6 +175,11 @@ export default function StationInput({
       const label = `${selectedStation}, ${selectedPref}`;
       const st = stations.find((s) => s.name === selectedStation);
       if (!st) return;
+      const scheduledTransitProductId =
+        getScheduledTransitOriginProductIdForExactStation({
+          prefecture: selectedPref,
+          stationName: st.name,
+        });
       setOriginLocation({
         label,
         coordinates: { lat: st.lat, lng: st.lng },
@@ -182,6 +188,7 @@ export default function StationInput({
           coordinates: { lat: st.lat, lng: st.lng },
           label,
         }),
+        ...(scheduledTransitProductId ? { scheduledTransitProductId } : {}),
       });
       setIsEditing(false);
     } else if (mode === "zip" && zipCode) {

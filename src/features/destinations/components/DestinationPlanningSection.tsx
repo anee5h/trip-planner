@@ -23,6 +23,8 @@ interface DestinationPlanningSectionProps {
   ferryTemporal?: FerryTemporalContext;
   /** Optional selected travel date for represented closed weekdays. */
   travelDate?: string;
+  /** Optional exact origin identity for the scheduled planner seam. */
+  scheduledOriginProductId?: string;
   duration?: TripDuration;
   onSaveToItinerary: (plan?: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
@@ -51,6 +53,7 @@ export function DestinationPlanningSection({
   compactUnavailableCost,
   ferryTemporal,
   travelDate,
+  scheduledOriginProductId,
   duration = "fullDay",
   onSaveToItinerary,
   onPlanGenerated,
@@ -130,6 +133,7 @@ export function DestinationPlanningSection({
         locale={locale}
         duration={duration}
         travelDate={travelDate}
+        scheduledOriginProductId={scheduledOriginProductId}
         partySize={activePartySize}
         onPartySizeChange={setActivePartySize}
         eligible={eligible}

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import type { Destination } from "@/shared/types/destination";
 import {
   generateDayPlan,
+  generateDayPlanWithScheduledTransit,
   removeStepFromPlan,
   reorderPlanSteps,
   isRealDestinationStop,
@@ -13,6 +14,7 @@ import {
   type DayPlanPace,
   type CatchmentScope,
   type ReturnMode,
+  type PlannerStartTimeProvenance,
 } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { toast } from "sonner";
 import { Card, CardContent } from "@/shared/components/ui/card";
@@ -56,6 +58,10 @@ interface DayPlanWidgetProps {
   duration?: TripDuration;
   /** Optional selected travel date for represented closed weekdays. */
   travelDate?: string;
+  /** Optional exact origin identity for the scheduled planner seam. */
+  scheduledOriginProductId?: string;
+  /** Optional caller provenance for a pre-supplied planner start time. */
+  startTimeProvenance?: PlannerStartTimeProvenance;
   /** Plan type selected when the planner first opens. */
   defaultPlanType?: DayPlanType;
   /** When true, full-day plans are hidden because there are not enough stops. */
@@ -104,6 +110,8 @@ export function DayPlanWidget({
   eligible = true,
   duration = "fullDay",
   travelDate,
+  scheduledOriginProductId,
+  startTimeProvenance: callerStartTimeProvenance,
   defaultPlanType,
   fullDayDisabled = false,
   catalogueLoading = false,
@@ -125,6 +133,10 @@ export function DayPlanWidget({
   );
   const [planType, setPlanType] = useState<DayPlanType>(initialPlanType);
   const [startTime, setStartTime] = useState("09:00");
+  const [startTimeProvenance, setStartTimeProvenance] =
+    useState<PlannerStartTimeProvenance>(
+      callerStartTimeProvenance ?? "default",
+    );
   const [availableMinutes, setAvailableMinutes] = useState<number>(
     getInitialAvailableMinutes(initialPlanType),
   );
@@ -161,13 +173,20 @@ export function DayPlanWidget({
     const nextMinutes = getInitialAvailableMinutes(nextPlanType);
 
     setPlanType(nextPlanType);
+    setStartTimeProvenance(callerStartTimeProvenance ?? "default");
     setAvailableMinutes(nextMinutes);
     setDurationPreset(String(nextMinutes));
     setGeneratedPlan(null);
     setHasGenerated(false);
     setShowConfig(false);
     setShowAdvancedOptions(false);
-  }, [destination.id, duration, defaultPlanType, fullDayDisabled]);
+  }, [
+    destination.id,
+    duration,
+    defaultPlanType,
+    fullDayDisabled,
+    callerStartTimeProvenance,
+  ]);
 
   const resultRef = useRef<HTMLDivElement>(null);
 
@@ -202,7 +221,7 @@ export function DayPlanWidget({
     trackCreationStarted(true);
   };
 
-  const handleGeneratePlan = (
+  const handleGeneratePlan = async (
     e?: React.FormEvent,
     forcePlanType?: DayPlanType,
   ) => {
@@ -219,7 +238,7 @@ export function DayPlanWidget({
 
     const isRegen = hasGenerated;
 
-    const newPlan = generateDayPlan(destination, {
+    const planOptions = {
       duration,
       planType: activePlanType,
       startTime,
@@ -229,7 +248,12 @@ export function DayPlanWidget({
       catchmentScope,
       returnMode,
       travelDate,
-    });
+      startTimeProvenance,
+      scheduledOriginProductId,
+    };
+    const newPlan = scheduledOriginProductId
+      ? await generateDayPlanWithScheduledTransit(destination, planOptions)
+      : generateDayPlan(destination, planOptions);
 
     setGeneratedPlan(newPlan);
     setHasGenerated(true);
@@ -583,7 +607,10 @@ export function DayPlanWidget({
                 </label>
                 <select
                   value={startTime}
-                  onChange={(e) => setStartTime(e.target.value)}
+                  onChange={(e) => {
+                    setStartTime(e.target.value);
+                    setStartTimeProvenance("explicit");
+                  }}
                   className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-base sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
                 >
                   {["08:00", "09:00", "10:00", "11:00", "13:00", "14:00"].map(
