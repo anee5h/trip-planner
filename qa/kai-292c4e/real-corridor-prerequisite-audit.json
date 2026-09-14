@@ -57,6 +57,8 @@
       },
       "c2ScheduledTransitDataset": {
         "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
         "registeredDatasetKeys": ["sakata-runrunbus"],
         "registeredProviders": ["gtfs"],
         "reason": "no_registered_odpt_scheduled_dataset",
@@ -121,6 +123,8 @@
       },
       "c2ScheduledTransitDataset": {
         "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
         "registeredDatasetKeys": ["sakata-runrunbus"],
         "registeredProviders": ["gtfs"],
         "reason": "no_registered_odpt_scheduled_dataset",
@@ -185,6 +189,8 @@
       },
       "c2ScheduledTransitDataset": {
         "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
         "registeredDatasetKeys": ["sakata-runrunbus"],
         "registeredProviders": ["gtfs"],
         "reason": "no_registered_odpt_scheduled_dataset",
@@ -249,6 +255,8 @@
       },
       "c2ScheduledTransitDataset": {
         "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
         "registeredDatasetKeys": ["sakata-runrunbus"],
         "registeredProviders": ["gtfs"],
         "reason": "no_registered_odpt_scheduled_dataset",
@@ -313,6 +321,8 @@
       },
       "c2ScheduledTransitDataset": {
         "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
         "registeredDatasetKeys": ["sakata-runrunbus"],
         "registeredProviders": ["gtfs"],
         "reason": "no_registered_odpt_scheduled_dataset",
@@ -377,6 +387,8 @@
       },
       "c2ScheduledTransitDataset": {
         "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
         "registeredDatasetKeys": ["sakata-runrunbus"],
         "registeredProviders": ["gtfs"],
         "reason": "no_registered_odpt_scheduled_dataset",
@@ -441,6 +453,8 @@
       },
       "c2ScheduledTransitDataset": {
         "canEnterTrustedC2": false,
+        "artifactValid": false,
+        "productionScheduledDatasetEligible": false,
         "registeredDatasetKeys": ["sakata-runrunbus"],
         "registeredProviders": ["gtfs"],
         "reason": "no_registered_odpt_scheduled_dataset",
@@ -459,6 +473,7 @@
       "scheduledSupport": "blocked"
     }
   ],
+  "exactEndpointIdentityPairs": [],
   "ranking": [
     {
       "rank": 1,
@@ -537,6 +552,58 @@
     "reviewedStationEvidence": "qa/kai-291/pilot-station-index.json",
     "broadTimetableResult": "provider_response_too_large",
     "exactTrainProbeResult": "records",
+    "broadTrainTimetableProbes": [
+      {
+        "operator": "odpt.Operator:Toei",
+        "scope": {
+          "railway": "odpt.Railway:Toei.Asakusa"
+        },
+        "state": "too_large",
+        "detail": "provider_response_too_large",
+        "recordCount": null
+      },
+      {
+        "operator": "odpt.Operator:Toei",
+        "scope": {
+          "railway": "odpt.Railway:Toei.Mita"
+        },
+        "state": "too_large",
+        "detail": "provider_response_too_large",
+        "recordCount": null
+      },
+      {
+        "operator": "odpt.Operator:TokyoMetro",
+        "scope": {
+          "railway": "odpt.Railway:TokyoMetro.Chiyoda"
+        },
+        "state": "too_large",
+        "detail": "provider_response_too_large",
+        "recordCount": null
+      },
+      {
+        "operator": "odpt.Operator:TokyoMetro",
+        "scope": {
+          "railway": "odpt.Railway:TokyoMetro.Marunouchi"
+        },
+        "state": "too_large",
+        "detail": "provider_response_too_large",
+        "recordCount": null
+      }
+    ],
+    "exactTrainIdentityProbes": [
+      {
+        "operator": "odpt.Operator:Toei",
+        "trainIdentity": "odpt.Train:Toei.Mita.535T",
+        "state": "records",
+        "recordCount": 2
+      },
+      {
+        "operator": "odpt.Operator:TokyoMetro",
+        "trainIdentity": "odpt.Train:TokyoMetro.Marunouchi.B427",
+        "state": "records",
+        "recordCount": 1
+      }
+    ],
     "caveat": "The committed authenticated audit is scoped to its sampled stations/railways. It proves measured provider responses in that corpus, not universal operator or anchor-station coverage.",
     "oldDirectJourney": {
       "source": "src/shared/services/transport/OdptDirectJourneyService.ts",
@@ -550,6 +617,8 @@
   "c2Boundary": {
     "registeredDatasetKeys": ["sakata-runrunbus"],
     "registeredProviders": ["gtfs"],
+    "artifactValidOdptDatasetKeys": [],
+    "productionEligibleOdptDatasetKeys": [],
     "odptEvidenceCanEnterTrustedDataset": false,
     "reason": "no_registered_odpt_scheduled_dataset",
     "importerBoundary": {
@@ -616,7 +685,7 @@
     {
       "gate": "exact_transit_identities",
       "satisfied": false,
-      "statement": "Reviewed destination station identities exist, but no exact product endpoint crosswalk exists for either endpoint pair."
+      "statement": "No compatible reviewed-origin and catalogue-destination exact endpoint pair exists in a registered dataset scope."
     },
     {
       "gate": "production_loadable_scheduled_dataset",

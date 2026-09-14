@@ -10,6 +10,10 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
+import {
+  SCHEDULED_TRANSIT_CROSSWALK_SCHEMA_VERSION,
+  type ScheduledTransitCrosswalkEntry,
+} from "../../src/shared/services/transport/static/scheduledTransitEndpoint";
 import { auditRealMegurutoCorridor } from "./audit-kai-292c4a-real-corridor";
 import {
   SCHEDULED_TRANSIT_ARTIFACT_SCHEMA_VERSION,
@@ -19,6 +23,7 @@ import {
 import {
   ScheduledTransitDatasetError,
   validateScheduledTransitDataset,
+  type ScheduledTransitDataset,
   type ScheduledTransitDatasetArtifact,
 } from "../../src/shared/services/transport/static/scheduledTransitDataset";
 
@@ -61,6 +66,31 @@ type JsonRecord = Record<string, unknown>;
 
 type AnchorId = (typeof KAI_292C4E_ANCHOR_IDS)[number];
 
+interface Kai292C4EOdptBroadTimetableProbe {
+  readonly operator: string;
+  readonly scope: JsonRecord;
+  readonly state: string;
+  readonly detail: string | null;
+  readonly recordCount: number | null;
+}
+
+interface Kai292C4EOdptExactTrainProbe {
+  readonly operator: string;
+  readonly trainIdentity: string;
+  readonly state: string;
+  readonly recordCount: number;
+}
+
+interface Kai292C4EExactEndpointIdentityPair {
+  readonly originProductId: string;
+  readonly destinationProductId: string;
+  readonly originMappingId: string;
+  readonly destinationMappingId: string;
+  readonly datasetId: string;
+  readonly provider: string;
+  readonly identityNamespace: string;
+}
+
 type CorridorReadinessBlockerCode =
   | "missing_canonical_product_origin_identity"
   | "missing_catalogue_destination_crosswalk"
@@ -71,7 +101,15 @@ type CorridorReadinessBlockerCode =
 type C2BoundaryReason =
   | "no_registered_odpt_scheduled_dataset"
   | "registered_odpt_dataset_not_loadable"
+  | "registered_odpt_dataset_not_production_eligible"
   | "registered_odpt_scheduled_dataset";
+
+type OdptEvidenceSummary =
+  | "provider_response_too_large"
+  | "records"
+  | "empty"
+  | "unknown"
+  | "inconclusive";
 
 type C4DBlockerCode =
   | "no_authoritative_service_date_or_departure_time"
@@ -105,14 +143,19 @@ export interface Kai292C4EAuditOptions {
   readonly originIdentities?: readonly Kai292C4EOriginIdentityEvidence[];
   readonly scheduledTransitDatasets?: readonly Kai292C4EDatasetDescriptor[];
   readonly scheduledTransitArtifacts?: readonly Kai292C4ESyntheticScheduledTransitArtifact[];
+  /** Test-only KAI-290 evidence override; production reads the committed file. */
+  readonly odptCoverage?: unknown;
+  /** Test-only crosswalk override; production reads the committed file. */
+  readonly scheduledTransitCrosswalkMappings?: readonly ScheduledTransitCrosswalkEntry[];
 }
 
 interface Kai292C4EC2RegistryState {
   readonly canEnterTrustedC2: boolean;
   readonly registeredDatasetKeys: readonly string[];
   readonly registeredProviders: readonly string[];
+  readonly artifactValidOdptDatasetKeys: readonly string[];
+  readonly productionEligibleOdptDatasetKeys: readonly string[];
   readonly reason: C2BoundaryReason;
-  readonly loadableOdptDatasetKeys: readonly string[];
 }
 
 export interface Kai292C4EAnchorFinding {
@@ -170,6 +213,8 @@ export interface Kai292C4EAnchorFinding {
   };
   readonly c2ScheduledTransitDataset: {
     readonly canEnterTrustedC2: boolean;
+    readonly artifactValid: boolean;
+    readonly productionScheduledDatasetEligible: boolean;
     readonly registeredDatasetKeys: readonly string[];
     readonly registeredProviders: readonly string[];
     readonly reason: C2BoundaryReason;
@@ -206,6 +251,7 @@ export interface Kai292C4EReport {
     readonly credentialEmitted: false;
   };
   readonly anchors: readonly Kai292C4EAnchorFinding[];
+  readonly exactEndpointIdentityPairs: readonly Kai292C4EExactEndpointIdentityPair[];
   readonly ranking: readonly {
     readonly rank: number;
     readonly destinationId: AnchorId;
@@ -223,8 +269,10 @@ export interface Kai292C4EReport {
     readonly authenticatedAuditClaim: "available_as_committed_static_evidence_only";
     readonly measuredPilotOperators: readonly string[];
     readonly reviewedStationEvidence: "qa/kai-291/pilot-station-index.json";
-    readonly broadTimetableResult: "provider_response_too_large";
-    readonly exactTrainProbeResult: "records";
+    readonly broadTimetableResult: OdptEvidenceSummary;
+    readonly exactTrainProbeResult: OdptEvidenceSummary;
+    readonly broadTrainTimetableProbes: readonly Kai292C4EOdptBroadTimetableProbe[];
+    readonly exactTrainIdentityProbes: readonly Kai292C4EOdptExactTrainProbe[];
     readonly caveat: string;
     readonly oldDirectJourney: {
       readonly source: typeof ODPT_JOURNEY_PATH;
@@ -238,6 +286,8 @@ export interface Kai292C4EReport {
   readonly c2Boundary: {
     readonly registeredDatasetKeys: readonly string[];
     readonly registeredProviders: readonly string[];
+    readonly artifactValidOdptDatasetKeys: readonly string[];
+    readonly productionEligibleOdptDatasetKeys: readonly string[];
     readonly odptEvidenceCanEnterTrustedDataset: boolean;
     readonly reason: C2BoundaryReason;
     readonly importerBoundary: {
@@ -348,8 +398,11 @@ function anchorRecords(rootDir: string): readonly JsonRecord[] {
   );
 }
 
-function coverageRoot(rootDir: string): JsonRecord {
-  return requireRecord(readJson(rootDir, COVERAGE_PATH), COVERAGE_PATH);
+function coverageRoot(rootDir: string, providedCoverage?: unknown): JsonRecord {
+  return requireRecord(
+    providedCoverage ?? readJson(rootDir, COVERAGE_PATH),
+    COVERAGE_PATH,
+  );
 }
 
 function sourceUrls(value: unknown): readonly string[] {
@@ -387,6 +440,62 @@ function validDescriptor(value: unknown): value is Kai292C4EDatasetDescriptor {
   );
 }
 
+function productionScheduledDatasetEligible(
+  dataset: ScheduledTransitDataset,
+): boolean {
+  const { graph, metadata, coverage } = dataset;
+  if (
+    metadata.provider !== "odpt" ||
+    graph.datasetVersion.provider !== "odpt" ||
+    metadata.sourceType !== "data_dump" ||
+    graph.datasetVersion.sourceType !== "data_dump" ||
+    metadata.completeness !== "complete_provider_dump" ||
+    graph.datasetVersion.completeness !== "complete_provider_dump"
+  ) {
+    return false;
+  }
+  const scheduledServices = graph.scheduledServices;
+  const scheduledStopTimes = graph.scheduledStopTimes;
+  if (
+    graph.operators.length === 0 ||
+    graph.stops.length === 0 ||
+    graph.routes.length === 0 ||
+    graph.routeStops.length === 0 ||
+    graph.calendars.length === 0 ||
+    scheduledServices === undefined ||
+    scheduledServices.length === 0 ||
+    scheduledStopTimes === undefined ||
+    scheduledStopTimes.length === 0
+  ) {
+    return false;
+  }
+  const importedCoverageScopes = new Set(
+    coverage.entries
+      .filter(
+        (entry) =>
+          entry.provider === "odpt" &&
+          entry.datasetId === metadata.datasetId &&
+          entry.topology === "imported" &&
+          entry.timetable === "imported",
+      )
+      .map((entry) => `${entry.operator}|${entry.mode}`),
+  );
+  return graph.routes.every((route) => {
+    const operator = graph.operators.find(
+      (candidate) => candidate.id === route.operatorId,
+    );
+    return (
+      operator !== undefined &&
+      importedCoverageScopes.has(`${operator.providerOperatorId}|${route.mode}`)
+    );
+  });
+}
+
+interface C2ArtifactAudit {
+  readonly key: string;
+  readonly dataset?: ScheduledTransitDataset;
+}
+
 function c2RegistryState(
   rootDir: string,
   descriptors: readonly Kai292C4EDatasetDescriptor[],
@@ -405,9 +514,9 @@ function c2RegistryState(
   const syntheticArtifactsByKey = new Map(
     syntheticArtifacts.map(({ key, artifact }) => [key, artifact] as const),
   );
-  const loadableOdptDatasetKeys = odptDescriptors
-    .filter((descriptor) => {
-      if (!validDescriptor(descriptor)) return false;
+  const artifactAudits: readonly C2ArtifactAudit[] = odptDescriptors.map(
+    (descriptor) => {
+      if (!validDescriptor(descriptor)) return { key: descriptor.key };
       let artifact: unknown;
       const syntheticArtifact = syntheticArtifactsByKey.get(descriptor.key);
       if (syntheticArtifact !== undefined) {
@@ -418,39 +527,182 @@ function c2RegistryState(
           "public",
           descriptor.assetUrl.replace(/^\/+/, ""),
         );
-        if (!existsSync(assetPath)) return false;
+        if (!existsSync(assetPath)) return { key: descriptor.key };
         try {
           artifact = JSON.parse(readFileSync(assetPath, "utf8")) as unknown;
         } catch {
-          return false;
+          return { key: descriptor.key };
         }
       }
       try {
-        validateScheduledTransitDataset(
-          artifact,
-          descriptor as ScheduledTransitDatasetDescriptor,
-        );
-        return true;
+        return {
+          key: descriptor.key,
+          dataset: validateScheduledTransitDataset(
+            artifact,
+            descriptor as ScheduledTransitDatasetDescriptor,
+          ),
+        };
       } catch (error: unknown) {
-        if (error instanceof ScheduledTransitDatasetError) return false;
-        return false;
+        if (error instanceof ScheduledTransitDatasetError) {
+          return { key: descriptor.key };
+        }
+        return { key: descriptor.key };
       }
-    })
+    },
+  );
+  const artifactValidOdptDatasetKeys = artifactAudits
+    .filter(({ dataset }) => dataset !== undefined)
+    .map(({ key }) => key)
+    .sort();
+  const productionEligibleOdptDatasetKeys = artifactAudits
+    .filter(
+      ({ dataset }) =>
+        dataset !== undefined && productionScheduledDatasetEligible(dataset),
+    )
     .map(({ key }) => key)
     .sort();
   const reason: C2BoundaryReason =
     odptDescriptors.length === 0
       ? "no_registered_odpt_scheduled_dataset"
-      : loadableOdptDatasetKeys.length > 0
+      : productionEligibleOdptDatasetKeys.length > 0
         ? "registered_odpt_scheduled_dataset"
-        : "registered_odpt_dataset_not_loadable";
+        : artifactValidOdptDatasetKeys.length > 0
+          ? "registered_odpt_dataset_not_production_eligible"
+          : "registered_odpt_dataset_not_loadable";
   return {
-    canEnterTrustedC2: loadableOdptDatasetKeys.length > 0,
+    canEnterTrustedC2: productionEligibleOdptDatasetKeys.length > 0,
     registeredDatasetKeys,
     registeredProviders,
+    artifactValidOdptDatasetKeys,
+    productionEligibleOdptDatasetKeys,
     reason,
-    loadableOdptDatasetKeys,
   };
+}
+
+function c2MissingPrerequisite(
+  c2State: Kai292C4EC2RegistryState,
+): string | null {
+  if (c2State.canEnterTrustedC2) return null;
+  return c2State.artifactValidOdptDatasetKeys.length > 0
+    ? "production_scheduled_dataset_eligibility"
+    : "registered_odpt_scheduled_dataset_artifact";
+}
+
+function validCrosswalkEntry(
+  value: unknown,
+): value is ScheduledTransitCrosswalkEntry {
+  if (
+    !isRecord(value) ||
+    !isRecord(value.endpoint) ||
+    !isRecord(value.provenance)
+  ) {
+    return false;
+  }
+  return (
+    nonEmpty(value.mappingId) &&
+    (value.endpoint.kind === "origin" ||
+      value.endpoint.kind === "destination") &&
+    nonEmpty(value.endpoint.productId) &&
+    nonEmpty(value.datasetId) &&
+    (value.provider === "odpt" ||
+      value.provider === "gtfs" ||
+      value.provider === "gtfs-jp") &&
+    nonEmpty(value.identityNamespace) &&
+    nonEmpty(value.providerStopId) &&
+    nonEmpty(value.normalizedStopId) &&
+    value.provenance.kind === "explicit_crosswalk" &&
+    nonEmpty(value.provenance.evidenceId) &&
+    nonEmpty(value.provenance.statement) &&
+    nonEmpty(value.provenance.sourceUrl) &&
+    nonEmpty(value.provenance.checkedAt)
+  );
+}
+
+function crosswalkMappings(
+  rootDir: string,
+  providedMappings?: readonly ScheduledTransitCrosswalkEntry[],
+): readonly ScheduledTransitCrosswalkEntry[] {
+  if (providedMappings !== undefined) {
+    if (!providedMappings.every(validCrosswalkEntry)) {
+      throw new Error(
+        "injected scheduled-transit crosswalk contains an invalid mapping",
+      );
+    }
+    return [...providedMappings];
+  }
+  const root = requireRecord(readJson(rootDir, CROSSWALK_PATH), CROSSWALK_PATH);
+  if (root.schemaVersion !== SCHEDULED_TRANSIT_CROSSWALK_SCHEMA_VERSION) {
+    throw new Error("scheduled-transit crosswalk has an unsupported schema");
+  }
+  const mappings = requireArray(root.mappings, `${CROSSWALK_PATH}.mappings`);
+  if (!mappings.every(validCrosswalkEntry)) {
+    throw new Error("scheduled-transit crosswalk contains an invalid mapping");
+  }
+  return mappings as readonly ScheduledTransitCrosswalkEntry[];
+}
+
+function findExactEndpointIdentityPairs(
+  mappings: readonly ScheduledTransitCrosswalkEntry[],
+  catalogueIds: ReadonlySet<string>,
+  reviewedProductIds: readonly string[],
+  registeredDatasetScopes: ReadonlySet<string>,
+): readonly Kai292C4EExactEndpointIdentityPair[] {
+  const pairs: Kai292C4EExactEndpointIdentityPair[] = [];
+  const destinationsByProduct = new Map<
+    string,
+    ScheduledTransitCrosswalkEntry[]
+  >();
+  for (const mapping of mappings) {
+    if (
+      mapping.endpoint.kind !== "destination" ||
+      !catalogueIds.has(mapping.endpoint.productId)
+    ) {
+      continue;
+    }
+    const entries = destinationsByProduct.get(mapping.endpoint.productId) ?? [];
+    entries.push(mapping);
+    destinationsByProduct.set(mapping.endpoint.productId, entries);
+  }
+  for (const originProductId of reviewedProductIds) {
+    const originMappings = mappings.filter(
+      (mapping) =>
+        mapping.endpoint.kind === "origin" &&
+        mapping.endpoint.productId === originProductId,
+    );
+    if (originMappings.length !== 1) continue;
+    const originMapping = originMappings[0];
+    if (originMapping === undefined) continue;
+    for (const [
+      destinationProductId,
+      destinationMappings,
+    ] of destinationsByProduct) {
+      if (destinationMappings.length !== 1) continue;
+      const destinationMapping = destinationMappings[0];
+      if (
+        destinationMapping === undefined ||
+        `${originMapping.datasetId}|${originMapping.provider}|${originMapping.identityNamespace}` !==
+          `${destinationMapping.datasetId}|${destinationMapping.provider}|${destinationMapping.identityNamespace}`
+      ) {
+        continue;
+      }
+      const scope = `${originMapping.datasetId}|${originMapping.provider}|${originMapping.identityNamespace}`;
+      if (!registeredDatasetScopes.has(scope)) continue;
+      pairs.push({
+        originProductId,
+        destinationProductId,
+        originMappingId: originMapping.mappingId,
+        destinationMappingId: destinationMapping.mappingId,
+        datasetId: originMapping.datasetId,
+        provider: originMapping.provider,
+        identityNamespace: originMapping.identityNamespace,
+      });
+    }
+  }
+  return pairs.sort(
+    (left, right) =>
+      left.originProductId.localeCompare(right.originProductId) ||
+      left.destinationProductId.localeCompare(right.destinationProductId),
+  );
 }
 
 function includedPilotOperator(
@@ -517,10 +769,189 @@ function sampledStationIds(
     .sort();
 }
 
+function probeRecordCount(
+  value: unknown,
+  label: string,
+  allowMissing = true,
+): number | null {
+  if (value === undefined || value === null) {
+    if (allowMissing) return null;
+    throw new Error(`${label} is required`);
+  }
+  if (!Number.isSafeInteger(value) || (value as number) < 0) {
+    throw new Error(`${label} must be a non-negative safe integer`);
+  }
+  return value as number;
+}
+
+function evidenceSummary(
+  probes: readonly {
+    readonly state: string;
+    readonly detail: string | null;
+    readonly recordCount: number | null;
+  }[],
+): OdptEvidenceSummary {
+  if (probes.length === 0) return "unknown";
+  if (
+    probes.every(
+      ({ state, detail }) =>
+        state === "too_large" && detail === "provider_response_too_large",
+    )
+  ) {
+    return "provider_response_too_large";
+  }
+  if (
+    probes.every(
+      ({ state, recordCount }) =>
+        state === "records" && recordCount !== null && recordCount > 0,
+    )
+  ) {
+    return "records";
+  }
+  if (
+    probes.every(
+      ({ state, recordCount }) => state === "empty" && recordCount === 0,
+    )
+  ) {
+    return "empty";
+  }
+  if (probes.every(({ state }) => state === "unknown")) return "unknown";
+  return "inconclusive";
+}
+
+function validateProbeAggregate(
+  timetable: JsonRecord,
+  results: readonly JsonRecord[],
+  label: string,
+): void {
+  const probeCount = probeRecordCount(
+    timetable.probeCount,
+    `${label}.probeCount`,
+    false,
+  );
+  if (probeCount !== results.length) {
+    throw new Error(`${label}.probeCount disagrees with results length`);
+  }
+  const byState = requireRecord(timetable.byState, `${label}.byState`);
+  const actualByState = new Map<string, number>();
+  for (const result of results) {
+    const state = requireString(result.state, `${label}.results[].state`);
+    actualByState.set(state, (actualByState.get(state) ?? 0) + 1);
+  }
+  const declaredStates = new Map<string, number>();
+  for (const [state, count] of Object.entries(byState)) {
+    if (!Number.isSafeInteger(count) || count < 0) {
+      throw new Error(
+        `${label}.byState.${state} must be a non-negative safe integer`,
+      );
+    }
+    declaredStates.set(state, count);
+  }
+  if (
+    declaredStates.size !== actualByState.size ||
+    [...actualByState].some(
+      ([state, count]) => declaredStates.get(state) !== count,
+    )
+  ) {
+    throw new Error(`${label}.byState disagrees with probe states`);
+  }
+  const conclusiveCount = probeRecordCount(
+    timetable.conclusiveCount,
+    `${label}.conclusiveCount`,
+    false,
+  );
+  const actualConclusiveCount = results.filter(
+    ({ state }) => state === "records" || state === "empty",
+  ).length;
+  if (conclusiveCount !== actualConclusiveCount) {
+    throw new Error(`${label}.conclusiveCount disagrees with probe states`);
+  }
+  if (typeof timetable.coverageKnown !== "boolean") {
+    throw new Error(`${label}.coverageKnown must be boolean`);
+  }
+}
+
+function probeResourceState(
+  probes: readonly {
+    readonly state: string;
+    readonly recordCount: number | null;
+  }[],
+): "records" | "empty" | "unknown" {
+  if (
+    probes.every(
+      ({ state, recordCount }) =>
+        state === "records" && recordCount !== null && recordCount > 0,
+    )
+  ) {
+    return "records";
+  }
+  if (
+    probes.every(
+      ({ state, recordCount }) => state === "empty" && recordCount === 0,
+    )
+  ) {
+    return "empty";
+  }
+  return "unknown";
+}
+
+function validateIncludedPilotEvidence(
+  includedEntry: JsonRecord,
+  operator: string,
+  broadProbes: readonly Kai292C4EOdptBroadTimetableProbe[],
+  exactProbe: Kai292C4EOdptExactTrainProbe,
+): void {
+  const evidence = requireRecord(
+    includedEntry.evidence,
+    `${COVERAGE_PATH}.pilotScope.included[${operator}].evidence`,
+  );
+  if (
+    probeRecordCount(
+      evidence.trainTimetableProbes,
+      `${COVERAGE_PATH}.pilotScope.included[${operator}].evidence.trainTimetableProbes`,
+      false,
+    ) !== broadProbes.length ||
+    probeRecordCount(
+      evidence.trainTimetableWithRecords,
+      `${COVERAGE_PATH}.pilotScope.included[${operator}].evidence.trainTimetableWithRecords`,
+      false,
+    ) !== broadProbes.filter(({ state }) => state === "records").length
+  ) {
+    throw new Error(
+      `${COVERAGE_PATH}.pilotScope.included[${operator}].evidence disagrees with trainTimetable results`,
+    );
+  }
+  const resourceCoverage = requireRecord(
+    evidence.resourceCoverage,
+    `${COVERAGE_PATH}.pilotScope.included[${operator}].evidence.resourceCoverage`,
+  );
+  if (resourceCoverage.TrainTimetable !== probeResourceState(broadProbes)) {
+    throw new Error(
+      `${COVERAGE_PATH}.pilotScope.included[${operator}].evidence.resourceCoverage.TrainTimetable disagrees with trainTimetable results`,
+    );
+  }
+  if (evidence.trainIdentityProbeState !== exactProbe.state) {
+    throw new Error(
+      `${COVERAGE_PATH}.pilotScope.included[${operator}].evidence.trainIdentityProbeState disagrees with trainIdentityProbe.state`,
+    );
+  }
+  const exactCoverage =
+    exactProbe.state === "records" && exactProbe.recordCount > 0
+      ? "records"
+      : "absent";
+  if (evidence.trainIdentityProbeCoverage !== exactCoverage) {
+    throw new Error(
+      `${COVERAGE_PATH}.pilotScope.included[${operator}].evidence.trainIdentityProbeCoverage disagrees with trainIdentityProbe`,
+    );
+  }
+}
+
 function timetableProbeFacts(coverage: JsonRecord): {
   readonly measuredPilotOperators: readonly string[];
-  readonly broadTimetableResult: "provider_response_too_large";
-  readonly exactTrainProbeResult: "records";
+  readonly broadTimetableResult: OdptEvidenceSummary;
+  readonly exactTrainProbeResult: OdptEvidenceSummary;
+  readonly broadTrainTimetableProbes: readonly Kai292C4EOdptBroadTimetableProbe[];
+  readonly exactTrainIdentityProbes: readonly Kai292C4EOdptExactTrainProbe[];
 } {
   const pilot = requireRecord(
     coverage.pilotScope,
@@ -530,29 +961,174 @@ function timetableProbeFacts(coverage: JsonRecord): {
     pilot.included,
     `${COVERAGE_PATH}.pilotScope.included`,
   );
-  const measuredPilotOperators = included
-    .map((entry) =>
-      isRecord(entry) && typeof entry.operator === "string"
-        ? entry.operator
-        : null,
+  const operators = requireArray(
+    coverage.operators,
+    `${COVERAGE_PATH}.operators`,
+  );
+  const includedRecords = included.map((entry, index) => {
+    if (!isRecord(entry)) {
+      throw new Error(
+        `${COVERAGE_PATH}.pilotScope.included[${index}] must be an object`,
+      );
+    }
+    return entry;
+  });
+  const measuredPilotOperators = includedRecords
+    .map((entry, index) =>
+      requireString(
+        entry.operator,
+        `${COVERAGE_PATH}.pilotScope.included[${index}].operator`,
+      ),
     )
-    .filter((value): value is string => value !== null)
     .sort();
+  if (new Set(measuredPilotOperators).size !== measuredPilotOperators.length) {
+    throw new Error(
+      `${COVERAGE_PATH}.pilotScope.included contains duplicate operators`,
+    );
+  }
+  const broadTrainTimetableProbes: Kai292C4EOdptBroadTimetableProbe[] = [];
+  const exactTrainIdentityProbes: Kai292C4EOdptExactTrainProbe[] = [];
+  for (const operator of measuredPilotOperators) {
+    const includedEntry = includedRecords.find(
+      (entry) => entry.operator === operator,
+    );
+    if (includedEntry === undefined) {
+      throw new Error(
+        `${COVERAGE_PATH}.pilotScope.included is missing ${operator}`,
+      );
+    }
+    const operatorRecord = operators.find(
+      (entry) => isRecord(entry) && entry.operator === operator,
+    );
+    if (!isRecord(operatorRecord)) {
+      throw new Error(`${COVERAGE_PATH}.operators is missing ${operator}`);
+    }
+    const timetable = requireRecord(
+      operatorRecord.timetable,
+      `${COVERAGE_PATH}.operators[${operator}].timetable`,
+    );
+    const trainTimetable = requireRecord(
+      timetable.trainTimetable,
+      `${COVERAGE_PATH}.operators[${operator}].timetable.trainTimetable`,
+    );
+    const trainTimetableResults = requireArray(
+      trainTimetable.results,
+      `${COVERAGE_PATH}.operators[${operator}].timetable.trainTimetable.results`,
+    );
+    if (trainTimetableResults.length === 0) {
+      throw new Error(
+        `${COVERAGE_PATH}.operators[${operator}].timetable.trainTimetable.results must not be empty`,
+      );
+    }
+    const trainTimetableResultRecords = trainTimetableResults.map(
+      (result, index) =>
+        requireRecord(
+          result,
+          `${COVERAGE_PATH}.operators[${operator}].timetable.trainTimetable.results[${index}]`,
+        ),
+    );
+    validateProbeAggregate(
+      trainTimetable,
+      trainTimetableResultRecords,
+      `${COVERAGE_PATH}.operators[${operator}].timetable.trainTimetable`,
+    );
+    for (const [index, record] of trainTimetableResultRecords.entries()) {
+      const scope = requireRecord(
+        record.scope,
+        `${COVERAGE_PATH}.operators[${operator}].timetable.trainTimetable.results[${index}].scope`,
+      );
+      if (Object.keys(scope).length === 0) {
+        throw new Error(
+          `${COVERAGE_PATH}.operators[${operator}].timetable.trainTimetable.results[${index}].scope must not be empty`,
+        );
+      }
+      const detail =
+        record.detail === undefined || record.detail === null
+          ? null
+          : requireString(
+              record.detail,
+              `${COVERAGE_PATH}.operators[${operator}].timetable.trainTimetable.results[${index}].detail`,
+            );
+      broadTrainTimetableProbes.push({
+        operator,
+        scope,
+        state: requireString(
+          record.state,
+          `${COVERAGE_PATH}.operators[${operator}].timetable.trainTimetable.results[${index}].state`,
+        ),
+        detail,
+        recordCount: probeRecordCount(
+          record.recordCount,
+          `${COVERAGE_PATH}.operators[${operator}].timetable.trainTimetable.results[${index}].recordCount`,
+        ),
+      });
+    }
+    const exactProbe = requireRecord(
+      timetable.trainIdentityProbe,
+      `${COVERAGE_PATH}.operators[${operator}].timetable.trainIdentityProbe`,
+    );
+    const exactProbeFinding: Kai292C4EOdptExactTrainProbe = {
+      operator,
+      trainIdentity: requireString(
+        exactProbe.trainIdentity,
+        `${COVERAGE_PATH}.operators[${operator}].timetable.trainIdentityProbe.trainIdentity`,
+      ),
+      state: requireString(
+        exactProbe.state,
+        `${COVERAGE_PATH}.operators[${operator}].timetable.trainIdentityProbe.state`,
+      ),
+      recordCount: probeRecordCount(
+        exactProbe.recordCount,
+        `${COVERAGE_PATH}.operators[${operator}].timetable.trainIdentityProbe.recordCount`,
+        false,
+      ) as number,
+    };
+    exactTrainIdentityProbes.push(exactProbeFinding);
+    validateIncludedPilotEvidence(
+      includedEntry,
+      operator,
+      broadTrainTimetableProbes.filter(
+        ({ operator: candidate }) => candidate === operator,
+      ),
+      exactProbeFinding,
+    );
+  }
+  broadTrainTimetableProbes.sort(
+    (left, right) =>
+      left.operator.localeCompare(right.operator) ||
+      JSON.stringify(left.scope).localeCompare(JSON.stringify(right.scope)),
+  );
+  exactTrainIdentityProbes.sort((left, right) =>
+    left.operator.localeCompare(right.operator),
+  );
   return {
     measuredPilotOperators,
-    broadTimetableResult: "provider_response_too_large",
-    exactTrainProbeResult: "records",
+    broadTimetableResult: evidenceSummary(broadTrainTimetableProbes),
+    exactTrainProbeResult: evidenceSummary(
+      exactTrainIdentityProbes.map(({ state, recordCount }) => ({
+        state,
+        recordCount,
+        detail: null,
+      })),
+    ),
+    broadTrainTimetableProbes,
+    exactTrainIdentityProbes,
   };
 }
 
 function stationAccess(
+  destinationId: AnchorId,
   catalogue: JsonRecord,
   stationId: string,
 ): Kai292C4EAnchorFinding["stationToDestinationAccess"] {
   const neutralStatement =
     "No reviewed station-to-destination access evidence is bound to the exact ODPT station identity.";
   const localTransport = catalogue.localTransport;
-  if (isRecord(localTransport) && localTransport.kind === "verified_walking") {
+  if (
+    destinationId === "ueno-park" &&
+    isRecord(localTransport) &&
+    localTransport.kind === "verified_walking"
+  ) {
     const urls = sourceUrls(localTransport);
     return {
       status: "source_backed_station_label_only",
@@ -590,16 +1166,15 @@ function anchorFinding(
   }
   const pilotStatus = includedPilotOperator(coverage, operator);
   const sampled = sampledStationIds(coverage, operator);
-  const access = stationAccess(catalogue, stationId);
+  const access = stationAccess(id, catalogue, stationId);
+  const c2Missing = c2MissingPrerequisite(c2State);
   const missingPrerequisites = [
     ...(reviewedProductIds.length === 0
       ? ["reviewed_stable_product_origin_identity"]
       : []),
     "explicit_catalogue_destination_crosswalk",
     ...(access.exactStationIdentityBound ? [] : [access.missingPrerequisite]),
-    ...(c2State.canEnterTrustedC2
-      ? []
-      : ["registered_odpt_scheduled_dataset_artifact"]),
+    ...(c2Missing === null ? [] : [c2Missing]),
     "direct_or_one_transfer_scheduled_support",
   ];
   return {
@@ -645,6 +1220,9 @@ function anchorFinding(
     },
     c2ScheduledTransitDataset: {
       canEnterTrustedC2: c2State.canEnterTrustedC2,
+      artifactValid: c2State.artifactValidOdptDatasetKeys.length > 0,
+      productionScheduledDatasetEligible:
+        c2State.productionEligibleOdptDatasetKeys.length > 0,
       registeredDatasetKeys: c2State.registeredDatasetKeys,
       registeredProviders: c2State.registeredProviders,
       reason: c2State.reason,
@@ -725,7 +1303,11 @@ function buildCorridorReadinessBlockers(
     const datasetStatement =
       c2State.reason === "no_registered_odpt_scheduled_dataset"
         ? "TokyoMetro/Toei ODPT timetable observations are available only as bounded live-boundary audit evidence and old capability code; the current trusted C2 ScheduledTransitDataset registry has no ODPT scheduled artifact or descriptor."
-        : "An ODPT descriptor is registered, but no descriptor-backed loadable and provenance-validated ODPT scheduled artifact is available to enter trusted C2.";
+        : c2State.reason === "registered_odpt_dataset_not_loadable"
+          ? "An ODPT descriptor is registered, but no descriptor-backed valid ODPT scheduled artifact is available to enter trusted C2."
+          : c2State.reason === "registered_odpt_dataset_not_production_eligible"
+            ? "A descriptor-backed ODPT artifact is valid, but it is not production-suitable scheduled-routing evidence for trusted C2."
+            : "An ODPT descriptor and production-suitable scheduled artifact are registered and loadable under the trusted C2 contract.";
     blockers.push({
       code: "odpt_timetable_not_representable_in_trusted_c2",
       statement: datasetStatement,
@@ -815,7 +1397,7 @@ export function buildKai292C4EPrerequisiteAudit(
   const anchorsById = new Map(
     anchorRecords(rootDir).map((anchor) => [anchor.destinationId, anchor]),
   );
-  const coverage = coverageRoot(rootDir);
+  const coverage = coverageRoot(rootDir, options.odptCoverage);
   const descriptors = c2Descriptors(options);
   const c2State = c2RegistryState(
     rootDir,
@@ -826,6 +1408,24 @@ export function buildKai292C4EPrerequisiteAudit(
   const reviewedProductIds = checkedIdentityEvidence(
     rootDir,
     options.originIdentities,
+  );
+  const crosswalk = crosswalkMappings(
+    rootDir,
+    options.scheduledTransitCrosswalkMappings,
+  );
+  const registeredDatasetScopes = new Set(
+    descriptors
+      .filter(validDescriptor)
+      .map(
+        ({ datasetId, provider, identityNamespace }) =>
+          `${datasetId}|${provider}|${identityNamespace}`,
+      ),
+  );
+  const exactEndpointIdentityPairs = findExactEndpointIdentityPairs(
+    crosswalk,
+    new Set(records.map(({ id }) => id).filter(nonEmpty)),
+    reviewedProductIds,
+    registeredDatasetScopes,
   );
   const anchors = KAI_292C4E_ANCHOR_IDS.map((id) => {
     const catalogue = byId.get(id);
@@ -871,11 +1471,11 @@ export function buildKai292C4EPrerequisiteAudit(
     },
     {
       gate: "exact_transit_identities",
-      satisfied: c4a.crosswalk.catalogueProductMappings.length > 0,
+      satisfied: exactEndpointIdentityPairs.length > 0,
       statement:
-        c4a.crosswalk.catalogueProductMappings.length > 0
-          ? "At least one exact catalogue endpoint crosswalk is present."
-          : "Reviewed destination station identities exist, but no exact product endpoint crosswalk exists for either endpoint pair.",
+        exactEndpointIdentityPairs.length > 0
+          ? "At least one reviewed origin and catalogue destination have compatible exact endpoint mappings in the same registered dataset scope."
+          : "No compatible reviewed-origin and catalogue-destination exact endpoint pair exists in a registered dataset scope.",
     },
     {
       gate: "production_loadable_scheduled_dataset",
@@ -885,7 +1485,10 @@ export function buildKai292C4EPrerequisiteAudit(
           ? "The current registry has no ODPT scheduled dataset descriptor/artifact; Sakata is not product coverage."
           : c2State.reason === "registered_odpt_dataset_not_loadable"
             ? "An ODPT descriptor is registered, but its required artifact/loadability evidence is not valid."
-            : "A registered ODPT scheduled dataset is loadable under the trusted C2 contract.",
+            : c2State.reason ===
+                "registered_odpt_dataset_not_production_eligible"
+              ? "A descriptor-backed ODPT artifact is valid, but it is not production-suitable scheduled-routing evidence."
+              : "A registered ODPT scheduled dataset is loadable under the trusted C2 contract.",
     },
     {
       gate: "direct_or_one_transfer_structural_support",
@@ -917,6 +1520,7 @@ export function buildKai292C4EPrerequisiteAudit(
       credentialEmitted: false,
     },
     anchors,
+    exactEndpointIdentityPairs,
     ranking: rankAnchors(anchors),
     odptBoundary: {
       source: COVERAGE_PATH,
@@ -928,6 +1532,8 @@ export function buildKai292C4EPrerequisiteAudit(
       reviewedStationEvidence: "qa/kai-291/pilot-station-index.json",
       broadTimetableResult: pilotFacts.broadTimetableResult,
       exactTrainProbeResult: pilotFacts.exactTrainProbeResult,
+      broadTrainTimetableProbes: pilotFacts.broadTrainTimetableProbes,
+      exactTrainIdentityProbes: pilotFacts.exactTrainIdentityProbes,
       caveat:
         "The committed authenticated audit is scoped to its sampled stations/railways. It proves measured provider responses in that corpus, not universal operator or anchor-station coverage.",
       oldDirectJourney: {
@@ -942,6 +1548,9 @@ export function buildKai292C4EPrerequisiteAudit(
     c2Boundary: {
       registeredDatasetKeys: c2State.registeredDatasetKeys,
       registeredProviders: c2State.registeredProviders,
+      artifactValidOdptDatasetKeys: c2State.artifactValidOdptDatasetKeys,
+      productionEligibleOdptDatasetKeys:
+        c2State.productionEligibleOdptDatasetKeys,
       odptEvidenceCanEnterTrustedDataset: c2State.canEnterTrustedC2,
       reason: c2State.reason,
       importerBoundary: {
