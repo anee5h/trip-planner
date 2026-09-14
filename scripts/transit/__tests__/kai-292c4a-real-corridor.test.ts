@@ -111,6 +111,7 @@ function explicitTransfer(
   fromStopId: string,
   toStopId: string,
   transferType: 0 | 1 | 2 | 3 | 4 | 5 = 0,
+  minimumTransferSeconds: number | null = null,
 ): TransitTransfer {
   const fromService = DATASET.graph.scheduledServices!.find(
     (service) => service.id === fromServiceId,
@@ -130,7 +131,7 @@ function explicitTransfer(
     toRouteId: toService.routeId,
     fromServiceId,
     toServiceId,
-    minimumTransferSeconds: null,
+    minimumTransferSeconds,
     sourceSemantics: { provider: "gtfs", transferType },
     provenance: fromService.provenance,
   };
@@ -169,6 +170,25 @@ function datasetWithServices(
       ),
       scheduledStopTimes: source.graph.scheduledStopTimes!.filter((fact) =>
         allowedServiceIds.has(fact.serviceId),
+      ),
+    },
+  };
+}
+
+function datasetWithOutgoingDeparture(
+  source: ReturnType<typeof datasetWithServices>,
+  serviceId: string,
+  stopId: string,
+  departureServiceSeconds: number,
+) {
+  return {
+    ...source,
+    graph: {
+      ...source.graph,
+      scheduledStopTimes: source.graph.scheduledStopTimes!.map((fact) =>
+        fact.serviceId === serviceId && fact.stopId === stopId
+          ? { ...fact, departureServiceSeconds }
+          : fact,
       ),
     },
   };
@@ -305,6 +325,7 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
           SECOND_STRUCTURAL_SERVICE.id,
           "69_01",
           "1_01",
+          1,
         ),
       ]),
       STRUCTURAL_ORIGIN_STOP_ID,
@@ -324,6 +345,320 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
     });
     expect("journey" in result).toBe(false);
   });
+
+  it("supports a type-1 timed transfer with non-negative chronology", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithServices(
+        [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+        [
+          explicitTransfer(
+            "synthetic-type-1-valid",
+            FIRST_STRUCTURAL_SERVICE.id,
+            SECOND_STRUCTURAL_SERVICE.id,
+            "69_01",
+            "1_01",
+            1,
+          ),
+        ],
+      ),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      STRUCTURAL_TRANSFER_DESTINATION_STOP_ID,
+    );
+
+    expect(result).toMatchObject({
+      kind: "supported",
+      topology: "exactly_one_transfer",
+      transfer: {
+        ruleId: "synthetic-type-1-valid",
+        transferType: 1,
+        transferBasis: "provider_transfer_rule",
+      },
+    });
+  });
+
+  it("blocks a type-1 timed transfer with negative chronology", () => {
+    const source = datasetWithServices(
+      [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+      [
+        explicitTransfer(
+          "synthetic-type-1-negative",
+          FIRST_STRUCTURAL_SERVICE.id,
+          SECOND_STRUCTURAL_SERVICE.id,
+          "69_01",
+          "1_01",
+          1,
+        ),
+      ],
+    );
+    const result = assessScheduledRoutingCoverage(
+      datasetWithOutgoingDeparture(
+        source,
+        SECOND_STRUCTURAL_SERVICE.id,
+        providerStopId("1_01"),
+        25260,
+      ),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      STRUCTURAL_TRANSFER_DESTINATION_STOP_ID,
+    );
+
+    expect(result).toMatchObject({
+      kind: "blocked",
+      reason: "transfer_evidence_inconclusive",
+    });
+  });
+
+  it("supports a type-2 transfer when the provider minimum is satisfied", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithServices(
+        [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+        [
+          explicitTransfer(
+            "synthetic-type-2-satisfied",
+            FIRST_STRUCTURAL_SERVICE.id,
+            SECOND_STRUCTURAL_SERVICE.id,
+            "69_01",
+            "1_01",
+            2,
+            780,
+          ),
+        ],
+      ),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      STRUCTURAL_TRANSFER_DESTINATION_STOP_ID,
+    );
+
+    expect(result).toMatchObject({
+      kind: "supported",
+      transfer: {
+        ruleId: "synthetic-type-2-satisfied",
+        transferType: 2,
+        transferBasis: "provider_transfer_rule",
+      },
+    });
+  });
+
+  it("blocks a type-2 transfer when the provider minimum is missing", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithServices(
+        [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+        [
+          explicitTransfer(
+            "synthetic-type-2-missing-minimum",
+            FIRST_STRUCTURAL_SERVICE.id,
+            SECOND_STRUCTURAL_SERVICE.id,
+            "16_01",
+            "16_01",
+            2,
+          ),
+        ],
+      ),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      providerStopId("14_01"),
+    );
+
+    expect(result).toMatchObject({
+      kind: "blocked",
+      reason: "transfer_evidence_inconclusive",
+    });
+  });
+
+  it("does not support a type-2 transfer with insufficient time", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithServices(
+        [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+        [
+          explicitTransfer(
+            "synthetic-type-2-insufficient",
+            FIRST_STRUCTURAL_SERVICE.id,
+            SECOND_STRUCTURAL_SERVICE.id,
+            "16_01",
+            "16_01",
+            2,
+            1681,
+          ),
+        ],
+      ),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      providerStopId("14_01"),
+    );
+
+    expect(result).toMatchObject({
+      kind: "blocked",
+      reason: "no_direct_or_one_transfer_supported_topology",
+    });
+  });
+
+  it("supports a type-0 transfer when its provider minimum is satisfied", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithServices(
+        [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+        [
+          explicitTransfer(
+            "synthetic-type-0-satisfied",
+            FIRST_STRUCTURAL_SERVICE.id,
+            SECOND_STRUCTURAL_SERVICE.id,
+            "69_01",
+            "1_01",
+            0,
+            600,
+          ),
+        ],
+      ),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      STRUCTURAL_TRANSFER_DESTINATION_STOP_ID,
+    );
+
+    expect(result).toMatchObject({
+      kind: "supported",
+      transfer: {
+        ruleId: "synthetic-type-0-satisfied",
+        transferType: 0,
+        transferBasis: "provider_transfer_rule",
+      },
+    });
+  });
+
+  it("does not support a type-0 transfer with insufficient time", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithServices(
+        [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+        [
+          explicitTransfer(
+            "synthetic-type-0-insufficient",
+            FIRST_STRUCTURAL_SERVICE.id,
+            SECOND_STRUCTURAL_SERVICE.id,
+            "16_01",
+            "16_01",
+            0,
+            1681,
+          ),
+        ],
+      ),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      providerStopId("14_01"),
+    );
+
+    expect(result).toMatchObject({
+      kind: "blocked",
+      reason: "no_direct_or_one_transfer_supported_topology",
+    });
+  });
+
+  it("uses the Meguruto policy for a type-0 same-stop rule without a minimum", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithServices(
+        [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+        [
+          explicitTransfer(
+            "synthetic-type-0-same-stop-policy",
+            FIRST_STRUCTURAL_SERVICE.id,
+            SECOND_STRUCTURAL_SERVICE.id,
+            "16_01",
+            "16_01",
+            0,
+          ),
+        ],
+      ),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      providerStopId("14_01"),
+    );
+
+    expect(result).toMatchObject({
+      kind: "supported",
+      transfer: {
+        ruleId: "synthetic-type-0-same-stop-policy",
+        transferType: 0,
+        transferBasis: "meguruto_same_stop_policy",
+      },
+    });
+  });
+
+  it("blocks a type-0 rule without a minimum between different stops", () => {
+    const result = assessScheduledRoutingCoverage(
+      datasetWithServices(
+        [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+        [
+          explicitTransfer(
+            "synthetic-type-0-different-stops",
+            FIRST_STRUCTURAL_SERVICE.id,
+            SECOND_STRUCTURAL_SERVICE.id,
+            "69_01",
+            "1_01",
+            0,
+          ),
+        ],
+      ),
+      STRUCTURAL_ORIGIN_STOP_ID,
+      STRUCTURAL_TRANSFER_DESTINATION_STOP_ID,
+    );
+
+    expect(result).toMatchObject({
+      kind: "blocked",
+      reason: "transfer_evidence_inconclusive",
+    });
+  });
+
+  it.each([4, 5] as const)(
+    "blocks unsupported type-%s transfer evidence",
+    (transferType) => {
+      const result = assessScheduledRoutingCoverage(
+        datasetWithServices(
+          [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+          [
+            explicitTransfer(
+              `synthetic-type-${transferType}-unsupported`,
+              FIRST_STRUCTURAL_SERVICE.id,
+              SECOND_STRUCTURAL_SERVICE.id,
+              "16_01",
+              "16_01",
+              transferType,
+            ),
+          ],
+        ),
+        STRUCTURAL_ORIGIN_STOP_ID,
+        providerStopId("14_01"),
+      );
+
+      expect(result).toMatchObject({
+        kind: "blocked",
+        reason: "transfer_evidence_inconclusive",
+      });
+    },
+  );
+
+  it.each([
+    ["non-numeric", "600"],
+    ["negative", -1],
+    ["non-finite", Number.NaN],
+  ] as const)(
+    "treats %s provider minimum evidence as inconclusive",
+    (_label, minimumTransferSeconds) => {
+      const transfer = {
+        ...explicitTransfer(
+          "synthetic-malformed-minimum",
+          FIRST_STRUCTURAL_SERVICE.id,
+          SECOND_STRUCTURAL_SERVICE.id,
+          "16_01",
+          "16_01",
+          0,
+        ),
+        minimumTransferSeconds,
+      } as unknown as TransitTransfer;
+      const result = assessScheduledRoutingCoverage(
+        datasetWithServices(
+          [FIRST_STRUCTURAL_SERVICE.id, SECOND_STRUCTURAL_SERVICE.id],
+          [transfer],
+        ),
+        STRUCTURAL_ORIGIN_STOP_ID,
+        providerStopId("14_01"),
+      );
+
+      expect(result).toMatchObject({
+        kind: "blocked",
+        reason: "transfer_evidence_inconclusive",
+      });
+    },
+  );
 
   it("supports an exact same normalized stop without an explicit provider rule", () => {
     const result = assessScheduledRoutingCoverage(
@@ -410,6 +745,7 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
             SECOND_STRUCTURAL_SERVICE.id,
             "69_01",
             "1_01",
+            1,
           ),
           explicitTransfer(
             "synthetic-second-transfer",
@@ -417,6 +753,7 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
             THIRD_STRUCTURAL_SERVICE.id,
             "2_02",
             "5_01",
+            1,
           ),
         ],
       ),

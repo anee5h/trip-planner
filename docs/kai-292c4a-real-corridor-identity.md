@@ -69,10 +69,19 @@ For every candidate pair, the audit requires all of the following:
 7. direct or exactly-one-transfer supported scheduled corridor topology. A
    one-transfer path is supported either by one sufficient, exact,
    unambiguous, trusted explicit provider transfer rule or by the
-   `meguruto_same_stop_policy`: both transfer endpoints must be the exact same
-   normalized stop, no applicable explicit provider rule may exist, the
-   imported evidence must be sufficient, and the scheduled gap must meet
-   `MEGURUTO_SAME_STOP_TRANSFER_MIN_SECONDS` (300 seconds).
+   `meguruto_same_stop_policy`. For each explicit provider candidate, the audit
+   computes `transferWaitSeconds` as the outgoing departure at the transfer
+   stop minus the incoming arrival at that stop. GTFS type 1 requires only
+   non-negative chronology; type 2 requires a valid numeric
+   `minimumTransferSeconds` and a wait at least that minimum; and type 0 uses a
+   valid numeric provider minimum when present. A type-0 rule without a
+   provider minimum uses the existing `MEGURUTO_SAME_STOP_TRANSFER_MIN_SECONDS`
+   (300-second) policy only when the normalized `fromStopId` and `toStopId` are
+   exactly equal, and its basis is labeled `meguruto_same_stop_policy` rather
+   than provider-minimum evidence. Type 0 without a minimum for different
+   stops, missing type-2 minima, malformed minima, prohibited type 3, and
+   unsupported types 4/5 remain inconclusive; a negative wait is never
+   supported.
 
 A candidate that fails any gate is reported in `candidateBlockers` and is not
 returned in `realCorridors`. Unregistered assets, invalid registered assets,

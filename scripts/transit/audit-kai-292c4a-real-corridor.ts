@@ -687,6 +687,10 @@ function transferEvidenceStructurallyValid(
   );
 }
 
+function validMinimumTransferSeconds(value: unknown): value is number {
+  return typeof value === "number" && Number.isSafeInteger(value) && value >= 0;
+}
+
 function blockedCoverage(
   reason: ScheduledRoutingCoverageBlockReason,
 ): ScheduledRoutingCoverageResult {
@@ -919,10 +923,56 @@ export function assessScheduledRoutingCoverage(
             sawTransferEvidenceInconclusive = true;
             continue;
           }
+          const transferWaitSeconds =
+            (transferToFact.departureServiceSeconds ?? Number.NaN) -
+            (firstFact.arrivalServiceSeconds ?? Number.NaN);
           const transferType = transfer.sourceSemantics.transferType;
           if (transferType === 3 || transferType === 4 || transferType === 5) {
             sawTransferEvidenceInconclusive = true;
             continue;
+          }
+          const rawMinimumTransferSeconds: unknown =
+            transfer.minimumTransferSeconds;
+          const minimumTransferSeconds =
+            rawMinimumTransferSeconds === null
+              ? null
+              : validMinimumTransferSeconds(rawMinimumTransferSeconds)
+                ? rawMinimumTransferSeconds
+                : undefined;
+          if (
+            rawMinimumTransferSeconds !== null &&
+            minimumTransferSeconds === undefined
+          ) {
+            sawTransferEvidenceInconclusive = true;
+            continue;
+          }
+          if (
+            !Number.isSafeInteger(transferWaitSeconds) ||
+            transferWaitSeconds < 0
+          ) {
+            sawTransferEvidenceInconclusive = true;
+            continue;
+          }
+          let transferBasis:
+            "provider_transfer_rule" | "meguruto_same_stop_policy" =
+            "provider_transfer_rule";
+          if (transferType === 2) {
+            if (minimumTransferSeconds === null) {
+              sawTransferEvidenceInconclusive = true;
+              continue;
+            }
+            if (transferWaitSeconds < minimumTransferSeconds) continue;
+          } else if (transferType === 0 && minimumTransferSeconds !== null) {
+            if (transferWaitSeconds < minimumTransferSeconds) continue;
+          } else if (transferType === 0) {
+            if (firstFact.stopId !== transferToFact.stopId) {
+              sawTransferEvidenceInconclusive = true;
+              continue;
+            }
+            if (transferWaitSeconds < MEGURUTO_SAME_STOP_TRANSFER_MIN_SECONDS) {
+              continue;
+            }
+            transferBasis = "meguruto_same_stop_policy";
           }
           oneTransferCandidates.push({
             kind: "supported",
@@ -936,7 +986,7 @@ export function assessScheduledRoutingCoverage(
               toStopId: transferToFact.stopId,
               firstServiceId: first.service.id,
               secondServiceId: second.service.id,
-              transferBasis: "provider_transfer_rule",
+              transferBasis,
               ruleId: transfer.id,
               transferType,
             },
