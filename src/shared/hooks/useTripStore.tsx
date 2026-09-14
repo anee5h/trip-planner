@@ -31,6 +31,10 @@ import * as TripService from "@/shared/services/trips/TripService";
 import { generateUUID } from "@/shared/utils/uuid";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import { resolveOriginTransportZone } from "@/shared/services/transport/OriginTransportZone";
+import {
+  SCHEDULED_TRANSIT_ORIGIN_PRODUCT_BY_EXACT_STATION,
+  type ScheduledTransitOriginProductId,
+} from "@/shared/services/transport/scheduledTransitOriginIdentity";
 
 /**
  * Formats a prefecture name into the exact SVG key required by @react-map/japan@1.0.10.
@@ -47,6 +51,7 @@ export type OriginLocation = {
   coordinates: { lat: number; lng: number };
   source: "station" | "postal_code" | "default";
   transportZoneId?: TransportZoneId;
+  scheduledTransitProductId?: ScheduledTransitOriginProductId;
 };
 
 export type UnresolvedOriginLocation = {
@@ -54,6 +59,7 @@ export type UnresolvedOriginLocation = {
   coordinates?: { lat: number; lng: number };
   source: "station";
   transportZoneId?: TransportZoneId;
+  scheduledTransitProductId?: ScheduledTransitOriginProductId;
 };
 
 export type SavedOriginLocation = OriginLocation | UnresolvedOriginLocation;
@@ -96,6 +102,7 @@ interface TripStoreContextType {
   savedHomeStation: string;
   homeStationCoords?: { lat: number; lng: number };
   homeStationTransportZoneId?: TransportZoneId;
+  scheduledTransitOriginProductId?: ScheduledTransitOriginProductId;
   originSource: OriginSource;
   setOriginLocation: (origin: OriginLocation) => void;
   setCurrentLocationOrigin: (coordinates: { lat: number; lng: number }) => void;
@@ -184,12 +191,20 @@ function isValidCoordinates(
 function isValidOriginLocation(value: unknown): value is OriginLocation {
   if (!value || typeof value !== "object") return false;
   const o = value as Record<string, unknown>;
+  const scheduledTransitProductId = o.scheduledTransitProductId;
   return (
     typeof o.label === "string" &&
     o.label.trim().length > 0 &&
     isValidCoordinates(o.coordinates) &&
     typeof o.source === "string" &&
-    ["station", "postal_code", "default"].includes(o.source)
+    ["station", "postal_code", "default"].includes(o.source) &&
+    (scheduledTransitProductId === undefined ||
+      (typeof scheduledTransitProductId === "string" &&
+        Object.values(
+          SCHEDULED_TRANSIT_ORIGIN_PRODUCT_BY_EXACT_STATION,
+        ).includes(
+          scheduledTransitProductId as ScheduledTransitOriginProductId,
+        )))
   );
 }
 
@@ -883,6 +898,10 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         savedHomeStation: savedOrigin.label,
         homeStationCoords: activeOrigin.location.coordinates,
         homeStationTransportZoneId: activeOrigin.location.transportZoneId,
+        scheduledTransitOriginProductId:
+          activeOrigin.source === "saved"
+            ? activeOrigin.location.scheduledTransitProductId
+            : undefined,
         originSource: activeOrigin.source,
         setOriginLocation,
         setCurrentLocationOrigin,

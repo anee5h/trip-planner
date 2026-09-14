@@ -433,6 +433,7 @@ export default function DestinationDetails() {
     homeStation,
     homeStationCoords,
     homeStationTransportZoneId,
+    scheduledTransitOriginProductId,
     getDestinationRating,
     isComparing,
     toggleCompare,
@@ -1909,6 +1910,7 @@ export default function DestinationDetails() {
                 compactUnavailableCost={isHub}
                 ferryTemporal={ferryTemporal}
                 travelDate={activeTravelDate}
+                scheduledOriginProductId={scheduledTransitOriginProductId}
                 duration={duration}
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
