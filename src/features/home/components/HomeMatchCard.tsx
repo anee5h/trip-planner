@@ -549,9 +549,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                   className="flex shrink-0 items-center gap-1 text-[11px] font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300 sm:text-xs"
                 >
                   <transportDisplay.Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                  <span className="hidden sm:inline">
-                    {transportDisplay.label}
-                  </span>
+                  <span className="inline">{transportDisplay.label}</span>
                 </span>
               </>
             )}

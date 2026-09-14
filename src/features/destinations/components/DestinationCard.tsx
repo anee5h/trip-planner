@@ -933,7 +933,6 @@ export default function DestinationCard({
                             })}
                       </span>
                     )}
-
                   </div>
                 )}
               </div>

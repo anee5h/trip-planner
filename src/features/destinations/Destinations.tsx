@@ -871,9 +871,9 @@ export default function Destinations() {
             // estimates are absent; fall back to the bounded SafeGround
             // estimate (same authority as day cards / Home match cards /
             // ranking / detail) for the card's one-way minutes + mode.
-            // Boso-class long-haul stays undefined and the card honestly
-            // shows no time; Hakone-class shows its ~ time. The canonical
-            // estimate (.estimate) remains the gateway/wards source.
+            // If neither canonical nor bounded fallback evidence is usable,
+            // leave the card's estimate undefined and render unavailable.
+            // The canonical estimate (.estimate) remains the gateway/wards source.
             const canonicalEstimate = getOriginAwareTransportEstimate(
               dest,
               { homeStationCoords, ferryTemporal },

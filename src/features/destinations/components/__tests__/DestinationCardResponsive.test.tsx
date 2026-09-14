@@ -613,6 +613,7 @@ describe("DestinationCard badges", () => {
       formatTravelEstimateLabel(estimate, "en", { compact: true }),
     );
     expect(text).toContain("home.transportModes.train");
+    expect(text).not.toContain("home.transportModes.travelUnavailable");
     expect(text).not.toContain("destination.tripAreas.travelBy");
   });
 
