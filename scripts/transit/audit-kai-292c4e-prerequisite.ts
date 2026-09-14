@@ -14,6 +14,16 @@ import {
   SCHEDULED_TRANSIT_CROSSWALK_SCHEMA_VERSION,
   type ScheduledTransitCrosswalkEntry,
 } from "../../src/shared/services/transport/static/scheduledTransitEndpoint";
+import {
+  KAI_292C4H_DATASET_KEY,
+  KAI_292C4H_DESTINATION_PRODUCT_ID,
+  KAI_292C4H_EARLIEST_DEPARTURE_TIME,
+  KAI_292C4H_EVIDENCE_ID,
+  KAI_292C4H_ORIGIN_PRODUCT_ID,
+  KAI_292C4H_RUNTIME_PROOF_PATH,
+  KAI_292C4H_RUNTIME_PROOF_SCHEMA_VERSION,
+  KAI_292C4H_SERVICE_DATE,
+} from "./audit-kai-292c4h-runtime-proof";
 import { auditRealMegurutoCorridor } from "./audit-kai-292c4a-real-corridor";
 import {
   SCHEDULED_TRANSIT_ARTIFACT_SCHEMA_VERSION,
@@ -116,6 +126,50 @@ type C4DBlockerCode =
   | "no_authoritative_service_date_or_departure_time"
   | "runtime_journey_verification_not_evaluated";
 
+export interface Kai292C4ERuntimeProofEvidence {
+  readonly status: "verified_controlled_runtime" | "absent" | "invalid";
+  readonly source: typeof KAI_292C4H_RUNTIME_PROOF_PATH;
+  readonly reason: string | null;
+  readonly corridor: {
+    readonly originProductId: string;
+    readonly destinationProductId: string;
+    readonly direction: "outbound";
+    readonly datasetKey: string;
+    readonly datasetId: string;
+  } | null;
+  readonly temporal: {
+    readonly source: "controlled_internal_test_fixture";
+    readonly serviceDate: string;
+    readonly earliestDepartureTime: string;
+    readonly earliestDepartureServiceSeconds: number;
+  } | null;
+  readonly journey: {
+    readonly selected: "direct";
+    readonly transferCount: 0;
+    readonly serviceId: string;
+    readonly providerServiceId: string;
+    readonly routeId: string;
+    readonly providerRouteId: string;
+    readonly providerOperatorId: string;
+    readonly originStopId: string;
+    readonly destinationStopId: string;
+    readonly actualDepartureServiceSeconds: number;
+    readonly actualArrivalServiceSeconds: number;
+    readonly durationSeconds: number;
+  } | null;
+  readonly c4b: {
+    readonly kind: "scheduled_journey";
+    readonly evidence: "verified";
+    readonly transferCount: 0;
+    readonly durationSeconds: number;
+  } | null;
+  readonly c4c: {
+    readonly kind: "verified_scheduled_journey";
+    readonly source: "scheduled";
+    readonly selected: "direct";
+  } | null;
+}
+
 export interface Kai292C4EOriginIdentityEvidence {
   readonly identityKind: string;
   readonly identityStability: string;
@@ -141,6 +195,8 @@ export interface Kai292C4ESyntheticScheduledTransitArtifact {
 }
 
 export interface Kai292C4EAuditOptions {
+  /** Test-only generated C4H proof override; production reads the committed artifact. */
+  readonly runtimeProof?: unknown;
   readonly originIdentities?: readonly Kai292C4EOriginIdentityEvidence[];
   readonly scheduledTransitDatasets?: readonly Kai292C4EDatasetDescriptor[];
   readonly scheduledTransitArtifacts?: readonly Kai292C4ESyntheticScheduledTransitArtifact[];
@@ -333,6 +389,7 @@ export interface Kai292C4EReport {
   }[];
   readonly corridorReadinessBlockers: readonly Kai292C4EBlocker[];
   readonly c4dBlockers: readonly Kai292C4EC4DBlocker[];
+  readonly runtimeProof: Kai292C4ERuntimeProofEvidence;
   readonly blockers: readonly Kai292C4EBlocker[];
   readonly c4a: {
     readonly corridorCount: number;
@@ -348,9 +405,11 @@ export interface Kai292C4EReport {
     readonly geographicAnchorPromotion: false;
   };
   readonly c4d: {
-    readonly status: "blocked";
+    readonly status: "blocked" | "controlled_runtime_proof_verified";
     readonly reason:
-      "c4e_prerequisites_not_satisfied" | "runtime_evidence_absent";
+      | "c4e_prerequisites_not_satisfied"
+      | "runtime_evidence_absent"
+      | "controlled_runtime_proof_only";
     readonly blockers: readonly Kai292C4EC4DBlocker[];
   };
 }
@@ -1343,7 +1402,244 @@ function buildCorridorReadinessBlockers(
   return blockers;
 }
 
-function buildC4DBlockers(): readonly Kai292C4EC4DBlocker[] {
+function emptyRuntimeProof(
+  status: "absent" | "invalid",
+  reason: string | null,
+): Kai292C4ERuntimeProofEvidence {
+  return {
+    status,
+    source: KAI_292C4H_RUNTIME_PROOF_PATH,
+    reason,
+    corridor: null,
+    temporal: null,
+    journey: null,
+    c4b: null,
+    c4c: null,
+  };
+}
+
+function runtimeProofEvidence(
+  rootDir: string,
+  providedProof?: unknown,
+): Kai292C4ERuntimeProofEvidence {
+  let raw: unknown = providedProof;
+  if (raw === undefined) {
+    if (!existsSync(resolve(rootDir, KAI_292C4H_RUNTIME_PROOF_PATH))) {
+      return emptyRuntimeProof(
+        "absent",
+        "committed_runtime_proof_artifact_missing",
+      );
+    }
+    try {
+      raw = readJson(rootDir, KAI_292C4H_RUNTIME_PROOF_PATH);
+    } catch (error: unknown) {
+      return emptyRuntimeProof(
+        "invalid",
+        `runtime_proof_read_failed:${String(error)}`,
+      );
+    }
+  }
+  if (!isRecord(raw)) {
+    return emptyRuntimeProof("invalid", "runtime_proof_not_an_object");
+  }
+  try {
+    const corridor = requireRecord(raw.corridor, "runtimeProof.corridor");
+    const temporal = requireRecord(raw.temporal, "runtimeProof.temporal");
+    const journey = requireRecord(raw.journey, "runtimeProof.journey");
+    const c4b = requireRecord(raw.c4b, "runtimeProof.c4b");
+    const c4c = requireRecord(raw.c4c, "runtimeProof.c4c");
+    const safety = requireRecord(raw.safety, "runtimeProof.safety");
+    const safeInteger = (value: unknown, label: string): number => {
+      if (!Number.isSafeInteger(value)) {
+        throw new Error(`${label} must be a safe integer`);
+      }
+      return value as number;
+    };
+    if (
+      corridor.direction !== "outbound" ||
+      temporal.source !== "controlled_internal_test_fixture" ||
+      temporal.timeZone !== "Asia/Tokyo" ||
+      journey.kind !== "journey" ||
+      journey.selected !== "direct" ||
+      journey.legCount !== 1 ||
+      journey.transferCount !== 0 ||
+      journey.journeySource !== "gtfs_scheduled_timetable" ||
+      c4b.kind !== "scheduled_journey" ||
+      c4b.evidence !== "verified" ||
+      c4b.transferCount !== 0 ||
+      c4c.kind !== "verified_scheduled_journey" ||
+      c4c.source !== "scheduled" ||
+      c4c.selected !== "direct"
+    ) {
+      return emptyRuntimeProof(
+        "invalid",
+        "runtime_proof_literal_contract_mismatch",
+      );
+    }
+    const corridorSummary = {
+      originProductId: requireString(
+        corridor.originProductId,
+        "runtimeProof.corridor.originProductId",
+      ),
+      destinationProductId: requireString(
+        corridor.destinationProductId,
+        "runtimeProof.corridor.destinationProductId",
+      ),
+      direction: "outbound" as const,
+      datasetKey: requireString(
+        corridor.datasetKey,
+        "runtimeProof.corridor.datasetKey",
+      ),
+      datasetId: requireString(
+        corridor.datasetId,
+        "runtimeProof.corridor.datasetId",
+      ),
+    };
+    const temporalSummary = {
+      source: "controlled_internal_test_fixture" as const,
+      serviceDate: requireString(
+        temporal.serviceDate,
+        "runtimeProof.temporal.serviceDate",
+      ),
+      earliestDepartureTime: requireString(
+        temporal.earliestDepartureTime,
+        "runtimeProof.temporal.earliestDepartureTime",
+      ),
+      earliestDepartureServiceSeconds: safeInteger(
+        temporal.earliestDepartureServiceSeconds,
+        "runtimeProof.temporal.earliestDepartureServiceSeconds",
+      ),
+    };
+    const journeySummary = {
+      selected: "direct" as const,
+      transferCount: 0 as const,
+      serviceId: requireString(
+        journey.serviceId,
+        "runtimeProof.journey.serviceId",
+      ),
+      providerServiceId: requireString(
+        journey.providerServiceId,
+        "runtimeProof.journey.providerServiceId",
+      ),
+      routeId: requireString(journey.routeId, "runtimeProof.journey.routeId"),
+      providerRouteId: requireString(
+        journey.providerRouteId,
+        "runtimeProof.journey.providerRouteId",
+      ),
+      providerOperatorId: requireString(
+        journey.providerOperatorId,
+        "runtimeProof.journey.providerOperatorId",
+      ),
+      originStopId: requireString(
+        journey.originStopId,
+        "runtimeProof.journey.originStopId",
+      ),
+      destinationStopId: requireString(
+        journey.destinationStopId,
+        "runtimeProof.journey.destinationStopId",
+      ),
+      actualDepartureServiceSeconds: safeInteger(
+        journey.actualDepartureServiceSeconds,
+        "runtimeProof.journey.actualDepartureServiceSeconds",
+      ),
+      actualArrivalServiceSeconds: safeInteger(
+        journey.actualArrivalServiceSeconds,
+        "runtimeProof.journey.actualArrivalServiceSeconds",
+      ),
+      durationSeconds: safeInteger(
+        journey.durationSeconds,
+        "runtimeProof.journey.durationSeconds",
+      ),
+    };
+    const c4bSummary = {
+      kind: "scheduled_journey" as const,
+      evidence: "verified" as const,
+      transferCount: 0 as const,
+      durationSeconds: safeInteger(
+        c4b.durationSeconds,
+        "runtimeProof.c4b.durationSeconds",
+      ),
+    };
+    const c4cSummary = {
+      kind: "verified_scheduled_journey" as const,
+      source: "scheduled" as const,
+      selected: "direct" as const,
+    };
+    const valid =
+      raw.schemaVersion === KAI_292C4H_RUNTIME_PROOF_SCHEMA_VERSION &&
+      raw.status === "verified_controlled_runtime" &&
+      raw.generatedBy === "scripts/transit/audit-kai-292c4h-runtime-proof.ts" &&
+      corridorSummary.originProductId === KAI_292C4H_ORIGIN_PRODUCT_ID &&
+      corridorSummary.destinationProductId ===
+        KAI_292C4H_DESTINATION_PRODUCT_ID &&
+      corridorSummary.direction === "outbound" &&
+      corridorSummary.datasetKey === KAI_292C4H_DATASET_KEY &&
+      corridorSummary.datasetId === KAI_292C4H_DATASET_KEY &&
+      corridor.provider === "gtfs" &&
+      corridor.identityNamespace === "toei-gtfs" &&
+      temporalSummary.source === "controlled_internal_test_fixture" &&
+      temporal.evidenceId === KAI_292C4H_EVIDENCE_ID &&
+      temporalSummary.serviceDate === KAI_292C4H_SERVICE_DATE &&
+      temporalSummary.earliestDepartureTime ===
+        KAI_292C4H_EARLIEST_DEPARTURE_TIME &&
+      temporalSummary.earliestDepartureServiceSeconds === 18_000 &&
+      temporal.timeZone === "Asia/Tokyo" &&
+      journey.kind === "journey" &&
+      journeySummary.selected === "direct" &&
+      journey.legCount === 1 &&
+      journeySummary.transferCount === 0 &&
+      journey.journeySource === "gtfs_scheduled_timetable" &&
+      journeySummary.actualArrivalServiceSeconds >
+        journeySummary.actualDepartureServiceSeconds &&
+      journeySummary.durationSeconds ===
+        journeySummary.actualArrivalServiceSeconds -
+          journeySummary.actualDepartureServiceSeconds &&
+      c4bSummary.kind === "scheduled_journey" &&
+      c4bSummary.evidence === "verified" &&
+      c4bSummary.transferCount === 0 &&
+      c4bSummary.durationSeconds === journeySummary.durationSeconds &&
+      c4cSummary.kind === "verified_scheduled_journey" &&
+      c4cSummary.source === "scheduled" &&
+      c4cSummary.selected === "direct" &&
+      safety.productionBoundary === true &&
+      safety.mockedJourney === false &&
+      safety.syntheticTransitGraph === false &&
+      safety.sakataSubstitute === false &&
+      safety.returnTimeInvented === false;
+    if (!valid) {
+      return emptyRuntimeProof("invalid", "runtime_proof_contract_mismatch");
+    }
+    return {
+      status: "verified_controlled_runtime",
+      source: KAI_292C4H_RUNTIME_PROOF_PATH,
+      reason: null,
+      corridor: corridorSummary,
+      temporal: temporalSummary,
+      journey: journeySummary,
+      c4b: c4bSummary,
+      c4c: c4cSummary,
+    };
+  } catch (error: unknown) {
+    return emptyRuntimeProof(
+      "invalid",
+      `runtime_proof_invalid:${String(error)}`,
+    );
+  }
+}
+
+function buildC4DBlockers(
+  runtimeProof: Kai292C4ERuntimeProofEvidence,
+): readonly Kai292C4EC4DBlocker[] {
+  if (runtimeProof.status === "verified_controlled_runtime") {
+    return [
+      {
+        code: "no_authoritative_service_date_or_departure_time",
+        statement:
+          "A controlled runtime Journey is verified for one corridor, but general product flows still do not supply authoritative scheduled service date and departure time inputs.",
+        evidence: [C3_PATH, KAI_292C4H_RUNTIME_PROOF_PATH],
+      },
+    ];
+  }
   return [
     {
       code: "no_authoritative_service_date_or_departure_time",
@@ -1515,10 +1811,14 @@ export function buildKai292C4EPrerequisiteAudit(
     gates,
     c2State,
   );
-  const c4dBlockers = buildC4DBlockers();
+  const runtimeProof = runtimeProofEvidence(rootDir, options.runtimeProof);
+  const c4dBlockers = buildC4DBlockers(runtimeProof);
   const status = gates.every(({ satisfied }) => satisfied)
     ? "prerequisites_satisfied"
     : "blocked_prerequisite";
+  const controlledRuntimeProofVerified =
+    status === "prerequisites_satisfied" &&
+    runtimeProof.status === "verified_controlled_runtime";
 
   return {
     schemaVersion: KAI_292C4E_AUDIT_SCHEMA_VERSION,
@@ -1624,6 +1924,7 @@ export function buildKai292C4EPrerequisiteAudit(
     gates,
     corridorReadinessBlockers,
     c4dBlockers,
+    runtimeProof,
     blockers: corridorReadinessBlockers,
     c4a: {
       corridorCount: c4a.realCorridors.length,
@@ -1639,9 +1940,12 @@ export function buildKai292C4EPrerequisiteAudit(
       geographicAnchorPromotion: false,
     },
     c4d: {
-      status: "blocked",
-      reason:
-        status === "blocked_prerequisite"
+      status: controlledRuntimeProofVerified
+        ? "controlled_runtime_proof_verified"
+        : "blocked",
+      reason: controlledRuntimeProofVerified
+        ? "controlled_runtime_proof_only"
+        : status === "blocked_prerequisite"
           ? "c4e_prerequisites_not_satisfied"
           : "runtime_evidence_absent",
       blockers: c4dBlockers,

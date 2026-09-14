@@ -15,6 +15,10 @@ import type {
   TransitCoverageReport,
 } from "./transitGraphTypes";
 
+export type SelectedScheduledJourneyEvidence =
+  | directRouter.ScheduledJourneyEvidence
+  | oneTransferRouter.OneTransferScheduledJourneyEvidence;
+
 export interface RouteBestScheduledJourneyInput {
   readonly graph: NormalizedTransitGraph;
   readonly coverage: TransitCoverageReport;
@@ -49,6 +53,7 @@ export interface ScheduledJourneyCompositionDiagnostics {
 
 export interface ScheduledJourneyCompositionEvidence extends ScheduledJourneyCompositionDiagnostics {
   readonly selected: ScheduledJourneyCompositionStrategy;
+  readonly selectedJourneyEvidence?: SelectedScheduledJourneyEvidence;
   readonly selectionReason: ScheduledJourneyCompositionSelectionReason;
   readonly transferCount: 0 | 1;
   readonly initialDepartureServiceSeconds: number;
@@ -85,6 +90,7 @@ type VerifiedCandidate = {
   readonly selected: ScheduledJourneyCompositionStrategy;
   readonly transferCount: 0 | 1;
   readonly journey: Journey;
+  readonly evidence: SelectedScheduledJourneyEvidence;
   readonly initialDepartureServiceSeconds: number;
   readonly finalArrivalServiceSeconds: number;
 };
@@ -171,6 +177,7 @@ function directCandidate(result: DirectResult): VerifiedCandidate | undefined {
     selected: "direct",
     transferCount: 0,
     journey: result.journey,
+    evidence: result.evidence,
     initialDepartureServiceSeconds:
       result.evidence.scheduledDepartureServiceSeconds,
     finalArrivalServiceSeconds: result.evidence.scheduledArrivalServiceSeconds,
@@ -185,6 +192,7 @@ function oneTransferCandidate(
     selected: "one_transfer",
     transferCount: 1,
     journey: result.journey,
+    evidence: result.evidence,
     initialDepartureServiceSeconds:
       result.evidence.firstLeg.scheduledDepartureServiceSeconds,
     finalArrivalServiceSeconds:
@@ -240,6 +248,7 @@ export function routeBestScheduledJourney(
   const evidence: ScheduledJourneyCompositionEvidence = {
     ...baseDiagnostics,
     selected: selected.selected,
+    selectedJourneyEvidence: selected.evidence,
     selectionReason: selectionReason(selected, candidates),
     transferCount: selected.transferCount,
     initialDepartureServiceSeconds: selected.initialDepartureServiceSeconds,

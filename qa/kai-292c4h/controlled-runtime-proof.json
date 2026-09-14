@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "kai-292c4h-v1",
+  "status": "verified_controlled_runtime",
+  "generatedBy": "scripts/transit/audit-kai-292c4h-runtime-proof.ts",
+  "corridor": {
+    "originProductId": "toei-oedo-shinjuku-nishiguchi",
+    "destinationProductId": "hamarikyu-gardens",
+    "direction": "outbound",
+    "datasetKey": "toei-oedo-gtfs-20260314",
+    "datasetId": "toei-oedo-gtfs-20260314",
+    "provider": "gtfs",
+    "identityNamespace": "toei-gtfs"
+  },
+  "temporal": {
+    "source": "controlled_internal_test_fixture",
+    "evidenceId": "kai-292c4h-toei-oedo-controlled-runtime",
+    "serviceDate": "2026-09-15",
+    "earliestDepartureTime": "05:00:00",
+    "earliestDepartureServiceSeconds": 18000,
+    "timeZone": "Asia/Tokyo"
+  },
+  "journey": {
+    "kind": "journey",
+    "selected": "direct",
+    "legCount": 1,
+    "transferCount": 0,
+    "serviceId": "gtfs:scheduled_service:toei-gtfs:400501B0",
+    "providerServiceId": "400501B0",
+    "routeId": "gtfs:route:toei-gtfs:4",
+    "providerRouteId": "4",
+    "routeName": "大江戸線",
+    "operatorId": "gtfs:operator:toei-gtfs:toei",
+    "providerOperatorId": "toei",
+    "originStopId": "gtfs:stop:toei-gtfs:402",
+    "originProviderStopId": "402",
+    "destinationStopId": "gtfs:stop:toei-gtfs:420",
+    "destinationProviderStopId": "420",
+    "actualDepartureServiceSeconds": 18540,
+    "actualArrivalServiceSeconds": 20820,
+    "durationSeconds": 2280,
+    "durationMinutes": 38,
+    "checkedAt": "2026-09-14T09:00:39.429Z",
+    "journeySource": "gtfs_scheduled_timetable"
+  },
+  "c4b": {
+    "kind": "scheduled_journey",
+    "evidence": "verified",
+    "transferCount": 0,
+    "serviceDate": "2026-09-15",
+    "departureServiceSeconds": 18540,
+    "arrivalServiceSeconds": 20820,
+    "durationSeconds": 2280,
+    "durationMinutes": [38, 38]
+  },
+  "c4c": {
+    "kind": "verified_scheduled_journey",
+    "source": "scheduled",
+    "selected": "direct",
+    "datasetId": "toei-oedo-gtfs-20260314",
+    "contentHash": "2738fd823013ab7b02f90430024314d32f3cd7d035ef8b98ad764d62d94a683b"
+  },
+  "safety": {
+    "productionBoundary": true,
+    "mockedJourney": false,
+    "syntheticTransitGraph": false,
+    "sakataSubstitute": false,
+    "returnTimeInvented": false
+  }
+}

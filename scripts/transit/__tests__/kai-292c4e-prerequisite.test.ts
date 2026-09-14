@@ -1006,19 +1006,42 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
     expect(
       report.corridorReadinessBlockers.map(({ code }) => code),
     ).not.toContain("no_authoritative_service_date_or_departure_time");
+    expect(report.runtimeProof).toMatchObject({
+      status: "verified_controlled_runtime",
+      corridor: {
+        originProductId: "toei-oedo-shinjuku-nishiguchi",
+        destinationProductId: "hamarikyu-gardens",
+      },
+      journey: {
+        selected: "direct",
+        transferCount: 0,
+      },
+      c4b: { kind: "scheduled_journey", evidence: "verified" },
+      c4c: { kind: "verified_scheduled_journey" },
+    });
     expect(report.c4dBlockers.map(({ code }) => code)).toEqual([
       "no_authoritative_service_date_or_departure_time",
-      "runtime_journey_verification_not_evaluated",
     ]);
     expect(report.c4d).toMatchObject({
-      status: "blocked",
-      reason: "runtime_evidence_absent",
+      status: "controlled_runtime_proof_verified",
+      reason: "controlled_runtime_proof_only",
     });
     expect(report.gates.every(({ satisfied }) => !satisfied)).toBe(false);
     expect(
       report.gates.find(({ gate }) => gate === "real_catalogue_destination"),
     ).toMatchObject({
       satisfied: true,
+    });
+
+    const invalidProofReport = buildKai292C4EPrerequisiteAudit(ROOT, {
+      runtimeProof: null,
+    });
+    expect(invalidProofReport.runtimeProof).toMatchObject({
+      status: "invalid",
+    });
+    expect(invalidProofReport.c4d).toMatchObject({
+      status: "blocked",
+      reason: "runtime_evidence_absent",
     });
   });
 });
