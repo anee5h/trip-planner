@@ -1,6 +1,6 @@
 {
   "schemaVersion": "kai-292c4e-v1",
-  "status": "blocked_prerequisite",
+  "status": "prerequisites_satisfied",
   "generatedBy": "scripts/transit/audit-kai-292c4e-prerequisite.ts",
   "scope": {
     "ticket": "KAI-292C4E",
@@ -70,7 +70,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -138,7 +137,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -206,7 +204,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "exact_identity_bound_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -274,7 +271,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -342,7 +338,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -410,7 +405,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -478,7 +472,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -487,7 +480,17 @@
       "scheduledSupport": "blocked"
     }
   ],
-  "exactEndpointIdentityPairs": [],
+  "exactEndpointIdentityPairs": [
+    {
+      "originProductId": "toei-oedo-shinjuku-nishiguchi",
+      "destinationProductId": "hamarikyu-gardens",
+      "originMappingId": "kai-292c4g-origin-toei-oedo-shinjuku-nishiguchi",
+      "destinationMappingId": "kai-292c4g-destination-hamarikyu-gardens-shiodome",
+      "datasetId": "toei-oedo-gtfs-20260314",
+      "provider": "gtfs",
+      "identityNamespace": "toei-gtfs"
+    }
+  ],
   "ranking": [
     {
       "rank": 1,
@@ -646,10 +649,10 @@
     "crosswalkSource": "src/shared/data/scheduled-transit-endpoint-crosswalk.json"
   },
   "origin": {
-    "status": "missing_canonical_product_identity",
-    "source": "qa/kai-292c4a/real-corridor-identity-evidence.json",
-    "reviewedProductIds": [],
-    "exactProductOriginOptions": [],
+    "status": "available",
+    "source": "qa/kai-292c4g/toei-oedo-shinjuku-nishiguchi-origin-evidence.json",
+    "reviewedProductIds": ["toei-oedo-shinjuku-nishiguchi"],
+    "exactProductOriginOptions": ["toei-oedo-shinjuku-nishiguchi"],
     "freeTextLabelAndCoordinates": "insufficient",
     "rejectedOptions": [
       {
@@ -678,13 +681,13 @@
         "reason": "Old ODPT Journey code is not a trusted C2 dataset and must not bypass the C2 boundary."
       }
     ],
-    "missingPrerequisite": "reviewed_stable_product_origin_identity"
+    "missingPrerequisite": null
   },
   "gates": [
     {
       "gate": "real_meguruto_origin",
-      "satisfied": false,
-      "statement": "A reviewed stable product origin identity is required; none is currently present."
+      "satisfied": true,
+      "statement": "A reviewed stable product origin identity is available for exact crosswalk evaluation."
     },
     {
       "gate": "real_catalogue_destination",
@@ -693,13 +696,13 @@
     },
     {
       "gate": "explicit_reviewed_station_destination_access",
-      "satisfied": false,
-      "statement": "No requested anchor has access evidence bound to its exact ODPT station identity."
+      "satisfied": true,
+      "statement": "C4A has at least one exact reviewed station-to-destination access binding for a real product corridor."
     },
     {
       "gate": "exact_transit_identities",
-      "satisfied": false,
-      "statement": "No compatible reviewed-origin and catalogue-destination exact endpoint pair exists in a registered dataset scope."
+      "satisfied": true,
+      "statement": "At least one reviewed origin and catalogue destination have compatible exact endpoint mappings in the same registered dataset scope."
     },
     {
       "gate": "production_loadable_scheduled_dataset",
@@ -708,44 +711,11 @@
     },
     {
       "gate": "direct_or_one_transfer_structural_support",
-      "satisfied": false,
-      "statement": "C4A has zero real product corridors and no supported direct/one-transfer pair to evaluate."
+      "satisfied": true,
+      "statement": "C4A has at least one real product corridor with direct or one-transfer structural support."
     }
   ],
-  "corridorReadinessBlockers": [
-    {
-      "code": "missing_canonical_product_origin_identity",
-      "statement": "The current origin evidence contains no reviewed stable Meguruto product identity; free-text origin labels and coordinates are not a canonical transit endpoint.",
-      "evidence": [
-        "qa/kai-292c4a/real-corridor-identity-evidence.json",
-        "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "missing_catalogue_destination_crosswalk",
-      "statement": "No exact scheduled-transit crosswalk maps a current catalogue destination ID; the two existing mappings are non-product Sakata pilot IDs.",
-      "evidence": [
-        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
-        "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "station_to_destination_access_not_exactly_bound",
-      "statement": "KAI-291A geographic uniqueness is not station-to-destination access evidence. Ueno has a reviewed station-label walking statement without exact ODPT binding; the other six current catalogue records do not provide usable access evidence.",
-      "evidence": [
-        "qa/kai-291/destination-station-anchors.json",
-        "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "missing_direct_or_one_transfer_scheduled_support",
-      "statement": "No real product origin plus catalogue destination pair reaches the C2 direct/one-transfer structural support gate; the only currently loadable scheduled dataset is the non-product Sakata pilot.",
-      "evidence": [
-        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
-        "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts"
-      ]
-    }
-  ],
+  "corridorReadinessBlockers": [],
   "c4dBlockers": [
     {
       "code": "no_authoritative_service_date_or_departure_time",
@@ -758,47 +728,11 @@
       "evidence": ["docs/kai-292c3-scheduled-routing-temporal-contract.md"]
     }
   ],
-  "blockers": [
-    {
-      "code": "missing_canonical_product_origin_identity",
-      "statement": "The current origin evidence contains no reviewed stable Meguruto product identity; free-text origin labels and coordinates are not a canonical transit endpoint.",
-      "evidence": [
-        "qa/kai-292c4a/real-corridor-identity-evidence.json",
-        "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "missing_catalogue_destination_crosswalk",
-      "statement": "No exact scheduled-transit crosswalk maps a current catalogue destination ID; the two existing mappings are non-product Sakata pilot IDs.",
-      "evidence": [
-        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
-        "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "station_to_destination_access_not_exactly_bound",
-      "statement": "KAI-291A geographic uniqueness is not station-to-destination access evidence. Ueno has a reviewed station-label walking statement without exact ODPT binding; the other six current catalogue records do not provide usable access evidence.",
-      "evidence": [
-        "qa/kai-291/destination-station-anchors.json",
-        "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "missing_direct_or_one_transfer_scheduled_support",
-      "statement": "No real product origin plus catalogue destination pair reaches the C2 direct/one-transfer structural support gate; the only currently loadable scheduled dataset is the non-product Sakata pilot.",
-      "evidence": [
-        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
-        "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts"
-      ]
-    }
-  ],
+  "blockers": [],
   "c4a": {
-    "corridorCount": 0,
-    "status": "blocked_no_real_catalogue_corridor",
-    "inheritedBlockers": [
-      "missing_catalogue_destination_crosswalk",
-      "missing_canonical_origin_identity"
-    ],
+    "corridorCount": 1,
+    "status": "real_corridor_evidenced",
+    "inheritedBlockers": [],
     "crosswalkChanged": false
   },
   "promotedAnchorCount": 0,
@@ -810,7 +744,7 @@
   },
   "c4d": {
     "status": "blocked",
-    "reason": "c4e_prerequisites_not_satisfied",
+    "reason": "runtime_evidence_absent",
     "blockers": [
       {
         "code": "no_authoritative_service_date_or_departure_time",

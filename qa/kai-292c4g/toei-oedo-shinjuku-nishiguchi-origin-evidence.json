@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "originIdentities": [
+    {
+      "identityKind": "product",
+      "identityStability": "stable_product_id",
+      "reviewStatus": "reviewed",
+      "productId": "toei-oedo-shinjuku-nishiguchi",
+      "stationId": "gtfs:stop:toei-gtfs:402",
+      "provider": "gtfs",
+      "identityNamespace": "toei-gtfs",
+      "datasetId": "toei-oedo-gtfs-20260314",
+      "providerStopId": "402",
+      "stationName": "新宿西口",
+      "stationCode": "E-01",
+      "evidenceId": "kai-292c4g-origin-toei-oedo-shinjuku-nishiguchi",
+      "normalizedStopId": "gtfs:stop:toei-gtfs:402",
+      "statement": "This is an explicit product-selected origin: the pinned official Toei GTFS stops.txt row has stop_id=402, stop_code=E-01, and stop_name=新宿西口; the normalized artifact preserves the exact stop as gtfs:stop:toei-gtfs:402. No name, coordinate, nearest-station, fuzzy, or current-user inference is used.",
+      "sourceUrl": "https://api-public.odpt.org/api/v4/files/Toei/data/Toei-Train-GTFS.zip",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+}

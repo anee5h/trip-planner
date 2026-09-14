@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "kai-292c4g-station-access-evidence",
+  "evidence": [
+    {
+      "evidenceId": "kai-292c4g-destination-hamarikyu-gardens-shiodome",
+      "destinationId": "hamarikyu-gardens",
+      "reviewStatus": "reviewed",
+      "bindingStatus": "bound_to_exact_provider_station_identity",
+      "bindingMethod": "exact_gtfs_stop_code_and_route_scope",
+      "station": {
+        "name": "Shiodome",
+        "line": "Toei Oedo Line",
+        "operator": "Tokyo Metropolitan Bureau of Transportation (Toei)",
+        "stationCode": "E-19"
+      },
+      "dataset": {
+        "datasetId": "toei-oedo-gtfs-20260314",
+        "provider": "gtfs",
+        "identityNamespace": "toei-gtfs",
+        "providerStopId": "420",
+        "normalizedStopId": "gtfs:stop:toei-gtfs:420"
+      },
+      "accessSource": {
+        "sourceUrl": "https://www.tokyo-park.or.jp/teien/en/hama-rikyu/access.html",
+        "statement": "The official Hama-rikyu Gardens access page states: Toei O-edo Line Shiodome Sta. E-19, Tsukiji-shijo Sta. E-18 or Yurikamome Shiodome Sta. (7 minutes on foot)."
+      },
+      "identityEquivalence": {
+        "reasoning": "The official destination source names Shiodome on the Toei Oedo Line and gives station code E-19. The pinned official Toei GTFS stops.txt row has stop_id=420, stop_code=E-19, and stop_name=汐留; route_id=4 is the declared Toei Oedo Line scope. The normalized artifact preserves that exact source stop as gtfs:stop:toei-gtfs:420. The binding therefore uses exact provider stop code and declared route scope, not geographic proximity, display-name joining, coordinates, nearest-station inference, or fuzzy matching."
+      },
+      "checkedAt": "2026-09-14"
+    }
+  ]
+}

@@ -49,7 +49,9 @@ const CATALOGUE_RELATIVE_PATH = "src/shared/data/destinations-index.json";
 const CROSSWALK_RELATIVE_PATH =
   "src/shared/data/scheduled-transit-endpoint-crosswalk.json";
 const IDENTITY_EVIDENCE_RELATIVE_PATH =
-  "qa/kai-292c4a/real-corridor-identity-evidence.json";
+  "qa/kai-292c4g/toei-oedo-shinjuku-nishiguchi-origin-evidence.json";
+const STATION_ACCESS_EVIDENCE_RELATIVE_PATH =
+  "qa/kai-292c4g/hamarikyu-gardens-shiodome-access-evidence.json";
 const REVIEWED_ANCHORS_RELATIVE_PATH =
   "qa/kai-291/destination-station-anchors.json";
 const TRANSIT_ASSET_RELATIVE_PATH = "public/data/transit";
@@ -67,6 +69,9 @@ export type RealCorridorCandidateBlockerCode =
   | "dataset_scope_mismatch"
   | "invalid_registered_dataset"
   | "graph_stop_provenance_invalid"
+  | "invalid_origin_identity_evidence"
+  | "missing_station_destination_access_evidence"
+  | "invalid_station_destination_access_evidence"
   | "missing_scheduled_timetable";
 
 export type ScheduledRoutingCoverageBlockReason =
@@ -123,6 +128,7 @@ export interface RealCorridorCandidateBlocker {
 }
 
 export interface RealCorridor {
+  readonly selection: "preferred";
   readonly origin: {
     readonly productId: string;
     readonly mappingId: string;
@@ -174,6 +180,12 @@ export interface RealCorridorAudit {
     readonly catalogueProductMappings: readonly string[];
     readonly nonCatalogueMappingIds: readonly string[];
   };
+  readonly stationAccessEvidence: {
+    readonly source: string;
+    readonly status: "reviewed_exact_binding" | "unavailable";
+    readonly reviewedDestinationIds: readonly string[];
+    readonly evidenceIds: readonly string[];
+  };
   readonly originIdentity: {
     readonly source: string;
     readonly status:
@@ -218,6 +230,12 @@ interface CatalogueRecord {
 interface ProductOriginIdentity {
   readonly productId: string;
   readonly evidenceId: string;
+  readonly datasetId: string;
+  readonly provider: TransitProvider;
+  readonly identityNamespace: string;
+  readonly providerStopId: string;
+  readonly normalizedStopId: string;
+  readonly stationCode: string;
   readonly statement: string;
   readonly sourceUrl: string;
   readonly checkedAt: string;
@@ -233,6 +251,27 @@ interface ReviewedAnchor {
   readonly destinationId: string;
   readonly stationIdentity: string;
   readonly operator: string;
+}
+
+interface StationAccessEvidence {
+  readonly evidenceId: string;
+  readonly destinationId: string;
+  readonly reviewStatus: "reviewed";
+  readonly bindingStatus: "bound_to_exact_provider_station_identity";
+  readonly bindingMethod: string;
+  readonly stationName: string;
+  readonly line: string;
+  readonly operator: string;
+  readonly stationCode: string;
+  readonly datasetId: string;
+  readonly provider: TransitProvider;
+  readonly identityNamespace: string;
+  readonly providerStopId: string;
+  readonly normalizedStopId: string;
+  readonly accessSourceUrl: string;
+  readonly accessStatement: string;
+  readonly identityEquivalence: string;
+  readonly checkedAt: string;
 }
 
 interface CrosswalkFile {
@@ -345,6 +384,12 @@ function readIdentityEvidence(rootDir: string): IdentityEvidenceFile {
       !nonEmptyString(candidate.productId) ||
       candidate.productId.startsWith("kai-292c2-pilot-") ||
       !nonEmptyString(candidate.evidenceId) ||
+      !nonEmptyString(candidate.datasetId) ||
+      !validProvider(candidate.provider) ||
+      !nonEmptyString(candidate.identityNamespace) ||
+      !nonEmptyString(candidate.providerStopId) ||
+      !nonEmptyString(candidate.normalizedStopId) ||
+      !nonEmptyString(candidate.stationCode) ||
       !nonEmptyString(candidate.statement) ||
       !nonEmptyString(candidate.sourceUrl) ||
       !nonEmptyString(candidate.checkedAt)
@@ -360,6 +405,12 @@ function readIdentityEvidence(rootDir: string): IdentityEvidenceFile {
     identities.push({
       productId: candidate.productId,
       evidenceId: candidate.evidenceId,
+      datasetId: candidate.datasetId,
+      provider: candidate.provider,
+      identityNamespace: candidate.identityNamespace,
+      providerStopId: candidate.providerStopId,
+      normalizedStopId: candidate.normalizedStopId,
+      stationCode: candidate.stationCode,
       statement: candidate.statement,
       sourceUrl: candidate.sourceUrl,
       checkedAt: candidate.checkedAt,
@@ -370,6 +421,77 @@ function readIdentityEvidence(rootDir: string): IdentityEvidenceFile {
     originIdentities: identities,
     invalidEvidenceCount,
   };
+}
+
+function readStationAccessEvidence(
+  rootDir: string,
+): readonly StationAccessEvidence[] {
+  const path = resolve(rootDir, STATION_ACCESS_EVIDENCE_RELATIVE_PATH);
+  if (!existsSync(path)) return [];
+  const value = readJson(rootDir, STATION_ACCESS_EVIDENCE_RELATIVE_PATH);
+  if (
+    !isRecord(value) ||
+    value.schemaVersion !== 1 ||
+    !Array.isArray(value.evidence)
+  ) {
+    throw new Error("station access evidence has an unsupported schema");
+  }
+  const seenDestinationIds = new Set<string>();
+  return value.evidence.map((candidate, index) => {
+    if (
+      !isRecord(candidate) ||
+      !isRecord(candidate.station) ||
+      !isRecord(candidate.dataset) ||
+      !isRecord(candidate.accessSource) ||
+      !isRecord(candidate.identityEquivalence) ||
+      candidate.reviewStatus !== "reviewed" ||
+      candidate.bindingStatus !== "bound_to_exact_provider_station_identity" ||
+      !nonEmptyString(candidate.evidenceId) ||
+      !nonEmptyString(candidate.destinationId) ||
+      !nonEmptyString(candidate.bindingMethod) ||
+      !nonEmptyString(candidate.station.name) ||
+      !nonEmptyString(candidate.station.line) ||
+      !nonEmptyString(candidate.station.operator) ||
+      !nonEmptyString(candidate.station.stationCode) ||
+      !nonEmptyString(candidate.dataset.datasetId) ||
+      !validProvider(candidate.dataset.provider) ||
+      !nonEmptyString(candidate.dataset.identityNamespace) ||
+      !nonEmptyString(candidate.dataset.providerStopId) ||
+      !nonEmptyString(candidate.dataset.normalizedStopId) ||
+      !nonEmptyString(candidate.accessSource.sourceUrl) ||
+      !nonEmptyString(candidate.accessSource.statement) ||
+      !nonEmptyString(candidate.identityEquivalence.reasoning) ||
+      !nonEmptyString(candidate.checkedAt)
+    ) {
+      throw new Error(`station access evidence ${index} is invalid`);
+    }
+    if (seenDestinationIds.has(candidate.destinationId)) {
+      throw new Error(
+        `station access evidence duplicates destination ${candidate.destinationId}`,
+      );
+    }
+    seenDestinationIds.add(candidate.destinationId);
+    return {
+      evidenceId: candidate.evidenceId,
+      destinationId: candidate.destinationId,
+      reviewStatus: "reviewed",
+      bindingStatus: "bound_to_exact_provider_station_identity",
+      bindingMethod: candidate.bindingMethod,
+      stationName: candidate.station.name,
+      line: candidate.station.line,
+      operator: candidate.station.operator,
+      stationCode: candidate.station.stationCode,
+      datasetId: candidate.dataset.datasetId,
+      provider: candidate.dataset.provider,
+      identityNamespace: candidate.dataset.identityNamespace,
+      providerStopId: candidate.dataset.providerStopId,
+      normalizedStopId: candidate.dataset.normalizedStopId,
+      accessSourceUrl: candidate.accessSource.sourceUrl,
+      accessStatement: candidate.accessSource.statement,
+      identityEquivalence: candidate.identityEquivalence.reasoning,
+      checkedAt: candidate.checkedAt,
+    };
+  });
 }
 
 function readReviewedAnchors(rootDir: string): readonly ReviewedAnchor[] {
@@ -1040,6 +1162,7 @@ function evaluateMappedPair(input: {
   readonly originMapping: ScheduledTransitCrosswalkEntry;
   readonly destinationMapping: ScheduledTransitCrosswalkEntry;
   readonly allMappings: readonly ScheduledTransitCrosswalkEntry[];
+  readonly stationAccessEvidence: readonly StationAccessEvidence[];
   readonly datasetsByScope: ReadonlyMap<string, DatasetAudit>;
 }):
   | { readonly kind: "valid"; readonly corridor: RealCorridor }
@@ -1052,6 +1175,7 @@ function evaluateMappedPair(input: {
     originMapping,
     destinationMapping,
     allMappings,
+    stationAccessEvidence,
     datasetsByScope,
   } = input;
   const mappings = [originMapping, destinationMapping];
@@ -1123,6 +1247,65 @@ function evaluateMappedPair(input: {
       ),
     };
   }
+  if (
+    originIdentity.datasetId !== originMapping.datasetId ||
+    originIdentity.provider !== originMapping.provider ||
+    originIdentity.identityNamespace !== originMapping.identityNamespace ||
+    originIdentity.providerStopId !== originMapping.providerStopId ||
+    originIdentity.normalizedStopId !== originMapping.normalizedStopId ||
+    (originMapping.providerStationCode !== undefined &&
+      originIdentity.stationCode !== originMapping.providerStationCode)
+  ) {
+    return {
+      kind: "blocked",
+      blocker: candidateBlocker(
+        "invalid_origin_identity_evidence",
+        originIdentity.productId,
+        destinationMapping.endpoint.productId,
+        mappings,
+        "Reviewed origin identity evidence does not match the exact origin crosswalk and normalized graph stop identity.",
+      ),
+    };
+  }
+
+  const accessEvidence = stationAccessEvidence.find(
+    (candidate) =>
+      candidate.destinationId === destinationMapping.endpoint.productId,
+  );
+  if (accessEvidence === undefined) {
+    return {
+      kind: "blocked",
+      blocker: candidateBlocker(
+        "missing_station_destination_access_evidence",
+        originIdentity.productId,
+        destinationMapping.endpoint.productId,
+        mappings,
+        "The catalogue destination has no dedicated reviewed station-to-destination access evidence bound to its exact provider stop.",
+      ),
+    };
+  }
+  if (
+    accessEvidence.datasetId !== destinationMapping.datasetId ||
+    accessEvidence.provider !== destinationMapping.provider ||
+    accessEvidence.identityNamespace !== destinationMapping.identityNamespace ||
+    accessEvidence.providerStopId !== destinationMapping.providerStopId ||
+    accessEvidence.normalizedStopId !== destinationMapping.normalizedStopId ||
+    (destinationMapping.providerStationCode !== undefined &&
+      accessEvidence.stationCode !== destinationMapping.providerStationCode) ||
+    accessEvidence.providerStopId !== destination.providerStopId ||
+    accessEvidence.normalizedStopId !== destination.normalizedStopId
+  ) {
+    return {
+      kind: "blocked",
+      blocker: candidateBlocker(
+        "invalid_station_destination_access_evidence",
+        originIdentity.productId,
+        destinationMapping.endpoint.productId,
+        mappings,
+        "Station access evidence does not match the exact destination crosswalk and normalized graph stop identity.",
+      ),
+    };
+  }
 
   const scheduledRouting = assessScheduledRoutingCoverage(
     dataset,
@@ -1146,6 +1329,7 @@ function evaluateMappedPair(input: {
   return {
     kind: "valid",
     corridor: {
+      selection: "preferred",
       origin: {
         productId: originIdentity.productId,
         mappingId: origin.mappingId,
@@ -1197,6 +1381,7 @@ export function auditRealMegurutoCorridor(
   const crosswalk = readCrosswalk(rootDir);
   const mappings = crosswalk.mappings;
   const identityEvidence = readIdentityEvidence(rootDir);
+  const stationAccessEvidence = readStationAccessEvidence(rootDir);
   const reviewedAnchors = readReviewedAnchors(rootDir);
   const destinationMappings = crosswalkMappingIds(
     mappings,
@@ -1297,6 +1482,7 @@ export function auditRealMegurutoCorridor(
         originMapping,
         destinationMapping,
         allMappings: mappings,
+        stationAccessEvidence,
         datasetsByScope,
       });
       if (result.kind === "valid") realCorridors.push(result.corridor);
@@ -1364,6 +1550,19 @@ export function auditRealMegurutoCorridor(
       mappingCount: mappings.length,
       catalogueProductMappings,
       nonCatalogueMappingIds,
+    },
+    stationAccessEvidence: {
+      source: STATION_ACCESS_EVIDENCE_RELATIVE_PATH,
+      status:
+        stationAccessEvidence.length > 0
+          ? "reviewed_exact_binding"
+          : "unavailable",
+      reviewedDestinationIds: stationAccessEvidence
+        .map(({ destinationId }) => destinationId)
+        .sort(),
+      evidenceIds: stationAccessEvidence
+        .map(({ evidenceId }) => evidenceId)
+        .sort(),
     },
     originIdentity: {
       source: IDENTITY_EVIDENCE_RELATIVE_PATH,
