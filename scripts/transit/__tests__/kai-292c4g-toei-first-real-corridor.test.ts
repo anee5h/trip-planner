@@ -258,8 +258,8 @@ describe("KAI-292C4G first real Toei product corridor", () => {
     expect(report.blockers).toEqual([]);
     expect(report.c4d.blockers.map(({ code }) => code)).toEqual([
       "no_authoritative_service_date_or_departure_time",
-      "runtime_journey_verification_not_evaluated",
     ]);
+    expect(report.c4d.status).toBe("controlled_runtime_proof_verified");
   });
 
   it("keeps Sakata as non-product evidence", () => {
