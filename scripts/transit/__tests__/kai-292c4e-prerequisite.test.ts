@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildKai292C4EPrerequisiteAudit,
   KAI_292C4E_ANCHOR_IDS,
+  type Kai292C4EDatasetDescriptor,
 } from "../audit-kai-292c4e-prerequisite";
 import {
   resolveScheduledTransitEndpoint,
@@ -13,8 +14,18 @@ import {
 import {
   validateScheduledTransitDataset,
   type ScheduledTransitDataset,
+  type ScheduledTransitDatasetArtifact,
 } from "../../../src/shared/services/transport/static/scheduledTransitDataset";
-import { SAKATA_RUNRUNBUS_DATASET } from "../../../src/shared/services/transport/static/scheduledTransitDatasetRegistry";
+import {
+  SAKATA_RUNRUNBUS_DATASET,
+  SCHEDULED_TRANSIT_ARTIFACT_SCHEMA_VERSION,
+} from "../../../src/shared/services/transport/static/scheduledTransitDatasetRegistry";
+import { contentHashOf } from "../../../src/shared/services/transport/static/odptRailTopologyImporter";
+import {
+  sha256Hex,
+  stableStringify,
+} from "../../../src/shared/services/transport/static/contentHash";
+import type { TransitCoverageReport } from "../../../src/shared/services/transport/static/transitGraphTypes";
 
 const ROOT = process.cwd();
 
@@ -26,6 +37,99 @@ function readSakataDataset(): ScheduledTransitDataset {
     ),
   ) as unknown;
   return validateScheduledTransitDataset(artifact, SAKATA_RUNRUNBUS_DATASET);
+}
+
+function syntheticLoadableOdptState(
+  key: string,
+  assetUrl: string,
+): {
+  readonly descriptor: Kai292C4EDatasetDescriptor;
+  readonly artifact: ScheduledTransitDatasetArtifact;
+} {
+  const datasetId = "odpt-synthetic-scheduled-v1";
+  const schemaVersion = "kai-292c2-v1";
+  const identityNamespace = "odpt:synthetic";
+  const coverage: TransitCoverageReport = {
+    datasetId,
+    schemaVersion,
+    entries: [
+      {
+        provider: "odpt",
+        operator: "odpt.Operator:Synthetic",
+        mode: "rail",
+        topology: "imported",
+        timetable: "imported",
+        fare: "not_evaluated",
+        realtime: "not_evaluated",
+        datasetId,
+        notes: [],
+      },
+    ],
+  };
+  const datasetHash = contentHashOf({
+    operators: [],
+    stops: [],
+    routes: [],
+    routeStops: [],
+    calendars: [],
+    transfers: [],
+  });
+  const coverageHash = sha256Hex(stableStringify(coverage));
+  const artifact: ScheduledTransitDatasetArtifact = {
+    artifactSchemaVersion: SCHEDULED_TRANSIT_ARTIFACT_SCHEMA_VERSION,
+    metadata: {
+      provider: "odpt",
+      datasetId,
+      sourceType: "fixture",
+      sourceDescriptor: "in-memory synthetic ODPT audit artifact",
+      retrievedAt: "2026-09-13T00:00:00.000Z",
+      checkedAt: "2026-09-13T00:00:00.000Z",
+      issuedAt: null,
+      validUntil: null,
+      schemaVersion,
+      completeness: "fixture_subset",
+      datasetHash,
+      coverageHash,
+      identityNamespace,
+    },
+    graph: {
+      datasetVersion: {
+        provider: "odpt",
+        datasetId,
+        sourceType: "fixture",
+        sourceDescriptor: "in-memory synthetic ODPT audit artifact",
+        retrievedAt: "2026-09-13T00:00:00.000Z",
+        checkedAt: "2026-09-13T00:00:00.000Z",
+        issuedAt: null,
+        validUntil: null,
+        schemaVersion,
+        completeness: "fixture_subset",
+        contentHash: datasetHash,
+      },
+      operators: [],
+      stops: [],
+      routes: [],
+      routeStops: [],
+      calendars: [],
+      transfers: [],
+      fares: [],
+    },
+    coverage,
+  };
+  const descriptor: Kai292C4EDatasetDescriptor = {
+    key,
+    assetUrl,
+    artifactSchemaVersion: SCHEDULED_TRANSIT_ARTIFACT_SCHEMA_VERSION,
+    provider: "odpt",
+    identityNamespace,
+    datasetId,
+    schemaVersion,
+    expectedContentHash: datasetHash,
+    expectedCoverageHash: coverageHash,
+    sourceType: "fixture",
+    completeness: "fixture_subset",
+  };
+  return { descriptor, artifact };
 }
 
 describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => {
@@ -75,6 +179,14 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
         }),
       ]),
     );
+    expect(
+      report.anchors.every(
+        ({ missingPrerequisites }) =>
+          !missingPrerequisites.includes(
+            "reviewed_stable_product_origin_identity",
+          ),
+      ),
+    ).toBe(true);
   });
 
   it("derives C2 registration state from injected descriptors without trusting an unloadable ODPT artifact", () => {
@@ -115,6 +227,61 @@ describe("KAI-292C4E real scheduled-transit corridor prerequisite audit", () => 
       "no_registered_odpt_scheduled_dataset",
     );
   });
+
+  it.each([
+    {
+      key: "synthetic-loadable-odpt-a",
+      assetUrl: "/data/transit/missing-synthetic-loadable-odpt-a.json",
+    },
+    {
+      key: "synthetic-loadable-odpt-b",
+      assetUrl: "/data/transit/missing-synthetic-loadable-odpt-b.json",
+    },
+  ])(
+    "accepts a parameterized loadable in-memory ODPT descriptor/artifact state ($key)",
+    ({ key, assetUrl }) => {
+      const { descriptor, artifact } = syntheticLoadableOdptState(
+        key,
+        assetUrl,
+      );
+      const report = buildKai292C4EPrerequisiteAudit(ROOT, {
+        scheduledTransitDatasets: [descriptor],
+        scheduledTransitArtifacts: [{ key, artifact }],
+      });
+
+      expect(report.c2Boundary).toMatchObject({
+        registeredDatasetKeys: [key],
+        registeredProviders: ["odpt"],
+        reason: "registered_odpt_scheduled_dataset",
+        odptEvidenceCanEnterTrustedDataset: true,
+      });
+      expect(report.corridorReadinessBlockers).not.toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            code: "odpt_timetable_not_representable_in_trusted_c2",
+          }),
+        ]),
+      );
+      for (const anchor of report.anchors) {
+        expect(anchor.c2ScheduledTransitDataset).toMatchObject({
+          canEnterTrustedC2:
+            report.c2Boundary.odptEvidenceCanEnterTrustedDataset,
+          registeredDatasetKeys: report.c2Boundary.registeredDatasetKeys,
+          registeredProviders: report.c2Boundary.registeredProviders,
+          reason: report.c2Boundary.reason,
+        });
+        expect(anchor.missingPrerequisites).not.toContain(
+          "registered_odpt_scheduled_dataset_artifact",
+        );
+      }
+      expect(report.gates).toContainEqual(
+        expect.objectContaining({
+          gate: "production_loadable_scheduled_dataset",
+          satisfied: true,
+        }),
+      );
+    },
+  );
 
   it("distinguishes catalogue identity, reviewed station identity, access, ODPT evidence, and C2 representation", () => {
     const report = buildKai292C4EPrerequisiteAudit(ROOT);

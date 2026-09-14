@@ -26,9 +26,12 @@ blocked until its separate runtime evidence exists.
   default. Tests may pass typed synthetic reviewed-origin entries through the
   audit options; they do not mutate committed evidence.
 - C2 registration is derived from `SCHEDULED_TRANSIT_DATASETS` by default. Tests
-  may pass an explicit descriptor list. A descriptor is not trusted merely
-  because it is registered: required descriptor fields, the referenced asset,
-  loader validation, hashes, namespace, and artifact provenance must be valid.
+  may pass an explicit descriptor list plus typed in-memory synthetic artifacts.
+  The synthetic artifact option is test-only input and does not add a registry
+  entry or commit an ODPT asset. A descriptor is not trusted merely because it
+  is registered: required descriptor fields, the referenced real asset (or
+  supplied test artifact), loader validation, hashes, namespace, and artifact
+  provenance must be valid.
 - C2 distinguishes `no_registered_odpt_scheduled_dataset`,
   `registered_odpt_dataset_not_loadable`, and
   `registered_odpt_scheduled_dataset`. The current registry has only the Sakata
@@ -167,7 +170,13 @@ The focused tests prove that:
 - reviewed product-origin evidence drives origin options and the origin gate;
 - a future ODPT descriptor stops the false no-registration claim without being
   trusted when its artifact is missing;
+- parameterized typed in-memory ODPT descriptor/artifact input passes the same
+  `validateScheduledTransitDataset` checks, reports
+  `registered_odpt_scheduled_dataset`, sets trusted C2 eligibility, and clears
+  only the C2 corridor-readiness blocker;
 - anchor and top-level C2 state agree;
+- anchor origin/C2 missing prerequisites derive from the supplied origin and C2
+  state;
 - Sakata pilot identities do not become product coverage;
 - names, coordinates, nearest matching, and geographic anchors do not resolve
   an endpoint;

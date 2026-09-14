@@ -19,6 +19,7 @@ import {
 import {
   ScheduledTransitDatasetError,
   validateScheduledTransitDataset,
+  type ScheduledTransitDatasetArtifact,
 } from "../../src/shared/services/transport/static/scheduledTransitDataset";
 
 const CATALOGUE_PATH = "src/shared/data/destinations-index.json";
@@ -94,9 +95,16 @@ export type Kai292C4EDatasetDescriptor = Omit<
   readonly key: string;
 };
 
+/** Test-only in-memory artifact input; never a production registry source. */
+export interface Kai292C4ESyntheticScheduledTransitArtifact {
+  readonly key: string;
+  readonly artifact: ScheduledTransitDatasetArtifact;
+}
+
 export interface Kai292C4EAuditOptions {
   readonly originIdentities?: readonly Kai292C4EOriginIdentityEvidence[];
   readonly scheduledTransitDatasets?: readonly Kai292C4EDatasetDescriptor[];
+  readonly scheduledTransitArtifacts?: readonly Kai292C4ESyntheticScheduledTransitArtifact[];
 }
 
 interface Kai292C4EC2RegistryState {
@@ -382,6 +390,7 @@ function validDescriptor(value: unknown): value is Kai292C4EDatasetDescriptor {
 function c2RegistryState(
   rootDir: string,
   descriptors: readonly Kai292C4EDatasetDescriptor[],
+  syntheticArtifacts: readonly Kai292C4ESyntheticScheduledTransitArtifact[] = [],
 ): Kai292C4EC2RegistryState {
   const registeredDatasetKeys = descriptors
     .map(({ key }) => key)
@@ -393,17 +402,30 @@ function c2RegistryState(
   const odptDescriptors = descriptors.filter(
     ({ provider }) => provider === "odpt",
   );
+  const syntheticArtifactsByKey = new Map(
+    syntheticArtifacts.map(({ key, artifact }) => [key, artifact] as const),
+  );
   const loadableOdptDatasetKeys = odptDescriptors
     .filter((descriptor) => {
       if (!validDescriptor(descriptor)) return false;
-      const assetPath = resolve(
-        rootDir,
-        "public",
-        descriptor.assetUrl.replace(/^\/+/, ""),
-      );
-      if (!existsSync(assetPath)) return false;
+      let artifact: unknown;
+      const syntheticArtifact = syntheticArtifactsByKey.get(descriptor.key);
+      if (syntheticArtifact !== undefined) {
+        artifact = syntheticArtifact;
+      } else {
+        const assetPath = resolve(
+          rootDir,
+          "public",
+          descriptor.assetUrl.replace(/^\/+/, ""),
+        );
+        if (!existsSync(assetPath)) return false;
+        try {
+          artifact = JSON.parse(readFileSync(assetPath, "utf8")) as unknown;
+        } catch {
+          return false;
+        }
+      }
       try {
-        const artifact = JSON.parse(readFileSync(assetPath, "utf8")) as unknown;
         validateScheduledTransitDataset(
           artifact,
           descriptor as ScheduledTransitDatasetDescriptor,
@@ -558,6 +580,7 @@ function anchorFinding(
   anchor: JsonRecord,
   coverage: JsonRecord,
   c2State: Kai292C4EC2RegistryState,
+  reviewedProductIds: readonly string[],
 ): Kai292C4EAnchorFinding {
   const stationId = requireString(anchor.odptStationId, `${id}.odptStationId`);
   const operator = requireString(anchor.operator, `${id}.operator`);
@@ -569,10 +592,14 @@ function anchorFinding(
   const sampled = sampledStationIds(coverage, operator);
   const access = stationAccess(catalogue, stationId);
   const missingPrerequisites = [
-    "reviewed_stable_product_origin_identity",
+    ...(reviewedProductIds.length === 0
+      ? ["reviewed_stable_product_origin_identity"]
+      : []),
     "explicit_catalogue_destination_crosswalk",
     ...(access.exactStationIdentityBound ? [] : [access.missingPrerequisite]),
-    "registered_odpt_scheduled_dataset_artifact",
+    ...(c2State.canEnterTrustedC2
+      ? []
+      : ["registered_odpt_scheduled_dataset_artifact"]),
     "direct_or_one_transfer_scheduled_support",
   ];
   return {
@@ -790,21 +817,32 @@ export function buildKai292C4EPrerequisiteAudit(
   );
   const coverage = coverageRoot(rootDir);
   const descriptors = c2Descriptors(options);
-  const c2State = c2RegistryState(rootDir, descriptors);
+  const c2State = c2RegistryState(
+    rootDir,
+    descriptors,
+    options.scheduledTransitArtifacts,
+  );
   const c4a = auditRealMegurutoCorridor(rootDir);
+  const reviewedProductIds = checkedIdentityEvidence(
+    rootDir,
+    options.originIdentities,
+  );
   const anchors = KAI_292C4E_ANCHOR_IDS.map((id) => {
     const catalogue = byId.get(id);
     const anchor = anchorsById.get(id);
     if (catalogue === undefined || anchor === undefined) {
       throw new Error(`required KAI-291A anchor ${id} is missing`);
     }
-    return anchorFinding(id, catalogue, anchor, coverage, c2State);
+    return anchorFinding(
+      id,
+      catalogue,
+      anchor,
+      coverage,
+      c2State,
+      reviewedProductIds,
+    );
   });
   const pilotFacts = timetableProbeFacts(coverage);
-  const reviewedProductIds = checkedIdentityEvidence(
-    rootDir,
-    options.originIdentities,
-  );
   const gates: Kai292C4EReport["gates"] = [
     {
       gate: "real_meguruto_origin",
