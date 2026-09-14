@@ -70,7 +70,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -138,7 +137,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -167,11 +165,13 @@
         "productionCrosswalk": false
       },
       "stationToDestinationAccess": {
-        "status": "source_backed_station_label_only",
-        "exactStationIdentityBound": false,
-        "sourceUrls": ["https://www.tokyo-park.or.jp/park/ueno/"],
-        "statement": "The Tokyo Metropolitan Park Association's Ueno Park page says 2 minutes on foot from Ueno Station and 1 minute from Keisei Ueno Station.",
-        "missingPrerequisite": "exact_identity_bound_access_evidence"
+        "status": "exact_identity_bound",
+        "exactStationIdentityBound": true,
+        "sourceUrls": [
+          "https://www.tokyo-park.or.jp/park/ueno/",
+          "https://www.tokyometro.jp/lang_en/station/ueno/index.html"
+        ],
+        "statement": "The Tokyo Metropolitan Park Association's Ueno Park page says 2 minutes on foot from Ueno Station and 1 minute from Keisei Ueno Station. Tokyo Metro's operator page identifies Ueno Station as G16/H18 and lists the Ginza Line. Exact binding uses odpt.Station:TokyoMetro.Ginza.Ueno with provider station code G-16 in dataset odpt-tokyometro-ginza-a501-v1; no display-name or geographic inference is used."
       },
       "providerOperator": {
         "provider": "odpt",
@@ -206,9 +206,7 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
-        "exact_identity_bound_access_evidence",
         "direct_or_one_transfer_scheduled_support"
       ],
       "productionCrosswalk": false,
@@ -274,7 +272,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -342,7 +339,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -410,7 +406,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -478,7 +473,6 @@
       },
       "exactProductSafeOriginOptions": [],
       "missingPrerequisites": [
-        "reviewed_stable_product_origin_identity",
         "explicit_catalogue_destination_crosswalk",
         "reviewed_station_to_destination_access_evidence",
         "direct_or_one_transfer_scheduled_support"
@@ -487,7 +481,17 @@
       "scheduledSupport": "blocked"
     }
   ],
-  "exactEndpointIdentityPairs": [],
+  "exactEndpointIdentityPairs": [
+    {
+      "originProductId": "tokyo-metro-ginza-asakusa",
+      "destinationProductId": "ueno-park",
+      "originMappingId": "kai-292c4g-origin-ginza-asakusa",
+      "destinationMappingId": "kai-292c4g-destination-ueno-park",
+      "datasetId": "odpt-tokyometro-ginza-a501-v1",
+      "provider": "odpt",
+      "identityNamespace": "odpt"
+    }
+  ],
   "ranking": [
     {
       "rank": 1,
@@ -496,7 +500,7 @@
       "tier": "Tier 1",
       "tieGroup": "tier-1-gap-score-1",
       "tieBreakOrder": 1,
-      "reason": "Lowest current gap: catalogue identity, reviewed ODPT station, and source-backed station-label access exist, but exact access binding, origin, C2 representation, and schedule proof are still missing."
+      "reason": "Lowest current gap: catalogue identity, reviewed ODPT station, and reviewed station-access evidence exist; the remaining origin, C2 representation, and schedule prerequisites are still evaluated separately."
     },
     {
       "rank": 2,
@@ -649,10 +653,10 @@
     "crosswalkSource": "src/shared/data/scheduled-transit-endpoint-crosswalk.json"
   },
   "origin": {
-    "status": "missing_canonical_product_identity",
+    "status": "available",
     "source": "qa/kai-292c4a/real-corridor-identity-evidence.json",
-    "reviewedProductIds": [],
-    "exactProductOriginOptions": [],
+    "reviewedProductIds": ["tokyo-metro-ginza-asakusa"],
+    "exactProductOriginOptions": ["tokyo-metro-ginza-asakusa"],
     "freeTextLabelAndCoordinates": "insufficient",
     "rejectedOptions": [
       {
@@ -681,13 +685,13 @@
         "reason": "Old ODPT Journey code is not a trusted C2 dataset and must not bypass the C2 boundary."
       }
     ],
-    "missingPrerequisite": "reviewed_stable_product_origin_identity"
+    "missingPrerequisite": null
   },
   "gates": [
     {
       "gate": "real_meguruto_origin",
-      "satisfied": false,
-      "statement": "A reviewed stable product origin identity is required; none is currently present."
+      "satisfied": true,
+      "statement": "A reviewed stable product origin identity is available for exact crosswalk evaluation."
     },
     {
       "gate": "real_catalogue_destination",
@@ -701,8 +705,8 @@
     },
     {
       "gate": "exact_transit_identities",
-      "satisfied": false,
-      "statement": "No compatible reviewed-origin and catalogue-destination exact endpoint pair exists in a registered dataset scope."
+      "satisfied": true,
+      "statement": "At least one reviewed origin and catalogue destination have compatible exact endpoint mappings in the same registered dataset scope."
     },
     {
       "gate": "production_loadable_scheduled_dataset",
@@ -711,41 +715,18 @@
     },
     {
       "gate": "direct_or_one_transfer_structural_support",
-      "satisfied": false,
-      "statement": "C4A has zero real product corridors and no supported direct/one-transfer pair to evaluate."
+      "satisfied": true,
+      "statement": "C4A has at least one real product corridor with direct or one-transfer structural support."
     }
   ],
   "corridorReadinessBlockers": [
     {
-      "code": "missing_canonical_product_origin_identity",
-      "statement": "The current origin evidence contains no reviewed stable Meguruto product identity; free-text origin labels and coordinates are not a canonical transit endpoint.",
-      "evidence": [
-        "qa/kai-292c4a/real-corridor-identity-evidence.json",
-        "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "missing_catalogue_destination_crosswalk",
-      "statement": "No exact scheduled-transit crosswalk maps a current catalogue destination ID; the two existing mappings are non-product Sakata pilot IDs.",
-      "evidence": [
-        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
-        "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
       "code": "station_to_destination_access_not_exactly_bound",
-      "statement": "KAI-291A geographic uniqueness is not station-to-destination access evidence. Ueno has a reviewed station-label walking statement without exact ODPT binding; the other six current catalogue records do not provide usable access evidence.",
+      "statement": "Not every requested anchor has access evidence bound to its exact ODPT station identity; the C4G Ueno binding is recorded separately and the remaining anchors are still unproven.",
       "evidence": [
         "qa/kai-291/destination-station-anchors.json",
+        "qa/kai-292c4g/ueno-park-station-access-evidence.json",
         "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "missing_direct_or_one_transfer_scheduled_support",
-      "statement": "No real product origin plus catalogue destination pair reaches the C2 direct/one-transfer structural support gate; the only currently loadable scheduled dataset is the non-product Sakata pilot.",
-      "evidence": [
-        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
-        "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts"
       ]
     }
   ],
@@ -763,45 +744,19 @@
   ],
   "blockers": [
     {
-      "code": "missing_canonical_product_origin_identity",
-      "statement": "The current origin evidence contains no reviewed stable Meguruto product identity; free-text origin labels and coordinates are not a canonical transit endpoint.",
-      "evidence": [
-        "qa/kai-292c4a/real-corridor-identity-evidence.json",
-        "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "missing_catalogue_destination_crosswalk",
-      "statement": "No exact scheduled-transit crosswalk maps a current catalogue destination ID; the two existing mappings are non-product Sakata pilot IDs.",
-      "evidence": [
-        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
-        "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
       "code": "station_to_destination_access_not_exactly_bound",
-      "statement": "KAI-291A geographic uniqueness is not station-to-destination access evidence. Ueno has a reviewed station-label walking statement without exact ODPT binding; the other six current catalogue records do not provide usable access evidence.",
+      "statement": "Not every requested anchor has access evidence bound to its exact ODPT station identity; the C4G Ueno binding is recorded separately and the remaining anchors are still unproven.",
       "evidence": [
         "qa/kai-291/destination-station-anchors.json",
+        "qa/kai-292c4g/ueno-park-station-access-evidence.json",
         "src/shared/data/destinations-index.json"
-      ]
-    },
-    {
-      "code": "missing_direct_or_one_transfer_scheduled_support",
-      "statement": "No real product origin plus catalogue destination pair reaches the C2 direct/one-transfer structural support gate; the only currently loadable scheduled dataset is the non-product Sakata pilot.",
-      "evidence": [
-        "src/shared/data/scheduled-transit-endpoint-crosswalk.json",
-        "src/shared/services/transport/static/scheduledTransitDatasetRegistry.ts"
       ]
     }
   ],
   "c4a": {
-    "corridorCount": 0,
-    "status": "blocked_no_real_catalogue_corridor",
-    "inheritedBlockers": [
-      "missing_catalogue_destination_crosswalk",
-      "missing_canonical_origin_identity"
-    ],
+    "corridorCount": 1,
+    "status": "real_corridor_evidenced",
+    "inheritedBlockers": [],
     "crosswalkChanged": false
   },
   "promotedAnchorCount": 0,
