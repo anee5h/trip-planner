@@ -843,8 +843,11 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
       destinationMappings: [],
     });
     expect(result.normalizedEvidence).toMatchObject({
-      registeredDatasetKeys: ["sakata-runrunbus"],
-      validRegisteredDatasetKeys: ["sakata-runrunbus"],
+      registeredDatasetKeys: ["odpt-tokyometro-ginza-a501", "sakata-runrunbus"],
+      validRegisteredDatasetKeys: [
+        "odpt-tokyometro-ginza-a501",
+        "sakata-runrunbus",
+      ],
       unregisteredAssetUrls: [],
     });
     expect(result.crosswalk).toMatchObject({
@@ -864,7 +867,6 @@ describe("KAI-292C4A real Meguruto corridor audit", () => {
     expect(result.blockers.map(({ code }) => code)).toEqual([
       "missing_catalogue_destination_crosswalk",
       "missing_canonical_origin_identity",
-      "pilot_only_normalized_evidence",
     ]);
   });
 
