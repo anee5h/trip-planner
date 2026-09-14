@@ -719,15 +719,56 @@
   "c4dBlockers": [
     {
       "code": "no_authoritative_service_date_or_departure_time",
-      "statement": "C3 supplies a fail-closed temporal contract, but the current product flow does not supply an authoritative scheduled service date and departure time.",
-      "evidence": ["docs/kai-292c3-scheduled-routing-temporal-contract.md"]
-    },
-    {
-      "code": "runtime_journey_verification_not_evaluated",
-      "statement": "Runtime Journey verification is not evaluated from prerequisite gates alone; C4D remains blocked until authoritative runtime evidence is supplied.",
-      "evidence": ["docs/kai-292c3-scheduled-routing-temporal-contract.md"]
+      "statement": "A controlled runtime Journey is verified for one corridor, but general product flows still do not supply authoritative scheduled service date and departure time inputs.",
+      "evidence": [
+        "docs/kai-292c3-scheduled-routing-temporal-contract.md",
+        "qa/kai-292c4h/controlled-runtime-proof.json"
+      ]
     }
   ],
+  "runtimeProof": {
+    "status": "verified_controlled_runtime",
+    "source": "qa/kai-292c4h/controlled-runtime-proof.json",
+    "reason": null,
+    "corridor": {
+      "originProductId": "toei-oedo-shinjuku-nishiguchi",
+      "destinationProductId": "hamarikyu-gardens",
+      "direction": "outbound",
+      "datasetKey": "toei-oedo-gtfs-20260314",
+      "datasetId": "toei-oedo-gtfs-20260314"
+    },
+    "temporal": {
+      "source": "controlled_internal_test_fixture",
+      "serviceDate": "2026-09-15",
+      "earliestDepartureTime": "05:00:00",
+      "earliestDepartureServiceSeconds": 18000
+    },
+    "journey": {
+      "selected": "direct",
+      "transferCount": 0,
+      "serviceId": "gtfs:scheduled_service:toei-gtfs:400501B0",
+      "providerServiceId": "400501B0",
+      "routeId": "gtfs:route:toei-gtfs:4",
+      "providerRouteId": "4",
+      "providerOperatorId": "toei",
+      "originStopId": "gtfs:stop:toei-gtfs:402",
+      "destinationStopId": "gtfs:stop:toei-gtfs:420",
+      "actualDepartureServiceSeconds": 18540,
+      "actualArrivalServiceSeconds": 20820,
+      "durationSeconds": 2280
+    },
+    "c4b": {
+      "kind": "scheduled_journey",
+      "evidence": "verified",
+      "transferCount": 0,
+      "durationSeconds": 2280
+    },
+    "c4c": {
+      "kind": "verified_scheduled_journey",
+      "source": "scheduled",
+      "selected": "direct"
+    }
+  },
   "blockers": [],
   "c4a": {
     "corridorCount": 1,
@@ -743,18 +784,16 @@
     "geographicAnchorPromotion": false
   },
   "c4d": {
-    "status": "blocked",
-    "reason": "runtime_evidence_absent",
+    "status": "controlled_runtime_proof_verified",
+    "reason": "controlled_runtime_proof_only",
     "blockers": [
       {
         "code": "no_authoritative_service_date_or_departure_time",
-        "statement": "C3 supplies a fail-closed temporal contract, but the current product flow does not supply an authoritative scheduled service date and departure time.",
-        "evidence": ["docs/kai-292c3-scheduled-routing-temporal-contract.md"]
-      },
-      {
-        "code": "runtime_journey_verification_not_evaluated",
-        "statement": "Runtime Journey verification is not evaluated from prerequisite gates alone; C4D remains blocked until authoritative runtime evidence is supplied.",
-        "evidence": ["docs/kai-292c3-scheduled-routing-temporal-contract.md"]
+        "statement": "A controlled runtime Journey is verified for one corridor, but general product flows still do not supply authoritative scheduled service date and departure time inputs.",
+        "evidence": [
+          "docs/kai-292c3-scheduled-routing-temporal-contract.md",
+          "qa/kai-292c4h/controlled-runtime-proof.json"
+        ]
       }
     ]
   }

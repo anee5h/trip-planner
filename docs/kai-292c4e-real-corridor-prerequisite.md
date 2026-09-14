@@ -105,19 +105,21 @@ stable product selection, not a current-user inference. The audit rejects:
 
 No UI redesign and no runtime Journey work are part of C4G.
 
-## Separate prerequisite and runtime blockers
+## Separate prerequisite and runtime boundaries
 
-The current `corridorReadinessBlockers` and `blockers` arrays are empty because
+The current `corridorReadinessBlockers` and `blockers` arrays remain empty because
 all structural C4E gates are satisfied. The C4A report is
 `real_corridor_evidenced` with one preferred corridor.
 
-The separate `c4dBlockers` contain:
+At the C4E baseline, C4D was `blocked` with reason
+`runtime_evidence_absent`. C4H now supplies a separate generated controlled
+runtime proof at `qa/kai-292c4h/controlled-runtime-proof.json`. The current
+regenerated report records C4D as `controlled_runtime_proof_verified` for the
+one Toei corridor and retains one blocker for general product flows:
+`no_authoritative_service_date_or_departure_time`.
 
-- `no_authoritative_service_date_or_departure_time`; and
-- `runtime_journey_verification_not_evaluated`.
-
-C4D is `blocked` with reason `runtime_evidence_absent`. Prerequisite gates do
-not claim a verified Journey, and C4H must not start from this branch.
+That proof is intentionally bounded. It does not claim that all product flows
+have temporal inputs or that Home/Explore convenience times are authoritative.
 
 ## Validation contract
 
