@@ -55,6 +55,13 @@ const STATION_ACCESS_EVIDENCE_RELATIVE_PATH =
 const REVIEWED_ANCHORS_RELATIVE_PATH =
   "qa/kai-291/destination-station-anchors.json";
 const TRANSIT_ASSET_RELATIVE_PATH = "public/data/transit";
+const TRANSIT_SOURCE_PATHS: Readonly<
+  Record<ScheduledTransitDatasetKey, string>
+> = {
+  "sakata-runrunbus": "public/data/transit/sakata-runrunbus.json",
+  "toei-oedo-gtfs-20260314":
+    "src/shared/data/transit/toei-oedo-gtfs-20260314.json",
+};
 
 export const REAL_CORRIDOR_AUDIT_SCHEMA_VERSION = "kai-292c4a-v4";
 
@@ -535,7 +542,7 @@ function auditRegisteredDataset(
   descriptor: ScheduledTransitDatasetDescriptor,
 ): DatasetAudit {
   const assetUrl = descriptor.assetUrl;
-  const assetPath = resolve(rootDir, "public", assetUrl.replace(/^\/+/, ""));
+  const sourcePath = resolve(rootDir, TRANSIT_SOURCE_PATHS[key]);
   const base = {
     key,
     assetUrl,
@@ -543,11 +550,11 @@ function auditRegisteredDataset(
     datasetId: descriptor.datasetId,
     identityNamespace: descriptor.identityNamespace,
   };
-  if (!existsSync(assetPath)) {
+  if (!existsSync(sourcePath)) {
     return { evidence: { ...base, state: "missing" } };
   }
   try {
-    const artifact = JSON.parse(readFileSync(assetPath, "utf8")) as unknown;
+    const artifact = JSON.parse(readFileSync(sourcePath, "utf8")) as unknown;
     const dataset = validateScheduledTransitDataset(artifact, descriptor);
     return {
       evidence: {
@@ -588,7 +595,11 @@ function listUnregisteredTransitAssets(
   const directory = resolve(rootDir, TRANSIT_ASSET_RELATIVE_PATH);
   if (!existsSync(directory)) return [];
   return readdirSync(directory, { withFileTypes: true })
-    .filter((entry) => entry.isFile() && entry.name.endsWith(".json"))
+    .filter(
+      (entry) =>
+        entry.isFile() &&
+        (entry.name.endsWith(".json") || entry.name.endsWith(".json.gz")),
+    )
     .map((entry) => `/data/transit/${entry.name}`)
     .filter((assetUrl) => !registeredAssetUrls.has(assetUrl))
     .sort();

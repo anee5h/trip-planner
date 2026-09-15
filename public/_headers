@@ -82,3 +82,8 @@
 
 /manifest.webmanifest
   Cache-Control: no-cache
+
+# The Toei graph is published as a gzip asset to stay below Cloudflare Pages'
+# 25 MiB per-file limit; the loader explicitly decompresses it before parsing.
+/data/transit/toei-oedo-gtfs-20260314.json.gz
+  Content-Type: application/json

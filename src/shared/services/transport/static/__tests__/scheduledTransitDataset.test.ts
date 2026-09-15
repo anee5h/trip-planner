@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import { gzipSync } from "node:zlib";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
@@ -55,6 +56,23 @@ describe("scheduled transit dataset boundary", () => {
     expect(result.graph.scheduledServices).toHaveLength(49);
     expect(result.graph.scheduledStopTimes).toHaveLength(1961);
     expect(result.coverage.entries).toHaveLength(1);
+  });
+
+  it("decompresses a gzip response before validating the artifact", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(
+        async () =>
+          new Response(gzipSync(Buffer.from(ARTIFACT_JSON)), {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+          }),
+      ),
+    );
+
+    await expect(loadScheduledTransitDataset()).resolves.toMatchObject({
+      metadata: { datasetId: "gtfs-jp-sakata-runrunbus-20260401" },
+    });
   });
 
   it("fails closed when graph and coverage dataset identities disagree", () => {

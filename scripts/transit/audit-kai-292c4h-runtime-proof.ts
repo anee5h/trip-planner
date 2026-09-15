@@ -121,9 +121,12 @@ function readCommittedDataset(rootDir: string): ScheduledTransitDataset {
   const descriptor = getScheduledTransitDatasetDescriptor(
     KAI_292C4H_DATASET_KEY,
   );
-  const assetPath = resolve(rootDir, "public", descriptor.assetUrl.slice(1));
+  const sourcePath = resolve(
+    rootDir,
+    "src/shared/data/transit/toei-oedo-gtfs-20260314.json",
+  );
   return validateScheduledTransitDataset(
-    JSON.parse(readFileSync(assetPath, "utf8")) as unknown,
+    JSON.parse(readFileSync(sourcePath, "utf8")) as unknown,
     descriptor,
   );
 }

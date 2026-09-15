@@ -18,7 +18,10 @@ const ROOT = process.cwd();
 const DATASET_KEY = "toei-oedo-gtfs-20260314" as const;
 const DATASET = validateScheduledTransitDataset(
   JSON.parse(
-    readFileSync("public/data/transit/toei-oedo-gtfs-20260314.json", "utf8"),
+    readFileSync(
+      "src/shared/data/transit/toei-oedo-gtfs-20260314.json",
+      "utf8",
+    ),
   ) as unknown,
   getScheduledTransitDatasetDescriptor(DATASET_KEY),
 );

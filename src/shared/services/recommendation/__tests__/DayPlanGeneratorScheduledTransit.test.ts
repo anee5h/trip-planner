@@ -20,7 +20,7 @@ import {
 import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 
 const TOEI_DATASET = readFileSync(
-  join(process.cwd(), "public/data/transit/toei-oedo-gtfs-20260314.json"),
+  join(process.cwd(), "src/shared/data/transit/toei-oedo-gtfs-20260314.json"),
   "utf8",
 );
 const catalogue = destinationIndex as unknown as Destination[];

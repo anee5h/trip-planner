@@ -19,7 +19,7 @@ const DATASET_KEY = "toei-oedo-gtfs-20260314" as const;
 const DESCRIPTOR = getScheduledTransitDatasetDescriptor(DATASET_KEY);
 const ARTIFACT_PATH = join(
   ROOT,
-  "public/data/transit/toei-oedo-gtfs-20260314.json",
+  "src/shared/data/transit/toei-oedo-gtfs-20260314.json",
 );
 
 type DeepMutable<T> = T extends readonly (infer Item)[]
