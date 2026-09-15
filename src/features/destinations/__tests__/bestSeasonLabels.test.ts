@@ -48,6 +48,16 @@ describe("Best Season Japanese localization", () => {
     },
   );
 
+  it("covers every distinct canonical Best Season value explicitly", () => {
+    const canonicalValues = new Set(
+      canonicalRecords
+        .map((record) => record.bestSeason?.trim())
+        .filter((value): value is string => Boolean(value)),
+    );
+
+    expect(canonicalValues).toEqual(new Set(Object.keys(EXPECTED_JA_BY_EN)));
+  });
+
   it("keeps every canonical Best Season value available in JA", () => {
     const unavailable = canonicalRecords
       .filter((record) => record.bestSeason?.trim())
