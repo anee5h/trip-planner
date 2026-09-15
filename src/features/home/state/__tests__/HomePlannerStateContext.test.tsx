@@ -1,7 +1,7 @@
 /** @vitest-environment jsdom */
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import type { User } from "@supabase/supabase-js";
 import {
   HomePlannerStateProvider,
@@ -32,20 +32,14 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderState(
-  user: User | null = null,
-  onPlannerPreferencesPersist?: (preferences: unknown) => void,
-) {
+function renderState(user: User | null = null) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
   let current!: ReturnType<typeof useHomePlannerState>;
   act(() => {
     root?.render(
-      <HomePlannerStateProvider
-        user={user}
-        onPlannerPreferencesPersist={onPlannerPreferencesPersist}
-      >
+      <HomePlannerStateProvider user={user}>
         <Harness onState={(value) => (current = value)} />
       </HomePlannerStateProvider>,
     );
@@ -174,27 +168,6 @@ describe("HomePlannerStateProvider", () => {
       expect(getState().appliedState.partySize).toBe(expected);
     },
   );
-
-  it("persists the selected party size only on explicit save", () => {
-    const persisted = vi.fn();
-    const getState = renderState(
-      {
-        id: "user-persist-party",
-        user_metadata: { preferences: { partySize: 2 } },
-      } as unknown as User,
-      persisted,
-    );
-
-    act(() => getState().setPartySize(4));
-    act(() => getState().applyPlannerState());
-    act(() => getState().savePlannerPreferences());
-
-    expect(persisted).toHaveBeenCalledWith(
-      expect.objectContaining({ partySize: 4 }),
-    );
-    expect(getState().draftState.partySize).toBe(4);
-    expect(getState().appliedState.partySize).toBe(4);
-  });
 
   it("keeps current draft and applied state through a same-user metadata refresh", () => {
     const user = {

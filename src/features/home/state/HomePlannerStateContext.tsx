@@ -96,7 +96,6 @@ export interface HomePlannerStateValue {
   hasUserApplied: boolean;
   isDirty: boolean;
   applyPlannerState: () => void;
-  savePlannerPreferences: () => void;
 }
 
 const HomePlannerStateContext = createContext<HomePlannerStateValue | null>(
@@ -107,17 +106,10 @@ export function HomePlannerStateProvider({
   user,
   children,
   onTransportPreferencesPersist,
-  onPlannerPreferencesPersist,
 }: {
   user: User | null;
   children: React.ReactNode;
   onTransportPreferencesPersist?: (selection: TransportSelection) => void;
-  onPlannerPreferencesPersist?: (
-    preferences: TransportSelection & {
-      tripDuration: HomepageTripDuration;
-      partySize: number;
-    },
-  ) => void;
 }) {
   const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
   const urlDuration = homepageDurationFromUrl();
@@ -248,19 +240,6 @@ export function HomePlannerStateProvider({
     onTransportPreferencesPersist?.(transportSelection);
   }, [draftState, onTransportPreferencesPersist]);
 
-  const savePlannerPreferences = useCallback(() => {
-    const transportSelection = resolveTransportSelection(
-      draftState.publicTransport,
-      draftState.carMode,
-      draftState.publicModes,
-    );
-    onPlannerPreferencesPersist?.({
-      ...transportSelection,
-      tripDuration: draftState.tripDuration,
-      partySize: draftState.partySize,
-    });
-  }, [draftState, onPlannerPreferencesPersist]);
-
   const setVibe = useCallback((vibe: string) => {
     setDraftState((previous) => ({ ...previous, vibe }));
   }, []);
@@ -306,7 +285,6 @@ export function HomePlannerStateProvider({
       hasUserApplied,
       isDirty,
       applyPlannerState,
-      savePlannerPreferences,
     }),
     [
       draftState,
@@ -321,7 +299,6 @@ export function HomePlannerStateProvider({
       hasUserApplied,
       isDirty,
       applyPlannerState,
-      savePlannerPreferences,
     ],
   );
 
