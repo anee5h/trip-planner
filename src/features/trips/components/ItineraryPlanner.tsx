@@ -569,6 +569,7 @@ export default function ItineraryPlanner({
                 type="text"
                 value={customName}
                 onChange={(e) => setCustomName(e.target.value)}
+                data-custom-stop-input
                 placeholder="e.g. Hotel Sunroute Plaza Shinjuku"
                 className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl"
               />
@@ -723,7 +724,7 @@ export default function ItineraryPlanner({
                             ? "true"
                             : undefined
                         }
-                        className={`relative flex touch-pan-y items-start gap-1.5 rounded-2xl border bg-white px-2.5 py-2.5 shadow-sm transition-[transform,box-shadow,border-color,background-color] dark:bg-slate-900 sm:gap-3 sm:px-3 ${
+                        className={`relative flex flex-wrap touch-pan-y items-start gap-1.5 rounded-2xl border bg-white px-2.5 py-2.5 shadow-sm transition-[transform,box-shadow,border-color,background-color] dark:bg-slate-900 sm:flex-nowrap sm:gap-3 sm:px-3 ${
                           isDragging
                             ? "scale-[1.01] border-emerald-500 bg-emerald-50 opacity-90 shadow-lg ring-2 ring-emerald-500/30 dark:bg-emerald-950/30"
                             : "border-slate-200 dark:border-slate-800"
@@ -742,6 +743,7 @@ export default function ItineraryPlanner({
                             <Link
                               to={destinationPath}
                               data-stop-link
+                              data-stop-title
                               className="block line-clamp-2 break-words py-0.5 text-sm font-extrabold leading-5 text-slate-900 underline-offset-4 hover:text-emerald-700 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 dark:text-white dark:hover:text-emerald-300"
                               style={{
                                 display: "-webkit-box",
@@ -752,7 +754,10 @@ export default function ItineraryPlanner({
                               {stop.name}
                             </Link>
                           ) : (
-                            <span className="block break-words py-0.5 text-sm font-extrabold leading-5 text-slate-900 dark:text-white">
+                            <span
+                              data-stop-title
+                              className="block break-words py-0.5 text-sm font-extrabold leading-5 text-slate-900 dark:text-white"
+                            >
                               {stop.name}
                             </span>
                           )}
@@ -765,7 +770,7 @@ export default function ItineraryPlanner({
 
                         <div
                           data-stop-action-cluster
-                          className="flex w-[5.5rem] shrink-0 items-start justify-end gap-0.5"
+                          className="flex w-full basis-full shrink-0 items-start justify-end gap-0.5 sm:w-[5.5rem] sm:basis-auto"
                         >
                           <Button
                             type="button"
