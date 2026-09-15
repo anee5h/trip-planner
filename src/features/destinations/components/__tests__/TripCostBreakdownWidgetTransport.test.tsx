@@ -170,6 +170,7 @@ vi.mock(
   "@/shared/services/recommendation/DestinationCombinationService",
   () => ({
     findLowerCostAlternativeCandidates: () => [],
+    selectLowerCostAlternatives: () => [],
   }),
 );
 

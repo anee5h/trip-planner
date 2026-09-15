@@ -2,6 +2,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import {
   findLowerCostAlternativeCandidates,
   isEligibleLowerCostAlternative,
+  selectLowerCostAlternatives,
 } from "../DestinationCombinationService";
 import {
   getFullPlaces,
@@ -45,7 +46,7 @@ describe("lower-cost alternative eligibility", () => {
       false,
     );
     expect(
-      findLowerCostAlternativeCandidates(primary!, 50, catalogue).map(
+      findLowerCostAlternativeCandidates(primary!, catalogue).map(
         (place) => place.id,
       ),
     ).not.toContain(child!.id);
@@ -84,12 +85,74 @@ describe("lower-cost alternative eligibility", () => {
       isEligibleLowerCostAlternative(primary, invalidChild, catalogue),
     ).toBe(false);
     expect(
-      findLowerCostAlternativeCandidates(primary, 5, catalogue).map(
+      findLowerCostAlternativeCandidates(primary, catalogue).map(
         (place) => place.id,
       ),
     ).toEqual(["cheaper-hub"]);
     expect(
-      findLowerCostAlternativeCandidates(primary, 5, [primary, invalidChild]),
+      findLowerCostAlternativeCandidates(primary, [primary, invalidChild]),
+    ).toEqual([]);
+  });
+
+  it("checks the complete eligible pool before capping cheaper results", () => {
+    const primary = makeDestination({
+      id: "pool-primary",
+      name: "Pool Primary",
+      role: "hub",
+      kind: "town",
+      municipalityId: "Tokyo:pool-primary",
+    });
+    const candidates = Array.from({ length: 6 }, (_, index) =>
+      makeDestination({
+        id: `candidate-${index + 1}`,
+        name: `Candidate ${index + 1}`,
+        role: "hub",
+        kind: "city",
+        municipalityId: `Tokyo:candidate-${index + 1}`,
+        coordinates: {
+          lat: 35.681 + index * 0.001,
+          lng: 139.761,
+        },
+      }),
+    );
+    const catalogue = [primary, ...candidates];
+    const orderedPool = findLowerCostAlternativeCandidates(primary, catalogue);
+
+    expect(orderedPool.map((place) => place.id)).toEqual(
+      candidates.map((place) => place.id),
+    );
+    expect(
+      selectLowerCostAlternatives(orderedPool, 100, (candidate) =>
+        candidate.id === "candidate-6" ? 50 : 200,
+      ).map((place) => place.id),
+    ).toEqual(["candidate-6"]);
+  });
+
+  it("keeps the existing nearby catchment for the alternative rail", () => {
+    const primary = makeDestination({
+      id: "nearby-primary",
+      name: "Nearby Primary",
+      role: "hub",
+      kind: "town",
+      municipalityId: "Tokyo:nearby-primary",
+    });
+    const independentFarHub = makeDestination({
+      id: "independent-far-hub",
+      name: "Independent Far Hub",
+      role: "hub",
+      kind: "city",
+      municipalityId: "Ibaraki:far",
+      coordinates: { lat: 36.3, lng: 140.1 },
+    });
+
+    expect(
+      isEligibleLowerCostAlternative(primary, independentFarHub, [
+        primary,
+        independentFarHub,
+      ]),
+    ).toBe(true);
+    expect(
+      findLowerCostAlternativeCandidates(primary, [primary, independentFarHub]),
     ).toEqual([]);
   });
 
@@ -185,10 +248,9 @@ describe("lower-cost alternative eligibility", () => {
       ]),
     ).toBe(true);
     expect(
-      findLowerCostAlternativeCandidates(primary, 5, [
-        primary,
-        alternative,
-      ]).map((place) => place.id),
+      findLowerCostAlternativeCandidates(primary, [primary, alternative]).map(
+        (place) => place.id,
+      ),
     ).toEqual(["alternative-poi"]);
   });
 
@@ -203,11 +265,7 @@ describe("lower-cost alternative eligibility", () => {
     ];
     const matrix = ids.map((id) => {
       const primary = catalogue.find((place) => place.id === id)!;
-      const candidates = findLowerCostAlternativeCandidates(
-        primary,
-        50,
-        catalogue,
-      );
+      const candidates = findLowerCostAlternativeCandidates(primary, catalogue);
       return {
         id,
         candidates: candidates.map((candidate) => candidate.id),

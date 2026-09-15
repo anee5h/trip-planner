@@ -218,15 +218,15 @@ export function isEligibleLowerCostAlternative(
 }
 
 /**
- * Returns semantically valid lower-cost candidates in the existing relevance
- * order. The caller remains responsible for the canonical cost comparison.
+ * Returns the complete semantically valid candidate pool in the existing
+ * relevance order. The caller remains responsible for the canonical cost
+ * comparison and final display cap.
  */
 export function findLowerCostAlternativeCandidates(
   primary: Destination,
-  maxCount: number = 5,
   catalogue?: Destination[],
 ): Destination[] {
-  if (!primary || maxCount <= 0) return [];
+  if (!primary) return [];
 
   const all = (
     catalogue && catalogue.length
@@ -273,7 +273,26 @@ export function findLowerCostAlternativeCandidates(
 
   candidates.sort((a, b) => compareCandidateRelevance(primary, a, b));
 
-  return candidates.slice(0, maxCount).map(({ place }) => place);
+  return candidates.map(({ place }) => place);
+}
+
+/**
+ * Applies the canonical cheaper-than-current predicate to the complete
+ * semantically eligible pool, then applies the UI display cap.
+ */
+export function selectLowerCostAlternatives<T>(
+  candidates: readonly T[],
+  currentMinimum: number | undefined,
+  candidateMinimum: (candidate: T) => number | undefined,
+  displayCap: number = 2,
+): T[] {
+  if (currentMinimum === undefined || displayCap <= 0) return [];
+  return candidates
+    .filter((candidate) => {
+      const minimum = candidateMinimum(candidate);
+      return minimum !== undefined && minimum <= currentMinimum;
+    })
+    .slice(0, displayCap);
 }
 
 export function findNearbyCombinations(
@@ -312,6 +331,9 @@ export function findNearbyCombinations(
       continue;
     }
 
+    // The rail is explicitly "Nearby" and previously inherited this same-day
+    // catchment from findNearbyCombinations. KAI-288 changes semantic
+    // eligibility, not the existing geographic/relevance scope.
     const transitEst = estimateLocalTransitMinutes(
       primary,
       place,
