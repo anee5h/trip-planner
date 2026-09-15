@@ -7,7 +7,7 @@ import type { ClearProfileResult } from "./clearProfileResult";
 import { reportAuthFailureIfOperational } from "@/shared/utils/errorReporter";
 import { executePendingAccountDeletionIfRequested } from "@/shared/utils/pendingAccountDeletion";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
-import { clearPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
+import { discardPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
 import { AuthContext, type UserProfileUpdateData } from "./authContext";
 export { AuthContext } from "./authContext";
 export type {
@@ -36,7 +36,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         new URLSearchParams(window.location.hash.slice(1)).get("error");
       if (authError) {
         recommendationAnalytics.trackPendingSignupError("oauth_callback");
-        clearPendingPersistenceIntent();
+        discardPendingPersistenceIntent();
       }
     }
 

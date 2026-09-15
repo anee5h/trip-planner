@@ -189,6 +189,14 @@ export function clearPendingPersistenceIntent(): void {
   storage()?.removeItem(INTENT_KEY);
 }
 
+export function discardPendingPersistenceIntent(): void {
+  const intent = peekPendingPersistenceIntent();
+  if (intent?.type === "trip_save") {
+    clearPendingPersistenceDraft(intent.draftRef);
+  }
+  clearPendingPersistenceIntent();
+}
+
 export function storePendingPersistenceDraft(value: unknown): string | null {
   const target = storage();
   if (!target) return null;

@@ -2,7 +2,7 @@ import { useContext, useMemo, useState } from "react";
 import type { PropsWithChildren } from "react";
 import { AuthModal } from "@/shared/components/auth/AuthModal";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
-import { clearPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
+import { discardPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
 import {
   AuthModalContext,
   type AuthModalMode,
@@ -41,7 +41,7 @@ export function AuthModalProvider({ children }: PropsWithChildren) {
         source={source}
         onClose={() => setIsOpen(false)}
         onCancel={() => {
-          clearPendingPersistenceIntent();
+          discardPendingPersistenceIntent();
           setIsOpen(false);
         }}
       />

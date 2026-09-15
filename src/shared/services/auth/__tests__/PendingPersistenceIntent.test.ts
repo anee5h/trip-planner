@@ -3,6 +3,7 @@ import {
   clearPendingPersistenceDraft,
   clearPendingPersistenceIntent,
   consumePendingPersistenceIntent,
+  discardPendingPersistenceIntent,
   peekPendingPersistenceIntent,
   readPendingPersistenceDraft,
   setPendingPersistenceIntent,
@@ -91,6 +92,25 @@ describe("KAI-259 safe pending persistence intents", () => {
       destinations: ["ueno-zoo", "ueno-park"],
     });
     clearPendingPersistenceDraft(draftRef!);
+    expect(readPendingPersistenceDraft(draftRef!)).toBeNull();
+  });
+
+  it("discards a trip-save intent and its referenced draft together", () => {
+    const draftRef = storePendingPersistenceDraft({
+      type: "generated_plan",
+      planId: "plan-to-discard",
+    });
+    expect(draftRef).toBeTruthy();
+    setPendingPersistenceIntent({
+      type: "trip_save",
+      draftRef: draftRef!,
+      returnPath: "/destinations/ueno-zoo",
+      sourceSurface: "trip_save",
+    });
+
+    discardPendingPersistenceIntent();
+
+    expect(peekPendingPersistenceIntent()).toBeNull();
     expect(readPendingPersistenceDraft(draftRef!)).toBeNull();
   });
 

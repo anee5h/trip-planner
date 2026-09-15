@@ -4,7 +4,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useAuthModal } from "@/shared/context/AuthModalContext";
 import {
-  clearPendingPersistenceIntent,
+  discardPendingPersistenceIntent,
   peekPendingPersistenceIntent,
   setPendingPersistenceIntent,
 } from "@/shared/services/auth/PendingPersistenceIntent";
@@ -125,10 +125,16 @@ export default function MyTrips() {
   };
 
   useEffect(() => {
-    if (user && peekPendingPersistenceIntent()?.type === "my_trips") {
-      clearPendingPersistenceIntent();
-    }
-  }, [user]);
+    if (!user) return;
+    const intent = peekPendingPersistenceIntent();
+    if (intent?.type !== "my_trips") return;
+    const currentPath = `${location.pathname}${location.search}${location.hash}`;
+    if (intent.returnPath !== currentPath) return;
+
+    discardPendingPersistenceIntent();
+    setNewTripOpener(null);
+    setIsAddingTrip(true);
+  }, [location.hash, location.pathname, location.search, user]);
 
   useEffect(() => {
     if (location.pathname === "/bucket-list" || paramTab === "bucketlist") {
