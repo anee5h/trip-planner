@@ -22,7 +22,7 @@ import {
   ChevronUp,
   BedDouble,
 } from "lucide-react";
-import { findNearbyCombinations } from "@/shared/services/recommendation/DestinationCombinationService";
+import { findLowerCostAlternativeCandidates } from "@/shared/services/recommendation/DestinationCombinationService";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import { Link, useLocation } from "react-router-dom";
@@ -374,11 +374,10 @@ export function TripCostBreakdownWidget({
       : "Estimated visit cost";
 
   const lowerCostAlternatives = useMemo(() => {
-    const combos = findNearbyCombinations(destination, undefined, 5);
+    const candidates = findLowerCostAlternativeCandidates(destination, 5);
     const destMin = totalRange?.[0];
     if (destMin === undefined) return [];
-    return combos
-      .map((c) => c.secondary)
+    return candidates
       .filter((sec) => {
         const estimate = calculateTripEstimate({
           dest: sec,
