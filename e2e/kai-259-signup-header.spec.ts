@@ -171,6 +171,26 @@ test.describe("KAI-259 guest header", () => {
   });
 });
 
+test.describe("KAI-259 guest My Trips acquisition", () => {
+  for (const locale of ["en", "ja"] as const) {
+    test(`${locale} My Trips entry uses the shared contextual prompt`, async ({
+      page,
+    }) => {
+      const path = locale === "ja" ? "/ja/my-trips" : "/my-trips";
+      const entry =
+        locale === "ja" ? "最初の旅行を計画" : "Plan your first trip";
+      const heading = locale === "ja" ? "マイトリップを保存" : "Keep My Trips";
+      const close = locale === "ja" ? "閉じる" : "Close";
+
+      await page.goto(path);
+      await page.getByRole("button", { name: entry }).click();
+      await expect(page.getByRole("heading", { name: heading })).toBeVisible();
+      await page.getByRole("button", { name: close, exact: true }).click();
+      await expect(page.getByRole("dialog")).toHaveCount(0);
+    });
+  }
+});
+
 test.describe("KAI-259 authenticated header", () => {
   test.beforeEach(async ({ page }) => {
     test.skip(!RUN, "A11Y_E2E=1 required for authenticated fixture");

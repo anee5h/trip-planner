@@ -10,6 +10,7 @@ const a11yE2e = process.env.A11Y_E2E === "1";
 // never rebuilds. Locally (no A11Y_PREBUILT) the a11y webServer builds
 // with the fake a11y-test Supabase env so the auth fixture works.
 const a11yPrebuilt = process.env.A11Y_PREBUILT === "1";
+const e2eAuthFixture = process.env.E2E_AUTH_FIXTURE === "1";
 
 // KAI-126: CI context attached to every Allure result (project + shard bin
 // + commit + workflow run) so the dashboard is self-describing.
@@ -106,7 +107,11 @@ export default defineConfig({
             // useAuth().user via page.route interception (no production
             // Supabase is touched).
             "VITE_SUPABASE_URL=https://a11y-test.supabase.co VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.a11y-test-anon-key npm run build && npm run preview -- --host 127.0.0.1 --port 4173"
-          : "npm run dev -- --host 127.0.0.1 --port 4173",
+          : e2eAuthFixture
+            ? // KAI-166: normal E2E can opt into the same fake auth fixture
+              // without touching a production Supabase project.
+              "VITE_SUPABASE_URL=https://a11y-test.supabase.co VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.a11y-test-anon-key npm run dev -- --host 127.0.0.1 --port 4173"
+            : "npm run dev -- --host 127.0.0.1 --port 4173",
     url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
