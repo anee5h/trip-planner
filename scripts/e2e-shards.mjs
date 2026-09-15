@@ -56,6 +56,7 @@ const WEIGHTS = {
   "kai-138-compact-mobile-homepage": 20, // compact Home geometry and nav clearance
   "card-rail-alignment": 4, // equal-height rail contract (Home top matches + hubs)
   "kai-205-composition": 20, // cross-rail canonical IDs + card-height composition contract
+  "kai-420-home-preferences-cleanup": 20, // homepage preference-action removal (EN/JA responsive)
   "kai-64-pwa": 0, // skips without PWA_E2E=1 (owned by the PWA job)
   "kai-64-upgrade": 0, // same
   "kai-80-a11y": 0, // skips without A11Y_E2E=1 (owned by the a11y run)
@@ -93,6 +94,7 @@ const BINS = {
     "kai-138-compact-mobile-homepage",
     "card-rail-alignment",
     "kai-205-composition",
+    "kai-420-home-preferences-cleanup",
     "kai-64-pwa",
     "kai-64-upgrade",
     "kai-80-a11y",

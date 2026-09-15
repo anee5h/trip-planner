@@ -32,6 +32,8 @@ vi.mock("react-i18next", () => ({
         "home.transportOptions.rentalCar": "レンタカー",
         "home.transportOptions.myCar": "自家用車",
         "home.find": "候補を見る",
+        "home.view": "おすすめを見る",
+        "home.update": "条件で更新",
         "home.surprise": "おまかせ検索",
         "home.planner": "旅のプランナー",
         "home.plannerHint": "30秒でぴったりの旅先を提案",
@@ -85,6 +87,14 @@ describe("HomePlanner 期間 / Japanese", () => {
     const { container } = renderPlanner();
     expect(container.textContent).toContain("興味");
     expect(container.textContent).not.toContain("気分");
+  });
+
+  it("keeps the homepage action row to matches and surprise me", () => {
+    const { container } = renderPlanner({ hasUserApplied: true });
+    expect(container.textContent).toContain("おすすめを見る");
+    expect(container.textContent).toContain("おまかせ検索");
+    expect(container.textContent).not.toContain("設定を保存");
+    expect(container.textContent).not.toContain("home.rememberPreferences");
   });
 
   it("shows the five duration choices without the old trip-mode toggle", () => {

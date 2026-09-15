@@ -11,13 +11,13 @@ import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
 const weatherMockState = vi.hoisted(() => ({ ready: true }));
+const authModalMockState = vi.hoisted(() => ({ openAuthModal: vi.fn() }));
 const authMockState = vi.hoisted(() => ({
   user: null as {
     id: string;
     email: string;
     user_metadata: { preferences: Record<string, unknown> };
   } | null,
-  updateUserProfile: vi.fn(),
 }));
 
 beforeAll(async () => {
@@ -108,7 +108,6 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
 vi.mock("@/shared/hooks/useAuth", () => ({
   useAuth: () => ({
     user: authMockState.user,
-    updateUserProfile: authMockState.updateUserProfile,
   }),
 }));
 
@@ -122,7 +121,7 @@ vi.mock("@/shared/context/LocaleContext", () => ({
 }));
 
 vi.mock("@/shared/context/AuthModalContext", () => ({
-  useAuthModal: () => ({ openAuthModal: vi.fn() }),
+  useAuthModal: () => authModalMockState,
 }));
 
 vi.mock("react-i18next", () => ({
@@ -171,7 +170,7 @@ let host: HTMLDivElement | undefined;
 afterEach(() => {
   weatherMockState.ready = true;
   authMockState.user = null;
-  authMockState.updateUserProfile.mockReset();
+  authModalMockState.openAuthModal.mockReset();
   localeState.value = "en";
   if (root) {
     act(() => root!.unmount());
@@ -374,44 +373,23 @@ describe("Home Integration Tests", () => {
     expect(primaryBtn?.textContent).toContain("home.update");
   });
 
-  it("persists party size as part of the authenticated planner state", async () => {
-    authMockState.user = {
-      id: "home-persist-user",
-      email: "home-persist@example.com",
-      user_metadata: { preferences: { partySize: 2 } },
-    };
-    authMockState.updateUserProfile.mockResolvedValue({
-      data: { user: authMockState.user },
-      error: null,
-    });
+  it("keeps guest planner apply ungated without a homepage preference action", async () => {
     const container = await renderHome();
-    const plusButtons = container.querySelectorAll(
+    const partyButton = container.querySelector(
       'button[aria-label="home.increaseParty"]',
-    );
-    expect(plusButtons.length).toBeGreaterThan(0);
+    ) as HTMLButtonElement | null;
+    expect(partyButton).not.toBeNull();
 
-    act(() => {
-      (plusButtons[0] as HTMLButtonElement).click();
-    });
-    act(() => {
-      (plusButtons[0] as HTMLButtonElement).click();
-    });
+    act(() => partyButton?.click());
     const applyButton = Array.from(container.querySelectorAll("button")).find(
       (button) => button.textContent?.includes("home.find"),
     );
     expect(applyButton).toBeDefined();
     act(() => applyButton?.click());
-    const rememberButton = Array.from(
-      container.querySelectorAll("button"),
-    ).find((button) =>
-      button.textContent?.includes("home.rememberPreferences"),
-    );
-    expect(rememberButton).toBeDefined();
-    act(() => rememberButton?.click());
 
-    expect(authMockState.updateUserProfile).toHaveBeenCalledWith({
-      preferences: expect.objectContaining({ partySize: 4 }),
-    });
+    expect(authModalMockState.openAuthModal).not.toHaveBeenCalled();
+    expect(container.textContent).not.toContain("home.rememberPreferences");
+    expect(container.textContent).toContain("home.view");
   });
 
   it("edits the origin in a modal", async () => {

@@ -3,8 +3,6 @@ import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
-import { useAuthModal } from "@/shared/context/AuthModalContext";
-import { setPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
 import { useHomeDateState } from "@/features/home/state/HomeDateStateContext";
 import { HomeDateStateProvider } from "@/features/home/state/HomeDateStateContext";
 import {
@@ -19,8 +17,6 @@ import { getLocalizedStationLabel } from "@/shared/utils/formatOriginLocation";
 import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
 import { HOME_RAIL_SECTION_SPACING } from "./components/HomeRailLayout";
 import type { HomePendingAction } from "./state/HomeAction";
-import type { TransportSelection } from "./services/TransportResolver";
-import type { HomepageTripDuration } from "@/shared/types/tripDuration";
 
 const HeavyHome = lazy(() => import("./HomeHeavy"));
 
@@ -124,7 +120,6 @@ function HomeSurface() {
     hasUserApplied,
     isDirty,
     applyPlannerState,
-    savePlannerPreferences,
   } = useHomePlannerState();
 
   const [pendingAction, setPendingAction] = useState<HomePendingAction>(null);
@@ -293,7 +288,6 @@ function HomeSurface() {
                 applyPlannerState();
                 requestAction("find");
               }}
-              onSavePreferences={savePlannerPreferences}
               onSurpriseMe={() => requestAction("surprise")}
             />
           </div>
@@ -311,51 +305,10 @@ function HomeSurface() {
 }
 
 export default function Home() {
-  const { user, updateUserProfile } = useAuth();
-  const { openAuthModal } = useAuthModal();
+  const { user } = useAuth();
   const { homeStationCoords } = useTripStore();
-  const persistPlannerPreferences = useCallback(
-    (
-      preferences: TransportSelection & {
-        tripDuration: HomepageTripDuration;
-        partySize: number;
-      },
-    ) => {
-      if (!user) {
-        setPendingPersistenceIntent({
-          type: "preferences",
-          preferences: {
-            carMode: preferences.carMode,
-            publicModes: preferences.publicModes,
-            tripDuration: preferences.tripDuration,
-            partySize: preferences.partySize,
-          },
-          sourceSurface: "preferences",
-        });
-        openAuthModal("signup", "preferences");
-        return;
-      }
-      const existingPreferences =
-        (user.user_metadata?.preferences as
-          Record<string, unknown> | undefined) ?? {};
-      void updateUserProfile({
-        preferences: {
-          ...existingPreferences,
-          carMode: preferences.carMode,
-          publicModes: preferences.publicModes,
-          tripDuration: preferences.tripDuration,
-          partySize: preferences.partySize,
-          preferences_set: true,
-        },
-      });
-    },
-    [openAuthModal, updateUserProfile, user],
-  );
   return (
-    <HomePlannerStateProvider
-      user={user}
-      onPlannerPreferencesPersist={persistPlannerPreferences}
-    >
+    <HomePlannerStateProvider user={user}>
       <HomeDateStateProvider homeStationCoords={homeStationCoords ?? null}>
         <HomeSurface />
       </HomeDateStateProvider>

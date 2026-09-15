@@ -33,6 +33,8 @@ vi.mock("react-i18next", () => ({
         "home.transportOptions.rentalCar": "Rental car",
         "home.transportOptions.myCar": "Personal car",
         "home.find": "Find matches",
+        "home.view": "View matches",
+        "home.update": "Update matches",
         "home.surprise": "Surprise me",
         "home.planner": "Trip Planner",
         "home.plannerHint": "Find your match in 30s",
@@ -87,6 +89,14 @@ describe("HomePlanner terminology", () => {
     const { container } = renderPlanner();
     expect(container.textContent).toContain("Interest");
     expect(container.textContent).not.toContain("Vibe");
+  });
+
+  it("keeps the homepage action row to matches and surprise me", () => {
+    const { container } = renderPlanner({ hasUserApplied: true });
+    expect(container.textContent).toContain("View matches");
+    expect(container.textContent).toContain("Surprise me");
+    expect(container.textContent).not.toContain("Remember preferences");
+    expect(container.textContent).not.toContain("home.rememberPreferences");
   });
 });
 

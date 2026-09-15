@@ -409,7 +409,6 @@
     "update": "条件で更新",
     "view": "おすすめを見る",
     "surprise": "おまかせで探す",
-    "rememberPreferences": "設定を保存",
     "decreaseParty": "人数を減らす",
     "increaseParty": "人数を増やす",
     "people_one": "{{count}}人",
