@@ -135,6 +135,10 @@
         "title": "予算内",
         "description": "目安 ¥{{cost}}で予算内です"
       },
+      "budgetMayExceed": {
+        "title": "予算超過の可能性",
+        "description": "目安 ¥{{cost}}は合計 ¥{{cap}} の予算を超える可能性があります"
+      },
       "transportFastTrain": {
         "title": "電車でアクセス便利",
         "description": "電車で{{minutes}}分です"

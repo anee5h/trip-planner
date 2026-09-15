@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import destinationIndex from "@/shared/data/destinations-index.json";
 import {
+  createBudgetMayExceedReason,
   createRecommendationMatch,
   getPrimaryDisplayReason,
 } from "../RecommendationExplainability";
@@ -58,6 +59,26 @@ const baseDest = {
 } as unknown as Destination;
 
 describe("RecommendationExplainability Unit Tests", () => {
+  it("derives a compact straddling warning from the canonical classifier", () => {
+    const reason = createBudgetMayExceedReason(
+      { total: { kind: "bounded", min: 18000, max: 24000 } },
+      20000,
+    );
+
+    expect(reason).toMatchObject({
+      type: "Budget",
+      code: "budgetMayExceed",
+      params: { cap: "20,000" },
+    });
+    expect(reason?.description).toContain("¥20,000");
+    expect(
+      createBudgetMayExceedReason(
+        { total: { kind: "bounded", min: 12000, max: 18000 } },
+        20000,
+      ),
+    ).toBeUndefined();
+  });
+
   it("selects a specific interest over an earlier budget reason without reordering reasons", () => {
     const reasons: MatchReason[] = [
       {

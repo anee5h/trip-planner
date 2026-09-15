@@ -542,6 +542,24 @@ describe("DestinationCard badges", () => {
     expect(host.textContent).not.toContain("Top-tier Food Scene");
   });
 
+  it("surfaces the straddling budget warning on the result card", () => {
+    renderDest({
+      match: {
+        confidence: 91,
+        reasons: [
+          {
+            type: "Budget",
+            code: "budgetMayExceed",
+            params: { cost: "¥18,000–¥24,000", cap: "20,000" },
+            title: "May Exceed Budget",
+          },
+        ],
+      },
+    });
+
+    expect(host.textContent).toContain("May Exceed Budget");
+  });
+
   it("wraps long borderline feasibility warnings instead of truncating them", () => {
     const durationSpy = vi
       .spyOn(TripDurationService, "estimateDayTripDuration")

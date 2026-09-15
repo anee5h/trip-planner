@@ -24,6 +24,7 @@ export type MatchReasonType =
 export type RecommendationReasonCode =
   | "budgetGreatValue"
   | "budgetWithin"
+  | "budgetMayExceed"
   | "transportFastTrain"
   | "transportEasyDrive"
   | "transportShinkansen"

@@ -135,6 +135,10 @@
         "title": "Within Budget",
         "description": "Est. ¥{{cost}} is within your range"
       },
+      "budgetMayExceed": {
+        "title": "May Exceed Budget",
+        "description": "Est. ¥{{cost}} may exceed your ¥{{cap}} total budget"
+      },
       "transportFastTrain": {
         "title": "Fast Train Access",
         "description": "Only {{minutes}}m by train"

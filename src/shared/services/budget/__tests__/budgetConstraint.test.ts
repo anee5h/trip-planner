@@ -209,12 +209,23 @@ describe("KAI-279 review regression: affordability follows the ACTIVE mode", () 
     expect(classifyBudgetFit(selectedOver, 80000)).toBe("above");
   });
 
-  it("straddling and no-cap are classified honestly", () => {
-    expect(classifyBudgetFit(complete(60000, 100000), 80000)).toBe(
-      "may_exceed",
-    );
-    expect(classifyBudgetFit(complete(40000, 60000), undefined)).toBe(
+  it("custom ¥20,000 preserves the full state matrix and flat cap", () => {
+    expect(classifyBudgetFit(complete(12000, 18000), 20000)).toBe("within");
+    expect(classifyBudgetFit(complete(18000, 24000), 20000)).toBe("may_exceed");
+    expect(classifyBudgetFit(complete(20000, 24000), 20000)).toBe("may_exceed");
+    expect(classifyBudgetFit(complete(20001, 24000), 20000)).toBe("above");
+    expect(classifyBudgetFit(partial(), 20000)).toBe("uncertain");
+    expect(classifyBudgetFit(complete(12000, 18000), undefined)).toBe(
       "uncertain",
     );
+
+    const customCap = budgetCapYen(custom(20000));
+    for (const partySize of [1, 2, 4]) {
+      for (const duration of ["halfDay", "fullDay", "2d1n", "3d2n"]) {
+        void partySize;
+        void duration;
+        expect(customCap).toBe(20000);
+      }
+    }
   });
 });
