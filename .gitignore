@@ -63,6 +63,7 @@ docs/*
 public/data/destinations-index.json
 public/data/destinations-index.lite.json
 public/data/destination-relationships.json
+public/data/transit/toei-oedo-gtfs-20260314.json.gz
 
 # Python scratch artifacts
 __pycache__/

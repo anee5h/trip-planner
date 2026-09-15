@@ -113,6 +113,26 @@ function requireHash(
   return value;
 }
 
+async function parseScheduledTransitResponse(
+  response: Response,
+): Promise<unknown> {
+  const bytes = new Uint8Array(await response.arrayBuffer());
+  const isGzip = bytes[0] === 0x1f && bytes[1] === 0x8b;
+  if (!isGzip) {
+    return JSON.parse(new TextDecoder().decode(bytes)) as unknown;
+  }
+
+  if (typeof DecompressionStream === "undefined") {
+    throw new Error("gzip decompression is unavailable in this runtime.");
+  }
+  const body = new Response(bytes).body;
+  if (body === null) {
+    throw new Error("gzip response did not expose a readable body.");
+  }
+  const decompressed = body.pipeThrough(new DecompressionStream("gzip"));
+  return new Response(decompressed).json() as Promise<unknown>;
+}
+
 function graphShape(value: unknown): NormalizedTransitGraph {
   const graph = requireRecord(value, "graph");
   requireRecord(graph.datasetVersion, "graph.datasetVersion");
@@ -549,7 +569,7 @@ export function loadScheduledTransitDataset(
           `HTTP ${response.status} fetching ${descriptor.assetUrl}.`,
         );
       }
-      return response.json() as Promise<unknown>;
+      return parseScheduledTransitResponse(response);
     })
     .then((value) => validateScheduledTransitDataset(value, descriptor))
     .catch((error: unknown) => {

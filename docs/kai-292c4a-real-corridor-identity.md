@@ -42,7 +42,7 @@ computed `RealCorridor[]`, and the accepted C4G corridor is marked
 | Explicit catalogue destination crosswalk entries | 1: `hamarikyu-gardens` |
 | Reviewed product origin identities | 1: `toei-oedo-shinjuku-nishiguchi` |
 | Registered normalized scheduled-transit datasets | 2: `sakata-runrunbus`, `toei-oedo-gtfs-20260314` |
-| Valid registered normalized assets | 2, including `public/data/transit/toei-oedo-gtfs-20260314.json` |
+| Valid registered normalized assets | 2, including `src/shared/data/transit/toei-oedo-gtfs-20260314.json` published as `/data/transit/toei-oedo-gtfs-20260314.json.gz` |
 | Toei Oedo normalized graph | 38 stops, 1 route, 839 scheduled services, 30,323 scheduled stop-time facts |
 | Unregistered deployable transit assets | 0 |
 | Crosswalk entries | 4: 2 non-product Sakata pilot mappings and 2 Toei product mappings |

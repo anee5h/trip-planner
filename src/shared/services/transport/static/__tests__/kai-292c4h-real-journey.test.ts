@@ -28,7 +28,7 @@ import { resolveScheduledTransitEndpoint } from "../scheduledTransitEndpoint";
 const ROOT = process.cwd();
 const TOEI_ASSET_PATH = join(
   ROOT,
-  "public/data/transit/toei-oedo-gtfs-20260314.json",
+  "src/shared/data/transit/toei-oedo-gtfs-20260314.json",
 );
 const SAKATA_ASSET_PATH = join(
   ROOT,
@@ -45,7 +45,9 @@ async function loadRealToeiDataset() {
   vi.stubGlobal(
     "fetch",
     vi.fn(async (input: string | URL | Request) => {
-      expect(String(input)).toBe("/data/transit/toei-oedo-gtfs-20260314.json");
+      expect(String(input)).toBe(
+        "/data/transit/toei-oedo-gtfs-20260314.json.gz",
+      );
       return new Response(body, {
         status: 200,
         headers: { "content-type": "application/json" },

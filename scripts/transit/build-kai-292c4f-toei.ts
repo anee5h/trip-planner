@@ -35,7 +35,7 @@ const MANIFEST_PATH = join(
 );
 const OUTPUT_PATH = join(
   process.cwd(),
-  "public/data/transit/toei-oedo-gtfs-20260314.json",
+  "src/shared/data/transit/toei-oedo-gtfs-20260314.json",
 );
 
 export const TOEI_OEDO_METADATA: GtfsScheduleMetadata = {

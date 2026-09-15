@@ -53,7 +53,7 @@ export const SAKATA_RUNRUNBUS_DATASET: ScheduledTransitDatasetDescriptor = {
 
 export const TOEI_OEDO_GTFS_DATASET: ScheduledTransitDatasetDescriptor = {
   key: "toei-oedo-gtfs-20260314",
-  assetUrl: "/data/transit/toei-oedo-gtfs-20260314.json",
+  assetUrl: "/data/transit/toei-oedo-gtfs-20260314.json.gz",
   artifactSchemaVersion: SCHEDULED_TRANSIT_ARTIFACT_SCHEMA_VERSION,
   provider: "gtfs",
   identityNamespace: "toei-gtfs",

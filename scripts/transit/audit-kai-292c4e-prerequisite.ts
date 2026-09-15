@@ -59,6 +59,11 @@ const GTFS_SCHEDULE_IMPORTER_PATH =
   "src/shared/services/transport/static/gtfsScheduleImporter.ts";
 const C3_PATH = "docs/kai-292c3-scheduled-routing-temporal-contract.md";
 const REPORT_PATH = "qa/kai-292c4e/real-corridor-prerequisite-audit.json";
+const DATASET_SOURCE_PATHS: Readonly<Record<string, string>> = {
+  "sakata-runrunbus": "public/data/transit/sakata-runrunbus.json",
+  "toei-oedo-gtfs-20260314":
+    "src/shared/data/transit/toei-oedo-gtfs-20260314.json",
+};
 
 export const KAI_292C4E_ANCHOR_IDS = [
   "shinjuku-gyo-en",
@@ -585,14 +590,12 @@ function c2RegistryState(
       if (syntheticArtifact !== undefined) {
         artifact = syntheticArtifact;
       } else {
-        const assetPath = resolve(
-          rootDir,
-          "public",
-          descriptor.assetUrl.replace(/^\/+/, ""),
-        );
-        if (!existsSync(assetPath)) return { key: descriptor.key };
+        const sourcePath = DATASET_SOURCE_PATHS[descriptor.key];
+        if (sourcePath === undefined) return { key: descriptor.key };
+        const sourceFile = resolve(rootDir, sourcePath);
+        if (!existsSync(sourceFile)) return { key: descriptor.key };
         try {
-          artifact = JSON.parse(readFileSync(assetPath, "utf8")) as unknown;
+          artifact = JSON.parse(readFileSync(sourceFile, "utf8")) as unknown;
         } catch {
           return { key: descriptor.key };
         }
