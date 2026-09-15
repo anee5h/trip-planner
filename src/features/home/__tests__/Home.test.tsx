@@ -401,6 +401,13 @@ describe("Home Integration Tests", () => {
     );
     expect(applyButton).toBeDefined();
     act(() => applyButton?.click());
+    const rememberButton = Array.from(
+      container.querySelectorAll("button"),
+    ).find((button) =>
+      button.textContent?.includes("home.rememberPreferences"),
+    );
+    expect(rememberButton).toBeDefined();
+    act(() => rememberButton?.click());
 
     expect(authMockState.updateUserProfile).toHaveBeenCalledWith({
       preferences: expect.objectContaining({ partySize: 4 }),

@@ -982,17 +982,22 @@ test.describe("KAI-80 authenticated state (fixture, no production mutation)", ()
     await increaseParty.click();
     await expect(partySize).toHaveText("4");
     await expect(apply).toHaveText("Update matches");
+    const remember = page
+      .locator("button:visible")
+      .filter({ hasText: "Remember preferences" })
+      .first();
+    await expect(remember).toBeVisible();
     const updateRequestPromise = page.waitForRequest(
       (request) =>
         request.url().includes("/auth/v1/user") &&
         ["PATCH", "PUT"].includes(request.method()),
     );
-    await apply.click();
+    await remember.click();
     const updateRequest = await updateRequestPromise;
     expect(updateRequest.postDataJSON()).toMatchObject({
       data: { preferences: { partySize: 4 } },
     });
-    await expect(apply).toHaveText("View matches");
+    await expect(apply).toHaveText("Update matches");
     await expect(partySize).toHaveText("4");
 
     await apply.click();

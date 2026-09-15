@@ -392,7 +392,7 @@ describe("DestinationCard responsive content", () => {
       host.querySelector<HTMLButtonElement>(
         'button[aria-label="Add to bucket list"]',
       )?.disabled,
-    ).toBe(true);
+    ).toBe(false);
     expect(
       host.querySelector<HTMLButtonElement>(
         'button[aria-label="Add to Itinerary"]',

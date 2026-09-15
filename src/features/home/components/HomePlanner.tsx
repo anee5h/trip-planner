@@ -63,6 +63,7 @@ interface HomePlannerProps {
   hasUserApplied: boolean;
   isDirty: boolean;
   onApplyMatches: () => void;
+  onSavePreferences?: () => void;
   onSurpriseMe: () => void;
 }
 
@@ -548,6 +549,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   hasUserApplied,
   isDirty,
   onApplyMatches,
+  onSavePreferences,
   onSurpriseMe,
 }: HomePlannerProps) => {
   const { t } = useTranslation();
@@ -926,6 +928,16 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             <span>{primaryButtonLabel}</span>
           </button>
 
+          {hasUserApplied && onSavePreferences && (
+            <button
+              type="button"
+              className="inline-flex h-11 items-center justify-center rounded-xl px-3 text-xs font-bold text-emerald-800 underline-offset-4 hover:underline dark:text-emerald-300"
+              onClick={onSavePreferences}
+            >
+              {t("home.rememberPreferences")}
+            </button>
+          )}
+
           <Button
             type="button"
             variant="outline"
@@ -1056,6 +1068,15 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               <Search className="mr-2 h-4 w-4" />
               {primaryButtonLabel}
             </button>
+            {hasUserApplied && onSavePreferences && (
+              <button
+                type="button"
+                className="home-planner-cta h-10 w-full rounded-xl text-xs font-bold text-emerald-800 underline-offset-4 hover:underline dark:text-emerald-300"
+                onClick={onSavePreferences}
+              >
+                {t("home.rememberPreferences")}
+              </button>
+            )}
             <Button
               type="button"
               variant="outline"

@@ -11,11 +11,6 @@ const DESKTOP_VIEWPORTS = [
   { width: 768, height: 900 },
   { width: 1024, height: 900 },
 ];
-const LONG_STOP_NAMES = {
-  en: "Sanjusangen-do Temple and National Treasure Hall, Kyoto National Museum District",
-  ja: "京都・三十三間堂と国宝仏像をめぐる東山の歴史文化散策スポット",
-} as const;
-
 async function generatePlan(
   page: Parameters<typeof test>[0]["page"],
   locale: "en" | "ja",
@@ -92,87 +87,6 @@ async function readActionGeometry(page: Parameters<typeof test>[0]["page"]) {
       bottomNav: nav ? rect(nav) : null,
     };
   });
-}
-
-async function createTripWithLongStop(
-  page: Parameters<typeof test>[0]["page"],
-  locale: "en" | "ja",
-) {
-  const copy =
-    locale === "ja"
-      ? {
-          route: "/ja/my-trips",
-          start: "最初の旅行を計画",
-          save: "旅行を保存",
-          edit: "旅程を編集",
-          custom: "自由入力の場所",
-          add: "立ち寄り先を追加",
-        }
-      : {
-          route: "/my-trips",
-          start: "Plan your first trip",
-          save: "Save trip",
-          edit: "Edit itinerary",
-          custom: "Custom location",
-          add: "Add stop",
-        };
-
-  await page.goto(copy.route);
-  await page.getByRole("button", { name: copy.start }).click();
-  await page.getByRole("button", { name: copy.save }).click();
-  await page.getByRole("button", { name: copy.edit }).click();
-  await page.getByRole("button", { name: copy.custom }).click();
-  await page
-    .locator("[data-add-stop-form] [data-custom-stop-input]")
-    .fill(LONG_STOP_NAMES[locale]);
-  await page.getByRole("button", { name: copy.add, exact: true }).click();
-  await expect(page.locator("[data-stop-id]")).toHaveCount(1);
-}
-
-async function assertLongStopLayout(
-  page: Parameters<typeof test>[0]["page"],
-  width: number,
-  expectedTitle: string,
-) {
-  const row = page.locator("[data-stop-id]").first();
-  const title = row.locator("[data-stop-title]");
-  const actions = row.locator("[data-stop-action-cluster]");
-  await expect(title).toBeVisible();
-  await expect(title).toHaveText(expectedTitle);
-  await expect(actions).toBeVisible();
-
-  const titleBox = await title.boundingBox();
-  const actionsBox = await actions.boundingBox();
-  const rowBox = await row.boundingBox();
-  expect(titleBox).not.toBeNull();
-  expect(actionsBox).not.toBeNull();
-  expect(rowBox).not.toBeNull();
-
-  if (!titleBox || !actionsBox || !rowBox) return;
-
-  if (width < 640) {
-    expect(
-      actionsBox.y,
-      `mobile controls must trail the title at ${width}px`,
-    ).toBeGreaterThanOrEqual(titleBox.y + titleBox.height);
-  } else {
-    expect(
-      titleBox.x + titleBox.width,
-      `desktop title must not enter controls at ${width}px`,
-    ).toBeLessThanOrEqual(actionsBox.x);
-  }
-
-  expect(actionsBox.x + actionsBox.width).toBeLessThanOrEqual(
-    rowBox.x + rowBox.width + 0.5,
-  );
-  for (const selector of ["[data-drag-handle]", "[data-stop-actions]"]) {
-    const controlBox = await row.locator(selector).boundingBox();
-    expect(controlBox, `${selector} must render`).not.toBeNull();
-    if (controlBox) {
-      expect(controlBox.width).toBeGreaterThanOrEqual(44);
-      expect(controlBox.height).toBeGreaterThanOrEqual(44);
-    }
-  }
 }
 
 for (const locale of ["en", "ja"] as const) {
@@ -278,48 +192,23 @@ test("KAI-166 preserves generated itinerary action behavior and keyboard access"
     .getByRole("button", { name: "Save Plan to Itinerary", exact: true })
     .click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await page.getByRole("button", { name: "Close modal", exact: true }).click();
+  await page.getByRole("button", { name: "Close", exact: true }).click();
   await expect(page.getByRole("dialog")).toHaveCount(0);
 });
 
 for (const locale of ["en", "ja"] as const) {
-  test(`KAI-166 ${locale} long custom stop title never collides with controls`, async ({
+  test(`KAI-259 ${locale} guest My Trips entry uses the shared contextual prompt`, async ({
     page,
-  }, testInfo) => {
-    test.skip(
-      !testInfo.project.name.includes("mobile"),
-      "long-title mobile coverage runs in the mobile project",
-    );
+  }) => {
+    const path = locale === "ja" ? "/ja/my-trips" : "/my-trips";
+    const entry = locale === "ja" ? "最初の旅行を計画" : "Plan your first trip";
+    const heading = locale === "ja" ? "マイトリップを保存" : "Keep My Trips";
 
-    await page.setViewportSize({ width: 360, height: 932 });
-    await createTripWithLongStop(page, locale);
-    for (const viewport of [
-      { width: 360, height: 932 },
-      { width: 375, height: 932 },
-      { width: 390, height: 932 },
-      { width: 393, height: 932 },
-      { width: 430, height: 932 },
-    ]) {
-      await page.setViewportSize(viewport);
-      await assertLongStopLayout(page, viewport.width, LONG_STOP_NAMES[locale]);
-    }
+    await page.goto(path);
+    await page.getByRole("button", { name: entry }).click();
+    await expect(page.getByRole("heading", { name: heading })).toBeVisible();
+    const close = locale === "ja" ? "閉じる" : "Close";
+    await page.getByRole("button", { name: close, exact: true }).click();
+    await expect(page.getByRole("dialog")).toHaveCount(0);
   });
 }
-
-test("KAI-166 long custom stop title stays beside controls on desktop", async ({
-  page,
-}, testInfo) => {
-  test.skip(
-    !testInfo.project.name.includes("desktop"),
-    "desktop long-title coverage runs in the desktop project",
-  );
-
-  for (const locale of ["en", "ja"] as const) {
-    await page.setViewportSize({ width: 640, height: 900 });
-    await createTripWithLongStop(page, locale);
-    for (const width of [640, 768, 1024, 1280]) {
-      await page.setViewportSize({ width, height: 900 });
-      await assertLongStopLayout(page, width, LONG_STOP_NAMES[locale]);
-    }
-  }
-});

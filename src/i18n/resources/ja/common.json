@@ -3,7 +3,9 @@
     "signIn": "サインイン",
     "signUp": "新規登録",
     "signOut": "サインアウト",
+    "createCompact": "作成",
     "createAccount": "アカウントを作成",
+    "createFreeAccount": "無料アカウント作成",
     "pleaseWait": "お待ちください…",
     "close": "閉じる",
     "show": "表示",
@@ -58,10 +60,41 @@
     "cancel": "キャンセル"
   },
   "auth": {
+    "title": "アカウント",
     "signInTitle": "おかえりなさい",
     "signInPrompt": "サインインして旅の計画を続けましょう。",
     "signUpTitle": "アカウントを作成",
     "signUpPrompt": "旅程、パスポートの進捗、行きたいリストを保存できます。",
+    "contextual": {
+      "header": {
+        "title": "無料アカウントを作成",
+        "description": "Megurutoの旅の計画と進捗をいつでも確認できます。"
+      },
+      "auth_modal": {
+        "title": "アカウントを作成",
+        "description": "旅程、パスポートの進捗、行きたいリストを保存できます。"
+      },
+      "bucket_list_save": {
+        "title": "この場所を行きたいリストに保存",
+        "description": "無料アカウントを作成すると、保存した場所をいつでも確認できます。"
+      },
+      "trip_save": {
+        "title": "この旅程を保存",
+        "description": "無料アカウントを作成すると、旅程を保存して後から続きができます。"
+      },
+      "my_trips": {
+        "title": "マイトリップを保存",
+        "description": "無料アカウントを作成すると、保存した旅程にどこからでもアクセスできます。"
+      },
+      "preferences": {
+        "title": "旅行の好みを保存",
+        "description": "無料アカウントを作成すると、旅行の好みをMegurutoが記憶します。"
+      },
+      "passport": {
+        "title": "旅の進捗を保存",
+        "description": "無料アカウントを作成すると、訪れた場所とパスポートの進捗を保存できます。"
+      }
+    },
     "noAccount": "アカウントをお持ちでないですか？",
     "hasAccount": "すでにアカウントをお持ちですか？",
     "forgotPassword": "パスワードをお忘れですか？",
@@ -376,6 +409,7 @@
     "update": "条件で更新",
     "view": "おすすめを見る",
     "surprise": "おまかせで探す",
+    "rememberPreferences": "設定を保存",
     "decreaseParty": "人数を減らす",
     "increaseParty": "人数を増やす",
     "people_one": "{{count}}人",

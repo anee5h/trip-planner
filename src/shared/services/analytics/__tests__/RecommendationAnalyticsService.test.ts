@@ -99,32 +99,39 @@ describe("RecommendationAnalyticsService Unit Tests", () => {
     expect(event).not.toHaveProperty("userId");
   });
 
-  it("only completes a pending OAuth signup once an authenticated session arrives", () => {
+  it("does not emit signup completion for an OAuth callback without a new-account signal", () => {
     recommendationAnalytics.markPendingSignup("google", "auth_modal");
 
-    expect(recommendationAnalytics.trackPendingSignupCompletion()).toBe(true);
     expect(recommendationAnalytics.trackPendingSignupCompletion()).toBe(false);
-    expect(recommendationAnalytics.getQueue()).toHaveLength(1);
-    expect(recommendationAnalytics.getQueue()[0]).toMatchObject({
-      eventType: "signup_completed",
-      source: "auth_modal",
-      authProvider: "google",
-    });
+    expect(recommendationAnalytics.trackPendingSignupCompletion()).toBe(false);
+    expect(recommendationAnalytics.getQueue()).toHaveLength(0);
   });
 
-  it("forwards only allowlisted signup dimensions to the existing GA4 helper", () => {
+  it("records coarse callback errors with source and no sensitive payload", () => {
+    recommendationAnalytics.markPendingSignup("google", "bucket_list_save");
+    expect(
+      recommendationAnalytics.trackPendingSignupError("oauth_callback"),
+    ).toBe(true);
+    expect(recommendationAnalytics.getQueue()[0]).toMatchObject({
+      eventType: "signup_error",
+      source: "bucket_list_save",
+      source_surface: "bucket_list_save",
+      error_type: "oauth_callback",
+      device_class: "desktop",
+    });
+    expect(recommendationAnalytics.getQueue()[0]).not.toHaveProperty("email");
+    expect(recommendationAnalytics.getQueue()[0]).not.toHaveProperty(
+      "password",
+    );
+  });
+
+  it("does not forward signup events from local or preview hosts", () => {
     const gtag = vi.fn();
     (window as Window & { gtag?: (...args: unknown[]) => void }).gtag = gtag;
 
     recommendationAnalytics.trackSignupCtaClick("header", "ja");
 
-    expect(gtag).toHaveBeenCalledWith("event", "signup_cta_click", {
-      locale: "ja",
-      schema_version: ANALYTICS_SCHEMA_VERSION,
-      source: "header",
-    });
-    expect(gtag.mock.calls[0][2]).not.toHaveProperty("sessionId");
-    expect(gtag.mock.calls[0][2]).not.toHaveProperty("auth_payload");
+    expect(gtag).not.toHaveBeenCalled();
     delete (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
   });
 

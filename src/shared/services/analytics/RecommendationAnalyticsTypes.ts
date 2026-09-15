@@ -20,10 +20,22 @@ export type RecommendationEventType =
   | "signup_cta_impression"
   | "signup_cta_click"
   | "signup_started"
-  | "signup_completed";
+  | "signup_completed"
+  | "signup_error"
+  | "signup_dismissed";
 
-export type SignupSource = "header" | "auth_modal";
+export type SignupSource =
+  | "header"
+  | "auth_modal"
+  | "bucket_list_save"
+  | "trip_save"
+  | "my_trips"
+  | "preferences"
+  | "passport";
 export type SignupAuthProvider = "email" | "google" | "twitter" | "line";
+export type SignupErrorType =
+  "oauth_callback" | "provider" | "validation" | "network" | "unknown";
+export type DeviceClass = "mobile" | "tablet" | "desktop";
 
 export interface BaseAnalyticsEvent {
   eventId: string;
@@ -116,22 +128,45 @@ export interface PlanningToolAnalyticsEvent extends BaseAnalyticsEvent {
 export interface SignupCtaImpressionEvent extends BaseAnalyticsEvent {
   eventType: "signup_cta_impression";
   source: "header";
+  source_surface: "header";
+  device_class: DeviceClass;
 }
 
 export interface SignupCtaClickEvent extends BaseAnalyticsEvent {
   eventType: "signup_cta_click";
   source: "header";
+  source_surface: "header";
+  device_class: DeviceClass;
 }
 
 export interface SignupStartedEvent extends BaseAnalyticsEvent {
   eventType: "signup_started";
   source: SignupSource;
+  source_surface: SignupSource;
+  device_class: DeviceClass;
 }
 
 export interface SignupCompletedEvent extends BaseAnalyticsEvent {
   eventType: "signup_completed";
   source: SignupSource;
+  source_surface: SignupSource;
+  device_class: DeviceClass;
   authProvider: SignupAuthProvider;
+}
+
+export interface SignupErrorEvent extends BaseAnalyticsEvent {
+  eventType: "signup_error";
+  source: SignupSource;
+  source_surface: SignupSource;
+  device_class: DeviceClass;
+  error_type: SignupErrorType;
+}
+
+export interface SignupDismissedEvent extends BaseAnalyticsEvent {
+  eventType: "signup_dismissed";
+  source: SignupSource;
+  source_surface: SignupSource;
+  device_class: DeviceClass;
 }
 
 export type AnyRecommendationAnalyticsEvent =
@@ -148,4 +183,6 @@ export type AnyRecommendationAnalyticsEvent =
   | SignupCtaImpressionEvent
   | SignupCtaClickEvent
   | SignupStartedEvent
-  | SignupCompletedEvent;
+  | SignupCompletedEvent
+  | SignupErrorEvent
+  | SignupDismissedEvent;

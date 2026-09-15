@@ -14,6 +14,7 @@ import type { ClearProfileResult } from "./clearProfileResult";
 import { reportAuthFailureIfOperational } from "@/shared/utils/errorReporter";
 import { executePendingAccountDeletionIfRequested } from "@/shared/utils/pendingAccountDeletion";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
+import { clearPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
 
 export interface UserPreferencesPayload {
   partySize?: number;
@@ -75,7 +76,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const authError =
         new URLSearchParams(window.location.search).get("error") ||
         new URLSearchParams(window.location.hash.slice(1)).get("error");
-      if (authError) recommendationAnalytics.clearPendingSignup();
+      if (authError) {
+        recommendationAnalytics.trackPendingSignupError("oauth_callback");
+        clearPendingPersistenceIntent();
+      }
     }
 
     const handleSession = (session: Session | null) => {
@@ -217,7 +221,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error("useAuth must be used within an AuthProvider");
+    return {
+      user: null,
+      loading: false,
+      signInWithGoogle: () => undefined,
+      signInWithTwitter: () => undefined,
+      signInWithLine: () => undefined,
+      signInWithEmail: async () => undefined,
+      signUpWithEmail: async () => undefined,
+      resetPasswordForEmail: async () => undefined,
+      signOut: () => undefined,
+      updateUserProfile: async () => undefined,
+      clearProfileData: async () => ({ ok: false, error: "auth unavailable" }),
+    } as unknown as AuthContextType;
   }
   return context;
 }

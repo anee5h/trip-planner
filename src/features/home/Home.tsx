@@ -3,6 +3,8 @@ import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
+import { useAuthModal } from "@/shared/context/AuthModalContext";
+import { setPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
 import { useHomeDateState } from "@/features/home/state/HomeDateStateContext";
 import { HomeDateStateProvider } from "@/features/home/state/HomeDateStateContext";
 import {
@@ -122,6 +124,7 @@ function HomeSurface() {
     hasUserApplied,
     isDirty,
     applyPlannerState,
+    savePlannerPreferences,
   } = useHomePlannerState();
 
   const [pendingAction, setPendingAction] = useState<HomePendingAction>(null);
@@ -290,6 +293,7 @@ function HomeSurface() {
                 applyPlannerState();
                 requestAction("find");
               }}
+              onSavePreferences={savePlannerPreferences}
               onSurpriseMe={() => requestAction("surprise")}
             />
           </div>
@@ -308,6 +312,7 @@ function HomeSurface() {
 
 export default function Home() {
   const { user, updateUserProfile } = useAuth();
+  const { openAuthModal } = useAuthModal();
   const { homeStationCoords } = useTripStore();
   const persistPlannerPreferences = useCallback(
     (
@@ -316,7 +321,20 @@ export default function Home() {
         partySize: number;
       },
     ) => {
-      if (!user) return;
+      if (!user) {
+        setPendingPersistenceIntent({
+          type: "preferences",
+          preferences: {
+            carMode: preferences.carMode,
+            publicModes: preferences.publicModes,
+            tripDuration: preferences.tripDuration,
+            partySize: preferences.partySize,
+          },
+          sourceSurface: "preferences",
+        });
+        openAuthModal("signup", "preferences");
+        return;
+      }
       const existingPreferences =
         (user.user_metadata?.preferences as
           Record<string, unknown> | undefined) ?? {};
@@ -331,7 +349,7 @@ export default function Home() {
         },
       });
     },
-    [updateUserProfile, user],
+    [openAuthModal, updateUserProfile, user],
   );
   return (
     <HomePlannerStateProvider

@@ -5,12 +5,34 @@ import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useTranslation } from "react-i18next";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
+import type {
+  SignupErrorType,
+  SignupSource,
+} from "@/shared/services/analytics/RecommendationAnalyticsTypes";
 
 interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialMode?: "signin" | "signup";
-  source?: "header" | "auth_modal";
+  source?: SignupSource;
+  onCancel?: () => void;
+}
+
+function classifySignupError(message: unknown): SignupErrorType {
+  const value = typeof message === "string" ? message.toLowerCase() : "";
+  if (value.includes("network") || value.includes("fetch")) return "network";
+  if (
+    value.includes("invalid") ||
+    value.includes("password") ||
+    value.includes("email") ||
+    value.includes("validation")
+  ) {
+    return "validation";
+  }
+  if (value.includes("provider") || value.includes("oauth")) {
+    return "provider";
+  }
+  return "unknown";
 }
 
 export function AuthModal({
@@ -18,6 +40,7 @@ export function AuthModal({
   onClose,
   initialMode = "signin",
   source: initialSource = "auth_modal",
+  onCancel,
 }: AuthModalProps) {
   const {
     signInWithGoogle,
@@ -27,7 +50,7 @@ export function AuthModal({
   } = useAuth();
   const { t, i18n } = useTranslation();
   const [mode, setMode] = useState<"signin" | "signup">(initialMode);
-  const [signupSource, setSignupSource] = useState<"header" | "auth_modal">(
+  const [signupSource] = useState<SignupSource>(
     initialMode === "signup" ? initialSource : "auth_modal",
   );
   const [email, setEmail] = useState("");
@@ -55,6 +78,7 @@ export function AuthModal({
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
         e.preventDefault();
+        onCancel?.();
         onClose();
         return;
       }
@@ -96,7 +120,7 @@ export function AuthModal({
         (fallback ?? document.body).focus();
       }
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onCancel, onClose]);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
@@ -169,17 +193,29 @@ export function AuthModal({
         if (!result) throw new Error("Signup did not complete");
         const { error } = result;
         if (error) throw error;
-        recommendationAnalytics.trackSignupCompleted(
-          "email",
+        if ((result.data?.user?.identities?.length ?? 0) > 0) {
+          recommendationAnalytics.trackSignupCompleted(
+            "email",
+            signupSource,
+            i18n.resolvedLanguage?.startsWith("ja") ||
+              i18n.language.startsWith("ja")
+              ? "ja"
+              : "en",
+          );
+        }
+        setSuccess(t("auth.confirmEmailSent"));
+      }
+    } catch (err: any) {
+      if (mode === "signup") {
+        recommendationAnalytics.trackSignupError(
           signupSource,
+          classifySignupError(err?.message),
           i18n.resolvedLanguage?.startsWith("ja") ||
             i18n.language.startsWith("ja")
             ? "ja"
             : "en",
         );
-        setSuccess(t("auth.confirmEmailSent"));
       }
-    } catch (err: any) {
       setError(formatAuthError(err.message));
     } finally {
       setLoading(false);
@@ -196,6 +232,14 @@ export function AuthModal({
     const result = await signInWithGoogle();
     if (!result || result.error) {
       recommendationAnalytics.clearPendingSignup();
+      recommendationAnalytics.trackSignupError(
+        signupSource,
+        result?.error ? classifySignupError(result.error.message) : "provider",
+        i18n.resolvedLanguage?.startsWith("ja") ||
+          i18n.language.startsWith("ja")
+          ? "ja"
+          : "en",
+      );
       if (result?.error) setError(formatAuthError(result.error.message));
     }
   };
@@ -219,6 +263,33 @@ export function AuthModal({
     }
   };
 
+  const contextualTitle =
+    mode === "signup"
+      ? t(`auth.contextual.${signupSource}.title`, {
+          defaultValue: t("auth.signUpTitle"),
+        })
+      : t("auth.signInTitle");
+  const contextualPrompt =
+    mode === "signup"
+      ? t(`auth.contextual.${signupSource}.description`, {
+          defaultValue: t("auth.signUpPrompt"),
+        })
+      : t("auth.signInPrompt");
+
+  const handleCancel = () => {
+    if (mode === "signup") {
+      recommendationAnalytics.trackSignupDismissed(
+        signupSource,
+        i18n.resolvedLanguage?.startsWith("ja") ||
+          i18n.language.startsWith("ja")
+          ? "ja"
+          : "en",
+      );
+    }
+    onCancel?.();
+    onClose();
+  };
+
   return createPortal(
     <div
       ref={dialogRef}
@@ -226,7 +297,7 @@ export function AuthModal({
       aria-modal="true"
       aria-label={t("auth.title", "Sign in")}
       className="fixed inset-0 z-[100] p-4 flex items-center justify-center bg-slate-950/50 dark:bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-200"
-      onClick={(e) => e.target === e.currentTarget && onClose()}
+      onClick={(e) => e.target === e.currentTarget && handleCancel()}
     >
       <div
         data-testid="auth-modal-card"
@@ -234,7 +305,7 @@ export function AuthModal({
       >
         {/* Close */}
         <button
-          onClick={onClose}
+          onClick={handleCancel}
           aria-label={t("actions.close")}
           className="absolute top-4 right-4 z-10 flex size-9 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
         >
@@ -268,14 +339,10 @@ export function AuthModal({
               </span>
             </div>
             <h2 className="text-lg font-semibold text-slate-950 dark:text-white">
-              {mode === "signin"
-                ? t("auth.signInTitle")
-                : t("auth.signUpTitle")}
+              {contextualTitle}
             </h2>
             <p className="mt-1 text-sm text-slate-500 dark:text-slate-300">
-              {mode === "signin"
-                ? t("auth.signInPrompt")
-                : t("auth.signUpPrompt")}
+              {contextualPrompt}
             </p>
           </div>
 
@@ -381,7 +448,7 @@ export function AuthModal({
                 {t("auth.legalPrefix")}{" "}
                 <Link
                   to="/terms"
-                  onClick={onClose}
+                  onClick={handleCancel}
                   className="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
                 >
                   {t("legal.terms")}
@@ -389,7 +456,7 @@ export function AuthModal({
                 {t("auth.legalAnd")}{" "}
                 <Link
                   to="/privacy"
-                  onClick={onClose}
+                  onClick={handleCancel}
                   className="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
                 >
                   {t("legal.privacy")}
@@ -406,7 +473,6 @@ export function AuthModal({
               onClick={() => {
                 const nextMode = mode === "signin" ? "signup" : "signin";
                 setMode(nextMode);
-                setSignupSource("auth_modal");
                 if (nextMode === "signin") {
                   recommendationAnalytics.clearPendingSignup();
                 }

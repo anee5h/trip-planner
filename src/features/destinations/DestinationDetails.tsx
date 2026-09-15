@@ -4,6 +4,15 @@ import { useOptionalTripContext } from "@/shared/context/TripContext";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
+import { useAuthModal } from "@/shared/context/AuthModalContext";
+import {
+  clearPendingPersistenceDraft,
+  consumePendingPersistenceIntent,
+  peekPendingPersistenceIntent,
+  readPendingPersistenceDraft,
+  setPendingPersistenceIntent,
+  storePendingPersistenceDraft,
+} from "@/shared/services/auth/PendingPersistenceIntent";
 import { addRecentlyViewedDestination } from "@/shared/hooks/useRecentlyViewedDestinations";
 import { getDestination } from "@/shared/services/destination/DestinationService";
 import { restorePageMeta, setPageMeta, TITLE_SUFFIX } from "@/seo/meta";
@@ -175,6 +184,10 @@ import {
 } from "@/shared/services/transport/carCostOptions";
 import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
 
+function getBrowserReturnPath(): string {
+  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
+}
+
 function WeatherIcon({ type }: { type: string }) {
   if (type === "sun") return <Sun className="w-6 h-6 text-amber-500" />;
   if (type === "cloud") return <Cloud className="w-6 h-6 text-slate-500" />;
@@ -345,6 +358,7 @@ export default function DestinationDetails() {
     duration?: TripDuration;
   } | null;
   const { user } = useAuth();
+  const { openAuthModal } = useAuthModal();
   const partySize =
     navState?.partySize ??
     (hasExplicitTripContext ? tripContext.partySize : undefined) ??
@@ -446,10 +460,51 @@ export default function DestinationDetails() {
     return restorePageMeta;
   }, [localizedDestination, copy.notFound]);
 
+  const requestTripSave = (payload: PendingItinerarySave) => {
+    if (user) {
+      setPendingSave(payload);
+      return;
+    }
+    const draftRef = storePendingPersistenceDraft(payload);
+    if (!draftRef) {
+      toast.error(
+        locale === "ja"
+          ? "旅程を一時保存できませんでした。もう一度お試しください。"
+          : "We couldn't hold this trip safely. Please try again.",
+      );
+      return;
+    }
+    setPendingPersistenceIntent({
+      type: "trip_save",
+      draftRef,
+      returnPath: getBrowserReturnPath(),
+      sourceSurface: "trip_save",
+    });
+    openAuthModal("signup", "trip_save");
+  };
+
   const handleAddToItinerary = () => {
     if (!destination) return;
-    setPendingSave({ type: "destination", destination });
+    requestTripSave({ type: "destination", destination });
   };
+
+  useEffect(() => {
+    if (!user) return;
+    const intent = peekPendingPersistenceIntent();
+    if (
+      !intent ||
+      intent.type !== "trip_save" ||
+      intent.returnPath !== getBrowserReturnPath()
+    ) {
+      return;
+    }
+    const draft = readPendingPersistenceDraft<PendingItinerarySave>(
+      intent.draftRef,
+    );
+    consumePendingPersistenceIntent();
+    clearPendingPersistenceDraft(intent.draftRef);
+    if (draft) setPendingSave(draft);
+  }, [location.hash, location.pathname, location.search, user]);
 
   // Hero header Share: the /ja variant shares the prerendered /ja URL so
   // crawlers see the Japanese OG/Twitter metadata. Falls back to clipboard.
@@ -1893,9 +1948,9 @@ export default function DestinationDetails() {
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {
-                    setPendingSave({ type: "generated_plan", plan });
+                    requestTripSave({ type: "generated_plan", plan });
                   } else if (destination) {
-                    setPendingSave({ type: "destination", destination });
+                    requestTripSave({ type: "destination", destination });
                   }
                 }}
               />

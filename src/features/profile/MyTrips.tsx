@@ -1,6 +1,13 @@
 import { useState, useEffect, useMemo } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useAuth } from "@/shared/hooks/useAuth";
+import { useAuthModal } from "@/shared/context/AuthModalContext";
+import {
+  clearPendingPersistenceIntent,
+  peekPendingPersistenceIntent,
+  setPendingPersistenceIntent,
+} from "@/shared/services/auth/PendingPersistenceIntent";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import type { Destination } from "@/shared/types/destination";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
@@ -66,6 +73,8 @@ function getSavedDestinationSearchText(destination: Destination): string {
 
 export default function MyTrips() {
   const { t, i18n } = useTranslation();
+  const { user } = useAuth();
+  const { openAuthModal } = useAuthModal();
   const location = useLocation();
   const {
     favorites,
@@ -100,6 +109,26 @@ export default function MyTrips() {
     { tripId: string; mode: "rename" | "dates" } | undefined
   >();
   const [savedSearch, setSavedSearch] = useState("");
+
+  const requestNewTrip = (opener: HTMLButtonElement) => {
+    if (!user) {
+      setPendingPersistenceIntent({
+        type: "my_trips",
+        returnPath: `${window.location.pathname}${window.location.search}${window.location.hash}`,
+        sourceSurface: "my_trips",
+      });
+      openAuthModal("signup", "my_trips");
+      return;
+    }
+    setNewTripOpener(opener);
+    setIsAddingTrip(true);
+  };
+
+  useEffect(() => {
+    if (user && peekPendingPersistenceIntent()?.type === "my_trips") {
+      clearPendingPersistenceIntent();
+    }
+  }, [user]);
 
   useEffect(() => {
     if (location.pathname === "/bucket-list" || paramTab === "bucketlist") {
@@ -265,10 +294,7 @@ export default function MyTrips() {
         actions={
           activeTab === "planned" && trips.length > 0 ? (
             <Button
-              onClick={(event) => {
-                setNewTripOpener(event.currentTarget);
-                setIsAddingTrip(true);
-              }}
+              onClick={(event) => requestNewTrip(event.currentTarget)}
               className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-bold px-6 shadow-md"
             >
               <Plus className="w-4 h-4 mr-1.5" />
@@ -294,10 +320,7 @@ export default function MyTrips() {
               </p>
               <div className="flex flex-col justify-center gap-2 sm:flex-row sm:flex-wrap">
                 <Button
-                  onClick={(event) => {
-                    setNewTripOpener(event.currentTarget);
-                    setIsAddingTrip(true);
-                  }}
+                  onClick={(event) => requestNewTrip(event.currentTarget)}
                   size="lg"
                   className="rounded-full bg-emerald-700 px-6 font-bold text-white shadow-md hover:bg-emerald-800"
                 >
