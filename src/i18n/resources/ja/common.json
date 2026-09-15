@@ -569,7 +569,7 @@
       "3d2n": "2泊3日"
     },
     "tripAreas": {
-      "summary": "旅行エリア{{areas}}件・スポット{{places}}件",
+      "summary": "エリア{{areas}}件・スポット{{places}}件",
       "show": "旅行エリア{{count}}件を表示",
       "places": "スポット{{places}}件",
       "plentyForDays": "{{days}}日間たっぷり",

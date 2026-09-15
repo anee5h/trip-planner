@@ -45,6 +45,7 @@ vi.mock("react-i18next", () => ({
         "home.transportModes.train": "電車",
         "home.transportModes.travelUnavailable": "交通情報なし",
         "compare.driving": " · 車",
+        "ui.view": "詳細を見る",
       };
       return jaMap[key] ?? opts?.defaultValue ?? key;
     },
@@ -92,7 +93,7 @@ describe("DestinationCard — Japanese Localization", () => {
     });
 
     const text = host.textContent ?? "";
-    expect(text).toContain("詳しく見る");
+    expect(text).toContain("詳細を見る");
 
     // Japanese visited button aria-label
     const visitedBtn = host.querySelector(
@@ -124,5 +125,38 @@ describe("DestinationCard — Japanese Localization", () => {
 
     const unvisitBtn = host.querySelector("button[aria-label='未訪問に戻す']");
     expect(unvisitBtn).not.toBeNull();
+  });
+
+  it("keeps a concrete overnight estimate out of the unavailable state", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <DestinationCard
+            destination={dest}
+            duration="2d1n"
+            overnightSummary={{
+              placeCount: 4,
+              capacityMinutes: 720,
+              travelEstimate: {
+                mode: "train",
+                timeRange: [88, 173],
+                source: "verified_ground_route",
+                evidence: "verified",
+              },
+            }}
+          />
+        </MemoryRouter>,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("1時間28分");
+    expect(text).toContain("電車");
+    expect(text).not.toContain("交通情報なし");
+    expect(text).not.toContain("destination.tripAreas.travelBy");
   });
 });

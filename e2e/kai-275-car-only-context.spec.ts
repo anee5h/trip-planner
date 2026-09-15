@@ -15,6 +15,7 @@ import { expect, test, type Page } from "./fixtures";
 
 const COPY = {
   viewAll: "View all top matches",
+  viewDetails: "View details",
   personalCar: "Personal Car",
   train: "Train",
   shinkansen: "Shinkansen",
@@ -182,7 +183,7 @@ test("KAI-275 Personal-Car-only survives Home → View more → Explore → Dest
   // 4. Open the first destination (guaranteed car-eligible under car-only).
   await page
     .locator('a[href^="/destinations/"]')
-    .filter({ hasText: "Explore" })
+    .filter({ hasText: COPY.viewDetails })
     .first()
     .click();
   await page.waitForURL(/\/destinations\/[^?]/);

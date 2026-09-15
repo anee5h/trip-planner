@@ -98,7 +98,10 @@ import {
   TOKYO_WARDS_GROUP_ID,
 } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import type { TransportMode } from "@/shared/services/transport/types";
-import type { OriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import type {
+  OriginAwareTransportEstimate,
+  TravelDurationEstimate,
+} from "@/shared/services/transport/OriginAwareTransportService";
 import { getSafeGroundEstimate } from "@/shared/services/transport/SafeGroundEstimateService";
 import {
   getDecisionOneWayMinutes,
@@ -727,6 +730,8 @@ export default function Destinations() {
         oneWayMinutes?: number;
         bestMode?: string;
         estimate?: OriginAwareTransportEstimate;
+        /** The same estimate used for the card's visible transport row. */
+        travelEstimate?: TravelDurationEstimate;
       }
     >();
     // Weekend-aware "recommended" scores for 2D1N (matches Home ranking).
@@ -866,9 +871,9 @@ export default function Destinations() {
             // estimates are absent; fall back to the bounded SafeGround
             // estimate (same authority as day cards / Home match cards /
             // ranking / detail) for the card's one-way minutes + mode.
-            // Boso-class long-haul stays undefined and the card honestly
-            // shows no time; Hakone-class shows its ~ time. The canonical
-            // estimate (.estimate) remains the gateway/wards source.
+            // If neither canonical nor bounded fallback evidence is usable,
+            // leave the card's estimate undefined and render unavailable.
+            // The canonical estimate (.estimate) remains the gateway/wards source.
             const canonicalEstimate = getOriginAwareTransportEstimate(
               dest,
               { homeStationCoords, ferryTemporal },
@@ -891,6 +896,7 @@ export default function Destinations() {
                 : undefined,
               bestMode: travelEstimate?.mode,
               estimate: canonicalEstimate ?? undefined,
+              travelEstimate: travelEstimate ?? undefined,
             });
           }
         }
@@ -1432,10 +1438,10 @@ export default function Destinations() {
 
       <div
         id="results-grid"
-        className="mb-6 flex flex-wrap items-center justify-between gap-4 text-slate-600 dark:text-slate-300 font-medium scroll-mt-24"
+        className="mb-6 flex min-w-0 flex-wrap items-center justify-between gap-3 text-slate-600 dark:text-slate-300 font-medium scroll-mt-24"
       >
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-800">
+        <div className="flex min-w-0 items-center gap-2">
+          <span className="whitespace-nowrap text-xs font-semibold text-slate-500 dark:text-slate-400">
             {catalogueStillLoading && allDestinations.length === 0
               ? locale === "ja"
                 ? "目的地を準備中…"
@@ -1526,8 +1532,7 @@ export default function Destinations() {
                               overnightResult.capacityMinutesById.get(
                                 dest.id,
                               ) ?? 0,
-                            oneWayMinutes: travel?.oneWayMinutes,
-                            bestMode: travel?.bestMode,
+                            travelEstimate: travel?.travelEstimate,
                           }
                         : undefined
                     }
