@@ -20,6 +20,9 @@ const openAuthModal = vi.hoisted(() => vi.fn());
 vi.mock("@/shared/hooks/useAuth", () => ({
   useAuth: () => ({ user: authState.user }),
 }));
+vi.mock("@/shared/hooks/useOptionalAuth", () => ({
+  useOptionalAuth: () => ({ user: authState.user }),
+}));
 vi.mock("@/shared/hooks/useTripStore", () => ({
   useTripStore: () => ({
     isFavorite: () => storeState.active,
@@ -30,6 +33,10 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
 }));
 vi.mock("@/shared/context/AuthModalContext", () => ({
   useAuthModal: () => ({ openAuthModal }),
+  useOptionalAuthModal: () => ({ openAuthModal }),
+}));
+vi.mock("@/shared/context/useOptionalAuthModal", () => ({
+  useOptionalAuthModal: () => ({ openAuthModal }),
 }));
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({

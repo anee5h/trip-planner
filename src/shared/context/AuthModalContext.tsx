@@ -1,16 +1,15 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import type { PropsWithChildren } from "react";
 import { AuthModal } from "@/shared/components/auth/AuthModal";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
-import type { SignupSource } from "@/shared/services/analytics/RecommendationAnalyticsTypes";
 import { clearPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
+import {
+  AuthModalContext,
+  type AuthModalMode,
+  type AuthModalSource,
+} from "./authModalContext";
 
-export type AuthModalMode = "signin" | "signup";
-export type AuthModalSource = SignupSource;
-
-type OpenAuthModal = (mode?: AuthModalMode, source?: AuthModalSource) => void;
-
-const AuthModalContext = createContext<OpenAuthModal | null>(null);
+export type { AuthModalMode, AuthModalSource } from "./authModalContext";
 
 export function AuthModalProvider({ children }: PropsWithChildren) {
   const [isOpen, setIsOpen] = useState(false);
