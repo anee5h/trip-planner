@@ -188,7 +188,8 @@ vi.mock("@/shared/services/budget/BudgetService", () => ({
 vi.mock(
   "@/shared/services/recommendation/DestinationCombinationService",
   () => ({
-    findNearbyCombinations: () => [],
+    findLowerCostAlternativeCandidates: () => [],
+    selectLowerCostAlternatives: () => [],
   }),
 );
 

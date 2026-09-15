@@ -43,6 +43,28 @@ function getCandidateTier(
   return 4;
 }
 
+function compareCandidateRelevance(
+  primary: Destination,
+  a: { place: Destination; distKm: number },
+  b: { place: Destination; distKm: number },
+): number {
+  const tierA = getCandidateTier(primary, a.place);
+  const tierB = getCandidateTier(primary, b.place);
+  if (tierA !== tierB) return tierA - tierB;
+
+  // REC-002/KAI-89: rating tie-breaks must respect the rating-confidence
+  // policy. Only VERIFIED vectors (high/medium confidence metadata) may rank
+  // by their overall score. Ties fall to distance.
+  const ratingKey = (place: Destination): number =>
+    isRatingVerified(place) ? (place.ratings?.overall ?? -1) : -1;
+  const ratingA = ratingKey(a.place);
+  const ratingB = ratingKey(b.place);
+  if (ratingB !== ratingA) return ratingB - ratingA;
+
+  if (a.distKm !== b.distKm) return a.distKm - b.distKm;
+  return a.place.id.localeCompare(b.place.id);
+}
+
 function getCombinationBudgetRange(
   primary: Destination,
   secondary: Destination,
@@ -82,6 +104,197 @@ function getCombinationBudgetRange(
   return total;
 }
 
+function isHubLevel(destination: Destination): boolean {
+  return destination.role === "hub" || destination.kind === "city";
+}
+
+function getParentChainIds(
+  destination: Destination,
+  byId: ReadonlyMap<string, Destination>,
+): Set<string> {
+  const ancestors = new Set<string>();
+  const visited = new Set<string>([destination.id]);
+  let current = destination;
+
+  while (current.relationships?.parentDestinationId) {
+    const parentId = current.relationships.parentDestinationId;
+    if (visited.has(parentId)) break;
+    visited.add(parentId);
+    ancestors.add(parentId);
+    const parent = byId.get(parentId);
+    if (!parent) break;
+    current = parent;
+  }
+
+  return ancestors;
+}
+
+function isAncestorOrDescendant(
+  primary: Destination,
+  candidate: Destination,
+  byId: ReadonlyMap<string, Destination>,
+): boolean {
+  return (
+    getParentChainIds(primary, byId).has(candidate.id) ||
+    getParentChainIds(candidate, byId).has(primary.id)
+  );
+}
+
+function isExplicitlyContained(
+  container: Destination,
+  candidate: Destination,
+): boolean {
+  return Boolean(
+    container.relationships?.featuredDestinationIds?.includes(candidate.id),
+  );
+}
+
+function isContainedSameTrip(
+  primary: Destination,
+  candidate: Destination,
+): boolean {
+  if (
+    isExplicitlyContained(primary, candidate) ||
+    isExplicitlyContained(candidate, primary)
+  ) {
+    return true;
+  }
+
+  // areaId is the catalogue's explicit intra-city grouping. Two records in the
+  // same group are already one local trip, not alternatives to each other.
+  if (primary.areaId && primary.areaId === candidate.areaId) return true;
+
+  // Multiple hub records for one municipality represent the same destination
+  // context even when the parent links are incomplete.
+  return Boolean(
+    isHubLevel(primary) &&
+    isHubLevel(candidate) &&
+    primary.municipalityId &&
+    primary.municipalityId === candidate.municipalityId,
+  );
+}
+
+function isEligibleWithIndex(
+  primary: Destination,
+  candidate: Destination,
+  byId: ReadonlyMap<string, Destination>,
+): boolean {
+  // 1. Alternatives stay at the same entity level: hub→hub or POI→POI.
+  if (isHubLevel(primary) !== isHubLevel(candidate)) return false;
+  // 2. The selected entity is never its own alternative.
+  if (primary.id === candidate.id) return false;
+  // 3. Direct parent/child relationships are one trip, not alternatives.
+  if (
+    candidate.relationships?.parentDestinationId === primary.id ||
+    primary.relationships?.parentDestinationId === candidate.id
+  ) {
+    return false;
+  }
+  // 4. Reject deeper ancestor/descendant relationships as well.
+  if (isAncestorOrDescendant(primary, candidate, byId)) return false;
+  // 5. Use explicit catalogue containment before any distance/cost ranking.
+  if (isContainedSameTrip(primary, candidate)) return false;
+
+  return true;
+}
+
+/**
+ * KAI-288: semantic eligibility for the lower-cost alternatives rail.
+ *
+ * This deliberately runs before transit distance or cost ranking. It is kept
+ * separate from findNearbyCombinations because detail recommendations still
+ * need their existing POI-combination semantics.
+ */
+export function isEligibleLowerCostAlternative(
+  primary: Destination,
+  candidate: Destination,
+  catalogue: readonly Destination[],
+): boolean {
+  return isEligibleWithIndex(
+    primary,
+    candidate,
+    new Map(catalogue.map((place) => [place.id, place])),
+  );
+}
+
+/**
+ * Returns the complete semantically valid candidate pool in the existing
+ * relevance order. The caller remains responsible for the canonical cost
+ * comparison and final display cap.
+ */
+export function findLowerCostAlternativeCandidates(
+  primary: Destination,
+  catalogue?: Destination[],
+): Destination[] {
+  if (!primary) return [];
+
+  const all = (
+    catalogue && catalogue.length
+      ? catalogue
+      : (getFullPlaces() as Destination[])
+  ) as Destination[];
+  const byId = new Map(all.map((place) => [place.id, place]));
+  const candidates: Array<{
+    place: Destination;
+    distKm: number;
+    transitMins: number;
+  }> = [];
+
+  for (const place of all) {
+    if (!isEligibleWithIndex(primary, place, byId)) continue;
+
+    const transitEst = estimateLocalTransitMinutes(primary, place, "nearby", {
+      areaDensity:
+        primary.prefecture === "Tokyo" || primary.prefecture === "Osaka"
+          ? "dense_urban"
+          : "suburban",
+    });
+
+    if (
+      !transitEst.usable ||
+      !hasCoordinates(primary) ||
+      !hasCoordinates(place)
+    ) {
+      continue;
+    }
+
+    const distKm = getDistance(
+      primary.coordinates.lat,
+      primary.coordinates.lng,
+      place.coordinates.lat,
+      place.coordinates.lng,
+    );
+    candidates.push({
+      place,
+      distKm,
+      transitMins: transitEst.durationMinutes,
+    });
+  }
+
+  candidates.sort((a, b) => compareCandidateRelevance(primary, a, b));
+
+  return candidates.map(({ place }) => place);
+}
+
+/**
+ * Applies the canonical cheaper-than-current predicate to the complete
+ * semantically eligible pool, then applies the UI display cap.
+ */
+export function selectLowerCostAlternatives<T>(
+  candidates: readonly T[],
+  currentMinimum: number | undefined,
+  candidateMinimum: (candidate: T) => number | undefined,
+  displayCap: number = 2,
+): T[] {
+  if (currentMinimum === undefined || displayCap <= 0) return [];
+  return candidates
+    .filter((candidate) => {
+      const minimum = candidateMinimum(candidate);
+      return minimum !== undefined && minimum <= currentMinimum;
+    })
+    .slice(0, displayCap);
+}
+
 export function findNearbyCombinations(
   primary: Destination,
   context?: Partial<RecommendationContext>,
@@ -118,6 +331,9 @@ export function findNearbyCombinations(
       continue;
     }
 
+    // The rail is explicitly "Nearby" and previously inherited this same-day
+    // catchment from findNearbyCombinations. KAI-288 changes semantic
+    // eligibility, not the existing geographic/relevance scope.
     const transitEst = estimateLocalTransitMinutes(
       primary,
       place,
@@ -153,25 +369,7 @@ export function findNearbyCombinations(
     });
   }
 
-  candidates.sort((a, b) => {
-    const tierA = getCandidateTier(primary, a.place);
-    const tierB = getCandidateTier(primary, b.place);
-    if (tierA !== tierB) return tierA - tierB;
-
-    // REC-002/KAI-89: rating tie-breaks must respect the rating-confidence
-    // policy. Only VERIFIED vectors (high/medium confidence metadata) may
-    // rank by their overall score; unverified (low-confidence/missing)
-    // vectors return -1 so they never outrank a verified neighbour on a
-    // number that is not a reviewed fact. Ties fall to distance.
-    const ratingKey = (p: Destination): number =>
-      isRatingVerified(p) ? (p.ratings?.overall ?? -1) : -1;
-    const ratingA = ratingKey(a.place);
-    const ratingB = ratingKey(b.place);
-    if (ratingB !== ratingA) return ratingB - ratingA;
-
-    if (a.distKm !== b.distKm) return a.distKm - b.distKm;
-    return a.place.id.localeCompare(b.place.id);
-  });
+  candidates.sort((a, b) => compareCandidateRelevance(primary, a, b));
 
   const combos: DestinationCombo[] = [];
   const usedCategorySets = new Set<string>();
