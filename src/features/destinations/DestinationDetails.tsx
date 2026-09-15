@@ -12,6 +12,7 @@ import DestinationMap from "./components/DestinationMap";
 import { getCityArea } from "@/shared/data/cityAreas";
 import type { Destination } from "@/shared/types/destination";
 import { getLocalizedOpeningHours } from "./destinationOpeningHours";
+import { localizeBestSeason } from "./bestSeasonLabels";
 import {
   normalizeTripDuration,
   type TripDuration,
@@ -182,29 +183,6 @@ function WeatherIcon({ type }: { type: string }) {
   if (type === "storm")
     return <CloudLightning className="w-6 h-6 text-indigo-600" />;
   return <Sun className="w-6 h-6 text-amber-500" />;
-}
-
-function localizeEditorialValue(value: string, locale: "en" | "ja") {
-  if (locale === "en") return value;
-  return (
-    {
-      "Extremely easy access from central Tokyo.":
-        "東京中心部からのアクセスが非常に便利です。",
-      "Spring & Autumn": "春・秋",
-      Spring: "春",
-      Summer: "夏",
-      Autumn: "秋",
-      Winter: "冬",
-      "Dinners with night views require booking.":
-        "夜景を楽しむディナーは予約が必要です。",
-      "Plenty of paid parking in Minatomirai.":
-        "みなとみらいには有料駐車場が多数あります。",
-      "All Year": "通年",
-      "None required": "予約不要",
-      "Public parking available": "公共駐車場あり",
-      "No advance reservation required.": "事前予約は不要です。",
-    }[value] || "情報未登録"
-  );
 }
 
 const DETAIL_COPY = {
@@ -1740,7 +1718,7 @@ export default function DestinationDetails() {
               headerExposesLocation={Boolean(parentDestination)}
               seasonLabel={
                 destination.bestSeason
-                  ? localizeEditorialValue(destination.bestSeason, locale)
+                  ? localizeBestSeason(destination.bestSeason, locale)
                   : undefined
               }
               labels={{
