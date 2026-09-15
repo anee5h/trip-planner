@@ -14,7 +14,14 @@ import {
   getValidModes,
 } from "./RecommendationScorer";
 import { formatJPYRange } from "@/shared/services/budget/BudgetService";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import {
+  classifyBudgetFit,
+  formatYenAmount,
+} from "@/shared/services/budget/budgetConstraint";
+import {
+  calculateTripEstimate,
+  type TripEstimateResult,
+} from "@/shared/services/budget/tripEstimateEngine";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import {
   getOriginAwareTransportEstimate,
@@ -58,7 +65,7 @@ const DAY_TRIP_DISPLAY_PRIORITY: readonly (readonly RecommendationReasonCode[])[
       "transportFerry",
       "transportEasyDrive",
     ],
-    ["budgetGreatValue", "budgetWithin"],
+    ["budgetGreatValue", "budgetWithin", "budgetMayExceed"],
     // Generic/editorial and non-day-trip reasons are the final fallback tier.
     [
       "generalHighlyRated",
@@ -123,6 +130,29 @@ export function getPrimaryDisplayReason(
   return primary;
 }
 
+/**
+ * Derives the display-only warning for a retained straddling estimate from the
+ * canonical budget classifier. This does not change recommendation eligibility.
+ */
+export function createBudgetMayExceedReason(
+  estimate: Pick<TripEstimateResult, "total"> | undefined,
+  cap: number | undefined,
+): MatchReason | undefined {
+  if (classifyBudgetFit(estimate, cap) !== "may_exceed" || !estimate?.total) {
+    return undefined;
+  }
+  const cost = formatJPYRange([estimate.total.min, estimate.total.max]);
+  const formattedCap = cap === undefined ? "" : formatYenAmount(cap);
+  const interpolatedCost = cost.replace(/^¥/, "");
+  return {
+    type: "Budget",
+    code: "budgetMayExceed",
+    params: { cost: interpolatedCost, cap: formattedCap },
+    title: "May Exceed Budget",
+    description: `Estimated ${cost} may exceed your ¥${formattedCap} total budget`,
+  };
+}
+
 export function createRecommendationMatch(
   dest: Destination,
   context: RecommendationContext,
@@ -150,6 +180,7 @@ export function createRecommendationMatch(
   // 1. Budget and Transport Explainability
   let bestMode = validModesForDest[0];
   let bestModeBudget: PriceRange | undefined;
+  let bestModeMayExceed: PriceRange | undefined;
   let hasFastTrain = false;
   const modeEstimates = new Map<
     string,
@@ -173,6 +204,14 @@ export function createRecommendationMatch(
       carRoute: resolveCarRouteForDestination(dest, context),
       carCostOptions: context.carCostOptions,
     });
+    const budgetFit = classifyBudgetFit(engineResult, budget);
+    if (
+      budgetFit === "may_exceed" &&
+      engineResult.total &&
+      (!bestModeMayExceed || engineResult.total.max < bestModeMayExceed[1])
+    ) {
+      bestModeMayExceed = [engineResult.total.min, engineResult.total.max];
+    }
     if (engineResult.total && engineResult.total.max <= budget) {
       estimatedBudget = [engineResult.total.min, engineResult.total.max];
     }
@@ -249,6 +288,18 @@ export function createRecommendationMatch(
     } else {
       unmatchedPreferences.push("budget");
     }
+  } else if (bestModeMayExceed) {
+    const reason = createBudgetMayExceedReason(
+      {
+        total: {
+          kind: "bounded",
+          min: bestModeMayExceed[0],
+          max: bestModeMayExceed[1],
+        },
+      },
+      budget,
+    );
+    if (reason) reasons.push(reason);
   }
 
   // Transport Reasons — minutes come from the same origin-aware estimate
