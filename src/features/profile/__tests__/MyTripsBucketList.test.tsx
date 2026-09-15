@@ -37,6 +37,14 @@ const cataloguePlaces = vi.hoisted(() => [
   })),
 ]);
 
+vi.mock("@/shared/hooks/useAuth", () => ({
+  useAuth: () => ({ user: null, loading: false }),
+}));
+
+vi.mock("@/shared/context/AuthModalContext", () => ({
+  useAuthModal: () => ({ openAuthModal: vi.fn() }),
+}));
+
 vi.mock("@/shared/hooks/useTripStore", () => ({
   useTripStore: () => ({
     favorites: state.favorites,

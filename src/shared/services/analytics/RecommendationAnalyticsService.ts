@@ -5,7 +5,9 @@ import type {
   BaseAnalyticsEvent,
   PlanningToolAnalyticsEvent,
   SignupAuthProvider,
+  SignupErrorType,
   SignupSource,
+  DeviceClass,
 } from "./RecommendationAnalyticsTypes";
 import { telemetryPipeline } from "./RecommendationTelemetryPipeline";
 
@@ -368,6 +370,8 @@ class RecommendationAnalyticsService {
       ...base,
       eventType: "signup_cta_impression",
       source,
+      source_surface: source,
+      device_class: this.getDeviceClass(),
     });
     if (emitted) {
       try {
@@ -392,6 +396,8 @@ class RecommendationAnalyticsService {
       ...base,
       eventType: "signup_cta_click",
       source,
+      source_surface: source,
+      device_class: this.getDeviceClass(),
     });
   }
 
@@ -404,6 +410,8 @@ class RecommendationAnalyticsService {
       ...base,
       eventType: "signup_started",
       source,
+      source_surface: source,
+      device_class: this.getDeviceClass(),
     });
   }
 
@@ -417,7 +425,39 @@ class RecommendationAnalyticsService {
       ...base,
       eventType: "signup_completed",
       source,
+      source_surface: source,
+      device_class: this.getDeviceClass(),
       authProvider,
+    });
+  }
+
+  public trackSignupError(
+    source: SignupSource,
+    errorType: SignupErrorType,
+    locale: "en" | "ja" = "en",
+  ): boolean {
+    const base = this.createBaseEvent("signup_error", locale);
+    return this.emitEvent({
+      ...base,
+      eventType: "signup_error",
+      source,
+      source_surface: source,
+      device_class: this.getDeviceClass(),
+      error_type: errorType,
+    });
+  }
+
+  public trackSignupDismissed(
+    source: SignupSource,
+    locale: "en" | "ja" = "en",
+  ): boolean {
+    const base = this.createBaseEvent("signup_dismissed", locale);
+    return this.emitEvent({
+      ...base,
+      eventType: "signup_dismissed",
+      source,
+      source_surface: source,
+      device_class: this.getDeviceClass(),
     });
   }
 
@@ -448,57 +488,74 @@ class RecommendationAnalyticsService {
     }
   }
 
-  /**
-   * Consume a pending OAuth signup only after a real authenticated session
-   * arrives. A stale or malformed intent is discarded and never completed.
-   */
-  public trackPendingSignupCompletion(): boolean {
-    let pending: {
-      authProvider: SignupAuthProvider;
-      source: SignupSource;
-      createdAt: number;
-    } | null = null;
+  private consumePendingSignup(): {
+    authProvider: SignupAuthProvider;
+    source: SignupSource;
+  } | null {
     try {
-      if (typeof window === "undefined" || !window.sessionStorage) return false;
+      if (typeof window === "undefined" || !window.sessionStorage) return null;
       const raw = window.sessionStorage.getItem(PENDING_SIGNUP_STORAGE_KEY);
-      if (!raw) return false;
+      if (!raw) return null;
       const parsed = JSON.parse(raw) as {
         authProvider?: SignupAuthProvider;
         source?: SignupSource;
         createdAt?: number;
       } | null;
       this.clearPendingSignup();
-      if (!parsed) return false;
       if (
-        (parsed.authProvider !== "google" &&
-          parsed.authProvider !== "twitter" &&
-          parsed.authProvider !== "line" &&
-          parsed.authProvider !== "email") ||
+        !parsed ||
+        !parsed.authProvider ||
         (parsed.source !== undefined &&
-          parsed.source !== "header" &&
-          parsed.source !== "auth_modal") ||
+          ![
+            "header",
+            "auth_modal",
+            "bucket_list_save",
+            "trip_save",
+            "my_trips",
+            "preferences",
+            "passport",
+          ].includes(parsed.source)) ||
         typeof parsed.createdAt !== "number" ||
         Date.now() - parsed.createdAt > PENDING_SIGNUP_TTL_MS
       ) {
-        return false;
+        return null;
       }
-      pending = {
+      return {
         authProvider: parsed.authProvider,
         source: parsed.source ?? "header",
-        createdAt: parsed.createdAt,
       };
     } catch {
       this.clearPendingSignup();
-      return false;
+      return null;
     }
+  }
 
+  /**
+   * OAuth sign-in callbacks currently expose no reliable new-account signal.
+   * Consume the marker without emitting signup_completed; emitting it here
+   * would misclassify existing-user logins as conversions.
+   */
+  public trackPendingSignupCompletion(): boolean {
+    this.consumePendingSignup();
+    return false;
+  }
+
+  public trackPendingSignupError(errorType: SignupErrorType): boolean {
+    const pending = this.consumePendingSignup();
     return pending
-      ? this.trackSignupCompleted(
-          pending.authProvider,
+      ? this.trackSignupError(
           pending.source,
+          errorType,
           this.getCurrentLocale(),
         )
       : false;
+  }
+
+  private getDeviceClass(): DeviceClass {
+    if (typeof window === "undefined") return "desktop";
+    if (window.innerWidth < 640) return "mobile";
+    if (window.innerWidth < 1024) return "tablet";
+    return "desktop";
   }
 
   private getCurrentLocale(): "en" | "ja" {
@@ -516,13 +573,16 @@ class RecommendationAnalyticsService {
       event.eventType !== "signup_cta_impression" &&
       event.eventType !== "signup_cta_click" &&
       event.eventType !== "signup_started" &&
-      event.eventType !== "signup_completed"
+      event.eventType !== "signup_completed" &&
+      event.eventType !== "signup_error" &&
+      event.eventType !== "signup_dismissed"
     ) {
       return;
     }
 
     try {
       if (typeof window === "undefined") return;
+      if (window.location.hostname !== "meguruto.app") return;
       const gtag = (
         window as Window & {
           gtag?: (...args: unknown[]) => void;
@@ -535,8 +595,17 @@ class RecommendationAnalyticsService {
         schema_version: event.schemaVersion,
       };
       if ("source" in event) params.source = event.source;
+      if ("source_surface" in event) {
+        params.source_surface = event.source_surface;
+      }
+      if ("device_class" in event) {
+        params.device_class = event.device_class;
+      }
       if ("authProvider" in event) {
         params.auth_provider = event.authProvider;
+      }
+      if ("error_type" in event) {
+        params.error_type = event.error_type;
       }
       gtag("event", event.eventType, params);
     } catch {

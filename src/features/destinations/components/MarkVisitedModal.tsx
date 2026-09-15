@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useOptionalAuth } from "@/shared/hooks/useOptionalAuth";
+import { useOptionalAuthModal } from "@/shared/context/useOptionalAuthModal";
+import { setPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
 import { Calendar as CalendarIcon, CheckCircle2, X } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 
@@ -21,6 +24,9 @@ export function MarkVisitedModal({
   destination,
 }: MarkVisitedModalProps) {
   const { addVisitedDate, canMutateProfile } = useTripStore();
+  const auth = useOptionalAuth();
+  const user = auth?.user ?? null;
+  const authModal = useOptionalAuthModal();
 
   const getTodayStr = () => new Date().toISOString().split("T")[0];
   const getCurrentMonthStr = () => new Date().toISOString().substring(0, 7);
@@ -51,6 +57,23 @@ export function MarkVisitedModal({
     else if (precision === "year") finalValue = yearVal;
 
     if (!finalValue) return;
+    if (!user) {
+      setPendingPersistenceIntent({
+        type: "passport",
+        destinationId: destination.id,
+        visitDate: finalValue,
+        sourceSurface: "passport",
+      });
+      onClose();
+      if (!authModal) {
+        throw new Error(
+          "MarkVisitedModal requires AuthModalProvider for guest persistence",
+        );
+      }
+      authModal.openAuthModal("signup", "passport");
+      return;
+    }
+    if (!canMutateProfile) return;
     addVisitedDate(destination.id, finalValue);
     onClose();
   };

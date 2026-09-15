@@ -42,6 +42,10 @@ vi.mock("@/shared/hooks/useAuth", () => ({
   useAuth: () => ({ user: null, loading: false }),
 }));
 
+vi.mock("@/shared/context/AuthModalContext", () => ({
+  useAuthModal: () => ({ openAuthModal: vi.fn() }),
+}));
+
 vi.mock("@/shared/hooks/useWeather", () => ({
   useWeather: () => ({ forecast: null, currentWeather: null, loading: false }),
   useWeekendWeather: () => ({ forecast: null, loading: false }),

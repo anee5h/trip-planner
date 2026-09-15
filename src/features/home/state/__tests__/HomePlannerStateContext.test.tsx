@@ -175,7 +175,7 @@ describe("HomePlannerStateProvider", () => {
     },
   );
 
-  it("persists the selected party size with the applied planner state", () => {
+  it("persists the selected party size only on explicit save", () => {
     const persisted = vi.fn();
     const getState = renderState(
       {
@@ -187,6 +187,7 @@ describe("HomePlannerStateProvider", () => {
 
     act(() => getState().setPartySize(4));
     act(() => getState().applyPlannerState());
+    act(() => getState().savePlannerPreferences());
 
     expect(persisted).toHaveBeenCalledWith(
       expect.objectContaining({ partySize: 4 }),

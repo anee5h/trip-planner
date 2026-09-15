@@ -1,6 +1,9 @@
 import React from "react";
 import { Bookmark } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useOptionalAuth } from "@/shared/hooks/useOptionalAuth";
+import { useOptionalAuthModal } from "@/shared/context/useOptionalAuthModal";
+import { setPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 
@@ -22,12 +25,30 @@ export function BucketListButton({
   removeLabel,
 }: BucketListButtonProps) {
   const { t } = useTranslation();
+  const auth = useOptionalAuth();
+  const user = auth?.user ?? null;
+  const authModal = useOptionalAuthModal();
   const { isFavorite, toggleFavorite, canMutateProfile } = useTripStore();
   const active = isFavorite(destinationId);
 
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     e.preventDefault();
+    if (!user) {
+      setPendingPersistenceIntent({
+        type: "bucket_list_save",
+        destinationId,
+        sourceSurface: "bucket_list_save",
+      });
+      if (!authModal) {
+        throw new Error(
+          "BucketListButton requires AuthModalProvider for guest persistence",
+        );
+      }
+      authModal.openAuthModal("signup", "bucket_list_save");
+      return;
+    }
+    if (!canMutateProfile) return;
     toggleFavorite(destinationId);
 
     if (!active) {
@@ -56,7 +77,7 @@ export function BucketListButton({
     return (
       <button
         onClick={handleClick}
-        disabled={!canMutateProfile}
+        disabled={Boolean(user) && !canMutateProfile}
         aria-pressed={active}
         aria-label={currentAriaLabel}
         title={currentTitle}
@@ -76,7 +97,7 @@ export function BucketListButton({
     return (
       <button
         onClick={handleClick}
-        disabled={!canMutateProfile}
+        disabled={Boolean(user) && !canMutateProfile}
         aria-pressed={active}
         aria-label={currentAriaLabel}
         title={currentTitle}
@@ -98,7 +119,7 @@ export function BucketListButton({
     return (
       <button
         onClick={handleClick}
-        disabled={!canMutateProfile}
+        disabled={Boolean(user) && !canMutateProfile}
         aria-pressed={active}
         aria-label={currentAriaLabel}
         title={currentTitle}
@@ -117,7 +138,7 @@ export function BucketListButton({
   return (
     <button
       onClick={handleClick}
-      disabled={!canMutateProfile}
+      disabled={Boolean(user) && !canMutateProfile}
       aria-pressed={active}
       aria-label={currentAriaLabel}
       title={currentTitle}

@@ -66,6 +66,14 @@ vi.mock("react-i18next", () => ({
     t: (key: string) => {
       const labels: Record<string, Record<"en" | "ja", string>> = {
         "actions.signUp": { en: "Sign Up", ja: "新規登録" },
+        "actions.createAccount": {
+          en: "Create Account",
+          ja: "アカウントを作成",
+        },
+        "actions.createFreeAccount": {
+          en: "Create Free Account",
+          ja: "無料アカウント作成",
+        },
         "actions.close": { en: "Close", ja: "閉じる" },
         "navigation.signIn": { en: "Sign In", ja: "ログイン" },
         "navigation.signOut": { en: "Sign Out", ja: "ログアウト" },
@@ -169,7 +177,7 @@ describe("Navbar Component", () => {
     );
 
     expect(brand?.className).not.toContain("absolute");
-    expect(cta?.textContent).toBe("Sign Up");
+    expect(cta?.textContent).toContain("Create Account");
     expect(cta?.className).toContain("min-h-11");
   });
 
@@ -339,7 +347,7 @@ describe("Navbar Component", () => {
     expect(
       node.querySelector<HTMLButtonElement>('[data-testid="navbar-signup-cta"]')
         ?.textContent,
-    ).toBe("新規登録");
+    ).toContain("アカウントを作成");
   });
 
   it("keeps desktop language switching and exposes the mobile language toggle", () => {

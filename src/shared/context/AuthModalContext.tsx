@@ -1,14 +1,15 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import type { PropsWithChildren } from "react";
 import { AuthModal } from "@/shared/components/auth/AuthModal";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
+import { discardPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
+import {
+  AuthModalContext,
+  type AuthModalMode,
+  type AuthModalSource,
+} from "./authModalContext";
 
-export type AuthModalMode = "signin" | "signup";
-export type AuthModalSource = "header" | "auth_modal";
-
-type OpenAuthModal = (mode?: AuthModalMode, source?: AuthModalSource) => void;
-
-const AuthModalContext = createContext<OpenAuthModal | null>(null);
+export type { AuthModalMode, AuthModalSource } from "./authModalContext";
 
 export function AuthModalProvider({ children }: PropsWithChildren) {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +40,10 @@ export function AuthModalProvider({ children }: PropsWithChildren) {
         initialMode={mode}
         source={source}
         onClose={() => setIsOpen(false)}
+        onCancel={() => {
+          discardPendingPersistenceIntent();
+          setIsOpen(false);
+        }}
       />
     </AuthModalContext.Provider>
   );
@@ -50,4 +55,9 @@ export function useAuthModal() {
     throw new Error("useAuthModal must be used within AuthModalProvider");
   }
   return { openAuthModal };
+}
+
+export function useOptionalAuthModal() {
+  const openAuthModal = useContext(AuthModalContext);
+  return openAuthModal ? { openAuthModal } : null;
 }

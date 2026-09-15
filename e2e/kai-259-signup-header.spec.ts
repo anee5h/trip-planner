@@ -64,7 +64,9 @@ async function expectGuestHeader(page: import("@playwright/test").Page) {
   await page.goto("/");
   await expect(page.getByRole("link", { name: "Meguruto home" })).toBeVisible();
   await expect(
-    page.getByRole("button", { name: /Sign Up|新規登録/ }),
+    page.getByRole("button", {
+      name: /Create|Sign Up|Create Account|Create Free Account|新規登録|アカウントを作成|無料アカウント作成/,
+    }),
   ).toBeVisible();
   await expect(page.getByTestId("navbar-avatar-trigger")).toHaveCount(0);
 }
@@ -145,10 +147,14 @@ test.describe("KAI-259 guest header", () => {
   }, testInfo) => {
     test.skip(!isMobile(testInfo.project.name), "one deterministic flow test");
     await expectGuestHeader(page);
-    await page.getByRole("button", { name: /Sign Up|新規登録/ }).click();
+    await page
+      .getByRole("button", {
+        name: /Create|Sign Up|Create Account|Create Free Account|新規登録|アカウントを作成|無料アカウント作成/,
+      })
+      .click();
     await expect(page.getByRole("dialog")).toBeVisible();
     await expect(
-      page.getByRole("heading", { name: "Create your account" }),
+      page.getByRole("heading", { name: /Create your (free )?account/ }),
     ).toBeVisible();
   });
 
@@ -159,8 +165,30 @@ test.describe("KAI-259 guest header", () => {
     await expect(
       page.getByRole("link", { name: "Meguruto home" }),
     ).toBeVisible();
-    await expect(page.getByRole("button", { name: "新規登録" })).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: /アカウントを作成|無料アカウント作成/ }),
+    ).toBeVisible();
   });
+});
+
+test.describe("KAI-259 guest My Trips acquisition", () => {
+  for (const locale of ["en", "ja"] as const) {
+    test(`${locale} My Trips entry uses the shared contextual prompt`, async ({
+      page,
+    }) => {
+      const path = locale === "ja" ? "/ja/my-trips" : "/my-trips";
+      const entry =
+        locale === "ja" ? "最初の旅行を計画" : "Plan your first trip";
+      const heading = locale === "ja" ? "マイトリップを保存" : "Keep My Trips";
+      const close = locale === "ja" ? "閉じる" : "Close";
+
+      await page.goto(path);
+      await page.getByRole("button", { name: entry }).click();
+      await expect(page.getByRole("heading", { name: heading })).toBeVisible();
+      await page.getByRole("button", { name: close, exact: true }).click();
+      await expect(page.getByRole("dialog")).toHaveCount(0);
+    });
+  }
 });
 
 test.describe("KAI-259 authenticated header", () => {
@@ -176,7 +204,9 @@ test.describe("KAI-259 authenticated header", () => {
   }, testInfo) => {
     test.skip(!isMobile(testInfo.project.name), "mobile project only");
     await expect(
-      page.getByRole("button", { name: /Sign Up|新規登録/ }),
+      page.getByRole("button", {
+        name: /Create|Sign Up|Create Account|Create Free Account|新規登録|アカウントを作成|無料アカウント作成/,
+      }),
     ).toHaveCount(0);
     await page.getByTestId("navbar-avatar-trigger").click();
     const menu = page.locator('[role="menu"]');

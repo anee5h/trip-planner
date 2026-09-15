@@ -93,6 +93,7 @@ import { LocaleProvider, useLocale } from "./shared/context/LocaleContext";
 import { AuthModalProvider } from "./shared/context/AuthModalContext";
 import { TripContextProvider } from "./shared/context/TripContext";
 import { OnboardingFlow } from "./shared/components/auth/OnboardingFlow";
+import { PendingPersistenceResume } from "./shared/components/auth/PendingPersistenceResume";
 
 import BottomNav from "./shared/components/layout/BottomNav";
 
@@ -166,6 +167,7 @@ function AppInner() {
               </main>
               <Footer />
               <BottomNav />
+              <PendingPersistenceResume />
               <CompareFloatingBar
                 onOpenModal={() => setCompareModalOpen(true)}
               />

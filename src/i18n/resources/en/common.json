@@ -3,7 +3,9 @@
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "signOut": "Sign Out",
-    "createAccount": "Create Account",
+    "createCompact": "Create",
+    "createAccount": "Create account",
+    "createFreeAccount": "Create Free Account",
     "pleaseWait": "Please wait...",
     "close": "Close",
     "show": "Show",
@@ -58,10 +60,41 @@
     "cancel": "Cancel"
   },
   "auth": {
+    "title": "Account",
     "signInTitle": "Welcome back",
     "signInPrompt": "Sign in to continue planning your trips.",
     "signUpTitle": "Create your account",
     "signUpPrompt": "Save your trips, Passport progress, and bucket list.",
+    "contextual": {
+      "header": {
+        "title": "Create your free account",
+        "description": "Keep your Meguruto plans and progress across visits."
+      },
+      "auth_modal": {
+        "title": "Create your account",
+        "description": "Save your trips, Passport progress, and bucket list."
+      },
+      "bucket_list_save": {
+        "title": "Save this place to your Bucket List",
+        "description": "Create a free account to keep your saved places across visits."
+      },
+      "trip_save": {
+        "title": "Save this trip",
+        "description": "Create a free account to keep your itinerary and come back to it later."
+      },
+      "my_trips": {
+        "title": "Keep My Trips",
+        "description": "Create a free account to access your saved itineraries anywhere."
+      },
+      "preferences": {
+        "title": "Keep my preferences",
+        "description": "Create a free account so Meguruto remembers how you like to travel."
+      },
+      "passport": {
+        "title": "Save my travel progress",
+        "description": "Create a free account to keep your visited places and Passport progress."
+      }
+    },
     "noAccount": "Don't have an account?",
     "hasAccount": "Already have an account?",
     "forgotPassword": "Forgot password?",
@@ -376,6 +409,7 @@
     "update": "Update matches",
     "view": "View matches",
     "surprise": "Surprise me",
+    "rememberPreferences": "Remember preferences",
     "decreaseParty": "Decrease party size",
     "increaseParty": "Increase party size",
     "people_one": "{{count}} person",

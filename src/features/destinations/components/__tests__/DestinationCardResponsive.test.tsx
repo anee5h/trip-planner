@@ -22,6 +22,14 @@ const state = vi.hoisted(() => ({
   homeStationCoords: { lat: 35.6812, lng: 139.7671 },
 }));
 
+vi.mock("@/shared/hooks/useAuth", () => ({
+  useAuth: () => ({ user: null, loading: false }),
+}));
+
+vi.mock("@/shared/context/AuthModalContext", () => ({
+  useAuthModal: () => ({ openAuthModal: vi.fn() }),
+}));
+
 vi.mock("@/shared/context/LocaleContext", () => ({
   useLocale: () => ({ locale: "en", setLocale: vi.fn() }),
 }));
@@ -392,7 +400,7 @@ describe("DestinationCard responsive content", () => {
       host.querySelector<HTMLButtonElement>(
         'button[aria-label="Add to bucket list"]',
       )?.disabled,
-    ).toBe(true);
+    ).toBe(false);
     expect(
       host.querySelector<HTMLButtonElement>(
         'button[aria-label="Add to Itinerary"]',

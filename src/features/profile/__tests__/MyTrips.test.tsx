@@ -5,13 +5,29 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { MemoryRouter, useLocation } from "react-router-dom";
+import {
+  clearPendingPersistenceIntent,
+  peekPendingPersistenceIntent,
+  setPendingPersistenceIntent,
+} from "@/shared/services/auth/PendingPersistenceIntent";
 import type { Trip } from "@/shared/types/trip";
 import MyTrips from "../MyTrips";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
+const authState = vi.hoisted(() => ({
+  user: null as { id: string } | null,
+}));
 const state = vi.hoisted(() => ({
   trips: [] as Trip[],
+}));
+
+vi.mock("@/shared/hooks/useAuth", () => ({
+  useAuth: () => ({ user: authState.user, loading: false }),
+}));
+
+vi.mock("@/shared/context/AuthModalContext", () => ({
+  useAuthModal: () => ({ openAuthModal: vi.fn() }),
 }));
 
 vi.mock("react-i18next", () => ({
@@ -74,7 +90,7 @@ vi.mock("@/features/trips/components/TripCard", () => ({
 }));
 
 vi.mock("@/features/trips/components/TripEditor", () => ({
-  default: () => null,
+  default: () => <div data-testid="trip-editor" />,
 }));
 
 vi.mock("@/features/trips/components/TripDatesEditor", () => ({
@@ -99,10 +115,10 @@ function LocationProbe() {
 let root: Root;
 let host: HTMLDivElement;
 
-function renderApp() {
+function renderApp(initialPath = "/my-trips?tripId=trip-1") {
   act(() => {
     root.render(
-      <MemoryRouter initialEntries={["/my-trips?tripId=trip-1"]}>
+      <MemoryRouter initialEntries={[initialPath]}>
         <MyTrips />
         <LocationProbe />
       </MemoryRouter>,
@@ -111,6 +127,8 @@ function renderApp() {
 }
 
 beforeEach(() => {
+  authState.user = null;
+  clearPendingPersistenceIntent();
   state.trips = [
     {
       id: "trip-1",
@@ -130,6 +148,8 @@ beforeEach(() => {
 });
 
 afterEach(() => {
+  clearPendingPersistenceIntent();
+  authState.user = null;
   act(() => root.unmount());
   host.remove();
 });
@@ -151,5 +171,28 @@ describe("MyTrips deep-link navigation", () => {
 
     expect(host.querySelector("[data-trip-details]")).toBeNull();
     expect(host.querySelector("[data-trip-card]")).not.toBeNull();
+  });
+
+  it("resumes a pending guest My Trips action exactly once after auth", async () => {
+    state.trips = [];
+    authState.user = { id: "user-1" };
+    setPendingPersistenceIntent({
+      type: "my_trips",
+      returnPath: "/my-trips",
+      sourceSurface: "my_trips",
+    });
+
+    renderApp("/my-trips");
+    await act(async () => Promise.resolve());
+
+    expect(host.querySelectorAll('[data-testid="trip-editor"]')).toHaveLength(
+      1,
+    );
+    expect(peekPendingPersistenceIntent()).toBeNull();
+
+    await act(async () => Promise.resolve());
+    expect(host.querySelectorAll('[data-testid="trip-editor"]')).toHaveLength(
+      1,
+    );
   });
 });

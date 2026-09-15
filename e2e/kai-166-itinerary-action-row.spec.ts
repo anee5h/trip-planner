@@ -94,6 +94,64 @@ async function readActionGeometry(page: Parameters<typeof test>[0]["page"]) {
   });
 }
 
+async function signInAsFixture(page: import("@playwright/test").Page) {
+  const fakeUser = {
+    id: "00000000-0000-0000-0000-000000000166",
+    aud: "authenticated",
+    role: "authenticated",
+    email: "kai-166-fixture@example.com",
+    app_metadata: { provider: "email" },
+    user_metadata: {
+      full_name: "KAI-166 Fixture",
+      preferences: { preferences_set: true },
+    },
+    created_at: "2026-01-01T00:00:00.000Z",
+    updated_at: "2026-01-01T00:00:00.000Z",
+  };
+  const fakeSession = {
+    access_token: "kai-166-fixture-access-token",
+    refresh_token: "kai-166-fixture-refresh-token",
+    expires_in: 3600,
+    expires_at: Math.floor(Date.now() / 1000) + 3600,
+    token_type: "bearer",
+    user: fakeUser,
+  };
+
+  await page.addInitScript(
+    ({ key, session }) => localStorage.setItem(key, JSON.stringify(session)),
+    { key: "sb-a11y-test-auth-token", session: fakeSession },
+  );
+  await page.route("https://a11y-test.supabase.co/**", (route) => {
+    const url = route.request().url();
+    if (url.includes("/auth/v1/user")) {
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(fakeUser),
+      });
+    }
+    if (url.includes("/auth/v1/token")) {
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(fakeSession),
+      });
+    }
+    if (url.includes("/rest/v1/")) {
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: "[]",
+      });
+    }
+    return route.fulfill({
+      status: 404,
+      contentType: "application/json",
+      body: "{}",
+    });
+  });
+}
+
 async function createTripWithLongStop(
   page: Parameters<typeof test>[0]["page"],
   locale: "en" | "ja",
@@ -117,6 +175,7 @@ async function createTripWithLongStop(
           add: "Add stop",
         };
 
+  await signInAsFixture(page);
   await page.goto(copy.route);
   await page.getByRole("button", { name: copy.start }).click();
   await page.getByRole("button", { name: copy.save }).click();
@@ -278,7 +337,7 @@ test("KAI-166 preserves generated itinerary action behavior and keyboard access"
     .getByRole("button", { name: "Save Plan to Itinerary", exact: true })
     .click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await page.getByRole("button", { name: "Close modal", exact: true }).click();
+  await page.getByRole("button", { name: "Close", exact: true }).click();
   await expect(page.getByRole("dialog")).toHaveCount(0);
 });
 

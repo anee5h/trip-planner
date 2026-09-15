@@ -12,6 +12,8 @@ const authMock = vi.hoisted(() => ({
 const analyticsMock = vi.hoisted(() => ({
   trackSignupStarted: vi.fn(),
   trackSignupCompleted: vi.fn(),
+  trackSignupError: vi.fn(),
+  trackSignupDismissed: vi.fn(),
   markPendingSignup: vi.fn(),
   clearPendingSignup: vi.fn(),
 }));
@@ -105,7 +107,10 @@ describe("AuthModal", () => {
   });
 
   it("records signup start and completion only after a successful email signup", async () => {
-    authMock.signUpWithEmail.mockResolvedValueOnce({ error: null });
+    authMock.signUpWithEmail.mockResolvedValueOnce({
+      data: { user: { identities: [{ id: "new-user" }] } },
+      error: null,
+    });
     renderAuthModal();
 
     const toggle = Array.from(document.body.querySelectorAll("button")).find(
