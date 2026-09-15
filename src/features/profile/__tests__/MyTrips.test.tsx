@@ -14,6 +14,14 @@ const state = vi.hoisted(() => ({
   trips: [] as Trip[],
 }));
 
+vi.mock("@/shared/hooks/useAuth", () => ({
+  useAuth: () => ({ user: null, loading: false }),
+}));
+
+vi.mock("@/shared/context/AuthModalContext", () => ({
+  useAuthModal: () => ({ openAuthModal: vi.fn() }),
+}));
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) =>

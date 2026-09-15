@@ -76,6 +76,10 @@ vi.mock("@/shared/hooks/useAuth", () => ({
   }),
 }));
 
+vi.mock("@/shared/context/AuthModalContext", () => ({
+  useAuthModal: () => ({ openAuthModal: vi.fn() }),
+}));
+
 vi.mock("@/shared/context/LocaleContext", () => ({
   useLocale: () => ({ locale: "ja", setLocale: vi.fn() }),
 }));

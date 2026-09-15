@@ -52,11 +52,13 @@ export function AuthModalProvider({ children }: PropsWithChildren) {
 
 export function useAuthModal() {
   const openAuthModal = useContext(AuthModalContext);
-  return {
-    openAuthModal: openAuthModal ?? (() => undefined),
-  };
+  if (!openAuthModal) {
+    throw new Error("useAuthModal must be used within AuthModalProvider");
+  }
+  return { openAuthModal };
 }
 
 export function useOptionalAuthModal() {
-  return useAuthModal();
+  const openAuthModal = useContext(AuthModalContext);
+  return openAuthModal ? { openAuthModal } : null;
 }

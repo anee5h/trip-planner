@@ -221,19 +221,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    return {
-      user: null,
-      loading: false,
-      signInWithGoogle: () => undefined,
-      signInWithTwitter: () => undefined,
-      signInWithLine: () => undefined,
-      signInWithEmail: async () => undefined,
-      signUpWithEmail: async () => undefined,
-      resetPasswordForEmail: async () => undefined,
-      signOut: () => undefined,
-      updateUserProfile: async () => undefined,
-      clearProfileData: async () => ({ ok: false, error: "auth unavailable" }),
-    } as unknown as AuthContextType;
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 }
