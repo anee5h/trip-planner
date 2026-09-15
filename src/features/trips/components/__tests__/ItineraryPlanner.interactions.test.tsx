@@ -245,6 +245,22 @@ describe("ItineraryPlanner stop interactions", () => {
     expect(lastMenuItems[1].disabled).toBe(true);
   });
 
+  it("keeps both accessible move actions enabled for a middle stop", () => {
+    renderPlanner(fourStopTrip);
+    const actionButtons = host.querySelectorAll<HTMLButtonElement>(
+      "[data-stop-actions]",
+    );
+    act(() => actionButtons[1]?.click());
+
+    const middleMenuItems = host.querySelectorAll<HTMLButtonElement>(
+      '[role="menu"] [role="menuitem"]',
+    );
+    expect(middleMenuItems[0].disabled).toBe(false);
+    expect(middleMenuItems[1].disabled).toBe(false);
+    expect(middleMenuItems[0].className).toContain("min-h-11");
+    expect(middleMenuItems[1].className).toContain("min-h-11");
+  });
+
   it("keeps remove inside the overflow menu instead of a permanent row action", () => {
     renderPlanner();
     expect(
