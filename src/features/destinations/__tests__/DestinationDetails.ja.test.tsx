@@ -311,4 +311,33 @@ describe("DestinationDetails Japanese Localization Regression", () => {
       ),
     ).not.toBeNull();
   });
+
+  it.each(["takanawa-gateway-minato", "roppongi-hills-tokyo-city-view"])(
+    "renders the canonical indoor Best Season for %s in JA",
+    async (id) => {
+      host = document.createElement("div");
+      document.body.appendChild(host);
+      root = createRoot(host);
+
+      await act(async () => {
+        root!.render(
+          <MemoryRouter initialEntries={[`/destinations/${id}`]}>
+            <Routes>
+              <Route
+                path="/destinations/:id"
+                element={<DestinationDetails />}
+              />
+            </Routes>
+          </MemoryRouter>,
+        );
+        await flush(100);
+      });
+
+      const bestSeasonFact = Array.from(
+        host.querySelectorAll<HTMLElement>("[data-at-a-glance-fact]"),
+      ).find((fact) => fact.textContent?.includes("ベストシーズン"));
+      expect(bestSeasonFact?.textContent).toContain("通年（屋内）");
+      expect(bestSeasonFact?.textContent).not.toContain("情報未登録");
+    },
+  );
 });
