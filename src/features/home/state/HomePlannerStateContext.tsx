@@ -8,7 +8,11 @@ import {
   useState,
 } from "react";
 import type { User } from "@supabase/supabase-js";
-import { normalizeCarMode, type CarMode } from "@/shared/utils/carMode";
+import type { CarMode } from "@/shared/utils/carMode";
+import {
+  DEFAULT_PUBLIC_MODES,
+  normalizeTransportPreferences,
+} from "@/shared/utils/transportPreferences";
 import {
   resolveTransportSelection,
   type TransportSelection,
@@ -113,9 +117,15 @@ export function HomePlannerStateProvider({
 }) {
   const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
   const urlDuration = homepageDurationFromUrl();
-  const createInitialPlannerState = () => {
+  const createInitialPlannerState = (): PlannerControlsState => {
     const defaults = createDefaultPlannerControls();
-    return urlDuration ? { ...defaults, tripDuration: urlDuration } : defaults;
+    const plannerDefaults = {
+      ...defaults,
+      publicModes: [...DEFAULT_PUBLIC_MODES],
+    };
+    return urlDuration
+      ? { ...plannerDefaults, tripDuration: urlDuration }
+      : plannerDefaults;
   };
   const [draftState, setDraftState] = useState(createInitialPlannerState);
   const [appliedState, setAppliedState] = useState(createInitialPlannerState);
@@ -140,11 +150,10 @@ export function HomePlannerStateProvider({
 
     const preferences = user?.user_metadata?.preferences;
     if (!preferences) return;
-    const userCarMode = normalizeCarMode(preferences.carMode);
-    const persistedPublicModes = preferences.publicModes;
-    const userPublicTransport = Array.isArray(persistedPublicModes)
-      ? persistedPublicModes.length > 0
-      : true;
+    const transportPreferences = normalizeTransportPreferences(preferences);
+    const userCarMode = transportPreferences.carMode;
+    const persistedPublicModes = transportPreferences.publicModes;
+    const userPublicTransport = transportPreferences.publicTransport;
     const userPartySize = normalizePartySize(preferences.partySize);
     const persistedDuration = normalizeHomepageTripDuration(
       preferences.tripDuration ?? preferences.duration,
@@ -198,7 +207,10 @@ export function HomePlannerStateProvider({
     const controls = {
       tripDuration: normalizedDuration ?? "halfDay",
       partySize: tripContext.partySize,
-      publicModes: [...tripContext.publicModes],
+      publicModes:
+        tripContext.publicModes.length > 0
+          ? [...tripContext.publicModes]
+          : [...DEFAULT_PUBLIC_MODES],
       publicTransport:
         tripContext.carMode === "none" || tripContext.publicModes.length > 0,
       carMode: tripContext.carMode,

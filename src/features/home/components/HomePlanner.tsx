@@ -249,10 +249,19 @@ function TransportToggleList({
 
   const toggle = (option: PlannerTransportOption) => {
     if (option === "public") {
+      // A saved preference must always retain at least one capability. Public
+      // transit can be switched off only after a car option is selected.
+      if (publicTransport && carMode === "none") return;
       onPublicTransportChange(!publicTransport);
       return;
     }
-    onCarModeChange(carMode === option ? "none" : option);
+    if (carMode === option) {
+      // Do not allow both public transit and car access to be cleared.
+      if (!publicTransport) return;
+      onCarModeChange("none");
+      return;
+    }
+    onCarModeChange(option);
   };
 
   return (
