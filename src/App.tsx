@@ -93,6 +93,7 @@ import { LocaleProvider, useLocale } from "./shared/context/LocaleContext";
 import { AuthModalProvider } from "./shared/context/AuthModalContext";
 import { TripContextProvider } from "./shared/context/TripContext";
 import { OnboardingFlow } from "./shared/components/auth/OnboardingFlow";
+import PasswordRecoveryPage from "./shared/components/auth/PasswordRecoveryPage";
 import { PendingPersistenceResume } from "./shared/components/auth/PendingPersistenceResume";
 
 import BottomNav from "./shared/components/layout/BottomNav";
@@ -119,6 +120,10 @@ function AppInner() {
                 <ErrorBoundary>
                   <Suspense fallback={<RouteLoader />}>
                     <Routes>
+                      <Route
+                        path="/reset-password"
+                        element={<PasswordRecoveryPage />}
+                      />
                       <Route path="/" element={<Home />} />
                       <Route path="/destinations" element={<Destinations />} />
                       <Route

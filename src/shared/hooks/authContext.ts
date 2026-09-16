@@ -43,6 +43,9 @@ export interface AuthContextType {
   resetPasswordForEmail: (
     email: string,
   ) => Promise<{ data: unknown; error: AuthError | null }>;
+  updatePassword: (password: string) => Promise<UserResponse>;
+  isPasswordRecovery: boolean;
+  clearPasswordRecovery: () => void;
   signOut: () => Promise<{ error: AuthError | null }> | undefined;
   updateUserProfile: (data: UserProfileUpdateData) => Promise<UserResponse>;
   clearProfileData: () => Promise<ClearProfileResult>;
