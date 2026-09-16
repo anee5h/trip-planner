@@ -63,11 +63,7 @@ async function signInAsFixture(page: import("@playwright/test").Page) {
 async function expectGuestHeader(page: import("@playwright/test").Page) {
   await page.goto("/");
   await expect(page.getByRole("link", { name: "Meguruto home" })).toBeVisible();
-  await expect(
-    page.getByRole("button", {
-      name: /Create|Sign Up|Create Account|Create Free Account|新規登録|アカウントを作成|無料アカウント作成/,
-    }),
-  ).toBeVisible();
+  await expect(page.getByTestId("navbar-signup-cta")).toBeVisible();
   await expect(page.getByTestId("navbar-avatar-trigger")).toHaveCount(0);
 }
 
@@ -77,6 +73,7 @@ test.describe("KAI-259 guest header", () => {
   }, testInfo) => {
     test.skip(!isMobile(testInfo.project.name), "mobile project only");
     await expectGuestHeader(page);
+    await expect(page.getByTestId("navbar-signup-cta")).toHaveText("Join free");
     await expect(page.getByTestId("navbar-hamburger")).toHaveCount(0);
   });
 
@@ -106,6 +103,9 @@ test.describe("KAI-259 guest header", () => {
   }, testInfo) => {
     test.skip(isMobile(testInfo.project.name), "desktop project only");
     await expectGuestHeader(page);
+    await expect(page.getByTestId("navbar-signup-cta")).toHaveText(
+      "Create Free Account",
+    );
     await expect(
       page.locator("header").getByRole("button", { name: /Sign In/ }),
     ).toHaveCount(0);
@@ -122,7 +122,11 @@ test.describe("KAI-259 guest header", () => {
       "/ja/destinations/kyoto-city",
     ]) {
       await page.goto(path);
-      await expect(page.getByTestId("navbar-signup-cta")).toBeVisible();
+      const signupCta = page.getByTestId("navbar-signup-cta");
+      await expect(signupCta).toBeVisible();
+      await expect(signupCta).toHaveText(
+        path.startsWith("/ja") ? "無料登録" : "Join free",
+      );
 
       const geometry = await page.evaluate(() => {
         const cta = document.querySelector<HTMLElement>(
@@ -147,27 +151,25 @@ test.describe("KAI-259 guest header", () => {
   }, testInfo) => {
     test.skip(!isMobile(testInfo.project.name), "one deterministic flow test");
     await expectGuestHeader(page);
-    await page
-      .getByRole("button", {
-        name: /Create|Sign Up|Create Account|Create Free Account|新規登録|アカウントを作成|無料アカウント作成/,
-      })
-      .click();
+    await page.getByTestId("navbar-signup-cta").click();
     await expect(page.getByRole("dialog")).toBeVisible();
     await expect(
       page.getByRole("heading", { name: /Create your (free )?account/ }),
     ).toBeVisible();
   });
 
-  test("Japanese guest header uses the existing signup terminology", async ({
+  test("Japanese guest header uses the responsive signup terminology", async ({
     page,
-  }) => {
+  }, testInfo) => {
     await page.goto("/ja/");
     await expect(
       page.getByRole("link", { name: "Meguruto home" }),
     ).toBeVisible();
-    await expect(
-      page.getByRole("button", { name: /アカウントを作成|無料アカウント作成/ }),
-    ).toBeVisible();
+    const signupCta = page.getByTestId("navbar-signup-cta");
+    await expect(signupCta).toBeVisible();
+    await expect(signupCta).toHaveText(
+      isMobile(testInfo.project.name) ? "無料登録" : "無料アカウント作成",
+    );
   });
 });
 
@@ -203,11 +205,7 @@ test.describe("KAI-259 authenticated header", () => {
     page,
   }, testInfo) => {
     test.skip(!isMobile(testInfo.project.name), "mobile project only");
-    await expect(
-      page.getByRole("button", {
-        name: /Create|Sign Up|Create Account|Create Free Account|新規登録|アカウントを作成|無料アカウント作成/,
-      }),
-    ).toHaveCount(0);
+    await expect(page.getByTestId("navbar-signup-cta")).toHaveCount(0);
     await page.getByTestId("navbar-avatar-trigger").click();
     const menu = page.locator('[role="menu"]');
     await expect(menu).toBeVisible();
