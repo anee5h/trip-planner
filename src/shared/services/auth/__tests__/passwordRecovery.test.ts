@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  classifyPasswordRecoveryError,
   getPasswordRecoveryRedirectUrl,
   inspectRecoveryCallback,
   isPasswordRecoveryEvent,
@@ -89,5 +90,55 @@ describe("password recovery shell boundary", () => {
     expect(isPasswordRecoveryRoute("/ja/reset-password")).toBe(true);
     expect(isPasswordRecoveryRoute("/")).toBe(false);
     expect(isPasswordRecoveryRoute("/settings")).toBe(false);
+  });
+});
+
+describe("password recovery update error classification", () => {
+  it("classifies Supabase weak-password errors without exposing their message", () => {
+    expect(
+      classifyPasswordRecoveryError({
+        code: "weak_password",
+        status: 422,
+        message: "Password policy detail that must not be shown",
+      }),
+    ).toBe("weak_password");
+    expect(
+      classifyPasswordRecoveryError({
+        code: "weak_password",
+        status: 422,
+        reasons: ["pwned"],
+        message: "server policy",
+      }),
+    ).toBe("weak_password_pwned");
+  });
+
+  it("classifies same-password and missing-session errors", () => {
+    expect(
+      classifyPasswordRecoveryError({
+        code: "same_password",
+        status: 422,
+        message: "same password",
+      }),
+    ).toBe("same_password");
+    expect(
+      classifyPasswordRecoveryError({
+        name: "AuthSessionMissingError",
+        status: 400,
+        message: "Auth session missing!",
+      }),
+    ).toBe("invalid_session");
+  });
+
+  it("classifies network errors and keeps unknown errors generic", () => {
+    expect(
+      classifyPasswordRecoveryError(new TypeError("Failed to fetch")),
+    ).toBe("network");
+    expect(
+      classifyPasswordRecoveryError({
+        code: "unknown_future_code",
+        status: 500,
+        message: "provider internals",
+      }),
+    ).toBe("generic");
   });
 });
