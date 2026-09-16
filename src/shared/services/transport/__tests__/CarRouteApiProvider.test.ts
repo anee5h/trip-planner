@@ -130,6 +130,32 @@ describe("CarRouteApiProvider", () => {
     expect(body.target.label).toHaveLength(CAR_ROUTE_TARGET_LABEL_MAX_LENGTH);
   });
 
+  it("keeps the destination anchor as target for return requests", async () => {
+    const fetchMock = fetchMockFor(
+      async () =>
+        new Response(JSON.stringify(canonicalBody({ direction: "return" })), {
+          status: 200,
+          headers: { "content-type": "application/json" },
+        }),
+    );
+    const provider = new CarRouteApiProvider({ fetchImpl: fetchMock });
+    await provider.route(
+      request({ origin: anchor, destination: origin, direction: "return" }),
+    );
+
+    const body = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    expect(body).toMatchObject({
+      origin: origin.coordinates,
+      target: {
+        lat: anchor.coordinates.lat,
+        lng: anchor.coordinates.lng,
+        id: anchor.id,
+        label: anchor.label,
+      },
+      direction: "return",
+    });
+  });
+
   it("serves repeat identical requests from the bounded cache without refetching", async () => {
     const fetchMock = fetchMockFor(
       async () =>

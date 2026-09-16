@@ -217,7 +217,10 @@ export class CarRouteApiProvider implements AsyncCarRouteProvider {
       CAR_ROUTE_API_TIMEOUT_MS,
     );
     try {
-      const targetLabel = request.destination.label?.slice(
+      const isReturn = request.direction === "return";
+      const requestOrigin = isReturn ? request.destination : request.origin;
+      const requestTarget = isReturn ? request.origin : request.destination;
+      const targetLabel = requestTarget.label?.slice(
         0,
         CAR_ROUTE_TARGET_LABEL_MAX_LENGTH,
       );
@@ -229,13 +232,13 @@ export class CarRouteApiProvider implements AsyncCarRouteProvider {
         },
         body: JSON.stringify({
           origin: {
-            lat: request.origin.coordinates.lat,
-            lng: request.origin.coordinates.lng,
+            lat: requestOrigin.coordinates.lat,
+            lng: requestOrigin.coordinates.lng,
           },
           target: {
-            lat: request.destination.coordinates.lat,
-            lng: request.destination.coordinates.lng,
-            id: request.destination.id,
+            lat: requestTarget.coordinates.lat,
+            lng: requestTarget.coordinates.lng,
+            id: requestTarget.id,
             ...(targetLabel ? { label: targetLabel } : {}),
           },
           direction: request.direction,
