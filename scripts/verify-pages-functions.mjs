@@ -391,8 +391,10 @@ try {
     "/terms",
     "/privacy",
     "/cookies",
+    "/reset-password",
     "/ja/",
     "/ja/collections/example",
+    "/ja/reset-password",
   ]) {
     const res = await fetchStatusAndRobots(path);
     assert(
@@ -400,6 +402,20 @@ try {
       `known SPA route ${path} -> 200 shell (got ${res.status})`,
     );
     assertSecureHtml(res, `SPA ${path}`);
+  }
+
+  for (const [path, locale] of [
+    ["/reset-password", "en"],
+    ["/ja/reset-password", "ja"],
+  ]) {
+    const res = await fetchStatusAndRobots(path);
+    assert(
+      res.status === 200 &&
+        res.robots === "noindex" &&
+        res.body.includes('<div id="root">') &&
+        res.lang === locale,
+      `${path} -> ${locale} recovery SPA shell, 200 + noindex (got ${res.status} ${res.robots} lang=${res.lang})`,
+    );
   }
 
   for (const path of ["/qa", "/qa/unknown", "/ja/qa", "/ja/qa/unknown"]) {
@@ -422,11 +438,13 @@ try {
     "/qa",
     "/editorial",
     "/compare",
+    "/reset-password",
     "/ja/settings",
     "/ja/my-trips",
     "/ja/favorites",
     "/ja/editorial",
     "/ja/compare",
+    "/ja/reset-password",
   ]) {
     const res = await fetchStatusAndRobots(path);
     assert(
@@ -510,8 +528,10 @@ try {
       routesConfig.include.includes("/ja/destinations/*") &&
       routesConfig.include.includes("/api/feedback") &&
       routesConfig.include.includes("/api/errors") &&
-      routesConfig.include.includes("/api/account/delete"),
-    "_routes.json keeps destination, API, EN, and JA Function families",
+      routesConfig.include.includes("/api/account/delete") &&
+      routesConfig.include.includes("/reset-password") &&
+      routesConfig.include.includes("/ja/reset-password"),
+    "_routes.json keeps destination, recovery, API, EN, and JA Function families",
   );
   assert(
     routesConfig.include.length + (routesConfig.exclude?.length ?? 0) <= 100,
