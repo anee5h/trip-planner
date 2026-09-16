@@ -6,6 +6,11 @@ import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorS
 import { getPlanEligibility } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
+import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
+import type {
+  PersonalCarCostOptions,
+  RentalCarCostOptions,
+} from "@/shared/services/transport/carCostV2";
 import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
 import type { TripDuration } from "@/shared/types/tripDuration";
 
@@ -26,6 +31,8 @@ interface DestinationPlanningSectionProps {
   /** Optional exact origin identity for the scheduled planner seam. */
   scheduledOriginProductId?: string;
   duration?: TripDuration;
+  carRoute?: CarRoundTripRoute;
+  carCostOptions?: PersonalCarCostOptions | RentalCarCostOptions;
   onSaveToItinerary: (plan?: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
 }
@@ -55,6 +62,8 @@ export function DestinationPlanningSection({
   travelDate,
   scheduledOriginProductId,
   duration = "fullDay",
+  carRoute,
+  carCostOptions,
   onSaveToItinerary,
   onPlanGenerated,
 }: DestinationPlanningSectionProps) {
@@ -169,6 +178,8 @@ export function DestinationPlanningSection({
         partySize={activePartySize}
         homeCoords={homeCoords}
         activeTransportMode={selectedTransport}
+        carRoute={carRoute}
+        carCostOptions={carCostOptions}
         compactUnavailableCost={compactUnavailableCost}
         ferryTemporal={ferryTemporal}
         duration={duration}

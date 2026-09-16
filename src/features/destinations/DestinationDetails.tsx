@@ -1976,6 +1976,25 @@ export default function DestinationDetails() {
                 travelDate={activeTravelDate}
                 scheduledOriginProductId={scheduledTransitOriginProductId}
                 duration={duration}
+                carRoute={
+                  carRefinement.status === "provider-backed"
+                    ? carRefinement.routes
+                    : undefined
+                }
+                carCostOptions={
+                  selectedTransport === "car"
+                    ? buildRentalCarCostOptions({
+                        duration,
+                        partySize,
+                        parkingCostJPY: verifiedDestinationParkingCost,
+                      })
+                    : selectedTransport === "my_car"
+                      ? buildPersonalCarCostOptions({
+                          partySize,
+                          parkingCostJPY: verifiedDestinationParkingCost,
+                        })
+                      : undefined
+                }
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {
