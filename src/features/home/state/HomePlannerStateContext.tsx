@@ -9,7 +9,10 @@ import {
 } from "react";
 import type { User } from "@supabase/supabase-js";
 import type { CarMode } from "@/shared/utils/carMode";
-import { normalizeTransportPreferences } from "@/shared/utils/transportPreferences";
+import {
+  DEFAULT_PUBLIC_MODES,
+  normalizeTransportPreferences,
+} from "@/shared/utils/transportPreferences";
 import {
   resolveTransportSelection,
   type TransportSelection,
@@ -114,9 +117,15 @@ export function HomePlannerStateProvider({
 }) {
   const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
   const urlDuration = homepageDurationFromUrl();
-  const createInitialPlannerState = () => {
+  const createInitialPlannerState = (): PlannerControlsState => {
     const defaults = createDefaultPlannerControls();
-    return urlDuration ? { ...defaults, tripDuration: urlDuration } : defaults;
+    const plannerDefaults = {
+      ...defaults,
+      publicModes: [...DEFAULT_PUBLIC_MODES],
+    };
+    return urlDuration
+      ? { ...plannerDefaults, tripDuration: urlDuration }
+      : plannerDefaults;
   };
   const [draftState, setDraftState] = useState(createInitialPlannerState);
   const [appliedState, setAppliedState] = useState(createInitialPlannerState);
@@ -198,7 +207,10 @@ export function HomePlannerStateProvider({
     const controls = {
       tripDuration: normalizedDuration ?? "halfDay",
       partySize: tripContext.partySize,
-      publicModes: [...tripContext.publicModes],
+      publicModes:
+        tripContext.publicModes.length > 0
+          ? [...tripContext.publicModes]
+          : [...DEFAULT_PUBLIC_MODES],
       publicTransport:
         tripContext.carMode === "none" || tripContext.publicModes.length > 0,
       carMode: tripContext.carMode,
