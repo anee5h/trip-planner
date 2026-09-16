@@ -28,6 +28,7 @@ const EXACT_SPA_ROUTES = new Set([
   "/terms",
   "/privacy",
   "/cookies",
+  "/reset-password",
 ]);
 
 const PRIVATE_SPA_ROUTES = new Set([
@@ -41,6 +42,7 @@ const PRIVATE_SPA_ROUTES = new Set([
   "/qa",
   "/editorial",
   "/compare",
+  "/reset-password",
 ]);
 
 function normalizeTrailingSlash(pathname) {

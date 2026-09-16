@@ -16,7 +16,7 @@ describe("formatAppVersion", () => {
   });
 
   it("exposes the canonical package version", () => {
-    expect(pkg.version).toBe("2.0.0-beta.2");
-    expect(APP_VERSION).toBe("2.0.0-beta.2");
+    expect(pkg.version).toBe("2.0.0-beta.3");
+    expect(APP_VERSION).toBe("2.0.0-beta.3");
   });
 });
