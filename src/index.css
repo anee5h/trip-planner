@@ -307,40 +307,42 @@
   text-wrap: balance;
 }
 
-/* KAI-138: reclaim the last few rows on short phone viewports while keeping
-   every planner row and CTA at or above the 44px touch-target floor. */
+/* KAI-138: reclaim avoidable browser-chrome whitespace on short phone
+   viewports while keeping every planner row and CTA at or above the 44px
+   touch-target floor. The standalone PWA deliberately keeps its comfortable
+   density; Home marks iOS navigator.standalone as well as display-mode PWA. */
 @media (max-width: 767px) and (max-height: 740px) {
-  .home-compact-surface {
+  .home-browser-mode .home-compact-surface {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
 
-  .home-compact-surface [data-home-origin-date-ready] {
+  .home-browser-mode .home-compact-surface [data-home-origin-date-ready] {
     gap: 0.125rem;
     margin-bottom: 0.125rem;
   }
 
-  .home-compact-heading {
+  .home-browser-mode .home-compact-heading {
     margin-bottom: 0;
   }
 
-  .home-planner-card {
+  .home-browser-mode .home-planner-card {
     padding: 0.5rem;
   }
 
-  .home-planner-rows > :not([hidden]) ~ :not([hidden]) {
+  .home-browser-mode .home-planner-rows > :not([hidden]) ~ :not([hidden]) {
     margin-top: 0.125rem;
   }
 
-  .home-planner-row {
+  .home-browser-mode .home-planner-row {
     height: 2.875rem;
   }
 
-  .home-planner-actions {
+  .home-browser-mode .home-planner-actions {
     margin-top: 0;
   }
 
-  .home-planner-cta {
+  .home-browser-mode .home-planner-cta {
     height: 2.75rem;
   }
 }
