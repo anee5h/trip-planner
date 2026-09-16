@@ -311,7 +311,8 @@ describe("DestinationCard responsive content", () => {
     const budgetText = Array.from(host.querySelectorAll("span"))
       .map((node) => node.textContent ?? "")
       .find((text) => text.includes("for 2"));
-    expect(budgetText).toContain("Known");
+    expect(budgetText).toContain("~");
+    expect(budgetText).not.toContain("Known");
     expect(budgetText).not.toContain("Approx");
   });
 

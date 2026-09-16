@@ -13,22 +13,69 @@ import type { GeneratedPlanCostResult } from "@/shared/services/budget/Generated
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
+const translationState = vi.hoisted(() => ({ locale: "en" as "en" | "ja" }));
+
 // ── Mock heavy dependencies ───────────────────────────────────────────────────
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string, opts?: { count?: number }) => {
+    t: (
+      key: string,
+      opts?: { count?: number; components?: string; details?: string },
+    ) => {
       if (key === "planner.stayAllowanceRow") {
         const count = opts?.count ?? 0;
         return `Stay allowance (${count} night${count === 1 ? "" : "s"})`;
       }
-      return (
-        (
-          {
-            "planner.stayAllowanceNote":
-              "Inferred planning estimate, not a real hotel rate",
-          } as Record<string, string>
-        )[key] ?? key
-      );
+      const ja = translationState.locale === "ja";
+      const translations: Record<string, string> = {
+        "planner.stayAllowanceNote":
+          "Inferred planning estimate, not a real hotel rate",
+        "planner.budgetEstimate.estimatedTripTotal": ja
+          ? "旅行全体の概算"
+          : "Estimated trip total",
+        "planner.budgetEstimate.onSiteEstimate": ja
+          ? "現地費用の目安です。出発地を設定すると交通費も含まれます。"
+          : "On-site estimate — set an origin to include travel.",
+        "planner.budgetEstimate.onSiteShort": ja ? "現地のみ" : "on-site only",
+        "planner.budgetEstimate.includesEstimatedOrigin": ja
+          ? "出発地からの往復交通費（概算）を含みます。"
+          : "Includes estimated round-trip travel from your origin.",
+        "planner.budgetEstimate.partialOriginUnavailable": ja
+          ? "部分見積もり — 出発地からの交通費は利用できません。"
+          : "Partial estimate — origin travel cost unavailable.",
+        "planner.budgetEstimate.partialTotal": ja
+          ? "部分合計"
+          : "Partial total",
+        "planner.budgetEstimate.fullTripEstimate": ja
+          ? "交通・現地交通・チケット・食事・宿泊（該当時）を含みます。"
+          : "Includes travel, local transport, tickets, meals and accommodation where applicable.",
+        "planner.budgetEstimate.knownSubtotal": ja
+          ? "判明済み小計"
+          : "Known subtotal",
+        "planner.budgetEstimate.unknownComponents": ja
+          ? "一部の項目が不明なため小計のみ表示"
+          : "Some components unknown — showing known subtotal only",
+        "planner.budgetEstimate.missingComponents": `${ja ? "未確認" : "Missing"}: ${opts?.components ?? ""}`,
+        "planner.budgetEstimate.costUnavailable": ja
+          ? "料金不明"
+          : "Cost unavailable",
+        "planner.budgetEstimate.partialTotalDetails": `${ja ? "部分合計" : "Partial total"} — ${opts?.details ?? ""}`,
+        "planner.budgetEstimate.originTravel": ja
+          ? "出発地からの交通"
+          : "Origin travel",
+        "planner.budgetEstimate.localTransport": ja
+          ? "現地交通費"
+          : "Local transport",
+        "planner.budgetEstimate.admissionTickets": ja
+          ? "入場料・チケット"
+          : "Admission / Tickets",
+        "planner.budgetEstimate.meals": ja ? "食費" : "Meals",
+        "planner.budgetEstimate.accommodation": ja ? "宿泊費" : "Accommodation",
+        "planner.budgetEstimate.admissionUnavailable": ja
+          ? "入場料不明・未算入"
+          : "Admission unavailable/not included",
+      };
+      return translations[key] ?? key;
     },
     i18n: { language: "en" },
   }),
@@ -285,6 +332,7 @@ function renderWidget(props: {
   activeTransportMode?: string;
   defaultExpanded?: boolean;
 }) {
+  translationState.locale = props.locale ?? "en";
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -319,7 +367,7 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     expect(
       container.textContent?.match(/Admission unavailable\/not included/g),
     ).toHaveLength(1);
-    expect(container.textContent).toContain("origin transport excluded");
+    expect(container.textContent).not.toContain("origin transport excluded");
 
     const toggle = Array.from(container.querySelectorAll("button")).find(
       (btn) => btn.textContent?.includes("breakdown"),
@@ -456,7 +504,7 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     expect(text).not.toContain("¥5,000");
     // The canonical known subtotal + explicit missing local transport ARE.
     expect(text).toContain("Known");
-    expect(text).toContain("Missing: local transport");
+    expect(text).toContain("Missing: Local transport");
   });
 
   // ── Round-6 regressions: component-level semantics ─────────────────────────
@@ -501,10 +549,10 @@ describe("TripCostBreakdownWidget canonical duration", () => {
         { scope: "local_transport", reason: "source_missing" },
       ],
     });
-    // Header: Known ¥2,000. Admission row: ¥2,000. Missing: local transport.
+    // Header: Known ¥2,000. Admission row: ¥2,000. Missing: Local transport.
     expect(text).toContain("Known");
     expect(text).toContain("¥2,000");
-    expect(text).toContain("Missing: local transport");
+    expect(text).toContain("Missing: Local transport");
     // The bounded admission must NOT be rendered as Cost unavailable.
     expect(text).not.toContain("Cost unavailable");
   });
@@ -590,6 +638,7 @@ describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
     plan: GeneratedPlanCostResult,
     locale: "en" | "ja" = "en",
   ) {
+    translationState.locale = locale;
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -722,7 +771,7 @@ describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
     });
     expect(text).toContain("¥1,500");
     expect(text).toContain("Missing:");
-    expect(text).toContain("admission");
+    expect(text).toContain("Admission / Tickets");
   });
 
   it("mandatory unresolved admission is disclosed in collapsed and expanded states in EN/JA", () => {
@@ -742,7 +791,7 @@ describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
     const collapsed = renderPlanWidget(plan);
     expect(collapsed).toContain("Partial total");
     expect(collapsed).toContain("Admission unavailable/not included");
-    expect(collapsed).toContain("origin transport excluded");
+    expect(collapsed).not.toContain("origin transport excluded");
     const toggle = Array.from(host!.querySelectorAll("button")).find((btn) =>
       btn.textContent?.includes("breakdown"),
     );

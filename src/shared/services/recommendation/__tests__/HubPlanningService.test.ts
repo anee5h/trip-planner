@@ -40,11 +40,10 @@ describe("HubPlanningService", () => {
     expect(plan.items.length).toBeGreaterThanOrEqual(2);
     expect(plan.items[0].isHub).toBe(true);
 
-    // No endpoint-exact rail fare is available for this synthetic hub. The
-    // budget must not turn a low-confidence regional duration into a numeric
-    // origin transport amount.
-    expect(plan.budget.travelToHubCost).toBe(0);
-    expect(plan.budget.originTransportIncluded).toBe(false);
+    // budget now includes the bounded broad origin model instead of dropping
+    // origin travel when endpoint-exact rail fare evidence is unavailable.
+    expect(plan.budget.travelToHubCost).toBeGreaterThan(0);
+    expect(plan.budget.originTransportIncluded).toBe(true);
     expect(plan.budget.hasUnknownBudgetItems).toBe(true);
     expect(plan.budget.perPersonRange.min).toBeLessThan(
       plan.budget.perPersonRange.max,

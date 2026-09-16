@@ -123,7 +123,7 @@ test.describe("KAI-206 detail-page information architecture", () => {
     // KAI-260: sparse hubs keep their bounded planning estimate while the
     // discovery shell remains absent when there are no registered sights.
     await expect(
-      page.getByRole("heading", { name: "Estimated visit cost", exact: true }),
+      page.getByRole("heading", { name: "Estimated trip total", exact: true }),
     ).toHaveCount(1);
     await expect(
       page.getByRole("button", { name: "View cost breakdown" }),

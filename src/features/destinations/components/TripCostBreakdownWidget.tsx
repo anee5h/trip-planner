@@ -40,6 +40,7 @@ export interface TripCostBreakdownWidgetProps {
   locale: "en" | "ja";
   partySize?: number;
   homeCoords?: { lat: number; lng: number };
+  includeOriginTravel?: boolean;
   activeTransportMode?: string | null;
   /** Hub pages keep an unavailable on-site fact compact instead of reserving
    *  the full itemized cost card. */
@@ -57,6 +58,7 @@ export function TripCostBreakdownWidget({
   locale,
   partySize = 2,
   homeCoords,
+  includeOriginTravel,
   activeTransportMode = null,
   compactUnavailableCost = false,
   ferryTemporal,
@@ -69,6 +71,7 @@ export function TripCostBreakdownWidget({
   const location = useLocation();
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [viewMode, setViewMode] = useState<"party" | "perPerson">("party");
+  const shouldIncludeOriginTravel = includeOriginTravel ?? Boolean(homeCoords);
 
   // KAI-217B round-5: ONE canonical engine call for the non-generated path.
   // ALL displayed costs derive from TripCostResult.components — never from
@@ -82,7 +85,7 @@ export function TripCostBreakdownWidget({
       partySize,
       ferryTemporal,
       homeCoords,
-      includeOriginTravel: Boolean(homeCoords),
+      includeOriginTravel: shouldIncludeOriginTravel,
     });
   }, [
     destination,
@@ -92,6 +95,7 @@ export function TripCostBreakdownWidget({
     planCostBreakdown,
     duration,
     ferryTemporal,
+    shouldIncludeOriginTravel,
   ]);
 
   // Component lookup by scope (canonical).
@@ -114,8 +118,8 @@ export function TripCostBreakdownWidget({
     engineResult &&
     engineResult.completeness === "partial"
       ? locale === "ja"
-        ? `既知 ${formatLocalizedJPYRange(engineResult.knownSubtotal, locale)}`
-        : `Known ${formatLocalizedJPYRange(engineResult.knownSubtotal, locale)}`
+        ? `${t("planner.budgetEstimate.knownSubtotal")} ${formatLocalizedJPYRange(engineResult.knownSubtotal, locale)}`
+        : `${t("planner.budgetEstimate.knownSubtotal")} ${formatLocalizedJPYRange(engineResult.knownSubtotal, locale)}`
       : undefined;
 
   const displayRange = (range: [number, number]): [number, number] =>
@@ -140,11 +144,11 @@ export function TripCostBreakdownWidget({
   const partialPlanLabel: string | undefined =
     planCostBreakdown?.completeness === "partial"
       ? locale === "ja"
-        ? `既知 ${formatLocalizedJPYRange(
+        ? `${t("planner.budgetEstimate.knownSubtotal")} ${formatLocalizedJPYRange(
             planCostBreakdown.knownSubtotal,
             locale,
           )}`
-        : `Known ${formatLocalizedJPYRange(
+        : `${t("planner.budgetEstimate.knownSubtotal")} ${formatLocalizedJPYRange(
             planCostBreakdown.knownSubtotal,
             locale,
           )}`
@@ -159,23 +163,21 @@ export function TripCostBreakdownWidget({
     comp?.cost.kind === "bounded" && comp.cost.min !== undefined
       ? [comp.cost.min, comp.cost.max ?? comp.cost.min]
       : undefined;
-  const transportRange: [number, number] | undefined = planCostBreakdown
-    ? [
-        planCostBreakdown.originTransport.min +
-          planCostBreakdown.localTransit.min,
-        planCostBreakdown.originTransport.max +
-          planCostBreakdown.localTransit.max,
-      ]
-    : (() => {
-        const origin = componentRange(originTravelComp);
-        const local = componentRange(localTransportComp);
-        if (origin && local) {
-          return [origin[0] + local[0], origin[1] + local[1]];
-        }
-        if (origin) return origin;
-        if (local) return local;
-        return undefined;
-      })();
+  const originTransportRange: [number, number] | undefined = planCostBreakdown
+    ? planCostBreakdown.originTransport.applicable &&
+      planCostBreakdown.originTransport.knownNumeric
+      ? [
+          planCostBreakdown.originTransport.min,
+          planCostBreakdown.originTransport.max,
+        ]
+      : undefined
+    : componentRange(originTravelComp);
+  const localTransportRange: [number, number] | undefined = planCostBreakdown
+    ? planCostBreakdown.localTransit.applicable &&
+      planCostBreakdown.localTransit.knownNumeric
+      ? [planCostBreakdown.localTransit.min, planCostBreakdown.localTransit.max]
+      : undefined
+    : componentRange(localTransportComp);
   const admissionRange: [number, number] | undefined = planCostBreakdown
     ? // KAI-219A final repair: a not_applicable generated-plan admission is
       // a SATISFIED non-numeric component — NO ¥0 range row, NO [0,0] in
@@ -201,15 +203,17 @@ export function TripCostBreakdownWidget({
         ]
       : undefined
     : componentRange(accommodationComp);
-  const hasOriginTransport = planCostBreakdown
-    ? planCostBreakdown.originTransport.applicable &&
-      planCostBreakdown.originTransport.knownNumeric
-    : originTravelComp?.cost.kind === "bounded";
-  const hasTransport = (transportRange?.[1] ?? 0) > 0;
-  const originTransportExcluded =
-    !planCostBreakdown &&
-    hasTransport &&
-    originTravelComp?.cost.kind !== "bounded";
+  const hasOriginTransport = Boolean(originTransportRange);
+  const originIsOnSiteOnly = planCostBreakdown
+    ? !planCostBreakdown.originTransport.applicable
+    : !shouldIncludeOriginTravel ||
+      originTravelComp?.cost.kind === "not_applicable";
+  const originIsUnavailable = !originIsOnSiteOnly && !hasOriginTransport;
+  const originIsModelled = planCostBreakdown
+    ? planCostBreakdown.originTransport.source === "estimated" &&
+      hasOriginTransport
+    : originTravelComp?.cost.kind === "bounded" &&
+      originTravelComp.evidence.derivation === "model_estimate";
   const accommodationNights = getTripNights(duration);
   const hasAccommodationAllowance =
     // A ¥0 accommodation component (zero-night duration) is not a row.
@@ -219,7 +223,8 @@ export function TripCostBreakdownWidget({
   ];
   const visiblePartyRanges = planCostBreakdown
     ? [
-        ...(hasTransport && transportRange ? [transportRange] : []),
+        ...(originTransportRange ? [originTransportRange] : []),
+        ...(localTransportRange ? [localTransportRange] : []),
         ...(admissionRange ? [admissionRange] : []),
         ...(mealsRange ? [mealsRange] : []),
         ...(hasAccommodationAllowance ? [accommodationAllowanceRange] : []),
@@ -229,13 +234,15 @@ export function TripCostBreakdownWidget({
   const scopeLabel = (scope: string): string => {
     switch (scope) {
       case "origin_travel":
-        return locale === "ja" ? "広域交通" : "origin transport";
+        return t("planner.budgetEstimate.originTravel");
       case "local_transport":
-        return locale === "ja" ? "現地交通費" : "local transport";
+        return t("planner.budgetEstimate.localTransport");
       case "admission":
-        return locale === "ja" ? "入場料" : "admission";
+        return t("planner.budgetEstimate.admissionTickets");
+      case "meals":
+        return t("planner.budgetEstimate.meals");
       case "accommodation":
-        return locale === "ja" ? "宿泊費" : "accommodation";
+        return t("planner.budgetEstimate.accommodation");
       default:
         return scope;
     }
@@ -255,13 +262,13 @@ export function TripCostBreakdownWidget({
     planCostBreakdown?.completeness === "partial"
       ? [
           ...(planCostBreakdown.originTransport.applicable &&
-          planCostBreakdown.originTransport.source === "curated"
-            ? []
-            : [scopeLabel("origin_travel")]),
+          planCostBreakdown.originTransport.source !== "curated"
+            ? [scopeLabel("origin_travel")]
+            : []),
           ...(planCostBreakdown.localTransit.applicable &&
-          planCostBreakdown.localTransit.source === "curated"
-            ? []
-            : [scopeLabel("local_transport")]),
+          planCostBreakdown.localTransit.source !== "curated"
+            ? [scopeLabel("local_transport")]
+            : []),
           ...(planCostBreakdown.admission.applicable &&
           planCostBreakdown.admission.source === "curated"
             ? []
@@ -274,11 +281,15 @@ export function TripCostBreakdownWidget({
               : []),
         ]
       : [];
+  const missingComponentNames = [
+    ...engineMissingComponents.map((m) => scopeLabel(m.scope)),
+    ...planMissingComponents,
+  ];
   const missingComponentsText: string | undefined =
-    engineMissingComponents.length > 0 || planMissingComponents.length > 0
-      ? locale === "ja"
-        ? `未確認: ${[...engineMissingComponents.map((m) => scopeLabel(m.scope)), ...planMissingComponents].join("、")}`
-        : `Missing: ${[...engineMissingComponents.map((m) => scopeLabel(m.scope)), ...planMissingComponents].join(", ")}`
+    missingComponentNames.length > 0
+      ? t("planner.budgetEstimate.missingComponents", {
+          components: missingComponentNames.join(locale === "ja" ? "、" : ", "),
+        })
       : undefined;
 
   // KAI-217B round-6: STRICT Free semantics — verified free comes ONLY
@@ -372,9 +383,7 @@ export function TripCostBreakdownWidget({
     ? locale === "ja"
       ? "プラン算出費用"
       : "Your plan cost"
-    : locale === "ja"
-      ? "概算滞在費用"
-      : "Estimated visit cost";
+    : t("planner.budgetEstimate.estimatedTripTotal");
 
   const lowerCostAlternatives = useMemo(() => {
     const candidates = findLowerCostAlternativeCandidates(destination);
@@ -386,7 +395,7 @@ export function TripCostBreakdownWidget({
           dest: sec,
           mode: activeTransportMode ?? undefined,
           homeCoords,
-          includeOriginTravel: Boolean(homeCoords),
+          includeOriginTravel: shouldIncludeOriginTravel,
           duration,
           partySize,
         }).total?.min,
@@ -398,6 +407,7 @@ export function TripCostBreakdownWidget({
     activeTransportMode,
     duration,
     totalRange,
+    shouldIncludeOriginTravel,
   ]);
 
   const showCompactUnavailableCost =
@@ -418,16 +428,21 @@ export function TripCostBreakdownWidget({
       admissionComp.cost.kind !== "bounded" &&
       admissionComp.cost.kind !== "not_applicable";
   const mandatoryAdmissionDisclosure = mandatoryAdmissionUnresolved
-    ? locale === "ja"
-      ? "入場料不明・未算入"
-      : "Admission unavailable/not included"
+    ? t("planner.budgetEstimate.admissionUnavailable")
     : undefined;
   const partialHeadline =
     mandatoryAdmissionUnresolved && (partialPlanLabel || enginePartialLabel)
-      ? locale === "ja"
-        ? `部分合計 — ${partialPlanLabel ?? enginePartialLabel}`
-        : `Partial total — ${partialPlanLabel ?? enginePartialLabel}`
+      ? t("planner.budgetEstimate.partialTotalDetails", {
+          details: partialPlanLabel ?? enginePartialLabel,
+        })
       : undefined;
+  const budgetScopeNotice = originIsOnSiteOnly
+    ? t("planner.budgetEstimate.onSiteEstimate")
+    : originIsUnavailable
+      ? t("planner.budgetEstimate.partialOriginUnavailable")
+      : originIsModelled
+        ? t("planner.budgetEstimate.includesEstimatedOrigin")
+        : t("planner.budgetEstimate.fullTripEstimate");
 
   const totalMax = displayedTotalRange?.[1];
 
@@ -459,16 +474,14 @@ export function TripCostBreakdownWidget({
         <CardContent className="flex items-start justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
             <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">
-              {locale === "ja" ? "現地費用" : "On-site spend"}
+              {t("planner.budgetEstimate.onSiteShort")}
             </h3>
             <p className="mt-1 text-xs text-slate-500 dark:text-slate-300">
-              {locale === "ja"
-                ? "交通費を除く現地費用は不明です。"
-                : "On-site spend unavailable; transport excluded."}
+              {t("planner.budgetEstimate.onSiteEstimate")}
             </p>
           </div>
           <span className="shrink-0 text-right text-xs font-bold text-slate-600 dark:text-slate-300">
-            {locale === "ja" ? "料金不明" : "Cost unavailable"}
+            {t("planner.budgetEstimate.costUnavailable")}
           </span>
         </CardContent>
       </Card>
@@ -506,16 +519,8 @@ export function TripCostBreakdownWidget({
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-300">
               {mandatoryAdmissionDisclosure
-                ? locale === "ja"
-                  ? `部分合計 — ${mandatoryAdmissionDisclosure}${!hasOriginTransport ? "・広域交通費を除く" : ""} (グループ: ${partySize}名)`
-                  : `Partial total — ${mandatoryAdmissionDisclosure}${!hasOriginTransport ? "; origin transport excluded" : ""} (${partySize} guests)`
-                : !hasOriginTransport
-                  ? locale === "ja"
-                    ? `現地費用の概算（広域交通費を除く） (グループ: ${partySize}名)`
-                    : `Estimated on-site total — origin transport excluded (${partySize} guests)`
-                  : locale === "ja"
-                    ? `交通・チケット・宿泊を含む予想合計 (グループ: ${partySize}名)`
-                    : `Est. total including transport, tickets & accommodation (${partySize} guests)`}
+                ? `${t("planner.budgetEstimate.partialTotal")} — ${mandatoryAdmissionDisclosure}`
+                : budgetScopeNotice}
             </p>
           </div>
 
@@ -646,9 +651,7 @@ export function TripCostBreakdownWidget({
                   (planCostBreakdown?.completeness === "partial" ||
                     engineResult?.completeness === "partial") && (
                     <div className="text-[11px] text-amber-600 dark:text-amber-400 mt-1">
-                      {locale === "ja"
-                        ? "一部の項目が不明のため小計のみ表示"
-                        : "Some components unknown — showing known subtotal only"}
+                      {t("planner.budgetEstimate.unknownComponents")}
                       {missingComponentsText
                         ? ` — ${missingComponentsText}`
                         : ""}
@@ -665,30 +668,30 @@ export function TripCostBreakdownWidget({
             </div>
 
             <div className="space-y-4">
-              {hasTransport && (
+              {(originTransportRange || originIsUnavailable) && (
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-bold">
                     <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                       {activeTransportMode === "car" ||
                       activeTransportMode === "my_car" ? (
                         <Car className="w-4 h-4 text-sky-500 shrink-0" />
-                      ) : activeTransportMode ? (
+                      ) : (
                         <Train className="w-4 h-4 text-emerald-500 shrink-0" />
-                      ) : null}
-                      {locale === "ja" ? "交通費" : "Transport"}
+                      )}
+                      {t("planner.budgetEstimate.originTravel")}
                     </span>
                     <span className="text-slate-900 dark:text-white">
-                      {formatLocalizedJPYRange(
-                        displayRangeOrUndefined(transportRange),
-                        locale,
-                      )}
+                      {originTransportRange
+                        ? formatLocalizedJPYRange(
+                            displayRangeOrUndefined(originTransportRange),
+                            locale,
+                          )
+                        : t("planner.budgetEstimate.costUnavailable")}
                     </span>
                   </div>
-                  {originTransportExcluded && (
+                  {originIsUnavailable && (
                     <div className="text-[10px] font-semibold text-slate-500 dark:text-slate-300">
-                      {locale === "ja"
-                        ? "往復の交通費は推定できません。現地の交通費のみを含みます。"
-                        : "Origin transport not estimated; on-site transit only."}
+                      {t("planner.budgetEstimate.partialOriginUnavailable")}
                     </div>
                   )}
                   <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
@@ -696,7 +699,36 @@ export function TripCostBreakdownWidget({
                       className="h-full bg-emerald-700 rounded-full transition-all"
                       style={{
                         width: `${getCategoryWidth(
-                          displayRangeOrUndefined(transportRange)?.[1] ?? 0,
+                          displayRangeOrUndefined(originTransportRange)?.[1] ??
+                            0,
+                        )}%`,
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {localTransportRange && (
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs font-bold">
+                    <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                      <Train className="w-4 h-4 text-emerald-500 shrink-0" />
+                      {t("planner.budgetEstimate.localTransport")}
+                    </span>
+                    <span className="text-slate-900 dark:text-white">
+                      {formatLocalizedJPYRange(
+                        displayRangeOrUndefined(localTransportRange),
+                        locale,
+                      )}
+                    </span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-emerald-500 rounded-full transition-all"
+                      style={{
+                        width: `${getCategoryWidth(
+                          displayRangeOrUndefined(localTransportRange)?.[1] ??
+                            0,
                         )}%`,
                       }}
                     />
@@ -709,9 +741,7 @@ export function TripCostBreakdownWidget({
                   <div className="flex justify-between text-xs font-bold">
                     <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                       <Ticket className="w-4 h-4 text-purple-500 shrink-0" />
-                      {locale === "ja"
-                        ? "入場チケット・拝観料"
-                        : "Admission Tickets"}
+                      {t("planner.budgetEstimate.admissionTickets")}
                     </span>
                     <span className="text-slate-900 dark:text-white">
                       {(() => {
@@ -754,7 +784,7 @@ export function TripCostBreakdownWidget({
                   <div className="flex justify-between text-xs font-bold">
                     <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                       <Utensils className="w-4 h-4 text-orange-500 shrink-0" />
-                      {locale === "ja" ? "食費" : "Meals"}
+                      {t("planner.budgetEstimate.meals")}
                     </span>
                     <span className="text-slate-900 dark:text-white">
                       {formatLocalizedJPYRange(
@@ -814,14 +844,6 @@ export function TripCostBreakdownWidget({
               )}
             </div>
 
-            {!hasOriginTransport && (
-              <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-300">
-                {locale === "ja"
-                  ? "※ 現地までの広域移動交通費（航空券・新幹線等）は含まれません。"
-                  : "Note: Origin transport (flights, shinkansen) to the area is not included."}
-              </div>
-            )}
-
             {lowerCostAlternatives.length > 0 && (
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
@@ -837,7 +859,7 @@ export function TripCostBreakdownWidget({
                       dest: alt,
                       mode: activeTransportMode ?? undefined,
                       homeCoords,
-                      includeOriginTravel: Boolean(homeCoords),
+                      includeOriginTravel: shouldIncludeOriginTravel,
                       duration,
                       partySize,
                     });

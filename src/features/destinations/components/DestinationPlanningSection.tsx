@@ -36,12 +36,12 @@ export function getPlannerTransportScopeNotice(
 ): string {
   if (locale === "ja") {
     return hasOrigin
-      ? "計画時間には最初のスポットまでの移動時間を含みません。料金を算出できる場合、費用サマリーには出発地からの交通費を含みます。"
-      : "計画時間には最初のスポットまでの移動時間を含みません。出発地が未設定のため、出発地からの交通費は含まれません。";
+      ? "計画時間には最初のスポットまでの移動時間を含みません。下の費用内訳で旅行全体の費用範囲を確認できます。"
+      : "計画時間には最初のスポットまでの移動時間を含みません。現地費用の目安です。出発地を設定すると交通費も含まれます。";
   }
   return hasOrigin
-    ? "Planning time excludes travel to the first stop. The cost summary includes origin transport when priced."
-    : "Planning time excludes travel to the first stop. Origin transport is not included without a saved origin.";
+    ? "Planning time excludes travel to the first stop. See the breakdown below for the canonical trip-cost scope."
+    : "Planning time excludes travel to the first stop. On-site estimate — set an origin to include travel.";
 }
 
 export function DestinationPlanningSection({

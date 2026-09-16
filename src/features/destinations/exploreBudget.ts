@@ -27,7 +27,11 @@ export interface ExploreBudgetEstimate {
 }
 
 export type ExploreEstimateScope =
-  "complete" | "partial_on_site" | "partial_total";
+  | "complete"
+  | "on_site"
+  | "partial_on_site"
+  | "partial_total"
+  | "partial_origin_unavailable";
 
 /**
  * Resolve the traveller-facing scope of a bounded Explore estimate.
@@ -40,17 +44,21 @@ export type ExploreEstimateScope =
 export function getExploreEstimateScope(
   estimate: TripEstimateResult,
 ): ExploreEstimateScope {
-  if (estimate.completeness === "complete") return "complete";
-  if (estimate.completeness !== "partial") return "partial_on_site";
-
   const originTravel = estimate.components.find(
     (component) => component.evidence.scope === "origin_travel",
   );
+  const originOnSiteOnly = originTravel?.cost.kind === "not_applicable";
   const originIncluded = Boolean(
     originTravel &&
     (originTravel.cost.kind === "bounded" || originTravel.knownCost),
   );
-  return originIncluded ? "partial_total" : "partial_on_site";
+  if (estimate.completeness === "complete") {
+    return originOnSiteOnly ? "on_site" : "complete";
+  }
+  if (estimate.completeness !== "partial") return "partial_on_site";
+  if (originIncluded) return "partial_total";
+  if (originOnSiteOnly) return "partial_on_site";
+  return "partial_origin_unavailable";
 }
 
 function calculateForMode(
