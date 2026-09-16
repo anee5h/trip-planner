@@ -74,6 +74,7 @@ vi.mock("react-i18next", () => ({
           en: "Create Free Account",
           ja: "無料アカウント作成",
         },
+        "actions.joinFree": { en: "Join free", ja: "無料で参加" },
         "actions.close": { en: "Close", ja: "閉じる" },
         "navigation.signIn": { en: "Sign In", ja: "ログイン" },
         "navigation.signOut": { en: "Sign Out", ja: "ログアウト" },
@@ -177,7 +178,7 @@ describe("Navbar Component", () => {
     );
 
     expect(brand?.className).not.toContain("absolute");
-    expect(cta?.textContent).toContain("Create Account");
+    expect(cta?.textContent).toContain("Join free");
     expect(cta?.className).toContain("min-h-11");
   });
 
@@ -347,7 +348,7 @@ describe("Navbar Component", () => {
     expect(
       node.querySelector<HTMLButtonElement>('[data-testid="navbar-signup-cta"]')
         ?.textContent,
-    ).toContain("アカウントを作成");
+    ).toContain("無料で参加");
   });
 
   it("keeps desktop language switching and exposes the mobile language toggle", () => {
