@@ -203,18 +203,21 @@ describe("KAI-281 canonical car option and display path", () => {
     const origin = originTravel(estimate);
     const display = getTransportDisplayCost(estimate, "my_car", 1);
 
-    expect(origin.cost).toEqual({
-      kind: "unavailable",
-      reason: "source_missing",
-    });
+    expect(origin.cost.kind).toBe("bounded");
+    if (origin.cost.kind === "bounded") {
+      expect(origin.cost.min).toBe(3250);
+      expect(origin.cost.max).toBeCloseTo(6350, 10);
+    }
+    expect(origin.evidence.tollsExcluded).toBe(true);
     expect(estimate.completeness).toBe("partial");
     expect(estimate.total).toBeUndefined();
-    expect(origin.knownCost).toBeDefined();
-    expect(origin.evidence.reason).toBe("toll_unknown");
+    expect(estimate.missingComponents).toContainEqual({
+      scope: "origin_travel",
+      reason: "toll_unknown",
+    });
     expect(display).toMatchObject({
       unit: "per_car_round_trip",
-      completeness: "partial",
-      reason: "toll_unknown",
+      completeness: "complete",
     });
     expect(
       display && "range" in display ? display.range[1] : 0,
@@ -256,9 +259,10 @@ describe("KAI-281 canonical car option and display path", () => {
       }),
     );
 
-    expect(result.cost.kind).toBe("unavailable");
+    expect(result.cost.kind).toBe("bounded");
     expect(result.knownCost).toBeDefined();
     expect(result.incompleteReason).toBe("toll_unknown");
+    expect(result.evidence.tollsExcluded).toBe(true);
     expect(result.evidence.fareBasis).toBe("rental_vehicle_cash_cost");
   });
 
