@@ -107,10 +107,14 @@ vi.mock("../components/DestinationPlanningSection", () => ({
     selectedTransport?: string | null;
     partySize?: number;
     duration?: string;
+    carRoute?: CarRoundTripRoute;
+    carCostOptions?: Record<string, unknown>;
   }) => {
     planningState.selectedTransport = props.selectedTransport ?? null;
     planningState.partySize = props.partySize;
     planningState.duration = props.duration;
+    planningState.carRoute = props.carRoute;
+    planningState.carCostOptions = props.carCostOptions;
     return null;
   },
 }));
@@ -237,6 +241,8 @@ const planningState = vi.hoisted(() => ({
   selectedTransport: null as string | null,
   partySize: undefined as number | undefined,
   duration: undefined as string | undefined,
+  carRoute: undefined as CarRoundTripRoute | undefined,
+  carCostOptions: undefined as Record<string, unknown> | undefined,
 }));
 
 const NAKAYAMA = { lat: 35.514745, lng: 139.539692 };
@@ -310,6 +316,8 @@ beforeEach(() => {
   planningState.selectedTransport = null;
   planningState.partySize = undefined;
   planningState.duration = undefined;
+  planningState.carRoute = undefined;
+  planningState.carCostOptions = undefined;
   sessionStorage.clear();
   host = document.createElement("div");
   document.body.appendChild(host);
@@ -528,6 +536,11 @@ describe("DestinationDetails transport rows", () => {
       await flush(80);
     });
 
+    expect(planningState.carRoute).toBe(providerCarRouteUnknownToll);
+    expect(planningState.carCostOptions).toMatchObject({
+      partySize: 2,
+      duration: "fullDay",
+    });
     const text = host.textContent ?? "";
     expect(text).toContain("Rental Car");
     expect(text).toContain("(tolls excluded)");
@@ -553,6 +566,9 @@ describe("DestinationDetails transport rows", () => {
       await flush(80);
     });
 
+    expect(planningState.carRoute).toBe(providerCarRouteUnknownToll);
+    expect(planningState.carCostOptions).toMatchObject({ partySize: 2 });
+    expect(planningState.carCostOptions).not.toHaveProperty("duration");
     const text = host.textContent ?? "";
     expect(text).toContain("マイカー");
     expect(text).toContain("（通行料は含まれません）");

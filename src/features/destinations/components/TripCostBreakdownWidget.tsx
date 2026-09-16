@@ -33,6 +33,11 @@ import { recommendationAnalytics } from "@/shared/services/analytics/Recommendat
 import { useTranslation } from "react-i18next";
 import type { GeneratedPlanCostResult } from "@/shared/services/budget/GeneratedPlanCostService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
+import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
+import type {
+  PersonalCarCostOptions,
+  RentalCarCostOptions,
+} from "@/shared/services/transport/carCostV2";
 import { getTripNights, type TripDuration } from "@/shared/types/tripDuration";
 
 export interface TripCostBreakdownWidgetProps {
@@ -40,6 +45,8 @@ export interface TripCostBreakdownWidgetProps {
   locale: "en" | "ja";
   partySize?: number;
   homeCoords?: { lat: number; lng: number };
+  carRoute?: CarRoundTripRoute;
+  carCostOptions?: PersonalCarCostOptions | RentalCarCostOptions;
   includeOriginTravel?: boolean;
   activeTransportMode?: string | null;
   /** Hub pages keep an unavailable on-site fact compact instead of reserving
@@ -58,6 +65,8 @@ export function TripCostBreakdownWidget({
   locale,
   partySize = 2,
   homeCoords,
+  carRoute,
+  carCostOptions,
   includeOriginTravel,
   activeTransportMode = null,
   compactUnavailableCost = false,
@@ -85,6 +94,8 @@ export function TripCostBreakdownWidget({
       partySize,
       ferryTemporal,
       homeCoords,
+      carRoute,
+      carCostOptions,
       includeOriginTravel: shouldIncludeOriginTravel,
     });
   }, [
@@ -92,6 +103,8 @@ export function TripCostBreakdownWidget({
     partySize,
     homeCoords,
     activeTransportMode,
+    carRoute,
+    carCostOptions,
     planCostBreakdown,
     duration,
     ferryTemporal,

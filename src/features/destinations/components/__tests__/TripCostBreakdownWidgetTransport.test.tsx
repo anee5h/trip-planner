@@ -87,6 +87,10 @@ type Scenario = {
   tollsExcluded?: boolean;
 };
 
+const estimateCall = vi.hoisted(() => ({
+  context: undefined as Record<string, unknown> | undefined,
+}));
+
 let scenario: Scenario = {
   transport: 0,
   transportAvailable: false,
@@ -103,7 +107,8 @@ let scenario: Scenario = {
 // food/cafe excluded) so the transport-row presentation contract stays the
 // focus.
 vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
-  calculateTripEstimate: () => {
+  calculateTripEstimate: (context: Record<string, unknown>) => {
+    estimateCall.context = context;
     const s = scenario;
     const components: unknown[] = [];
     if (s.transport > 0 || s.transportAvailable) {
@@ -249,10 +254,16 @@ afterEach(() => {
   host?.remove();
   root = undefined;
   host = undefined;
+  estimateCall.context = undefined;
 });
 
 function renderWidget(
-  props: { homeCoords?: { lat: number; lng: number } } = {},
+  props: {
+    homeCoords?: { lat: number; lng: number };
+    activeTransportMode?: string;
+    carRoute?: unknown;
+    carCostOptions?: unknown;
+  } = {},
 ) {
   host = document.createElement("div");
   document.body.appendChild(host);
@@ -264,7 +275,9 @@ function renderWidget(
         locale="en"
         partySize={2}
         homeCoords={props.homeCoords}
-        activeTransportMode="train"
+        carRoute={props.carRoute as any}
+        carCostOptions={props.carCostOptions as any}
+        activeTransportMode={props.activeTransportMode ?? "train"}
         defaultExpanded={true}
       />,
     );
@@ -339,6 +352,37 @@ describe("TripCostBreakdownWidget transport presentation (finishing pass)", () =
     expect(text).toContain("Partial estimate — car costs exclude tolls.");
     expect(text).not.toContain("origin travel cost unavailable");
   });
+  it("passes provider-backed car inputs into the canonical budget engine", () => {
+    scenario = {
+      transport: 2400,
+      transportAvailable: true,
+      localTransit: 0,
+      tickets: 1000,
+      food: [500, 800],
+      cafe: 300,
+      budgetAvailable: true,
+      tollsExcluded: true,
+    };
+    const carRoute = { outbound: {}, returnRoute: {} };
+    const carCostOptions = {
+      partySize: 2,
+      fuelEconomyKmPerL: [12, 18],
+      fuelPriceJPYPerL: [165, 190],
+      parkingCostJPY: [500, 1600],
+    };
+    renderWidget({
+      homeCoords: { lat: 35.6812, lng: 139.7671 },
+      activeTransportMode: "my_car",
+      carRoute,
+      carCostOptions,
+    });
+    expect(estimateCall.context).toMatchObject({
+      mode: "my_car",
+      carRoute,
+      carCostOptions,
+    });
+  });
+
   it("shows a compact qualifier when bounded origin travel is modelled", () => {
     scenario = {
       transport: 800,
