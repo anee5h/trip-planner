@@ -205,6 +205,9 @@ describe("Home Integration Tests", () => {
     expect(
       container.querySelector('[data-testid="home-planner"]'),
     ).not.toBeNull();
+    expect(
+      container.querySelector('[data-home-display-mode="browser"]'),
+    ).not.toBeNull();
     // The compact planner no longer carries a competing card header —
     // the primary CTA carries the hierarchy.
     expect(container.textContent).not.toContain("home.plannerHint");

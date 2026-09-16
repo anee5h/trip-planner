@@ -58,6 +58,16 @@ export function formatCompactDateRange(
 const HOME_WEATHER_TABS_CLASS =
   "grid w-full grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.35fr)] items-center gap-1 sm:w-[450px] sm:max-w-full sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(105px,125px)] sm:gap-1.5";
 
+function isStandaloneDisplayMode(): boolean {
+  if (typeof window === "undefined") return false;
+  const standaloneMedia = window.matchMedia?.(
+    "(display-mode: standalone)",
+  ).matches;
+  const iosStandalone = (navigator as Navigator & { standalone?: boolean })
+    .standalone;
+  return standaloneMedia || iosStandalone === true;
+}
+
 function HomeHeavyFallback() {
   return (
     <section
@@ -121,6 +131,7 @@ function HomeSurface() {
     isDirty,
     applyPlannerState,
   } = useHomePlannerState();
+  const [isStandalone] = useState(isStandaloneDisplayMode);
 
   const [pendingAction, setPendingAction] = useState<HomePendingAction>(null);
   const actionIdRef = useRef(0);
@@ -172,7 +183,12 @@ function HomeSurface() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div
+      className={`flex min-h-screen flex-col ${
+        isStandalone ? "home-standalone-mode" : "home-browser-mode"
+      }`}
+      data-home-display-mode={isStandalone ? "standalone" : "browser"}
+    >
       <section className="home-compact-surface relative overflow-x-clip bg-slate-50 pb-5 pt-5 sm:pb-8 sm:pt-8 lg:pb-8 lg:pt-10 dark:bg-slate-950">
         <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/50 [mask-image:linear-gradient(0deg,transparent,black)] -z-10" />
         <div className="container mx-auto max-w-6xl px-4">
