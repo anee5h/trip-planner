@@ -10,6 +10,7 @@ import type { ClearProfileResult } from "./clearProfileResult";
 export interface UserPreferencesPayload {
   partySize?: number;
   carMode?: string;
+  publicTransport?: boolean;
   publicModes?: string[];
   preferences_set?: boolean;
   [key: string]: unknown;

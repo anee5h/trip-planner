@@ -212,6 +212,33 @@ describe("OnboardingFlow", () => {
     expect(document.body.textContent).toContain("onboarding.preferencesTitle");
   });
 
+  it("lets a selected car toggle off while public transit stays selected", async () => {
+    render();
+    await act(async () => findButton("onboarding.continue")?.click());
+
+    const publicButton = findButton("home.transportOptions.public");
+    const rentalButton = findButton("home.transportOptions.rentalCar");
+    expect(publicButton?.getAttribute("aria-pressed")).toBe("true");
+
+    act(() => rentalButton?.click());
+    expect(rentalButton?.getAttribute("aria-pressed")).toBe("true");
+    act(() => rentalButton?.click());
+    expect(rentalButton?.getAttribute("aria-pressed")).toBe("false");
+    expect(publicButton?.getAttribute("aria-pressed")).toBe("true");
+  });
+
+  it("keeps at least one visible public submode selected", async () => {
+    render();
+    await act(async () => findButton("onboarding.continue")?.click());
+
+    for (const mode of ["shinkansen", "bus", "flight", "ferry"]) {
+      act(() => findButton(`home.transportModes.${mode}`)?.click());
+    }
+    const trainButton = findButton("home.transportModes.train");
+    act(() => trainButton?.click());
+    expect(trainButton?.getAttribute("aria-pressed")).toBe("true");
+  });
+
   it("does not show for existing user with preferences_set metadata", () => {
     state.userMeta = { preferences: { preferences_set: true } };
     render();

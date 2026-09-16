@@ -54,4 +54,11 @@ describe("TransportResolver", () => {
       ALL_PUBLIC_MODES,
     );
   });
+
+  it("does not widen an explicitly empty public-mode selection", () => {
+    expect(resolveTransportSelection(true, "none", [])).toEqual({
+      carMode: "none",
+      publicModes: [],
+    });
+  });
 });
