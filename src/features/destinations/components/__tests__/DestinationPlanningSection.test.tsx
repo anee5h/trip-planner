@@ -9,24 +9,23 @@ describe("DestinationPlanningSection", () => {
     expect(typeof DestinationPlanningSection).toBe("function");
   });
 
-  it("states the different time and cost scopes when an origin is saved", () => {
+  it("points saved-origin travellers to the canonical cost breakdown", () => {
     const notice = getPlannerTransportScopeNotice("en", true);
     expect(notice).toContain("excludes travel to the first stop");
-    expect(notice).toContain("includes origin transport");
+    expect(notice).toContain("canonical trip-cost scope");
   });
 
-  it("keeps the origin-pricing condition in the Japanese origin notice", () => {
+  it("keeps the Japanese origin notice aligned with the breakdown", () => {
     const notice = getPlannerTransportScopeNotice("ja", true);
-    expect(notice).toContain("料金を算出できる場合");
-    expect(notice).toContain("費用サマリーには出発地からの交通費を含みます");
+    expect(notice).toContain("費用内訳で旅行全体の費用範囲を確認できます");
   });
 
   it("does not imply origin cost when no origin is saved, in EN and JA", () => {
     expect(getPlannerTransportScopeNotice("en", false)).toContain(
-      "not included without a saved origin",
+      "On-site estimate — set an origin to include travel",
     );
     expect(getPlannerTransportScopeNotice("ja", false)).toContain(
-      "出発地が未設定",
+      "現地費用の目安です。出発地を設定すると交通費も含まれます",
     );
   });
 });

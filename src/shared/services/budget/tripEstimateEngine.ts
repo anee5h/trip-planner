@@ -39,7 +39,6 @@ import {
 import {
   getDecisionOneWayMinutes,
   getOriginAwareTransportEstimate,
-  getTravelDecisionSemantics,
 } from "@/shared/services/transport/OriginAwareTransportService";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
 import {
@@ -761,29 +760,24 @@ function originComponent(
     };
   }
 
-  const decisionEstimate = getOriginAwareTransportEstimate(
-    dest,
-    {
-      homeStationCoords: homeCoords,
-      ferryTemporal,
-      carRoute: scopedCarRoute,
-    },
-    [mode as TransportMode],
-  );
-  if (
-    decisionEstimate &&
-    getTravelDecisionSemantics(decisionEstimate) === "conservative"
-  ) {
-    return component(
-      { kind: "unavailable", reason: "insufficient_model_evidence" },
-      {
-        ...baseEvidence,
-        derivation: "computed",
-        reason: "insufficient_model_evidence",
-      },
-    );
+  const canUseBroadOriginModel =
+    mode === "train" ||
+    mode === "shinkansen" ||
+    mode === "bus" ||
+    mode === "flight" ||
+    mode === "ferry";
+  if (!canUseBroadOriginModel) {
+    return component(transport.cost, {
+      ...baseEvidence,
+      derivation: "computed",
+      reason: "source_missing",
+    });
   }
 
+  // Conservative travel-time semantics are a confidence signal, not a fare
+  // blocker. The canonical transport layer remains strict about fare
+  // evidence; this planning layer may still use the existing broad range so
+  // a traveller does not see an on-site subtotal presented as a trip total.
   const model = modelOriginRange(dest, mode, partySize, homeCoords);
   if (!model) {
     return component(transport.cost, {
@@ -797,8 +791,12 @@ function originComponent(
     {
       scope: "origin_travel",
       derivation: "model_estimate",
+      state: "documented_estimate",
+      provenance: "model",
       reason: "insufficient_model_evidence",
-      fareScope: transport.evidence.fareScope,
+      // This is a broad planning profile, not a canonical fare or corridor
+      // claim. Keep the fare scope explicitly unknown.
+      fareScope: "unknown",
     },
   );
 }
@@ -973,11 +971,21 @@ function qualityFor(components: readonly TripCostComponent[]): EstimateQuality {
   );
   if (!hasModelEstimate && !hasUserAllowance) return "verified";
 
+  const hasBroadOriginModel = components.some(
+    (item) =>
+      item.evidence.scope === "origin_travel" &&
+      item.evidence.derivation === "model_estimate" &&
+      item.evidence.provenance === "model" &&
+      item.evidence.fareScope === "unknown" &&
+      item.evidence.reason === "insufficient_model_evidence",
+  );
+
   // Deterministic profiles (including meals) are intentionally modeled but
   // usable. Reserve rough for broad source-missing fallbacks or non-bounded
   // required components rather than making every estimate look equally weak.
   return components.some(
     (item) =>
+      hasBroadOriginModel ||
       item.evidence.reason === "source_missing" ||
       (item.evidence.scope === "admission" &&
         item.evidence.reason === "insufficient_model_evidence"),

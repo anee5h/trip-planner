@@ -359,7 +359,27 @@
     },
     "stayAllowanceRow": "Stay allowance ({{count}} night)",
     "stayAllowanceRow_other": "Stay allowance ({{count}} nights)",
-    "stayAllowanceNote": "Inferred planning estimate — not a live hotel quote"
+    "stayAllowanceNote": "Inferred planning estimate — not a live hotel quote",
+    "budgetEstimate": {
+      "estimatedTripTotal": "Estimated trip total",
+      "onSiteEstimate": "On-site estimate — set an origin to include travel.",
+      "onSiteShort": "on-site only",
+      "includesEstimatedOrigin": "Includes estimated round-trip travel from your origin.",
+      "partialOriginUnavailable": "Partial estimate — origin travel cost unavailable.",
+      "partialTotal": "Partial total",
+      "fullTripEstimate": "Includes travel, local transport, tickets, meals and accommodation where applicable.",
+      "knownSubtotal": "Known subtotal",
+      "unknownComponents": "Some components unknown — showing known subtotal only",
+      "missingComponents": "Missing: {{components}}",
+      "costUnavailable": "Cost unavailable",
+      "partialTotalDetails": "Partial total — {{details}}",
+      "originTravel": "Origin travel",
+      "localTransport": "Local transport",
+      "admissionTickets": "Admission / Tickets",
+      "meals": "Meals",
+      "accommodation": "Accommodation",
+      "admissionUnavailable": "Admission unavailable/not included"
+    }
   },
   "origin": {
     "from": "From",

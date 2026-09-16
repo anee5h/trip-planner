@@ -52,7 +52,18 @@ export interface TripContext {
 
 export type TripContextPatch = Partial<TripContext>;
 
+export function hasExplicitTransportIntentPatch(
+  patch: TripContextPatch,
+): boolean {
+  return patch.publicModes !== undefined || patch.carMode !== undefined;
+}
+
+export function hasExplicitTripContextPatch(patch: TripContextPatch): boolean {
+  return Object.keys(patch).some((key) => key !== "destinationId");
+}
+
 const TRIP_CONTEXT_STORAGE_KEY = "meguruto-active-trip-context";
+const TRIP_CONTEXT_STORAGE_VERSION = 1;
 
 const PRESET_TIER_SET = new Set<string>(["economy", "standard", "comfortable"]);
 
@@ -309,24 +320,131 @@ export function tripContextFromRouteState(state: unknown): TripContextPatch {
 interface TripContextValue {
   tripContext: TripContext;
   hasExplicitTripContext: boolean;
+  hasExplicitTransportIntent: boolean;
   updateTripContext: (patch: TripContextPatch) => void;
 }
 
 const TripContextReact = createContext<TripContextValue | null>(null);
 
-function readStoredContext(): TripContextPatch {
-  if (typeof window === "undefined") return {};
+interface StoredTripContextState {
+  patch: TripContextPatch;
+  explicitContext: boolean;
+  explicitTransportIntent: boolean;
+}
+
+function isLegacyStaleDestinationContext(
+  parsed: Record<string, unknown>,
+): boolean {
+  const allowedKeys = new Set([
+    "origin",
+    "travelDate",
+    "dateSemantics",
+    "duration",
+    "partySize",
+    "publicModes",
+    "carMode",
+    "budget",
+    "destinationId",
+  ]);
+  if (
+    typeof parsed.destinationId !== "string" ||
+    !Object.keys(parsed).every((key) => allowedKeys.has(key))
+  ) {
+    return false;
+  }
+  const origin = parsed.origin;
+  const originIsDefault =
+    origin === undefined ||
+    origin === null ||
+    (typeof origin === "object" &&
+      (origin as Record<string, unknown>).source === "default");
+  if (!originIsDefault) return false;
+  if (
+    (parsed.publicModes !== undefined &&
+      (!Array.isArray(parsed.publicModes) || parsed.publicModes.length > 0)) ||
+    (parsed.carMode !== undefined && parsed.carMode !== "none") ||
+    (parsed.travelDate !== undefined && parsed.travelDate !== null) ||
+    (parsed.dateSemantics !== undefined && parsed.dateSemantics !== "any") ||
+    (parsed.duration !== undefined && parsed.duration !== "halfDay") ||
+    (parsed.partySize !== undefined && parsed.partySize !== 2)
+  ) {
+    return false;
+  }
+  if (parsed.budget === undefined) return true;
+  const normalizedBudget = normalizeTripBudget(parsed.budget);
+  const rawBudget = parsed.budget;
+  const historicalDefaultBudget =
+    rawBudget !== null &&
+    typeof rawBudget === "object" &&
+    (rawBudget as Record<string, unknown>).kind === "cap" &&
+    Number((rawBudget as Record<string, unknown>).cap) === 75000 &&
+    ((rawBudget as Record<string, unknown>).tier === undefined ||
+      (rawBudget as Record<string, unknown>).tier === "standard");
+  return (
+    (normalizedBudget.kind === "preset" &&
+      normalizedBudget.preset === "standard") ||
+    historicalDefaultBudget
+  );
+}
+
+function readStoredContext(): StoredTripContextState {
+  const empty = {
+    patch: {},
+    explicitContext: false,
+    explicitTransportIntent: false,
+  } satisfies StoredTripContextState;
+  if (typeof window === "undefined") return empty;
   try {
     const raw = window.sessionStorage.getItem(TRIP_CONTEXT_STORAGE_KEY);
-    if (!raw) return {};
+    if (!raw) return empty;
     const parsed = JSON.parse(raw) as Record<string, unknown>;
-    const patch: TripContextPatch = { ...(parsed as TripContextPatch) };
-    if (parsed.budget !== undefined) {
-      patch.budget = normalizeTripBudget(parsed.budget);
+    if (
+      parsed.version !== undefined &&
+      parsed.version !== TRIP_CONTEXT_STORAGE_VERSION
+    ) {
+      window.sessionStorage.removeItem(TRIP_CONTEXT_STORAGE_KEY);
+      return empty;
     }
-    return patch;
+    const storedContext =
+      parsed.version === TRIP_CONTEXT_STORAGE_VERSION
+        ? parsed.context && typeof parsed.context === "object"
+          ? (parsed.context as Record<string, unknown>)
+          : null
+        : parsed;
+    if (!storedContext) {
+      window.sessionStorage.removeItem(TRIP_CONTEXT_STORAGE_KEY);
+      return empty;
+    }
+    const patch: TripContextPatch = { ...(storedContext as TripContextPatch) };
+    if (storedContext.budget !== undefined) {
+      patch.budget = normalizeTripBudget(storedContext.budget);
+    }
+    if (parsed.version !== TRIP_CONTEXT_STORAGE_VERSION) {
+      window.sessionStorage.removeItem(TRIP_CONTEXT_STORAGE_KEY);
+      if (isLegacyStaleDestinationContext(storedContext)) return empty;
+      const legacyPublicModes = patch.publicModes;
+      const legacyExplicitTransport =
+        (Array.isArray(legacyPublicModes) && legacyPublicModes.length > 0) ||
+        (patch.carMode !== undefined && patch.carMode !== "none");
+      return {
+        patch,
+        explicitContext: hasExplicitTripContextPatch(patch),
+        explicitTransportIntent: legacyExplicitTransport,
+      };
+    }
+    return {
+      patch,
+      explicitContext:
+        parsed.explicitContext === true || parsed.explicit === true,
+      explicitTransportIntent:
+        parsed.explicitTransportIntent === undefined
+          ? (Array.isArray(patch.publicModes) &&
+              patch.publicModes.length > 0) ||
+            (patch.carMode !== undefined && patch.carMode !== "none")
+          : parsed.explicitTransportIntent === true,
+    };
   } catch {
-    return {};
+    return empty;
   }
 }
 
@@ -338,11 +456,15 @@ export function TripContextProvider({
   const location = useLocation();
   const { homeStation, homeStationCoords, homeStationTransportZoneId } =
     useTripStore();
+  const [storedContext] = useState(readStoredContext);
   const [tripContext, setTripContext] = useState<TripContext>(() =>
-    mergeTripContext(createDefaultTripContext(), readStoredContext()),
+    mergeTripContext(createDefaultTripContext(), storedContext.patch),
   );
   const [hasExplicitTripContext, setHasExplicitTripContext] = useState(
-    () => Object.keys(readStoredContext()).length > 0,
+    storedContext.explicitContext,
+  );
+  const [hasExplicitTransportIntent, setHasExplicitTransportIntent] = useState(
+    storedContext.explicitTransportIntent,
   );
 
   useEffect(() => {
@@ -381,7 +503,12 @@ export function TripContextProvider({
         : {}),
     };
     if (Object.keys(routePatch).length > 0) {
-      setHasExplicitTripContext(true);
+      if (hasExplicitTripContextPatch(routePatch)) {
+        setHasExplicitTripContext(true);
+      }
+      if (hasExplicitTransportIntentPatch(routePatch)) {
+        setHasExplicitTransportIntent(true);
+      }
       setTripContext((current) => mergeTripContext(current, routePatch));
     }
   }, [location.pathname, location.search, location.state]);
@@ -391,24 +518,39 @@ export function TripContextProvider({
     try {
       window.sessionStorage.setItem(
         TRIP_CONTEXT_STORAGE_KEY,
-        JSON.stringify(tripContext),
+        JSON.stringify({
+          version: TRIP_CONTEXT_STORAGE_VERSION,
+          explicit: true,
+          explicitContext: true,
+          explicitTransportIntent: hasExplicitTransportIntent,
+          context: tripContext,
+        }),
       );
     } catch {
       // Session storage is an optimization; navigation still works in memory.
     }
-  }, [tripContext, hasExplicitTripContext]);
+  }, [tripContext, hasExplicitTripContext, hasExplicitTransportIntent]);
 
   const updateTripContext = useCallback((patch: TripContextPatch) => {
     setHasExplicitTripContext(true);
+    if (hasExplicitTransportIntentPatch(patch)) {
+      setHasExplicitTransportIntent(true);
+    }
     setTripContext((current) => mergeTripContext(current, patch));
   }, []);
   const value = useMemo<TripContextValue>(
     () => ({
       tripContext,
       hasExplicitTripContext,
+      hasExplicitTransportIntent,
       updateTripContext,
     }),
-    [tripContext, hasExplicitTripContext, updateTripContext],
+    [
+      tripContext,
+      hasExplicitTripContext,
+      hasExplicitTransportIntent,
+      updateTripContext,
+    ],
   );
   return (
     <TripContextReact.Provider value={value}>
@@ -423,6 +565,7 @@ export function useOptionalTripContext(): TripContextValue {
     value ?? {
       tripContext: createDefaultTripContext(),
       hasExplicitTripContext: false,
+      hasExplicitTransportIntent: false,
       updateTripContext: () => undefined,
     }
   );
