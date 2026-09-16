@@ -40,6 +40,16 @@ describe("transport preferences", () => {
     });
   });
 
+  it("repairs public transit with no visible submode to an explicit selection", () => {
+    expect(
+      normalizeTransportPreferences({
+        publicTransport: true,
+        carMode: "none",
+        publicModes: [],
+      }).publicModes,
+    ).toEqual(DEFAULT_PUBLIC_MODES);
+  });
+
   it("keeps public submodes while public transit is temporarily off", () => {
     const value = normalizeTransportPreferences({
       publicTransport: false,

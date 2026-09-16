@@ -8,7 +8,7 @@ import { getCityHubsAsDestinations } from "@/shared/services/cityHubs";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import { Button } from "@/shared/components/ui/button";
 import { useTranslation } from "react-i18next";
-import { Car } from "lucide-react";
+import { Car, CheckCircle2 } from "lucide-react";
 import type { CarMode } from "@/shared/utils/carMode";
 import {
   DEFAULT_PUBLIC_MODES,
@@ -167,9 +167,12 @@ export function OnboardingFlow() {
 
   const togglePublicMode = (mode: string) => {
     if (!publicTransport) return;
-    setPublicModes((prev) =>
-      prev.includes(mode) ? prev.filter((m) => m !== mode) : [...prev, mode],
-    );
+    setPublicModes((prev) => {
+      if (prev.includes(mode)) {
+        return prev.length === 1 ? prev : prev.filter((m) => m !== mode);
+      }
+      return [...prev, mode];
+    });
   };
 
   const togglePublicTransport = () => {
@@ -244,9 +247,10 @@ export function OnboardingFlow() {
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
           {step === "done" ? (
             <div className="text-center py-6 space-y-3">
-              <div className="text-emerald-700" aria-hidden="true">
-                ✓
-              </div>
+              <CheckCircle2
+                className="mx-auto h-10 w-10 text-emerald-700"
+                aria-hidden="true"
+              />
               <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                 {t("onboarding.doneTitle")}
               </h3>
@@ -434,7 +438,13 @@ export function OnboardingFlow() {
                         <button
                           key={m.id}
                           type="button"
-                          onClick={() => setCarMode(m.id)}
+                          onClick={() =>
+                            setCarMode(
+                              carMode === m.id && publicTransport
+                                ? "none"
+                                : m.id,
+                            )
+                          }
                           aria-pressed={carMode === m.id}
                           className={`${btn} min-h-11 ${
                             carMode === m.id

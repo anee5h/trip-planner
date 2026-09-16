@@ -59,6 +59,17 @@ export function normalizeTransportPreferences(
     return { publicTransport: true, carMode, publicModes };
   }
 
+  // Public transit without a visible submode is not a meaningful saved
+  // preference. Repair legacy/hand-edited state before it reaches consumers;
+  // consumers must never interpret [] as "all public modes".
+  if (publicTransport && publicModes.length === 0) {
+    return {
+      publicTransport: true,
+      carMode,
+      publicModes: [...DEFAULT_PUBLIC_MODES],
+    };
+  }
+
   return { publicTransport, carMode, publicModes };
 }
 

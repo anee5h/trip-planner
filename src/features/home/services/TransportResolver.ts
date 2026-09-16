@@ -12,20 +12,18 @@ export const ALL_PUBLIC_MODES = [...DEFAULT_PUBLIC_MODES];
  * Resolve the planner's split-domain transport state into the canonical
  * recommendation inputs. Public transport is a capability toggle over the
  * existing public-mode collection; car access remains one mutually exclusive
- * CarMode. An empty public collection uses the existing full public-mode
- * default when the high-level toggle is on.
+ * CarMode. An omitted public-mode collection uses the full public-mode
+ * default; an explicitly empty collection remains empty and is never
+ * silently widened to all modes.
  */
 export function resolveTransportSelection(
   publicTransport: boolean,
   carMode: CarMode = "none",
-  publicModes: string[] = ALL_PUBLIC_MODES,
+  publicModes?: string[],
 ): TransportSelection {
+  const selectedPublicModes = publicModes ?? ALL_PUBLIC_MODES;
   return {
     carMode: normalizeCarMode(carMode),
-    publicModes: publicTransport
-      ? publicModes.length > 0
-        ? [...publicModes]
-        : [...ALL_PUBLIC_MODES]
-      : [],
+    publicModes: publicTransport ? [...selectedPublicModes] : [],
   };
 }
