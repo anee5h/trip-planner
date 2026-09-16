@@ -223,6 +223,7 @@ const DETAIL_COPY = {
     transportCostPerPersonRoundTrip: "/ person, round trip",
     transportCostPerCarRoundTrip: "/ car, round trip",
     tollUnknownSuffix: " + toll",
+    tollsExcludedSuffix: " (tolls excluded)",
     partialCostSuffix: " + unresolved cost",
     comfortMetrics: "Comfort Metrics",
     experienceRatings: "Experience Ratings",
@@ -283,6 +284,7 @@ const DETAIL_COPY = {
     transportCostPerPersonRoundTrip: "／1人・往復",
     transportCostPerCarRoundTrip: "／車・往復",
     tollUnknownSuffix: " + 高速料金",
+    tollsExcludedSuffix: "（通行料は含まれません）",
     partialCostSuffix: " + 未確定の費用",
     comfortMetrics: "快適性",
     experienceRatings: "体験評価",
@@ -1093,8 +1095,9 @@ export default function DestinationDetails() {
         : locale === "ja"
           ? `約 ${costRange}`
           : `~${costRange}`;
-    const partialSuffix =
-      transportCost.completeness === "partial"
+    const partialSuffix = transportCost.tollsExcluded
+      ? copy.tollsExcludedSuffix
+      : transportCost.completeness === "partial"
         ? transportCost.reason === "toll_unknown"
           ? copy.tollUnknownSuffix
           : copy.partialCostSuffix

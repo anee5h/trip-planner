@@ -713,9 +713,25 @@ function originComponent(
     fareScope: transport.evidence.fareScope,
     sourceUrls: urls,
     assumptionProvenance: transport.evidence.assumptionProvenance,
+    ...(transport.incompleteReason
+      ? { reason: transport.incompleteReason }
+      : {}),
+    ...(transport.evidence.tollsExcluded ? { tollsExcluded: true } : {}),
   };
 
   if (transport.cost.kind === "bounded") {
+    if (
+      (mode === "car" || mode === "my_car") &&
+      transport.evidence.tollsExcluded
+    ) {
+      return {
+        ...component(transport.cost, {
+          ...baseEvidence,
+          derivation: "model_estimate",
+        }),
+        ...(transport.knownCost ? { knownCost: transport.knownCost } : {}),
+      };
+    }
     if (transport.evidence.fareScope === "complete") {
       return component(transport.cost, {
         ...baseEvidence,
@@ -933,6 +949,14 @@ function accommodationComponent(
 
 function buildMissingComponents(components: readonly TripCostComponent[]) {
   return components.flatMap((item) => {
+    if (item.evidence.tollsExcluded) {
+      return [
+        {
+          scope: item.evidence.scope,
+          reason: "toll_unknown",
+        },
+      ];
+    }
     if (
       item.cost.kind === "unavailable" ||
       item.cost.kind === "variable" ||
@@ -1071,7 +1095,8 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
   );
   const allBounded =
     required.length > 0 &&
-    required.every((item) => item.cost.kind === "bounded");
+    required.every((item) => item.cost.kind === "bounded") &&
+    required.every((item) => !item.evidence.tollsExcluded);
   const total = allBounded ? sumBounded(components) : undefined;
   const knownSubtotal = sumBounded(components);
   const missingComponents = buildMissingComponents(components);

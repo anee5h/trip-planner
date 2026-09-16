@@ -28,6 +28,10 @@ vi.mock("react-i18next", () => ({
           "Includes estimated round-trip travel from your origin.",
         "planner.budgetEstimate.partialOriginUnavailable":
           "Partial estimate — origin travel cost unavailable.",
+        "planner.budgetEstimate.tollsExcluded":
+          "Car estimate — tolls excluded.",
+        "planner.budgetEstimate.tollsExcludedSummary":
+          "Partial estimate — car costs exclude tolls.",
         "planner.budgetEstimate.partialTotal": "Partial total",
         "planner.budgetEstimate.fullTripEstimate":
           "Includes travel, local transport, tickets, meals and accommodation where applicable.",
@@ -80,6 +84,7 @@ type Scenario = {
   food: [number, number] | null;
   cafe: number;
   budgetAvailable: boolean;
+  tollsExcluded?: boolean;
 };
 
 let scenario: Scenario = {
@@ -107,6 +112,7 @@ vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
         evidence: {
           scope: "origin_travel",
           derivation: "model_estimate",
+          ...(s.tollsExcluded ? { tollsExcluded: true } : {}),
         },
       });
     } else {
@@ -314,6 +320,25 @@ describe("TripCostBreakdownWidget transport presentation (finishing pass)", () =
     expect(text).toContain("¥3,800 - ¥3,800");
   });
 
+  it("discloses when bounded car fuel/parking excludes tolls", () => {
+    scenario = {
+      transport: 2400,
+      transportAvailable: true,
+      localTransit: 0,
+      tickets: 1000,
+      food: [500, 800],
+      cafe: 300,
+      budgetAvailable: true,
+      tollsExcluded: true,
+    };
+    const text = bodyText(
+      renderWidget({ homeCoords: { lat: 35.6812, lng: 139.7671 } }),
+    );
+    expect(text).toContain("Origin travel");
+    expect(text).toContain("Car estimate — tolls excluded.");
+    expect(text).toContain("Partial estimate — car costs exclude tolls.");
+    expect(text).not.toContain("origin travel cost unavailable");
+  });
   it("shows a compact qualifier when bounded origin travel is modelled", () => {
     scenario = {
       transport: 800,

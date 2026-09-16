@@ -366,6 +366,8 @@
       "onSiteShort": "現地のみ",
       "includesEstimatedOrigin": "出発地からの往復交通費（概算）を含みます。",
       "partialOriginUnavailable": "部分見積もり — 出発地からの交通費は利用できません。",
+      "tollsExcluded": "車の費用概算（通行料は含まれません）。",
+      "tollsExcludedSummary": "部分見積もり — 車の費用に通行料は含まれません。",
       "partialTotal": "部分合計",
       "fullTripEstimate": "交通・現地交通・チケット・食事・宿泊（該当時）を含みます。",
       "knownSubtotal": "判明済み小計",

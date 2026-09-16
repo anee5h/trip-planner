@@ -214,6 +214,9 @@ export function TripCostBreakdownWidget({
       hasOriginTransport
     : originTravelComp?.cost.kind === "bounded" &&
       originTravelComp.evidence.derivation === "model_estimate";
+  const originTollsExcluded = planCostBreakdown
+    ? planCostBreakdown.originTransport.tollsExcluded === true
+    : originTravelComp?.evidence.tollsExcluded === true;
   const accommodationNights = getTripNights(duration);
   const hasAccommodationAllowance =
     // A ¥0 accommodation component (zero-night duration) is not a row.
@@ -440,9 +443,11 @@ export function TripCostBreakdownWidget({
     ? t("planner.budgetEstimate.onSiteEstimate")
     : originIsUnavailable
       ? t("planner.budgetEstimate.partialOriginUnavailable")
-      : originIsModelled
-        ? t("planner.budgetEstimate.includesEstimatedOrigin")
-        : t("planner.budgetEstimate.fullTripEstimate");
+      : originTollsExcluded
+        ? t("planner.budgetEstimate.tollsExcludedSummary")
+        : originIsModelled
+          ? t("planner.budgetEstimate.includesEstimatedOrigin")
+          : t("planner.budgetEstimate.fullTripEstimate");
 
   const totalMax = displayedTotalRange?.[1];
 
@@ -692,6 +697,11 @@ export function TripCostBreakdownWidget({
                   {originIsUnavailable && (
                     <div className="text-[10px] font-semibold text-slate-500 dark:text-slate-300">
                       {t("planner.budgetEstimate.partialOriginUnavailable")}
+                    </div>
+                  )}
+                  {originTollsExcluded && (
+                    <div className="text-[10px] font-semibold text-slate-500 dark:text-slate-300">
+                      {t("planner.budgetEstimate.tollsExcluded")}
                     </div>
                   )}
                   <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">

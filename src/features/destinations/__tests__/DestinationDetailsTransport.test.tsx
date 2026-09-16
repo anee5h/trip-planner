@@ -530,11 +530,11 @@ describe("DestinationDetails transport rows", () => {
 
     const text = host.textContent ?? "";
     expect(text).toContain("Rental Car");
-    expect(text).toContain("+ toll");
+    expect(text).toContain("(tolls excluded)");
     expect(text).toContain("/ car, round trip");
     expect(text).not.toContain("Cost unavailable");
     const partialCost = Array.from(host.querySelectorAll(".text-xs")).find(
-      (element) => element.textContent?.includes("+ toll"),
+      (element) => element.textContent?.includes("(tolls excluded)"),
     );
     expect(partialCost?.parentElement?.className).toContain("min-w-0");
   });
@@ -555,11 +555,11 @@ describe("DestinationDetails transport rows", () => {
 
     const text = host.textContent ?? "";
     expect(text).toContain("マイカー");
-    expect(text).toContain("+ 高速料金");
+    expect(text).toContain("（通行料は含まれません）");
     expect(text).toContain("／車・往復");
     expect(text).not.toContain("料金不明");
     const partialCost = Array.from(host.querySelectorAll(".text-xs")).find(
-      (element) => element.textContent?.includes("+ 高速料金"),
+      (element) => element.textContent?.includes("（通行料は含まれません）"),
     );
     expect(partialCost?.parentElement?.className).toContain("min-w-0");
   });

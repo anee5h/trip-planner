@@ -73,6 +73,8 @@ export interface TransportCostEvidence {
   readonly derivation: CostDerivation;
   /** Runtime assumptions used for modelled car inputs. */
   readonly assumptionProvenance?: CostAssumptionProvenance;
+  /** True when the bounded result intentionally omits unknown tolls. */
+  readonly tollsExcluded?: boolean;
 }
 
 /** The canonical structured transport cost result. */
@@ -212,7 +214,11 @@ function toCarTransportCost(
         }
       : {}),
     evidence: {
-      fareScope: known ? "complete" : "unknown",
+      fareScope: known
+        ? result.tollsExcluded
+          ? "unknown"
+          : "complete"
+        : "unknown",
       isRoundTripPartyTotal: true,
       fareBasis: rental
         ? "rental_vehicle_cash_cost"
@@ -220,6 +226,7 @@ function toCarTransportCost(
       sourceUrls: carRouteSourceUrls(route),
       derivation: known ? "model_estimate" : "computed",
       assumptionProvenance: result.assumptionProvenance,
+      ...(result.tollsExcluded ? { tollsExcluded: true } : {}),
     },
     source: result.breakdown ? "car_route_cost" : "unavailable",
     ...(result.reason ? { incompleteReason: result.reason } : {}),

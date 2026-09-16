@@ -366,6 +366,8 @@
       "onSiteShort": "on-site only",
       "includesEstimatedOrigin": "Includes estimated round-trip travel from your origin.",
       "partialOriginUnavailable": "Partial estimate — origin travel cost unavailable.",
+      "tollsExcluded": "Car estimate — tolls excluded.",
+      "tollsExcludedSummary": "Partial estimate — car costs exclude tolls.",
       "partialTotal": "Partial total",
       "fullTripEstimate": "Includes travel, local transport, tickets, meals and accommodation where applicable.",
       "knownSubtotal": "Known subtotal",

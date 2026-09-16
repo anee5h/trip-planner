@@ -129,6 +129,8 @@ export interface ComponentEvidence {
   readonly reason?: BudgetReasonCode;
   readonly sourceUrls?: readonly string[];
   readonly assumptionProvenance?: CostAssumptionProvenance;
+  /** True when a car estimate intentionally excludes unknown tolls. */
+  readonly tollsExcluded?: boolean;
   /**
    * KAI-216 / KAI-217B: the transport fare scope carried by the canonical
    * ladder (complete / corridor_only / local_bounded_estimate / unknown),
