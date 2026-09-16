@@ -3,6 +3,7 @@ import {
   getPasswordRecoveryRedirectUrl,
   inspectRecoveryCallback,
   isPasswordRecoveryEvent,
+  isPasswordRecoveryRoute,
 } from "../passwordRecovery";
 
 function locationFor(url: string): URL {
@@ -79,5 +80,14 @@ describe("getPasswordRecoveryRedirectUrl", () => {
         locationFor("https://meguruto.example/settings"),
       ),
     ).toBe("https://meguruto.example/reset-password");
+  });
+});
+
+describe("password recovery shell boundary", () => {
+  it("identifies only the dedicated reset route as recovery UI", () => {
+    expect(isPasswordRecoveryRoute("/reset-password")).toBe(true);
+    expect(isPasswordRecoveryRoute("/ja/reset-password")).toBe(true);
+    expect(isPasswordRecoveryRoute("/")).toBe(false);
+    expect(isPasswordRecoveryRoute("/settings")).toBe(false);
   });
 });

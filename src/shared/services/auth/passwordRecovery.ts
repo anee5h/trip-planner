@@ -26,6 +26,10 @@ export function inspectRecoveryCallback(
   };
 }
 
+export function isPasswordRecoveryRoute(pathname: string): boolean {
+  return pathname === "/reset-password" || pathname === "/ja/reset-password";
+}
+
 export function getPasswordRecoveryRedirectUrl(
   location: LocationLike | URL,
 ): string {
