@@ -73,7 +73,9 @@ test.describe("KAI-259 guest header", () => {
   }, testInfo) => {
     test.skip(!isMobile(testInfo.project.name), "mobile project only");
     await expectGuestHeader(page);
-    await expect(page.getByTestId("navbar-signup-cta")).toHaveText("Join free");
+    await expect(
+      page.getByTestId("navbar-signup-cta").locator("span:visible"),
+    ).toHaveText("Join free");
     await expect(page.getByTestId("navbar-hamburger")).toHaveCount(0);
   });
 
@@ -103,9 +105,9 @@ test.describe("KAI-259 guest header", () => {
   }, testInfo) => {
     test.skip(isMobile(testInfo.project.name), "desktop project only");
     await expectGuestHeader(page);
-    await expect(page.getByTestId("navbar-signup-cta")).toHaveText(
-      "Create Free Account",
-    );
+    await expect(
+      page.getByTestId("navbar-signup-cta").locator("span:visible"),
+    ).toHaveText("Create Free Account");
     await expect(
       page.locator("header").getByRole("button", { name: /Sign In/ }),
     ).toHaveCount(0);
@@ -124,7 +126,7 @@ test.describe("KAI-259 guest header", () => {
       await page.goto(path);
       const signupCta = page.getByTestId("navbar-signup-cta");
       await expect(signupCta).toBeVisible();
-      await expect(signupCta).toHaveText(
+      await expect(signupCta.locator("span:visible")).toHaveText(
         path.startsWith("/ja") ? "無料登録" : "Join free",
       );
 
@@ -167,7 +169,7 @@ test.describe("KAI-259 guest header", () => {
     ).toBeVisible();
     const signupCta = page.getByTestId("navbar-signup-cta");
     await expect(signupCta).toBeVisible();
-    await expect(signupCta).toHaveText(
+    await expect(signupCta.locator("span:visible")).toHaveText(
       isMobile(testInfo.project.name) ? "無料登録" : "無料アカウント作成",
     );
   });
