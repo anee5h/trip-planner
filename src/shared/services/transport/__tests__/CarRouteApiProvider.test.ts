@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import type { CarRouteRequest } from "../CarRouteProvider";
 import {
   CarRouteApiProvider,
+  CAR_ROUTE_TARGET_LABEL_MAX_LENGTH,
   clearCarRouteApiCache,
 } from "../CarRouteApiProvider";
 
@@ -105,6 +106,28 @@ describe("CarRouteApiProvider", () => {
       distanceKm: 166,
       durationMinutes: 150,
     });
+  });
+
+  it("bounds generated target labels to the server contract", async () => {
+    const fetchMock = fetchMockFor(
+      async () =>
+        new Response(JSON.stringify(canonicalBody()), {
+          status: 200,
+          headers: { "content-type": "application/json" },
+        }),
+    );
+    const provider = new CarRouteApiProvider({ fetchImpl: fetchMock });
+    await provider.route(
+      request({
+        destination: {
+          ...anchor,
+          label: "x".repeat(CAR_ROUTE_TARGET_LABEL_MAX_LENGTH + 17),
+        },
+      }),
+    );
+
+    const body = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    expect(body.target.label).toHaveLength(CAR_ROUTE_TARGET_LABEL_MAX_LENGTH);
   });
 
   it("serves repeat identical requests from the bounded cache without refetching", async () => {

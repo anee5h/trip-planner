@@ -19,6 +19,7 @@ import {
  */
 
 export const CAR_ROUTE_API_ENDPOINT = "/api/car-route";
+export const CAR_ROUTE_TARGET_LABEL_MAX_LENGTH = 120;
 
 export const CAR_ROUTE_CACHE_TTL_MS = 10 * 60 * 1000;
 export const CAR_ROUTE_CACHE_MAX_ENTRIES = 200;
@@ -216,6 +217,10 @@ export class CarRouteApiProvider implements AsyncCarRouteProvider {
       CAR_ROUTE_API_TIMEOUT_MS,
     );
     try {
+      const targetLabel = request.destination.label?.slice(
+        0,
+        CAR_ROUTE_TARGET_LABEL_MAX_LENGTH,
+      );
       response = await this.fetchImpl(this.endpoint, {
         method: "POST",
         headers: {
@@ -231,7 +236,7 @@ export class CarRouteApiProvider implements AsyncCarRouteProvider {
             lat: request.destination.coordinates.lat,
             lng: request.destination.coordinates.lng,
             id: request.destination.id,
-            label: request.destination.label,
+            ...(targetLabel ? { label: targetLabel } : {}),
           },
           direction: request.direction,
           ...(request.departureAt ? { departureAt: request.departureAt } : {}),
