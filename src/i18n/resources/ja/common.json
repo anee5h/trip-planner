@@ -904,8 +904,9 @@
     "preferencesHelp": "旅行プラン生成のデフォルト値を設定します。",
     "skip": "スキップ",
     "continue": "次へ",
-    "doneTitle": "完了しました",
-    "doneHelp": "これらの設定は後から設定画面で変更できます。"
+    "doneTitle": "旅の準備ができました",
+    "doneHelp": "旅行の設定を保存しました。",
+    "transportOptions": "交通手段の選択"
   },
   "datePicker": {
     "selectDate": "日付を選択",
