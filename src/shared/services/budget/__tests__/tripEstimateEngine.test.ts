@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Destination } from "@/shared/types/destination";
+import catalogue from "@/shared/data/destinations-index.json";
 import {
   ACCOMMODATION_PROFILES,
   calculateTripEstimate,
@@ -56,6 +57,40 @@ function component(
 }
 
 describe("KAI-260 TripEstimateEngine", () => {
+  it("models origin travel for the real Tokyo-area Roppongi destination", () => {
+    const roppongi = catalogue.find(
+      (item) => item.id === "roppongi-hills-tokyo-city-view",
+    ) as Destination;
+    const withOrigin = calculateTripEstimate({
+      dest: roppongi,
+      mode: "train",
+      homeCoords: origin,
+      duration: "halfDay",
+      partySize: 2,
+      includeOriginTravel: true,
+    });
+    const onSite = calculateTripEstimate({
+      dest: roppongi,
+      duration: "halfDay",
+      partySize: 2,
+      includeOriginTravel: false,
+    });
+    const originTravel = component(withOrigin, "origin_travel");
+
+    expect(originTravel.cost).toEqual({
+      kind: "bounded",
+      min: 1200,
+      max: 4000,
+    });
+    expect(originTravel.evidence.derivation).toBe("model_estimate");
+    expect(withOrigin.knownSubtotal[0]).toBeGreaterThan(
+      onSite.knownSubtotal[0],
+    );
+    expect(withOrigin.missingComponents.map((item) => item.scope)).toContain(
+      "admission",
+    );
+  });
+
   it("keeps an all-verified on-site day range bounded and preserves both ends", () => {
     const result = calculateTripEstimate({
       dest: destination({
@@ -195,6 +230,148 @@ describe("KAI-260 TripEstimateEngine", () => {
       expect(travel.cost.min).toBeLessThan(travel.cost.max);
     expect(travel.evidence.derivation).toBe("model_estimate");
     expect(result.total).toBeDefined();
+  });
+
+  it("models conservative public-transport origin travel instead of omitting it", () => {
+    const result = calculateTripEstimate({
+      dest: destination({
+        id: "conservative-origin-fixture",
+        prefecture: "Gifu",
+        municipalityId: "Gifu:gero",
+        coordinates: { lat: 35.8056, lng: 137.2444 },
+        transportOptions: { train: 240 },
+      }),
+      mode: "train",
+      homeCoords: origin,
+      duration: "fullDay",
+      partySize: 2,
+    });
+    const travel = component(result, "origin_travel");
+
+    expect(travel.cost.kind).toBe("bounded");
+    expect(travel.evidence.derivation).toBe("model_estimate");
+    expect(travel.evidence.state).toBe("documented_estimate");
+    expect(travel.evidence.provenance).toBe("model");
+    expect(result.estimateQuality).toBe("rough");
+    expect(result.total).toBeDefined();
+  });
+
+  it("adds modelled origin travel to a recognizable on-site subtotal", () => {
+    const hub = destination({
+      id: "hub-subtotal-fixture",
+      role: "hub",
+      kind: "city",
+      prefecture: "Gifu",
+      municipalityId: "Gifu:gero",
+      coordinates: { lat: 35.8056, lng: 137.2444 },
+      recommendedVisitHours: undefined,
+      admission: undefined,
+      admissionApplicability: "not_applicable",
+      localTransport: {
+        kind: "verified_required_access",
+        access: "rail",
+        fare: [400, 1600],
+        fareBasis: "round_trip",
+        coverage: "all_required_access",
+        sourceUrls: ["https://example.test/hub-local"],
+        basis: "hub local rail access",
+        checkedAt: "2026-01-01",
+      },
+    });
+    const onSite = calculateTripEstimate({
+      dest: hub,
+      duration: "fullDay",
+      budgetTier: "standard",
+      partySize: 2,
+      includeOriginTravel: false,
+    });
+    const withOrigin = calculateTripEstimate({
+      dest: hub,
+      mode: "train",
+      homeCoords: origin,
+      duration: "fullDay",
+      budgetTier: "standard",
+      partySize: 2,
+    });
+
+    // Local rail [¥800, ¥3,200] + two meals [¥6,400, ¥12,000].
+    expect(onSite.total).toEqual({ kind: "bounded", min: 7200, max: 15200 });
+    expect(withOrigin.total).toBeDefined();
+    expect(withOrigin.total).not.toEqual(onSite.total);
+    expect(withOrigin.total!.min).toBeGreaterThan(onSite.total!.min);
+    expect(component(withOrigin, "origin_travel").cost.kind).toBe("bounded");
+  });
+
+  it("scales modelled origin travel once for one versus two travellers", () => {
+    const make = (partySize: number) =>
+      calculateTripEstimate({
+        dest: destination({
+          id: `conservative-party-${partySize}`,
+          prefecture: "Gifu",
+          municipalityId: "Gifu:gero",
+          coordinates: { lat: 35.8056, lng: 137.2444 },
+          transportOptions: { train: 240 },
+        }),
+        mode: "train",
+        homeCoords: origin,
+        duration: "fullDay",
+        partySize,
+      });
+    const one = component(make(1), "origin_travel").cost;
+    const two = component(make(2), "origin_travel").cost;
+
+    expect(one.kind).toBe("bounded");
+    expect(two.kind).toBe("bounded");
+    if (one.kind === "bounded" && two.kind === "bounded") {
+      expect(two.min).toBe(one.min * 2);
+      expect(two.max).toBe(one.max * 2);
+    }
+  });
+
+  it("keeps modelled origin travel in an overnight total with accommodation", () => {
+    const result = calculateTripEstimate({
+      dest: destination({
+        id: "conservative-overnight-fixture",
+        prefecture: "Gifu",
+        municipalityId: "Gifu:gero",
+        coordinates: { lat: 35.8056, lng: 137.2444 },
+        transportOptions: { train: 240 },
+      }),
+      mode: "train",
+      homeCoords: origin,
+      duration: "2d1n",
+      budgetTier: "standard",
+      partySize: 2,
+    });
+
+    expect(result.total).toBeDefined();
+    expect(component(result, "origin_travel").cost.kind).toBe("bounded");
+    expect(component(result, "meals").cost.kind).toBe("bounded");
+    expect(component(result, "accommodation").cost).toEqual({
+      kind: "bounded",
+      min: 10000,
+      max: 22000,
+    });
+  });
+
+  it("does not model origin travel when destination coordinates are unknown", () => {
+    const result = calculateTripEstimate({
+      dest: destination({
+        id: "unknown-coordinate-origin-fixture",
+        coordinates: undefined,
+        transportOptions: { train: 240 },
+      }),
+      mode: "train",
+      homeCoords: origin,
+      duration: "fullDay",
+      partySize: 2,
+    });
+
+    expect(component(result, "origin_travel").cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
+    expect(result.total).toBeUndefined();
   });
 
   it("scales person-cost ranges for one vs two people", () => {
