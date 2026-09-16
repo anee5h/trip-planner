@@ -8,6 +8,11 @@ import { reportAuthFailureIfOperational } from "@/shared/utils/errorReporter";
 import { executePendingAccountDeletionIfRequested } from "@/shared/utils/pendingAccountDeletion";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 import { discardPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
+import {
+  getPasswordRecoveryRedirectUrl,
+  inspectRecoveryCallback,
+  isPasswordRecoveryEvent,
+} from "@/shared/services/auth/passwordRecovery";
 import { AuthContext, type UserProfileUpdateData } from "./authContext";
 export { AuthContext } from "./authContext";
 export type {
@@ -17,9 +22,17 @@ export type {
   UserProfileUpdateData,
 } from "./authContext";
 
+function hasPasswordRecoveryCallback(): boolean {
+  if (typeof window === "undefined") return false;
+  return inspectRecoveryCallback(window.location).isRecovery;
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isPasswordRecovery, setIsPasswordRecovery] = useState(
+    hasPasswordRecoveryCallback,
+  );
 
   useEffect(() => {
     if (!supabase) {
@@ -40,10 +53,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     }
 
-    const handleSession = (session: Session | null) => {
+    const handleSession = (
+      session: Session | null,
+      passwordRecovery = hasPasswordRecoveryCallback(),
+    ) => {
       setUser(session?.user ?? null);
       setLoading(false);
-      if (session?.access_token) {
+      if (session?.access_token && !passwordRecovery) {
         void executePendingAccountDeletionIfRequested();
         recommendationAnalytics.trackPendingSignupCompletion();
       }
@@ -66,8 +82,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Listen for changes
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      handleSession(session);
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      const passwordRecovery =
+        isPasswordRecoveryEvent(event) || hasPasswordRecoveryCallback();
+      if (passwordRecovery) {
+        setIsPasswordRecovery(true);
+      }
+      handleSession(session, passwordRecovery);
     });
 
     return () => subscription.unsubscribe();
@@ -105,12 +126,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const resetPasswordForEmail = async (email: string) => {
     const result = await supabase!.auth.resetPasswordForEmail(email, {
-      redirectTo: window.location.origin,
+      redirectTo: getPasswordRecoveryRedirectUrl(window.location),
     });
     if (result.error) {
       reportAuthFailureIfOperational(result.error, "reset-password");
     }
     return result;
+  };
+
+  const updatePassword = async (password: string) => {
+    const result = await supabase!.auth.updateUser({ password });
+    if (result.error) {
+      reportAuthFailureIfOperational(result.error, "update-password");
+    }
+    if (result.data.user) setUser(result.data.user);
+    return result;
+  };
+
+  const clearPasswordRecovery = () => {
+    setIsPasswordRecovery(false);
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    url.hash = "";
+    url.searchParams.delete("type");
+    url.searchParams.delete("error");
+    url.searchParams.delete("error_code");
+    url.searchParams.delete("error_description");
+    window.history.replaceState(window.history.state, "", url.toString());
   };
 
   const signOut = (): Promise<{ error: AuthError | null }> | undefined =>
@@ -166,6 +208,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         signInWithEmail,
         signUpWithEmail,
         resetPasswordForEmail,
+        updatePassword,
+        isPasswordRecovery,
+        clearPasswordRecovery,
         signOut,
         updateUserProfile,
         clearProfileData,
