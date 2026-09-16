@@ -1,17 +1,12 @@
-import type { CarMode } from "@/shared/utils/carMode";
+import { normalizeCarMode, type CarMode } from "@/shared/utils/carMode";
+import { DEFAULT_PUBLIC_MODES } from "@/shared/utils/transportPreferences";
 
 export interface TransportSelection {
   carMode: CarMode;
   publicModes: string[];
 }
 
-export const ALL_PUBLIC_MODES = [
-  "train",
-  "shinkansen",
-  "bus",
-  "flight",
-  "ferry",
-];
+export const ALL_PUBLIC_MODES = [...DEFAULT_PUBLIC_MODES];
 
 /**
  * Resolve the planner's split-domain transport state into the canonical
@@ -26,7 +21,7 @@ export function resolveTransportSelection(
   publicModes: string[] = ALL_PUBLIC_MODES,
 ): TransportSelection {
   return {
-    carMode,
+    carMode: normalizeCarMode(carMode),
     publicModes: publicTransport
       ? publicModes.length > 0
         ? [...publicModes]

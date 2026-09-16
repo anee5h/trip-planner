@@ -903,8 +903,9 @@
     "preferencesHelp": "Set your defaults for trip planning.",
     "skip": "Skip",
     "continue": "Continue",
-    "doneTitle": "All set!",
-    "doneHelp": "You can change these anytime in Settings."
+    "doneTitle": "You're ready to explore",
+    "doneHelp": "Your travel preferences are saved.",
+    "transportOptions": "Transport options"
   },
   "datePicker": {
     "selectDate": "Select date",

@@ -8,7 +8,8 @@ import {
   useState,
 } from "react";
 import type { User } from "@supabase/supabase-js";
-import { normalizeCarMode, type CarMode } from "@/shared/utils/carMode";
+import type { CarMode } from "@/shared/utils/carMode";
+import { normalizeTransportPreferences } from "@/shared/utils/transportPreferences";
 import {
   resolveTransportSelection,
   type TransportSelection,
@@ -140,11 +141,10 @@ export function HomePlannerStateProvider({
 
     const preferences = user?.user_metadata?.preferences;
     if (!preferences) return;
-    const userCarMode = normalizeCarMode(preferences.carMode);
-    const persistedPublicModes = preferences.publicModes;
-    const userPublicTransport = Array.isArray(persistedPublicModes)
-      ? persistedPublicModes.length > 0
-      : true;
+    const transportPreferences = normalizeTransportPreferences(preferences);
+    const userCarMode = transportPreferences.carMode;
+    const persistedPublicModes = transportPreferences.publicModes;
+    const userPublicTransport = transportPreferences.publicTransport;
     const userPartySize = normalizePartySize(preferences.partySize);
     const persistedDuration = normalizeHomepageTripDuration(
       preferences.tripDuration ?? preferences.duration,
