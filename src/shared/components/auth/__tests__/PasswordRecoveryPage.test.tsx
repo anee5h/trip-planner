@@ -36,7 +36,13 @@ vi.mock("react-i18next", () => ({
         "auth.continueToMeguruto": "Continue to Meguruto",
         "auth.errors.passwordTooShort":
           "Password must be at least 6 characters.",
+        "auth.errors.passwordPolicy":
+          "This password does not meet the current security requirements.",
+        "auth.errors.passwordPolicyPwned":
+          "Choose a password that has not appeared in a known data leak.",
         "auth.errors.passwordsDoNotMatch": "Passwords do not match.",
+        "auth.errors.samePassword":
+          "Choose a password different from your current password.",
         "auth.errors.generic": "We could not update your password.",
         "auth.errors.networkError": "Network error. Please try again.",
         "auth.resetInvalidTitle": "This reset link is no longer valid",
@@ -174,6 +180,86 @@ describe("PasswordRecoveryPage", () => {
     );
     expect(document.body.textContent).toContain(
       "Check your email for a password reset link.",
+    );
+  });
+
+  it("does not render a usable reset form for a URL-only recovery hint", () => {
+    authMock.isPasswordRecovery = false;
+    render();
+
+    expect(document.querySelector("form")).toBeNull();
+    expect(document.body.textContent).toContain(
+      "This reset link is no longer valid",
+    );
+  });
+
+  it.each([
+    [
+      { code: "weak_password", status: 422, message: "server policy" },
+      "This password does not meet the current security requirements.",
+    ],
+    [
+      { code: "same_password", status: 422, message: "same password" },
+      "Choose a password different from your current password.",
+    ],
+    [
+      { code: "unknown", status: 500, message: "secret provider detail" },
+      "We could not update your password.",
+    ],
+  ])(
+    "maps safe update error %s without exposing its message",
+    async (updateError, expected) => {
+      authMock.updatePassword.mockResolvedValueOnce({
+        data: { user: null },
+        error: updateError,
+      });
+      render();
+      setInput('input[name="new-password"]', "secret1");
+      setInput('input[name="confirm-new-password"]', "secret1");
+      await submit();
+
+      expect(document.body.textContent).toContain(expected);
+      expect(document.body.textContent).not.toContain("secret provider detail");
+    },
+  );
+
+  it("maps a missing recovery session to the resend state", async () => {
+    authMock.updatePassword.mockResolvedValueOnce({
+      data: { user: null },
+      error: {
+        name: "AuthSessionMissingError",
+        status: 400,
+        message: "Auth session missing!",
+      },
+    });
+    render();
+    setInput('input[name="new-password"]', "secret1");
+    setInput('input[name="confirm-new-password"]', "secret1");
+    await submit();
+
+    expect(document.querySelector("form")).toBeNull();
+    expect(document.body.textContent).toContain(
+      "This reset link is no longer valid",
+    );
+  });
+
+  it("defers password policy enforcement to Supabase", async () => {
+    authMock.updatePassword.mockResolvedValueOnce({
+      data: { user: null },
+      error: {
+        code: "weak_password",
+        status: 422,
+        message: "server policy",
+      },
+    });
+    render();
+    setInput('input[name="new-password"]', "x");
+    setInput('input[name="confirm-new-password"]', "x");
+    await submit();
+
+    expect(authMock.updatePassword).toHaveBeenCalledWith("x");
+    expect(document.body.textContent).toContain(
+      "This password does not meet the current security requirements.",
     );
   });
 });

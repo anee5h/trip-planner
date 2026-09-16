@@ -125,7 +125,10 @@
       "emailNotConfirmed": "Please confirm your email address before signing in.",
       "userAlreadyRegistered": "An account with this email already exists.",
       "passwordTooShort": "Password must be at least 6 characters.",
+      "passwordPolicy": "This password does not meet the current security requirements. Try a longer password with a mix of letters, numbers, and symbols.",
+      "passwordPolicyPwned": "Choose a password that has not appeared in a known data leak.",
       "passwordsDoNotMatch": "The passwords do not match.",
+      "samePassword": "Choose a password different from your current password.",
       "rateLimitExceeded": "Too many requests. Please wait a moment and try again.",
       "networkError": "Network error. Please check your internet connection.",
       "generic": "An authentication error occurred. Please try again."
