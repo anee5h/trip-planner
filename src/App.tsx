@@ -88,6 +88,7 @@ import CompareFloatingBar from "./features/compare/components/CompareFloatingBar
 
 import { ThemeProvider } from "./shared/context/ThemeContext";
 import { LocaleProvider, useLocale } from "./shared/context/LocaleContext";
+import { TripStoreProvider } from "./shared/hooks/useTripStore";
 import { AuthModalProvider } from "./shared/context/AuthModalContext";
 import { TripContextProvider } from "./shared/context/TripContext";
 import { OnboardingFlow } from "./shared/components/auth/OnboardingFlow";
@@ -152,29 +153,31 @@ function StandardShell() {
   const [compareModalOpen, setCompareModalOpen] = useState(false);
 
   return (
-    <TripContextProvider>
-      <AuthModalProvider>
-        <div
-          data-app-shell="standard"
-          className="flex min-h-screen flex-col bg-background text-foreground"
-        >
-          <Navbar />
-          <main className="flex-grow pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
-            <AppRoutes />
-          </main>
-          <Footer />
-          <BottomNav />
-          <PendingPersistenceResume />
-          <CompareFloatingBar onOpenModal={() => setCompareModalOpen(true)} />
-          <CompareModal
-            isOpen={compareModalOpen}
-            onClose={() => setCompareModalOpen(false)}
-          />
-        </div>
-        <Toaster position="bottom-right" />
-      </AuthModalProvider>
-      <OnboardingFlow />
-    </TripContextProvider>
+    <>
+      <TripContextProvider>
+        <AuthModalProvider>
+          <div
+            data-app-shell="standard"
+            className="flex min-h-screen flex-col bg-background text-foreground"
+          >
+            <Navbar />
+            <main className="flex-grow pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
+              <AppRoutes />
+            </main>
+            <Footer />
+            <BottomNav />
+            <PendingPersistenceResume />
+            <CompareFloatingBar onOpenModal={() => setCompareModalOpen(true)} />
+            <CompareModal
+              isOpen={compareModalOpen}
+              onClose={() => setCompareModalOpen(false)}
+            />
+          </div>
+          <Toaster position="bottom-right" />
+        </AuthModalProvider>
+        <OnboardingFlow />
+      </TripContextProvider>
+    </>
   );
 }
 
@@ -215,7 +218,9 @@ function App() {
     <AuthProvider>
       <ThemeProvider>
         <LocaleProvider>
-          <AppInner />
+          <TripStoreProvider>
+            <AppInner />
+          </TripStoreProvider>
         </LocaleProvider>
       </ThemeProvider>
     </AuthProvider>
