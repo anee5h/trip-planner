@@ -10,6 +10,7 @@ import type { ClearProfileResult } from "./clearProfileResult";
 export interface UserPreferencesPayload {
   partySize?: number;
   carMode?: string;
+  publicTransport?: boolean;
   publicModes?: string[];
   preferences_set?: boolean;
   [key: string]: unknown;
@@ -43,6 +44,9 @@ export interface AuthContextType {
   resetPasswordForEmail: (
     email: string,
   ) => Promise<{ data: unknown; error: AuthError | null }>;
+  updatePassword: (password: string) => Promise<UserResponse>;
+  isPasswordRecovery: boolean;
+  clearPasswordRecovery: () => void;
   signOut: () => Promise<{ error: AuthError | null }> | undefined;
   updateUserProfile: (data: UserProfileUpdateData) => Promise<UserResponse>;
   clearProfileData: () => Promise<ClearProfileResult>;

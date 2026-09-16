@@ -5,9 +5,8 @@ import {
   Navigate,
   useLocation,
 } from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { AuthProvider } from "./shared/hooks/useAuth";
-import { TripStoreProvider } from "./shared/hooks/useTripStore";
 import Navbar from "./shared/components/layout/Navbar";
 import Footer from "./shared/components/layout/Footer";
 import { StartupSkeleton } from "./shared/components/layout/StartupSkeleton";
@@ -84,22 +83,114 @@ function LocaleUrlSync() {
   return null;
 }
 
-import { useState } from "react";
 import CompareModal from "./features/compare/components/CompareModal";
 import CompareFloatingBar from "./features/compare/components/CompareFloatingBar";
 
 import { ThemeProvider } from "./shared/context/ThemeContext";
 import { LocaleProvider, useLocale } from "./shared/context/LocaleContext";
+import { TripStoreProvider } from "./shared/hooks/useTripStore";
 import { AuthModalProvider } from "./shared/context/AuthModalContext";
 import { TripContextProvider } from "./shared/context/TripContext";
 import { OnboardingFlow } from "./shared/components/auth/OnboardingFlow";
+import PasswordRecoveryPage from "./shared/components/auth/PasswordRecoveryPage";
 import { PendingPersistenceResume } from "./shared/components/auth/PendingPersistenceResume";
+import { isPasswordRecoveryRoute } from "./shared/services/auth/passwordRecovery";
 
 import BottomNav from "./shared/components/layout/BottomNav";
 
-function AppInner() {
+function AppRoutes() {
+  return (
+    <ErrorBoundary>
+      <Suspense fallback={<RouteLoader />}>
+        <Routes>
+          <Route path="/reset-password" element={<PasswordRecoveryPage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/destinations/:id" element={<DestinationDetails />} />
+          <Route path="/collections" element={<CollectionsDirectory />} />
+          <Route path="/collections/:slug" element={<CollectionDetails />} />
+          <Route path="/compare" element={<Compare />} />
+          <Route
+            path="/favorites"
+            element={<Navigate to="/bucket-list" replace />}
+          />
+          <Route path="/bucket-list" element={<MyTrips />} />
+          <Route path="/my-trips" element={<MyTrips />} />
+          <Route path="/passport" element={<Passport />} />
+          <Route
+            path="/visited-map"
+            element={<Navigate to="/passport" replace />}
+          />
+          <Route
+            path="/profile"
+            element={<Navigate to="/settings?section=account" replace />}
+          />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/qa" element={<QaDashboard />} />
+          <Route path="/editorial" element={<Navigate to="/qa" replace />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/cookies" element={<Cookies />} />
+        </Routes>
+      </Suspense>
+    </ErrorBoundary>
+  );
+}
+
+function RecoveryShell() {
+  return (
+    <main
+      data-app-shell="password-recovery"
+      className="min-h-screen bg-background text-foreground"
+    >
+      <AppRoutes />
+    </main>
+  );
+}
+
+function StandardShell() {
   const [compareModalOpen, setCompareModalOpen] = useState(false);
 
+  return (
+    <>
+      <TripContextProvider>
+        <AuthModalProvider>
+          <div
+            data-app-shell="standard"
+            className="flex min-h-screen flex-col bg-background text-foreground"
+          >
+            <Navbar />
+            <main className="flex-grow pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
+              <AppRoutes />
+            </main>
+            <Footer />
+            <BottomNav />
+            <PendingPersistenceResume />
+            <CompareFloatingBar onOpenModal={() => setCompareModalOpen(true)} />
+            <CompareModal
+              isOpen={compareModalOpen}
+              onClose={() => setCompareModalOpen(false)}
+            />
+          </div>
+          <Toaster position="bottom-right" />
+        </AuthModalProvider>
+        <OnboardingFlow />
+      </TripContextProvider>
+    </>
+  );
+}
+
+function RoutedApp() {
+  const location = useLocation();
+  return isPasswordRecoveryRoute(location.pathname) ? (
+    <RecoveryShell />
+  ) : (
+    <StandardShell />
+  );
+}
+
+function AppInner() {
   // Locale-prefixed URLs (/ja/...) keep the locale visible to share-preview
   // crawlers; the basename makes every internal link stay on the locale
   // version once the user is on it.
@@ -111,76 +202,8 @@ function AppInner() {
     <>
       <LocaleUrlSync />
       <Router basename={basename}>
-        <TripContextProvider>
-          <AuthModalProvider>
-            <div className="flex flex-col min-h-screen bg-background text-foreground">
-              <Navbar />
-              <main className="flex-grow pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
-                <ErrorBoundary>
-                  <Suspense fallback={<RouteLoader />}>
-                    <Routes>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/destinations" element={<Destinations />} />
-                      <Route
-                        path="/destinations/:id"
-                        element={<DestinationDetails />}
-                      />
-                      <Route
-                        path="/collections"
-                        element={<CollectionsDirectory />}
-                      />
-                      <Route
-                        path="/collections/:slug"
-                        element={<CollectionDetails />}
-                      />
-                      <Route path="/compare" element={<Compare />} />
-                      <Route
-                        path="/favorites"
-                        element={<Navigate to="/bucket-list" replace />}
-                      />
-                      <Route path="/bucket-list" element={<MyTrips />} />
-                      <Route path="/my-trips" element={<MyTrips />} />
-                      <Route path="/passport" element={<Passport />} />
-                      <Route
-                        path="/visited-map"
-                        element={<Navigate to="/passport" replace />}
-                      />
-                      <Route
-                        path="/profile"
-                        element={
-                          <Navigate to="/settings?section=account" replace />
-                        }
-                      />
-                      <Route path="/settings" element={<Settings />} />
-                      <Route path="/help" element={<Help />} />
-                      <Route path="/qa" element={<QaDashboard />} />
-                      <Route
-                        path="/editorial"
-                        element={<Navigate to="/qa" replace />}
-                      />
-                      <Route path="/terms" element={<Terms />} />
-                      <Route path="/privacy" element={<Privacy />} />
-                      <Route path="/cookies" element={<Cookies />} />
-                    </Routes>
-                  </Suspense>
-                </ErrorBoundary>
-              </main>
-              <Footer />
-              <BottomNav />
-              <PendingPersistenceResume />
-              <CompareFloatingBar
-                onOpenModal={() => setCompareModalOpen(true)}
-              />
-              <CompareModal
-                isOpen={compareModalOpen}
-                onClose={() => setCompareModalOpen(false)}
-              />
-            </div>
-            <Toaster position="bottom-right" />
-          </AuthModalProvider>
-        </TripContextProvider>
+        <RoutedApp />
       </Router>
-      <OnboardingFlow />
     </>
   );
 }

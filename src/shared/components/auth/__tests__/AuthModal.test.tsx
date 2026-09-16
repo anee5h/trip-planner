@@ -8,6 +8,7 @@ const authMock = vi.hoisted(() => ({
   signInWithEmail: vi.fn(),
   signUpWithEmail: vi.fn(),
   signInWithGoogle: vi.fn(),
+  resetPasswordForEmail: vi.fn(),
 }));
 const analyticsMock = vi.hoisted(() => ({
   trackSignupStarted: vi.fn(),
@@ -23,7 +24,7 @@ vi.mock("@/shared/hooks/useAuth", () => ({
     signInWithGoogle: authMock.signInWithGoogle,
     signInWithEmail: authMock.signInWithEmail,
     signUpWithEmail: authMock.signUpWithEmail,
-    resetPasswordForEmail: vi.fn(),
+    resetPasswordForEmail: authMock.resetPasswordForEmail,
   }),
 }));
 
@@ -56,16 +57,86 @@ function renderAuthModal() {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
+  const onClose = vi.fn();
   act(() => {
     root!.render(
       <MemoryRouter>
-        <AuthModal isOpen onClose={vi.fn()} />
+        <AuthModal isOpen onClose={onClose} />
       </MemoryRouter>,
     );
+  });
+  return onClose;
+}
+
+function setInputValue(selector: string, value: string) {
+  const input = document.body.querySelector<HTMLInputElement>(selector);
+  const setter = Object.getOwnPropertyDescriptor(
+    window.HTMLInputElement.prototype,
+    "value",
+  )?.set;
+  act(() => {
+    setter?.call(input, value);
+    input?.dispatchEvent(new Event("input", { bubbles: true }));
+    input?.dispatchEvent(new Event("change", { bubbles: true }));
   });
 }
 
 describe("AuthModal", () => {
+  it("submits forgot-password email without sending password data", async () => {
+    authMock.resetPasswordForEmail.mockResolvedValueOnce({
+      data: {},
+      error: null,
+    });
+    renderAuthModal();
+    setInputValue('input[type="email"]', "person@example.com");
+
+    await act(async () => {
+      Array.from(document.body.querySelectorAll("button"))
+        .find((button) => button.textContent === "auth.forgotPassword")
+        ?.click();
+      await Promise.resolve();
+    });
+
+    expect(authMock.resetPasswordForEmail).toHaveBeenCalledWith(
+      "person@example.com",
+    );
+    expect(document.body.textContent).toContain("auth.resetEmailSent");
+    expect(authMock.resetPasswordForEmail.mock.calls[0]).not.toContain(
+      "password",
+    );
+  });
+
+  it("completes ordinary email login without entering recovery", async () => {
+    const onClose = renderAuthModal();
+    authMock.signInWithEmail.mockResolvedValueOnce({ error: null });
+
+    await act(async () => {
+      document.body
+        .querySelector("form")
+        ?.dispatchEvent(
+          new Event("submit", { bubbles: true, cancelable: true }),
+        );
+      await Promise.resolve();
+    });
+
+    expect(authMock.signInWithEmail).toHaveBeenCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it("keeps Google OAuth on the ordinary auth path", async () => {
+    authMock.signInWithGoogle.mockResolvedValueOnce({ error: null });
+    renderAuthModal();
+
+    await act(async () => {
+      Array.from(document.body.querySelectorAll("button"))
+        .find((button) => button.textContent === "auth.continueWithGoogle")
+        ?.click();
+      await Promise.resolve();
+    });
+
+    expect(authMock.signInWithGoogle).toHaveBeenCalledTimes(1);
+  });
+
   it("preserves a useful unknown backend error in English", async () => {
     authMock.signInWithEmail.mockResolvedValueOnce({
       error: new Error("Database temporarily unavailable"),

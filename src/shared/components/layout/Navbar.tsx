@@ -559,14 +559,9 @@ export default function Navbar() {
                 size="lg"
                 onClick={handleSignupClick}
                 data-testid="navbar-signup-cta"
-                className="min-h-11 rounded-lg px-1 text-[11px] font-bold sm:px-3 sm:text-sm md:px-4"
+                className="min-h-11 rounded-lg px-2 text-[11px] font-bold sm:px-3 sm:text-sm md:px-4"
               >
-                <span className="min-[360px]:hidden">
-                  {t("actions.createCompact")}
-                </span>
-                <span className="hidden min-[360px]:inline sm:hidden">
-                  {t("actions.createAccount")}
-                </span>
+                <span className="sm:hidden">{t("actions.joinFree")}</span>
                 <span className="hidden sm:inline">
                   {t("actions.createFreeAccount")}
                 </span>
