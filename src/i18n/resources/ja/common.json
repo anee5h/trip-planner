@@ -125,7 +125,10 @@
       "emailNotConfirmed": "ログインする前にメールアドレスの確認を完了してください。",
       "userAlreadyRegistered": "このメールアドレスは既に登録されています。",
       "passwordTooShort": "パスワードは6文字以上で入力してください。",
+      "passwordPolicy": "このパスワードは現在のセキュリティ要件を満たしていません。英字・数字・記号を組み合わせ、より長いパスワードを設定してください。",
+      "passwordPolicyPwned": "既知の情報漏えいに含まれていないパスワードを設定してください。",
       "passwordsDoNotMatch": "パスワードが一致しません。",
+      "samePassword": "現在のパスワードとは異なるパスワードを設定してください。",
       "rateLimitExceeded": "リクエスト数が上限を超えました。しばらく待ってから再試行してください。",
       "networkError": "ネットワークエラーが発生しました。接続を確認してください。",
       "generic": "認証エラーが発生しました。もう一度お試しください。"
@@ -356,7 +359,29 @@
     },
     "stayAllowanceRow": "宿泊費目安（{{count}}泊）",
     "stayAllowanceRow_other": "宿泊費目安（{{count}}泊）",
-    "stayAllowanceNote": "期間と予算帯から算出した目安で、実際の宿泊料金ではありません"
+    "stayAllowanceNote": "期間と予算帯から算出した目安で、実際の宿泊料金ではありません",
+    "budgetEstimate": {
+      "estimatedTripTotal": "旅行全体の概算",
+      "onSiteEstimate": "現地費用の目安です。出発地を設定すると交通費も含まれます。",
+      "onSiteShort": "現地のみ",
+      "includesEstimatedOrigin": "出発地からの往復交通費（概算）を含みます。",
+      "partialOriginUnavailable": "部分見積もり — 出発地からの交通費は利用できません。",
+      "tollsExcluded": "車の費用概算（通行料は含まれません）。",
+      "tollsExcludedSummary": "部分見積もり — 車の費用に通行料は含まれません。",
+      "partialTotal": "部分合計",
+      "fullTripEstimate": "交通・現地交通・チケット・食事・宿泊（該当時）を含みます。",
+      "knownSubtotal": "判明済み小計",
+      "unknownComponents": "一部の項目が不明なため小計のみ表示",
+      "missingComponents": "未確認: {{components}}",
+      "costUnavailable": "料金不明",
+      "partialTotalDetails": "部分合計 — {{details}}",
+      "originTravel": "出発地からの交通",
+      "localTransport": "現地交通費",
+      "admissionTickets": "入場料・チケット",
+      "meals": "食費",
+      "accommodation": "宿泊費",
+      "admissionUnavailable": "入場料不明・未算入"
+    }
   },
   "origin": {
     "from": "出発地",

@@ -45,6 +45,7 @@ export interface CarCostResult {
   readonly rentalDays?: number;
   readonly assumptionProvenance?: CostAssumptionProvenance;
   readonly reason?: BudgetReasonCode;
+  readonly tollsExcluded?: boolean;
 }
 
 function buildCarAssumptionProvenance(
@@ -278,13 +279,20 @@ export function calculatePersonalCarCost(
   const assumptionProvenance =
     options.assumptionProvenance ?? DEFAULT_CAR_ASSUMPTION_PROVENANCE;
   if (!inputs.toll) {
-    return unavailable(
-      inputs.vehicles,
-      "toll_unknown",
-      inputs.distanceKm,
-      undefined,
-      { breakdown, knownCost, assumptionProvenance },
-    );
+    return {
+      cost: {
+        kind: "bounded",
+        min: knownCost[0],
+        max: knownCost[1],
+      },
+      breakdown,
+      knownCost,
+      vehiclesNeeded: inputs.vehicles,
+      routedDistanceKm: inputs.distanceKm,
+      assumptionProvenance,
+      reason: "toll_unknown",
+      tollsExcluded: true,
+    };
   }
   const total = sumRanges(inputs.fuel, inputs.toll, inputs.parking);
   return {
@@ -359,13 +367,21 @@ export function calculateRentalCarCost(
   const assumptionProvenance =
     options.assumptionProvenance ?? DEFAULT_CAR_ASSUMPTION_PROVENANCE;
   if (!inputs.toll) {
-    return unavailable(
-      inputs.vehicles,
-      "toll_unknown",
-      inputs.distanceKm,
-      days,
-      { breakdown, knownCost, assumptionProvenance },
-    );
+    return {
+      cost: {
+        kind: "bounded",
+        min: knownCost[0],
+        max: knownCost[1],
+      },
+      breakdown,
+      knownCost,
+      vehiclesNeeded: inputs.vehicles,
+      routedDistanceKm: inputs.distanceKm,
+      rentalDays: days,
+      assumptionProvenance,
+      reason: "toll_unknown",
+      tollsExcluded: true,
+    };
   }
   const total = sumRanges(
     rental,

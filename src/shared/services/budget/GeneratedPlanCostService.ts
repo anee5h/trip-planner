@@ -29,6 +29,7 @@ export interface CostComponent {
     | "estimated"
     | "open_ended_or_variable"
     | "unknown";
+  tollsExcluded?: boolean;
 }
 
 export interface GeneratedPlanCostResult {
@@ -91,6 +92,7 @@ function toPlanComponent(
     satisfied: true,
     knownNumeric: true,
     semanticState,
+    ...(component.evidence.tollsExcluded ? { tollsExcluded: true } : {}),
   };
 }
 

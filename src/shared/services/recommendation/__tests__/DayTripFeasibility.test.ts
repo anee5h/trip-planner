@@ -128,7 +128,12 @@ describe("day-trip travel evidence", () => {
     const originTravel = budget.components.find(
       (component) => component.evidence.scope === "origin_travel",
     );
-    expect(originTravel?.cost.kind).toBe("unavailable");
+    expect(originTravel?.cost.kind).toBe("bounded");
+    if (originTravel?.cost.kind !== "bounded") {
+      throw new Error("expected a bounded modelled origin-travel cost");
+    }
+    expect(originTravel.cost.min).toBeGreaterThan(0);
+    expect(originTravel?.evidence.derivation).toBe("model_estimate");
   });
 
   it("propagates bounded catchment evidence while retaining corridor provenance", () => {

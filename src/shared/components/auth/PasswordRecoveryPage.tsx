@@ -3,20 +3,30 @@ import { useNavigate } from "react-router-dom";
 import { CheckCircle2, KeyRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/shared/hooks/useAuth";
+import {
+  classifyPasswordRecoveryError,
+  type PasswordRecoveryUpdateError,
+} from "@/shared/services/auth/passwordRecovery";
 
-const MIN_PASSWORD_LENGTH = 6;
-
-type ResetError = "short" | "mismatch" | "generic" | "network";
+type ResetError =
+  Exclude<PasswordRecoveryUpdateError, "invalid_session"> | "mismatch";
 
 function errorKey(
   error: ResetError,
 ):
   | "auth.errors.passwordTooShort"
+  | "auth.errors.passwordPolicy"
+  | "auth.errors.passwordPolicyPwned"
   | "auth.errors.passwordsDoNotMatch"
+  | "auth.errors.samePassword"
   | "auth.errors.generic"
   | "auth.errors.networkError" {
-  if (error === "short") return "auth.errors.passwordTooShort";
+  if (error === "weak_password") return "auth.errors.passwordPolicy";
+  if (error === "weak_password_pwned") {
+    return "auth.errors.passwordPolicyPwned";
+  }
   if (error === "mismatch") return "auth.errors.passwordsDoNotMatch";
+  if (error === "same_password") return "auth.errors.samePassword";
   if (error === "network") return "auth.errors.networkError";
   return "auth.errors.generic";
 }
@@ -40,6 +50,7 @@ export function PasswordRecoveryPage() {
   const [submitting, setSubmitting] = useState(false);
   const [resending, setResending] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const [invalidRecovery, setInvalidRecovery] = useState(false);
 
   const continueToMeguruto = () => {
     clearPasswordRecovery();
@@ -50,10 +61,6 @@ export function PasswordRecoveryPage() {
     event.preventDefault();
     setError(null);
     setResendMessage("");
-    if (newPassword.length < MIN_PASSWORD_LENGTH) {
-      setError("short");
-      return;
-    }
     if (newPassword !== confirmPassword) {
       setError("mismatch");
       return;
@@ -63,25 +70,26 @@ export function PasswordRecoveryPage() {
     try {
       const { error: updateError } = await updatePassword(newPassword);
       if (updateError) {
-        const message = updateError.message.toLowerCase();
-        setError(
-          message.includes("network") || message.includes("fetch")
-            ? "network"
-            : "generic",
-        );
+        const classified = classifyPasswordRecoveryError(updateError);
+        if (classified === "invalid_session") {
+          setInvalidRecovery(true);
+          clearPasswordRecovery();
+        } else {
+          setError(classified);
+        }
         return;
       }
       setNewPassword("");
       setConfirmPassword("");
       setCompleted(true);
     } catch (caught) {
-      const message =
-        caught instanceof Error ? caught.message.toLowerCase() : "";
-      setError(
-        message.includes("network") || message.includes("fetch")
-          ? "network"
-          : "generic",
-      );
+      const classified = classifyPasswordRecoveryError(caught);
+      if (classified === "invalid_session") {
+        setInvalidRecovery(true);
+        clearPasswordRecovery();
+      } else {
+        setError(classified);
+      }
     } finally {
       setSubmitting(false);
     }
@@ -117,7 +125,7 @@ export function PasswordRecoveryPage() {
     );
   }
 
-  if (!isPasswordRecovery || !user) {
+  if (invalidRecovery || !isPasswordRecovery || !user) {
     return (
       <section className="mx-auto w-full max-w-lg px-4 py-12 sm:py-20">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950 sm:p-8">
@@ -221,7 +229,6 @@ export function PasswordRecoveryPage() {
               value={newPassword}
               onChange={(event) => setNewPassword(event.target.value)}
               autoComplete="new-password"
-              minLength={MIN_PASSWORD_LENGTH}
               required
               className="mt-2 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-base text-slate-900 outline-none focus:border-emerald-700 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-900 dark:text-white"
             />
@@ -234,7 +241,6 @@ export function PasswordRecoveryPage() {
               value={confirmPassword}
               onChange={(event) => setConfirmPassword(event.target.value)}
               autoComplete="new-password"
-              minLength={MIN_PASSWORD_LENGTH}
               required
               className="mt-2 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-base text-slate-900 outline-none focus:border-emerald-700 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-900 dark:text-white"
             />

@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
   createDefaultTripContext,
+  hasExplicitTransportIntentPatch,
+  hasExplicitTripContextPatch,
   mergeTripContext,
   normalizeTripBudget,
   tripContextFromRouteState,
@@ -9,6 +11,40 @@ import {
 } from "@/shared/context/TripContext";
 
 describe("TripContext contract", () => {
+  it("does not treat destination-only or non-transport routes as transport constraints", () => {
+    expect(
+      hasExplicitTransportIntentPatch({ destinationId: "roppongi-hills" }),
+    ).toBe(false);
+    expect(
+      hasExplicitTripContextPatch({
+        destinationId: "roppongi-hills",
+        duration: "2d1n",
+        partySize: 3,
+        budget: { kind: "preset", preset: "standard" },
+      }),
+    ).toBe(true);
+    expect(
+      hasExplicitTransportIntentPatch({
+        destinationId: "roppongi-hills",
+        duration: "2d1n",
+        partySize: 3,
+        budget: { kind: "preset", preset: "standard" },
+      }),
+    ).toBe(false);
+    expect(
+      hasExplicitTransportIntentPatch({
+        destinationId: "roppongi-hills",
+        publicModes: [],
+      }),
+    ).toBe(true);
+    expect(
+      hasExplicitTransportIntentPatch({
+        destinationId: "roppongi-hills",
+        publicModes: ["train"],
+      }),
+    ).toBe(true);
+  });
+
   it("preserves explicit empty public modes and personal car identity", () => {
     const base = createDefaultTripContext();
     const next = mergeTripContext(base, {

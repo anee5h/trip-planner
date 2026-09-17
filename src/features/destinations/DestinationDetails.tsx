@@ -223,6 +223,7 @@ const DETAIL_COPY = {
     transportCostPerPersonRoundTrip: "/ person, round trip",
     transportCostPerCarRoundTrip: "/ car, round trip",
     tollUnknownSuffix: " + toll",
+    tollsExcludedSuffix: " (tolls excluded)",
     partialCostSuffix: " + unresolved cost",
     comfortMetrics: "Comfort Metrics",
     experienceRatings: "Experience Ratings",
@@ -283,6 +284,7 @@ const DETAIL_COPY = {
     transportCostPerPersonRoundTrip: "／1人・往復",
     transportCostPerCarRoundTrip: "／車・往復",
     tollUnknownSuffix: " + 高速料金",
+    tollsExcludedSuffix: "（通行料は含まれません）",
     partialCostSuffix: " + 未確定の費用",
     comfortMetrics: "快適性",
     experienceRatings: "体験評価",
@@ -340,13 +342,32 @@ function comfortFieldIsDerived(
 type WikipediaPanelState =
   "idle" | "loading" | "success" | "unavailable" | "error";
 
+export function isDetailTransportModeAllowed(
+  mode: string,
+  activeModes: readonly string[] | null,
+  activePublicModes: readonly string[],
+  activeCarMode: string,
+): boolean {
+  if (mode === "ferry") {
+    return (
+      activePublicModes.length > 0 &&
+      (activeModes === null || activeModes.length > 0)
+    );
+  }
+  if (activeModes) return activeModes.includes(mode);
+  if (mode === "car") return activeCarMode === "rental";
+  if (mode === "my_car") return activeCarMode === "my_car";
+  return activePublicModes.includes(mode);
+}
+
 export default function DestinationDetails() {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const copy = DETAIL_COPY[locale];
   const { id } = useParams();
   const location = useLocation();
-  const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
+  const { tripContext, hasExplicitTripContext, hasExplicitTransportIntent } =
+    useOptionalTripContext();
   const navState = location.state as {
     carMode?: string;
     publicModes?: string[];
@@ -384,13 +405,13 @@ export default function DestinationDetails() {
 
   const activeCarMode =
     navState?.carMode ??
-    (hasExplicitTripContext ? tripContext.carMode : undefined) ??
+    (hasExplicitTransportIntent ? tripContext.carMode : undefined) ??
     user?.user_metadata?.preferences?.carMode ??
     "none";
   const activePublicModes = useMemo(
     () =>
       navState?.publicModes ??
-      (hasExplicitTripContext ? tripContext.publicModes : undefined) ??
+      (hasExplicitTransportIntent ? tripContext.publicModes : undefined) ??
       user?.user_metadata?.preferences?.publicModes ?? [
         "train",
         "shinkansen",
@@ -398,7 +419,7 @@ export default function DestinationDetails() {
         "flight",
       ],
     [
-      hasExplicitTripContext,
+      hasExplicitTransportIntent,
       navState,
       tripContext.publicModes,
       user?.user_metadata?.preferences?.publicModes,
@@ -903,7 +924,7 @@ export default function DestinationDetails() {
       (navState &&
         (navState.carMode !== undefined ||
           navState.publicModes !== undefined)) ||
-      hasExplicitTripContext
+      hasExplicitTransportIntent
     ) {
       return getValidModes(
         destination,
@@ -934,7 +955,7 @@ export default function DestinationDetails() {
   }, [
     destination,
     navState,
-    hasExplicitTripContext,
+    hasExplicitTransportIntent,
     activeCarMode,
     activePublicModes,
     homeStationCoords,
@@ -1074,8 +1095,9 @@ export default function DestinationDetails() {
         : locale === "ja"
           ? `約 ${costRange}`
           : `~${costRange}`;
-    const partialSuffix =
-      transportCost.completeness === "partial"
+    const partialSuffix = transportCost.tollsExcluded
+      ? copy.tollsExcludedSuffix
+      : transportCost.completeness === "partial"
         ? transportCost.reason === "toll_unknown"
           ? copy.tollUnknownSuffix
           : copy.partialCostSuffix
@@ -1083,9 +1105,21 @@ export default function DestinationDetails() {
     return `${copy.estimated} ${costLabel}${partialSuffix} ${unit}`;
   };
 
+  const isModeAllowedByIntent = (mode: string) =>
+    isDetailTransportModeAllowed(
+      mode,
+      activeModes,
+      activePublicModes,
+      activeCarMode,
+    );
+
   const isModeVisible = (mode: string) => {
     // Deny-all: an empty eligible set hides every mode.
-    if (eligibleModes.length === 0 || !eligibleModes.includes(mode as never)) {
+    if (
+      eligibleModes.length === 0 ||
+      !eligibleModes.includes(mode as never) ||
+      !isModeAllowedByIntent(mode)
+    ) {
       return false;
     }
     if (mode === "flight") {
@@ -1099,23 +1133,16 @@ export default function DestinationDetails() {
         mode as "train" | "shinkansen" | "bus" | "car" | "my_car",
       ) !== undefined;
     const isExplicitRoadSelection =
-      (mode === "car" || mode === "my_car") && activeModes?.includes(mode);
-    if (!hasGroundEstimate && !isExplicitRoadSelection) {
-      return false;
-    }
-    if (!activeModes) {
-      return true;
-    }
-    return activeModes.includes(mode);
+      (mode === "car" || mode === "my_car") && isModeAllowedByIntent(mode);
+    return hasGroundEstimate || isExplicitRoadSelection;
   };
 
   const availableModes = useMemo(() => {
     const modes: string[] = [];
     for (const mode of eligibleModes) {
+      if (!isModeAllowedByIntent(mode)) continue;
       if (mode === "flight" || mode === "ferry") {
-        if (!activeModes || activeModes.includes(mode)) {
-          modes.push(mode);
-        }
+        modes.push(mode);
         continue;
       }
       const hasGroundEstimate =
@@ -1123,16 +1150,20 @@ export default function DestinationDetails() {
           mode as "train" | "shinkansen" | "bus" | "car" | "my_car",
         ) !== undefined;
       const isExplicitRoadSelection =
-        (mode === "car" || mode === "my_car") && activeModes?.includes(mode);
-      if (
-        (hasGroundEstimate || isExplicitRoadSelection) &&
-        (!activeModes || activeModes.includes(mode))
-      ) {
+        (mode === "car" || mode === "my_car") && isModeAllowedByIntent(mode);
+      if (hasGroundEstimate || isExplicitRoadSelection) {
         modes.push(mode);
       }
     }
     return modes;
-  }, [destination, activeModes, eligibleModes, homeStationCoords]);
+  }, [
+    destination,
+    activeModes,
+    activePublicModes,
+    activeCarMode,
+    eligibleModes,
+    homeStationCoords,
+  ]);
 
   // A local discovery estimate is presentation-only. It is intentionally
   // excluded from availableModes so it cannot affect transport selection,
@@ -1945,6 +1976,25 @@ export default function DestinationDetails() {
                 travelDate={activeTravelDate}
                 scheduledOriginProductId={scheduledTransitOriginProductId}
                 duration={duration}
+                carRoute={
+                  carRefinement.status === "provider-backed"
+                    ? carRefinement.routes
+                    : undefined
+                }
+                carCostOptions={
+                  selectedTransport === "car"
+                    ? buildRentalCarCostOptions({
+                        duration,
+                        partySize,
+                        parkingCostJPY: verifiedDestinationParkingCost,
+                      })
+                    : selectedTransport === "my_car"
+                      ? buildPersonalCarCostOptions({
+                          partySize,
+                          parkingCostJPY: verifiedDestinationParkingCost,
+                        })
+                      : undefined
+                }
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {

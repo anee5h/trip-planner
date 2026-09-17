@@ -3,6 +3,7 @@ import destinations from "@/shared/data/destinations-index.json";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import {
+  getExploreEstimateScope,
   resolveExploreBudgetEstimate,
   type ExploreBudgetContext,
 } from "../exploreBudget";
@@ -66,5 +67,26 @@ describe("Explore shared budget estimate", () => {
     expect(weekend?.estimate.total?.max).toBeGreaterThan(
       day?.estimate.total?.max ?? 0,
     );
+  });
+
+  it("marks a complete estimate without an origin as on-site-only", () => {
+    const destination = destinations.find(
+      (candidate) => candidate.id === "yokohama-city",
+    );
+    expect(destination).toBeDefined();
+    if (!destination) return;
+
+    const resolved = resolveExploreBudgetEstimate(destination, {
+      ...context("fullDay"),
+      originCoords: undefined,
+    });
+    expect(resolved).not.toBeNull();
+    expect(resolved?.estimate.total).toBeDefined();
+    expect(getExploreEstimateScope(resolved!.estimate)).toBe("on_site");
+    expect(
+      resolved!.estimate.components.find(
+        (component) => component.evidence.scope === "origin_travel",
+      )?.cost,
+    ).toEqual({ kind: "not_applicable" });
   });
 });

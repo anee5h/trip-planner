@@ -18,8 +18,37 @@ import type { Destination } from "@/shared/types/destination";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string) => key,
-    i18n: { language: "en" },
+    t: (key: string, opts?: { components?: string; details?: string }) =>
+      ({
+        "planner.budgetEstimate.estimatedTripTotal": "Estimated trip total",
+        "planner.budgetEstimate.onSiteEstimate":
+          "On-site estimate — set an origin to include travel.",
+        "planner.budgetEstimate.onSiteShort": "on-site only",
+        "planner.budgetEstimate.includesEstimatedOrigin":
+          "Includes estimated round-trip travel from your origin.",
+        "planner.budgetEstimate.partialOriginUnavailable":
+          "Partial estimate — origin travel cost unavailable.",
+        "planner.budgetEstimate.tollsExcluded":
+          "Car estimate — tolls excluded.",
+        "planner.budgetEstimate.tollsExcludedSummary":
+          "Partial estimate — car costs exclude tolls.",
+        "planner.budgetEstimate.partialTotal": "Partial total",
+        "planner.budgetEstimate.fullTripEstimate":
+          "Includes travel, local transport, tickets, meals and accommodation where applicable.",
+        "planner.budgetEstimate.knownSubtotal": "Known subtotal",
+        "planner.budgetEstimate.unknownComponents":
+          "Some components unknown — showing known subtotal only",
+        "planner.budgetEstimate.missingComponents": `Missing: ${opts?.components ?? ""}`,
+        "planner.budgetEstimate.costUnavailable": "Cost unavailable",
+        "planner.budgetEstimate.partialTotalDetails": `Partial total — ${opts?.details ?? ""}`,
+        "planner.budgetEstimate.originTravel": "Origin travel",
+        "planner.budgetEstimate.localTransport": "Local transport",
+        "planner.budgetEstimate.admissionTickets": "Admission / Tickets",
+        "planner.budgetEstimate.meals": "Meals",
+        "planner.budgetEstimate.accommodation": "Accommodation",
+        "planner.budgetEstimate.admissionUnavailable":
+          "Admission unavailable/not included",
+      })[key] ?? key,
   }),
   initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
@@ -55,7 +84,12 @@ type Scenario = {
   food: [number, number] | null;
   cafe: number;
   budgetAvailable: boolean;
+  tollsExcluded?: boolean;
 };
+
+const estimateCall = vi.hoisted(() => ({
+  context: undefined as Record<string, unknown> | undefined,
+}));
 
 let scenario: Scenario = {
   transport: 0,
@@ -73,7 +107,8 @@ let scenario: Scenario = {
 // food/cafe excluded) so the transport-row presentation contract stays the
 // focus.
 vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
-  calculateTripEstimate: () => {
+  calculateTripEstimate: (context: Record<string, unknown>) => {
+    estimateCall.context = context;
     const s = scenario;
     const components: unknown[] = [];
     if (s.transport > 0 || s.transportAvailable) {
@@ -82,6 +117,7 @@ vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
         evidence: {
           scope: "origin_travel",
           derivation: "model_estimate",
+          ...(s.tollsExcluded ? { tollsExcluded: true } : {}),
         },
       });
     } else {
@@ -218,9 +254,17 @@ afterEach(() => {
   host?.remove();
   root = undefined;
   host = undefined;
+  estimateCall.context = undefined;
 });
 
-function renderWidget() {
+function renderWidget(
+  props: {
+    homeCoords?: { lat: number; lng: number };
+    activeTransportMode?: string;
+    carRoute?: unknown;
+    carCostOptions?: unknown;
+  } = {},
+) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -230,7 +274,10 @@ function renderWidget() {
         destination={testDestination}
         locale="en"
         partySize={2}
-        activeTransportMode="train"
+        homeCoords={props.homeCoords}
+        carRoute={props.carRoute as any}
+        carCostOptions={props.carCostOptions as any}
+        activeTransportMode={props.activeTransportMode ?? "train"}
         defaultExpanded={true}
       />,
     );
@@ -241,7 +288,7 @@ function renderWidget() {
 const bodyText = (h: HTMLElement) => h.textContent ?? "";
 
 describe("TripCostBreakdownWidget transport presentation (finishing pass)", () => {
-  it("1. origin unavailable, local transit known: shows the row + origin-excluded note", () => {
+  it("1. no origin, local transit known: shows an on-site estimate", () => {
     scenario = {
       transport: 0,
       transportAvailable: false,
@@ -254,9 +301,10 @@ describe("TripCostBreakdownWidget transport presentation (finishing pass)", () =
     const h = renderWidget();
     const text = bodyText(h);
     // The local-transit allowance is part of the total and MUST be visible.
-    expect(text).toContain("Transport");
+    expect(text).toContain("Local transport");
     expect(text).toContain("¥2,000 - ¥2,000");
-    expect(text).toContain("Origin transport not estimated");
+    expect(text).toContain("On-site estimate");
+    expect(text).not.toContain("Origin travel");
     // KAI-217B: canonical total = transport + admission (food/cafe/parking
     // excluded) → 2000 + 1000 = 3000.
     expect(text).toContain("¥3,000 - ¥3,000");
@@ -265,7 +313,7 @@ describe("TripCostBreakdownWidget transport presentation (finishing pass)", () =
     expect(text).not.toContain("Café & Snacks");
   });
 
-  it("2. origin and local transit both known: combined row, no exclusion note", () => {
+  it("2. origin and local transit both known: separate rows, no exclusion note", () => {
     scenario = {
       transport: 800,
       transportAvailable: true,
@@ -277,10 +325,81 @@ describe("TripCostBreakdownWidget transport presentation (finishing pass)", () =
     };
     const h = renderWidget();
     const text = bodyText(h);
-    expect(text).toContain("¥2,800 - ¥2,800");
-    expect(text).not.toContain("Origin transport not estimated");
+    expect(text).toContain("Origin travel");
+    expect(text).toContain("¥800 - ¥800");
+    expect(text).toContain("Local transport");
+    expect(text).toContain("¥2,000 - ¥2,000");
     // KAI-217B: 800 + 2000 + 1000 = 3800.
     expect(text).toContain("¥3,800 - ¥3,800");
+  });
+
+  it("discloses when bounded car fuel/parking excludes tolls", () => {
+    scenario = {
+      transport: 2400,
+      transportAvailable: true,
+      localTransit: 0,
+      tickets: 1000,
+      food: [500, 800],
+      cafe: 300,
+      budgetAvailable: true,
+      tollsExcluded: true,
+    };
+    const text = bodyText(
+      renderWidget({ homeCoords: { lat: 35.6812, lng: 139.7671 } }),
+    );
+    expect(text).toContain("Origin travel");
+    expect(text).toContain("Car estimate — tolls excluded.");
+    expect(text).toContain("Partial estimate — car costs exclude tolls.");
+    expect(text).not.toContain("origin travel cost unavailable");
+  });
+  it("passes provider-backed car inputs into the canonical budget engine", () => {
+    scenario = {
+      transport: 2400,
+      transportAvailable: true,
+      localTransit: 0,
+      tickets: 1000,
+      food: [500, 800],
+      cafe: 300,
+      budgetAvailable: true,
+      tollsExcluded: true,
+    };
+    const carRoute = { outbound: {}, returnRoute: {} };
+    const carCostOptions = {
+      partySize: 2,
+      fuelEconomyKmPerL: [12, 18],
+      fuelPriceJPYPerL: [165, 190],
+      parkingCostJPY: [500, 1600],
+    };
+    renderWidget({
+      homeCoords: { lat: 35.6812, lng: 139.7671 },
+      activeTransportMode: "my_car",
+      carRoute,
+      carCostOptions,
+    });
+    expect(estimateCall.context).toMatchObject({
+      mode: "my_car",
+      carRoute,
+      carCostOptions,
+    });
+  });
+
+  it("shows a compact qualifier when bounded origin travel is modelled", () => {
+    scenario = {
+      transport: 800,
+      transportAvailable: true,
+      localTransit: 2000,
+      tickets: 1000,
+      food: [500, 800],
+      cafe: 300,
+      budgetAvailable: true,
+    };
+    const text = bodyText(
+      renderWidget({ homeCoords: { lat: 35.6812, lng: 139.7671 } }),
+    );
+    expect(text).toContain(
+      "Includes estimated round-trip travel from your origin.",
+    );
+    expect(text).not.toContain("origin transport excluded");
   });
 
   it("3. origin known, local transit not applicable: row shows origin only", () => {
@@ -330,7 +449,8 @@ describe("TripCostBreakdownWidget transport presentation (finishing pass)", () =
     const text = bodyText(h);
     // KAI-217B: category rows are transport 2800 + tickets 1500 ONLY
     // (food/cafe rows removed from canonical affordability).
-    expect(text).toContain("¥2,800 - ¥2,800");
+    expect(text).toContain("¥800 - ¥800");
+    expect(text).toContain("¥2,000 - ¥2,000");
     expect(text).toContain("¥1,500 - ¥1,500");
     expect(text).not.toContain("¥1,000 - ¥1,200");
     expect(text).not.toContain("¥400 - ¥400");

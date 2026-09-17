@@ -18,7 +18,10 @@ import {
   it,
   vi,
 } from "vitest";
-import DestinationDetails from "../DestinationDetails";
+import DestinationDetails, {
+  isDetailTransportModeAllowed,
+} from "../DestinationDetails";
+import { TripContextProvider } from "@/shared/context/TripContext";
 import liteIndex from "@/shared/data/destinations-index.lite.json";
 import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
@@ -100,7 +103,20 @@ vi.mock("../components/VisitedDateModal", () => ({
   VisitedDateModal: () => null,
 }));
 vi.mock("../components/DestinationPlanningSection", () => ({
-  DestinationPlanningSection: () => null,
+  DestinationPlanningSection: (props: {
+    selectedTransport?: string | null;
+    partySize?: number;
+    duration?: string;
+    carRoute?: CarRoundTripRoute;
+    carCostOptions?: Record<string, unknown>;
+  }) => {
+    planningState.selectedTransport = props.selectedTransport ?? null;
+    planningState.partySize = props.partySize;
+    planningState.duration = props.duration;
+    planningState.carRoute = props.carRoute;
+    planningState.carCostOptions = props.carCostOptions;
+    return null;
+  },
 }));
 vi.mock("../components/DestinationMap", () => ({ default: () => null }));
 vi.mock(
@@ -221,6 +237,14 @@ const storeState = vi.hoisted(() => ({
   homeStationTransportZoneId: undefined as string | undefined,
 }));
 
+const planningState = vi.hoisted(() => ({
+  selectedTransport: null as string | null,
+  partySize: undefined as number | undefined,
+  duration: undefined as string | undefined,
+  carRoute: undefined as CarRoundTripRoute | undefined,
+  carCostOptions: undefined as Record<string, unknown> | undefined,
+}));
+
 const NAKAYAMA = { lat: 35.514745, lng: 139.539692 };
 const SHIN_YOKOHAMA = { lat: 35.5073, lng: 139.6172 };
 const CHIBA = { lat: 35.6131, lng: 140.1133 };
@@ -260,6 +284,23 @@ function render(
   });
 }
 
+function renderWithTripContext(
+  path = "/destinations/naha-city",
+  state?: Record<string, unknown>,
+) {
+  act(() => {
+    root.render(
+      <MemoryRouter initialEntries={[{ pathname: path, state: state ?? null }]}>
+        <TripContextProvider>
+          <Routes>
+            <Route path="/destinations/:id" element={<DestinationDetails />} />
+          </Routes>
+        </TripContextProvider>
+      </MemoryRouter>,
+    );
+  });
+}
+
 beforeAll(async () => {
   await loadLiteIndex();
 });
@@ -272,6 +313,12 @@ beforeEach(() => {
   carRefinementState.routes = undefined;
   carRefinementState.status = "idle";
   carRefinementState.failureCode = undefined;
+  planningState.selectedTransport = null;
+  planningState.partySize = undefined;
+  planningState.duration = undefined;
+  planningState.carRoute = undefined;
+  planningState.carCostOptions = undefined;
+  sessionStorage.clear();
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -283,6 +330,161 @@ afterEach(() => {
 });
 
 describe("DestinationDetails transport rows", () => {
+  it("filters default detail modes by transport intent", () => {
+    const publicModes = ["train", "shinkansen", "bus", "flight"];
+    expect(
+      isDetailTransportModeAllowed("train", null, publicModes, "none"),
+    ).toBe(true);
+    expect(isDetailTransportModeAllowed("car", null, publicModes, "none")).toBe(
+      false,
+    );
+    expect(
+      isDetailTransportModeAllowed("car", null, publicModes, "rental"),
+    ).toBe(true);
+    expect(isDetailTransportModeAllowed("car", [], publicModes, "rental")).toBe(
+      false,
+    );
+    expect(
+      isDetailTransportModeAllowed("ferry", ["train"], publicModes, "none"),
+    ).toBe(true);
+    expect(isDetailTransportModeAllowed("ferry", [], publicModes, "none")).toBe(
+      false,
+    );
+    expect(
+      isDetailTransportModeAllowed("ferry", ["my_car"], [], "my_car"),
+    ).toBe(false);
+    expect(isDetailTransportModeAllowed("ferry", ["car"], [], "rental")).toBe(
+      false,
+    );
+  });
+
+  it("migrates the stale destination-only session context to default train intent", async () => {
+    sessionStorage.setItem(
+      "meguruto-active-trip-context",
+      JSON.stringify({
+        origin: {
+          label: "Tokyo Station",
+          coordinates: { lat: 35.6812, lng: 139.7671 },
+          source: "default",
+          transportZoneId: "mainland-honshu",
+        },
+        travelDate: null,
+        dateSemantics: "any",
+        duration: "halfDay",
+        partySize: 2,
+        publicModes: [],
+        carMode: "none",
+        budget: { kind: "cap", cap: 75000, tier: "standard" },
+        destinationId: "roppongi-hills-tokyo-city-view",
+      }),
+    );
+    storeState.homeStationTransportZoneId = undefined;
+    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view");
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.selectedTransport).toBe("train");
+    expect(sessionStorage.getItem("meguruto-active-trip-context")).toBeNull();
+  });
+
+  it("keeps meaningful route context while retaining default public transport intent", async () => {
+    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view", {
+      duration: "2d1n",
+      partySize: 3,
+      budget: { kind: "preset", preset: "standard" },
+    });
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.selectedTransport).toBe("train");
+    expect(planningState.partySize).toBe(3);
+    expect(planningState.duration).toBe("2d1n");
+  });
+
+  it("migrates a minimal stale destination-only session context", async () => {
+    sessionStorage.setItem(
+      "meguruto-active-trip-context",
+      JSON.stringify({ destinationId: "roppongi-hills-tokyo-city-view" }),
+    );
+    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view");
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.selectedTransport).toBe("train");
+    expect(sessionStorage.getItem("meguruto-active-trip-context")).toBeNull();
+  });
+
+  it("clears unsupported session context versions safely", async () => {
+    sessionStorage.setItem(
+      "meguruto-active-trip-context",
+      JSON.stringify({
+        version: 2,
+        explicit: true,
+        context: {
+          publicModes: ["train"],
+          carMode: "none",
+          destinationId: "roppongi-hills-tokyo-city-view",
+        },
+      }),
+    );
+    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view");
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.selectedTransport).toBe("train");
+    expect(sessionStorage.getItem("meguruto-active-trip-context")).toBeNull();
+  });
+
+  it("preserves a versioned explicit empty-mode context as deny-all", async () => {
+    sessionStorage.setItem(
+      "meguruto-active-trip-context",
+      JSON.stringify({
+        version: 1,
+        explicit: true,
+        explicitTransportIntent: true,
+        context: {
+          origin: {
+            label: "Tokyo Station",
+            coordinates: { lat: 35.6812, lng: 139.7671 },
+            source: "station",
+            transportZoneId: "mainland-honshu",
+          },
+          travelDate: null,
+          dateSemantics: "any",
+          duration: "halfDay",
+          partySize: 2,
+          publicModes: [],
+          carMode: "none",
+          budget: { kind: "preset", preset: "standard" },
+          destinationId: "roppongi-hills-tokyo-city-view",
+        },
+      }),
+    );
+    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view");
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.selectedTransport).toBeNull();
+    expect(sessionStorage.getItem("meguruto-active-trip-context")).toContain(
+      '"version":1',
+    );
+  });
+
+  it("keeps train selected for Roppongi when travel time is unavailable", async () => {
+    storeState.homeStationTransportZoneId = undefined;
+    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view");
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.selectedTransport).toBe("train");
+  });
+
   it("projects a provider-backed rental-car cost through the production seam", async () => {
     carRefinementState.routes = providerCarRoute;
     carRefinementState.status = "provider-backed";
@@ -334,13 +536,18 @@ describe("DestinationDetails transport rows", () => {
       await flush(80);
     });
 
+    expect(planningState.carRoute).toBe(providerCarRouteUnknownToll);
+    expect(planningState.carCostOptions).toMatchObject({
+      partySize: 2,
+      duration: "fullDay",
+    });
     const text = host.textContent ?? "";
     expect(text).toContain("Rental Car");
-    expect(text).toContain("+ toll");
+    expect(text).toContain("(tolls excluded)");
     expect(text).toContain("/ car, round trip");
     expect(text).not.toContain("Cost unavailable");
     const partialCost = Array.from(host.querySelectorAll(".text-xs")).find(
-      (element) => element.textContent?.includes("+ toll"),
+      (element) => element.textContent?.includes("(tolls excluded)"),
     );
     expect(partialCost?.parentElement?.className).toContain("min-w-0");
   });
@@ -359,13 +566,16 @@ describe("DestinationDetails transport rows", () => {
       await flush(80);
     });
 
+    expect(planningState.carRoute).toBe(providerCarRouteUnknownToll);
+    expect(planningState.carCostOptions).toMatchObject({ partySize: 2 });
+    expect(planningState.carCostOptions).not.toHaveProperty("duration");
     const text = host.textContent ?? "";
     expect(text).toContain("マイカー");
-    expect(text).toContain("+ 高速料金");
+    expect(text).toContain("（通行料は含まれません）");
     expect(text).toContain("／車・往復");
     expect(text).not.toContain("料金不明");
     const partialCost = Array.from(host.querySelectorAll(".text-xs")).find(
-      (element) => element.textContent?.includes("+ 高速料金"),
+      (element) => element.textContent?.includes("（通行料は含まれません）"),
     );
     expect(partialCost?.parentElement?.className).toContain("min-w-0");
   });

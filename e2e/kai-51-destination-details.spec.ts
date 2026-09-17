@@ -17,7 +17,7 @@ test("Destination details render hero, tabs and cost breakdown for sparse destin
   // KAI-260: sparse hubs now receive a bounded planning estimate instead of
   // the retired unavailable-only compact state.
   await expect(
-    page.getByRole("heading", { name: "Estimated visit cost", exact: true }),
+    page.getByRole("heading", { name: "Estimated trip total", exact: true }),
   ).toHaveCount(1);
   await expect(
     page.getByRole("button", { name: "View cost breakdown" }),
@@ -53,7 +53,7 @@ test("standard detail pages keep the planner and supporting details in a compact
   await expect(
     page
       .locator('[data-section="overview"]')
-      .getByText("Estimated visit cost", { exact: true }),
+      .getByText("Estimated trip total", { exact: true }),
   ).toHaveCount(0);
   const supportingDetails = page
     .locator("details")
