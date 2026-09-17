@@ -37,7 +37,19 @@ vi.mock("@/shared/context/LocaleContext", () => ({
 }));
 
 vi.mock("react-i18next", () => ({
-  useTranslation: () => ({ t: (key: string) => key }),
+  useTranslation: () => ({
+    t: (key: string, opts?: { components?: string; details?: string }) =>
+      ({
+        "planner.budgetEstimate.knownSubtotal": "Known subtotal",
+        "planner.budgetEstimate.onSiteShort": "on-site only",
+        "planner.budgetEstimate.onSiteEstimate":
+          "On-site estimate — set an origin to include travel.",
+        "planner.budgetEstimate.partialOriginUnavailable":
+          "Partial estimate — origin travel cost unavailable.",
+        "planner.budgetEstimate.partialTotal": "partial total",
+        "planner.budgetEstimate.missingComponents": `Missing: ${opts?.components ?? ""}`,
+      })[key] ?? key,
+  }),
   initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
 
@@ -279,14 +291,14 @@ describe("KAI-275 DestinationCard partial-cost disclosure", () => {
     const text = container.textContent ?? "";
     expect(text).toContain("Known");
     expect(text).toContain("¥");
-    expect(text).toContain("on-site only");
-    expect(text).toContain("origin transport excluded");
+    expect(text).toContain("Partial estimate — origin travel cost unavailable");
+    expect(text).not.toContain("origin transport excluded");
     expect(text).not.toContain("Cost unavailable");
     // The rendered scope qualifier and title disclose the full meaning.
     expect(
       container.querySelector('[data-testid="destination-card-cost-scope"]'),
     ).not.toBeNull();
-    const titled = container.querySelector('[title*="origin transport"]');
+    const titled = container.querySelector('[title*="origin travel"]');
     expect(titled).not.toBeNull();
   });
 
@@ -323,8 +335,10 @@ describe("KAI-275 DestinationCard partial-cost disclosure", () => {
     const scope = container.querySelector(
       '[data-testid="destination-card-cost-scope"]',
     );
-    expect(scope?.textContent).toContain("on-site only");
-    expect(scope?.textContent).toContain("origin transport excluded");
+    expect(scope?.textContent).toContain(
+      "Partial estimate — origin travel cost unavailable",
+    );
+    expect(scope?.textContent).not.toContain("origin transport excluded");
   });
   it("partial estimate with bounded origin transport says partial total, not origin excluded", async () => {
     const disneySea = destinations.find(

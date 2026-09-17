@@ -256,7 +256,9 @@ test.describe("KAI-101 localized share URLs", () => {
     expect(preserved.idx).toBe(entryIdx);
     // The destination page consumed the preserved state: the plan reflects
     // partySize 4 from the router state instead of the default (2).
-    await expect(page.getByText(/グループ.*4名/)).toBeVisible();
+    await expect(page.getByTestId("planner-default-summary")).toContainText(
+      "4人",
+    );
 
     // Back returns to the actual previous route (Home) — not a ghost
     // "destination in English" entry — and the boundary sync lands it on

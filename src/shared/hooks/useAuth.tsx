@@ -10,7 +10,6 @@ import { recommendationAnalytics } from "@/shared/services/analytics/Recommendat
 import { discardPendingPersistenceIntent } from "@/shared/services/auth/PendingPersistenceIntent";
 import {
   getPasswordRecoveryRedirectUrl,
-  inspectRecoveryCallback,
   isPasswordRecoveryEvent,
 } from "@/shared/services/auth/passwordRecovery";
 import { AuthContext, type UserProfileUpdateData } from "./authContext";
@@ -22,17 +21,10 @@ export type {
   UserProfileUpdateData,
 } from "./authContext";
 
-function hasPasswordRecoveryCallback(): boolean {
-  if (typeof window === "undefined") return false;
-  return inspectRecoveryCallback(window.location).isRecovery;
-}
-
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const [isPasswordRecovery, setIsPasswordRecovery] = useState(
-    hasPasswordRecoveryCallback,
-  );
+  const [isPasswordRecovery, setIsPasswordRecovery] = useState(false);
 
   useEffect(() => {
     if (!supabase) {
@@ -55,7 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const handleSession = (
       session: Session | null,
-      passwordRecovery = hasPasswordRecoveryCallback(),
+      passwordRecovery = false,
     ) => {
       setUser(session?.user ?? null);
       setLoading(false);
@@ -64,6 +56,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         recommendationAnalytics.trackPendingSignupCompletion();
       }
     };
+
+    // Register before bootstrapping the session so PASSWORD_RECOVERY cannot
+    // race past the listener during the implicit callback exchange.
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      const recoveryEvent = isPasswordRecoveryEvent(event);
+      if (recoveryEvent) {
+        // A URL hint alone is never enough: the event must carry the active
+        // Supabase recovery session that updateUser will use.
+        setIsPasswordRecovery(Boolean(session?.user));
+      } else if (event === "SIGNED_OUT") {
+        setIsPasswordRecovery(false);
+      }
+      handleSession(session, recoveryEvent);
+    });
 
     // Get initial session. KAI-46: a failing session bootstrap is an
     // operational auth failure — report it (best-effort, feature auth).
@@ -78,18 +86,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         reportAuthFailureIfOperational(err, "session");
         setLoading(false);
       });
-
-    // Listen for changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      const passwordRecovery =
-        isPasswordRecoveryEvent(event) || hasPasswordRecoveryCallback();
-      if (passwordRecovery) {
-        setIsPasswordRecovery(true);
-      }
-      handleSession(session, passwordRecovery);
-    });
 
     return () => subscription.unsubscribe();
   }, []);

@@ -125,7 +125,10 @@
       "emailNotConfirmed": "Please confirm your email address before signing in.",
       "userAlreadyRegistered": "An account with this email already exists.",
       "passwordTooShort": "Password must be at least 6 characters.",
+      "passwordPolicy": "This password does not meet the current security requirements. Try a longer password with a mix of letters, numbers, and symbols.",
+      "passwordPolicyPwned": "Choose a password that has not appeared in a known data leak.",
       "passwordsDoNotMatch": "The passwords do not match.",
+      "samePassword": "Choose a password different from your current password.",
       "rateLimitExceeded": "Too many requests. Please wait a moment and try again.",
       "networkError": "Network error. Please check your internet connection.",
       "generic": "An authentication error occurred. Please try again."
@@ -356,7 +359,29 @@
     },
     "stayAllowanceRow": "Stay allowance ({{count}} night)",
     "stayAllowanceRow_other": "Stay allowance ({{count}} nights)",
-    "stayAllowanceNote": "Inferred planning estimate — not a live hotel quote"
+    "stayAllowanceNote": "Inferred planning estimate — not a live hotel quote",
+    "budgetEstimate": {
+      "estimatedTripTotal": "Estimated trip total",
+      "onSiteEstimate": "On-site estimate — set an origin to include travel.",
+      "onSiteShort": "on-site only",
+      "includesEstimatedOrigin": "Includes estimated round-trip travel from your origin.",
+      "partialOriginUnavailable": "Partial estimate — origin travel cost unavailable.",
+      "tollsExcluded": "Car estimate — tolls excluded.",
+      "tollsExcludedSummary": "Partial estimate — car costs exclude tolls.",
+      "partialTotal": "Partial total",
+      "fullTripEstimate": "Includes travel, local transport, tickets, meals and accommodation where applicable.",
+      "knownSubtotal": "Known subtotal",
+      "unknownComponents": "Some components unknown — showing known subtotal only",
+      "missingComponents": "Missing: {{components}}",
+      "costUnavailable": "Cost unavailable",
+      "partialTotalDetails": "Partial total — {{details}}",
+      "originTravel": "Origin travel",
+      "localTransport": "Local transport",
+      "admissionTickets": "Admission / Tickets",
+      "meals": "Meals",
+      "accommodation": "Accommodation",
+      "admissionUnavailable": "Admission unavailable/not included"
+    }
   },
   "origin": {
     "from": "From",

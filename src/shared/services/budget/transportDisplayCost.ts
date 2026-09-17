@@ -9,6 +9,7 @@ export interface CompleteTransportDisplayCost {
   readonly range: PriceRange;
   readonly unit: TransportDisplayUnit;
   readonly completeness: "complete";
+  readonly tollsExcluded?: boolean;
 }
 
 export interface PartialTransportDisplayCost {
@@ -16,6 +17,7 @@ export interface PartialTransportDisplayCost {
   readonly unit: TransportDisplayUnit;
   readonly completeness: "partial";
   readonly reason?: BudgetReasonCode;
+  readonly tollsExcluded?: boolean;
 }
 
 export interface UnavailableTransportDisplayCost {
@@ -86,7 +88,14 @@ export function getTransportDisplayCost(
       originTravel.cost.max,
     ]);
     return range
-      ? { range, unit, completeness: "complete" }
+      ? {
+          range,
+          unit,
+          completeness: "complete",
+          ...(originTravel.evidence.tollsExcluded
+            ? { tollsExcluded: true }
+            : {}),
+        }
       : { unit, completeness: "unavailable", reason: "source_missing" };
   }
 
@@ -102,6 +111,7 @@ export function getTransportDisplayCost(
       ...(originTravel.evidence.reason
         ? { reason: originTravel.evidence.reason }
         : {}),
+      ...(originTravel.evidence.tollsExcluded ? { tollsExcluded: true } : {}),
     };
   }
 

@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 import destinations from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import {
+  calculateTripEstimate,
+  evaluateBudgetAffordability,
+} from "@/shared/services/budget/tripEstimateEngine";
 import { getCanonicalTransportCost } from "../../transport/transportCostV2";
 import { getTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
 import { runRecommendationPipeline } from "@/shared/services/recommendation/RecommendationPipeline";
@@ -135,7 +138,7 @@ describe("TripEstimateEngine canonical car integration", () => {
     );
   });
 
-  it("keeps a partial car subtotal when toll evidence is unknown", () => {
+  it("includes bounded fuel and parking when toll evidence is unknown", () => {
     const partialRoute = {
       ...route,
       returnRoute: {
@@ -156,20 +159,25 @@ describe("TripEstimateEngine canonical car integration", () => {
 
     expect(result.completeness).toBe("partial");
     expect(result.total).toBeUndefined();
-    expect(origin.cost).toEqual({
-      kind: "unavailable",
-      reason: "source_missing",
+    expect(origin.cost.kind).toBe("bounded");
+    if (origin.cost.kind === "bounded") {
+      expect(origin.cost.min).toBe(2240);
+      expect(origin.cost.max).toBeCloseTo(7960, 10);
+    }
+    expect(origin.evidence.tollsExcluded).toBe(true);
+    expect(result.missingComponents).toContainEqual({
+      scope: "origin_travel",
+      reason: "toll_unknown",
     });
-    expect(origin.knownCost?.kind).toBe("bounded");
-    expect(origin.knownCost?.min).toBeGreaterThan(0);
-    expect(origin.knownCost?.max).toBeGreaterThan(origin.knownCost?.min ?? 0);
-    expect(result.knownSubtotal[0]).toBeGreaterThanOrEqual(1550);
-    expect(result.journey).toBeDefined();
-    expect(result.journey!.cost!.state).toBe("unknown");
-    expect(result.journey!.cost!.representation).toBeNull();
+    expect(result.knownSubtotal[0]).toBeGreaterThanOrEqual(2240);
+    expect(result.knownSubtotal[1]).toBeGreaterThan(result.knownSubtotal[0]);
     expect(
-      result.missingComponents.some((item) => item.scope === "origin_travel"),
-    ).toBe(true);
+      evaluateBudgetAffordability(result, result.knownSubtotal[1] + 1),
+    ).toBe("partial");
+    expect(
+      evaluateBudgetAffordability(result, result.knownSubtotal[0] - 1),
+    ).toBe("exceeds");
+    expect(result.journey).toBeDefined();
   });
   it("uses canonical party size and rejects rental/personal option mismatches", () => {
     const canonical = getCanonicalTransportCost(

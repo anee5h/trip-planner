@@ -438,8 +438,7 @@ describe("sabotage regression: recommendation surface during outage and recovery
         CAR_ROUTE_OUTAGE_FALLBACK_SOURCE,
       );
       expect(result.transportEstimate?.timeRange[0]).toBe(40);
-      // Budget stays partial where the provider itself has no truth: toll
-      // unknown => the complete total is unavailable on the surface.
+      // Budget remains partial where the provider itself has no toll truth.
       expect(result.estimatedCostRange).toBeUndefined();
     }
     expect(snapshotCarRouteFallbackCounters().provider_success).toBeGreaterThan(

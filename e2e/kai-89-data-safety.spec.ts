@@ -136,27 +136,30 @@ test.describe("KAI-89 rendered data safety", () => {
     page,
   }) => {
     const states = [
-      ["tokyo-national-museum", /Estimated visit cost|概算滞在費用/],
+      ["tokyo-national-museum", /Estimated trip total|旅行全体の概算/],
       // KAI-204 phase 3: hiroshima-national-peace-memorial-hall carries a
-      // "Free" tag but NO ledger-verified free evidence — it is legacy-
-      // tagged (untrusted provenance), so it renders "Cost unavailable"
-      // rather than "Free Admission". Verified free requires ledger proof.
-      ["hiroshima-national-peace-memorial-hall", /Cost unavailable|料金不明/],
+      // "Free" tag but NO ledger-verified free evidence — it remains
+      // unverified admission data while the traveller-facing trip total can
+      // still include modelled origin travel. Verified free requires ledger proof.
+      [
+        "hiroshima-national-peace-memorial-hall",
+        /Estimated trip total|旅行全体の概算/,
+      ],
       // KAI-260: the canonical range-first engine supplies a bounded
       // planning estimate for the previously unavailable admission state.
-      ["cupnoodles-museum-osaka-ikeda", /Estimated visit cost|概算滞在費用/],
+      ["cupnoodles-museum-osaka-ikeda", /Estimated trip total|旅行全体の概算/],
       // KAI-89 drift correction (KAI-132's deterministic fixture surfaced
       // it): shinjuku-gyo-en's canonical data now carries
       // budgetMetadata.method "manual", and BudgetService treats ONLY
       // "unknown" as unavailable — so the rendered state is an estimate,
       // not "Cost unavailable". This is a data/UI expectation update, not
       // a change to KAI-132 runtime behavior.
-      ["shinjuku-gyo-en", /Estimated visit cost|概算滞在費用/],
+      ["shinjuku-gyo-en", /Estimated trip total|旅行全体の概算/],
       // KAI-204 phase 3: kouri-island-okinawa is legacy-tagged (untrusted
       // provenance) — its numbers are preserved in storage but not shown
-      // as a verified price. The widget header still reads "Estimated
-      // visit cost", so the estimate header assertion remains valid.
-      ["kouri-island-okinawa", /Estimated visit cost|概算滞在費用/],
+      // as a verified price. The widget header now reads "Estimated
+      // trip total", so the estimate header assertion remains valid.
+      ["kouri-island-okinawa", /Estimated trip total|旅行全体の概算/],
     ] as const;
     for (const [id, expected] of states) {
       await page.goto(`/destinations/${id}`);
@@ -325,14 +328,14 @@ test.describe("KAI-89 rendered data safety", () => {
     // the ¥500 Engakuji ticket by party size (default 2 → ¥1,000 total,
     // rendered compactly as "¥1k" by formatLocalizedJPYRange).
     // (KAI-89 drift correction surfaced by KAI-132's deterministic
-    // fixture: assert the scaled value on the Admission Tickets ROW, not
+    // fixture: assert the scaled value on the Admission / Tickets ROW, not
     // via a broad body-wide /1,000/ match. No KAI-132 runtime behavior
     // changed.)
     await page.goto("/destinations/engakuji");
     await expect(page.locator("main")).toBeVisible();
     await page.getByRole("button", { name: "View cost breakdown" }).click();
     const admissionRow = page.locator("div.flex.justify-between", {
-      hasText: "Admission Tickets",
+      hasText: "Admission / Tickets",
     });
     // ¥500 × 2 guests = ¥1,000, compacted to "¥1k" — the row must show
     // the party-scaled amount, not the per-person ¥500.

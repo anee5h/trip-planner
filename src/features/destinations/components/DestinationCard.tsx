@@ -373,14 +373,19 @@ export default function DestinationCard({
   const cardEstimate = useMemo<{
     range: [number, number];
     quality: "verified" | "estimated" | "rough";
-    scope: "complete" | "partial_on_site" | "partial_total";
+    scope:
+      | "complete"
+      | "on_site"
+      | "partial_on_site"
+      | "partial_total"
+      | "partial_origin_unavailable";
   } | null>(() => {
     const resolved = resolvedBudgetEstimate?.estimate;
     if (resolved?.total) {
       return {
         range: [resolved.total.min, resolved.total.max],
         quality: resolved.estimateQuality,
-        scope: "complete",
+        scope: getExploreEstimateScope(resolved),
       };
     }
     const hasKnownSubtotal = (known: readonly [number, number] | undefined) =>
@@ -417,7 +422,7 @@ export default function DestinationCard({
       return {
         range: [r.total.min, r.total.max],
         quality: r.estimateQuality,
-        scope: "complete",
+        scope: getExploreEstimateScope(r),
       };
     }
     if (r.completeness === "partial" && hasKnownSubtotal(r.knownSubtotal)) {
@@ -827,13 +832,15 @@ export default function DestinationCard({
                       }
                       title={
                         cardEstimate && cardEstimate.scope !== "complete"
-                          ? cardEstimate.scope === "partial_on_site"
-                            ? locale === "ja"
-                              ? "現地費用のみ・広域交通費を除く"
-                              : "Partial on-site total; origin transport excluded"
-                            : locale === "ja"
-                              ? "部分合計。出発地からの交通費を含みます"
-                              : "Partial total; origin transport is included in the known subtotal"
+                          ? cardEstimate.scope === "on_site" ||
+                            cardEstimate.scope === "partial_on_site"
+                            ? t("planner.budgetEstimate.onSiteEstimate")
+                            : cardEstimate.scope ===
+                                "partial_origin_unavailable"
+                              ? t(
+                                  "planner.budgetEstimate.partialOriginUnavailable",
+                                )
+                              : t("planner.budgetEstimate.partialTotal")
                           : undefined
                       }
                     >
@@ -843,25 +850,28 @@ export default function DestinationCard({
                         // known subtotal is on-site-only or includes origin
                         // transport while another required component is missing.
                         if (cardEstimate && cardEstimate.scope !== "complete") {
+                          const range = formatTravellerEstimateRange(
+                            cardBudgetRange,
+                            cardEstimate.quality,
+                            locale,
+                          );
+                          if (cardEstimate.scope === "on_site") {
+                            return `${range} · ${t("planner.budgetEstimate.onSiteShort")}`;
+                          }
                           const known = formatLocalizedJPYRange(
                             cardBudgetRange,
                             locale,
                           );
-                          const prefix = locale === "ja" ? "既知" : "Known";
                           const qualifier =
                             cardEstimate.scope === "partial_on_site"
-                              ? isSavedVariant
-                                ? locale === "ja"
-                                  ? "現地のみ"
-                                  : "on-site only"
-                                : locale === "ja"
-                                  ? "現地のみ・広域交通費を除く"
-                                  : "on-site only · origin transport excluded"
-                              : locale === "ja"
-                                ? "部分合計"
-                                : "partial total";
-                          const sep = locale === "ja" ? "・" : " · ";
-                          return `${prefix} ${known}${sep}${qualifier}`;
+                              ? t("planner.budgetEstimate.onSiteShort")
+                              : cardEstimate.scope ===
+                                  "partial_origin_unavailable"
+                                ? t(
+                                    "planner.budgetEstimate.partialOriginUnavailable",
+                                  )
+                                : t("planner.budgetEstimate.partialTotal");
+                          return `${t("planner.budgetEstimate.knownSubtotal")} ${known} · ${qualifier}`;
                         }
                         return formatTravellerEstimateRange(
                           cardBudgetRange,

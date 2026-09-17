@@ -89,7 +89,7 @@ describe("carCostV2", () => {
     expect(result.cost).toEqual({ kind: "bounded", min: 15500, max: 22800 });
   });
 
-  it("propagates unknown toll instead of returning a plausible total", () => {
+  it("returns bounded fuel and parking with an explicit toll exclusion", () => {
     const unknownToll = {
       ...route,
       outbound: {
@@ -98,11 +98,9 @@ describe("carCostV2", () => {
       },
     };
     const result = calculatePersonalCarCost(unknownToll, personalAssumptions);
-    expect(result.cost).toEqual({
-      kind: "unavailable",
-      reason: "source_missing",
-    });
+    expect(result.cost).toEqual({ kind: "bounded", min: 1550, max: 5200 });
     expect(result.reason).toBe("toll_unknown");
+    expect(result.tollsExcluded).toBe(true);
   });
 
   it("does not price a route whose facts are explicitly partial", () => {
@@ -159,11 +157,9 @@ describe("carCostV2", () => {
     };
     const result = calculatePersonalCarCost(partialRoute, personalAssumptions);
 
-    expect(result.cost).toEqual({
-      kind: "unavailable",
-      reason: "source_missing",
-    });
+    expect(result.cost).toEqual({ kind: "bounded", min: 1550, max: 5200 });
     expect(result.reason).toBe("toll_unknown");
+    expect(result.tollsExcluded).toBe(true);
     expect(result.breakdown?.fuel).toEqual([1050, 4200]);
     expect(result.breakdown?.parking).toEqual([500, 1000]);
     expect(result.breakdown?.toll).toBeUndefined();
@@ -171,6 +167,25 @@ describe("carCostV2", () => {
     expect(result.assumptionProvenance).toEqual(
       DEFAULT_CAR_ASSUMPTION_PROVENANCE,
     );
+  });
+
+  it("returns rental plus fuel and parking when tolls are excluded", () => {
+    const unknownToll = {
+      ...route,
+      returnRoute: {
+        ...route.returnRoute,
+        toll: { state: "unknown" as const, basis: "unspecified" as const },
+      },
+    };
+    const result = calculateRentalCarCost(unknownToll, {
+      ...personalAssumptions,
+      duration: "fullDay",
+      vehicleClass: "compact",
+      dailyRentalChargeJPY: DEFAULT_RENTAL_DAILY_CHARGES,
+    });
+    expect(result.cost).toEqual({ kind: "bounded", min: 7550, max: 15200 });
+    expect(result.reason).toBe("toll_unknown");
+    expect(result.tollsExcluded).toBe(true);
   });
 
   it("does not invent rental pricing when duration is any", () => {
