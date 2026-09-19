@@ -244,7 +244,7 @@ test.describe("KAI-297 recruiter golden path", () => {
         return new Proxy(nativeMediaQueryList, {
           get(target, property, receiver) {
             if (property === "matches") return true;
-            const value = Reflect.get(target, property, receiver);
+            const value = Reflect.get(target, property, target);
             return typeof value === "function" ? value.bind(target) : value;
           },
         });
