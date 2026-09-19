@@ -192,7 +192,7 @@ async function installAuthFixture(page: Page) {
     id: "00000000-0000-0000-0000-000000000297",
     aud: "authenticated",
     role: "authenticated",
-    email: "kai-297-fixture@example.invalid",
+    email: "a11y-fixture@example.com",
     app_metadata: { provider: "email" },
     user_metadata: {
       full_name: "KAI-297 Fixture",
@@ -276,7 +276,7 @@ test.describe("KAI-297 authenticated handoff", () => {
       .click();
     await authDialog
       .getByPlaceholder("Email address")
-      .fill("recruiter@example.invalid");
+      .fill("a11y-fixture@example.com");
     await authDialog.getByPlaceholder("Password").fill("test-only-password");
     await authDialog
       .getByRole("button", { name: "Sign In", exact: true })
