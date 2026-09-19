@@ -9,6 +9,59 @@ const TOKYO_ORIGIN = {
 
 const FORECAST_DATES = ["2026-08-12", "2026-08-13", "2026-08-14"];
 
+type Locale = "en" | "ja";
+
+const REPRESENTATIVE_RECOMMENDATION_PATH: Partial<Record<Locale, string>> = {
+  ja: "/ja/destinations/kyoto-city",
+};
+
+const JOURNEY_COPY: Record<
+  Locale,
+  {
+    home: string;
+    explorePath: string;
+    topMatches: string;
+    duration: string;
+    overnight: string;
+    logistics: string;
+    customize: RegExp;
+    generate: RegExp;
+    save: RegExp;
+    authHeading: string;
+    signIn: string;
+    close: string;
+  }
+> = {
+  en: {
+    home: "/",
+    explorePath: "/destinations",
+    topMatches: "Top matches for you",
+    duration: "Duration",
+    overnight: "2 days / 1 night",
+    logistics: "Logistics",
+    customize: /Customize/,
+    generate: /Generate Plan/,
+    save: /Save Plan to Itinerary/,
+    authHeading: "Save this trip",
+    signIn: "Sign In",
+    close: "Close",
+  },
+  ja: {
+    home: "/ja/",
+    explorePath: "/ja/destinations",
+    topMatches: "あなたへのおすすめ",
+    duration: "時間",
+    overnight: "1泊2日",
+    logistics: "交通・行き方",
+    customize: /カスタマイズ/,
+    generate: /プランを生成/,
+    save: /旅程に登録/,
+    authHeading: "この旅程を保存",
+    signIn: "サインイン",
+    close: "閉じる",
+  },
+};
+
 function isMobile(page: Page) {
   return (page.viewportSize()?.width ?? 1024) < 768;
 }
@@ -34,19 +87,20 @@ async function seedDeterministicHome(page: Page) {
   });
 }
 
-async function selectOvernight(page: Page) {
+async function selectOvernight(page: Page, locale: Locale) {
+  const copy = JOURNEY_COPY[locale];
   if (isMobile(page)) {
     const planner = page.getByTestId("home-planner");
-    await planner.getByRole("button", { name: "Duration" }).click();
+    await planner.getByRole("button", { name: copy.duration }).click();
     await page
       .getByRole("dialog")
-      .getByRole("button", { name: "2 days / 1 night" })
+      .getByRole("button", { name: copy.overnight })
       .click();
     return;
   }
 
-  await page.getByRole("combobox", { name: "Duration" }).click();
-  await page.getByRole("option", { name: "2 days / 1 night" }).click();
+  await page.getByRole("combobox", { name: copy.duration }).click();
+  await page.getByRole("option", { name: copy.overnight }).click();
 }
 
 async function switchLocale(page: Page, target: "en" | "ja") {
@@ -75,27 +129,73 @@ async function clickPrimaryHomeAction(page: Page) {
     .click();
 }
 
-async function openFirstRecommendation(page: Page) {
-  const topMatches = page.getByRole("region", { name: "Top matches for you" });
-  const firstCard = topMatches.locator('a[href^="/destinations/"]').first();
+async function openFirstRecommendation(page: Page, locale: Locale) {
+  const topMatches = page.getByRole("region", {
+    name: JOURNEY_COPY[locale].topMatches,
+  });
+  const preferredPath = REPRESENTATIVE_RECOMMENDATION_PATH[locale];
+  const firstCard = preferredPath
+    ? topMatches.locator(`a[href="${preferredPath}"]`).first()
+    : topMatches.locator('a[href*="/destinations/"]').first();
   await expect(firstCard).toBeVisible();
   await firstCard.click();
   await expect(page).toHaveURL(/\/destinations\/[^/?]+/);
 }
 
-async function generateItinerary(page: Page) {
+async function generateItinerary(page: Page, locale: Locale) {
+  const copy = JOURNEY_COPY[locale];
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.getByTestId("trip-cost-breakdown")).toBeVisible();
   await expect(
-    page.getByRole("tabpanel", { name: "Logistics", exact: true }),
+    page.getByRole("tabpanel", { name: copy.logistics, exact: true }),
   ).toBeVisible();
 
-  await page.getByRole("button", { name: /Customize|カスタマイズ/ }).click();
-  await page
-    .getByRole("button", { name: /Generate Plan|プランを生成/ })
-    .click();
+  await page.getByRole("button", { name: copy.customize }).click();
+  await page.getByRole("button", { name: copy.generate }).click();
+  await expect(page.getByRole("button", { name: copy.save })).toBeVisible();
+}
+
+async function runConnectedGuestPath(
+  page: Page,
+  locale: Locale,
+  switchBackAfterLocaleCheck = false,
+) {
+  const copy = JOURNEY_COPY[locale];
+  await page.goto(copy.home);
+  await expect(page.getByTestId("home-headline")).toBeVisible();
+  await expect(page.getByTestId("home-value-proposition")).toBeVisible();
+  await expect(page.locator("[data-home-origin-date-ready]")).toBeVisible();
+  await expect(page.locator("[data-home-planner-ready]")).toBeVisible();
+
+  await selectOvernight(page, locale);
+  if (switchBackAfterLocaleCheck) {
+    await switchLocale(page, "ja");
+    await expect(page.getByTestId("home-headline")).toBeVisible();
+    await switchLocale(page, "en");
+  }
+  await clickPrimaryHomeAction(page);
+  await openFirstRecommendation(page, locale);
+  await generateItinerary(page, locale);
+
+  await page.getByRole("button", { name: copy.save }).click();
+  const authDialog = page.getByRole("dialog");
+  await expect(authDialog).toBeVisible();
   await expect(
-    page.getByRole("button", { name: /Save Plan to Itinerary|旅程に登録/ }),
+    authDialog.getByRole("heading", { name: copy.authHeading }),
+  ).toBeVisible();
+  await expect(
+    authDialog.getByRole("button", { name: copy.signIn, exact: true }),
+  ).toBeVisible();
+  await authDialog
+    .getByRole("button", { name: copy.close, exact: true })
+    .click();
+
+  const explore = page.locator(`a[href="${copy.explorePath}"]:visible`).first();
+  await expect(explore).toBeVisible();
+  await explore.click();
+  await expect(page).toHaveURL(/\/destinations(?:\?|$)/);
+  await expect(
+    page.locator('main a[href*="/destinations/"]').first(),
   ).toBeVisible();
 }
 
@@ -104,45 +204,16 @@ test.describe("KAI-297 recruiter golden path", () => {
     await seedDeterministicHome(page);
   });
 
-  test("guest can move from Home through recommendations, planning and Explore", async ({
+  test("guest can move from Home through recommendations, planning and Explore in English", async ({
     page,
   }) => {
-    await page.goto("/");
-    await expect(page.getByTestId("home-headline")).toBeVisible();
-    await expect(page.getByTestId("home-value-proposition")).toBeVisible();
-    await expect(page.locator("[data-home-origin-date-ready]")).toBeVisible();
-    await expect(page.locator("[data-home-planner-ready]")).toBeVisible();
+    await runConnectedGuestPath(page, "en", true);
+  });
 
-    await selectOvernight(page);
-    await switchLocale(page, "ja");
-    await expect(page.getByTestId("home-headline")).toBeVisible();
-    await switchLocale(page, "en");
-    await clickPrimaryHomeAction(page);
-    await openFirstRecommendation(page);
-    await generateItinerary(page);
-
-    await page
-      .getByRole("button", { name: /Save Plan to Itinerary|旅程に登録/ })
-      .click();
-    const authDialog = page.getByRole("dialog");
-    await expect(authDialog).toBeVisible();
-    await expect(
-      authDialog.getByRole("heading", { name: "Save this trip" }),
-    ).toBeVisible();
-    await expect(
-      authDialog.getByRole("button", { name: "Sign In", exact: true }),
-    ).toBeVisible();
-    await authDialog
-      .getByRole("button", { name: "Close", exact: true })
-      .click();
-
-    const explore = page.locator('a[href="/destinations"]:visible').first();
-    await expect(explore).toBeVisible();
-    await explore.click();
-    await expect(page).toHaveURL(/\/destinations(?:\?|$)/);
-    await expect(
-      page.locator('main a[href^="/destinations/"]').first(),
-    ).toBeVisible();
+  test("guest can move through the full Japanese recruiter journey", async ({
+    page,
+  }) => {
+    await runConnectedGuestPath(page, "ja");
   });
 
   test("Japanese search dialog has a localized accessible name", async ({
@@ -166,11 +237,17 @@ test.describe("KAI-297 recruiter golden path", () => {
     await page.addInitScript(() => {
       const nativeMatchMedia = window.matchMedia.bind(window);
       window.matchMedia = (query: string) => {
-        const result = nativeMatchMedia(query);
-        if (query === "(display-mode: standalone)") {
-          return { ...result, matches: true };
+        const nativeMediaQueryList = nativeMatchMedia(query);
+        if (query !== "(display-mode: standalone)") {
+          return nativeMediaQueryList;
         }
-        return result;
+        return new Proxy(nativeMediaQueryList, {
+          get(target, property, receiver) {
+            if (property === "matches") return true;
+            const value = Reflect.get(target, property, receiver);
+            return typeof value === "function" ? value.bind(target) : value;
+          },
+        });
       };
     });
     await page.goto("/");
