@@ -4,7 +4,8 @@
 - **Repository:** `anee5h/trip-planner`
 - **Branch:** `qa/kai-297-recruiter-golden-path`
 - **Base:** `origin/main` at `4a86e071a52a897163fd616d40727137c38349ca`
-- **Validation source SHA:** `9b8aec514bda83dd76e78397e4ab9acdc0fd3f6e`
+- **Validation source SHA:** `7173d697695266e65fc7020d3f0b7b6f88899707` (local source/test correction commit)
+- **Published PR head:** verify the current exact head and checks at [PR #438](https://github.com/anee5h/trip-planner/pull/438/checks); this is intentionally separate from the local validation SHA.
 - **Notion ticket:** https://app.notion.com/p/3e0184241fac811587b0e8babd1a70ae
 - **Linear:** not created; the Notion ticket remains provisional
 
@@ -54,6 +55,10 @@ The public smoke used `https://meguruto.app` as a fresh guest session. Cloudflar
 - **Evidence:** [`live-ja-search-dialog.png`](evidence/live-ja-search-dialog.png). The screenshot proves the visible Japanese surface; the English accessible name is a DOM/accessibility-tree observation, not visible text.
 - **Mapping:** KAI-297. No separate KAI-298–307 mapping was necessary.
 
+### Follow-up — remaining English shortcut text
+
+The Japanese command palette footer still contains the pre-existing hardcoded English shortcuts “Navigate”, “Select”, and “Close”. This audit intentionally does not expand into a wider search-dialog localization cleanup; KAI-297 claims the corrected dialog accessible name and visible Japanese journey, not complete localization of every footer shortcut. Track the footer cleanup separately.
+
 ### No P0 regressions found
 
 No blocking blank state, broken primary navigation, contradictory travel-time/transport label, unexplained budget state, unexpected auth redirect, or primary-control keyboard failure was reproduced in the tested environments. A partial budget caused by unavailable admission data was treated as intentional unknown data, not a defect.
@@ -70,8 +75,9 @@ No blocking blank state, broken primary navigation, contradictory travel-time/tr
 
 `e2e/kai-297-recruiter-golden-path.spec.ts` adds only the missing connected slices:
 
-- connected guest journey from Home through recommendations, destination detail, logistics/budget, generated itinerary, contextual signup CTA, and Explore;
-- EN → JA → EN switching during the journey on both configured browser projects;
+- connected guest journey from Home through recommendations, destination detail, logistics/budget, generated itinerary, contextual signup CTA, and Explore in English;
+- the same connected recruiter journey in Japanese using the representative Kyoto recommendation;
+- EN → JA → EN switching during the English journey on both configured browser projects;
 - Japanese command-palette accessible-name regression;
 - browser-emulated standalone display-mode smoke;
 - fixture-gated signup → email login → route preservation → logout handoff.
@@ -85,8 +91,8 @@ External service policy:
 
 ## Validation results
 
-- New KAI-297 guest/display-mode spec: **6 passed, 2 expected skips** without auth fixture.
-- New KAI-297 spec with `E2E_AUTH_FIXTURE=1`: **8 passed** across mobile and desktop, including the auth handoff.
+- New KAI-297 guest/display-mode spec: **8 passed, 2 expected skips** without auth fixture.
+- New KAI-297 spec with `E2E_AUTH_FIXTURE=1`: **10 passed** across mobile and desktop, including English and Japanese journeys plus auth handoff.
 - E2E shard manifest guard: **passed** — 34 specs assigned exactly once across 4 bins.
 - SearchDialog unit regression: **9 passed**.
 - Allure privacy scan for the fake-auth E2E artifact set: **passed**, 8 files scanned / 0 matches.
