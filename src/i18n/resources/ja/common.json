@@ -52,6 +52,7 @@
     "tagline": "めぐると、見つかる。"
   },
   "search": {
+    "title": "目的地を検索",
     "placeholder": "目的地・コレクションを検索…",
     "label": "検索",
     "placeholderMobile": "めぐるとを検索",
