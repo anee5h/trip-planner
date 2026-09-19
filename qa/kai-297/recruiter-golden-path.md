@@ -4,7 +4,7 @@
 - **Repository:** `anee5h/trip-planner`
 - **Branch:** `qa/kai-297-recruiter-golden-path`
 - **Base:** `origin/main` at `4a86e071a52a897163fd616d40727137c38349ca`
-- **Validation source SHA:** `db3a70b162f60016f8a05fe607c286cc4a1125fb`
+- **Validation source SHA:** `9b8aec514bda83dd76e78397e4ab9acdc0fd3f6e`
 - **Notion ticket:** https://app.notion.com/p/3e0184241fac811587b0e8babd1a70ae
 - **Linear:** not created; the Notion ticket remains provisional
 
@@ -89,6 +89,7 @@ External service policy:
 - New KAI-297 spec with `E2E_AUTH_FIXTURE=1`: **8 passed** across mobile and desktop, including the auth handoff.
 - E2E shard manifest guard: **passed** — 34 specs assigned exactly once across 4 bins.
 - SearchDialog unit regression: **9 passed**.
+- Allure privacy scan for the fake-auth E2E artifact set: **passed**, 8 files scanned / 0 matches.
 - Existing desktop recruiter-relevant suite: **44 passed, 8 expected skips**; the one initial KAI-166 timeout was reproduced as missing `E2E_AUTH_FIXTURE` setup and passed on the authenticated rerun.
 - Existing authenticated KAI-166/KAI-259 rerun with the fake fixture: **9 passed, 8 expected skips**.
 - Existing mobile recruiter-relevant suite: **52 passed, 4 expected skips**. The run exposed the missing `search.title` warning that the branch fixes.
