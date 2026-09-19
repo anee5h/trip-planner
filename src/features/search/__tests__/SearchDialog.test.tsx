@@ -15,6 +15,7 @@ import { afterEach, describe, it, expect, vi } from "vitest";
 import { SearchDialog } from "../SearchDialog";
 
 const EN: Record<string, string> = {
+  "search.title": "Search destinations",
   "search.placeholderMobile": "Search Meguruto",
   "search.placeholderDesktop":
     "Search destinations, collections, actions... (e.g., 'Kyoto', 'UNESCO')",
@@ -93,6 +94,11 @@ describe("SearchDialog Component", () => {
     renderSearchDialog(true);
 
     expect(dialogInput()).toBeDefined();
+    expect(
+      document.body
+        .querySelector('[role="dialog"]')
+        ?.getAttribute("aria-label"),
+    ).toBe(EN["search.title"]);
 
     const closeButtons = Array.from(
       document.body.querySelectorAll('button[aria-label="Close search"]'),
@@ -199,6 +205,7 @@ describe("SearchDialog Component", () => {
     expect(clearBtn).toBeDefined();
 
     for (const key of [
+      "search.title",
       "search.clear",
       "search.close",
       "search.cancel",

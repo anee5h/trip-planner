@@ -52,6 +52,7 @@
     "tagline": "めぐると、見つかる。"
   },
   "search": {
+    "title": "Search destinations",
     "placeholder": "Search destinations, collections...",
     "label": "Search",
     "placeholderMobile": "Search Meguruto",
