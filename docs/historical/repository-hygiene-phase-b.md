@@ -24,6 +24,22 @@ Measured from the starting Git tree:
 
 The detailed Git-backed inventory is maintained outside the repository during the audit; no large inventory dump is committed.
 
+## Inventory after cleanup
+
+Measured from committed `HEAD` `ca38503adba080331646d19a96316c23f36e1bd9`:
+
+| Category | Files | Bytes | Difference |
+| --- | ---: | ---: | ---: |
+| Tracked tree | 2,562 | 146,030,884 | **-9 / -10,800,118** |
+| `docs/` | 103 | 20,149,920 | **-9 / -10,800,118** |
+| `qa/` | 159 | 18,468,564 | 0 / 0 |
+| `scripts/audit/` | 143 | 40,554,064 | 0 / 0 |
+| Raster screenshots/images | 114 | 36,433,694 | **-10 / -10,807,340** |
+| `scripts/audit/*.json` | 62 | 33,925,714 | 0 / 0 |
+| Markdown | 133 | 7,644,701 | +1 / +7,222 |
+
+The net tracked-byte reduction is smaller than the screenshot deletion total because this report and the updated KAI-206/archive documentation remain tracked. No audit-artifact bytes were removed.
+
 ## Confirmed-safe deletions
 
 Ten unconsumed KAI-206 screenshot variants were removed after reviewing the complete 16-image matrix and the generator:
@@ -89,9 +105,19 @@ The six retained KAI-206 pairs were reviewed for privacy. No visible personal da
 - The KAI-206 generator can regenerate the full screenshot matrix against a local preview; current committed visual evidence is intentionally representative, not exhaustive.
 - No production writes, external provider mutations, Supabase changes, or Cloudflare changes were performed.
 
-## Validation status
+## Validation results
 
-Final command results and exact-head CI are recorded in the PR description after the committed cleanup head is verified. Required checks are `npm ci`, `npm run format:check`, `git diff --check`, repository-wide Markdown/image-reference validation, focused KAI-206 reference checks, and `npm run check:catalog-ci`. Because no `scripts/audit/` file changes, the catalogue classifier may skip the catalogue audit/sync stage; that skip must not be reported as a full catalogue audit.
+Verified from committed `HEAD` `ca38503adba080331646d19a96316c23f36e1bd9`:
+
+- `npm ci` passed.
+- `npm run format:check` passed.
+- `git diff --check origin/main...HEAD` passed.
+- Repository-wide Markdown/image-reference validation: 133 Markdown files, 0 broken relative references.
+- Protected-scope audit: no application source, catalogue data, runtime asset, test fixture, dependency, workflow, Cloudflare, or Supabase changes.
+- `npm run check:catalog-ci` explicitly skipped its catalogue integrity/audit stage because the diff contains only `docs/` and screenshot deletions; its downstream structured-template, model, completeness, and deprecated-field gates passed. This is not a full catalogue revalidation.
+- No focused executable test was required: no generator, fixture, script, or test input was deleted. KAI-205 committed regression evidence was retained.
+
+Fresh exact-head GitHub CI is the final release-quality gate and is recorded in the PR description. No production writes or external mutations were performed.
 
 ## Remaining candidates requiring investigation
 
