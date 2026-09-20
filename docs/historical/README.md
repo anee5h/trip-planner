@@ -9,6 +9,8 @@ These documents preserve dated investigations, designs, and release planning tha
 - [`kai-132-migration-design.md`](kai-132-migration-design.md) — pre-migration lazy-catalogue design; current runtime behavior is documented by [`docs/architecture.md`](../architecture.md) and KAI-121 tests.
 - [`kai-198-ddos-cost-hardening.md`](kai-198-ddos-cost-hardening.md) and [`kai-198-cloudflare-supabase-research.md`](kai-198-cloudflare-supabase-research.md) — dated repository-side security/cost evidence and first-party research; production account state remains owner-managed.
 
+- [`repository-hygiene-phase-b.md`](repository-hygiene-phase-b.md) — Phase B screenshot/audit-artifact disposition and retained-dependency record.
+
 Historical QA evidence remains with its report where scripts or relative evidence links depend on that layout, including [`docs/KAI-206-audit.md`](../KAI-206-audit.md), [`docs/ui-polish-audit.md`](../ui-polish-audit.md), [`docs/qa/`](../qa/), and [`qa/`](../../qa/). Do not read old measurements or screenshots as current production facts without a fresh run.
 
 ## Lightweight retention policy
