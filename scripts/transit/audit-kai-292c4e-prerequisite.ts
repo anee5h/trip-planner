@@ -57,7 +57,7 @@ const ODPT_TOPOLOGY_IMPORTER_PATH =
   "src/shared/services/transport/static/odptRailTopologyImporter.ts";
 const GTFS_SCHEDULE_IMPORTER_PATH =
   "src/shared/services/transport/static/gtfsScheduleImporter.ts";
-const C3_PATH = "docs/kai-292c3-scheduled-routing-temporal-contract.md";
+const C3_PATH = "docs/transport-estimation.md";
 const REPORT_PATH = "qa/kai-292c4e/real-corridor-prerequisite-audit.json";
 const DATASET_SOURCE_PATHS: Readonly<Record<string, string>> = {
   "sakata-runrunbus": "public/data/transit/sakata-runrunbus.json",

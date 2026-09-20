@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document explains how Meguruto keeps incomplete or inconsistent catalogue data from becoming misleading product behavior. It covers canonical records, relationships, provenance, semantic cost states, generated outputs, validation scripts, CI boundaries, and a safe maintenance workflow. It does not replace the focused admission, ODPT, seasonal, or destination-depth audits already stored under [`docs/`](.).
+This document explains how Meguruto keeps incomplete or inconsistent catalogue data from becoming misleading product behavior. It covers canonical records, relationships, editorial provenance, semantic cost states, generated outputs, validation scripts, CI boundaries, and a safe maintenance workflow. Current transport and testing boundaries are documented in [`transport-estimation.md`](transport-estimation.md) and [`testing-strategy.md`](testing-strategy.md).
 
 ## Catalogue overview
 
@@ -61,9 +61,13 @@ Scoped `admission` and `localTransport` facts reuse this taxonomy. [`factValidat
 
 A verified free fact requires explicit free evidence, source provenance, source URLs, and a valid checked date. A missing ticket field is not automatically free. A city/hub may be not applicable for a single admission product; that is different from a verified free attraction.
 
-### Provenance and review metadata
+### Provenance, editorial lifecycle, and review metadata
 
-Destination records can carry source fields, `checkedAt` dates, editorial lifecycle/review data, score metadata, and budget/transport evidence. The overall score rubric keeps evidence maturity separate from the numeric score: verified and estimated scores use the same rubric when enough evidence exists; below-threshold evidence becomes unavailable rather than a fabricated neutral score.
+Destination records can carry source fields, `checkedAt` dates, editorial lifecycle/review data, score metadata, and budget/transport evidence. New or changed content begins as `draft`, moves through `in_review` and `approved`, and is `published` only with a source, review date, reviewer, change summary, `checkedAt`, and freshness state. Existing `legacy` records remain visible but are not newly approved content. Source labels distinguish official, government, tourism-board, Wikipedia, editor observation, calculated, and legacy manual evidence; AI assistance is change-history context, not a factual source.
+
+English is the canonical fallback. A bilingual release requires reviewed Japanese name, description, and highlights; otherwise the locale resolver may use English. Freshness (`current`, `review_due`, `stale`, or `conflicting`) is separate from publication status.
+
+The overall score rubric keeps evidence maturity separate from the numeric score: verified and estimated scores use the same rubric when enough evidence exists; below-threshold evidence becomes unavailable rather than a fabricated neutral score.
 
 Relevant definitions are in [`destination.ts`](../src/shared/types/destination.ts), [`scoreRubric.ts`](../src/shared/services/recommendation/scoreRubric.ts), [`budgetState.ts`](../src/shared/services/budget/budgetState.ts), and [`PlaceCatalog.ts`](../src/shared/services/place/PlaceCatalog.ts).
 
@@ -130,12 +134,12 @@ The catalogue contains published, verified, and beta records. A published record
 
 The product exposes these distinctions through `status`, `scoreMetadata`, editorial fields, cost state/provenance, transport evidence, and explicit assumptions. It does not make every destination equally complete and does not treat a missing source as evidence of average quality or free access.
 
-Existing focused references:
+Focused current references:
 
-- [Catalogue quality roadmap](audits/2026-09-05-catalogue-quality-roadmap.md)
-- [Admission schema design](KAI-218A-admission-schema-design.md)
-- [ODPT pilot constraints](kai-290-odpt-timetable-pilot-constraints.md)
-- [Scheduled-transit production boundary](kai-292c2-production-transit-boundary.md)
+- [Architecture](architecture.md)
+- [Recommendation engine](recommendation-engine.md)
+- [Transport estimation](transport-estimation.md)
+- [Testing strategy](testing-strategy.md)
 
 ## Safe maintenance workflow
 

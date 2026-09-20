@@ -117,6 +117,16 @@ The origin determines more than a distance display:
 3. `TripDurationService` turns the estimate into a visit-plus-travel duration and applies conservative decision minutes for low-confidence rough estimates.
 4. The pipeline applies explicit day-trip or overnight policy.
 
+`recommendedVisitHours: { min, max }` is the canonical, origin-independent time spent at a destination. It must satisfy `0 < min <= max <= 48` for a destination that can be duration-planned. The deprecated optional `totalTripHours` field is not read by runtime planning and must not be populated for new records because legacy values may already include travel from an assumed origin.
+
+Runtime total duration is derived per selected mode as:
+
+```text
+visit duration + round-trip origin-aware travel + legitimate buffers
+```
+
+When no origin is known, the total is the visit duration. When an origin is known but the selected mode has no usable travel evidence, constrained day-trip planning does not assign a fabricated duration. Duration-dependent meals, rental tiers, and budget ranges remain unavailable rather than treating unknown time as zero. Estimated travel is labelled as estimated and is never presented as verified.
+
 For a day trip, a requested short outing/half day/full day applies an envelope only when the user selected a constrained duration. `any` remains a reachability/browse policy rather than an arbitrary duration rejection. For overnight durations, `WeekendPolicy` checks travel bands and available activity capacity instead of treating the day-trip envelope as a weekend rule.
 
 The exact travel-time evidence model is documented in [`transport-estimation.md`](transport-estimation.md).

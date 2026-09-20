@@ -253,7 +253,7 @@ Do not use the old sample schema below as an authoring contract.
 ## Current schema and validation sources
 
 There is no frozen JSON example here because the catalogue contract has evolved
-past the old TabiMap sample. Use these sources instead:
+past the old sample schema. Use these sources instead:
 
 - `src/shared/types/destination.ts` — typed record and semantic fields;
 - `scripts/validators/destinations.ts` — current destination validation;
@@ -272,8 +272,9 @@ past the old TabiMap sample. Use these sources instead:
   transport from a fixed origin. Total trip duration is derived at runtime
   from `recommendedVisitHours` plus verified origin-aware travel for exactly
   the transport mode being priced.
-- See `docs/trip-duration-model.md` for the full model and migration
-  guidance.
+- See [`docs/recommendation-engine.md`](../docs/recommendation-engine.md) for
+  the current duration and feasibility model; transport evidence is defined in
+  [`docs/transport-estimation.md`](../docs/transport-estimation.md).
 
 ---
 

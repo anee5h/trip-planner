@@ -6,7 +6,7 @@ Meguruto is a data-heavy, bilingual, origin-aware travel planner. Its quality mo
 
 This is the focused test/CI/release reference. It records what the repository actually checks, where the checks run, and what they do **not** prove. The source of truth for a command, trigger, or gate remains the linked workflow or script; this document is not a substitute for reading those files.
 
-The current audited base for this branch is `origin/main` at [`d0160808`](https://github.com/anee5h/trip-planner/commit/d0160808976f25e3d07e338288373151c057f72e), which includes merged KAI-297, KAI-308, and KAI-309. KAI-297 is linked as a dated QA baseline, not as an evergreen production or test-count claim.
+The current audited base for this branch is `origin/main` at [`1d0f0b3b`](https://github.com/anee5h/trip-planner/commit/1d0f0b3b7a8ec9a691dabe6bc8e85f22c71ce91b), which includes the current Meguruto architecture, recommendation, transport, data-quality, and testing references. KAI-297 is linked as a dated QA baseline, not as an evergreen production or test-count claim.
 
 ## 1. Quality model and threat matrix
 
