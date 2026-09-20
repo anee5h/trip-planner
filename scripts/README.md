@@ -4,6 +4,30 @@ This directory contains Meguruto's catalogue validators, read-only audits, gener
 
 The focused CI gate is `npm run check:catalog-ci`. It may skip only its catalogue-audit/sync stage when the changed-scope classifier finds no catalogue-affecting files; the npm script still runs its additional structural/model/completeness checks. A skip is not a full catalogue revalidation.
 
+## Current validation entry points
+
+Use the package scripts as the operational source of truth; this README explains
+their catalogue-specific boundaries:
+
+- `npm run verify:pr` is the broad local PR gate: unit tests, TypeScript, the
+  KAI-256 typecheck, lint/format, localization, branding, catalogue-fast,
+  catalogue CI, build, SEO freshness, and Pages Functions verification.
+- `npm run test:run` runs Vitest; `npm run build` exercises the production
+  build; `npm run seo:check` verifies generated SEO output; and
+  `npm run verify:pages-functions` checks the static/Pages Function boundary.
+- `npm run check:catalog-ci` is the catalogue integrity entry point. Its audit
+  and generated-file stages are conditional on changed scope; downstream
+  structural/model checks still run, so a successful skip is not a full
+  catalogue revalidation.
+- `npm run release:verify` is a broader release-oriented local verification
+  sequence. It is not implied to run automatically on every pull request or
+  deployment; inspect the workflow that applies to the release context.
+
+The historical KAI-144 performance harness is not a current gate and has been
+removed. Current reproducible performance work uses
+the maintained `scripts/measure-lab.mjs` and `scripts/measure-main-thread.mjs`
+directly when a performance investigation requires them.
+
 ---
 
 ## Quick Start

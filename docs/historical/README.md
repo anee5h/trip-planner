@@ -20,4 +20,5 @@ Historical QA evidence remains with its report where scripts or relative evidenc
 - Commit screenshots only when they prove a distinct route, locale, viewport, state, or before/after behavior that text and automated checks cannot establish. Keep representative evidence, inspect it for personal data/tokens, and preserve readable dimensions.
 - Keep generated reports, caches, traces, and local exports untracked unless a validator, test, manifest, or reproducibility workflow consumes them. Do not delete committed audit inputs or ledgers merely because they are large.
 - Move with `git mv`, update Markdown/source/script references, and run repository-wide link checks. Remove disposable PR drafts only after verifying the final PR retains their material information.
+- For current validation commands, start with `package.json`, `scripts/README.md`, and `docs/testing-strategy.md`; do not copy command lists into historical reports.
 - Moving files improves organization but does not reduce tracked bytes. Removing a file from the current tree does not erase it from Git history; history rewriting and force-pushing `main` are outside normal hygiene.
