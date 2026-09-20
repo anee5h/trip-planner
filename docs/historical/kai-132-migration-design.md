@@ -1,5 +1,7 @@
 # KAI-132 Phase 0 — Migration Design Report
 
+> **Historical design record — superseded.** This report describes the pre-lazy-catalogue migration state. Current runtime behavior belongs in `docs/architecture.md` and the current KAI-121 implementation/tests.
+
 ## 1. Reproduced shared-chunk parse cost (current main `a910d772`)
 
 **Chunk:** `dist/assets/utils-D4opjN4Y.js` = **2,321 KB raw / 371 KB gzip** (shared chunk loaded by EVERY route).

@@ -1,5 +1,7 @@
 # KAI-198: Cloudflare and Supabase research
 
+> **Historical research record — not current production configuration.** These dated first-party references describe documented capabilities and conditional implications, not enabled Meguruto account settings. Consult current owner-managed configuration evidence before operational use.
+
 Research checked: 2026-08-25. Sources are limited to current first-party Cloudflare and Supabase documentation available on that date.
 
 ## Boundary: account state is not verified

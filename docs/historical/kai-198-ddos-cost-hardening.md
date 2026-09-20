@@ -1,5 +1,7 @@
 # KAI-198 — DDoS and cost-hardening audit
 
+> **Historical audit record — not current production configuration.** The dated evidence and owner-action boundaries below are retained for provenance. Verify deployed Cloudflare/Supabase state from current owner-controlled checks before relying on it operationally.
+
 Checked 2026-08-25 (Asia/Tokyo). This is the evidence record for the focused
 implementation on fix/kai-198-ddos-cost-hardening.
 
@@ -144,7 +146,7 @@ REQUIRED**. No production before/after claim is possible from this checkout.
 | functions/e2e/[[path]].js, functions/ja/qa/[[path]].js | Reused the Access guard for /ja/qa and served the localized QA shell only after authorization                                                           |
 | scripts/**tests**/...                                  | Added body-bound, abuse-guard, per-IP fallback, destination fail-closed, and authorization regressions                                                  |
 | scripts/verify-pages-functions.mjs                     | Added hostile-path/static-miss corpus, route-budget assertions, both-locale QA checks, and real-404/no-shell checks                                     |
-| KAI-198-cloudflare-supabase-research.md                | First-party Cloudflare/Supabase research and account-state boundary                                                                                     |
+| kai-198-cloudflare-supabase-research.md                | First-party Cloudflare/Supabase research and account-state boundary                                                                                     |
 
 No new dependency, database migration, Cloudflare binding, paid product, or
 production data mutation was added.
@@ -249,7 +251,7 @@ independently.
 ## Cloudflare plan, product, and billing audit
 
 The research file contains the full first-party source index:
-[KAI-198-cloudflare-supabase-research.md](KAI-198-cloudflare-supabase-research.md).
+[kai-198-cloudflare-supabase-research.md](kai-198-cloudflare-supabase-research.md).
 The following is the repository evidence and the required account boundary.
 
 | Product or cost surface            | Repository evidence                                                                              | Current state                                                                                  | Action                                                                       |

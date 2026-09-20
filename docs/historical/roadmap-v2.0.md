@@ -1,5 +1,7 @@
 # TabiMap v2.0 Roadmap
 
+> **Historical record — superseded.** This TabiMap-era roadmap and its release state are retained for provenance only. Current product direction and release practice belong in the active Meguruto README and engineering documents.
+
 ## Mission
 
 - [ ] Build the most trusted domestic travel decision engine for people living in Japan.

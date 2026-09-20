@@ -1,5 +1,7 @@
 # Destinations Filter Exclusion Diagnosis
 
+> **Historical investigation — superseded.** The counts and catalogue state below describe the dated 2026-08-04 investigation; they are not current catalogue measurements. Use `docs/data-quality.md` and a fresh audit for current state.
+
 **Branch:** `docs/diagnose-destinations-filter-exclusions`
 **Date:** 2026-08-04
 

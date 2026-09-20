@@ -1,6 +1,8 @@
-# TabiMap Data Pipeline Guide
+# Meguruto Catalogue and Data Operations
 
-This directory contains the data pipeline scripts for processing, validating, geocoding, and outputting destination dataset files for TabiMap.
+This directory contains Meguruto's catalogue validators, read-only audits, generated-output checks, authoring helpers, and the legacy broad pipeline. The canonical source is `src/shared/data/destinations-index.json`; generated detail files, metadata, lite/relationship projections, collection data, and transport registries have separate contracts. Read [`docs/data-quality.md`](../docs/data-quality.md) before changing catalogue data.
+
+The focused CI gate is `npm run check:catalog-ci`. It may skip only its catalogue-audit/sync stage when the changed-scope classifier finds no catalogue-affecting files; the npm script still runs its additional structural/model/completeness checks. A skip is not a full catalogue revalidation.
 
 ---
 
@@ -9,7 +11,7 @@ This directory contains the data pipeline scripts for processing, validating, ge
 Run the consolidated pipeline on the main destination index:
 
 ```bash
-# Run full pipeline (validate -> geocode -> normalize -> sort -> output)
+# Legacy broad pipeline (inspect with --dry-run before allowing writes)
 npm run pipeline
 
 # Validate schema only (no external API calls or file writes)
@@ -39,23 +41,16 @@ npm run apply-city-hub-relationships
 
 ---
 
-## Processing New Regions (e.g. Kansai, Kyushu, Hokkaido)
+## Adding or repairing catalogue data
 
-When adding a new region or batch of destinations:
+Do not invent a new regional pipeline or hand-edit generated projections. Use the repository's reviewed authoring path:
 
-1. **Create Raw Data File**:
-   Draft your new destinations JSON file (e.g., `scripts/data/kansai_raw.json`).
+1. Edit the canonical source or the explicitly scoped authoring input, preserving provenance, semantic cost states, relationships, and bilingual fields.
+2. Run the relevant validator or audit first, then regenerate affected outputs with `npm run sync-destination-details` when required.
+3. Run `npm run validate:catalog-fast`, `npm run check:catalog-ci`, and the relevant image/link, localization, transport, or domain audit.
+4. Review canonical and generated diffs together. Keep warning-baseline changes deliberate and shrink-only.
 
-2. **Run Pipeline on New Batch**:
-
-   ```bash
-   node scripts/pipeline.cjs --input scripts/data/kansai_raw.json --output src/shared/data/destinations-index.json
-   ```
-
-3. **Verify Build**:
-   ```bash
-   npm run build
-   ```
+`npm run pipeline -- --dry-run` and `npm run pipeline -- --validate-only` remain available for the legacy `scripts/pipeline.cjs` contract. The pipeline can geocode through Nominatim and can write the canonical index plus metadata when run without `--dry-run`; use it only when that mutation is the intended reviewed operation.
 
 ---
 
@@ -111,10 +106,12 @@ which pins the Node version via `setup-node` in the workflows).
 
 ### The warning baseline
 
-`scripts/audit/catalog-warnings-baseline.json` records the warning debt
-accepted on `main` at the time of the last deliberate update (currently 396
-instances). It is derived from the exact `main` audit, committed, and
-reviewed like any other file.
+`scripts/audit/catalog-warnings-baseline.json` records warning debt accepted on
+`main` at the time of the last deliberate update. Direct inspection of the
+current `origin/main` snapshot on 2026-09-20 found 1,602 stored warning
+fingerprints/instances. This is a shrink-only ledger, not the current audit
+result; run `npm run check:catalog-warnings` for current findings. It is
+derived from a main audit, committed, and reviewed like any other input.
 
 - **Fingerprints** are `"<CODE>:<destinationId>[:<identity>]"` with
   per-fingerprint instance counts. The identity is a canonical, structured
@@ -158,9 +155,9 @@ fukuoka-city`)
   baseline.
 
 - **Why existing warnings are accepted** — they are pre-existing debt on
-  `main`; blocking every unrelated catalogue correction until all 396 are
-  fixed would stall legitimate work. The ledger keeps that debt visible and
-  bounded.
+  `main`; blocking every unrelated catalogue correction until all accepted
+  findings are fixed would stall legitimate work. The ledger keeps that debt
+  visible and bounded.
 - **Why new warnings are rejected** — a new or extra warning is a
   regression, exactly what the gate exists to catch. New audit rules must
   land with their data fixed in the same PR (the update command will not
@@ -208,85 +205,39 @@ municipality IDs are missing. Scores are signals for QA and expansion review,
 not minimum-count targets or merge blockers. Mie follows the app's existing
 Kansai region convention.
 
-## Pipeline Stages
+## Legacy `pipeline.cjs` behavior
 
-```
-Source JSON ➔ [1. Validate Schema] ➔ [2. Geocode] ➔ [3. Normalize] ➔ [4. Asset Check] ➔ [5. Sort & Output]
-```
+`scripts/pipeline.cjs` is retained for its existing authoring contract; it is
+not the sole catalogue CI gate. Its actual stages are:
 
-1. **Schema & Content Validation**:
-   - Ensures all required fields (`id`, `name`, `prefecture`, `region`, `categories`, `description`, `budgetMin`, `budgetMax`, `transportOptions`, `ratings`, `crowd`, `season`) exist.
-   - Validates rating scores are numbers within 1–10.
-   - Validates `budgetMin <= budgetMax`.
+1. Load the selected JSON input, check duplicate IDs and required legacy fields,
+   validate rating/budget/coordinate shapes, and validate collection and
+   relationship references.
+2. In normal mode, optionally geocode missing coordinates through Nominatim
+   with a 1.5-second delay; this is networked and can populate fallback
+   coordinates, so prefer `--validate-only` or `--dry-run` for inspection.
+3. Normalize selected legacy/default fields, warn on missing hero images, sort
+   by ID, and write the selected output plus `destinations-meta.json` unless
+   `--dry-run` or `--validate-only` is supplied.
 
-2. **Coordinates & Geocoding**:
-   - Checks if `coordinates` (`lat`, `lng`) are missing.
-   - Uses OpenStreetMap Nominatim API with 1.5s rate-limiting to auto-geocode locations.
-
-3. **Data Normalization**:
-   - Auto-calculates `budgetRecommended = Math.round((budgetMin + budgetMax) / 2)`.
-
-4. **Asset Validation**:
-   - Flags missing `heroImage` links or missing assets.
-
-5. **Output Formatting**:
-   - Deterministically sorts destinations by `id`.
-   - Formats JSON with 2-space indentation.
+The current semantic model is defined by `src/shared/types/destination.ts`,
+the validators under `scripts/validators/`, and [`docs/data-quality.md`](../docs/data-quality.md).
+Do not use the old sample schema below as an authoring contract.
 
 ---
 
-## Destination JSON Schema Reference
+## Current schema and validation sources
 
-```json
-{
-  "id": "hakone",
-  "name": "Hakone",
-  "prefecture": "Kanagawa",
-  "region": "Kanto",
-  "categories": ["Onsen", "Nature", "Culture"],
-  "heroImage": "https://images.unsplash.com/photo-...",
-  "gallery": [],
-  "description": "Famed hot spring town near Tokyo with views of Mt. Fuji.",
-  "highlights": ["Onsen", "Lake Ashi Cruise", "Hakone Ropeway"],
-  "budgetMin": 16200,
-  "budgetMax": 24200,
-  "budgetRecommended": 20200,
-  "transportOptions": {
-    "train": 85,
-    "car": 90,
-    "shinkansen": 45
-  },
-  "recommendedVisitHours": { "min": 1, "max": 2 },
-  "walkingMin": 45,
-  "walkingSunMin": 30,
-  "walkingShadeMin": 15,
-  "indoorPercent": 40,
-  "coordinates": { "lat": 35.2324, "lng": 139.1069 },
-  "ratings": {
-    "overall": 9.2,
-    "couple": 9.5,
-    "summer": 8.0,
-    "winter": 9.0,
-    "rain": 8.5,
-    "food": 8.8,
-    "photography": 9.0,
-    "relaxation": 9.5,
-    "value": 8.5,
-    "uniqueness": 9.0
-  },
-  "crowd": { "weekday": 3, "weekend": 5, "holiday": 5 },
-  "season": { "spring": 5, "summer": 4, "autumn": 5, "winter": 4 },
-  "bestMonths": [3, 4, 10, 11],
-  "bestSeason": "Autumn",
-  "weatherDependence": "moderate",
-  "tags": ["Onsen", "Mt. Fuji Views", "Romantic"],
-  "reservation": "Recommended for popular ryokans",
-  "parking": "Available at major spots",
-  "restaurants": ["Hakone Bakery", "Toya Soba"],
-  "cafes": ["Timuny Cafe"],
-  "notes": "Purchase Hakone Free Pass for unlimited transit."
-}
-```
+There is no frozen JSON example here because the catalogue contract has evolved
+past the old TabiMap sample. Use these sources instead:
+
+- `src/shared/types/destination.ts` — typed record and semantic fields;
+- `scripts/validators/destinations.ts` — current destination validation;
+- `scripts/audit/catalog-integrity.ts` — read-only relationship, geography,
+  timing, naming, and generated-file audit;
+- `scripts/check-catalog-sync.ts` — generated-output freshness and idempotency;
+- [`docs/data-quality.md`](../docs/data-quality.md) — provenance, unknown versus
+  zero, relationships, and safe maintenance.
 
 ## Duration fields (KAI-50)
 
@@ -304,4 +255,8 @@ Source JSON ➔ [1. Validate Schema] ➔ [2. Geocode] ➔ [3. Normalize] ➔ [4.
 
 ## Maintenance Note
 
-All catalogue data operations, validation, and repairs are executed through standard CLI tools (`scripts/pipeline.cjs`, `scripts/validate-all.ts`, and `scripts/repair-destination.ts`).
+Catalogue operations, validation, and repairs use the package scripts in
+`package.json`, including `check:catalog-ci`, `validate:catalog-fast`,
+`validate-all`, `audit:catalog-integrity`, `sync-destination-details`, and the
+focused `validate-*`/`audit:*` commands. `scripts/pipeline.cjs` is a legacy
+authoring tool, not a replacement for the current semantic validators.

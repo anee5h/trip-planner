@@ -28,12 +28,12 @@ Kyoto discovery starts at 1100px and planning starts at 2920px at the 390px view
 
 ## Screenshots
 
-Representative before/after screenshots are tracked with this QA note and render directly in the PR:
+The capture helper scrolls through the page before taking each screenshot so lazy-loaded rail imagery is represented. The current repository retains the Kyoto 390px before/after pair and the Kyoto 1440px after capture. The Kyoto 1440px before image is not present in the current tree, and no committed source copy was found in Git history; it is not represented as available evidence below.
 
-| Before | After |
+| Before evidence | After evidence |
 | --- | --- |
 | ![Kyoto 390px before](before/kyoto-city-390.png) | ![Kyoto 390px after](after/kyoto-city-390.png) |
-| ![Kyoto 1440px before](before/kyoto-city-1440.png) | ![Kyoto 1440px after](after/kyoto-city-1440.png) |
+| Kyoto 1440px before: **not retained** | ![Kyoto 1440px after](after/kyoto-city-1440.png) |
 
 Additional final sparse/partial captures are available at `after/koriyama-city-390.png` and `after/abashiri-city-390.png`; the full machine-readable capture is `after-metrics.json`.
 
