@@ -30,13 +30,13 @@ Measured from the final committed Phase B tree; the exact final SHA is recorded 
 
 | Category | Files | Bytes | Difference |
 | --- | ---: | ---: | ---: |
-| Tracked tree | 2,562 | 146,032,177 | **-9 / -10,798,825** |
-| `docs/` | 103 | 20,151,213 | **-9 / -10,798,825** |
+| Tracked tree | 2,562 | 146,032,182 | **-9 / -10,798,820** |
+| `docs/` | 103 | 20,151,218 | **-9 / -10,798,820** |
 | `qa/` | 159 | 18,468,564 | 0 / 0 |
 | `scripts/audit/` | 143 | 40,554,064 | 0 / 0 |
 | Raster screenshots/images | 114 | 36,433,694 | **-10 / -10,807,340** |
 | `scripts/audit/*.json` | 62 | 33,925,714 | 0 / 0 |
-| Markdown | 133 | 7,645,994 | +1 / +8,515 |
+| Markdown | 133 | 7,645,999 | +1 / +8,520 |
 
 The net tracked-byte reduction is smaller than the screenshot deletion total because this report and the updated KAI-206/archive documentation remain tracked. No audit-artifact bytes were removed.
 
