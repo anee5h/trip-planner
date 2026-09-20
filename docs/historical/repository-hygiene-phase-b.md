@@ -26,17 +26,17 @@ The detailed Git-backed inventory is maintained outside the repository during th
 
 ## Inventory after cleanup
 
-Measured from committed `HEAD` `ca38503adba080331646d19a96316c23f36e1bd9`:
+Measured from committed `HEAD` `725af56904f4cd7a1ef7099e7a495772e71953c2`:
 
 | Category | Files | Bytes | Difference |
 | --- | ---: | ---: | ---: |
-| Tracked tree | 2,562 | 146,030,884 | **-9 / -10,800,118** |
-| `docs/` | 103 | 20,149,920 | **-9 / -10,800,118** |
+| Tracked tree | 2,562 | 146,032,177 | **-9 / -10,798,825** |
+| `docs/` | 103 | 20,151,213 | **-9 / -10,798,825** |
 | `qa/` | 159 | 18,468,564 | 0 / 0 |
 | `scripts/audit/` | 143 | 40,554,064 | 0 / 0 |
 | Raster screenshots/images | 114 | 36,433,694 | **-10 / -10,807,340** |
 | `scripts/audit/*.json` | 62 | 33,925,714 | 0 / 0 |
-| Markdown | 133 | 7,644,701 | +1 / +7,222 |
+| Markdown | 133 | 7,645,994 | +1 / +8,515 |
 
 The net tracked-byte reduction is smaller than the screenshot deletion total because this report and the updated KAI-206/archive documentation remain tracked. No audit-artifact bytes were removed.
 
@@ -107,7 +107,7 @@ The six retained KAI-206 pairs were reviewed for privacy. No visible personal da
 
 ## Validation results
 
-Verified from committed `HEAD` `ca38503adba080331646d19a96316c23f36e1bd9`:
+Verified from committed `HEAD` `725af56904f4cd7a1ef7099e7a495772e71953c2`:
 
 - `npm ci` passed.
 - `npm run format:check` passed.
