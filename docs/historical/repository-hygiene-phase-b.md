@@ -26,7 +26,7 @@ The detailed Git-backed inventory is maintained outside the repository during th
 
 ## Inventory after cleanup
 
-Measured from committed `HEAD` `725af56904f4cd7a1ef7099e7a495772e71953c2`:
+Measured from the final committed Phase B tree; the exact final SHA is recorded in the PR and Git history.
 
 | Category | Files | Bytes | Difference |
 | --- | ---: | ---: | ---: |
@@ -107,7 +107,7 @@ The six retained KAI-206 pairs were reviewed for privacy. No visible personal da
 
 ## Validation results
 
-Verified from committed `HEAD` `725af56904f4cd7a1ef7099e7a495772e71953c2`:
+Verified from the final committed Phase B tree:
 
 - `npm ci` passed.
 - `npm run format:check` passed.
