@@ -58,18 +58,39 @@ function seasonFields(row: Destination): Record<string, unknown> {
   };
 }
 
+function hasExplicitP1BSeasonEvidence(row: Destination): boolean {
+  const basis = row.seasonMetadata?.basis;
+  return (
+    typeof basis === "string" &&
+    basis.includes("KAI-151 Phase P1-B authoritative thematic evidence")
+  );
+}
+
 function build(): { json: string; markdown: string } {
   const before = readBaseIndex();
   const after = readJson(INDEX_PATH) as Destination[];
   const beforeById = new Map(before.map((row) => [row.id, row]));
   const afterById = new Map(after.map((row) => [row.id, row]));
-  const changedIds = [...afterById.keys()]
+  const beforeMissing = missingStructuredSeason(before);
+  const afterMissing = missingStructuredSeason(after);
+  const seasonChangedIds = [...afterById.keys()]
     .filter(
       (id) =>
         stable(seasonFields(beforeById.get(id)!)) !==
         stable(seasonFields(afterById.get(id)!)),
     )
     .sort();
+  const changedIds = seasonChangedIds.filter((id) =>
+    beforeMissing.includes(id),
+  );
+  const outOfCohortSeasonChanges = seasonChangedIds
+    .filter((id) => !beforeMissing.includes(id))
+    .map((id) => ({
+      id,
+      provenance: hasExplicitP1BSeasonEvidence(afterById.get(id)!)
+        ? "KAI-151 P1-B authoritative thematic evidence"
+        : null,
+    }));
   const changedKeys = Object.fromEntries(
     changedIds.map((id) => [
       id,
@@ -80,11 +101,9 @@ function build(): { json: string; markdown: string } {
       ),
     ]),
   );
-  const beforeMissing = missingStructuredSeason(before);
-  const afterMissing = missingStructuredSeason(after);
   const review = readJson("scripts/audit/kai-151-p1a-season-review.json");
   const report = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     baseSha: BASE_SHA,
     catalogueCount: after.length,
     cohort: {
@@ -98,36 +117,59 @@ function build(): { json: string; markdown: string } {
       changedIds,
       changedKeys,
     },
+    outOfCohortSeasonChanges,
     invariants: {
       uniqueIds: new Set(after.map((row) => row.id)).size === after.length,
       catalogueCountUnchanged: before.length === after.length,
-      noOutOfCohortSeasonChanges: changedIds.every((id) =>
+      p1aChangesWithinCohort: changedIds.every((id) =>
         beforeMissing.includes(id),
+      ),
+      outOfCohortChangesHaveExplicitProvenance: outOfCohortSeasonChanges.every(
+        ({ provenance }) => provenance !== null,
       ),
       residualIds: afterMissing,
     },
   };
   const json = formatJson(report);
-  const markdown =
-    `# KAI-151 P1-A season evidence impact\n\n` +
-    `Base: \`${BASE_SHA}\`\n` +
-    `Catalogue: **${after.length}** records (unchanged)\n\n` +
-    `## Cohort\n\n` +
-    `Predicate: \`${report.cohort.predicate}\`\n\n` +
-    `- Before missing structured season: **${beforeMissing.length}**\n` +
-    `- Source-backed mutations: **${changedIds.length}**\n` +
-    `- After missing structured season: **${afterMissing.length}**\n` +
-    `- Residual rows: **${afterMissing.length}**\n\n` +
-    `## Mutated records\n\n` +
-    changedIds.map((id) => `- \`${id}\``).join("\n") +
-    `\n\n` +
-    `Each of the ${changedIds.length} accepted rows received only \`bestSeason\`, \`bestMonths\`, \`season\`, and ` +
-    `KAI-151 manual provenance metadata. The remaining ${afterMissing.length} cohort rows remain unknown or conflicting; ` +
-    `generic seasonal language was not promoted to structured fields.\n\n` +
-    `## Invariants\n\n` +
-    `- Unique IDs: **${report.invariants.uniqueIds ? "pass" : "fail"}**\n` +
-    `- Catalogue count unchanged: **${report.invariants.catalogueCountUnchanged ? "pass" : "fail"}**\n` +
-    `- No out-of-cohort season changes: **${report.invariants.noOutOfCohortSeasonChanges ? "pass" : "fail"}**\n`;
+  const newline = String.fromCharCode(10);
+  const outOfCohortLines = outOfCohortSeasonChanges.map(
+    ({ id, provenance }) =>
+      `- ${id} — ${provenance ?? "unclassified season provenance"}`,
+  );
+  const markdown = [
+    "# KAI-151 P1-A season evidence impact",
+    "",
+    `Base: ${BASE_SHA}`,
+    `Catalogue: **${after.length}** records (unchanged)`,
+    "",
+    "## Cohort",
+    "",
+    `Predicate: ${report.cohort.predicate}`,
+    "",
+    `- Before missing structured season: **${beforeMissing.length}**`,
+    `- Source-backed P1-A mutations: **${changedIds.length}**`,
+    `- After missing structured season: **${afterMissing.length}**`,
+    `- Residual rows: **${afterMissing.length}**`,
+    "",
+    "## P1-A mutated records",
+    "",
+    ...changedIds.map((id) => `- ${id}`),
+    "",
+    `Each of the ${changedIds.length} accepted rows received only bestSeason, bestMonths, season, and KAI-151 manual provenance metadata. The remaining ${afterMissing.length} cohort rows remain unknown or conflicting; generic seasonal language was not promoted to structured fields.`,
+    "",
+    "## Post-baseline changes outside the P1-A cohort",
+    "",
+    "These changes are excluded from the P1-A mutation count. They are reported explicitly so cumulative changes after the fixed baseline cannot be mistaken for P1-A evidence.",
+    "",
+    ...(outOfCohortLines.length > 0 ? outOfCohortLines : ["None."]),
+    "",
+    "## Invariants",
+    "",
+    `- Unique IDs: **${report.invariants.uniqueIds ? "pass" : "fail"}**`,
+    `- Catalogue count unchanged: **${report.invariants.catalogueCountUnchanged ? "pass" : "fail"}**`,
+    `- P1-A changes remain within the declared cohort: **${report.invariants.p1aChangesWithinCohort ? "pass" : "fail"}**`,
+    `- Out-of-cohort changes have explicit provenance: **${report.invariants.outOfCohortChangesHaveExplicitProvenance ? "pass" : "fail"}**`,
+  ].join(newline);
   return { json, markdown };
 }
 

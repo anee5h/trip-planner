@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "baseSha": "07ea8de3bbbbca3a53962c4211703acb27432346",
   "catalogueCount": 1130,
   "cohort": {
@@ -8,13 +8,12 @@
     "beforeMissingStructuredSeasonCount": 112,
     "afterMissingStructuredSeasonCount": 66,
     "residualCount": 66,
-    "mutatedCount": 49,
+    "mutatedCount": 46,
     "changedIds": [
       "amanoiwato-shrine",
       "bitchu-matsuyama-castle",
       "byodoin-temple",
       "dazaifu-tenmangu",
-      "farm-tomita",
       "fudaten-shrine",
       "funai-castle",
       "gessho-ji-temple-matsue",
@@ -26,9 +25,7 @@
       "ikuta-shrine-kobe",
       "iwamura-castle",
       "kasama-inari-shrine",
-      "kenroku-en",
       "kifune-jinja-kyoto",
-      "kirigamine-highlands",
       "kiyomizu-dera",
       "kofu-castle",
       "kubota-castle",
@@ -85,7 +82,6 @@
         "season",
         "seasonMetadata"
       ],
-      "farm-tomita": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
       "fudaten-shrine": [
         "bestSeason",
         "bestMonths",
@@ -132,14 +128,7 @@
         "season",
         "seasonMetadata"
       ],
-      "kenroku-en": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
       "kifune-jinja-kyoto": [
-        "bestSeason",
-        "bestMonths",
-        "season",
-        "seasonMetadata"
-      ],
-      "kirigamine-highlands": [
         "bestSeason",
         "bestMonths",
         "season",
@@ -297,10 +286,25 @@
       ]
     }
   },
+  "outOfCohortSeasonChanges": [
+    {
+      "id": "farm-tomita",
+      "provenance": "KAI-151 P1-B authoritative thematic evidence"
+    },
+    {
+      "id": "kenroku-en",
+      "provenance": "KAI-151 P1-B authoritative thematic evidence"
+    },
+    {
+      "id": "kirigamine-highlands",
+      "provenance": "KAI-151 P1-B authoritative thematic evidence"
+    }
+  ],
   "invariants": {
     "uniqueIds": true,
     "catalogueCountUnchanged": true,
-    "noOutOfCohortSeasonChanges": false,
+    "p1aChangesWithinCohort": true,
+    "outOfCohortChangesHaveExplicitProvenance": true,
     "residualIds": [
       "akagi-shrine",
       "akashi-castle",
