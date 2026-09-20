@@ -96,6 +96,15 @@ The PWA boundary is intentionally described precisely: browser-emulated `display
 
 Evidence: [`src/i18n/index.ts`](src/i18n/index.ts), [`check-translation-parity.cjs`](scripts/check-translation-parity.cjs), [`playwright.config.ts`](playwright.config.ts), [`pr-checks.yml`](.github/workflows/pr-checks.yml), and the merged [KAI-297 recruiter QA report](qa/kai-297/recruiter-golden-path.md).
 
+## Engineering documentation
+
+The README is the entry point; these focused references document the implementation behind its claims:
+
+- [System architecture](docs/architecture.md) — runtime/build boundaries, data flow, Pages Functions, and persistence.
+- [Recommendation engine](docs/recommendation-engine.md) — inputs, eligibility, scoring, seasonality, budget, and diversity.
+- [Transport estimation](docs/transport-estimation.md) — topology, evidence hierarchy, provider boundaries, and uncertainty.
+- [Data quality](docs/data-quality.md) — catalogue relationships, provenance, invariants, audits, and maintenance workflow.
+
 ## Architecture
 
 The browser owns the product experience and decision orchestration. Serverless functions are narrow provider and delivery boundaries, not a monolithic application backend.
