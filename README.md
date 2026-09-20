@@ -145,6 +145,7 @@ Quality gates are designed around the failure modes of a data-heavy, localized p
 - **Browser journeys:** Playwright runs weighted file bins across Chromium desktop and mobile projects. The merged KAI-297 baseline covers the recruiter path through recommendations, destination detail, logistics/budget, itinerary generation, signup CTA, Explore, English/Japanese switching, fake-auth handoff, and browser-emulated standalone mode.
 - **Accessibility and PWA:** dedicated axe-based desktop/mobile coverage and production-preview PWA/service-worker coverage.
 - **Data and release gates:** TypeScript, lint, formatting, i18n parity, catalogue integrity/sync, SEO freshness, build, PWA, branding, protected-route, and secret/privacy scans.
+- **Testing strategy and release evidence:** [testing strategy](docs/testing-strategy.md) maps product risks to tests, CI triggers, artifacts, and unverified boundaries.
 - **Traceable QA evidence:** the [KAI-297 report](qa/kai-297/recruiter-golden-path.md) records the environment and limitations. Its 2026-09-19 snapshot reported 385 Vitest files with 5,319 passing tests and 2 skipped, 34 E2E specs assigned exactly once across four bins, 853 translation keys with no placeholder mismatches, and green exact-head PR checks. These are dated evidence snapshots, not permanent guarantees.
 
 The scheduled `Full Remote Validation` workflow is manual/nightly by configuration; it is not described here as a passing pull-request check when it was skipped.
