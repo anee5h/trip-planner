@@ -85,17 +85,12 @@ Cost-surface count stayed at one. The At a glance cost prop is no longer populat
 
 ## Screenshot evidence
 
-Screenshots are captured at the same routes/viewports before and after. The capture helper scrolls through the page before taking the screenshot so lazy-loaded card imagery is represented.
+Screenshots were captured at the same routes/viewports before and after. The capture helper scrolls through the page before taking the screenshot so lazy-loaded card imagery is represented. The original 16-image matrix was reviewed at the source head above. The current checkout keeps six representative before/after captures: English destination mobile, Japanese hub mobile, and English hub desktop. These cover mobile reflow, bilingual layout, hub-specific discovery, and a desktop comparison without presenting the reduced set as exhaustive. The ten other unconsumed visual variants remain retrievable from the source commit in Git history; no active script, test, build, or workflow consumes them.
 
-| Surface | Before | After |
+| Retained representative surface | Before | After |
 | --- | --- | --- |
 | Destination mobile EN | [before](KAI-206-screenshots/kai206-before-destination-mobile.png) | [after](KAI-206-screenshots/kai206-after-destination-mobile.png) |
-| Destination desktop EN | [before](KAI-206-screenshots/kai206-before-destination-desktop.png) | [after](KAI-206-screenshots/kai206-after-destination-desktop.png) |
-| Hub mobile EN | [before](KAI-206-screenshots/kai206-before-hub-mobile.png) | [after](KAI-206-screenshots/kai206-after-hub-mobile.png) |
 | Hub desktop EN | [before](KAI-206-screenshots/kai206-before-hub-desktop.png) | [after](KAI-206-screenshots/kai206-after-hub-desktop.png) |
-| Destination mobile JA | [before](KAI-206-screenshots/kai206-before-destination-ja-mobile.png) | [after](KAI-206-screenshots/kai206-after-destination-ja-mobile.png) |
-| Destination desktop JA | [before](KAI-206-screenshots/kai206-before-destination-ja-desktop.png) | [after](KAI-206-screenshots/kai206-after-destination-ja-desktop.png) |
 | Hub mobile JA | [before](KAI-206-screenshots/kai206-before-hub-ja-mobile.png) | [after](KAI-206-screenshots/kai206-after-hub-ja-mobile.png) |
-| Hub desktop JA | [before](KAI-206-screenshots/kai206-before-hub-ja-desktop.png) | [after](KAI-206-screenshots/kai206-after-hub-ja-desktop.png) |
 
 Raw measurements are stored in `KAI-206-audit-before.json` and `KAI-206-audit-after.json`; `scripts/kai-206-audit.mjs` reproduces the capture/audit pass against the local dev server.
