@@ -104,7 +104,6 @@ The README is the entry point; these focused references document the implementat
 - [Recommendation engine](docs/recommendation-engine.md) — inputs, eligibility, scoring, seasonality, budget, and diversity.
 - [Transport estimation](docs/transport-estimation.md) — topology, evidence hierarchy, provider boundaries, and uncertainty.
 - [Data quality](docs/data-quality.md) — catalogue relationships, provenance, invariants, audits, and maintenance workflow.
-- [Historical engineering records and repository hygiene](docs/historical/README.md) — dated/superseded investigations plus the lightweight retention policy.
 
 ## Architecture
 
@@ -208,6 +207,10 @@ For the repository's broad pull-request gate, run `npm run verify:pr`. Some tran
 - The catalogue is growing and still contains beta or estimated records. The app exposes provenance and unavailable states instead of hiding that unevenness.
 
 The next useful improvements are deeper verified transport coverage, more source-backed cost facts, and physical-device PWA validation—not a claim that those gaps are already solved.
+
+## Historical records and repository hygiene
+
+Dated investigations, superseded designs, historical QA evidence, and the lightweight retention policy are indexed separately in [historical engineering records](docs/historical/README.md). They provide provenance and interview context; current product and release guidance remains in the active engineering documents above.
 
 ## Author
 
