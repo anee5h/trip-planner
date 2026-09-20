@@ -105,6 +105,16 @@ The README is the entry point; these focused references document the implementat
 - [Transport estimation](docs/transport-estimation.md) — topology, evidence hierarchy, provider boundaries, and uncertainty.
 - [Data quality](docs/data-quality.md) — catalogue relationships, provenance, invariants, audits, and maintenance workflow.
 
+## Architectural decisions
+
+These concise records explain reasons, alternatives, trade-offs, and limits; the five current engineering references above remain authoritative for implementation detail:
+
+- [Transport evidence and uncertainty](docs/decisions/001-transport-evidence-and-uncertainty.md)
+- [Catalogue and generated-data boundaries](docs/decisions/002-catalogue-and-generated-data-boundaries.md)
+- [Budget provenance and unknown states](docs/decisions/003-budget-provenance-and-unknown-states.md)
+- [Recommendation and feasibility policy](docs/decisions/004-recommendation-and-feasibility-policy.md)
+- [Deployment and quality boundaries](docs/decisions/005-deployment-and-quality-boundaries.md)
+
 ## Architecture
 
 The browser owns the product experience and decision orchestration. Serverless functions are narrow provider and delivery boundaries, not a monolithic application backend.
@@ -199,6 +209,8 @@ npm run preview
 For the repository's broad pull-request gate, run `npm run verify:pr`. Some transport-provider and authenticated paths require their documented environment or fixtures; provider credentials are never needed in source control or in the browser bundle.
 
 ## Limitations and next work
+
+Verified limitations and their architectural rationale are summarized in the [architectural decisions](docs/decisions/005-deployment-and-quality-boundaries.md) and the focused engineering references above. The public next work remains intentionally limited to the evidence gaps below.
 
 - Transport evidence is intentionally regional and mixed: routed facts, curated corridors, bounded estimates, and unknown states coexist. The ODPT/GTFS work is a limited pilot/static-artifact capability, not nationwide live timetable coverage.
 - Approximate transport, admission, meal, and accommodation ranges are planning aids, not universally verified prices. Provider availability, seasonal operation, tolls, and product choices can change the result.
