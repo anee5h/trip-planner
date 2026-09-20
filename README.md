@@ -104,6 +104,7 @@ The README is the entry point; these focused references document the implementat
 - [Recommendation engine](docs/recommendation-engine.md) — inputs, eligibility, scoring, seasonality, budget, and diversity.
 - [Transport estimation](docs/transport-estimation.md) — topology, evidence hierarchy, provider boundaries, and uncertainty.
 - [Data quality](docs/data-quality.md) — catalogue relationships, provenance, invariants, audits, and maintenance workflow.
+- [Historical engineering records and repository hygiene](docs/historical/README.md) — dated/superseded investigations plus the lightweight retention policy.
 
 ## Architecture
 
