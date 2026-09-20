@@ -140,7 +140,7 @@ The static scheduled-transit seam is conditionally used by [`DayPlanGeneratorSer
 
 Broad timetable queries are rejected or fail closed at the 1 MiB response guard. Errors are not cached as empty data. The cache and budget are explicitly isolate/edge scoped; they are not a globally distributed provider quota.
 
-The ODPT direct-timetable resolver is not the current production recommendation path. [`OdptDirectJourneyService.ts`](../src/shared/services/transport/OdptDirectJourneyService.ts) explicitly states that it ships capability only, with no production callers, no JR-East support, and no general transfer/feeder integration. The measured constraints are documented in [`docs/kai-290-odpt-timetable-pilot-constraints.md`](kai-290-odpt-timetable-pilot-constraints.md) and [`docs/kai-290-odpt-direct-journey.md`](kai-290-odpt-direct-journey.md).
+The ODPT direct-timetable resolver is not the current production recommendation path. [`OdptDirectJourneyService.ts`](../src/shared/services/transport/OdptDirectJourneyService.ts) explicitly states that it ships capability only, with no production callers, no JR-East support, and no general transfer/feeder integration. The current product boundary is the implementation and tests linked below; no experimental ODPT capability is presented as deployed coverage.
 
 ### Static GTFS/GTFS-JP artifacts
 
@@ -151,7 +151,11 @@ The registry currently pins two scheduled datasets in [`scheduledTransitDatasetR
 
 [`scheduledTransitDataset.ts`](../src/shared/services/transport/static/scheduledTransitDataset.ts) validates schema, dataset identity, coverage hash, graph hash, namespace, and entity provenance. [`scheduledTransitRoutingBoundary.ts`](../src/shared/services/transport/static/scheduledTransitRoutingBoundary.ts) refuses to route until dataset, exact origin endpoint, exact destination endpoint, direction, and temporal context all resolve. It returns explicit `not_routed` reasons such as `dataset_unresolved`, `origin_unresolved`, `destination_unresolved`, `temporal_unresolved`, or dataset mismatch.
 
-This is bounded scheduled routing, not nationwide timetable coverage. The existing [KAI-292C2 production boundary](kai-292c2-production-transit-boundary.md) records that current user-origin and catalogue destination records are not automatically mapped to exact scheduled stop identities and that no current Home/Explore recommendation integration is claimed.
+This is bounded scheduled routing, not nationwide timetable coverage. Current user-origin and catalogue destination records are not automatically mapped to exact scheduled stop identities, and no universal Home/Explore timetable integration is claimed.
+
+### Temporal contract
+
+Scheduled routing requires an authoritative service date and departure time from the caller. A duration mode, planner default, or inferred next departure is not transit evidence. The boundary resolves time in `Asia/Tokyo`, converts valid service-day clock values to service seconds, and returns an explicit unresolved/not-routed outcome when temporal context is absent, malformed, outside the service calendar, or otherwise cannot be bound to the selected dataset. A controlled Journey proof for one corridor does not establish general product coverage or authorize timetable claims for other origins and destinations.
 
 ## Downstream consumers
 
@@ -195,4 +199,4 @@ Transport evidence reaches these consumers through shared seams:
 - Journey semantics: [`JourneySemantics.test.ts`](../src/shared/services/transport/__tests__/JourneySemantics.test.ts)
 - Scheduled boundary tests: [`ScheduledProductJourneyService.test.ts`](../src/shared/services/transport/__tests__/ScheduledProductJourneyService.test.ts), [`scheduledTransitRoutingBoundary.test.ts`](../src/shared/services/transport/static/__tests__/scheduledTransitRoutingBoundary.test.ts)
 - ODPT boundary tests: [`functions/api/odpt-core.test.js`](../functions/api/odpt-core.test.js), [`odpt-runtime-protection.test.js`](../functions/api/odpt-runtime-protection.test.js)
-- Existing measured pilot constraints: [`docs/kai-290-odpt-timetable-pilot-constraints.md`](kai-290-odpt-timetable-pilot-constraints.md), [`docs/kai-291c2-gtfs-schedule-calendar.md`](kai-291c2-gtfs-schedule-calendar.md), [`docs/kai-292c2-production-transit-boundary.md`](kai-292c2-production-transit-boundary.md)
+The implementation and tests linked throughout this document are the current evidence for these boundaries. Pilot artifacts and intermediate design documents are not production coverage claims.

@@ -721,7 +721,7 @@
       "code": "no_authoritative_service_date_or_departure_time",
       "statement": "A controlled runtime Journey is verified for one corridor, but general product flows still do not supply authoritative scheduled service date and departure time inputs.",
       "evidence": [
-        "docs/kai-292c3-scheduled-routing-temporal-contract.md",
+        "docs/transport-estimation.md",
         "qa/kai-292c4h/controlled-runtime-proof.json"
       ]
     }
@@ -791,7 +791,7 @@
         "code": "no_authoritative_service_date_or_departure_time",
         "statement": "A controlled runtime Journey is verified for one corridor, but general product flows still do not supply authoritative scheduled service date and departure time inputs.",
         "evidence": [
-          "docs/kai-292c3-scheduled-routing-temporal-contract.md",
+          "docs/transport-estimation.md",
           "qa/kai-292c4h/controlled-runtime-proof.json"
         ]
       }

@@ -208,9 +208,9 @@ For the repository's broad pull-request gate, run `npm run verify:pr`. Some tran
 
 The next useful improvements are deeper verified transport coverage, more source-backed cost facts, and physical-device PWA validation—not a claim that those gaps are already solved.
 
-## Historical records and repository hygiene
+## Historical engineering evidence
 
-Dated investigations, superseded designs, historical QA evidence, and the lightweight retention policy are indexed separately in [historical engineering records](docs/historical/README.md). They provide provenance and interview context; current product and release guidance remains in the active engineering documents above.
+The current `docs/` tree is intentionally focused on active Meguruto guidance. Historical investigations, ticket reports, screenshots, and decision records removed by the documentation cleanup remain available in the [frozen pre-cleanup documentation tree](https://github.com/anee5h/trip-planner/tree/1d0f0b3b7a8ec9a691dabe6bc8e85f22c71ce91b/docs) and merged pull requests; current architecture, quality, transport, and release guidance remains in the references above.
 
 ## Author
 

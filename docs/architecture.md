@@ -173,6 +173,5 @@ Failures are intentionally handled at the narrowest useful seam:
 - [Recommendation engine](recommendation-engine.md)
 - [Transport estimation](transport-estimation.md)
 - [Data quality](data-quality.md)
-- Existing ODPT constraints: [`docs/kai-290-odpt-timetable-pilot-constraints.md`](kai-290-odpt-timetable-pilot-constraints.md)
-- Existing scheduled-transit boundary: [`docs/kai-292c2-production-transit-boundary.md`](kai-292c2-production-transit-boundary.md)
+- Scheduled-transit and ODPT boundaries: [`transport-estimation.md`](transport-estimation.md)
 - Existing QA baseline: [`qa/kai-297/recruiter-golden-path.md`](../qa/kai-297/recruiter-golden-path.md)

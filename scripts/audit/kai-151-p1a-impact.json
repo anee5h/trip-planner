@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "baseSha": "07ea8de3bbbbca3a53962c4211703acb27432346",
   "catalogueCount": 1130,
   "cohort": {
@@ -286,10 +286,25 @@
       ]
     }
   },
+  "outOfCohortSeasonChanges": [
+    {
+      "id": "farm-tomita",
+      "provenance": "KAI-151 P1-B authoritative thematic evidence"
+    },
+    {
+      "id": "kenroku-en",
+      "provenance": "KAI-151 P1-B authoritative thematic evidence"
+    },
+    {
+      "id": "kirigamine-highlands",
+      "provenance": "KAI-151 P1-B authoritative thematic evidence"
+    }
+  ],
   "invariants": {
     "uniqueIds": true,
     "catalogueCountUnchanged": true,
-    "noOutOfCohortSeasonChanges": true,
+    "p1aChangesWithinCohort": true,
+    "outOfCohortChangesHaveExplicitProvenance": true,
     "residualIds": [
       "akagi-shrine",
       "akashi-castle",

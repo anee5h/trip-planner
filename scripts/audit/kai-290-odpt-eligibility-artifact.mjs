@@ -41,9 +41,9 @@ async function formatMarkdown(text) {
 
 const records = loadCatalogueRecords();
 const report = buildEligibilityReport(records, {
-  // Verified on current main by the audit documented in
-  // docs/kai-290-odpt-2d-integration-readiness.md. Declared explicitly so the
-  // report cannot silently claim eligibility it has not measured.
+  // Verified by the current transport boundary documented in
+  // docs/transport-estimation.md. Declared explicitly so the report cannot
+  // silently claim eligibility it has not measured.
   originIdentity: "unavailable",
   departureWindow: "unavailable",
   // A service date EXISTS deterministically in planner/trip-context flows but not

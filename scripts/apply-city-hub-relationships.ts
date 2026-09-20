@@ -437,7 +437,7 @@ const GATEWAY_BY_DESTINATION_ID: Record<string, string> = {
   "omi-hachiman-canal": "Shiga:omihachiman",
   "kishi-station-tama-cat": "Wakayama:kinokawa",
   "ine-funaya-boathouses": "Kyoto:ine",
-  // PR #88 gateway conversions, reviewed in PR #89 audit (docs/audits/pr89-gateway-review.csv).
+  // PR #88 gateway conversions, reviewed in the PR #89 audit.
   // Each entry represents a practical regional access hub for a destination that is
   // geographically distant or cross-municipality from the hub.
   "chogosonshi-ji-temple": "ikaruga-town",

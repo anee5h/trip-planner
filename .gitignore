@@ -33,31 +33,6 @@ playwright-report/
 scripts/add-*.cjs
 scripts/fix-*.cjs
 
-docs/*
-!.gitignore
-!docs/historical/
-!docs/historical/**
-!docs/trip-duration-model.md
-!docs/KAI-55_RECOMMENDATION_QA.md
-!docs/kai-126-allure-dashboard.md
-!docs/KAI-218A-admission-schema-design.md
-!docs/KAI-259-auth-conversion-funnel.md
-!docs/KAI-259-screenshots/
-!docs/KAI-259-screenshots/*.png
-!docs/search-console-workflow.md
-!docs/kai-80-a11y-qa.md
-!docs/kai-290-odpt-runtime-budget.md
-!docs/kai-290-odpt-timetable-pilot-constraints.md
-!docs/kai-290-odpt-direct-journey.md
-!docs/kai-290-odpt-2d-integration-readiness.md
-!docs/kai-291a-destination-station-identity.md
-!docs/kai-291b1-normalized-transit-graph.md
-!docs/kai-291b2-odpt-dump-refresh.md
-!docs/kai-291c1-gtfs-topology.md
-!docs/kai-291c2-gtfs-schedule-calendar.md
-!docs/kai-292c4a-real-corridor-identity.md
-!docs/kai-292c4h-first-real-journey.md
-
 # Generated catalogue asset (copied from src/shared/data at build/dev time
 # by scripts/copy-catalogue-assets.mjs — KAI-121 runtime-lazy fetch).
 public/data/destinations-index.json
