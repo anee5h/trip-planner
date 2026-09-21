@@ -11,10 +11,11 @@
  *     (dist/destinations/<id>/index.html). KAI-97: `status` is a
  *     content-quality signal, not an indexability gate — every canonical
  *     destination is prerendered, sitemapped and indexable. If the asset
- *     is missing the function falls back to the SPA shell rather than
- *     404ing a valid destination.
+ *     is missing, the function fails closed with a non-indexable 503 rather
+ *     than serving a generic shell as an indexable soft-200.
  *   - unknown id -> real 404 with X-Robots-Tag: noindex, so removed or
- *     invalid destination URLs are never indexable soft-200s.
+ *     invalid destination URLs are never indexable soft-200s. Error bodies
+ *     use the locale of the request.
  *
  * The manifest is generated at build time from the catalogue
  * (dist/data/kai68-public-destinations.json) — the exact same records the
@@ -39,20 +40,55 @@ export interface DestinationRequestContext {
   locale?: PageLocale;
 }
 
-const NOT_FOUND_BODY = `<!doctype html>
-<html lang="en">
+const ERROR_COPY = {
+  en: {
+    notFoundTitle: "Destination Not Found | Meguruto",
+    notFoundHeading: "Destination Not Found",
+    notFoundMessage:
+      "The destination you are looking for does not exist or is no longer available.",
+    unavailableTitle: "Destination Temporarily Unavailable | Meguruto",
+    unavailableHeading: "Destination Temporarily Unavailable",
+    unavailableMessage:
+      "This destination is temporarily unavailable. Please try again later.",
+  },
+  ja: {
+    notFoundTitle: "目的地が見つかりません | Meguruto",
+    notFoundHeading: "目的地が見つかりません",
+    notFoundMessage: "お探しの目的地は存在しないか、公開を終了しています。",
+    unavailableTitle: "目的地を一時的に利用できません | Meguruto",
+    unavailableHeading: "目的地を一時的に利用できません",
+    unavailableMessage:
+      "この目的地は一時的に利用できません。しばらくしてからもう一度お試しください。",
+  },
+} as const;
+
+function errorBody(
+  locale: PageLocale,
+  kind: "notFound" | "unavailable",
+): string {
+  const copy = ERROR_COPY[locale];
+  const title =
+    kind === "notFound" ? copy.notFoundTitle : copy.unavailableTitle;
+  const heading =
+    kind === "notFound" ? copy.notFoundHeading : copy.unavailableHeading;
+  const message =
+    kind === "notFound" ? copy.notFoundMessage : copy.unavailableMessage;
+  const robots = kind === "notFound" ? "noindex" : "noindex, nofollow";
+  return `<!doctype html>
+<html lang="${locale}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex" />
-    <title>Destination Not Found | Meguruto</title>
+    <meta name="robots" content="${robots}" />
+    <title>${title}</title>
   </head>
   <body>
-    <h1>Destination Not Found</h1>
-    <p>The destination you are looking for does not exist or is no longer available.</p>
+    <h1>${heading}</h1>
+    <p>${message}</p>
   </body>
 </html>
 `;
+}
 
 export interface DestinationRouteResult {
   status: number;
@@ -74,7 +110,7 @@ export async function routeDestinationRequest(
   if (!entry) {
     return {
       status: 404,
-      body: NOT_FOUND_BODY,
+      body: errorBody(locale, "notFound"),
       headers: { "X-Robots-Tag": "noindex, follow" },
     };
   }
@@ -86,9 +122,17 @@ export async function routeDestinationRequest(
   if (asset?.ok) {
     return { status: 200, assetPath, headers: {} };
   }
-  // Prerendered page missing (e.g. stale function vs fresh catalogue):
-  // fall back to the locale's SPA shell so valid destinations never 404.
-  return { status: 200, assetPath: `${prefix}/index.html`, headers: {} };
+  // Prerendered page missing (e.g. stale function vs fresh catalogue): fail
+  // closed. Serving the locale's generic shell here would create an
+  // indexable soft-200 with the wrong destination metadata.
+  return {
+    status: 503,
+    body: errorBody(locale, "unavailable"),
+    headers: {
+      "X-Robots-Tag": "noindex, nofollow",
+      "Retry-After": "60",
+    },
+  };
 }
 
 /** Validates a destination id path segment (matches the catalogue slug set:

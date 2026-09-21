@@ -24,4 +24,30 @@ describe("destination Function failure modes", () => {
     expect((await res.json()).error).toBe("destination_manifest_unavailable");
     expect(fetchAsset).toHaveBeenCalledTimes(1);
   });
+
+  it("fails closed when a manifest destination has no prerendered asset", async () => {
+    const fetchAsset = vi.fn(async (request) => {
+      if (request.endsWith("/data/kai68-public-destinations.json")) {
+        return new Response(
+          JSON.stringify([
+            { id: "tokyo-station-chiyoda", status: "published" },
+          ]),
+          { status: 200, headers: { "Content-Type": "application/json" } },
+        );
+      }
+      return new Response("missing", { status: 404 });
+    });
+    const handler = createDestinationHandler("en");
+    const res = await handler({
+      request: new Request(BASE),
+      params: { id: "tokyo-station-chiyoda" },
+      env: { ASSETS: { fetch: fetchAsset } },
+    });
+
+    expect(res.status).toBe(503);
+    expect(res.headers.get("Retry-After")).toBe("60");
+    expect(res.headers.get("X-Robots-Tag")).toBe("noindex, nofollow");
+    expect(await res.text()).toContain("Destination Temporarily Unavailable");
+    expect(fetchAsset).toHaveBeenCalledTimes(2);
+  });
 });
