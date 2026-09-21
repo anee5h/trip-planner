@@ -1,8 +1,7 @@
-# KAI-297 Recruiter Golden-Path QA Baseline
+# KAI-297 Product Golden-Path QA Baseline
 
 - **Date:** 2026-09-19 (JST)
 - **Repository:** `anee5h/trip-planner`
-- **Branch:** `qa/kai-297-recruiter-golden-path`
 - **Base:** `origin/main` at `4a86e071a52a897163fd616d40727137c38349ca`
 - **Validation source SHA:** `7173d697695266e65fc7020d3f0b7b6f88899707` (local source/test correction commit)
 - **Published PR head:** verify the current exact head and checks at [PR #438](https://github.com/anee5h/trip-planner/pull/438/checks); this is intentionally separate from the local validation SHA.
@@ -17,7 +16,7 @@ Local automated coverage used the repository's Vite dev server or production pre
 
 The public smoke used `https://meguruto.app` as a fresh guest session. Cloudflare Pages metadata identified the production source as `main` at `4a86e07`; the KAI-297 branch was not deployed during this audit.
 
-## Recruiter golden-path matrix
+## Product golden-path matrix
 
 | Surface / dimension                                                         | Environment                                        |            Result | Evidence                                                                                   |
 | --------------------------------------------------------------------------- | -------------------------------------------------- | ----------------: | ------------------------------------------------------------------------------------------ |
@@ -51,7 +50,7 @@ The public smoke used `https://meguruto.app` as a fresh guest session. Cloudflar
 - **Expected:** Japanese accessible name `目的地を検索`.
 - **Actual on production source `4a86e07`:** `aria-label="Search destinations"` while the visible placeholder and results are Japanese.
 - **Impact:** Screen-reader users receive contradictory language for a primary search surface; automated role/name navigation also receives the wrong locale.
-- **Fix:** Added the existing `search.title` key to both `src/i18n/resources/en/common.json` and `src/i18n/resources/ja/common.json`; added a regression assertion in `e2e/kai-297-recruiter-golden-path.spec.ts`.
+- **Fix:** Added the existing `search.title` key to both `src/i18n/resources/en/common.json` and `src/i18n/resources/ja/common.json`; added a regression assertion in `e2e/kai-297-product-golden-path.spec.ts`.
 - **Evidence:** [`live-ja-search-dialog.png`](evidence/live-ja-search-dialog.png). The screenshot proves the visible Japanese surface; the English accessible name is a DOM/accessibility-tree observation, not visible text.
 - **Mapping:** KAI-297. No separate KAI-298–307 mapping was necessary.
 
@@ -73,10 +72,10 @@ No blocking blank state, broken primary navigation, contradictory travel-time/tr
 
 ## Tests added
 
-`e2e/kai-297-recruiter-golden-path.spec.ts` adds only the missing connected slices:
+`e2e/kai-297-product-golden-path.spec.ts` adds only the missing connected slices:
 
 - connected guest journey from Home through recommendations, destination detail, logistics/budget, generated itinerary, contextual signup CTA, and Explore in English;
-- the same connected recruiter journey in Japanese using the representative Kyoto recommendation;
+- the same connected product journey in Japanese using the representative Kyoto recommendation;
 - EN → JA → EN switching during the English journey on both configured browser projects;
 - Japanese command-palette accessible-name regression;
 - browser-emulated standalone display-mode smoke;
@@ -96,9 +95,9 @@ External service policy:
 - E2E shard manifest guard: **passed** — 34 specs assigned exactly once across 4 bins.
 - SearchDialog unit regression: **9 passed**.
 - Allure privacy scan for the fake-auth E2E artifact set: **passed**, 8 files scanned / 0 matches.
-- Existing desktop recruiter-relevant suite: **44 passed, 8 expected skips**; the one initial KAI-166 timeout was reproduced as missing `E2E_AUTH_FIXTURE` setup and passed on the authenticated rerun.
+- Existing desktop product-relevant suite: **44 passed, 8 expected skips**; the one initial KAI-166 timeout was reproduced as missing `E2E_AUTH_FIXTURE` setup and passed on the authenticated rerun.
 - Existing authenticated KAI-166/KAI-259 rerun with the fake fixture: **9 passed, 8 expected skips**.
-- Existing mobile recruiter-relevant suite: **52 passed, 4 expected skips**. The run exposed the missing `search.title` warning that the branch fixes.
+- Existing mobile product-relevant suite: **52 passed, 4 expected skips**. The run exposed the missing `search.title` warning that the branch fixes.
 - Existing PWA/lazy-catalogue preview suite: **19 passed**.
 - Existing KAI-80 production-preview accessibility/auth matrix: **72 passed, 2 expected skips**.
 - Full Vitest suite from committed `HEAD`: **385 test files, 5,319 passed, 2 skipped**.
@@ -119,8 +118,8 @@ External service policy:
 - No real production authenticated login, logout, account creation, account switching, or saved-data mutation was performed.
 - Browser display-mode emulation proves the app branch responds to `matchMedia`; it does not prove an installed PWA.
 - Live production was smoke-tested as guest only and remained on `main` source `4a86e07`; the branch fix needs deployment before the P1 live finding can be closed.
-- The live smoke did not claim a clean browser-console audit. The new deterministic KAI-297 flow mocks weather; one older KAI-166 authenticated run emitted a WebServer weather-fetch stack while its legacy test did not mock weather, but the test passed. This is recorded as harness noise, not a reproduced recruiter defect.
+- The live smoke did not claim a clean browser-console audit. The new deterministic KAI-297 flow mocks weather; one older KAI-166 authenticated run emitted a WebServer weather-fetch stack while its legacy test did not mock weather, but the test passed. This is recorded as harness noise, not a reproduced product defect.
 
 ## Closure
 
-The recruiter golden path is reproducible locally across desktop/mobile, EN/JA, guest/fake-auth, and browser-emulated standalone coverage. The only recruiter-visible defect found is the P1 Japanese accessibility-label mismatch on the currently deployed `main`; it is fixed and regression-tested on this branch. Physical installed-PWA and real-account checks remain explicitly partial until a suitable device/account environment is available.
+The product golden path is reproducible locally across desktop/mobile, EN/JA, guest/fake-auth, and browser-emulated standalone coverage. The only product-visible defect found is the P1 Japanese accessibility-label mismatch on the currently deployed `main`; it is fixed and regression-tested on this branch. Physical installed-PWA and real-account checks remain explicitly partial until a suitable device/account environment is available.

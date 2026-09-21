@@ -20,7 +20,7 @@ import {
 
 const AUDIT_NOW = new Date("2026-09-05T00:00:00Z");
 
-interface Recruitment {
+interface OpeningHoursRecord {
   id: string;
   name: string;
   kind: string;
@@ -94,8 +94,8 @@ const OPEN_AREA_KINDS = new Set([
 ]);
 const SPECIFIC_WINDOW = /^\d{1,2}:\d{2}\s*[-\u2013\u2014]\s*\d{1,2}:\d{2}/;
 
-const suspiciousCohort: Recruitment[] = [];
-const nonsenseCohort: Recruitment[] = [];
+const suspiciousCohort: OpeningHoursRecord[] = [];
+const nonsenseCohort: OpeningHoursRecord[] = [];
 const NO_VALID_ACCESS_KINDS = new Set([
   "street",
   "district",

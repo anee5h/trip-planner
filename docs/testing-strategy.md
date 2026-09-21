@@ -12,7 +12,7 @@ The current audited base for this branch is `origin/main` at [`1d0f0b3b`](https:
 
 | Failure mode | Existing coverage | What remains unproven |
 |---|---|---|
-| Home → recommendation → detail → planner path breaks | [`kai-297-recruiter-golden-path.spec.ts`](../e2e/kai-297-recruiter-golden-path.spec.ts), related Home/detail/planner specs, Chromium mobile + desktop bins | Mocked catalogue/weather and browser emulation do not prove every live provider response or every data record. |
+| Home → recommendation → detail → planner path breaks | [`kai-297-product-golden-path.spec.ts`](../e2e/kai-297-product-golden-path.spec.ts), related Home/detail/planner specs, Chromium mobile + desktop bins | Mocked catalogue/weather and browser emulation do not prove every live provider response or every data record. |
 | EN/JA UI contradictions or wrong locale contract | [`check-translation-parity.cjs`](../scripts/check-translation-parity.cjs), [`kai-80-a11y.spec.ts`](../e2e/kai-80-a11y.spec.ts), KAI-297 EN/JA journey, [`PlaceCatalog.test.ts`](../src/shared/services/place/__tests__/PlaceCatalog.test.ts) | Key/placeholder parity does not judge translation quality, terminology, or every product sentence. |
 | Mobile-only overflow, focus, or control regressions | Chromium mobile project, KAI-80 narrow/reflow/focus tests, mobile a11y matrix, responsive E2E specs | Chromium iPhone emulation is not physical iOS Safari, Android Chrome, or an installed PWA. |
 | Inaccurate or overconfident transport | [`OriginAwareTransportService.test.ts`](../src/shared/services/transport/__tests__/OriginAwareTransportService.test.ts), transport-domain tests, [`docs/transport-estimation.md`](transport-estimation.md) | Fixtures validate selected corridors and fail-closed semantics; they do not establish nationwide route accuracy, live availability, or provider uptime. |
@@ -173,7 +173,7 @@ The committed warning ledger in [`scripts/audit/catalog-warnings-baseline.json`]
 The only numeric suite snapshot intentionally carried forward here is historical and pinned to the KAI-297 report:
 
 - **Date:** 2026-09-19 JST;
-- **Source/report:** [`qa/kai-297/recruiter-golden-path.md`](../qa/kai-297/recruiter-golden-path.md);
+- **Source/report:** [`qa/kai-297/product-golden-path.md`](../qa/kai-297/product-golden-path.md);
 - **reported commands/evidence:** 385 Vitest files, 5,319 passed, 2 skipped; 34 E2E specs assigned exactly once across four bins; 853 translation keys with zero placeholder mismatches; and the report's recorded exact-head PR checks;
 - **historical source context:** the report identifies its local validation source SHA separately from its published PR head and records production observations against an older main source.
 
@@ -230,4 +230,4 @@ For subsystem detail, use the existing focused references:
 - [`docs/transport-estimation.md`](transport-estimation.md) — topology, evidence hierarchy, uncertainty, and pilot boundaries;
 - [`docs/data-quality.md`](data-quality.md) — catalogue semantics, provenance, relationships, audits, and safe maintenance;
 - [`docs/kai-126-allure-dashboard.md`](kai-126-allure-dashboard.md) — protected Allure/QA surfaces, history, privacy, and owner-side R2 setup; and
-- [`qa/kai-297/recruiter-golden-path.md`](../qa/kai-297/recruiter-golden-path.md) — dated recruiter golden-path QA baseline and its explicit limitations.
+- [`qa/kai-297/product-golden-path.md`](../qa/kai-297/product-golden-path.md) — dated product golden-path QA baseline and its explicit limitations.
