@@ -199,7 +199,7 @@ async function runConnectedGuestPath(
   ).toBeVisible();
 }
 
-test.describe("KAI-297 recruiter golden path", () => {
+test.describe("KAI-297 product golden path", () => {
   test.beforeEach(async ({ page }) => {
     await seedDeterministicHome(page);
   });
@@ -210,7 +210,7 @@ test.describe("KAI-297 recruiter golden path", () => {
     await runConnectedGuestPath(page, "en", true);
   });
 
-  test("guest can move through the full Japanese recruiter journey", async ({
+  test("guest can move through the full Japanese product journey", async ({
     page,
   }) => {
     await runConnectedGuestPath(page, "ja");

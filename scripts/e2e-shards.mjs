@@ -53,7 +53,7 @@ const WEIGHTS = {
   "kai-278-journey-handoff": 20, // canonical handoff/scope boundary
   "kai-279-budget-constraint": 20, // explicit party-total budget constraint journeys
   "kai-259-signup-header": 20, // guest header + deterministic auth header flow
-  "kai-297-recruiter-golden-path": 30, // connected recruiter flow + fake auth handoff
+  "kai-297-product-golden-path": 30, // connected product flow + fake auth handoff
   "kai-138-compact-mobile-homepage": 20, // compact Home geometry and nav clearance
   "card-rail-alignment": 4, // equal-height rail contract (Home top matches + hubs)
   "kai-205-composition": 20, // cross-rail canonical IDs + card-height composition contract
@@ -92,7 +92,7 @@ const BINS = {
     "kai-166-itinerary-action-row",
     "kai-212-hub-discovery",
     "kai-259-signup-header",
-    "kai-297-recruiter-golden-path",
+    "kai-297-product-golden-path",
     "kai-138-compact-mobile-homepage",
     "card-rail-alignment",
     "kai-205-composition",

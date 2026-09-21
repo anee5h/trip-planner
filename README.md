@@ -90,11 +90,11 @@ Evidence: [`destinations-index.json`](src/shared/data/destinations-index.json), 
 
 ### 5. Bilingual, responsive, accessible journeys
 
-The UI ships English and Japanese resources through `i18next`, with URL locale prefixes used for shareable and crawlable Japanese pages. Translation key and placeholder parity is checked in CI. The main recruiter flow has desktop and mobile Playwright coverage, an axe-based accessibility gate, and production-preview PWA tests.
+The UI ships English and Japanese resources through `i18next`, with URL locale prefixes used for shareable and crawlable Japanese pages. Translation key and placeholder parity is checked in CI. The main product journey has desktop and mobile Playwright coverage, an axe-based accessibility gate, and production-preview PWA tests.
 
 The PWA boundary is intentionally described precisely: browser-emulated `display-mode: standalone` coverage and service-worker tests exist, but they do not establish physical installed iOS or Android behavior. That real-device validation remains open.
 
-Evidence: [`src/i18n/index.ts`](src/i18n/index.ts), [`check-translation-parity.cjs`](scripts/check-translation-parity.cjs), [`playwright.config.ts`](playwright.config.ts), [`pr-checks.yml`](.github/workflows/pr-checks.yml), and the merged [KAI-297 recruiter QA report](qa/kai-297/recruiter-golden-path.md).
+Evidence: [`src/i18n/index.ts`](src/i18n/index.ts), [`check-translation-parity.cjs`](scripts/check-translation-parity.cjs), [`playwright.config.ts`](playwright.config.ts), [`pr-checks.yml`](.github/workflows/pr-checks.yml), and the merged [KAI-297 product QA report](qa/kai-297/product-golden-path.md).
 
 ## Engineering documentation
 
@@ -152,11 +152,11 @@ Versions above are read from [`package.json`](package.json); the live deployment
 Quality gates are designed around the failure modes of a data-heavy, localized planning application rather than only component snapshots:
 
 - **Unit and component tests:** Vitest covers recommendation, transport, budget semantics, itinerary logic, catalogue relationships, localization, and failure paths.
-- **Browser journeys:** Playwright runs weighted file bins across Chromium desktop and mobile projects. The merged KAI-297 baseline covers the recruiter path through recommendations, destination detail, logistics/budget, itinerary generation, signup CTA, Explore, English/Japanese switching, fake-auth handoff, and browser-emulated standalone mode.
+- **Browser journeys:** Playwright runs weighted file bins across Chromium desktop and mobile projects. The merged KAI-297 baseline covers the core product journey through recommendations, destination detail, logistics/budget, itinerary generation, signup CTA, Explore, English/Japanese switching, fake-auth handoff, and browser-emulated standalone mode.
 - **Accessibility and PWA:** dedicated axe-based desktop/mobile coverage and production-preview PWA/service-worker coverage.
 - **Data and release gates:** TypeScript, lint, formatting, i18n parity, catalogue integrity/sync, SEO freshness, build, PWA, branding, protected-route, and secret/privacy scans.
 - **Testing strategy and release evidence:** [testing strategy](docs/testing-strategy.md) maps product risks to tests, CI triggers, artifacts, and unverified boundaries.
-- **Traceable QA evidence:** the [KAI-297 report](qa/kai-297/recruiter-golden-path.md) records the environment and limitations. Its 2026-09-19 snapshot reported 385 Vitest files with 5,319 passing tests and 2 skipped, 34 E2E specs assigned exactly once across four bins, 853 translation keys with no placeholder mismatches, and green exact-head PR checks. These are dated evidence snapshots, not permanent guarantees.
+- **Traceable QA evidence:** the [KAI-297 report](qa/kai-297/product-golden-path.md) records the environment and limitations. Its 2026-09-19 snapshot reported 385 Vitest files with 5,319 passing tests and 2 skipped, 34 E2E specs assigned exactly once across four bins, 853 translation keys with no placeholder mismatches, and green exact-head PR checks. These are dated evidence snapshots, not permanent guarantees.
 
 The scheduled `Full Remote Validation` workflow is manual/nightly by configuration; it is not described here as a passing pull-request check when it was skipped.
 

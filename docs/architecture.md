@@ -174,4 +174,4 @@ Failures are intentionally handled at the narrowest useful seam:
 - [Transport estimation](transport-estimation.md)
 - [Data quality](data-quality.md)
 - Scheduled-transit and ODPT boundaries: [`transport-estimation.md`](transport-estimation.md)
-- Existing QA baseline: [`qa/kai-297/recruiter-golden-path.md`](../qa/kai-297/recruiter-golden-path.md)
+- Existing QA baseline: [`qa/kai-297/product-golden-path.md`](../qa/kai-297/product-golden-path.md)
