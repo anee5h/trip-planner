@@ -33,6 +33,7 @@ describe("KAI-68 router: published destination", () => {
       "/destinations/tokyo-station-chiyoda/index.html",
     );
     expect(result.body).toBeUndefined();
+    expect(result.assetResponse).toBeInstanceOf(Response);
   });
 
   it("fails closed when the prerendered asset is missing", async () => {

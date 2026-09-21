@@ -62,7 +62,7 @@ const ERROR_COPY = {
   },
 } as const;
 
-function errorBody(
+export function renderDestinationErrorBody(
   locale: PageLocale,
   kind: "notFound" | "unavailable",
 ): string {
@@ -94,6 +94,7 @@ export interface DestinationRouteResult {
   status: number;
   body?: string;
   assetPath?: string;
+  assetResponse?: Response;
   headers?: Record<string, string>;
 }
 
@@ -110,7 +111,7 @@ export async function routeDestinationRequest(
   if (!entry) {
     return {
       status: 404,
-      body: errorBody(locale, "notFound"),
+      body: renderDestinationErrorBody(locale, "notFound"),
       headers: { "X-Robots-Tag": "noindex, follow" },
     };
   }
@@ -120,14 +121,14 @@ export async function routeDestinationRequest(
   const assetPath = `${prefix}/destinations/${ctx.id}/index.html`;
   const asset = await ctx.fetchAsset(assetPath);
   if (asset?.ok) {
-    return { status: 200, assetPath, headers: {} };
+    return { status: 200, assetPath, assetResponse: asset, headers: {} };
   }
   // Prerendered page missing (e.g. stale function vs fresh catalogue): fail
   // closed. Serving the locale's generic shell here would create an
   // indexable soft-200 with the wrong destination metadata.
   return {
     status: 503,
-    body: errorBody(locale, "unavailable"),
+    body: renderDestinationErrorBody(locale, "unavailable"),
     headers: {
       "X-Robots-Tag": "noindex, nofollow",
       "Retry-After": "60",

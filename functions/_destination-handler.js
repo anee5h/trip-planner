@@ -18,7 +18,10 @@
  * Note: _headers does NOT apply to Function responses; SECURITY headers are
  * set here (see src/seo/meta.ts) and must be kept in sync with public/_headers.
  */
-import { routeDestinationRequest } from "../src/seo/router.js";
+import {
+  renderDestinationErrorBody,
+  routeDestinationRequest,
+} from "../src/seo/router.js";
 import { SECURITY_HEADERS } from "../src/seo/meta.js";
 
 const MANIFEST_PATH = "/data/kai68-public-destinations.json";
@@ -46,8 +49,9 @@ export function createDestinationHandler(locale) {
     const requestUrl = context.request.url;
     if (typeof id !== "string" || !/^[a-z0-9-]{1,128}$/.test(id)) {
       const headers = new Headers(SECURITY_HEADERS);
+      headers.set("Content-Type", "text/html; charset=utf-8");
       headers.set("X-Robots-Tag", "noindex, follow");
-      return new Response("Not Found", {
+      return new Response(renderDestinationErrorBody(locale, "notFound"), {
         status: 404,
         headers,
       });
@@ -91,10 +95,19 @@ export function createDestinationHandler(locale) {
       });
     }
 
-    const asset = await context.env.ASSETS.fetch(
-      assetUrl(requestUrl, result.assetPath),
-    );
-    return new Response(asset.body, {
+    if (!result.assetResponse) {
+      return new Response(renderDestinationErrorBody(locale, "unavailable"), {
+        status: 503,
+        headers: {
+          ...baseHeaders,
+          "Content-Type": "text/html; charset=utf-8",
+          "X-Robots-Tag": "noindex, nofollow",
+          "Retry-After": "60",
+        },
+      });
+    }
+
+    return new Response(result.assetResponse.body, {
       status: result.status,
       headers: {
         ...baseHeaders,
