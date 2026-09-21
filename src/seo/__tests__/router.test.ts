@@ -33,16 +33,24 @@ describe("KAI-68 router: published destination", () => {
       "/destinations/tokyo-station-chiyoda/index.html",
     );
     expect(result.body).toBeUndefined();
+    expect(result.assetResponse).toBeInstanceOf(Response);
   });
 
-  it("falls back to the SPA shell if the prerendered asset is missing", async () => {
+  it("fails closed when the prerendered asset is missing", async () => {
     const result = await routeDestinationRequest({
       id: "tokyo-station-chiyoda",
       manifest: MANIFEST,
       fetchAsset: okAsset("/index.html"),
     });
-    expect(result.status).toBe(200);
-    expect(result.assetPath).toBe("/index.html");
+    expect(result.status).toBe(503);
+    expect(result.headers).toEqual({
+      "X-Robots-Tag": "noindex, nofollow",
+      "Retry-After": "60",
+    });
+    expect(result.body).toContain(
+      'meta name="robots" content="noindex, nofollow"',
+    );
+    expect(result.assetPath).toBeUndefined();
   });
 });
 
@@ -67,7 +75,7 @@ describe("KAI-97 router: every canonical destination is indexable", () => {
     },
   );
 
-  it("does NOT noindex published destinations (prerendered or shell-fallback)", async () => {
+  it("does NOT noindex a destination with a prerendered asset", async () => {
     const prerendered = await routeDestinationRequest({
       id: "tokyo-station-chiyoda",
       manifest: MANIFEST,
@@ -75,14 +83,6 @@ describe("KAI-97 router: every canonical destination is indexable", () => {
     });
     expect(prerendered.status).toBe(200);
     expect(prerendered.headers).toEqual({});
-
-    const fallback = await routeDestinationRequest({
-      id: "tokyo-station-chiyoda",
-      manifest: MANIFEST,
-      fetchAsset: okAsset("/index.html"),
-    });
-    expect(fallback.status).toBe(200);
-    expect(fallback.headers).toEqual({});
   });
 });
 
@@ -136,15 +136,20 @@ describe("KAI-101 router: Japanese locale (/ja/destinations/:id)", () => {
     expect(result.headers).toEqual({});
   });
 
-  it("falls back to the /ja SPA shell if the JA prerendered asset is missing", async () => {
+  it("fails closed when the JA prerendered asset is missing", async () => {
     const result = await routeDestinationRequest({
       id: "tokyo-station-chiyoda",
       manifest: MANIFEST,
       locale: "ja",
       fetchAsset: okAsset("/ja/index.html"),
     });
-    expect(result.status).toBe(200);
-    expect(result.assetPath).toBe("/ja/index.html");
+    expect(result.status).toBe(503);
+    expect(result.headers).toEqual({
+      "X-Robots-Tag": "noindex, nofollow",
+      "Retry-After": "60",
+    });
+    expect(result.body).toContain("目的地を一時的に利用できません");
+    expect(result.assetPath).toBeUndefined();
   });
 
   it("serves the JA prerendered HTML asset for non-published destinations", async () => {
@@ -160,7 +165,7 @@ describe("KAI-101 router: Japanese locale (/ja/destinations/:id)", () => {
     expect(result.headers).toEqual({});
   });
 
-  it("404s unknown ids under /ja with noindex", async () => {
+  it("404s unknown ids under /ja with a localized noindex body", async () => {
     const result = await routeDestinationRequest({
       id: "no-such-destination",
       manifest: MANIFEST,
@@ -169,6 +174,10 @@ describe("KAI-101 router: Japanese locale (/ja/destinations/:id)", () => {
     });
     expect(result.status).toBe(404);
     expect(result.headers?.["X-Robots-Tag"]).toBe("noindex, follow");
+    expect(result.body).toContain('<html lang="ja">');
+    expect(result.body).toContain('<meta name="robots" content="noindex" />');
+    expect(result.body).toContain("目的地が見つかりません");
+    expect(result.body).not.toContain("Destination Not Found");
   });
 
   it("keeps the EN default when no locale is given", async () => {
