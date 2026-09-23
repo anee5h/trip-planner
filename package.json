@@ -51,6 +51,8 @@
     "check:catalog-sync": "tsx scripts/check-catalog-sync.ts",
     "audit:kai-203": "tsx scripts/audit-kai-203-destination-completeness.ts",
     "audit:kai-323": "tsx scripts/research/kai-323-admission-pilot.ts --check",
+    "audit:kai-324": "tsx scripts/research/kai-324-admission-governance.ts --check",
+    "generate:kai-324": "tsx scripts/research/kai-324-admission-governance.ts --write",
     "audit:kai-257": "tsx --tsconfig tsconfig.app.json scripts/audit-kai-257-top-sights-integrity.ts",
     "audit:kai-219": "tsx --tsconfig tsconfig.app.json scripts/audit/kai-219-migration-audit.ts",
     "audit:kai-285": "tsx --tsconfig tsconfig.app.json scripts/audit/kai-285-admission-audit.ts && prettier --write qa/kai-285/admission-audit.json qa/kai-285/admission-audit.md",
