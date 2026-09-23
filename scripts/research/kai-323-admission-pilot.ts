@@ -112,20 +112,32 @@ export function parseJpyPrices(text: string): number[] {
 }
 
 export interface ParsedJpyText {
+  /** Values observed next to JPY markers in arbitrary text; not a ticket range. */
   values: readonly number[];
-  minimum: number | null;
-  maximum: number | null;
+  /** Smallest observed currency token; may be an age band/product/surcharge. */
+  observedMinimum: number | null;
+  /** Largest observed currency token; may be an age band/product/surcharge. */
+  observedMaximum: number | null;
   fromOnly: boolean;
+  /** Prevents consumers from treating text extrema as adult admission bounds. */
+  semantics: "observed_currency_tokens_only";
 }
 
+/**
+ * Parses currency tokens for research triage only. `observedMinimum` and
+ * `observedMaximum` are text-level extrema, not an admission-price range.
+ * Product/category/date interpretation belongs to the reviewed extraction
+ * record and is never inferred here.
+ */
 export function parseJpyText(text: string): ParsedJpyText {
   const values = parseJpyPrices(text);
   const fromOnly = /(?:from|から|〜|~)\s*(?:¥|￥|JPY)?\s*[\d,.]+/i.test(text);
   return {
     values,
-    minimum: values.length > 0 ? values[0] : null,
-    maximum: values.length > 0 ? values[values.length - 1] : null,
+    observedMinimum: values.length > 0 ? values[0] : null,
+    observedMaximum: values.length > 0 ? values[values.length - 1] : null,
     fromOnly,
+    semantics: "observed_currency_tokens_only",
   };
 }
 
@@ -231,11 +243,16 @@ function compareAdultToCurrent(
   baseline: JsonObject,
   extraction: ExtractionRecord,
 ): string {
+  const currentClassification = String(
+    baseline.currentClassification ?? "unknown",
+  );
   if (
     extraction.extractionStatus === "failed" ||
     extraction.extractionStatus === "unresolved"
   ) {
-    return "remain_unknown";
+    return currentClassification === "unknown"
+      ? "remain_unknown"
+      : "no_new_evidence_keep_current";
   }
   if (extraction.extractionStatus === "manual_review") return "manual_review";
   if (extraction.extractionStatus === "verified_variable")
@@ -249,7 +266,10 @@ function compareAdultToCurrent(
     current.minimumPrice === extraction.adultPrice &&
     current.maximumPrice === extraction.adultPrice
   ) {
-    return "no_change_confirmed";
+    // Equal adult numbers do not prove product/scope/date equivalence. The
+    // current fact has no comparable ticketProduct field, so KAI-324-style
+    // provenance approval remains necessary before any catalogue mutation.
+    return "price_matches_review_scope";
   }
   return "review_required_conflict_or_scope";
 }
