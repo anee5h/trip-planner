@@ -6,7 +6,9 @@ import {
   applyApprovedChanges,
   buildGovernanceReport,
   loadActualGovernanceReport,
+  manualReviewEvidenceSha256,
   publishApprovedCatalogue,
+  promoteManualReview,
   reportSha256,
   restoreCatalogueBackup,
   stableJson,
@@ -114,7 +116,8 @@ function makeInput(
     robotsUrl: "https://official.example.test/robots.txt",
     robotsStatus: 200,
     robotsBlockedAll: false,
-    technicalStatus: options.technicalStatus ?? 200,
+    technicalStatus:
+      options.technicalStatus !== undefined ? options.technicalStatus : 200,
     technicalResult: "price_text_retrieved",
     termsStatus: "not_located",
     automationEligibility: "manual_review_required",
@@ -401,6 +404,114 @@ describe("KAI-324 merged KAI-323 dry run", () => {
     );
   });
 
+  it("promotes an eligible held candidate only with a bound manual decision", () => {
+    const input = makeInput({
+      extraction: { ticketProduct: "premium bundle" },
+    });
+    const report = buildGovernanceReport(input);
+    report.catalogueBaseVerified = true;
+    const record = report.records[0];
+    expect(record.decision).toBe("held_for_review");
+    const artifact = {
+      schemaVersion: 1 as const,
+      ticket: "KAI-324" as const,
+      reportSha256: reportSha256(report),
+      catalogueSha256: report.catalogueSha256,
+      reviewedAt: "2026-09-23",
+      reviewedBy: "manual reviewer",
+      explicitManualApproval: true as const,
+      decisions: [
+        {
+          destinationId: record.destinationId,
+          sourceUrl: record.sourceEvidence.sourceUrl,
+          evidenceSha256: manualReviewEvidenceSha256(record),
+          revalidatedAt: "2026-09-23",
+          reviewerNote: "Revalidated the exact product and conditions.",
+        },
+      ],
+    };
+    const promoted = promoteManualReview(report, input.catalogue, artifact);
+    expect(promoted.counts).toMatchObject({
+      approved: 1,
+      heldForReview: 0,
+      rejected: 0,
+    });
+    expect(promoted.records[0].decision).toBe("approved");
+    expect(promoted.records[0].decisionHistory.at(-1)?.event).toBe(
+      "kai324_manual_approval",
+    );
+    expect(report.records[0].decision).toBe("held_for_review");
+  });
+
+  it("cannot promote rejected records or an unbound manual decision", () => {
+    const input = makeInput({
+      extraction: {
+        extractionStatus: "failed",
+        adultPrice: null,
+        originalPriceText: null,
+        failureReason: "source failed",
+      },
+    });
+    const report = buildGovernanceReport(input);
+    report.catalogueBaseVerified = true;
+    const record = report.records[0];
+    const artifact = {
+      schemaVersion: 1 as const,
+      ticket: "KAI-324" as const,
+      reportSha256: reportSha256(report),
+      catalogueSha256: report.catalogueSha256,
+      reviewedAt: "2026-09-23",
+      reviewedBy: "manual reviewer",
+      explicitManualApproval: true as const,
+      decisions: [
+        {
+          destinationId: record.destinationId,
+          sourceUrl: record.sourceEvidence.sourceUrl,
+          evidenceSha256: manualReviewEvidenceSha256(record),
+          revalidatedAt: "2026-09-23",
+          reviewerNote: "Attempted promotion without new evidence.",
+        },
+      ],
+    };
+    expect(() =>
+      promoteManualReview(report, input.catalogue, artifact),
+    ).toThrow("rejected records require new evidence");
+    expect(() =>
+      promoteManualReview(report, input.catalogue, {
+        ...artifact,
+        reportSha256: "0".repeat(64),
+      }),
+    ).toThrow("manual review artifact snapshot does not match");
+  });
+
+  it("runs the canonical admission validator and records source permission boundaries", () => {
+    const invalid = buildGovernanceReport(
+      makeInput({
+        extraction: {
+          adultPrice: 0,
+          originalPriceText: "Adult price 0",
+        },
+      }),
+    );
+    expect(invalid.records[0].decision).toBe("held_for_review");
+    expect(invalid.records[0].reasonCodes).toContain(
+      "canonical_admission_invalid:verified_paid_zero_range",
+    );
+
+    const blocked = buildGovernanceReport(makeInput({ technicalStatus: null }));
+    expect(blocked.records[0].sourceEvidence.collectionPermission).toBe(
+      "unknown_or_blocked",
+    );
+    expect(blocked.records[0].reasonCodes).toContain(
+      "source_not_eligible_for_auto_approval",
+    );
+    const eligible = buildGovernanceReport(makeInput());
+    expect(eligible.records[0].sourceEvidence.collectionPermission).toBe(
+      "manual_one_time_only",
+    );
+    expect(eligible.records[0].sourceEvidence.termsStatus).toBe("not_located");
+  });
+
   it("holds stale and expired evidence", () => {
     const stale = buildGovernanceReport(
       makeInput({ extraction: { verificationDate: "2024-01-01" } }),
@@ -641,6 +752,14 @@ describe("KAI-324 reviewed publish boundary", () => {
       report,
       approval,
     });
+    const publishedText = fs.readFileSync(outputPath, "utf8");
+    const changedOutput = JSON.parse(publishedText) as JsonObject[];
+    changedOutput[0].id = "subsequent-edit";
+    fs.writeFileSync(outputPath, stableJson(changedOutput), "utf8");
+    expect(() => restoreCatalogueBackup(outputPath, backupPath)).toThrow(
+      "published output changed since approval",
+    );
+    fs.writeFileSync(outputPath, publishedText, "utf8");
     restoreCatalogueBackup(outputPath, backupPath);
     expect(JSON.parse(fs.readFileSync(outputPath, "utf8"))).toEqual(
       priorOutput,

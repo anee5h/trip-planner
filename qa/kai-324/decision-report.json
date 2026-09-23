@@ -94,7 +94,13 @@
         "sourceRegistryUrl": "https://www.cupnoodles-museum.jp/en/yokohama/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "price_text_retrieved",
-        "manualVerified": true
+        "manualVerified": true,
+        "robotsUrl": "https://www.cupnoodles-museum.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "verified",
       "manualVerified": true,
@@ -120,6 +126,7 @@
       "decision": "held_for_review",
       "reviewerOrRule": "KAI-324 manual-review-queue-v1",
       "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -136,6 +143,7 @@
       "validation": {
         "valid": false,
         "issues": [
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
           "admission_scope_missing",
           "visitor_category_missing",
           "tax_basis_missing",
@@ -231,7 +239,13 @@
         "sourceRegistryUrl": "https://www.tokyodisneyresort.jp/en/tdl/ticket/index",
         "registryTechnicalStatus": null,
         "registryTechnicalResult": "timeout",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.tokyodisneyresort.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "failed",
       "manualVerified": false,
@@ -319,7 +333,13 @@
         "sourceRegistryUrl": "https://www.tokyodisneyresort.jp/en/tds/ticket/index",
         "registryTechnicalStatus": null,
         "registryTechnicalResult": "timeout",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.tokyodisneyresort.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "failed",
       "manualVerified": false,
@@ -408,7 +428,13 @@
         "sourceRegistryUrl": "https://www.enosui.com/en/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "admission_labels_retrieved_numeric_table_not_recovered",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.enosui.com/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "unresolved",
       "manualVerified": false,
@@ -495,7 +521,13 @@
         "sourceRegistryUrl": "https://www.dinosaur.pref.fukui.jp/en/info.html",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "price_labels_retrieved_numeric_table_not_recovered",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.dinosaur.pref.fukui.jp/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "manual_review",
       "manualVerified": false,
@@ -521,12 +553,14 @@
       "decision": "held_for_review",
       "reviewerOrRule": "KAI-324 manual-review-queue-v1",
       "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
         "manual_review_required"
       ],
       "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
       "validation": {
         "valid": false,
         "issues": [
+          "source_not_eligible_for_auto_approval",
           "manual_review_required"
         ]
       },
@@ -580,7 +614,13 @@
         "sourceRegistryUrl": "https://www.fukuoka-art-museum.jp/en/visit/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "admission_labels_retrieved_numeric_table_not_recovered",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.fukuoka-art-museum.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "unresolved",
       "manualVerified": false,
@@ -678,7 +718,13 @@
         "sourceRegistryUrl": "https://www.ghibli-museum.jp/en/tickets/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "price_text_retrieved",
-        "manualVerified": true
+        "manualVerified": true,
+        "robotsUrl": "https://www.ghibli-museum.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "verified",
       "manualVerified": true,
@@ -704,6 +750,7 @@
       "decision": "held_for_review",
       "reviewerOrRule": "KAI-324 manual-review-queue-v1",
       "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -721,6 +768,7 @@
       "validation": {
         "valid": false,
         "issues": [
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
           "admission_scope_missing",
           "visitor_category_missing",
           "tax_basis_missing",
@@ -831,7 +879,13 @@
         "sourceRegistryUrl": "https://www.tokyo-park.or.jp/teien/en/hama-rikyu/outline.html",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "price_text_retrieved",
-        "manualVerified": true
+        "manualVerified": true,
+        "robotsUrl": "https://www.tokyo-park.or.jp/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "verified",
       "manualVerified": true,
@@ -857,6 +911,8 @@
       "decision": "held_for_review",
       "reviewerOrRule": "KAI-324 manual-review-queue-v1",
       "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -873,6 +929,8 @@
       "validation": {
         "valid": false,
         "issues": [
+          "source_not_eligible_for_auto_approval",
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
           "admission_scope_missing",
           "visitor_category_missing",
           "tax_basis_missing",
@@ -969,7 +1027,13 @@
         "sourceRegistryUrl": "https://www.himejicastle.jp/en/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "page_retrieved_price_not_recovered",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.himejicastle.jp/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "manual_review",
       "manualVerified": false,
@@ -995,6 +1059,7 @@
       "decision": "held_for_review",
       "reviewerOrRule": "KAI-324 manual-review-queue-v1",
       "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
         "evidence_quotation_missing",
         "manual_review_required"
       ],
@@ -1002,6 +1067,7 @@
       "validation": {
         "valid": false,
         "issues": [
+          "source_not_eligible_for_auto_approval",
           "evidence_quotation_missing",
           "manual_review_required"
         ]
@@ -1056,7 +1122,13 @@
         "sourceRegistryUrl": "https://en.jigokudani-yaenkoen.co.jp/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "admission_revision_notice_no_numeric_price_recovered",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://en.jigokudani-yaenkoen.co.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "unresolved",
       "manualVerified": false,
@@ -1140,7 +1212,13 @@
         "sourceRegistryUrl": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "page_retrieved_price_not_recovered",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.pref.ishikawa.jp/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "unresolved",
       "manualVerified": false,
@@ -1166,6 +1244,7 @@
       "decision": "rejected",
       "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
       "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
         "evidence_quotation_missing",
         "source_failure_or_unresolved"
       ],
@@ -1173,6 +1252,7 @@
       "validation": {
         "valid": false,
         "issues": [
+          "source_not_eligible_for_auto_approval",
           "evidence_quotation_missing",
           "source_failure_or_unresolved"
         ]
@@ -1239,7 +1319,13 @@
         "sourceRegistryUrl": "https://okayama-korakuen.jp/section/english/info/index.html",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "price_text_retrieved",
-        "manualVerified": true
+        "manualVerified": true,
+        "robotsUrl": "https://okayama-korakuen.jp/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "verified",
       "manualVerified": true,
@@ -1265,6 +1351,8 @@
       "decision": "held_for_review",
       "reviewerOrRule": "KAI-324 manual-review-queue-v1",
       "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -1279,6 +1367,8 @@
       "validation": {
         "valid": false,
         "issues": [
+          "source_not_eligible_for_auto_approval",
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
           "admission_scope_missing",
           "visitor_category_missing",
           "tax_basis_missing",
@@ -1374,7 +1464,13 @@
         "sourceRegistryUrl": "https://www.matsumoto-castle.jp/lang/eng/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "page_retrieved_price_not_recovered",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.matsumoto-castle.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "unresolved",
       "manualVerified": false,
@@ -1461,7 +1557,13 @@
         "sourceRegistryUrl": "https://www.kahaku.go.jp/english/visit/",
         "registryTechnicalStatus": 404,
         "registryTechnicalResult": "official_path_not_found",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.kahaku.go.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "failed",
       "manualVerified": false,
@@ -1551,7 +1653,13 @@
         "sourceRegistryUrl": "https://www.kaiyukan.com/language/eng/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "ticket_labels_retrieved_numeric_table_not_recovered",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.kaiyukan.com/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "manual_review",
       "manualVerified": false,
@@ -1577,12 +1685,14 @@
       "decision": "held_for_review",
       "reviewerOrRule": "KAI-324 manual-review-queue-v1",
       "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
         "manual_review_required"
       ],
       "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
       "validation": {
         "valid": false,
         "issues": [
+          "source_not_eligible_for_auto_approval",
           "manual_review_required"
         ]
       },
@@ -1649,7 +1759,13 @@
         "sourceRegistryUrl": "https://www.osakacastle.net/guide/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "price_text_retrieved",
-        "manualVerified": true
+        "manualVerified": true,
+        "robotsUrl": "https://www.osakacastle.net/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "verified",
       "manualVerified": true,
@@ -1675,6 +1791,7 @@
       "decision": "held_for_review",
       "reviewerOrRule": "KAI-324 manual-review-queue-v1",
       "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -1689,6 +1806,7 @@
       "validation": {
         "valid": false,
         "issues": [
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
           "admission_scope_missing",
           "visitor_category_missing",
           "tax_basis_missing",
@@ -1784,7 +1902,13 @@
         "sourceRegistryUrl": "https://www.sapporobeer.jp/brewery/s_museum/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "page_retrieved_price_not_recovered",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.sapporobeer.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "unresolved",
       "manualVerified": false,
@@ -1870,7 +1994,13 @@
         "sourceRegistryUrl": "https://www.shibuya-scramble-square.com/sky/ticket/",
         "registryTechnicalStatus": null,
         "registryTechnicalResult": "tls_validation_failed",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.shibuya-scramble-square.com/robots.txt",
+        "robotsStatus": null,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "failed",
       "manualVerified": false,
@@ -1897,6 +2027,7 @@
       "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
       "reasonCodes": [
         "source_access_degraded",
+        "source_not_eligible_for_auto_approval",
         "evidence_quotation_missing",
         "source_failure_or_unresolved"
       ],
@@ -1905,6 +2036,7 @@
         "valid": false,
         "issues": [
           "source_access_degraded",
+          "source_not_eligible_for_auto_approval",
           "evidence_quotation_missing",
           "source_failure_or_unresolved"
         ]
@@ -1970,7 +2102,13 @@
         "sourceRegistryUrl": "https://borderless.teamlab.art/tokyo/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "variable_price_text_retrieved",
-        "manualVerified": true
+        "manualVerified": true,
+        "robotsUrl": "https://borderless.teamlab.art/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "verified_variable",
       "manualVerified": true,
@@ -2122,7 +2260,13 @@
         "sourceRegistryUrl": "https://www.teamlab.art/e/botanicalgarden/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "variable_price_text_retrieved",
-        "manualVerified": true
+        "manualVerified": true,
+        "robotsUrl": "https://www.teamlab.art/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "verified_variable",
       "manualVerified": true,
@@ -2274,7 +2418,13 @@
         "sourceRegistryUrl": "https://planets.teamlab.art/tokyo",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "price_text_retrieved",
-        "manualVerified": true
+        "manualVerified": true,
+        "robotsUrl": "https://planets.teamlab.art/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "verified",
       "manualVerified": true,
@@ -2300,6 +2450,7 @@
       "decision": "held_for_review",
       "reviewerOrRule": "KAI-324 manual-review-queue-v1",
       "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -2318,6 +2469,7 @@
       "validation": {
         "valid": false,
         "issues": [
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
           "admission_scope_missing",
           "visitor_category_missing",
           "tax_basis_missing",
@@ -2418,7 +2570,13 @@
         "sourceRegistryUrl": "https://tokyo-skytree.jp/en/ticket/individual/reservation/online.html",
         "registryTechnicalStatus": null,
         "registryTechnicalResult": "dns_failure",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://tokyo-skytree.jp/robots.txt",
+        "robotsStatus": null,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
       },
       "extractionStatus": "failed",
       "manualVerified": false,
@@ -2445,6 +2603,7 @@
       "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
       "reasonCodes": [
         "source_access_degraded",
+        "source_not_eligible_for_auto_approval",
         "evidence_quotation_missing",
         "source_failure_or_unresolved"
       ],
@@ -2453,6 +2612,7 @@
         "valid": false,
         "issues": [
           "source_access_degraded",
+          "source_not_eligible_for_auto_approval",
           "evidence_quotation_missing",
           "source_failure_or_unresolved"
         ]
@@ -2507,7 +2667,13 @@
         "sourceRegistryUrl": "https://en.tokyotower.co.jp/ticket/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "ticket_page_retrieved_no_numeric_text",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://en.tokyotower.co.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "unresolved",
       "manualVerified": false,
@@ -2593,7 +2759,13 @@
         "sourceRegistryUrl": "https://www.usj.co.jp/web/en/us/tickets",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "page_retrieved_no_price_text",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.usj.co.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "unresolved",
       "manualVerified": false,
@@ -2680,7 +2852,13 @@
         "sourceRegistryUrl": "https://www.zenkoji.jp/en/",
         "registryTechnicalStatus": 200,
         "registryTechnicalResult": "page_retrieved_price_not_recovered",
-        "manualVerified": false
+        "manualVerified": false,
+        "robotsUrl": "https://www.zenkoji.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
       },
       "extractionStatus": "unresolved",
       "manualVerified": false,

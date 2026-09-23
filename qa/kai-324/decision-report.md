@@ -41,7 +41,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://www.cupnoodles-museum.jp/en/yokohama/ (price\_text\_retrieved)
 - Evidence quotation: “Admission Fee — Adults: 500 yen; high school age children and younger admitted free. Admission-only online tickets are not available; My CUPNOODLES Factory voucher is a separate product.”
 - Reason: A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.
-- Validation issues: `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `age_band_requires_review`, `pricing_scope_requires_review`, `source_not_currently_trusted`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`, `kai323_scope_review_required`
+- Validation issues: `canonical_admission_invalid:verified_paid_invalid_checked_at`, `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `age_band_requires_review`, `pricing_scope_requires_review`, `source_not_currently_trusted`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`, `kai323_scope_review_required`
 - Proposed field changes: `/admission` candidate retained for review
 - Existing fact untouched: **yes**
 
@@ -85,7 +85,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://www.dinosaur.pref.fukui.jp/en/info.html (price\_labels\_retrieved\_numeric\_table\_not\_recovered)
 - Evidence quotation: “Admission Fees; Adults; Child; admission to Field Station is not included.”
 - Reason: A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.
-- Validation issues: `manual_review_required`
+- Validation issues: `source_not_eligible_for_auto_approval`, `manual_review_required`
 - Proposed field changes: none
 - Existing fact untouched: **yes**
 
@@ -107,7 +107,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://www.ghibli-museum.jp/en/tickets/ (price\_text\_retrieved)
 - Evidence quotation: “Admission by age: 19+ JPY 1,000; 13–18 JPY 700; 7–12 JPY 400; 4–6 JPY 100. Advance reservation required; no museum-counter purchase.”
 - Reason: A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.
-- Validation issues: `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `channel_price_requires_review`, `weekday_condition_requires_review`, `pricing_scope_requires_review`, `source_not_currently_trusted`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`, `kai323_scope_review_required`
+- Validation issues: `canonical_admission_invalid:verified_paid_invalid_checked_at`, `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `channel_price_requires_review`, `weekday_condition_requires_review`, `pricing_scope_requires_review`, `source_not_currently_trusted`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`, `kai323_scope_review_required`
 - Proposed field changes: `/admission` candidate retained for review
 - Existing fact untouched: **yes**
 
@@ -118,7 +118,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://www.tokyo-park.or.jp/teien/en/hama-rikyu/outline.html (price\_text\_retrieved)
 - Evidence quotation: “Entrance fee: ¥300 (65 and over: ¥150); no charge for primary school children or younger and eligible Tokyo junior-high students.”
 - Reason: A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.
-- Validation issues: `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `age_band_requires_review`, `pricing_scope_requires_review`, `source_not_currently_trusted`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`, `kai323_scope_review_required`
+- Validation issues: `source_not_eligible_for_auto_approval`, `canonical_admission_invalid:verified_paid_invalid_checked_at`, `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `age_band_requires_review`, `pricing_scope_requires_review`, `source_not_currently_trusted`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`, `kai323_scope_review_required`
 - Proposed field changes: `/admission` candidate retained for review
 - Existing fact untouched: **yes**
 
@@ -129,7 +129,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://www.himejicastle.jp/en/ (page\_retrieved\_price\_not\_recovered)
 - Evidence quotation: none
 - Reason: A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.
-- Validation issues: `evidence_quotation_missing`, `manual_review_required`
+- Validation issues: `source_not_eligible_for_auto_approval`, `evidence_quotation_missing`, `manual_review_required`
 - Proposed field changes: none
 - Existing fact untouched: **yes**
 
@@ -151,7 +151,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/ (page\_retrieved\_price\_not\_recovered)
 - Evidence quotation: none
 - Reason: No defensible new admission fact was produced; the existing catalogue fact remains untouched.
-- Validation issues: `evidence_quotation_missing`, `source_failure_or_unresolved`
+- Validation issues: `source_not_eligible_for_auto_approval`, `evidence_quotation_missing`, `source_failure_or_unresolved`
 - Proposed field changes: none
 - Existing fact untouched: **yes**
 
@@ -162,7 +162,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://okayama-korakuen.jp/section/english/info/index.html (price\_text\_retrieved)
 - Evidence quotation: “Individual Tickets: ¥500; child entry shown as free of charge. Combined tickets and partner museum tickets are separate products.”
 - Reason: A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.
-- Validation issues: `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `pricing_scope_requires_review`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`, `kai323_scope_review_required`
+- Validation issues: `source_not_eligible_for_auto_approval`, `canonical_admission_invalid:verified_paid_invalid_checked_at`, `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `pricing_scope_requires_review`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`, `kai323_scope_review_required`
 - Proposed field changes: `/admission` candidate retained for review
 - Existing fact untouched: **yes**
 
@@ -195,7 +195,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://www.kaiyukan.com/language/eng/ (ticket\_labels\_retrieved\_numeric\_table\_not\_recovered)
 - Evidence quotation: “Admission fees and other tickets; e-tickets on sale now.”
 - Reason: A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.
-- Validation issues: `manual_review_required`
+- Validation issues: `source_not_eligible_for_auto_approval`, `manual_review_required`
 - Proposed field changes: none
 - Existing fact untouched: **yes**
 
@@ -206,7 +206,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://www.osakacastle.net/guide/ (price\_text\_retrieved)
 - Evidence quotation: “通常料金 大人 1,200円; 600円 要証明; 無料 要証明; 2025年4月1日から入館料変更.”
 - Reason: A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.
-- Validation issues: `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `pricing_scope_requires_review`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`, `kai323_scope_review_required`
+- Validation issues: `canonical_admission_invalid:verified_paid_invalid_checked_at`, `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `pricing_scope_requires_review`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`, `kai323_scope_review_required`
 - Proposed field changes: `/admission` candidate retained for review
 - Existing fact untouched: **yes**
 
@@ -228,7 +228,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://www.shibuya-scramble-square.com/sky/ticket/ (tls\_validation\_failed)
 - Evidence quotation: none
 - Reason: No defensible new admission fact was produced; the existing catalogue fact remains untouched.
-- Validation issues: `source_access_degraded`, `evidence_quotation_missing`, `source_failure_or_unresolved`
+- Validation issues: `source_access_degraded`, `source_not_eligible_for_auto_approval`, `evidence_quotation_missing`, `source_failure_or_unresolved`
 - Proposed field changes: none
 - Existing fact untouched: **yes**
 
@@ -261,7 +261,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://planets.teamlab.art/tokyo (price\_text\_retrieved)
 - Evidence quotation: “18 Years and above JPY 4,200; Junior high school students / High school students JPY 2,800; Ages 4-12 JPY 1,500; 3 years old and younger.”
 - Reason: A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.
-- Validation issues: `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `age_band_requires_review`, `channel_price_requires_review`, `weekday_condition_requires_review`, `pricing_scope_requires_review`, `trusted_state_conflict`, `source_not_currently_trusted`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`
+- Validation issues: `canonical_admission_invalid:verified_paid_invalid_checked_at`, `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `age_band_requires_review`, `channel_price_requires_review`, `weekday_condition_requires_review`, `pricing_scope_requires_review`, `trusted_state_conflict`, `source_not_currently_trusted`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`
 - Proposed field changes: `/admission` candidate retained for review
 - Existing fact untouched: **yes**
 
@@ -272,7 +272,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://tokyo-skytree.jp/en/ticket/individual/reservation/online.html (dns\_failure)
 - Evidence quotation: none
 - Reason: No defensible new admission fact was produced; the existing catalogue fact remains untouched.
-- Validation issues: `source_access_degraded`, `evidence_quotation_missing`, `source_failure_or_unresolved`
+- Validation issues: `source_access_degraded`, `source_not_eligible_for_auto_approval`, `evidence_quotation_missing`, `source_failure_or_unresolved`
 - Proposed field changes: none
 - Existing fact untouched: **yes**
 

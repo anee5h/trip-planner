@@ -13,6 +13,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { hasVerifiedFreeEvidence } from "../../src/shared/services/budget/freeEvidence";
+import { validateAdmissionFact } from "../../src/shared/services/budget/factValidation";
 import type {
   ExtractionRecord,
   SourceRegistryEntry,
@@ -51,10 +52,16 @@ export interface SourceEvidence {
   registryTechnicalStatus: number | null;
   registryTechnicalResult: string | null;
   manualVerified: boolean;
+  robotsUrl: string | null;
+  robotsStatus: number | null;
+  robotsBlockedAll: boolean | null;
+  termsStatus: string | null;
+  automationEligibility: string | null;
+  collectionPermission: "manual_one_time_only" | "unknown_or_blocked";
 }
 
 export interface DecisionHistoryEntry {
-  event: "kai323_proposal" | "kai324_evaluation";
+  event: "kai323_proposal" | "kai324_evaluation" | "kai324_manual_approval";
   at: string | null;
   decision: string;
   actorOrRule: string;
@@ -155,6 +162,25 @@ export interface ApprovalArtifact {
   reviewedBy: string;
   explicitPublishConfirmation: true;
   approvedDestinationIds: string[];
+}
+
+export interface ManualReviewDecision {
+  destinationId: string;
+  sourceUrl: string;
+  evidenceSha256: string;
+  revalidatedAt: string;
+  reviewerNote: string;
+}
+
+export interface ManualReviewArtifact {
+  schemaVersion: 1;
+  ticket: "KAI-324";
+  reportSha256: string;
+  catalogueSha256: string;
+  reviewedAt: string;
+  reviewedBy: string;
+  explicitManualApproval: true;
+  decisions: ManualReviewDecision[];
 }
 
 export interface PublishResult {
@@ -372,6 +398,14 @@ function validateIdentity(
   if (registry.technicalStatus !== 200) {
     pushIssue(issues, "source_access_degraded");
   }
+  if (
+    registry.robotsStatus !== 200 ||
+    registry.robotsBlockedAll === true ||
+    typeof registry.technicalResult !== "string" ||
+    registry.technicalResult.trim().length === 0
+  ) {
+    pushIssue(issues, "source_not_eligible_for_auto_approval");
+  }
   if (!isHttpsUrl(extraction.sourceUrl)) {
     pushIssue(issues, "source_url_invalid");
   }
@@ -522,6 +556,23 @@ function validateCandidate(
   if (!proposedAdmission) {
     pushIssue(issues, "structured_amount_missing");
     return;
+  }
+  const canonicalValidation = validateAdmissionFact(proposedAdmission);
+  if (!canonicalValidation.valid) {
+    pushIssue(
+      issues,
+      `canonical_admission_invalid:${canonicalValidation.reason ?? "unknown"}`,
+    );
+  }
+  if (
+    !registry ||
+    registry.technicalStatus !== 200 ||
+    registry.robotsStatus !== 200 ||
+    registry.robotsBlockedAll === true ||
+    typeof registry.technicalResult !== "string" ||
+    registry.technicalResult.trim().length === 0
+  ) {
+    pushIssue(issues, "source_not_eligible_for_auto_approval");
   }
   if (
     !existing ||
@@ -795,6 +846,12 @@ function buildRecord(
       ]
     : [];
   const registryUrl = registry?.sourceUrl ?? null;
+  const collectionPermission: SourceEvidence["collectionPermission"] =
+    registry?.technicalStatus === 200 &&
+    registry?.robotsStatus === 200 &&
+    registry.robotsBlockedAll === false
+      ? "manual_one_time_only"
+      : "unknown_or_blocked";
   return {
     destinationId: proposal.destinationId,
     productionCatalogueChanged: proposal.productionCatalogueChanged,
@@ -811,6 +868,12 @@ function buildRecord(
       registryTechnicalStatus: registry?.technicalStatus ?? null,
       registryTechnicalResult: registry?.technicalResult ?? null,
       manualVerified: extraction.manualVerified,
+      robotsUrl: registry?.robotsUrl ?? null,
+      robotsStatus: registry?.robotsStatus ?? null,
+      robotsBlockedAll: registry?.robotsBlockedAll ?? null,
+      termsStatus: registry?.termsStatus ?? null,
+      automationEligibility: registry?.automationEligibility ?? null,
+      collectionPermission,
     },
     extractionStatus: extraction.extractionStatus,
     manualVerified: extraction.manualVerified,
@@ -1220,6 +1283,128 @@ export function buildGovernanceReport(
   };
 }
 
+export function manualReviewEvidenceSha256(record: GovernanceRecord): string {
+  return jsonSha256({
+    sourceUrl: record.sourceEvidence.sourceUrl,
+    quotation: record.sourceEvidence.quotation,
+  });
+}
+
+function assertManualReviewArtifact(
+  report: GovernanceReport,
+  catalogue: readonly JsonObject[],
+  artifact: ManualReviewArtifact,
+): void {
+  if (
+    report.readOnly !== true ||
+    report.catalogueBaseVerified !== true ||
+    artifact.schemaVersion !== 1 ||
+    artifact.ticket !== "KAI-324" ||
+    artifact.explicitManualApproval !== true ||
+    typeof artifact.reviewedBy !== "string" ||
+    artifact.reviewedBy.trim().length === 0 ||
+    !isValidDate(artifact.reviewedAt) ||
+    artifact.reviewedAt > EVALUATION_DATE ||
+    !Array.isArray(artifact.decisions)
+  ) {
+    throw new Error("manual review artifact is malformed");
+  }
+  if (
+    artifact.reportSha256 !== reportSha256(report) ||
+    artifact.catalogueSha256 !== report.catalogueSha256 ||
+    jsonSha256(catalogue) !== report.catalogueSha256
+  ) {
+    throw new Error("manual review artifact snapshot does not match");
+  }
+  assertCatalogueArray(catalogue, "catalogue");
+  assertUniqueIds(
+    artifact.decisions.map((decision) => decision.destinationId),
+    "manual review decisions",
+  );
+}
+
+export function promoteManualReview(
+  report: GovernanceReport,
+  catalogue: readonly JsonObject[],
+  artifact: ManualReviewArtifact,
+): GovernanceReport {
+  assertManualReviewArtifact(report, catalogue, artifact);
+  const promoted = structuredClone(report);
+  for (const decision of artifact.decisions) {
+    if (
+      typeof decision.destinationId !== "string" ||
+      typeof decision.sourceUrl !== "string" ||
+      typeof decision.evidenceSha256 !== "string" ||
+      typeof decision.revalidatedAt !== "string" ||
+      typeof decision.reviewerNote !== "string" ||
+      decision.reviewerNote.trim().length === 0 ||
+      !/^[a-f0-9]{64}$/.test(decision.evidenceSha256) ||
+      !isValidDate(decision.revalidatedAt) ||
+      decision.revalidatedAt > EVALUATION_DATE
+    ) {
+      throw new Error("manual review decision is malformed");
+    }
+    const index = promoted.records.findIndex(
+      (record) => record.destinationId === decision.destinationId,
+    );
+    if (index < 0) throw new Error("manual review destination is missing");
+    const record = promoted.records[index];
+    if (record.decision === "rejected") {
+      throw new Error("rejected records require new evidence before promotion");
+    }
+    if (record.decision !== "held_for_review") {
+      throw new Error("only held records can be manually promoted");
+    }
+    if (
+      record.sourceEvidence.sourceUrl !== decision.sourceUrl ||
+      manualReviewEvidenceSha256(record) !== decision.evidenceSha256
+    ) {
+      throw new Error("manual review evidence does not match the report");
+    }
+    if (record.sourceEvidence.collectionPermission !== "manual_one_time_only") {
+      throw new Error("manual review source is blocked or unknown");
+    }
+    if (!record.proposedValue) {
+      throw new Error("manual review candidate has no proposed admission");
+    }
+    const validation = validateAdmissionFact(record.proposedValue);
+    if (!validation.valid) {
+      throw new Error(
+        `manual review candidate is not a valid admission fact: ${validation.reason ?? "unknown"}`,
+      );
+    }
+    promoted.records[index] = {
+      ...record,
+      decision: "approved",
+      confidence: "high",
+      reviewerOrRule: `KAI-324 manual-review-approved:${artifact.reviewedBy}`,
+      reason: decision.reviewerNote,
+      reasonCodes: [...record.reasonCodes, "manual_review_revalidated"],
+      validation: { valid: true, issues: [] },
+      decisionHistory: [
+        ...record.decisionHistory,
+        {
+          event: "kai324_manual_approval",
+          at: decision.revalidatedAt,
+          decision: "approved",
+          actorOrRule: `manual:${artifact.reviewedBy}`,
+          reason: decision.reviewerNote,
+        },
+      ],
+    };
+  }
+  const records = promoted.records;
+  promoted.counts = {
+    ...promoted.counts,
+    approved: records.filter((record) => record.decision === "approved").length,
+    heldForReview: records.filter(
+      (record) => record.decision === "held_for_review",
+    ).length,
+    rejected: records.filter((record) => record.decision === "rejected").length,
+  };
+  return promoted;
+}
+
 export function renderGovernanceMarkdown(report: GovernanceReport): string {
   const lines = [
     "# KAI-324 — Provenance and approval dry run",
@@ -1450,6 +1635,7 @@ interface BackupEnvelope {
   existed: boolean;
   content: JsonObject[] | null;
   contentSha256: string | null;
+  publishedOutputSha256: string;
 }
 
 function resolvedPathWithRealParent(filePath: string): string {
@@ -1636,6 +1822,24 @@ export function restoreCatalogueBackup(
       "catalogue backup digest must be null for an absent target",
     );
   }
+  if (
+    typeof backup.publishedOutputSha256 !== "string" ||
+    !/^[a-f0-9]{64}$/.test(backup.publishedOutputSha256)
+  ) {
+    throw new Error("published output hash is malformed");
+  }
+  const targetExists = fs.existsSync(targetPath);
+  if (targetExists) {
+    const currentTarget: unknown = JSON.parse(
+      fs.readFileSync(targetPath, "utf8"),
+    );
+    assertCatalogueArray(currentTarget, "current published output");
+    if (jsonSha256(currentTarget) !== backup.publishedOutputSha256) {
+      throw new Error("published output changed since approval");
+    }
+  } else if (backup.existed) {
+    throw new Error("published output is missing since approval");
+  }
   if (backup.existed) {
     if (!backup.content) throw new Error("catalogue backup content is missing");
     writeAtomicJson(targetPath, backup.content);
@@ -1699,6 +1903,7 @@ export function publishApprovedCatalogue(options: {
     existed: targetExists,
     content: priorOutput,
     contentSha256: targetExists ? jsonSha256(priorOutput) : null,
+    publishedOutputSha256: jsonSha256(nextCatalogue),
   };
   writeAtomicJson(options.backupPath, backup);
   writeAtomicJson(options.outputPath, nextCatalogue);

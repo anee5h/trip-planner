@@ -8,6 +8,7 @@
       "priorAction": "price_matches_review_scope",
       "expectedDecision": "held_for_review",
       "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -54,7 +55,10 @@
       "destinationId": "fukui-prefectural-dinosaur-museum",
       "priorAction": "manual_review",
       "expectedDecision": "held_for_review",
-      "reasonCodes": ["manual_review_required"]
+      "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "manual_review_required"
+      ]
     },
     {
       "destinationId": "fukuoka-art-museum",
@@ -67,6 +71,7 @@
       "priorAction": "price_matches_review_scope",
       "expectedDecision": "held_for_review",
       "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -86,6 +91,8 @@
       "priorAction": "price_matches_review_scope",
       "expectedDecision": "held_for_review",
       "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -103,7 +110,11 @@
       "destinationId": "himeji-castle",
       "priorAction": "manual_review",
       "expectedDecision": "held_for_review",
-      "reasonCodes": ["evidence_quotation_missing", "manual_review_required"]
+      "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "evidence_quotation_missing",
+        "manual_review_required"
+      ]
     },
     {
       "destinationId": "jigokudani-monkey-park",
@@ -116,6 +127,7 @@
       "priorAction": "no_new_evidence_keep_current",
       "expectedDecision": "rejected",
       "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
         "evidence_quotation_missing",
         "source_failure_or_unresolved"
       ]
@@ -125,6 +137,8 @@
       "priorAction": "price_matches_review_scope",
       "expectedDecision": "held_for_review",
       "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -159,13 +173,17 @@
       "destinationId": "osaka-aquarium-kaiyukan",
       "priorAction": "manual_review",
       "expectedDecision": "held_for_review",
-      "reasonCodes": ["manual_review_required"]
+      "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "manual_review_required"
+      ]
     },
     {
       "destinationId": "osaka-castle",
       "priorAction": "price_matches_review_scope",
       "expectedDecision": "held_for_review",
       "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -192,6 +210,7 @@
       "expectedDecision": "rejected",
       "reasonCodes": [
         "source_access_degraded",
+        "source_not_eligible_for_auto_approval",
         "evidence_quotation_missing",
         "source_failure_or_unresolved"
       ]
@@ -240,6 +259,7 @@
       "priorAction": "review_required_conflict_or_scope",
       "expectedDecision": "held_for_review",
       "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
@@ -261,6 +281,7 @@
       "expectedDecision": "rejected",
       "reasonCodes": [
         "source_access_degraded",
+        "source_not_eligible_for_auto_approval",
         "evidence_quotation_missing",
         "source_failure_or_unresolved"
       ]
