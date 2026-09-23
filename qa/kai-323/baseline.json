@@ -1,0 +1,801 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-323",
+  "baseSha": "a94556fcf2718a05a90c69df878c7c2b44779492",
+  "source": "src/shared/data/destinations-index.json",
+  "readOnly": true,
+  "cohortSize": 25,
+  "records": [
+    {
+      "destinationId": "cup-noodles-museum-yokohama",
+      "name": "Cup Noodles Museum Yokohama",
+      "nameJa": "カップヌードルミュージアム 横浜",
+      "kind": null,
+      "role": "poi",
+      "categories": [
+        "Family",
+        "Food",
+        "Museum"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 500,
+        "maximumPrice": 500,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+        ],
+        "checkedAt": "2026-08-14",
+        "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+      ],
+      "checkedAt": "2026-08-14",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "disneyland",
+      "name": "Tokyo Disneyland",
+      "nameJa": "東京ディズニーランド",
+      "kind": null,
+      "role": null,
+      "categories": [
+        "Theme Park"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.tokyodisneyresort.jp/en/ticket/index.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official operator uses date-specific park ticket products; current adult admission is not a stable single value in the page evidence."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://www.tokyodisneyresort.jp/en/ticket/index.html"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "disneysea",
+      "name": "DisneySea",
+      "nameJa": "東京ディズニーシー",
+      "kind": null,
+      "role": null,
+      "categories": [
+        "Theme Park"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.tokyodisneyresort.jp/en/ticket/index.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official operator uses date-specific park ticket products; current adult admission is not a stable single value in the page evidence."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://www.tokyodisneyresort.jp/en/ticket/index.html"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "enoshima-aquarium",
+      "name": "Enoshima Aquarium",
+      "nameJa": "新江ノ島水族館",
+      "kind": "aquarium",
+      "role": "poi",
+      "categories": [
+        "Museum"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 3320,
+        "maximumPrice": 3320,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.enosui.com/basicinfo.php"
+        ],
+        "checkedAt": "2026-08-27",
+        "basis": "Official aquarium page: adult admission ¥3,320; fixed general-entry price."
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://www.enosui.com/basicinfo.php"
+      ],
+      "checkedAt": "2026-08-27",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "fukui-prefectural-dinosaur-museum",
+      "name": "Fukui Prefectural Dinosaur Museum",
+      "nameJa": "福井県立恐竜博物館",
+      "kind": "museum",
+      "role": "standalone",
+      "categories": [
+        "Family",
+        "Museum",
+        "Natural History",
+        "Science"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 1000,
+        "maximumPrice": 1000,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.dinosaur.pref.fukui.jp/en/info.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official museum admission table lists individual adults at ¥1,000; special exhibition and Field Station supplements excluded."
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://www.dinosaur.pref.fukui.jp/en/info.html"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "fukuoka-art-museum",
+      "name": "Fukuoka Art Museum",
+      "nameJa": "福岡市美術館",
+      "kind": "museum",
+      "role": "poi",
+      "categories": [
+        "Museum"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "exhibition_dependent_pricing",
+        "costKind": "open_ended",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.fukuoka-art-museum.jp/guide/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official museum guide lists ¥200 collection/企画展 entry and separate exhibition conditions; no single annual exhibition envelope is promoted."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://www.fukuoka-art-museum.jp/guide/"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "ghibli-museum",
+      "name": "Ghibli Museum",
+      "nameJa": "三鷹の森ジブリ美術館",
+      "kind": null,
+      "role": "standalone",
+      "categories": [
+        "Art",
+        "Museum",
+        "Theme Park"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 1000,
+        "maximumPrice": 1000,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.ghibli-museum.jp/ticket/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official museum ticket table lists adult/university admission at ¥1,000; dated reservation is an access condition, not a price range."
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://www.ghibli-museum.jp/ticket/"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "hamarikyu-gardens",
+      "name": "Hamarikyu Gardens",
+      "nameJa": "浜離宮恩賜庭園",
+      "kind": "garden",
+      "role": "poi",
+      "categories": [
+        "Garden",
+        "History",
+        "Nature"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 300,
+        "maximumPrice": 300,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.tokyo-park.or.jp/park/hama-rikyu/"
+        ],
+        "checkedAt": "2026-08-14",
+        "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/"
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://www.tokyo-park.or.jp/park/hama-rikyu/"
+      ],
+      "checkedAt": "2026-08-14",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "himeji-castle",
+      "name": "Himeji Castle (White Heron Castle)",
+      "nameJa": "姫路城（白鷺城）",
+      "kind": null,
+      "role": "destination",
+      "categories": [
+        "culture",
+        "history",
+        "sightseeing"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 2500,
+        "maximumPrice": 2500,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.himejicastle.jp/en/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Himeji Castle fee table lists adult admission at ¥2,500; Himeji resident and combination-ticket rates excluded."
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://www.himejicastle.jp/en/"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "jigokudani-monkey-park",
+      "name": "Jigokudani Monkey Park",
+      "nameJa": "地獄谷野猿公苑",
+      "kind": "zoo",
+      "role": "standalone",
+      "categories": [
+        "Family",
+        "Nature",
+        "Wildlife"
+      ],
+      "currentAdmission": {
+        "state": "unavailable",
+        "provenance": "verified_source",
+        "reasonCode": "source_missing",
+        "costKind": "unavailable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://en.jigokudani-yaenkoen.co.jp/"
+        ],
+        "checkedAt": "2026-08-31",
+        "basis": "The official destination source was reviewed for identity and visitor access, but no current ordinary individual admission value was promoted without a dedicated fee source."
+      },
+      "currentClassification": "unknown",
+      "sourceUrls": [
+        "https://en.jigokudani-yaenkoen.co.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "investigationReason": "Existing unavailable or unresolved fact included to test whether official evidence can recover a price."
+    },
+    {
+      "destinationId": "kenroku-en",
+      "name": "Kenrokuen Garden",
+      "nameJa": "兼六園",
+      "kind": "garden",
+      "role": "standalone",
+      "categories": [
+        "garden",
+        "history",
+        "sightseeing"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 320,
+        "maximumPrice": 320,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://kenrokuen.or.jp/information/"
+        ],
+        "checkedAt": "2026-08-14",
+        "basis": "Verified admission ¥320 (ledger FIXED_PAID); source: https://kenrokuen.or.jp/information/"
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://kenrokuen.or.jp/information/"
+      ],
+      "checkedAt": "2026-08-14",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "korakuen-okayama",
+      "name": "Korakuen Garden",
+      "nameJa": "後楽園",
+      "kind": null,
+      "role": null,
+      "categories": [
+        "culture",
+        "history",
+        "sightseeing"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 500,
+        "maximumPrice": 500,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://okayama-korakuen.jp/section/english/info/index.html"
+        ],
+        "checkedAt": "2026-08-14",
+        "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://okayama-korakuen.jp/section/english/info/index.html"
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://okayama-korakuen.jp/section/english/info/index.html"
+      ],
+      "checkedAt": "2026-08-14",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "matsumoto-castle-nagano",
+      "name": "Matsumoto Castle (Crow Castle)",
+      "nameJa": "松本城（烏城）",
+      "kind": "castle",
+      "role": "poi",
+      "categories": [
+        "Castle",
+        "History",
+        "National Treasure"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_product",
+        "costKind": "bounded",
+        "minimumPrice": 1200,
+        "maximumPrice": 1300,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.matsumoto-castle.jp/topics/8173.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Matsumoto Castle: adult e-ticket ¥1,200 / on-site paper ticket ¥1,300 (product variation); full normal adult range ¥1,200–¥1,300."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://www.matsumoto-castle.jp/topics/8173.html"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "national-museum-of-nature-and-science",
+      "name": "National Museum of Nature and Science",
+      "nameJa": "国立科学博物館",
+      "kind": "museum",
+      "role": "poi",
+      "categories": [
+        "Museum"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 630,
+        "maximumPrice": 630,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.kahaku.go.jp/riyou/nyukan-annai/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official National Museum of Nature and Science (Ueno): 常設展 一般・大学生 ¥630, 高校生以下無料; fixed permanent-exhibition adult admission."
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://www.kahaku.go.jp/riyou/nyukan-annai/"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "osaka-aquarium-kaiyukan",
+      "name": "Osaka Aquarium Kaiyukan",
+      "nameJa": "海遊館",
+      "kind": "aquarium",
+      "role": "destination",
+      "categories": [
+        "Museum"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "bounded",
+        "minimumPrice": 2800,
+        "maximumPrice": 3500,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.kaiyukan.com/info/ticket/kaiyukan/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Kaiyukan current admission calendar: adult normal date tiers ¥2,800, ¥3,200, and ¥3,500; complete current normal adult range ¥2,800–¥3,500 by date. Child/senior/group pricing excluded."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://www.kaiyukan.com/info/ticket/kaiyukan/"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "osaka-castle",
+      "name": "Osaka Castle (Osaka-jo)",
+      "nameJa": "大阪城",
+      "kind": null,
+      "role": "destination",
+      "categories": [
+        "culture",
+        "history",
+        "sightseeing"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 1200,
+        "maximumPrice": 1200,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.osakacastle.net/guide/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Osaka Castle fee table lists ordinary adult admission at ¥1,200; student and group rates excluded."
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://www.osakacastle.net/guide/"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "sapporo-beer-museum",
+      "name": "Sapporo Beer Museum",
+      "nameJa": "サッポロビール博物館",
+      "kind": "museum",
+      "role": "poi",
+      "categories": [
+        "Museum"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 1000,
+        "maximumPrice": 1000,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.sapporobeer.jp/brewery/s_museum/kengaku/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Sapporo Beer Museum 見学 page: 入館料 一般料金 大人 ¥1,000 (¥500 中学生~20歳未満, 小学生以下無料); 道民割 ¥700 is a resident discount — excluded. Paid admission since 2026-07-01."
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://www.sapporobeer.jp/brewery/s_museum/kengaku/"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "shibuya-sky-shibuya",
+      "name": "Shibuya Sky (Rooftop Observatory)",
+      "nameJa": "渋谷スカイ",
+      "kind": null,
+      "role": null,
+      "categories": [
+        "Entertainment",
+        "Landmark",
+        "Modern",
+        "Observation Deck"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.shibuya-scramble-square.com/sky/"
+        ],
+        "checkedAt": "2026-08-29",
+        "basis": "Official Shibuya Sky ticketing is date/time-slot and product dependent; no single fixed adult price is defensible from the current booking system."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://www.shibuya-scramble-square.com/sky/"
+      ],
+      "checkedAt": "2026-08-29",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "teamlab-borderless-azabudai",
+      "name": "teamLab Borderless",
+      "nameJa": "チームラボボーダレス（麻布台ヒルズ）",
+      "kind": "museum",
+      "role": "poi",
+      "categories": [
+        "Art",
+        "Digital Art",
+        "Indoor",
+        "Museum"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.teamlab.art/e/borderless-azabudai/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official operator sells dated exhibition tickets and product options; no single scalar is promoted."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://www.teamlab.art/e/borderless-azabudai/"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "teamlab-botanical-garden-osaka",
+      "name": "teamLab Botanical Garden Osaka",
+      "nameJa": "チームラボ ボタニカルガーデン大阪",
+      "kind": "garden",
+      "role": "poi",
+      "categories": [
+        "Art",
+        "Garden",
+        "Modern",
+        "Nightlife"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.teamlab.art/e/botanicalgarden/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official operator sells dated night-open-air museum tickets; no single scalar is promoted."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://www.teamlab.art/e/botanicalgarden/"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "teamlab-planets",
+      "name": "teamLab Planets",
+      "nameJa": "チームラボプラネッツ（豊洲）",
+      "kind": null,
+      "role": null,
+      "categories": [
+        "Art",
+        "Indoor",
+        "Theme Park"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "open_ended",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://teamlabplanets.dmm.com/en"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official teamLab Planets ticket store: adult (18+) from ¥3,600 with dynamic date/time pricing; no published upper bound (premium ¥12,000 package excluded)."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://teamlabplanets.dmm.com/en"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "tokyo-skytree-sumida",
+      "name": "Tokyo Skytree",
+      "nameJa": "東京スカイツリー",
+      "kind": null,
+      "role": null,
+      "categories": [
+        "Landmark",
+        "Observation Deck",
+        "Shopping",
+        "Tower"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "bounded",
+        "minimumPrice": 1800,
+        "maximumPrice": 3600,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.tokyo-skytree.jp/ticket/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Tokyo Skytree documentation publishes the individual adult Tembo Deck variable-price envelope ¥1,800–¥3,600 by visit date. Tembo Deck + Galleria is a separate product and is excluded."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://www.tokyo-skytree.jp/ticket/"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "tokyo-tower-minato",
+      "name": "Tokyo Tower",
+      "nameJa": "東京タワー",
+      "kind": null,
+      "role": null,
+      "categories": [
+        "Entertainment",
+        "History",
+        "Landmark",
+        "Tower"
+      ],
+      "currentAdmission": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 1500,
+        "maximumPrice": 1500,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.tokyotower.co.jp/fee/"
+        ],
+        "checkedAt": "2026-08-29",
+        "basis": "Official Tokyo Tower fee page lists adult Main Deck (150m) admission at ¥1,500; Top Deck tours and other products excluded."
+      },
+      "currentClassification": "fixed",
+      "sourceUrls": [
+        "https://www.tokyotower.co.jp/fee/"
+      ],
+      "checkedAt": "2026-08-29",
+      "investigationReason": "Existing verified fixed fact included for source freshness and product-basis review."
+    },
+    {
+      "destinationId": "universal-studios-japan",
+      "name": "Universal Studios Japan",
+      "nameJa": "ユニバーサル・スタジオ・ジャパン",
+      "kind": "theme_park",
+      "role": "destination",
+      "categories": [
+        "Entertainment",
+        "Theme Park"
+      ],
+      "currentAdmission": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.usj.co.jp/web/en/us/tickets"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official operator publishes date/product ticket pricing; no single current scalar is promoted."
+      },
+      "currentClassification": "variable",
+      "sourceUrls": [
+        "https://www.usj.co.jp/web/en/us/tickets"
+      ],
+      "checkedAt": "2026-08-28",
+      "investigationReason": "Existing variable/date-or-product-dependent fact included to test defensible range/product separation."
+    },
+    {
+      "destinationId": "zenkoji-temple",
+      "name": "Zenko-ji Temple",
+      "nameJa": "善光寺",
+      "kind": "temple",
+      "role": "poi",
+      "categories": [
+        "Culture",
+        "History",
+        "Temple"
+      ],
+      "currentAdmission": {
+        "state": "unavailable",
+        "provenance": "verified_source",
+        "reasonCode": "source_missing",
+        "costKind": "unavailable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.zenkoji.jp/"
+        ],
+        "checkedAt": "2026-08-31",
+        "basis": "The official destination source was reviewed for identity and visitor access, but no current ordinary individual admission value was promoted without a dedicated fee source."
+      },
+      "currentClassification": "unknown",
+      "sourceUrls": [
+        "https://www.zenkoji.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "investigationReason": "Existing unavailable or unresolved fact included to test whether official evidence can recover a price."
+    }
+  ]
+}

@@ -17,5 +17,9 @@ scripts/models/derive-report.json
 scripts/audit/kai-89-dispositions.json
 src/shared/data/destinations-index.json
 src/shared/data/destination-relationships.json
+qa/kai-323/baseline.json
+qa/kai-323/baseline.md
+qa/kai-323/proposed-updates.json
+qa/kai-323/proposed-updates.md
 src/shared/data/transit/toei-oedo-gtfs-20260314.json
 public/data
