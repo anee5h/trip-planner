@@ -1,0 +1,2942 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-324",
+  "catalogueBaseSha": "c25fb10ad594b539799d23e1edc7cd60f3051393",
+  "catalogueBaseVerified": true,
+  "sourceArtifactBaseSha": "a94556fcf2718a05a90c69df878c7c2b44779492",
+  "catalogueSha256": "4ea4060831362061eed18d11ecb0f62a24f604463c4019159faae183a9c89c92",
+  "readOnly": true,
+  "inputArtifacts": [
+    "qa/kai-323/baseline.json",
+    "qa/kai-323/proposed-updates.json",
+    "qa/kai-323/extraction-results.json",
+    "qa/kai-323/source-registry.json"
+  ],
+  "ownership": {
+    "canonicalCatalogue": "src/shared/data/destinations-index.json",
+    "derivedCatalogueAssets": [
+      "src/shared/data/destinations-index.lite.json",
+      "src/shared/data/destination-relationships.json",
+      "public/data/destinations.json"
+    ],
+    "admissionValidator": "src/shared/services/budget/factValidation.ts",
+    "budgetConsumers": [
+      "src/shared/services/budget/tripEstimateEngine.ts",
+      "src/shared/services/budget/BudgetService.ts",
+      "src/shared/services/budget/GeneratedPlanCostService.ts"
+    ],
+    "eventualPublishTarget": "Destination.admission in src/shared/data/destinations-index.json"
+  },
+  "counts": {
+    "total": 25,
+    "approved": 0,
+    "heldForReview": 11,
+    "rejected": 14,
+    "kai323AcceptedCandidates": 8,
+    "currentFactsUntouched": 25
+  },
+  "kai323Validation": {
+    "cohortSize": 25,
+    "baselineRecords": 25,
+    "proposalRecords": 25,
+    "extractionRecords": 25,
+    "sourceRegistryRecords": 25,
+    "actionCounts": {
+      "manual_review": 3,
+      "no_new_evidence_keep_current": 12,
+      "price_matches_review_scope": 5,
+      "remain_unknown": 2,
+      "review_required_conflict_or_scope": 1,
+      "review_required_variable_product": 2
+    },
+    "acceptedManualRecords": 8
+  },
+  "records": [
+    {
+      "destinationId": "cup-noodles-museum-yokohama",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 500,
+          "max": 500
+        },
+        "scope": "general_entry",
+        "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/",
+        "sourceUrls": [
+          "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+        ],
+        "checkedAt": "2026-08-14"
+      },
+      "proposedValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 500,
+          "max": 500
+        },
+        "scope": "general_entry",
+        "basis": "Admission Fee — Adults: 500 yen; high school age children and younger admitted free. Admission-only online tickets are not available; My CUPNOODLES Factory voucher is a separate product.",
+        "sourceUrls": [
+          "https://www.cupnoodles-museum.jp/en/yokohama/"
+        ]
+      },
+      "sourceEvidence": {
+        "sourceUrl": "https://www.cupnoodles-museum.jp/en/yokohama/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "Admission Fee — Adults: 500 yen; high school age children and younger admitted free. Admission-only online tickets are not available; My CUPNOODLES Factory voucher is a separate product.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.cupnoodles-museum.jp/en/yokohama/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "price_text_retrieved",
+        "manualVerified": true,
+        "robotsUrl": "https://www.cupnoodles-museum.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "verified",
+      "manualVerified": true,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "museum admission only; factory voucher excluded",
+        "visitorCategory": null,
+        "conditions": "Admission-only online ticket unavailable; same-day numbered ticket/counter process applies.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": 500,
+        "observedChildPrice": 0
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
+        "admission_scope_missing",
+        "visitor_category_missing",
+        "tax_basis_missing",
+        "verification_date_missing",
+        "age_band_requires_review",
+        "pricing_scope_requires_review",
+        "source_not_currently_trusted",
+        "existing_product_metadata_missing",
+        "existing_visitor_category_missing",
+        "existing_tax_basis_missing",
+        "kai323_scope_review_required"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
+          "admission_scope_missing",
+          "visitor_category_missing",
+          "tax_basis_missing",
+          "verification_date_missing",
+          "age_band_requires_review",
+          "pricing_scope_requires_review",
+          "source_not_currently_trusted",
+          "existing_product_metadata_missing",
+          "existing_visitor_category_missing",
+          "existing_tax_basis_missing",
+          "kai323_scope_review_required"
+        ]
+      },
+      "proposedFieldChanges": [
+        {
+          "fieldPath": "/admission",
+          "existingValue": {
+            "state": "verified_paid",
+            "provenance": "verified_source",
+            "cost": {
+              "kind": "bounded",
+              "min": 500,
+              "max": 500
+            },
+            "scope": "general_entry",
+            "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/",
+            "sourceUrls": [
+              "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+            ],
+            "checkedAt": "2026-08-14"
+          },
+          "proposedValue": {
+            "state": "verified_paid",
+            "provenance": "verified_source",
+            "cost": {
+              "kind": "bounded",
+              "min": 500,
+              "max": 500
+            },
+            "scope": "general_entry",
+            "basis": "Admission Fee — Adults: 500 yen; high school age children and younger admitted free. Admission-only online tickets are not available; My CUPNOODLES Factory voucher is a separate product.",
+            "sourceUrls": [
+              "https://www.cupnoodles-museum.jp/en/yokohama/"
+            ]
+          }
+        }
+      ],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "price_matches_review_scope",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "price_matches_review_scope"
+    },
+    {
+      "destinationId": "disneyland",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "variable"
+        },
+        "scope": "general_entry",
+        "basis": "Official operator uses date-specific park ticket products; current adult admission is not a stable single value in the page evidence.",
+        "sourceUrls": [
+          "https://www.tokyodisneyresort.jp/en/ticket/index.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.tokyodisneyresort.jp/en/tdl/ticket/index",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.tokyodisneyresort.jp/en/tdl/ticket/index",
+        "registryTechnicalStatus": null,
+        "registryTechnicalResult": "timeout",
+        "manualVerified": false,
+        "robotsUrl": "https://www.tokyodisneyresort.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "failed",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "1-Day Passport admission",
+        "visitorCategory": null,
+        "conditions": "Official park-ticket page timed out; date-specific pricing cannot be reduced to a fixed fee.",
+        "weekdayOrWeekend": "date-dependent",
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "source_access_degraded",
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_access_degraded",
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "disneysea",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "variable"
+        },
+        "scope": "general_entry",
+        "basis": "Official operator uses date-specific park ticket products; current adult admission is not a stable single value in the page evidence.",
+        "sourceUrls": [
+          "https://www.tokyodisneyresort.jp/en/ticket/index.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.tokyodisneyresort.jp/en/tds/ticket/index",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.tokyodisneyresort.jp/en/tds/ticket/index",
+        "registryTechnicalStatus": null,
+        "registryTechnicalResult": "timeout",
+        "manualVerified": false,
+        "robotsUrl": "https://www.tokyodisneyresort.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "failed",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "1-Day Passport admission",
+        "visitorCategory": null,
+        "conditions": "Official park-ticket page timed out; date-specific pricing cannot be reduced to a fixed fee.",
+        "weekdayOrWeekend": "date-dependent",
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "source_access_degraded",
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_access_degraded",
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "enoshima-aquarium",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 3320,
+          "max": 3320
+        },
+        "scope": "general_entry",
+        "basis": "Official aquarium page: adult admission ¥3,320; fixed general-entry price.",
+        "sourceUrls": [
+          "https://www.enosui.com/basicinfo.php"
+        ],
+        "checkedAt": "2026-08-27",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.enosui.com/en/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.enosui.com/en/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "admission_labels_retrieved_numeric_table_not_recovered",
+        "manualVerified": false,
+        "robotsUrl": "https://www.enosui.com/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "unresolved",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "general aquarium admission",
+        "visitorCategory": null,
+        "conditions": "General admission and memberships are distinct; numeric table not recovered.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "fukui-prefectural-dinosaur-museum",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 1000,
+          "max": 1000
+        },
+        "scope": "general_entry",
+        "basis": "Official museum admission table lists individual adults at ¥1,000; special exhibition and Field Station supplements excluded.",
+        "sourceUrls": [
+          "https://www.dinosaur.pref.fukui.jp/en/info.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "Admission Fees; Adults; Child; admission to Field Station is not included.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "price_labels_retrieved_numeric_table_not_recovered",
+        "manualVerified": false,
+        "robotsUrl": "https://www.dinosaur.pref.fukui.jp/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "manual_review",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "museum admission",
+        "visitorCategory": null,
+        "conditions": "Field Station is a separate inclusion boundary.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "manual_review_required"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_not_eligible_for_auto_approval",
+          "manual_review_required"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "manual_review",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "manual_review"
+    },
+    {
+      "destinationId": "fukuoka-art-museum",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "exhibition_dependent_pricing",
+        "cost": {
+          "kind": "open_ended",
+          "from": 200
+        },
+        "scope": "general_entry",
+        "basis": "Official museum guide lists ¥200 collection/企画展 entry and separate exhibition conditions; no single annual exhibition envelope is promoted.",
+        "sourceUrls": [
+          "https://www.fukuoka-art-museum.jp/guide/"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.fukuoka-art-museum.jp/en/visit/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "Hours and Admission; adult ticket label present; numeric values not recovered.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.fukuoka-art-museum.jp/en/visit/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "admission_labels_retrieved_numeric_table_not_recovered",
+        "manualVerified": false,
+        "robotsUrl": "https://www.fukuoka-art-museum.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "unresolved",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "museum admission/exhibition ticket",
+        "visitorCategory": null,
+        "conditions": "Collection/exhibition products may differ.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "ghibli-museum",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 1000,
+          "max": 1000
+        },
+        "scope": "general_entry",
+        "basis": "Official museum ticket table lists adult/university admission at ¥1,000; dated reservation is an access condition, not a price range.",
+        "sourceUrls": [
+          "https://www.ghibli-museum.jp/ticket/"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 1000,
+          "max": 1000
+        },
+        "scope": "general_entry",
+        "basis": "Admission by age: 19+ JPY 1,000; 13–18 JPY 700; 7–12 JPY 400; 4–6 JPY 100. Advance reservation required; no museum-counter purchase.",
+        "sourceUrls": [
+          "https://www.ghibli-museum.jp/en/tickets/"
+        ]
+      },
+      "sourceEvidence": {
+        "sourceUrl": "https://www.ghibli-museum.jp/en/tickets/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "Admission by age: 19+ JPY 1,000; 13–18 JPY 700; 7–12 JPY 400; 4–6 JPY 100. Advance reservation required; no museum-counter purchase.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.ghibli-museum.jp/en/tickets/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "price_text_retrieved",
+        "manualVerified": true,
+        "robotsUrl": "https://www.ghibli-museum.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "verified",
+      "manualVerified": true,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "Ghibli Museum admission",
+        "visitorCategory": null,
+        "conditions": "Advance reservation only; age bands remain distinct and are not collapsed into childPrice.",
+        "weekdayOrWeekend": "date-specific reservation",
+        "onlinePrice": 1000,
+        "counterPrice": null,
+        "observedAdultPrice": 1000,
+        "observedChildPrice": null
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
+        "admission_scope_missing",
+        "visitor_category_missing",
+        "tax_basis_missing",
+        "verification_date_missing",
+        "channel_price_requires_review",
+        "weekday_condition_requires_review",
+        "pricing_scope_requires_review",
+        "source_not_currently_trusted",
+        "existing_product_metadata_missing",
+        "existing_visitor_category_missing",
+        "existing_tax_basis_missing",
+        "kai323_scope_review_required"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
+          "admission_scope_missing",
+          "visitor_category_missing",
+          "tax_basis_missing",
+          "verification_date_missing",
+          "channel_price_requires_review",
+          "weekday_condition_requires_review",
+          "pricing_scope_requires_review",
+          "source_not_currently_trusted",
+          "existing_product_metadata_missing",
+          "existing_visitor_category_missing",
+          "existing_tax_basis_missing",
+          "kai323_scope_review_required"
+        ]
+      },
+      "proposedFieldChanges": [
+        {
+          "fieldPath": "/admission",
+          "existingValue": {
+            "state": "verified_paid",
+            "provenance": "verified_source",
+            "cost": {
+              "kind": "bounded",
+              "min": 1000,
+              "max": 1000
+            },
+            "scope": "general_entry",
+            "basis": "Official museum ticket table lists adult/university admission at ¥1,000; dated reservation is an access condition, not a price range.",
+            "sourceUrls": [
+              "https://www.ghibli-museum.jp/ticket/"
+            ],
+            "checkedAt": "2026-08-28",
+            "reviewIntervalMonths": 12
+          },
+          "proposedValue": {
+            "state": "verified_paid",
+            "provenance": "verified_source",
+            "cost": {
+              "kind": "bounded",
+              "min": 1000,
+              "max": 1000
+            },
+            "scope": "general_entry",
+            "basis": "Admission by age: 19+ JPY 1,000; 13–18 JPY 700; 7–12 JPY 400; 4–6 JPY 100. Advance reservation required; no museum-counter purchase.",
+            "sourceUrls": [
+              "https://www.ghibli-museum.jp/en/tickets/"
+            ]
+          }
+        }
+      ],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "price_matches_review_scope",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "price_matches_review_scope"
+    },
+    {
+      "destinationId": "hamarikyu-gardens",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 300,
+          "max": 300
+        },
+        "scope": "general_entry",
+        "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/",
+        "sourceUrls": [
+          "https://www.tokyo-park.or.jp/park/hama-rikyu/"
+        ],
+        "checkedAt": "2026-08-14"
+      },
+      "proposedValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 300,
+          "max": 300
+        },
+        "scope": "general_entry",
+        "basis": "Entrance fee: ¥300 (65 and over: ¥150); no charge for primary school children or younger and eligible Tokyo junior-high students.",
+        "sourceUrls": [
+          "https://www.tokyo-park.or.jp/teien/en/hama-rikyu/outline.html"
+        ]
+      },
+      "sourceEvidence": {
+        "sourceUrl": "https://www.tokyo-park.or.jp/teien/en/hama-rikyu/outline.html",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "Entrance fee: ¥300 (65 and over: ¥150); no charge for primary school children or younger and eligible Tokyo junior-high students.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.tokyo-park.or.jp/teien/en/hama-rikyu/outline.html",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "price_text_retrieved",
+        "manualVerified": true,
+        "robotsUrl": "https://www.tokyo-park.or.jp/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "verified",
+      "manualVerified": true,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "garden entrance",
+        "visitorCategory": null,
+        "conditions": "Child free-entry condition is residence/school dependent; not a universal child price.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": 300,
+        "observedChildPrice": 0
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
+        "admission_scope_missing",
+        "visitor_category_missing",
+        "tax_basis_missing",
+        "verification_date_missing",
+        "age_band_requires_review",
+        "pricing_scope_requires_review",
+        "source_not_currently_trusted",
+        "existing_product_metadata_missing",
+        "existing_visitor_category_missing",
+        "existing_tax_basis_missing",
+        "kai323_scope_review_required"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_not_eligible_for_auto_approval",
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
+          "admission_scope_missing",
+          "visitor_category_missing",
+          "tax_basis_missing",
+          "verification_date_missing",
+          "age_band_requires_review",
+          "pricing_scope_requires_review",
+          "source_not_currently_trusted",
+          "existing_product_metadata_missing",
+          "existing_visitor_category_missing",
+          "existing_tax_basis_missing",
+          "kai323_scope_review_required"
+        ]
+      },
+      "proposedFieldChanges": [
+        {
+          "fieldPath": "/admission",
+          "existingValue": {
+            "state": "verified_paid",
+            "provenance": "verified_source",
+            "cost": {
+              "kind": "bounded",
+              "min": 300,
+              "max": 300
+            },
+            "scope": "general_entry",
+            "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/",
+            "sourceUrls": [
+              "https://www.tokyo-park.or.jp/park/hama-rikyu/"
+            ],
+            "checkedAt": "2026-08-14"
+          },
+          "proposedValue": {
+            "state": "verified_paid",
+            "provenance": "verified_source",
+            "cost": {
+              "kind": "bounded",
+              "min": 300,
+              "max": 300
+            },
+            "scope": "general_entry",
+            "basis": "Entrance fee: ¥300 (65 and over: ¥150); no charge for primary school children or younger and eligible Tokyo junior-high students.",
+            "sourceUrls": [
+              "https://www.tokyo-park.or.jp/teien/en/hama-rikyu/outline.html"
+            ]
+          }
+        }
+      ],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "price_matches_review_scope",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "price_matches_review_scope"
+    },
+    {
+      "destinationId": "himeji-castle",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 2500,
+          "max": 2500
+        },
+        "scope": "general_entry",
+        "basis": "Official Himeji Castle fee table lists adult admission at ¥2,500; Himeji resident and combination-ticket rates excluded.",
+        "sourceUrls": [
+          "https://www.himejicastle.jp/en/"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.himejicastle.jp/en/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.himejicastle.jp/en/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "page_retrieved_price_not_recovered",
+        "manualVerified": false,
+        "robotsUrl": "https://www.himejicastle.jp/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "manual_review",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "Himeji Castle admission; combined Koko-en ticket remains distinct",
+        "visitorCategory": null,
+        "conditions": "Admission fee section present, but numeric table was not recovered in the bounded response.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "evidence_quotation_missing",
+        "manual_review_required"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_not_eligible_for_auto_approval",
+          "evidence_quotation_missing",
+          "manual_review_required"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "manual_review",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "manual_review"
+    },
+    {
+      "destinationId": "jigokudani-monkey-park",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "unavailable",
+        "provenance": "verified_source",
+        "reasonCode": "source_missing",
+        "cost": {
+          "kind": "unavailable",
+          "reason": "source_missing"
+        },
+        "scope": "general_entry",
+        "basis": "The official destination source was reviewed for identity and visitor access, but no current ordinary individual admission value was promoted without a dedicated fee source.",
+        "sourceUrls": [
+          "https://en.jigokudani-yaenkoen.co.jp/"
+        ],
+        "checkedAt": "2026-08-31",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://en.jigokudani-yaenkoen.co.jp/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "Important Notice Regarding Admission Fee Revision; online ticketing announced.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://en.jigokudani-yaenkoen.co.jp/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "admission_revision_notice_no_numeric_price_recovered",
+        "manualVerified": false,
+        "robotsUrl": "https://en.jigokudani-yaenkoen.co.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "unresolved",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "Snow Monkey Park admission",
+        "visitorCategory": null,
+        "conditions": "Admission revision notice means a stale/current value cannot be inferred from the page fragment.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "remain_unknown",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "remain_unknown"
+    },
+    {
+      "destinationId": "kenroku-en",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 320,
+          "max": 320
+        },
+        "scope": "general_entry",
+        "basis": "Verified admission ¥320 (ledger FIXED_PAID); source: https://kenrokuen.or.jp/information/",
+        "sourceUrls": [
+          "https://kenrokuen.or.jp/information/"
+        ],
+        "checkedAt": "2026-08-14"
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/",
+        "sourceType": "official",
+        "sourceLanguage": "ja",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "page_retrieved_price_not_recovered",
+        "manualVerified": false,
+        "robotsUrl": "https://www.pref.ishikawa.jp/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "unresolved",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "garden admission",
+        "visitorCategory": null,
+        "conditions": null,
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_not_eligible_for_auto_approval",
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "korakuen-okayama",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 500,
+          "max": 500
+        },
+        "scope": "general_entry",
+        "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://okayama-korakuen.jp/section/english/info/index.html",
+        "sourceUrls": [
+          "https://okayama-korakuen.jp/section/english/info/index.html"
+        ],
+        "checkedAt": "2026-08-14"
+      },
+      "proposedValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 500,
+          "max": 500
+        },
+        "scope": "general_entry",
+        "basis": "Individual Tickets: ¥500; child entry shown as free of charge. Combined tickets and partner museum tickets are separate products.",
+        "sourceUrls": [
+          "https://okayama-korakuen.jp/section/english/info/index.html"
+        ]
+      },
+      "sourceEvidence": {
+        "sourceUrl": "https://okayama-korakuen.jp/section/english/info/index.html",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "Individual Tickets: ¥500; child entry shown as free of charge. Combined tickets and partner museum tickets are separate products.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://okayama-korakuen.jp/section/english/info/index.html",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "price_text_retrieved",
+        "manualVerified": true,
+        "robotsUrl": "https://okayama-korakuen.jp/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "verified",
+      "manualVerified": true,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "Korakuen individual admission",
+        "visitorCategory": null,
+        "conditions": "Individual admission; child age definition and combined tickets remain separate conditions.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": 500,
+        "observedChildPrice": null
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
+        "admission_scope_missing",
+        "visitor_category_missing",
+        "tax_basis_missing",
+        "verification_date_missing",
+        "pricing_scope_requires_review",
+        "existing_product_metadata_missing",
+        "existing_visitor_category_missing",
+        "existing_tax_basis_missing",
+        "kai323_scope_review_required"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_not_eligible_for_auto_approval",
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
+          "admission_scope_missing",
+          "visitor_category_missing",
+          "tax_basis_missing",
+          "verification_date_missing",
+          "pricing_scope_requires_review",
+          "existing_product_metadata_missing",
+          "existing_visitor_category_missing",
+          "existing_tax_basis_missing",
+          "kai323_scope_review_required"
+        ]
+      },
+      "proposedFieldChanges": [
+        {
+          "fieldPath": "/admission",
+          "existingValue": {
+            "state": "verified_paid",
+            "provenance": "verified_source",
+            "cost": {
+              "kind": "bounded",
+              "min": 500,
+              "max": 500
+            },
+            "scope": "general_entry",
+            "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://okayama-korakuen.jp/section/english/info/index.html",
+            "sourceUrls": [
+              "https://okayama-korakuen.jp/section/english/info/index.html"
+            ],
+            "checkedAt": "2026-08-14"
+          },
+          "proposedValue": {
+            "state": "verified_paid",
+            "provenance": "verified_source",
+            "cost": {
+              "kind": "bounded",
+              "min": 500,
+              "max": 500
+            },
+            "scope": "general_entry",
+            "basis": "Individual Tickets: ¥500; child entry shown as free of charge. Combined tickets and partner museum tickets are separate products.",
+            "sourceUrls": [
+              "https://okayama-korakuen.jp/section/english/info/index.html"
+            ]
+          }
+        }
+      ],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "price_matches_review_scope",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "price_matches_review_scope"
+    },
+    {
+      "destinationId": "matsumoto-castle-nagano",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_product",
+        "cost": {
+          "kind": "bounded",
+          "min": 1200,
+          "max": 1300
+        },
+        "scope": "general_entry",
+        "basis": "Official Matsumoto Castle: adult e-ticket ¥1,200 / on-site paper ticket ¥1,300 (product variation); full normal adult range ¥1,200–¥1,300.",
+        "sourceUrls": [
+          "https://www.matsumoto-castle.jp/topics/8173.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.matsumoto-castle.jp/lang/eng/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.matsumoto-castle.jp/lang/eng/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "page_retrieved_price_not_recovered",
+        "manualVerified": false,
+        "robotsUrl": "https://www.matsumoto-castle.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "unresolved",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "castle admission",
+        "visitorCategory": null,
+        "conditions": null,
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "national-museum-of-nature-and-science",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 630,
+          "max": 630
+        },
+        "scope": "general_entry",
+        "basis": "Official National Museum of Nature and Science (Ueno): 常設展 一般・大学生 ¥630, 高校生以下無料; fixed permanent-exhibition adult admission.",
+        "sourceUrls": [
+          "https://www.kahaku.go.jp/riyou/nyukan-annai/"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.kahaku.go.jp/english/visit/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.kahaku.go.jp/english/visit/",
+        "registryTechnicalStatus": 404,
+        "registryTechnicalResult": "official_path_not_found",
+        "manualVerified": false,
+        "robotsUrl": "https://www.kahaku.go.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "failed",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "museum admission",
+        "visitorCategory": null,
+        "conditions": null,
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "source_access_degraded",
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_access_degraded",
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "osaka-aquarium-kaiyukan",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "bounded",
+          "min": 2800,
+          "max": 3500
+        },
+        "scope": "general_entry",
+        "basis": "Official Kaiyukan current admission calendar: adult normal date tiers ¥2,800, ¥3,200, and ¥3,500; complete current normal adult range ¥2,800–¥3,500 by date. Child/senior/group pricing excluded.",
+        "sourceUrls": [
+          "https://www.kaiyukan.com/info/ticket/kaiyukan/"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.kaiyukan.com/language/eng/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "Admission fees and other tickets; e-tickets on sale now.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.kaiyukan.com/language/eng/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "ticket_labels_retrieved_numeric_table_not_recovered",
+        "manualVerified": false,
+        "robotsUrl": "https://www.kaiyukan.com/robots.txt",
+        "robotsStatus": 404,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "manual_review",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "aquarium admission",
+        "visitorCategory": null,
+        "conditions": "Admission fees and other ticket products are separate; numeric table not recovered.",
+        "weekdayOrWeekend": "date/product-dependent",
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "source_not_eligible_for_auto_approval",
+        "manual_review_required"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_not_eligible_for_auto_approval",
+          "manual_review_required"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "manual_review",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "manual_review"
+    },
+    {
+      "destinationId": "osaka-castle",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 1200,
+          "max": 1200
+        },
+        "scope": "general_entry",
+        "basis": "Official Osaka Castle fee table lists ordinary adult admission at ¥1,200; student and group rates excluded.",
+        "sourceUrls": [
+          "https://www.osakacastle.net/guide/"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 1200,
+          "max": 1200
+        },
+        "scope": "general_entry",
+        "basis": "通常料金 大人 1,200円; 600円 要証明; 無料 要証明; 2025年4月1日から入館料変更.",
+        "sourceUrls": [
+          "https://www.osakacastle.net/guide/"
+        ]
+      },
+      "sourceEvidence": {
+        "sourceUrl": "https://www.osakacastle.net/guide/",
+        "sourceType": "official",
+        "sourceLanguage": "ja",
+        "quotation": "通常料金 大人 1,200円; 600円 要証明; 無料 要証明; 2025年4月1日から入館料変更.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.osakacastle.net/guide/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "price_text_retrieved",
+        "manualVerified": true,
+        "robotsUrl": "https://www.osakacastle.net/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "verified",
+      "manualVerified": true,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": "2025-04-01",
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "Osaka Castle Museum ordinary admission",
+        "visitorCategory": null,
+        "conditions": "Ordinary admission; student/exemption categories require proof and remain distinct from adult admission.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": 1200,
+        "observedChildPrice": null
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "canonical_admission_invalid:verified_paid_invalid_checked_at",
+        "admission_scope_missing",
+        "visitor_category_missing",
+        "tax_basis_missing",
+        "verification_date_missing",
+        "pricing_scope_requires_review",
+        "existing_product_metadata_missing",
+        "existing_visitor_category_missing",
+        "existing_tax_basis_missing",
+        "kai323_scope_review_required"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "canonical_admission_invalid:verified_paid_invalid_checked_at",
+          "admission_scope_missing",
+          "visitor_category_missing",
+          "tax_basis_missing",
+          "verification_date_missing",
+          "pricing_scope_requires_review",
+          "existing_product_metadata_missing",
+          "existing_visitor_category_missing",
+          "existing_tax_basis_missing",
+          "kai323_scope_review_required"
+        ]
+      },
+      "proposedFieldChanges": [
+        {
+          "fieldPath": "/admission",
+          "existingValue": {
+            "state": "verified_paid",
+            "provenance": "verified_source",
+            "cost": {
+              "kind": "bounded",
+              "min": 1200,
+              "max": 1200
+            },
+            "scope": "general_entry",
+            "basis": "Official Osaka Castle fee table lists ordinary adult admission at ¥1,200; student and group rates excluded.",
+            "sourceUrls": [
+              "https://www.osakacastle.net/guide/"
+            ],
+            "checkedAt": "2026-08-28",
+            "reviewIntervalMonths": 12
+          },
+          "proposedValue": {
+            "state": "verified_paid",
+            "provenance": "verified_source",
+            "cost": {
+              "kind": "bounded",
+              "min": 1200,
+              "max": 1200
+            },
+            "scope": "general_entry",
+            "basis": "通常料金 大人 1,200円; 600円 要証明; 無料 要証明; 2025年4月1日から入館料変更.",
+            "sourceUrls": [
+              "https://www.osakacastle.net/guide/"
+            ]
+          }
+        }
+      ],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "price_matches_review_scope",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "price_matches_review_scope"
+    },
+    {
+      "destinationId": "sapporo-beer-museum",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 1000,
+          "max": 1000
+        },
+        "scope": "general_entry",
+        "basis": "Official Sapporo Beer Museum 見学 page: 入館料 一般料金 大人 ¥1,000 (¥500 中学生~20歳未満, 小学生以下無料); 道民割 ¥700 is a resident discount — excluded. Paid admission since 2026-07-01.",
+        "sourceUrls": [
+          "https://www.sapporobeer.jp/brewery/s_museum/kengaku/"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.sapporobeer.jp/brewery/s_museum/",
+        "sourceType": "official",
+        "sourceLanguage": "ja",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.sapporobeer.jp/brewery/s_museum/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "page_retrieved_price_not_recovered",
+        "manualVerified": false,
+        "robotsUrl": "https://www.sapporobeer.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "unresolved",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "museum admission/tour",
+        "visitorCategory": null,
+        "conditions": "Paid tour and free museum-area experience may be distinct products.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "shibuya-sky-shibuya",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "variable"
+        },
+        "scope": "general_entry",
+        "basis": "Official Shibuya Sky ticketing is date/time-slot and product dependent; no single fixed adult price is defensible from the current booking system.",
+        "sourceUrls": [
+          "https://www.shibuya-scramble-square.com/sky/"
+        ],
+        "checkedAt": "2026-08-29",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.shibuya-scramble-square.com/sky/ticket/",
+        "sourceType": "official",
+        "sourceLanguage": "ja",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.shibuya-scramble-square.com/sky/ticket/",
+        "registryTechnicalStatus": null,
+        "registryTechnicalResult": "tls_validation_failed",
+        "manualVerified": false,
+        "robotsUrl": "https://www.shibuya-scramble-square.com/robots.txt",
+        "robotsStatus": null,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "failed",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "general observatory admission",
+        "visitorCategory": null,
+        "conditions": null,
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "source_access_degraded",
+        "source_not_eligible_for_auto_approval",
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_access_degraded",
+          "source_not_eligible_for_auto_approval",
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "teamlab-borderless-azabudai",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "variable"
+        },
+        "scope": "general_entry",
+        "basis": "Official operator sells dated exhibition tickets and product options; no single scalar is promoted.",
+        "sourceUrls": [
+          "https://www.teamlab.art/e/borderless-azabudai/"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "variable"
+        },
+        "scope": "general_entry",
+        "basis": "Dynamic pricing: 18+ JPY 3,600; 13–17 JPY 2,800; 4–12 JPY 1,500; on-site purchase +200 yen; Flexible Pass JPY 1,800 is a distinct product.",
+        "sourceUrls": [
+          "https://borderless.teamlab.art/tokyo/"
+        ]
+      },
+      "sourceEvidence": {
+        "sourceUrl": "https://borderless.teamlab.art/tokyo/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "Dynamic pricing: 18+ JPY 3,600; 13–17 JPY 2,800; 4–12 JPY 1,500; on-site purchase +200 yen; Flexible Pass JPY 1,800 is a distinct product.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://borderless.teamlab.art/tokyo/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "variable_price_text_retrieved",
+        "manualVerified": true,
+        "robotsUrl": "https://borderless.teamlab.art/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "verified_variable",
+      "manualVerified": true,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "Entrance Pass; current displayed dynamic-price example",
+        "visitorCategory": null,
+        "conditions": "Admission time may be specified; on-site surcharge and flexible pass remain distinct.",
+        "weekdayOrWeekend": "date-dependent dynamic pricing",
+        "onlinePrice": 3600,
+        "counterPrice": 3800,
+        "observedAdultPrice": 3600,
+        "observedChildPrice": 1500
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "admission_scope_missing",
+        "visitor_category_missing",
+        "tax_basis_missing",
+        "verification_date_missing",
+        "variable_or_date_dependent",
+        "age_band_requires_review",
+        "channel_price_requires_review",
+        "weekday_condition_requires_review",
+        "pricing_scope_requires_review",
+        "source_not_currently_trusted",
+        "existing_product_metadata_missing",
+        "existing_visitor_category_missing",
+        "existing_tax_basis_missing"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "admission_scope_missing",
+          "visitor_category_missing",
+          "tax_basis_missing",
+          "verification_date_missing",
+          "variable_or_date_dependent",
+          "age_band_requires_review",
+          "channel_price_requires_review",
+          "weekday_condition_requires_review",
+          "pricing_scope_requires_review",
+          "source_not_currently_trusted",
+          "existing_product_metadata_missing",
+          "existing_visitor_category_missing",
+          "existing_tax_basis_missing"
+        ]
+      },
+      "proposedFieldChanges": [
+        {
+          "fieldPath": "/admission",
+          "existingValue": {
+            "state": "variable_price",
+            "provenance": "verified_source",
+            "reasonCode": "price_variable_by_date",
+            "cost": {
+              "kind": "variable"
+            },
+            "scope": "general_entry",
+            "basis": "Official operator sells dated exhibition tickets and product options; no single scalar is promoted.",
+            "sourceUrls": [
+              "https://www.teamlab.art/e/borderless-azabudai/"
+            ],
+            "checkedAt": "2026-08-28",
+            "reviewIntervalMonths": 12
+          },
+          "proposedValue": {
+            "state": "variable_price",
+            "provenance": "verified_source",
+            "reasonCode": "price_variable_by_date",
+            "cost": {
+              "kind": "variable"
+            },
+            "scope": "general_entry",
+            "basis": "Dynamic pricing: 18+ JPY 3,600; 13–17 JPY 2,800; 4–12 JPY 1,500; on-site purchase +200 yen; Flexible Pass JPY 1,800 is a distinct product.",
+            "sourceUrls": [
+              "https://borderless.teamlab.art/tokyo/"
+            ]
+          }
+        }
+      ],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "review_required_variable_product",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "review_required_variable_product"
+    },
+    {
+      "destinationId": "teamlab-botanical-garden-osaka",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "variable"
+        },
+        "scope": "general_entry",
+        "basis": "Official operator sells dated night-open-air museum tickets; no single scalar is promoted.",
+        "sourceUrls": [
+          "https://www.teamlab.art/e/botanicalgarden/"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "variable"
+        },
+        "scope": "general_entry",
+        "basis": "Dynamic pricing: 16+ JPY 1,800; 6–15 JPY 500; preschool children; on-site surcharge +200 yen adults/+100 yen children.",
+        "sourceUrls": [
+          "https://www.teamlab.art/e/botanicalgarden/"
+        ]
+      },
+      "sourceEvidence": {
+        "sourceUrl": "https://www.teamlab.art/e/botanicalgarden/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "Dynamic pricing: 16+ JPY 1,800; 6–15 JPY 500; preschool children; on-site surcharge +200 yen adults/+100 yen children.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.teamlab.art/e/botanicalgarden/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "variable_price_text_retrieved",
+        "manualVerified": true,
+        "robotsUrl": "https://www.teamlab.art/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "verified_variable",
+      "manualVerified": true,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "teamLab Botanical Garden admission; current displayed dynamic-price example",
+        "visitorCategory": null,
+        "conditions": "Time-slot/date conditions and on-site surcharge; preschool category remains separate.",
+        "weekdayOrWeekend": "date-dependent dynamic pricing",
+        "onlinePrice": 1800,
+        "counterPrice": 2000,
+        "observedAdultPrice": 1800,
+        "observedChildPrice": 500
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "admission_scope_missing",
+        "visitor_category_missing",
+        "tax_basis_missing",
+        "verification_date_missing",
+        "variable_or_date_dependent",
+        "age_band_requires_review",
+        "channel_price_requires_review",
+        "weekday_condition_requires_review",
+        "pricing_scope_requires_review",
+        "existing_product_metadata_missing",
+        "existing_visitor_category_missing",
+        "existing_tax_basis_missing"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "admission_scope_missing",
+          "visitor_category_missing",
+          "tax_basis_missing",
+          "verification_date_missing",
+          "variable_or_date_dependent",
+          "age_band_requires_review",
+          "channel_price_requires_review",
+          "weekday_condition_requires_review",
+          "pricing_scope_requires_review",
+          "existing_product_metadata_missing",
+          "existing_visitor_category_missing",
+          "existing_tax_basis_missing"
+        ]
+      },
+      "proposedFieldChanges": [
+        {
+          "fieldPath": "/admission",
+          "existingValue": {
+            "state": "variable_price",
+            "provenance": "verified_source",
+            "reasonCode": "price_variable_by_date",
+            "cost": {
+              "kind": "variable"
+            },
+            "scope": "general_entry",
+            "basis": "Official operator sells dated night-open-air museum tickets; no single scalar is promoted.",
+            "sourceUrls": [
+              "https://www.teamlab.art/e/botanicalgarden/"
+            ],
+            "checkedAt": "2026-08-28",
+            "reviewIntervalMonths": 12
+          },
+          "proposedValue": {
+            "state": "variable_price",
+            "provenance": "verified_source",
+            "reasonCode": "price_variable_by_date",
+            "cost": {
+              "kind": "variable"
+            },
+            "scope": "general_entry",
+            "basis": "Dynamic pricing: 16+ JPY 1,800; 6–15 JPY 500; preschool children; on-site surcharge +200 yen adults/+100 yen children.",
+            "sourceUrls": [
+              "https://www.teamlab.art/e/botanicalgarden/"
+            ]
+          }
+        }
+      ],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "review_required_variable_product",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "review_required_variable_product"
+    },
+    {
+      "destinationId": "teamlab-planets",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "open_ended",
+          "from": 3600
+        },
+        "scope": "general_entry",
+        "basis": "Official teamLab Planets ticket store: adult (18+) from ¥3,600 with dynamic date/time pricing; no published upper bound (premium ¥12,000 package excluded).",
+        "sourceUrls": [
+          "https://teamlabplanets.dmm.com/en"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "variable"
+        },
+        "scope": "general_entry",
+        "basis": "18 Years and above JPY 4,200; Junior high school students / High school students JPY 2,800; Ages 4-12 JPY 1,500; 3 years old and younger.",
+        "sourceUrls": [
+          "https://planets.teamlab.art/tokyo"
+        ]
+      },
+      "sourceEvidence": {
+        "sourceUrl": "https://planets.teamlab.art/tokyo",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": "18 Years and above JPY 4,200; Junior high school students / High school students JPY 2,800; Ages 4-12 JPY 1,500; 3 years old and younger.",
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://planets.teamlab.art/tokyo",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "price_text_retrieved",
+        "manualVerified": true,
+        "robotsUrl": "https://planets.teamlab.art/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "verified",
+      "manualVerified": true,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "regular admission ticket; premium pass kept distinct",
+        "visitorCategory": null,
+        "conditions": "Admission time is specified; official page states tickets are not sold on-site.",
+        "weekdayOrWeekend": "current displayed ticket price; date selection applies",
+        "onlinePrice": 4200,
+        "counterPrice": null,
+        "observedAdultPrice": 4200,
+        "observedChildPrice": 1500
+      },
+      "confidence": "medium",
+      "decision": "held_for_review",
+      "reviewerOrRule": "KAI-324 manual-review-queue-v1",
+      "reasonCodes": [
+        "admission_scope_missing",
+        "visitor_category_missing",
+        "tax_basis_missing",
+        "verification_date_missing",
+        "variable_or_date_dependent",
+        "age_band_requires_review",
+        "channel_price_requires_review",
+        "weekday_condition_requires_review",
+        "pricing_scope_requires_review",
+        "source_not_currently_trusted",
+        "existing_product_metadata_missing",
+        "existing_visitor_category_missing",
+        "existing_tax_basis_missing"
+      ],
+      "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "admission_scope_missing",
+          "visitor_category_missing",
+          "tax_basis_missing",
+          "verification_date_missing",
+          "variable_or_date_dependent",
+          "age_band_requires_review",
+          "channel_price_requires_review",
+          "weekday_condition_requires_review",
+          "pricing_scope_requires_review",
+          "source_not_currently_trusted",
+          "existing_product_metadata_missing",
+          "existing_visitor_category_missing",
+          "existing_tax_basis_missing"
+        ]
+      },
+      "proposedFieldChanges": [
+        {
+          "fieldPath": "/admission",
+          "existingValue": {
+            "state": "variable_price",
+            "provenance": "verified_source",
+            "reasonCode": "price_variable_by_date",
+            "cost": {
+              "kind": "open_ended",
+              "from": 3600
+            },
+            "scope": "general_entry",
+            "basis": "Official teamLab Planets ticket store: adult (18+) from ¥3,600 with dynamic date/time pricing; no published upper bound (premium ¥12,000 package excluded).",
+            "sourceUrls": [
+              "https://teamlabplanets.dmm.com/en"
+            ],
+            "checkedAt": "2026-08-28",
+            "reviewIntervalMonths": 12
+          },
+          "proposedValue": {
+            "state": "variable_price",
+            "provenance": "verified_source",
+            "reasonCode": "price_variable_by_date",
+            "cost": {
+              "kind": "variable"
+            },
+            "scope": "general_entry",
+            "basis": "18 Years and above JPY 4,200; Junior high school students / High school students JPY 2,800; Ages 4-12 JPY 1,500; 3 years old and younger.",
+            "sourceUrls": [
+              "https://planets.teamlab.art/tokyo"
+            ]
+          }
+        }
+      ],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "review_required_conflict_or_scope",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "held_for_review",
+          "actorOrRule": "KAI-324 manual-review-queue-v1",
+          "reason": "A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval."
+        }
+      ],
+      "priorKAI323Action": "review_required_conflict_or_scope"
+    },
+    {
+      "destinationId": "tokyo-skytree-sumida",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "bounded",
+          "min": 1800,
+          "max": 3600
+        },
+        "scope": "general_entry",
+        "basis": "Official Tokyo Skytree documentation publishes the individual adult Tembo Deck variable-price envelope ¥1,800–¥3,600 by visit date. Tembo Deck + Galleria is a separate product and is excluded.",
+        "sourceUrls": [
+          "https://www.tokyo-skytree.jp/ticket/"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://tokyo-skytree.jp/en/ticket/individual/reservation/online.html",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://tokyo-skytree.jp/en/ticket/individual/reservation/online.html",
+        "registryTechnicalStatus": null,
+        "registryTechnicalResult": "dns_failure",
+        "manualVerified": false,
+        "robotsUrl": "https://tokyo-skytree.jp/robots.txt",
+        "robotsStatus": null,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "unknown_or_blocked"
+      },
+      "extractionStatus": "failed",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "individual admission",
+        "visitorCategory": null,
+        "conditions": "Official ticket flow not reachable in the bounded probe.",
+        "weekdayOrWeekend": "date/product-dependent",
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "source_access_degraded",
+        "source_not_eligible_for_auto_approval",
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "source_access_degraded",
+          "source_not_eligible_for_auto_approval",
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "tokyo-tower-minato",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "cost": {
+          "kind": "bounded",
+          "min": 1500,
+          "max": 1500
+        },
+        "scope": "general_entry",
+        "basis": "Official Tokyo Tower fee page lists adult Main Deck (150m) admission at ¥1,500; Top Deck tours and other products excluded.",
+        "sourceUrls": [
+          "https://www.tokyotower.co.jp/fee/"
+        ],
+        "checkedAt": "2026-08-29",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://en.tokyotower.co.jp/ticket/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://en.tokyotower.co.jp/ticket/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "ticket_page_retrieved_no_numeric_text",
+        "manualVerified": false,
+        "robotsUrl": "https://en.tokyotower.co.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "unresolved",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "Main Deck admission; product page retrieved without numeric price text",
+        "visitorCategory": null,
+        "conditions": "Main Deck, Top Deck Tour, Diamond Tour and set tickets are separate products.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "universal-studios-japan",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "cost": {
+          "kind": "variable"
+        },
+        "scope": "general_entry",
+        "basis": "Official operator publishes date/product ticket pricing; no single current scalar is promoted.",
+        "sourceUrls": [
+          "https://www.usj.co.jp/web/en/us/tickets"
+        ],
+        "checkedAt": "2026-08-28",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.usj.co.jp/web/en/us/tickets",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.usj.co.jp/web/en/us/tickets",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "page_retrieved_no_price_text",
+        "manualVerified": false,
+        "robotsUrl": "https://www.usj.co.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "unresolved",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "Studio Pass admission",
+        "visitorCategory": null,
+        "conditions": "Studio Pass pricing requires the official date/product flow.",
+        "weekdayOrWeekend": "date-dependent",
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "no_new_evidence_keep_current",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "no_new_evidence_keep_current"
+    },
+    {
+      "destinationId": "zenkoji-temple",
+      "productionCatalogueChanged": false,
+      "fieldPath": "/admission",
+      "existingValue": {
+        "state": "unavailable",
+        "provenance": "verified_source",
+        "reasonCode": "source_missing",
+        "cost": {
+          "kind": "unavailable",
+          "reason": "source_missing"
+        },
+        "scope": "general_entry",
+        "basis": "The official destination source was reviewed for identity and visitor access, but no current ordinary individual admission value was promoted without a dedicated fee source.",
+        "sourceUrls": [
+          "https://www.zenkoji.jp/"
+        ],
+        "checkedAt": "2026-08-31",
+        "reviewIntervalMonths": 12
+      },
+      "proposedValue": null,
+      "sourceEvidence": {
+        "sourceUrl": "https://www.zenkoji.jp/en/",
+        "sourceType": "official",
+        "sourceLanguage": "en",
+        "quotation": null,
+        "quotationSanitized": true,
+        "sourceRegistryUrl": "https://www.zenkoji.jp/en/",
+        "registryTechnicalStatus": 200,
+        "registryTechnicalResult": "page_retrieved_price_not_recovered",
+        "manualVerified": false,
+        "robotsUrl": "https://www.zenkoji.jp/robots.txt",
+        "robotsStatus": 200,
+        "robotsBlockedAll": false,
+        "termsStatus": "not_located",
+        "automationEligibility": "manual_review_required",
+        "collectionPermission": "manual_one_time_only"
+      },
+      "extractionStatus": "unresolved",
+      "manualVerified": false,
+      "dates": {
+        "extractedAt": "2026-09-23",
+        "verifiedAt": null,
+        "validFrom": null,
+        "validUntil": null
+      },
+      "pricing": {
+        "currency": "JPY",
+        "taxBasis": null,
+        "ticketProduct": "temple admission/optional worship facilities",
+        "visitorCategory": null,
+        "conditions": "Temple-area access and optional paid worship facilities may be distinct.",
+        "weekdayOrWeekend": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "observedAdultPrice": null,
+        "observedChildPrice": null
+      },
+      "confidence": "low",
+      "decision": "rejected",
+      "reviewerOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+      "reasonCodes": [
+        "evidence_quotation_missing",
+        "source_failure_or_unresolved"
+      ],
+      "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched.",
+      "validation": {
+        "valid": false,
+        "issues": [
+          "evidence_quotation_missing",
+          "source_failure_or_unresolved"
+        ]
+      },
+      "proposedFieldChanges": [],
+      "currentFactUntouched": true,
+      "decisionHistory": [
+        {
+          "event": "kai323_proposal",
+          "at": "2026-09-23",
+          "decision": "remain_unknown",
+          "actorOrRule": "KAI-323 deterministic research proposal",
+          "reason": "Preserved from qa/kai-323/proposed-updates.json; not an approval record."
+        },
+        {
+          "event": "kai324_evaluation",
+          "at": "2026-09-23",
+          "decision": "rejected",
+          "actorOrRule": "KAI-324 no-new-evidence-preservation-rule-v1",
+          "reason": "No defensible new admission fact was produced; the existing catalogue fact remains untouched."
+        }
+      ],
+      "priorKAI323Action": "remain_unknown"
+    }
+  ],
+  "untouchedDestinationIds": [
+    "cup-noodles-museum-yokohama",
+    "disneyland",
+    "disneysea",
+    "enoshima-aquarium",
+    "fukui-prefectural-dinosaur-museum",
+    "fukuoka-art-museum",
+    "ghibli-museum",
+    "hamarikyu-gardens",
+    "himeji-castle",
+    "jigokudani-monkey-park",
+    "kenroku-en",
+    "korakuen-okayama",
+    "matsumoto-castle-nagano",
+    "national-museum-of-nature-and-science",
+    "osaka-aquarium-kaiyukan",
+    "osaka-castle",
+    "sapporo-beer-museum",
+    "shibuya-sky-shibuya",
+    "teamlab-borderless-azabudai",
+    "teamlab-botanical-garden-osaka",
+    "teamlab-planets",
+    "tokyo-skytree-sumida",
+    "tokyo-tower-minato",
+    "universal-studios-japan",
+    "zenkoji-temple"
+  ]
+}

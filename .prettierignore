@@ -21,5 +21,7 @@ qa/kai-323/baseline.json
 qa/kai-323/baseline.md
 qa/kai-323/proposed-updates.json
 qa/kai-323/proposed-updates.md
+qa/kai-324/decision-report.json
+qa/kai-324/decision-report.md
 src/shared/data/transit/toei-oedo-gtfs-20260314.json
 public/data
