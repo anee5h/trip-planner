@@ -6,6 +6,7 @@ import {
   applyApprovedChanges,
   buildGovernanceReport,
   loadActualGovernanceReport,
+  manualReviewCandidateSha256,
   manualReviewEvidenceSha256,
   publishApprovedCatalogue,
   promoteManualReview,
@@ -180,6 +181,44 @@ function approvedFixtureReport() {
   const report = buildGovernanceReport(approvedFixtureInput());
   report.catalogueBaseVerified = true;
   return report;
+}
+
+function manualArtifactFor(
+  report: ReturnType<typeof buildGovernanceReport>,
+  input: BuildReportInput,
+) {
+  const record = report.records[0];
+  const reviewableCodes = new Set([
+    "ticket_product_conflict",
+    "pricing_scope_requires_review",
+    "kai323_scope_review_required",
+  ]);
+  return {
+    schemaVersion: 1 as const,
+    ticket: "KAI-324" as const,
+    reportSha256: reportSha256(report),
+    catalogueSha256: report.catalogueSha256,
+    reviewedAt: "2026-09-23",
+    reviewedBy: "manual reviewer",
+    explicitManualApproval: true as const,
+    decisions: [
+      {
+        destinationId: record.destinationId,
+        sourceUrl: record.sourceEvidence.sourceUrl,
+        evidenceSha256: manualReviewEvidenceSha256(record),
+        candidateSha256: manualReviewCandidateSha256(record),
+        revalidatedAt: "2026-09-23",
+        reviewerNote:
+          "Revalidated the exact candidate against the cited evidence.",
+        resolvedIssues: record.reasonCodes
+          .filter((reasonCode) => reviewableCodes.has(reasonCode))
+          .map((reasonCode) => ({
+            reasonCode,
+            resolution: `Resolved ${reasonCode} against ${input.proposals[0].destinationId}.`,
+          })),
+      },
+    ],
+  };
 }
 
 describe("KAI-324 merged KAI-323 dry run", () => {
@@ -425,8 +464,21 @@ describe("KAI-324 merged KAI-323 dry run", () => {
           destinationId: record.destinationId,
           sourceUrl: record.sourceEvidence.sourceUrl,
           evidenceSha256: manualReviewEvidenceSha256(record),
+          candidateSha256: manualReviewCandidateSha256(record),
           revalidatedAt: "2026-09-23",
           reviewerNote: "Revalidated the exact product and conditions.",
+          resolvedIssues: [
+            {
+              reasonCode: "ticket_product_conflict",
+              resolution:
+                "The reviewed product is the exact general admission product.",
+            },
+            {
+              reasonCode: "pricing_scope_requires_review",
+              resolution:
+                "The reviewed price is base admission without a bundle or surcharge.",
+            },
+          ],
         },
       ],
     };
@@ -441,6 +493,93 @@ describe("KAI-324 merged KAI-323 dry run", () => {
       "kai324_manual_approval",
     );
     expect(report.records[0].decision).toBe("held_for_review");
+  });
+
+  it("permits a fixed-price product/scope resolution recorded against exact evidence", () => {
+    const input = makeInput({
+      extraction: { ticketProduct: "premium bundle" },
+    });
+    const report = buildGovernanceReport(input);
+    report.catalogueBaseVerified = true;
+    const promoted = promoteManualReview(
+      report,
+      input.catalogue,
+      manualArtifactFor(report, input),
+    );
+    expect(promoted.records[0].decision).toBe("approved");
+    expect(promoted.records[0].reasonCodes).toEqual(
+      expect.arrayContaining(["manual_review_revalidated"]),
+    );
+    expect(promoted.records[0].decisionHistory.at(-1)).toMatchObject({
+      event: "kai324_manual_approval",
+      actorOrRule: "manual:manual reviewer",
+      evidenceSha256: manualReviewEvidenceSha256(report.records[0]),
+      candidateSha256: manualReviewCandidateSha256(report.records[0]),
+      resolvedIssues: expect.arrayContaining([
+        expect.objectContaining({ reasonCode: "ticket_product_conflict" }),
+        expect.objectContaining({
+          reasonCode: "pricing_scope_requires_review",
+        }),
+      ]),
+    });
+  });
+
+  it("rejects manual promotion when the source URL drifted", () => {
+    const input = makeInput({
+      sourceUrl: "https://official.example.test/moved-tickets",
+    });
+    const report = buildGovernanceReport(input);
+    report.catalogueBaseVerified = true;
+    expect(() =>
+      promoteManualReview(
+        report,
+        input.catalogue,
+        manualArtifactFor(report, input),
+      ),
+    ).toThrow("manual review hard blockers require new or corrected evidence");
+    expect(report.records[0].reasonCodes).toContain("source_url_drift");
+  });
+
+  it("rejects manual promotion when evidence has expired", () => {
+    const input = makeInput({
+      extraction: { validUntil: "2026-09-22" },
+    });
+    const report = buildGovernanceReport(input);
+    report.catalogueBaseVerified = true;
+    expect(() =>
+      promoteManualReview(
+        report,
+        input.catalogue,
+        manualArtifactFor(report, input),
+      ),
+    ).toThrow("manual review hard blockers require new or corrected evidence");
+    expect(report.records[0].reasonCodes).toContain("source_validity_expired");
+  });
+
+  it("keeps a teamLab Planets-style date-selected current price variable", () => {
+    const input = makeInput({
+      destinationId: "teamlab-planets",
+      extraction: {
+        ticketProduct: "date-selected entrance pass",
+        timeSlotConditions:
+          "date and time slot selected; current displayed price",
+        originalPriceText: "Current displayed adult price ¥3,600",
+        adultPrice: 3600,
+      },
+    });
+    const report = buildGovernanceReport(input);
+    report.catalogueBaseVerified = true;
+    const record = report.records[0];
+    expect(record.proposedValue?.state).toBe("variable_price");
+    expect(record.proposedValue?.cost).toEqual({ kind: "variable" });
+    expect(record.reasonCodes).toContain("variable_or_date_dependent");
+    expect(() =>
+      promoteManualReview(
+        report,
+        input.catalogue,
+        manualArtifactFor(report, input),
+      ),
+    ).toThrow("manual review hard blockers require new or corrected evidence");
   });
 
   it("cannot promote rejected records or an unbound manual decision", () => {
@@ -468,8 +607,10 @@ describe("KAI-324 merged KAI-323 dry run", () => {
           destinationId: record.destinationId,
           sourceUrl: record.sourceEvidence.sourceUrl,
           evidenceSha256: manualReviewEvidenceSha256(record),
+          candidateSha256: manualReviewCandidateSha256(record),
           revalidatedAt: "2026-09-23",
           reviewerNote: "Attempted promotion without new evidence.",
+          resolvedIssues: [],
         },
       ],
     };

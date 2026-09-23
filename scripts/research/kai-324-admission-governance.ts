@@ -66,6 +66,12 @@ export interface DecisionHistoryEntry {
   decision: string;
   actorOrRule: string;
   reason: string;
+  evidenceSha256?: string;
+  candidateSha256?: string;
+  resolvedIssues?: Array<{
+    reasonCode: string;
+    resolution: string;
+  }>;
 }
 
 export interface FieldChange {
@@ -168,8 +174,13 @@ export interface ManualReviewDecision {
   destinationId: string;
   sourceUrl: string;
   evidenceSha256: string;
+  candidateSha256: string;
   revalidatedAt: string;
   reviewerNote: string;
+  resolvedIssues: Array<{
+    reasonCode: string;
+    resolution: string;
+  }>;
 }
 
 export interface ManualReviewArtifact {
@@ -329,7 +340,16 @@ function buildProposedAdmission(
   existing: JsonObject | null,
 ): JsonObject | null {
   const adultPrice = asNullableNumber(extraction.adultPrice);
-  if (extraction.extractionStatus === "verified_variable") {
+  const observationText = `${extraction.ticketProduct} ${extraction.timeSlotConditions ?? ""} ${extraction.weekdayOrWeekend ?? ""} ${extraction.originalPriceText ?? ""}`;
+  const isDateOrTimeDependentObservation =
+    /date[- ]selected|date selection|time[- ]slot|admission time|current(?:ly)? displayed|dynamic pricing|日付|日時|時間指定|変動|カレンダー|選択した日時/iu.test(
+      observationText,
+    );
+  if (
+    extraction.extractionStatus === "verified_variable" ||
+    (extraction.extractionStatus === "verified" &&
+      isDateOrTimeDependentObservation)
+  ) {
     return {
       state: "variable_price",
       provenance: "verified_source",
@@ -602,7 +622,7 @@ function validateCandidate(
   }
   if (!extraction.verificationDate)
     pushIssue(issues, "verification_date_missing");
-  if (extraction.extractionStatus === "verified_variable") {
+  if (proposedAdmission.state === "variable_price") {
     pushIssue(issues, "variable_or_date_dependent");
   }
   if (extraction.taxBasis === "unknown") {
@@ -1283,10 +1303,26 @@ export function buildGovernanceReport(
   };
 }
 
+const MANUAL_REVIEW_RESOLVABLE_CODES = new Set([
+  "ticket_product_conflict",
+  "pricing_scope_requires_review",
+  "kai323_scope_review_required",
+]);
+
 export function manualReviewEvidenceSha256(record: GovernanceRecord): string {
   return jsonSha256({
     sourceUrl: record.sourceEvidence.sourceUrl,
     quotation: record.sourceEvidence.quotation,
+  });
+}
+
+export function manualReviewCandidateSha256(record: GovernanceRecord): string {
+  return jsonSha256({
+    destinationId: record.destinationId,
+    existingValue: record.existingValue,
+    proposedValue: record.proposedValue,
+    sourceUrl: record.sourceEvidence.sourceUrl,
+    evidenceSha256: manualReviewEvidenceSha256(record),
   });
 }
 
@@ -1335,10 +1371,13 @@ export function promoteManualReview(
       typeof decision.destinationId !== "string" ||
       typeof decision.sourceUrl !== "string" ||
       typeof decision.evidenceSha256 !== "string" ||
+      typeof decision.candidateSha256 !== "string" ||
+      !Array.isArray(decision.resolvedIssues) ||
       typeof decision.revalidatedAt !== "string" ||
       typeof decision.reviewerNote !== "string" ||
       decision.reviewerNote.trim().length === 0 ||
       !/^[a-f0-9]{64}$/.test(decision.evidenceSha256) ||
+      !/^[a-f0-9]{64}$/.test(decision.candidateSha256) ||
       !isValidDate(decision.revalidatedAt) ||
       decision.revalidatedAt > EVALUATION_DATE
     ) {
@@ -1360,6 +1399,49 @@ export function promoteManualReview(
       manualReviewEvidenceSha256(record) !== decision.evidenceSha256
     ) {
       throw new Error("manual review evidence does not match the report");
+    }
+    if (manualReviewCandidateSha256(record) !== decision.candidateSha256) {
+      throw new Error("manual review candidate does not match the report");
+    }
+    const hardBlockers = record.reasonCodes.filter(
+      (reasonCode) => !MANUAL_REVIEW_RESOLVABLE_CODES.has(reasonCode),
+    );
+    if (hardBlockers.length > 0) {
+      throw new Error(
+        `manual review hard blockers require new or corrected evidence: ${hardBlockers.join(", ")}`,
+      );
+    }
+    const resolvedIssues = decision.resolvedIssues;
+    if (
+      resolvedIssues.some(
+        (resolution) =>
+          typeof resolution !== "object" ||
+          resolution === null ||
+          typeof resolution.reasonCode !== "string" ||
+          typeof resolution.resolution !== "string" ||
+          resolution.resolution.trim().length === 0 ||
+          !MANUAL_REVIEW_RESOLVABLE_CODES.has(resolution.reasonCode),
+      )
+    ) {
+      throw new Error(
+        "manual review resolution is malformed or not reviewable",
+      );
+    }
+    const expectedReviewableIssues = record.reasonCodes.filter((reasonCode) =>
+      MANUAL_REVIEW_RESOLVABLE_CODES.has(reasonCode),
+    );
+    const actualResolvedIssues = resolvedIssues.map(
+      (resolution) => resolution.reasonCode,
+    );
+    if (
+      expectedReviewableIssues.length === 0 ||
+      expectedReviewableIssues.length !== actualResolvedIssues.length ||
+      [...expectedReviewableIssues].sort().join("|") !==
+        [...actualResolvedIssues].sort().join("|")
+    ) {
+      throw new Error(
+        "manual review resolutions do not match candidate issues",
+      );
     }
     if (record.sourceEvidence.collectionPermission !== "manual_one_time_only") {
       throw new Error("manual review source is blocked or unknown");
@@ -1389,6 +1471,12 @@ export function promoteManualReview(
           decision: "approved",
           actorOrRule: `manual:${artifact.reviewedBy}`,
           reason: decision.reviewerNote,
+          evidenceSha256: decision.evidenceSha256,
+          candidateSha256: decision.candidateSha256,
+          resolvedIssues: resolvedIssues.map((resolution) => ({
+            reasonCode: resolution.reasonCode,
+            resolution: resolution.resolution,
+          })),
         },
       ],
     };

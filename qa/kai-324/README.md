@@ -19,7 +19,7 @@ The KAI-323 baseline was created before its PR merge (`a94556fcf2718a05a90c69df8
 `decision-report.json` stores one record per canonical destination and exact field (`/admission`). Each record retains:
 
 - existing value and proposed candidate value;
-- exact source URL, official source type, language, registry URL, technical result, and sanitized evidence quotation;
+- exact source URL, official source type, language, registry URL, technical result, robots status/blocking, terms status, automation eligibility, collection permission, and sanitized evidence quotation;
 - extracted-at, verified-at when explicitly present, and applicable validity window;
 - ticket product, visitor category, conditions, adult/child observations, online/counter observations, currency, tax basis, and confidence;
 - `approved`, `held_for_review`, or `rejected` decision;
@@ -62,7 +62,9 @@ The eight accepted KAI-323 records are candidates only. They remain held because
 - Fixed, bounded, date/time-dependent, variable, free, not-applicable, unknown, and temporarily unavailable semantics remain distinct.
 - “From ¥X” or a text-level minimum/maximum is not a verified adult range.
 - A failed or unresolved source is rejected as a replacement and leaves the current trusted fact untouched.
-- A variable/date-dependent, stale, changed-source, bundled, premium, online/counter, age-band, or condition-ambiguous candidate is held.
+- A variable/date-dependent, stale, changed-source, bundled, premium, online/counter, age-band, or condition-ambiguous candidate is held. A date-selected or current-displayed price is never converted to a generally applicable fixed `verified_paid` fact.
+- Manual promotion is a separate hash-bound operation. Only a held candidate with exact evidence/candidate identity may be promoted; expired/not-yet-valid, URL-drifted, malformed, contradictory, invalid-date/currency, missing-identity, variable, and other hard-blocked records require new or corrected evidence. Only explicitly resolved product/scope comparison issues may be promoted, with the resolution appended to decision history.
+- Robots/access/terms evidence distinguishes one-time manual review from recurring collection authorization. Unknown permission never authorizes recurring collection.
 - Free requires explicit free evidence. Zero, missing, or unavailable prices are not free.
 - Legacy records are not invalidated solely because KAI-324 fields did not exist when they were authored; missing metadata is flagged when the record is proposed for replacement.
 
@@ -87,6 +89,7 @@ Focused tests cover:
 - age/product/scope conflicts and unknown-to-free protection;
 - source failure, URL drift, degraded access, and duplicate inputs;
 - actual KAI-323 accepted and corrected-action outcomes;
-- exact approval artifact matching, idempotency, rollback, and partial-failure safety.
+- exact approval artifact matching, idempotency, rollback, and partial-failure safety;
+- hash-bound manual-review promotion, hard-blocker rejection for source drift/expiry/invalid evidence, fixed product/scope resolution, and a teamLab Planets-style date-selected current-price regression.
 
 KAI-325 may not integrate any admission candidate until a reviewer creates an approval artifact for the exact report, confirms provenance and applicable conditions, validates the production `AdmissionCostFact`, and separately verifies the catalogue/generated-asset workflow. KAI-324 does not change KAI-325 budget logic or KAI-327 scheduling.

@@ -2396,12 +2396,11 @@
         "reviewIntervalMonths": 12
       },
       "proposedValue": {
-        "state": "verified_paid",
+        "state": "variable_price",
         "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
         "cost": {
-          "kind": "bounded",
-          "min": 4200,
-          "max": 4200
+          "kind": "variable"
         },
         "scope": "general_entry",
         "basis": "18 Years and above JPY 4,200; Junior high school students / High school students JPY 2,800; Ages 4-12 JPY 1,500; 3 years old and younger.",
@@ -2450,16 +2449,15 @@
       "decision": "held_for_review",
       "reviewerOrRule": "KAI-324 manual-review-queue-v1",
       "reasonCodes": [
-        "canonical_admission_invalid:verified_paid_invalid_checked_at",
         "admission_scope_missing",
         "visitor_category_missing",
         "tax_basis_missing",
         "verification_date_missing",
+        "variable_or_date_dependent",
         "age_band_requires_review",
         "channel_price_requires_review",
         "weekday_condition_requires_review",
         "pricing_scope_requires_review",
-        "trusted_state_conflict",
         "source_not_currently_trusted",
         "existing_product_metadata_missing",
         "existing_visitor_category_missing",
@@ -2469,16 +2467,15 @@
       "validation": {
         "valid": false,
         "issues": [
-          "canonical_admission_invalid:verified_paid_invalid_checked_at",
           "admission_scope_missing",
           "visitor_category_missing",
           "tax_basis_missing",
           "verification_date_missing",
+          "variable_or_date_dependent",
           "age_band_requires_review",
           "channel_price_requires_review",
           "weekday_condition_requires_review",
           "pricing_scope_requires_review",
-          "trusted_state_conflict",
           "source_not_currently_trusted",
           "existing_product_metadata_missing",
           "existing_visitor_category_missing",
@@ -2505,12 +2502,11 @@
             "reviewIntervalMonths": 12
           },
           "proposedValue": {
-            "state": "verified_paid",
+            "state": "variable_price",
             "provenance": "verified_source",
+            "reasonCode": "price_variable_by_date",
             "cost": {
-              "kind": "bounded",
-              "min": 4200,
-              "max": 4200
+              "kind": "variable"
             },
             "scope": "general_entry",
             "basis": "18 Years and above JPY 4,200; Junior high school students / High school students JPY 2,800; Ages 4-12 JPY 1,500; 3 years old and younger.",

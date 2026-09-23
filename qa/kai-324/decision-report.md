@@ -261,7 +261,7 @@ This is a deterministic, read-only evaluation. It does not mutate the canonical 
 - Source: https://planets.teamlab.art/tokyo (price\_text\_retrieved)
 - Evidence quotation: “18 Years and above JPY 4,200; Junior high school students / High school students JPY 2,800; Ages 4-12 JPY 1,500; 3 years old and younger.”
 - Reason: A candidate exists, but provenance, scope, conflict, freshness, or manual-review requirements prevent automatic approval.
-- Validation issues: `canonical_admission_invalid:verified_paid_invalid_checked_at`, `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `age_band_requires_review`, `channel_price_requires_review`, `weekday_condition_requires_review`, `pricing_scope_requires_review`, `trusted_state_conflict`, `source_not_currently_trusted`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`
+- Validation issues: `admission_scope_missing`, `visitor_category_missing`, `tax_basis_missing`, `verification_date_missing`, `variable_or_date_dependent`, `age_band_requires_review`, `channel_price_requires_review`, `weekday_condition_requires_review`, `pricing_scope_requires_review`, `source_not_currently_trusted`, `existing_product_metadata_missing`, `existing_visitor_category_missing`, `existing_tax_basis_missing`
 - Proposed field changes: `/admission` candidate retained for review
 - Existing fact untouched: **yes**
 
