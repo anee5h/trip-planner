@@ -1,0 +1,50 @@
+[
+  {
+    "name": "fixed_yen",
+    "text": "Adults: ¥2,000",
+    "values": [2000],
+    "minimum": 2000,
+    "maximum": 2000,
+    "fromOnly": false
+  },
+  {
+    "name": "range_yen",
+    "text": "Adult 2,000円〜3,500円",
+    "values": [2000, 3500],
+    "minimum": 2000,
+    "maximum": 3500,
+    "fromOnly": true
+  },
+  {
+    "name": "jpy_age_bands",
+    "text": "18 Years and above JPY 4,200; Ages 4-12 JPY 1,500",
+    "values": [1500, 4200],
+    "minimum": 1500,
+    "maximum": 4200,
+    "fromOnly": false
+  },
+  {
+    "name": "from_price",
+    "text": "Admission from ¥1,000",
+    "values": [1000],
+    "minimum": 1000,
+    "maximum": 1000,
+    "fromOnly": true
+  },
+  {
+    "name": "dot_grouping",
+    "text": "観覧料 ¥1.280",
+    "values": [1280],
+    "minimum": 1280,
+    "maximum": 1280,
+    "fromOnly": false
+  },
+  {
+    "name": "age_without_currency",
+    "text": "Adults 18 and above; children 4-12",
+    "values": [],
+    "minimum": null,
+    "maximum": null,
+    "fromOnly": false
+  }
+]

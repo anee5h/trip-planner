@@ -1,0 +1,866 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-323",
+  "baseSha": "a94556fcf2718a05a90c69df878c7c2b44779492",
+  "readOnly": true,
+  "cohortSize": 25,
+  "counts": {
+    "manual_review": 3,
+    "no_change_confirmed": 5,
+    "remain_unknown": 14,
+    "review_required_conflict_or_scope": 1,
+    "review_required_variable_product": 2
+  },
+  "records": [
+    {
+      "destinationId": "cup-noodles-museum-yokohama",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 500,
+        "maximumPrice": 500,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+        ],
+        "checkedAt": "2026-08-14",
+        "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+      },
+      "extracted": {
+        "status": "verified",
+        "sourceUrl": "https://www.cupnoodles-museum.jp/en/yokohama/",
+        "ticketProduct": "museum admission only; factory voucher excluded",
+        "adultPrice": 500,
+        "childPrice": 0,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": 500,
+        "maximumPrice": 500,
+        "originalPriceText": "Admission Fee — Adults: 500 yen; high school age children and younger admitted free. Admission-only online tickets are not available; My CUPNOODLES Factory voucher is a separate product.",
+        "conditions": "Admission-only online ticket unavailable; same-day numbered ticket/counter process applies.",
+        "failureReason": null,
+        "manualVerified": true
+      },
+      "proposedAction": "no_change_confirmed",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "disneyland",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.tokyodisneyresort.jp/en/ticket/index.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official operator uses date-specific park ticket products; current adult admission is not a stable single value in the page evidence."
+      },
+      "extracted": {
+        "status": "failed",
+        "sourceUrl": "https://www.tokyodisneyresort.jp/en/tdl/ticket/index",
+        "ticketProduct": "1-Day Passport admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": "Official park-ticket page timed out; date-specific pricing cannot be reduced to a fixed fee.",
+        "failureReason": "Bounded request timed out; no price claim made.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "disneysea",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.tokyodisneyresort.jp/en/ticket/index.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official operator uses date-specific park ticket products; current adult admission is not a stable single value in the page evidence."
+      },
+      "extracted": {
+        "status": "failed",
+        "sourceUrl": "https://www.tokyodisneyresort.jp/en/tds/ticket/index",
+        "ticketProduct": "1-Day Passport admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": "Official park-ticket page timed out; date-specific pricing cannot be reduced to a fixed fee.",
+        "failureReason": "Bounded request timed out; no price claim made.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "enoshima-aquarium",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 3320,
+        "maximumPrice": 3320,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.enosui.com/basicinfo.php"
+        ],
+        "checkedAt": "2026-08-27",
+        "basis": "Official aquarium page: adult admission ¥3,320; fixed general-entry price."
+      },
+      "extracted": {
+        "status": "unresolved",
+        "sourceUrl": "https://www.enosui.com/en/",
+        "ticketProduct": "general aquarium admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": "General admission and memberships are distinct; numeric table not recovered.",
+        "failureReason": "Official page returned 200 but numeric admission values were not recovered from the bounded response.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "fukui-prefectural-dinosaur-museum",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 1000,
+        "maximumPrice": 1000,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.dinosaur.pref.fukui.jp/en/info.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official museum admission table lists individual adults at ¥1,000; special exhibition and Field Station supplements excluded."
+      },
+      "extracted": {
+        "status": "manual_review",
+        "sourceUrl": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+        "ticketProduct": "museum admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": "Admission Fees; Adults; Child; admission to Field Station is not included.",
+        "conditions": "Field Station is a separate inclusion boundary.",
+        "failureReason": "Official price labels and product boundary were recovered, but numeric table values were not recovered safely.",
+        "manualVerified": false
+      },
+      "proposedAction": "manual_review",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "fukuoka-art-museum",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "exhibition_dependent_pricing",
+        "costKind": "open_ended",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.fukuoka-art-museum.jp/guide/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official museum guide lists ¥200 collection/企画展 entry and separate exhibition conditions; no single annual exhibition envelope is promoted."
+      },
+      "extracted": {
+        "status": "unresolved",
+        "sourceUrl": "https://www.fukuoka-art-museum.jp/en/visit/",
+        "ticketProduct": "museum admission/exhibition ticket",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": "Hours and Admission; adult ticket label present; numeric values not recovered.",
+        "conditions": "Collection/exhibition products may differ.",
+        "failureReason": "Official page was reachable but no defensible numeric value was recovered.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "ghibli-museum",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 1000,
+        "maximumPrice": 1000,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.ghibli-museum.jp/ticket/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official museum ticket table lists adult/university admission at ¥1,000; dated reservation is an access condition, not a price range."
+      },
+      "extracted": {
+        "status": "verified",
+        "sourceUrl": "https://www.ghibli-museum.jp/en/tickets/",
+        "ticketProduct": "Ghibli Museum admission",
+        "adultPrice": 1000,
+        "childPrice": null,
+        "onlinePrice": 1000,
+        "counterPrice": null,
+        "minimumPrice": 1000,
+        "maximumPrice": 1000,
+        "originalPriceText": "Admission by age: 19+ JPY 1,000; 13–18 JPY 700; 7–12 JPY 400; 4–6 JPY 100. Advance reservation required; no museum-counter purchase.",
+        "conditions": "Advance reservation only; age bands remain distinct and are not collapsed into childPrice.",
+        "failureReason": null,
+        "manualVerified": true
+      },
+      "proposedAction": "no_change_confirmed",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "hamarikyu-gardens",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 300,
+        "maximumPrice": 300,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.tokyo-park.or.jp/park/hama-rikyu/"
+        ],
+        "checkedAt": "2026-08-14",
+        "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/"
+      },
+      "extracted": {
+        "status": "verified",
+        "sourceUrl": "https://www.tokyo-park.or.jp/teien/en/hama-rikyu/outline.html",
+        "ticketProduct": "garden entrance",
+        "adultPrice": 300,
+        "childPrice": 0,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": 300,
+        "maximumPrice": 300,
+        "originalPriceText": "Entrance fee: ¥300 (65 and over: ¥150); no charge for primary school children or younger and eligible Tokyo junior-high students.",
+        "conditions": "Child free-entry condition is residence/school dependent; not a universal child price.",
+        "failureReason": null,
+        "manualVerified": true
+      },
+      "proposedAction": "no_change_confirmed",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "himeji-castle",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 2500,
+        "maximumPrice": 2500,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.himejicastle.jp/en/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Himeji Castle fee table lists adult admission at ¥2,500; Himeji resident and combination-ticket rates excluded."
+      },
+      "extracted": {
+        "status": "manual_review",
+        "sourceUrl": "https://www.himejicastle.jp/en/",
+        "ticketProduct": "Himeji Castle admission; combined Koko-en ticket remains distinct",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": "Admission fee section present, but numeric table was not recovered in the bounded response.",
+        "failureReason": "Official page was reachable and identified admission products, but no numeric price was safely recovered from the sanitized response.",
+        "manualVerified": false
+      },
+      "proposedAction": "manual_review",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "jigokudani-monkey-park",
+      "existing": {
+        "state": "unavailable",
+        "provenance": "verified_source",
+        "reasonCode": "source_missing",
+        "costKind": "unavailable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://en.jigokudani-yaenkoen.co.jp/"
+        ],
+        "checkedAt": "2026-08-31",
+        "basis": "The official destination source was reviewed for identity and visitor access, but no current ordinary individual admission value was promoted without a dedicated fee source."
+      },
+      "extracted": {
+        "status": "unresolved",
+        "sourceUrl": "https://en.jigokudani-yaenkoen.co.jp/",
+        "ticketProduct": "Snow Monkey Park admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": "Important Notice Regarding Admission Fee Revision; online ticketing announced.",
+        "conditions": "Admission revision notice means a stale/current value cannot be inferred from the page fragment.",
+        "failureReason": "Official page exposed a fee-revision notice but no current numeric price was recovered; remain unknown.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "kenroku-en",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 320,
+        "maximumPrice": 320,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://kenrokuen.or.jp/information/"
+        ],
+        "checkedAt": "2026-08-14",
+        "basis": "Verified admission ¥320 (ledger FIXED_PAID); source: https://kenrokuen.or.jp/information/"
+      },
+      "extracted": {
+        "status": "unresolved",
+        "sourceUrl": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/",
+        "ticketProduct": "garden admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": null,
+        "failureReason": "Official page returned 200 but numeric admission text was not recovered in the bounded response.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "korakuen-okayama",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 500,
+        "maximumPrice": 500,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://okayama-korakuen.jp/section/english/info/index.html"
+        ],
+        "checkedAt": "2026-08-14",
+        "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://okayama-korakuen.jp/section/english/info/index.html"
+      },
+      "extracted": {
+        "status": "verified",
+        "sourceUrl": "https://okayama-korakuen.jp/section/english/info/index.html",
+        "ticketProduct": "Korakuen individual admission",
+        "adultPrice": 500,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": 500,
+        "maximumPrice": 500,
+        "originalPriceText": "Individual Tickets: ¥500; child entry shown as free of charge. Combined tickets and partner museum tickets are separate products.",
+        "conditions": "Individual admission; child age definition and combined tickets remain separate conditions.",
+        "failureReason": null,
+        "manualVerified": true
+      },
+      "proposedAction": "no_change_confirmed",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "matsumoto-castle-nagano",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_product",
+        "costKind": "bounded",
+        "minimumPrice": 1200,
+        "maximumPrice": 1300,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.matsumoto-castle.jp/topics/8173.html"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Matsumoto Castle: adult e-ticket ¥1,200 / on-site paper ticket ¥1,300 (product variation); full normal adult range ¥1,200–¥1,300."
+      },
+      "extracted": {
+        "status": "unresolved",
+        "sourceUrl": "https://www.matsumoto-castle.jp/lang/eng/",
+        "ticketProduct": "castle admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": null,
+        "failureReason": "Official page returned 200 but numeric admission text was not recovered in the bounded response.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "national-museum-of-nature-and-science",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 630,
+        "maximumPrice": 630,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.kahaku.go.jp/riyou/nyukan-annai/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official National Museum of Nature and Science (Ueno): 常設展 一般・大学生 ¥630, 高校生以下無料; fixed permanent-exhibition adult admission."
+      },
+      "extracted": {
+        "status": "failed",
+        "sourceUrl": "https://www.kahaku.go.jp/english/visit/",
+        "ticketProduct": "museum admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": null,
+        "failureReason": "Selected official path returned 404; no alternate page was forced during the bounded pilot.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "osaka-aquarium-kaiyukan",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "bounded",
+        "minimumPrice": 2800,
+        "maximumPrice": 3500,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.kaiyukan.com/info/ticket/kaiyukan/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Kaiyukan current admission calendar: adult normal date tiers ¥2,800, ¥3,200, and ¥3,500; complete current normal adult range ¥2,800–¥3,500 by date. Child/senior/group pricing excluded."
+      },
+      "extracted": {
+        "status": "manual_review",
+        "sourceUrl": "https://www.kaiyukan.com/language/eng/",
+        "ticketProduct": "aquarium admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": "Admission fees and other tickets; e-tickets on sale now.",
+        "conditions": "Admission fees and other ticket products are separate; numeric table not recovered.",
+        "failureReason": "Official page was reachable but numeric price values were not recovered safely.",
+        "manualVerified": false
+      },
+      "proposedAction": "manual_review",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "osaka-castle",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 1200,
+        "maximumPrice": 1200,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.osakacastle.net/guide/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Osaka Castle fee table lists ordinary adult admission at ¥1,200; student and group rates excluded."
+      },
+      "extracted": {
+        "status": "verified",
+        "sourceUrl": "https://www.osakacastle.net/guide/",
+        "ticketProduct": "Osaka Castle Museum ordinary admission",
+        "adultPrice": 1200,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": 1200,
+        "maximumPrice": 1200,
+        "originalPriceText": "通常料金 大人 1,200円; 600円 要証明; 無料 要証明; 2025年4月1日から入館料変更.",
+        "conditions": "Ordinary admission; student/exemption categories require proof and remain distinct from adult admission.",
+        "failureReason": null,
+        "manualVerified": true
+      },
+      "proposedAction": "no_change_confirmed",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "sapporo-beer-museum",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 1000,
+        "maximumPrice": 1000,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.sapporobeer.jp/brewery/s_museum/kengaku/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Sapporo Beer Museum 見学 page: 入館料 一般料金 大人 ¥1,000 (¥500 中学生~20歳未満, 小学生以下無料); 道民割 ¥700 is a resident discount — excluded. Paid admission since 2026-07-01."
+      },
+      "extracted": {
+        "status": "unresolved",
+        "sourceUrl": "https://www.sapporobeer.jp/brewery/s_museum/",
+        "ticketProduct": "museum admission/tour",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": "Paid tour and free museum-area experience may be distinct products.",
+        "failureReason": "Official page returned 200 but numeric admission text was not recovered; free museum access must not be inferred.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "shibuya-sky-shibuya",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.shibuya-scramble-square.com/sky/"
+        ],
+        "checkedAt": "2026-08-29",
+        "basis": "Official Shibuya Sky ticketing is date/time-slot and product dependent; no single fixed adult price is defensible from the current booking system."
+      },
+      "extracted": {
+        "status": "failed",
+        "sourceUrl": "https://www.shibuya-scramble-square.com/sky/ticket/",
+        "ticketProduct": "general observatory admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": null,
+        "failureReason": "TLS certificate validation failed during the bounded HTTP probe; no price claim made.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "teamlab-borderless-azabudai",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.teamlab.art/e/borderless-azabudai/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official operator sells dated exhibition tickets and product options; no single scalar is promoted."
+      },
+      "extracted": {
+        "status": "verified_variable",
+        "sourceUrl": "https://borderless.teamlab.art/tokyo/",
+        "ticketProduct": "Entrance Pass; current displayed dynamic-price example",
+        "adultPrice": 3600,
+        "childPrice": 1500,
+        "onlinePrice": 3600,
+        "counterPrice": 3800,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": "Dynamic pricing: 18+ JPY 3,600; 13–17 JPY 2,800; 4–12 JPY 1,500; on-site purchase +200 yen; Flexible Pass JPY 1,800 is a distinct product.",
+        "conditions": "Admission time may be specified; on-site surcharge and flexible pass remain distinct.",
+        "failureReason": null,
+        "manualVerified": true
+      },
+      "proposedAction": "review_required_variable_product",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "teamlab-botanical-garden-osaka",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.teamlab.art/e/botanicalgarden/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official operator sells dated night-open-air museum tickets; no single scalar is promoted."
+      },
+      "extracted": {
+        "status": "verified_variable",
+        "sourceUrl": "https://www.teamlab.art/e/botanicalgarden/",
+        "ticketProduct": "teamLab Botanical Garden admission; current displayed dynamic-price example",
+        "adultPrice": 1800,
+        "childPrice": 500,
+        "onlinePrice": 1800,
+        "counterPrice": 2000,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": "Dynamic pricing: 16+ JPY 1,800; 6–15 JPY 500; preschool children; on-site surcharge +200 yen adults/+100 yen children.",
+        "conditions": "Time-slot/date conditions and on-site surcharge; preschool category remains separate.",
+        "failureReason": null,
+        "manualVerified": true
+      },
+      "proposedAction": "review_required_variable_product",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "teamlab-planets",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "open_ended",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://teamlabplanets.dmm.com/en"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official teamLab Planets ticket store: adult (18+) from ¥3,600 with dynamic date/time pricing; no published upper bound (premium ¥12,000 package excluded)."
+      },
+      "extracted": {
+        "status": "verified",
+        "sourceUrl": "https://planets.teamlab.art/tokyo",
+        "ticketProduct": "regular admission ticket; premium pass kept distinct",
+        "adultPrice": 4200,
+        "childPrice": 1500,
+        "onlinePrice": 4200,
+        "counterPrice": null,
+        "minimumPrice": 4200,
+        "maximumPrice": 4200,
+        "originalPriceText": "18 Years and above JPY 4,200; Junior high school students / High school students JPY 2,800; Ages 4-12 JPY 1,500; 3 years old and younger.",
+        "conditions": "Admission time is specified; official page states tickets are not sold on-site.",
+        "failureReason": null,
+        "manualVerified": true
+      },
+      "proposedAction": "review_required_conflict_or_scope",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "tokyo-skytree-sumida",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "bounded",
+        "minimumPrice": 1800,
+        "maximumPrice": 3600,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.tokyo-skytree.jp/ticket/"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official Tokyo Skytree documentation publishes the individual adult Tembo Deck variable-price envelope ¥1,800–¥3,600 by visit date. Tembo Deck + Galleria is a separate product and is excluded."
+      },
+      "extracted": {
+        "status": "failed",
+        "sourceUrl": "https://tokyo-skytree.jp/en/ticket/individual/reservation/online.html",
+        "ticketProduct": "individual admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": "Official ticket flow not reachable in the bounded probe.",
+        "failureReason": "DNS failure for the selected official host; no price claim made.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "tokyo-tower-minato",
+      "existing": {
+        "state": "verified_paid",
+        "provenance": "verified_source",
+        "reasonCode": null,
+        "costKind": "bounded",
+        "minimumPrice": 1500,
+        "maximumPrice": 1500,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.tokyotower.co.jp/fee/"
+        ],
+        "checkedAt": "2026-08-29",
+        "basis": "Official Tokyo Tower fee page lists adult Main Deck (150m) admission at ¥1,500; Top Deck tours and other products excluded."
+      },
+      "extracted": {
+        "status": "unresolved",
+        "sourceUrl": "https://en.tokyotower.co.jp/ticket/",
+        "ticketProduct": "Main Deck admission; product page retrieved without numeric price text",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": "Main Deck, Top Deck Tour, Diamond Tour and set tickets are separate products.",
+        "failureReason": "Official ticket page was reachable but numeric prices were not recoverable from the bounded response; products must not be mixed.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "universal-studios-japan",
+      "existing": {
+        "state": "variable_price",
+        "provenance": "verified_source",
+        "reasonCode": "price_variable_by_date",
+        "costKind": "variable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.usj.co.jp/web/en/us/tickets"
+        ],
+        "checkedAt": "2026-08-28",
+        "basis": "Official operator publishes date/product ticket pricing; no single current scalar is promoted."
+      },
+      "extracted": {
+        "status": "unresolved",
+        "sourceUrl": "https://www.usj.co.jp/web/en/us/tickets",
+        "ticketProduct": "Studio Pass admission",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": "Studio Pass pricing requires the official date/product flow.",
+        "failureReason": "Official page returned 200 but no defensible numeric price text was present in the bounded response; do not infer a fixed fee.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    },
+    {
+      "destinationId": "zenkoji-temple",
+      "existing": {
+        "state": "unavailable",
+        "provenance": "verified_source",
+        "reasonCode": "source_missing",
+        "costKind": "unavailable",
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "scope": "general_entry",
+        "sourceUrls": [
+          "https://www.zenkoji.jp/"
+        ],
+        "checkedAt": "2026-08-31",
+        "basis": "The official destination source was reviewed for identity and visitor access, but no current ordinary individual admission value was promoted without a dedicated fee source."
+      },
+      "extracted": {
+        "status": "unresolved",
+        "sourceUrl": "https://www.zenkoji.jp/en/",
+        "ticketProduct": "temple admission/optional worship facilities",
+        "adultPrice": null,
+        "childPrice": null,
+        "onlinePrice": null,
+        "counterPrice": null,
+        "minimumPrice": null,
+        "maximumPrice": null,
+        "originalPriceText": null,
+        "conditions": "Temple-area access and optional paid worship facilities may be distinct.",
+        "failureReason": "Official page returned 200 but no defensible numeric price text was recovered.",
+        "manualVerified": false
+      },
+      "proposedAction": "remain_unknown",
+      "productionCatalogueChanged": false
+    }
+  ]
+}
