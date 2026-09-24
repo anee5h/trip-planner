@@ -101,7 +101,7 @@ jobs:
           # bucket/key path.
           mkdir -p previous-report allure-download/history
           for hf in history.json history-trend.json duration-trend.json categories-trend.json retry-trend.json; do
-            node scripts/r2-with-retry.mjs --allow-missing-object -- \
+            node "$GITHUB_WORKSPACE/scripts/r2-with-retry.mjs" --allow-missing-object -- \
               npx wrangler r2 object get "$E2E_REPORT_BUCKET/history/$hf" --remote \
               -o "previous-report/$hf"
           done
@@ -167,15 +167,15 @@ jobs:
               *.woff) ct="font/woff" ;;
               *.webp) ct="image/webp" ;;
             esac
-            node scripts/r2-with-retry.mjs -- npx wrangler r2 object put "$E2E_REPORT_BUCKET/$key" --file "$f" --content-type "$ct" --remote
+            node "$GITHUB_WORKSPACE/scripts/r2-with-retry.mjs" -- npx wrangler r2 object put "$E2E_REPORT_BUCKET/$key" --file "$f" --content-type "$ct" --remote
           done
           # index.html last.
-          node scripts/r2-with-retry.mjs -- npx wrangler r2 object put "$E2E_REPORT_BUCKET/$INDEX_KEY" --file "$INDEX_KEY" --content-type "text/html; charset=utf-8" --remote
+          node "$GITHUB_WORKSPACE/scripts/r2-with-retry.mjs" -- npx wrangler r2 object put "$E2E_REPORT_BUCKET/$INDEX_KEY" --file "$INDEX_KEY" --content-type "text/html; charset=utf-8" --remote
           # Read back the last-written index and compare bytes. A failed or
           # mismatched verification keeps this run failed; it must never report
           # publication success for a partial or stale report.
           VERIFY_DIR="$(mktemp -d)"
-          node scripts/r2-with-retry.mjs -- \
+          node "$GITHUB_WORKSPACE/scripts/r2-with-retry.mjs" -- \
             npx wrangler r2 object get "$E2E_REPORT_BUCKET/$INDEX_KEY" --remote \
             -o "$VERIFY_DIR/$INDEX_KEY"
           cmp --silent "$INDEX_KEY" "$VERIFY_DIR/$INDEX_KEY" || {
