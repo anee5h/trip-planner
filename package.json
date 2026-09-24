@@ -22,7 +22,7 @@
     "allure:strip-analytics": "node scripts/strip-allure-analytics.mjs allure-report",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "validate-all": "tsx scripts/validate-all.ts",
+    "validate-all": "tsx --tsconfig tsconfig.app.json scripts/validate-all.ts",
     "check:bundle-budget": "node scripts/check-bundle-budget.mjs",
     "audit:catalog-integrity": "tsx scripts/audit-catalog-integrity.ts",
     "audit:gtfs-topology": "tsx scripts/transit/audit-gtfs-topology.ts",
