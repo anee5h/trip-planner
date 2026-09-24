@@ -20,7 +20,9 @@
 #   4. restore the previous report's history/ from R2 (Allure 2 mechanism)
 #   5. write executor.json (buildOrder + full CI metadata)
 #   6. generate (ALLURE_NO_ANALYTICS + GTM strip), privacy-scan again
-#   7. upload to R2 atomically: assets/data FIRST, index.html LAST
+#   7. upload to R2 atomically: assets/data FIRST, index.html LAST, with
+#      bounded retries for transient provider/network failures
+#   8. read back index.html and compare it with the generated report
 #
 # Serialization: `concurrency` WITHOUT cancel-in-progress — an arriving run
 # waits for the previous history update to finish (never cancels it, so
@@ -99,8 +101,9 @@ jobs:
           # bucket/key path.
           mkdir -p previous-report allure-download/history
           for hf in history.json history-trend.json duration-trend.json categories-trend.json retry-trend.json; do
-            npx wrangler r2 object get "$E2E_REPORT_BUCKET/history/$hf" --remote \
-              -o "previous-report/$hf" 2>/dev/null || echo "  (no previous $hf — first run)"
+            node scripts/r2-with-retry.mjs --allow-missing-object -- \
+              npx wrangler r2 object get "$E2E_REPORT_BUCKET/history/$hf" --remote \
+              -o "previous-report/$hf"
           done
           if ls previous-report/*.json >/dev/null 2>&1; then
             cp previous-report/*.json allure-download/history/
@@ -164,11 +167,22 @@ jobs:
               *.woff) ct="font/woff" ;;
               *.webp) ct="image/webp" ;;
             esac
-            npx wrangler r2 object put "$E2E_REPORT_BUCKET/$key" --file "$f" --content-type "$ct" --remote
+            node scripts/r2-with-retry.mjs -- npx wrangler r2 object put "$E2E_REPORT_BUCKET/$key" --file "$f" --content-type "$ct" --remote
           done
           # index.html last.
-          npx wrangler r2 object put "$E2E_REPORT_BUCKET/$INDEX_KEY" --file "$INDEX_KEY" --content-type "text/html; charset=utf-8" --remote
-          echo "Uploaded $(find . -type f | wc -l) files to R2 bucket $E2E_REPORT_BUCKET (index.html last)"
+          node scripts/r2-with-retry.mjs -- npx wrangler r2 object put "$E2E_REPORT_BUCKET/$INDEX_KEY" --file "$INDEX_KEY" --content-type "text/html; charset=utf-8" --remote
+          # Read back the last-written index and compare bytes. A failed or
+          # mismatched verification keeps this run failed; it must never report
+          # publication success for a partial or stale report.
+          VERIFY_DIR="$(mktemp -d)"
+          node scripts/r2-with-retry.mjs -- \
+            npx wrangler r2 object get "$E2E_REPORT_BUCKET/$INDEX_KEY" --remote \
+            -o "$VERIFY_DIR/$INDEX_KEY"
+          cmp --silent "$INDEX_KEY" "$VERIFY_DIR/$INDEX_KEY" || {
+            echo "::error::R2 publication verification failed: index.html differs from the uploaded report."
+            exit 1
+          }
+          echo "Uploaded and independently verified $(find . -type f | wc -l) files to R2 bucket $E2E_REPORT_BUCKET (index.html last)"
 
       - name: Privacy gate not ready — report staged, not published
         if: ${{ vars.ALLURE_PUBLISH_READY != '1' }}
