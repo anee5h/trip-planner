@@ -67,6 +67,7 @@ describe("image validator SSRF guards", () => {
   it("allows only the curated image hosts", () => {
     expect(ALLOWED_IMAGE_HOSTS.has("upload.wikimedia.org")).toBe(true);
     expect(ALLOWED_IMAGE_HOSTS.has("commons.wikimedia.org")).toBe(true);
+    expect(ALLOWED_IMAGE_HOSTS.has("thumb.wikimedia.org")).toBe(true);
     expect(ALLOWED_IMAGE_HOSTS.has("images.unsplash.com")).toBe(true);
     expect(ALLOWED_IMAGE_HOSTS.has("localhost")).toBe(false);
     expect(ALLOWED_IMAGE_HOSTS.has("169.254.169.254")).toBe(false);

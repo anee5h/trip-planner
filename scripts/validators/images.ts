@@ -12,6 +12,7 @@ import dns from "dns";
 export const ALLOWED_IMAGE_HOSTS = new Set([
   "upload.wikimedia.org",
   "commons.wikimedia.org",
+  "thumb.wikimedia.org",
   "images.unsplash.com",
   "media.istockphoto.com",
   "museum.seiko.co.jp",
