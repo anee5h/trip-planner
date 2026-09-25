@@ -103,7 +103,7 @@ jobs:
           for hf in history.json history-trend.json duration-trend.json categories-trend.json retry-trend.json; do
             node "$GITHUB_WORKSPACE/scripts/r2-with-retry.mjs" --allow-missing-object -- \
               npx wrangler r2 object get "$E2E_REPORT_BUCKET/history/$hf" --remote \
-              -o "previous-report/$hf"
+              --file "previous-report/$hf"
           done
           if ls previous-report/*.json >/dev/null 2>&1; then
             cp previous-report/*.json allure-download/history/
@@ -177,7 +177,7 @@ jobs:
           VERIFY_DIR="$(mktemp -d)"
           node "$GITHUB_WORKSPACE/scripts/r2-with-retry.mjs" -- \
             npx wrangler r2 object get "$E2E_REPORT_BUCKET/$INDEX_KEY" --remote \
-            -o "$VERIFY_DIR/$INDEX_KEY"
+            --file "$VERIFY_DIR/$INDEX_KEY"
           cmp --silent "$INDEX_KEY" "$VERIFY_DIR/$INDEX_KEY" || {
             echo "::error::R2 publication verification failed: index.html differs from the uploaded report."
             exit 1
