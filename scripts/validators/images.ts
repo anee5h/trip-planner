@@ -24,6 +24,89 @@ const MAX_RESPONSE_BYTES = 20 * 1024 * 1024;
 
 /** Maximum redirect hops to follow. */
 const MAX_REDIRECTS = 3;
+const MAX_IMAGE_FETCH_RETRIES = 2;
+const BASE_RETRY_DELAY_MS = 1_000;
+const MAX_RETRY_DELAY_MS = 8_000;
+const MAX_RETRY_AFTER_MS = 30_000;
+
+type ImageRequest = () => Promise<ImageCheckResult>;
+
+export interface ImageRetryOptions {
+  sleep?: (delayMs: number) => Promise<void>;
+  random?: () => number;
+  now?: () => number;
+}
+
+const sleep = (delayMs: number) =>
+  new Promise<void>((resolve) => setTimeout(resolve, delayMs));
+
+export function parseRetryAfterMs(
+  value: string | undefined,
+  nowMs = Date.now(),
+): number | undefined {
+  if (!value?.trim()) return undefined;
+
+  const seconds = Number(value.trim());
+  if (Number.isFinite(seconds) && seconds >= 0) return seconds * 1_000;
+
+  const retryAt = Date.parse(value);
+  return Number.isFinite(retryAt) ? Math.max(0, retryAt - nowMs) : undefined;
+}
+
+/** Retries only transient fetch failures with bounded backoff and jitter. */
+export async function retryImageFetch(
+  request: ImageRequest,
+  options: ImageRetryOptions = {},
+): Promise<ImageCheckResult> {
+  const wait = options.sleep ?? sleep;
+  const random = options.random ?? Math.random;
+  const now = options.now ?? Date.now;
+  let result: ImageCheckResult = {
+    ok: false,
+    error: "image request did not run",
+  };
+
+  for (
+    let retryIndex = 0;
+    retryIndex <= MAX_IMAGE_FETCH_RETRIES;
+    retryIndex++
+  ) {
+    result = await request();
+    const attempts = retryIndex + 1;
+
+    if (result.ok) return { ...result, attempts };
+
+    if (
+      result.failureType !== "transient" ||
+      retryIndex === MAX_IMAGE_FETCH_RETRIES
+    ) {
+      return { ...result, attempts };
+    }
+
+    const retryAfterMs = parseRetryAfterMs(result.retryAfter, now());
+    if (retryAfterMs !== undefined && retryAfterMs > MAX_RETRY_AFTER_MS) {
+      return {
+        ...result,
+        attempts,
+        error: `${result.error ?? `HTTP ${result.status ?? "request failure"}`}; Retry-After exceeds the ${MAX_RETRY_AFTER_MS}ms retry budget`,
+      };
+    }
+
+    const backoffCeiling = Math.min(
+      BASE_RETRY_DELAY_MS * 2 ** retryIndex,
+      MAX_RETRY_DELAY_MS,
+    );
+    const jitter = Math.max(0, Math.min(1, random()));
+    const backoffMs = Math.round(backoffCeiling * (0.5 + jitter));
+    const retryAfterJitterMs =
+      retryAfterMs === undefined
+        ? 0
+        : Math.floor(Math.max(0, Math.min(1, random())) * 250);
+    await wait(Math.max(backoffMs, retryAfterMs ?? 0) + retryAfterJitterMs);
+  }
+
+  return result;
+}
 
 export function isPrivateOrReservedAddress(address: string): boolean {
   const v4 = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(address);
@@ -74,6 +157,8 @@ export interface ImageCheckResult {
   status?: number;
   error?: string;
   failureType?: ImageFailureType;
+  retryAfter?: string;
+  attempts?: number;
 }
 
 /**
@@ -299,20 +384,12 @@ export const imagesValidator: ValidatorModule = {
       });
     };
 
-    // Helper to test HTTPS GET with retry on 429/timeout, a redirect limit,
-    // content-type validation, and a response-size cap. failureType is
-    // "policy" or "hard" for merge-blocking errors and "transient" for
-    // retryable/remote failures.
-    const checkUrl = (
+    // Performs one HTTPS GET and follows a bounded redirect chain. The outer
+    // checkUrl retry policy covers preflight, request, and stream failures.
+    const requestUrl = (
       urlStr: string,
-      isRetry = false,
       redirectsLeft = MAX_REDIRECTS,
-    ): Promise<{
-      ok: boolean;
-      status?: number;
-      error?: string;
-      failureType?: "policy" | "hard" | "transient";
-    }> => {
+    ): Promise<ImageCheckResult> => {
       return new Promise((resolve) => {
         let parsed: URL;
         try {
@@ -387,7 +464,7 @@ export const imagesValidator: ValidatorModule = {
                   });
                   return;
                 }
-                checkUrl(nextUrl, isRetry, redirectsLeft - 1).then(resolve);
+                requestUrl(nextUrl, redirectsLeft - 1).then(resolve);
               });
               return;
             }
@@ -417,25 +494,17 @@ export const imagesValidator: ValidatorModule = {
               return;
             }
 
-            if (
-              (res.statusCode === 429 || res.statusCode === 503) &&
-              !isRetry
-            ) {
-              res.resume();
-              setTimeout(async () => {
-                const retryRes = await checkUrl(urlStr, true);
-                resolve(retryRes);
-              }, 1000);
-            } else {
-              const transient =
-                res.statusCode === 429 || res.statusCode === 503;
-              resolve({
-                ok: false,
-                status: res.statusCode,
-                error: `HTTP ${res.statusCode}`,
-                failureType: transient ? "transient" : "hard",
-              });
-            }
+            res.resume();
+            const transient = res.statusCode === 429 || res.statusCode === 503;
+            resolve({
+              ok: false,
+              status: res.statusCode,
+              error: `HTTP ${res.statusCode}`,
+              failureType: transient ? "transient" : "hard",
+              ...(transient && res.headers["retry-after"]
+                ? { retryAfter: res.headers["retry-after"] }
+                : {}),
+            });
           },
         );
 
@@ -453,21 +522,28 @@ export const imagesValidator: ValidatorModule = {
       });
     };
 
-    // Run batch HTTPS requests with throttled concurrency (4 requests per batch with 200ms delay)
+    const checkUrl = (urlStr: string) =>
+      retryImageFetch(async () => {
+        const preflightResult = await preflight(urlStr);
+        if (!preflightResult.ok) {
+          return {
+            ok: false,
+            error: preflightResult.error,
+            failureType: preflightResult.failureType,
+          };
+        }
+        return requestUrl(urlStr);
+      });
+
+    // The catalogue receives 429s under larger request bursts. Cap concurrency
+    // at three so retries do not amplify the provider-side throttle.
     const entries = Array.from(urlsToTest.entries());
-    const batchSize = 4;
+    const batchSize = 3;
     for (let i = 0; i < entries.length; i += batchSize) {
       const chunk = entries.slice(i, i + batchSize);
       await Promise.all(
         chunk.map(async ([urlStr, refs]) => {
-          const preflightResult = await preflight(urlStr);
-          const res = preflightResult.ok
-            ? await checkUrl(urlStr)
-            : {
-                ok: false,
-                error: preflightResult.error,
-                failureType: preflightResult.failureType,
-              };
+          const res = await checkUrl(urlStr);
           if (!res.ok) {
             const { severity, code } = classifyImageFailure(
               res.failureType,
@@ -478,7 +554,7 @@ export const imagesValidator: ValidatorModule = {
               issues.push({
                 severity,
                 code,
-                message: `Destination '${ref.destId}' (${ref.field}) image check result: ${res.error} -> ${urlStr}`,
+                message: `Destination '${ref.destId}' (${ref.field}) image check result: ${res.error}${(res.attempts ?? 1) > 1 ? ` (after ${res.attempts} attempts)` : ""} -> ${urlStr}`,
                 targetId: ref.destId,
               });
             }
