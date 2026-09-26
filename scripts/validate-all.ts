@@ -50,6 +50,9 @@ async function runAll() {
       console.log(
         `  └─ ${statusSymbol} | Checked: ${res.metrics.totalChecked} | Errors: ${res.metrics.errorsCount} | Warnings: ${res.metrics.warningsCount} | Time: ${durationMs}ms\n`,
       );
+      if (res.diagnostics) {
+        console.log(`  └─ Diagnostics: ${JSON.stringify(res.diagnostics)}\n`);
+      }
 
       if (res.issues.length > 0) {
         for (const issue of res.issues) {

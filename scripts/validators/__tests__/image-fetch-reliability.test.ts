@@ -45,17 +45,22 @@ describe("image fetch retry policy", () => {
       })
       .mockResolvedValueOnce({ ok: true, status: 200 });
     const wait = vi.fn(async (_delayMs: number) => {});
+    const waitObservation = vi.fn();
 
     const result = await retryImageFetch(attempt, {
       sleep: wait,
       random: () => 0,
       now: () => 1_000,
+      onWait: waitObservation,
     });
 
     expect(result).toMatchObject({ ok: true, status: 200, attempts: 2 });
     expect(attempt).toHaveBeenCalledTimes(2);
     expect(wait).toHaveBeenCalledTimes(1);
     expect(wait.mock.calls[0][0]).toBeGreaterThanOrEqual(2_000);
+    expect(waitObservation).toHaveBeenCalledWith(
+      expect.objectContaining({ retryAfterMs: 2_000, backoffDelayMs: 0 }),
+    );
   });
 
   it("parses Retry-After as either seconds or an HTTP date", () => {
@@ -66,6 +71,29 @@ describe("image fetch retry policy", () => {
       90_000,
     );
     expect(parseRetryAfterMs("not-a-date", now)).toBeUndefined();
+  });
+
+  it("rejects malformed and negative delta-seconds and clamps past dates", () => {
+    const now = Date.parse("Wed, 21 Oct 2015 07:27:00 GMT");
+
+    expect(parseRetryAfterMs("-1", now)).toBeUndefined();
+    expect(parseRetryAfterMs("1.5", now)).toBeUndefined();
+    expect(parseRetryAfterMs("1e3", now)).toBeUndefined();
+    expect(parseRetryAfterMs("not-a-date", now)).toBeUndefined();
+    expect(parseRetryAfterMs("Wed, 21 Oct 2015 07:26:00 GMT", now)).toBe(0);
+    expect(parseRetryAfterMs("Mon, 31 Feb 2025 07:00:00 GMT", now)).toBe(
+      undefined,
+    );
+  });
+
+  it("keeps very large valid delta-seconds over budget rather than retrying early", () => {
+    const now = Date.parse("Wed, 21 Oct 2015 07:27:00 GMT");
+    const delay = parseRetryAfterMs(
+      "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+      now,
+    );
+
+    expect(delay).toBeGreaterThan(30_000);
   });
 
   it("does not retry before a Retry-After value beyond the bounded wait budget", async () => {
@@ -84,10 +112,89 @@ describe("image fetch retry policy", () => {
       now: () => 1_000,
     });
 
-    expect(result).toMatchObject({ ok: false, status: 429, attempts: 1 });
+    expect(result).toMatchObject({
+      ok: false,
+      status: 429,
+      attempts: 1,
+      retryBudgetExceeded: true,
+    });
     expect(result.error).toContain("Retry-After");
     expect(attempt).toHaveBeenCalledTimes(1);
     expect(wait).not.toHaveBeenCalled();
+  });
+
+  it("uses bounded exponential backoff for 429 without Retry-After", async () => {
+    const attempt = vi
+      .fn<() => Promise<ImageCheckResult>>()
+      .mockResolvedValueOnce({
+        ok: false,
+        status: 429,
+        error: "HTTP 429",
+        failureType: "transient",
+      })
+      .mockResolvedValueOnce({
+        ok: false,
+        status: 429,
+        error: "HTTP 429",
+        failureType: "transient",
+      })
+      .mockResolvedValueOnce({ ok: true, status: 200 });
+    const wait = vi.fn(async (_delayMs: number) => {});
+
+    const result = await retryImageFetch(attempt, {
+      sleep: wait,
+      random: () => 0.5,
+    });
+
+    expect(result).toMatchObject({ ok: true, status: 200, attempts: 3 });
+    expect(attempt).toHaveBeenCalledTimes(3);
+    expect(wait.mock.calls.map(([delayMs]) => delayMs)).toEqual([1_000, 2_000]);
+  });
+
+  it("reports persistent 429 exhaustion as failure rather than success", async () => {
+    const attempt = vi.fn<() => Promise<ImageCheckResult>>().mockResolvedValue({
+      ok: false,
+      status: 429,
+      error: "HTTP 429",
+      failureType: "transient",
+    });
+    const wait = vi.fn(async (_delayMs: number) => {});
+
+    const result = await retryImageFetch(attempt, {
+      sleep: wait,
+      random: () => 0.5,
+    });
+
+    expect(result).toMatchObject({
+      ok: false,
+      status: 429,
+      failureType: "transient",
+      attempts: 3,
+    });
+    expect(attempt).toHaveBeenCalledTimes(3);
+    expect(wait).toHaveBeenCalledTimes(2);
+  });
+
+  it("recovers from HTTP 503 within the same retry budget", async () => {
+    const attempt = vi
+      .fn<() => Promise<ImageCheckResult>>()
+      .mockResolvedValueOnce({
+        ok: false,
+        status: 503,
+        error: "HTTP 503",
+        failureType: "transient",
+      })
+      .mockResolvedValueOnce({ ok: true, status: 200 });
+    const wait = vi.fn(async (_delayMs: number) => {});
+
+    const result = await retryImageFetch(attempt, {
+      sleep: wait,
+      random: () => 0.5,
+    });
+
+    expect(result).toMatchObject({ ok: true, status: 200, attempts: 2 });
+    expect(attempt).toHaveBeenCalledTimes(2);
+    expect(wait).toHaveBeenCalledTimes(1);
   });
 
   it.each([

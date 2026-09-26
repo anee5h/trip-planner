@@ -4,6 +4,7 @@ import {
   ALLOWED_IMAGE_HOSTS,
   classifyImageFailure,
   classifyDnsError,
+  classifyNetworkError,
   followImageResponse,
   type ImageCheckResult,
 } from "../images";
@@ -83,7 +84,11 @@ describe("classifyImageFailure", () => {
     });
   });
 
-  it("classifies hard HTTP failures (404/410/500) as errors", () => {
+  it("classifies non-transient HTTP failures (403/404/410/500) as errors", () => {
+    expect(classifyImageFailure(undefined, 403)).toEqual({
+      severity: "error",
+      code: "BROKEN_IMAGE_URL",
+    });
     expect(classifyImageFailure(undefined, 404)).toEqual({
       severity: "error",
       code: "BROKEN_IMAGE_URL",
@@ -113,14 +118,10 @@ describe("classifyImageFailure", () => {
     });
   });
 
-  it("classifies other HTTP statuses as warnings", () => {
-    expect(classifyImageFailure(undefined, 403)).toEqual({
-      severity: "warning",
-      code: "IMAGE_FETCH_WARNING",
-    });
-    expect(classifyImageFailure(undefined, 200)).toEqual({
-      severity: "warning",
-      code: "IMAGE_FETCH_WARNING",
+  it("does not mark other HTTP statuses as transient fetch warnings", () => {
+    expect(classifyImageFailure(undefined, 401)).toEqual({
+      severity: "error",
+      code: "BROKEN_IMAGE_URL",
     });
   });
 });
@@ -136,6 +137,21 @@ describe("classifyDnsError", () => {
     expect(classifyDnsError("ENOTFOUND")).toBe("hard");
     expect(classifyDnsError("EAI_NONAME")).toBe("hard");
     expect(classifyDnsError(undefined)).toBe("hard");
+  });
+});
+
+describe("classifyNetworkError", () => {
+  it("retries only known transient transport errors", () => {
+    expect(classifyNetworkError("ECONNRESET")).toBe("transient");
+    expect(classifyNetworkError("ECONNREFUSED")).toBe("transient");
+    expect(classifyNetworkError("ETIMEDOUT")).toBe("transient");
+    expect(classifyNetworkError("EAI_AGAIN")).toBe("transient");
+  });
+
+  it("keeps certificate and unknown request errors terminal", () => {
+    expect(classifyNetworkError("ERR_TLS_CERT_ALTNAME_INVALID")).toBe("hard");
+    expect(classifyNetworkError("ERR_INVALID_URL")).toBe("hard");
+    expect(classifyNetworkError(undefined)).toBe("hard");
   });
 });
 
