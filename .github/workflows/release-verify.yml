@@ -11,7 +11,8 @@ permissions:
 jobs:
   verify-release:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Includes full tests and the network-backed catalogue/image validation.
+    timeout-minutes: 45
     steps:
       - name: Checkout
         uses: actions/checkout@v4
