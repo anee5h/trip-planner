@@ -79,6 +79,7 @@ const MAX_OUTSTANDING_DNS_LOOKUPS = MAX_CONCURRENT_IMAGE_REQUESTS;
 // Serialize requests per provider; Wikimedia subdomains share one provider key.
 const MAX_CONCURRENT_IMAGE_REQUESTS_PER_PROVIDER = 1;
 const MIN_IMAGE_REQUEST_START_INTERVAL_MS = 200;
+const MIN_WIKIMEDIA_REQUEST_START_INTERVAL_MS = 1_000;
 const HTTP_DATE_MONTHS = new Map(
   [
     "Jan",
@@ -580,6 +581,9 @@ export const imagesValidator: ValidatorModule = {
       concurrencyQueueWaitMs: 0,
       providerQueueWaitMs: 0,
       interRequestPacingDelayMs: 0,
+      wikimediaRequestPacingDelayMs: 0,
+      wikimediaHttpRequests: 0,
+      wikimediaHttp429Responses: 0,
       providerCooldownWaitMs: 0,
       providerCooldownSkippedUrls: 0,
       maxConcurrentRequests: 0,
@@ -601,6 +605,7 @@ export const imagesValidator: ValidatorModule = {
     };
 
     const providerCooldowns = new Map<string, number>();
+    const providerRequestStartTimes = new Map<string, number>();
     const blockedProviders = new Set<string>();
     const activeProviders = new Map<string, number>();
     const providerWaiters = new Map<string, Array<() => void>>();
@@ -711,6 +716,24 @@ export const imagesValidator: ValidatorModule = {
       } finally {
         releaseLock();
       }
+    };
+
+    const waitForWikimediaRequestStartPacing = async (provider: string) => {
+      if (provider !== "wikimedia.org") return;
+      const lastRequestStartedAt = providerRequestStartTimes.get(provider);
+      if (lastRequestStartedAt === undefined) return;
+      const waitMs = Math.max(
+        0,
+        lastRequestStartedAt +
+          MIN_WIKIMEDIA_REQUEST_START_INTERVAL_MS -
+          performance.now(),
+      );
+      if (waitMs === 0) return;
+      const waitStartedAt = performance.now();
+      await sleep(waitMs);
+      diagnostics.wikimediaRequestPacingDelayMs += Math.round(
+        performance.now() - waitStartedAt,
+      );
     };
 
     const withRequestLimit = async <T>(
@@ -976,21 +999,28 @@ export const imagesValidator: ValidatorModule = {
         };
       }
 
-      await waitForRequestStartPacing();
+      const provider = imageProviderKey(urlStr);
       const providerCooldown = getProviderCooldown(urlStr);
       if (providerCooldown.blocked) return providerBlockedResult(urlStr);
       if (providerCooldown.waitMs > 0) {
         return providerCooldownDelayResult(providerCooldown.waitMs);
       }
+      await waitForWikimediaRequestStartPacing(provider);
+      await waitForRequestStartPacing();
       return new Promise((resolve) => {
         const client = https;
         diagnostics.httpRequests += 1;
+        if (provider === "wikimedia.org")
+          diagnostics.wikimediaHttpRequests += 1;
         activeHttpRequests += 1;
         diagnostics.maxConcurrentRequests = Math.max(
           diagnostics.maxConcurrentRequests,
           activeHttpRequests,
         );
         const requestStartedAt = performance.now();
+        if (provider === "wikimedia.org") {
+          providerRequestStartTimes.set(provider, requestStartedAt);
+        }
         let requestDurationRecorded = false;
         const recordRequestDuration = () => {
           if (requestDurationRecorded) return;
@@ -1021,6 +1051,9 @@ export const imagesValidator: ValidatorModule = {
               diagnostics.http2xxResponses += 1;
             } else if (statusCode === 429) {
               diagnostics.http429Responses += 1;
+              if (provider === "wikimedia.org") {
+                diagnostics.wikimediaHttp429Responses += 1;
+              }
               if (res.headers["retry-after"])
                 diagnostics.retryAfterHeaders += 1;
             } else if (statusCode === 503) {

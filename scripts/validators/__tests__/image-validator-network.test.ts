@@ -918,6 +918,71 @@ describe("image validator transient network recovery", () => {
     });
   });
 
+  it("paces Wikimedia requests after a shared cooldown before resuming the cohort", async () => {
+    mockLookup.mockImplementation(
+      (
+        _hostname: string,
+        _options: unknown,
+        callback: (error: null, addresses: unknown[]) => void,
+      ) => callback(null, [{ address: "208.80.154.224", family: 4 }]),
+    );
+    const requestStarts: number[] = [];
+    const responseStatuses: number[] = [];
+    mockGet.mockImplementation(
+      (
+        _url: string,
+        _options: unknown,
+        callback: (response: EventEmitter) => void,
+      ) => {
+        const startedAt = performance.now();
+        const tooSoon =
+          requestStarts.length > 0 &&
+          startedAt - requestStarts[requestStarts.length - 1] < 1_000;
+        const statusCode = requestStarts.length === 0 || tooSoon ? 429 : 200;
+        requestStarts.push(startedAt);
+        responseStatuses.push(statusCode);
+        const request = createRequest();
+        queueMicrotask(() => {
+          const response = createResponse(
+            statusCode,
+            statusCode === 429
+              ? { "retry-after": "10" }
+              : { "content-type": "image/jpeg" },
+          );
+          callback(response);
+          if (statusCode === 200) response.emit("end");
+        });
+        return request;
+      },
+    );
+    vi.useFakeTimers();
+
+    const pending = imagesValidator.validate(
+      makeContext(
+        Array.from({ length: 4 }, (_, index) => ({
+          id: `paced-wikimedia-${index}`,
+          url: `https://upload.wikimedia.org/paced-${index}.jpg`,
+        })),
+      ),
+    );
+    await vi.runAllTimersAsync();
+    const result = await pending;
+    const requestIntervals = requestStarts
+      .slice(1)
+      .map((startedAt, index) => startedAt - requestStarts[index]);
+
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(responseStatuses.filter((status) => status === 429)).toHaveLength(1);
+    expect(Math.min(...requestIntervals)).toBeGreaterThanOrEqual(1_000);
+    expect(result.diagnostics.providerCooldownSkippedUrls).toBe(0);
+    expect(result.diagnostics.wikimediaRequestPacingDelayMs).toBeGreaterThan(0);
+    expect(result.diagnostics).toMatchObject({
+      wikimediaHttpRequests: 5,
+      wikimediaHttp429Responses: 1,
+      retryAfterWaitMs: 10_000,
+    });
+  });
+
   it("honors a Wikimedia Retry-After response and clears a transient 429", async () => {
     mockLookup.mockImplementation(
       (
