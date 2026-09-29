@@ -48,9 +48,7 @@
     },
     {
       "photo_path": "photo-1464822759023-fed622ff2c3b",
-      "affected_destination_ids": [
-        "kushiro-city"
-      ],
+      "affected_destination_ids": ["kushiro-city"],
       "official_source_urls": [
         "https://unsplash.com/photos/snow-capped-mountains-with-valley-and-forest-Bkci_8qcdvQ"
       ],
@@ -70,18 +68,12 @@
       "subject_and_destination_fit": "Visible image is an alpine mountain-and-lake landscape, not a city view or identifiable Kushiro scene. Poor destination-specific fit.",
       "confidence": "medium",
       "unresolved_status": "Partially unresolved: plausible official page match, but the page describes Canada and the destination fit is weak.",
-      "warningFindingIds": [
-        "UNRESOLVED_IMAGE_ATTRIBUTION:kushiro-city:07"
-      ],
-      "warningDestinationIds": [
-        "kushiro-city"
-      ]
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:kushiro-city:07"],
+      "warningDestinationIds": ["kushiro-city"]
     },
     {
       "photo_path": "photo-1470071459604-3b5ec3a7fe05",
-      "affected_destination_ids": [
-        "yamanashi-shosenkyo-gorge"
-      ],
+      "affected_destination_ids": ["yamanashi-shosenkyo-gorge"],
       "official_source_urls": [],
       "source_evidence": [
         {
@@ -98,9 +90,7 @@
       "warningFindingIds": [
         "UNRESOLVED_IMAGE_ATTRIBUTION:yamanashi-shosenkyo-gorge:21"
       ],
-      "warningDestinationIds": [
-        "yamanashi-shosenkyo-gorge"
-      ]
+      "warningDestinationIds": ["yamanashi-shosenkyo-gorge"]
     },
     {
       "photo_path": "photo-1473448912268-2022ce9509d8",
@@ -124,15 +114,11 @@
       "warningFindingIds": [
         "UNRESOLVED_IMAGE_ATTRIBUTION:nagano-bessho-onsen:11"
       ],
-      "warningDestinationIds": [
-        "nagano-bessho-onsen"
-      ]
+      "warningDestinationIds": ["nagano-bessho-onsen"]
     },
     {
       "photo_path": "photo-1486870591958-9b9d0d1dda99",
-      "affected_destination_ids": [
-        "abashiri-city"
-      ],
+      "affected_destination_ids": ["abashiri-city"],
       "official_source_urls": [],
       "source_evidence": [
         {
@@ -146,18 +132,12 @@
       "subject_and_destination_fit": "Visible image is a snowy mountain and meadow. It does not depict an identifiable Abashiri city scene; destination-specific fit is weak.",
       "confidence": "low",
       "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable.",
-      "warningFindingIds": [
-        "UNRESOLVED_IMAGE_ATTRIBUTION:abashiri-city:01"
-      ],
-      "warningDestinationIds": [
-        "abashiri-city"
-      ]
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:abashiri-city:01"],
+      "warningDestinationIds": ["abashiri-city"]
     },
     {
       "photo_path": "photo-1490806843957-31f4c9a91c65",
-      "affected_destination_ids": [
-        "mount-fuji"
-      ],
+      "affected_destination_ids": ["mount-fuji"],
       "official_source_urls": [],
       "source_evidence": [
         {
@@ -171,18 +151,12 @@
       "subject_and_destination_fit": "Visible image clearly depicts Mount Fuji framed by cherry blossoms. Strong subject fit for Mount Fuji, but the exact viewpoint and photographer are unverified.",
       "confidence": "low",
       "unresolved_status": "Unresolved: visually similar official pages found, but no exact page mapping.",
-      "warningFindingIds": [
-        "UNRESOLVED_IMAGE_ATTRIBUTION:mount-fuji:10"
-      ],
-      "warningDestinationIds": [
-        "mount-fuji"
-      ]
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:mount-fuji:10"],
+      "warningDestinationIds": ["mount-fuji"]
     },
     {
       "photo_path": "photo-1493976040374-85c8e12f0c0e",
-      "affected_destination_ids": [
-        "kyoto-historic"
-      ],
+      "affected_destination_ids": ["kyoto-historic"],
       "official_source_urls": [
         "https://unsplash.com/photos/two-women-in-purple-and-pink-kimono-standing-on-street-_UIN-pFfJ7c"
       ],
@@ -198,18 +172,12 @@
       "subject_and_destination_fit": "Visible image shows a traditional Kyoto street and pagoda, a strong subject fit for Kyoto historic. Exact location not established in the indexed excerpt.",
       "confidence": "medium",
       "unresolved_status": "Partially unresolved: plausible official page and creator, but exact mapping and item-level license statement are not confirmed.",
-      "warningFindingIds": [
-        "UNRESOLVED_IMAGE_ATTRIBUTION:kyoto-historic:08"
-      ],
-      "warningDestinationIds": [
-        "kyoto-historic"
-      ]
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:kyoto-historic:08"],
+      "warningDestinationIds": ["kyoto-historic"]
     },
     {
       "photo_path": "photo-1500595046743-cd271d694d30",
-      "affected_destination_ids": [
-        "mother-farm-chiba"
-      ],
+      "affected_destination_ids": ["mother-farm-chiba"],
       "official_source_urls": [],
       "source_evidence": [
         {
@@ -226,15 +194,11 @@
       "warningFindingIds": [
         "UNRESOLVED_IMAGE_ATTRIBUTION:mother-farm-chiba:09"
       ],
-      "warningDestinationIds": [
-        "mother-farm-chiba"
-      ]
+      "warningDestinationIds": ["mother-farm-chiba"]
     },
     {
       "photo_path": "photo-1534567153574-2b12153a87f0",
-      "affected_destination_ids": [
-        "yokohama-zoorasia"
-      ],
+      "affected_destination_ids": ["yokohama-zoorasia"],
       "official_source_urls": [
         "https://unsplash.com/photos/two-giraffe-and-three-zebra-on-green-grass-field-under-trees-at-daytime-ttpNCevA1tA"
       ],
@@ -257,15 +221,11 @@
       "warningFindingIds": [
         "UNRESOLVED_IMAGE_ATTRIBUTION:yokohama-zoorasia:23"
       ],
-      "warningDestinationIds": [
-        "yokohama-zoorasia"
-      ]
+      "warningDestinationIds": ["yokohama-zoorasia"]
     },
     {
       "photo_path": "photo-1542051841857-5f90071e7989",
-      "affected_destination_ids": [
-        "shibuya-city"
-      ],
+      "affected_destination_ids": ["shibuya-city"],
       "official_source_urls": [],
       "source_evidence": [
         {
@@ -279,12 +239,8 @@
       "subject_and_destination_fit": "Visible image is a brightly lit Japanese urban street at night. Plausible for Shibuya, but no page-level location evidence ties it to Shibuya.",
       "confidence": "low",
       "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable.",
-      "warningFindingIds": [
-        "UNRESOLVED_IMAGE_ATTRIBUTION:shibuya-city:15"
-      ],
-      "warningDestinationIds": [
-        "shibuya-city"
-      ]
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:shibuya-city:15"],
+      "warningDestinationIds": ["shibuya-city"]
     },
     {
       "photo_path": "photo-1545569341-9eb8b30979d9",
@@ -315,17 +271,11 @@
         "UNRESOLVED_IMAGE_ATTRIBUTION:higashiyama-sky-tower-nagoya:05",
         "UNRESOLVED_IMAGE_ATTRIBUTION:nara-historic:12"
       ],
-      "warningDestinationIds": [
-        "higashiyama-sky-tower-nagoya",
-        "nara-historic"
-      ]
+      "warningDestinationIds": ["higashiyama-sky-tower-nagoya", "nara-historic"]
     },
     {
       "photo_path": "photo-1546182990-dffeafbe841d",
-      "affected_destination_ids": [
-        "hino-city",
-        "tama-zoological-park"
-      ],
+      "affected_destination_ids": ["hino-city", "tama-zoological-park"],
       "official_source_urls": [],
       "source_evidence": [
         {
@@ -343,16 +293,11 @@
         "UNRESOLVED_IMAGE_ATTRIBUTION:hino-city:06",
         "UNRESOLVED_IMAGE_ATTRIBUTION:tama-zoological-park:16"
       ],
-      "warningDestinationIds": [
-        "hino-city",
-        "tama-zoological-park"
-      ]
+      "warningDestinationIds": ["hino-city", "tama-zoological-park"]
     },
     {
       "photo_path": "photo-1556326059-3cfc41f90fb1",
-      "affected_destination_ids": [
-        "ueno-taito"
-      ],
+      "affected_destination_ids": ["ueno-taito"],
       "official_source_urls": [
         "https://unsplash.com/photos/people-on-street-during-daytime-xcKF1LatmyE"
       ],
@@ -372,18 +317,12 @@
       "subject_and_destination_fit": "The official excerpt identifies Ueno, Tokyo, Japan; this is a strong location fit for ueno-taito.",
       "confidence": "high for image/page/location match; creator remains unresolved.",
       "unresolved_status": "Partially unresolved: standard license and Ueno location are supported, but photographer/creator was not identified.",
-      "warningFindingIds": [
-        "UNRESOLVED_IMAGE_ATTRIBUTION:ueno-taito:19"
-      ],
-      "warningDestinationIds": [
-        "ueno-taito"
-      ]
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:ueno-taito:19"],
+      "warningDestinationIds": ["ueno-taito"]
     },
     {
       "photo_path": "photo-1570459027562-4a916cc6113f",
-      "affected_destination_ids": [
-        "gotemba-city"
-      ],
+      "affected_destination_ids": ["gotemba-city"],
       "official_source_urls": [],
       "source_evidence": [
         {
@@ -397,21 +336,13 @@
       "subject_and_destination_fit": "Visible image shows Mount Fuji across a lake. It is regionally plausible for Gotemba, but the lake/viewpoint is not identified and may not be in Gotemba.",
       "confidence": "low",
       "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable.",
-      "warningFindingIds": [
-        "UNRESOLVED_IMAGE_ATTRIBUTION:gotemba-city:04"
-      ],
-      "warningDestinationIds": [
-        "gotemba-city"
-      ]
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:gotemba-city:04"],
+      "warningDestinationIds": ["gotemba-city"]
     },
     {
       "photo_path": "photo-1590559899731-a382839e5549",
-      "affected_destination_ids": [
-        "osaka-city"
-      ],
-      "official_source_urls": [
-        "https://unsplash.com/photos/gCG0MAJ1gOw"
-      ],
+      "affected_destination_ids": ["osaka-city"],
+      "official_source_urls": ["https://unsplash.com/photos/gCG0MAJ1gOw"],
       "source_evidence": [
         {
           "field": "page title and creator/location excerpt",
@@ -424,18 +355,12 @@
       "subject_and_destination_fit": "Visible image shows dense Osaka-style street signage and buildings. The candidate page is located in Osaka, making this a plausible fit, but the exact match is unconfirmed.",
       "confidence": "medium",
       "unresolved_status": "Partially unresolved: plausible official page and creator, but exact image mapping and license statement are not confirmed.",
-      "warningFindingIds": [
-        "UNRESOLVED_IMAGE_ATTRIBUTION:osaka-city:14"
-      ],
-      "warningDestinationIds": [
-        "osaka-city"
-      ]
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:osaka-city:14"],
+      "warningDestinationIds": ["osaka-city"]
     },
     {
       "photo_path": "photo-1593073862407-a3ce22748763",
-      "affected_destination_ids": [
-        "teamlab-borderless-azabudai"
-      ],
+      "affected_destination_ids": ["teamlab-borderless-azabudai"],
       "official_source_urls": [
         "https://unsplash.com/photos/two-people-sit-on-floor-with-swirling-blue-light-patterns-bVPM7Tumbgw"
       ],
@@ -454,15 +379,11 @@
       "warningFindingIds": [
         "UNRESOLVED_IMAGE_ATTRIBUTION:teamlab-borderless-azabudai:17"
       ],
-      "warningDestinationIds": [
-        "teamlab-borderless-azabudai"
-      ]
+      "warningDestinationIds": ["teamlab-borderless-azabudai"]
     },
     {
       "photo_path": "photo-1609375855883-411e45d77365",
-      "affected_destination_ids": [
-        "yokohama-landmark-tower-sky-garden"
-      ],
+      "affected_destination_ids": ["yokohama-landmark-tower-sky-garden"],
       "official_source_urls": [],
       "source_evidence": [
         {
@@ -479,15 +400,11 @@
       "warningFindingIds": [
         "UNRESOLVED_IMAGE_ATTRIBUTION:yokohama-landmark-tower-sky-garden:22"
       ],
-      "warningDestinationIds": [
-        "yokohama-landmark-tower-sky-garden"
-      ]
+      "warningDestinationIds": ["yokohama-landmark-tower-sky-garden"]
     },
     {
       "photo_path": "photo-1614651857407-9b22acceb43a",
-      "affected_destination_ids": [
-        "nikko-toshogu-shrine-tochigi"
-      ],
+      "affected_destination_ids": ["nikko-toshogu-shrine-tochigi"],
       "official_source_urls": [],
       "source_evidence": [
         {
@@ -504,15 +421,11 @@
       "warningFindingIds": [
         "UNRESOLVED_IMAGE_ATTRIBUTION:nikko-toshogu-shrine-tochigi:13"
       ],
-      "warningDestinationIds": [
-        "nikko-toshogu-shrine-tochigi"
-      ]
+      "warningDestinationIds": ["nikko-toshogu-shrine-tochigi"]
     },
     {
       "photo_path": "photo-1693188074158-00e5edb3d0ac",
-      "affected_destination_ids": [
-        "tottori-sand-dunes"
-      ],
+      "affected_destination_ids": ["tottori-sand-dunes"],
       "official_source_urls": [
         "https://unsplash.com/photos/a-couple-of-people-standing-on-top-of-a-sandy-hill-uG5xy-QiyB8"
       ],
@@ -535,15 +448,11 @@
       "warningFindingIds": [
         "UNRESOLVED_IMAGE_ATTRIBUTION:tottori-sand-dunes:18"
       ],
-      "warningDestinationIds": [
-        "tottori-sand-dunes"
-      ]
+      "warningDestinationIds": ["tottori-sand-dunes"]
     },
     {
       "photo_path": "photo-1749498682646-45e7c11506ec",
-      "affected_destination_ids": [
-        "fujikawaguchiko-town"
-      ],
+      "affected_destination_ids": ["fujikawaguchiko-town"],
       "official_source_urls": [
         "https://unsplash.com/photos/mount-fuji-rises-behind-a-lawson-convenience-store-at-sunset-sE2_E4ON64A",
         "https://unsplash.com/photos/lawson-store-with-mount-fuji-in-the-background-Eksn6gxDdBc",
@@ -565,9 +474,7 @@
       "warningFindingIds": [
         "UNRESOLVED_IMAGE_ATTRIBUTION:fujikawaguchiko-town:03"
       ],
-      "warningDestinationIds": [
-        "fujikawaguchiko-town"
-      ]
+      "warningDestinationIds": ["fujikawaguchiko-town"]
     }
   ]
 }
