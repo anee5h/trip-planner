@@ -48,7 +48,6 @@ Per-record evidence classification is complete for the six requested records. Th
 
 - Exact current file is [Commons `Kinosaki Onsen by day.jpg`](https://commons.wikimedia.org/wiki/File:Kinosaki_Onsen_by_day.jpg), page ID 40723500, original **4256 × 2832**. The current 3840px thumbnail path matches the Commons API rendition path (host alias differs).
 - Commons claims `Source={{own}}`, names **Samchan91** as author, and labels the file **CC BY-SA 4.0**. The same page's description says **“Taken by Shogo Nishiyama”** and links only to [the photographer account's album-list URL](https://www.flickr.com/photos/sho-go/albums), not an exact photo page.
-- I inspected the related [Kinosaki Onsen Flickr album](https://www.flickr.com/photos/sho-go/albums/72157629426096395/): it is a 1,812-photo album and does not establish an exact permalink matching this Commons file.
 - **Missing:** evidence that Samchan91 is Shogo Nishiyama or had authority from him to license this exact photo, plus the exact original Flickr photo page/license or a photographer permission record. Therefore the Commons CC license label is visible, but the authority to grant reuse permission for this photograph is not established. No metadata proposal is made.
 - The direct catalogue upload-host request returned HTTP 429; the Commons API supplied the matching thumbnail rendition on its alternate host. The 429 is not treated as an image/source mismatch.
 
