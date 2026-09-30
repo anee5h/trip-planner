@@ -1,0 +1,434 @@
+{
+  "schemaVersion": "1.0.0",
+  "reportStatus": "evidence_classified_audit_only",
+  "reportDate": "2026-09-30",
+  "repository": "anee5h/trip-planner",
+  "branch": "data/kai-462-reviewed-hub-provenance",
+  "baseCommit": "84752e9bf479ead79e64c2ed2e68e3d245fd3b10",
+  "scope": {
+    "finding": "MISSING_IMAGE_METADATA",
+    "targetCount": 6,
+    "targetIds": [
+      "ashikaga-city",
+      "fukushima-city",
+      "morioka-city",
+      "semboku-city",
+      "toyooka-city",
+      "yamagata-city"
+    ],
+    "canonicalCatalogue": "src/shared/data/destinations-index.json",
+    "generatedDetails": "public/data/destinations/<id>.json",
+    "catalogueOrGeneratorChanged": false,
+    "outOfScopeCohortsChanged": false,
+    "previousFullCatalogueValidation": {
+      "mainCommit": "84752e9bf479ead79e64c2ed2e68e3d245fd3b10",
+      "runUrl": "https://github.com/anee5h/trip-planner/actions/runs/36527134159",
+      "validators": 16,
+      "destinations": 1130,
+      "blockingErrors": 0,
+      "totalWarnings": 718,
+      "unresolvedAttribution": 22,
+      "imageFetchWarnings": 0,
+      "scopeNote": "This is the separate successful post-merge catalogue workflow. The earlier full local image-validation attempt stalled and was terminated; it remains incomplete."
+    }
+  },
+  "classificationDefinitions": {
+    "A": "Exact file, source, creator and file-level license/reuse terms established.",
+    "B": "Exact file/source established, but creator/required attribution remains unresolved.",
+    "C": "Exact file/source established, but authority to grant the stated license or reuse permission is not established.",
+    "D": "Likely source candidate, but exact file identity is not proven.",
+    "E": "No reliable provenance identified."
+  },
+  "classificationCounts": {
+    "A": 4,
+    "B": 1,
+    "C": 1,
+    "D": 0,
+    "E": 0,
+    "total": 6
+  },
+  "readiness": {
+    "readyCount": 4,
+    "readyIds": [
+      "ashikaga-city",
+      "fukushima-city",
+      "semboku-city",
+      "yamagata-city"
+    ],
+    "notReadyCount": 2,
+    "notReadyIds": ["morioka-city", "toyooka-city"],
+    "rule": "Only A records may proceed to a separate metadata implementation PR. No partial metadata is proposed for B or C."
+  },
+  "metadataSchemaCheck": {
+    "type": "DestinationImageMetadata",
+    "typeDefinition": "src/shared/types/destination.ts",
+    "fields": ["source", "license", "attribution", "sourceUrl"],
+    "fieldTypes": "All four are required strings when the optional imageMetadata object is present.",
+    "providerSpecificField": "None; do not add one.",
+    "existingWikimediaExamples": [
+      {
+        "id": "akita-city",
+        "license": "CC BY-SA 4.0",
+        "attribution": "水だらけのプール",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akita_Montage2.jpg"
+      },
+      {
+        "id": "aizuwakamatsu-city",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Asturio Cantabrio",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aizuwakamatsu_Castle_ac_(1).jpg"
+      },
+      {
+        "id": "bitchu-matsuyama-castle",
+        "license": "CC BY-SA 3.0",
+        "attribution": "Reggaeman, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bitchu_Matsuyama_Castle_1.JPG"
+      }
+    ],
+    "generatedOutputContract": "scripts/catalog/generate-outputs.ts serializes each full canonical Destination to public/data/destinations/<id>.json; scripts/catalog/client-index.ts includes imageMetadata in the lite index. scripts/sync-destination-details.ts writes these projections; a later implementation must regenerate and run check:catalog-sync. Current canonical/detail metadata parity is true for all six (both absent)."
+  },
+  "sharedAuthoringPath": {
+    "script": "scripts/add-reviewed-city-hubs.ts",
+    "historicalCommits": [
+      "2a8890edbfbd79a9ed52978249754486e145d4f8",
+      "e3441d7f2fcf46fada8358772046a3afdddf8f75"
+    ],
+    "seedCount": 22,
+    "uniqueSeedCount": 22,
+    "seedRecordsCurrentlyPresent": 22,
+    "targetRecords": 6,
+    "rootCause": "HubSeed has no imageMetadata member. The writer chooses/reuses heroImage, spreads the seed, and pushes the record without imageMetadata. The current-ID guard skips existing rows, so rerunning this script does not backfill the six records.",
+    "defectStillPresent": true,
+    "otherSeedIds": [
+      "hino-city",
+      "fujiyoshida-city",
+      "aomori-city",
+      "hirosaki-city",
+      "ise-city",
+      "iwakuni-city",
+      "aizuwakamatsu-city",
+      "mine-city",
+      "asago-city",
+      "takahashi-city",
+      "marugame-city",
+      "katori-city",
+      "choshi-city",
+      "koriyama-city",
+      "akita-city",
+      "hachinohe-city"
+    ],
+    "otherSeedMetadataPresence": "15 of the 16 other seeds have an imageMetadata object; presence is not a provenance-quality finding and their sources were not re-audited here.",
+    "additionalUnpublishedGap": {
+      "id": "takahashi-city",
+      "status": "verified",
+      "heroImagePresent": true,
+      "imageMetadataPresent": false,
+      "whyNotInSixWarningRows": "The current MISSING_IMAGE_METADATA rule applies only when status === published; this record is verified. Its image/file creator/license were not researched or classified in this six-record audit.",
+      "disposition": "Out of scope; no data or generator change. Track separately before broadening the cohort."
+    },
+    "preventionFixNeeded": true,
+    "preventionRecommendation": "Open a separate, code-only prevention PR. Require file-level imageMetadata evidence for every new image-bearing HubSeed (or copy it only from a source record whose heroImage is exactly reused and whose metadata is present); fail before any catalogue write if provenance is absent. Resolve Wikipedia PageImages selections to the exact file page rather than treating the delivery URL as provenance. Add a no-write regression test for missing metadata. Do not use a generic contributor/license fallback.",
+    "noCurrentGeneratorChange": true
+  },
+  "records": [
+    {
+      "id": "ashikaga-city",
+      "name": "Ashikaga City",
+      "nameJa": "足利",
+      "warningCode": "MISSING_IMAGE_METADATA",
+      "currentHeroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
+      "canonicalDetailMetadataParity": true,
+      "file": {
+        "provider": "Wikimedia Commons",
+        "title": "File:Japanese wisteria, Ashikaga Flower Park 13.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_wisteria,_Ashikaga_Flower_Park_13.jpg",
+        "pageId": 104485361,
+        "originalDimensions": "4912 × 3264",
+        "currentUrlIdentity": "The current 1920px thumbnail path, including file hash 3/36 and filename, matches the Commons API thumburl path; host differs (upload.wikimedia.org vs thumb.wikimedia.org).",
+        "source": "Commons file-page wikitext says source={{own}}; API Credit says Own work.",
+        "creator": "SLIMHANNYA",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attributionRequired": true
+      },
+      "classification": "A",
+      "specificLimitations": [
+        "The Commons user page for SLIMHANNYA is a redlink, so a real-world identity is not established. The exact source-page account name is established and is the attribution to use.",
+        "The page's permission field is blank, but it explicitly declares the self-license CC BY-SA 4.0."
+      ],
+      "missingForA": [],
+      "proposedImageMetadata": {
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "attribution": "SLIMHANNYA",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japanese_wisteria,_Ashikaga_Flower_Park_13.jpg"
+      },
+      "proposalSchemaFit": "All four DestinationImageMetadata strings; no provider-specific field."
+    },
+    {
+      "id": "fukushima-city",
+      "name": "Fukushima City",
+      "nameJa": "福島市",
+      "warningCode": "MISSING_IMAGE_METADATA",
+      "currentHeroImage": "https://upload.wikimedia.org/wikipedia/commons/3/34/Fukushima_Montage.jpg",
+      "canonicalDetailMetadataParity": true,
+      "file": {
+        "provider": "Wikimedia Commons",
+        "title": "File:Fukushima Montage.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Fukushima_Montage.jpg",
+        "pageId": 99785198,
+        "originalDimensions": "1024 × 1516",
+        "currentUrlIdentity": "The current original-file path, including hash 3/34 and filename, matches the Commons API original URL path.",
+        "source": "Commons file-page wikitext links five component files and identifies the montage author.",
+        "creator": "水だらけのプール",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attributionRequired": true
+      },
+      "sourceComponents": [
+        {
+          "file": "20100418花見山百花繚乱.jpg",
+          "creator": "BehBeh",
+          "license": "CC BY-SA 3.0"
+        },
+        {
+          "file": "Bandai-Azuma Skyline in Fukushima, Japan.jpg",
+          "creator": "KBJUN",
+          "license": "CC BY 3.0"
+        },
+        {
+          "file": "Iizaka Onsen 26-Aug-2018.jpg",
+          "creator": "皓月旗",
+          "license": "CC BY-SA 4.0"
+        },
+        {
+          "file": "Fukushima Keibajo Front Close.jpg",
+          "creator": "Purplepumpkins",
+          "license": "CC BY-SA 3.0"
+        },
+        {
+          "file": "Mt.Shinobu-yama.JPG",
+          "creator": "Townphoto",
+          "license": "CC BY 3.0"
+        }
+      ],
+      "classification": "A",
+      "specificLimitations": [
+        "The montage author's Commons user page is a redlink; the exact account name is recorded by the file page.",
+        "The montage page's permission field is blank, but its explicit self-license is CC BY-SA 4.0. The linked component files and their listed creators/licenses are preserved on the source page."
+      ],
+      "missingForA": [],
+      "proposedImageMetadata": {
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "attribution": "水だらけのプール; BehBeh; KBJUN; 皓月旗; Purplepumpkins; Townphoto",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukushima_Montage.jpg"
+      },
+      "proposalSchemaFit": "All four DestinationImageMetadata strings; attribution retains montage author and the five source-page component credits; no provider-specific field."
+    },
+    {
+      "id": "morioka-city",
+      "name": "Morioka City",
+      "nameJa": "盛岡市",
+      "warningCode": "MISSING_IMAGE_METADATA",
+      "currentHeroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Morioka_Montage.jpg",
+      "canonicalDetailMetadataParity": true,
+      "file": {
+        "provider": "Wikimedia Commons",
+        "title": "File:Morioka Montage.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Morioka_Montage.jpg",
+        "pageId": 99822035,
+        "originalDimensions": "1024 × 1263",
+        "currentUrlIdentity": "The current original-file path, including hash f/f9 and filename, matches the Commons API original URL path.",
+        "creator": "水だらけのプール",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attributionRequired": true,
+        "sourceComponents": [
+          {
+            "file": "Morioka and Mount Iwate and River Kitakami in May 2019.jpg",
+            "montageCredits": "Yuichi Shiraishi",
+            "filePageCreator": "Yuichi Shiraishi",
+            "license": "CC BY-SA 4.0"
+          },
+          {
+            "file": "Sansa Odori 2.JPG",
+            "montageCredits": "Yuko",
+            "filePagePhotographer": "Ümit Yaldiz (2005; with friendly permission)",
+            "filePageUploader": "Immanuel Giel",
+            "license": "CC BY-SA 3.0 (GFDL migration/relicense page)"
+          },
+          {
+            "file": "Ishiwari Zakura.jpg",
+            "montageCredits": "Shacho0822",
+            "filePageCreator": "Shacho0822 is explicitly marked assumed; source is own assumed.",
+            "license": "CC BY-SA 3.0"
+          },
+          {
+            "file": "171103 Former Morioka Bank Head Office Morioka Iwate pref Japan01bs5.jpg",
+            "montageCredits": "663highland",
+            "filePageCreator": "663highland",
+            "license": "CC BY-SA 4.0"
+          },
+          {
+            "file": "Morioka Park 1.JPG",
+            "montageCredits": "Immanuel Giel",
+            "filePagePhotographer": "Ümit Yaldiz (2005; with friendly permission)",
+            "filePageUploader": "Immanuel Giel",
+            "license": "CC BY-SA 3.0 (GFDL migration/relicense page)"
+          }
+        ]
+      },
+      "classification": "B",
+      "specificMissingEvidence": [
+        "The montage credits Sansa Odori 2.JPG to Yuko, but that file's page identifies photographer Ümit Yaldiz and uploader Immanuel Giel; no source evidence ties Yuko to the photograph.",
+        "The montage credits Morioka Park 1.JPG to Immanuel Giel, but that file's page identifies Ümit Yaldiz as photographer and Immanuel Giel as uploader.",
+        "The Ishiwari Zakura.jpg page explicitly marks both source and author as assumed; no independent creator/rights-holder evidence was found to verify Shacho0822 as photographer.",
+        "Until the Ishiwari creator is independently established or the source page is corrected with reliable evidence, the complete component attribution is not ready to encode in imageMetadata."
+      ],
+      "proposedImageMetadata": null
+    },
+    {
+      "id": "semboku-city",
+      "name": "Semboku City",
+      "nameJa": "仙北市",
+      "warningCode": "MISSING_IMAGE_METADATA",
+      "currentHeroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Bukeyashiki_Street_in_Kakunodate_20060506.jpg/1920px-Bukeyashiki_Street_in_Kakunodate_20060506.jpg",
+      "canonicalDetailMetadataParity": true,
+      "file": {
+        "provider": "Wikimedia Commons",
+        "title": "File:Bukeyashiki Street in Kakunodate 20060506.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Bukeyashiki_Street_in_Kakunodate_20060506.jpg",
+        "pageId": 6464680,
+        "originalDimensions": "1600 × 1200",
+        "currentUrlIdentity": "The thumbnail URL contains the exact 9/92 file hash and exact source filename. The Commons API request at width 1920 returned the unscaled 1600px original rather than this 1920px derivative path.",
+        "creator": "(Hiroshi Sakamoto) 坂本　洋",
+        "source": "Commons file page says photo taken May 3, 2006 on Bukeyashiki Street, Kakunodate-cho, Semboku City.",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "attributionRequired": true,
+        "directCurrentUrlProbe": "HTTP 429 rate-limit response; exact current derivative response was not established by direct request.",
+        "priorValidationContext": "The post-merge full catalogue report recorded 0 IMAGE_FETCH_WARNING overall, but does not expose a per-URL response in the evidence used here."
+      },
+      "classification": "A",
+      "specificLimitations": [
+        "The exact underlying file identity is established from the Commons file title and matching hash/filename path. The exact 1920px derivative's response is not independently confirmed because the direct request was rate-limited (HTTP 429). This is an availability observation, not a competing file/source/creator/license candidate.",
+        "The file title contains 20060506, while the page's Date and Source fields say 2006-05-03. The date conflict is not used as image attribution metadata."
+      ],
+      "missingForA": [],
+      "proposedImageMetadata": {
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA 3.0",
+        "attribution": "(Hiroshi Sakamoto) 坂本　洋",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bukeyashiki_Street_in_Kakunodate_20060506.jpg"
+      },
+      "proposalSchemaFit": "All four DestinationImageMetadata strings; matches the repository's existing Wikimedia source/license/creator/sourceUrl pattern; no provider-specific field."
+    },
+    {
+      "id": "toyooka-city",
+      "name": "Toyooka City",
+      "nameJa": "豊岡市",
+      "warningCode": "MISSING_IMAGE_METADATA",
+      "currentHeroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg",
+      "canonicalDetailMetadataParity": true,
+      "file": {
+        "provider": "Wikimedia Commons",
+        "title": "File:Kinosaki Onsen by day.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Kinosaki_Onsen_by_day.jpg",
+        "pageId": 40723500,
+        "originalDimensions": "4256 × 2832",
+        "currentUrlIdentity": "The current 3840px thumbnail path, including hash 3/35 and filename, matches the Commons API thumburl path; host differs (upload.wikimedia.org vs thumb.wikimedia.org). The API thumb rendition is 3840 × 2555.",
+        "sourceClaim": "Commons Source={{own}}; the page description says 'Taken by Shogo Nishiyama' and links only to the Flickr account album list.",
+        "commonsAuthor": "Samchan91",
+        "commonsLicense": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attributionRequired": true,
+        "flickrAccountAlbumList": "https://www.flickr.com/photos/sho-go/albums",
+        "relatedFlickrAlbumPageInspected": "https://www.flickr.com/photos/sho-go/albums/72157629426096395/",
+        "relatedFlickrAlbumObservation": "The Flickr page is titled Kinosaki Onsen and shows the photographer account nishiyamashogo with 1,812 photos; it does not identify an exact photo permalink matching this Commons file.",
+        "directCurrentUrlProbe": "The catalogue upload-host request returned HTTP 429; the Commons API provided the matching thumb.wikimedia.org rendition path."
+      },
+      "classification": "C",
+      "specificMissingEvidence": [
+        "The Commons page simultaneously claims own work by Samchan91 and says the photograph was taken by Shogo Nishiyama. It does not explain whether these names refer to the same person or whether Samchan91 had authority from the photographer.",
+        "The page links to an album-list URL, not the exact Flickr photo page. The inspected Kinosaki Onsen album contains 1,812 photos and supplies no exact source-photo permalink for this image.",
+        "No photographer authorization or exact original-photo license record was found. Therefore the Commons CC BY-SA 4.0 label is present, but the authority to grant reuse permission for this exact image remains unverified."
+      ],
+      "proposedImageMetadata": null
+    },
+    {
+      "id": "yamagata-city",
+      "name": "Yamagata City",
+      "nameJa": "山形市",
+      "warningCode": "MISSING_IMAGE_METADATA",
+      "currentHeroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Yamagata_Montage.jpg",
+      "canonicalDetailMetadataParity": true,
+      "file": {
+        "provider": "Wikimedia Commons",
+        "title": "File:Yamagata Montage.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Yamagata_Montage.jpg",
+        "pageId": 99822112,
+        "originalDimensions": "1024 × 1178",
+        "currentUrlIdentity": "The current original-file path, including hash f/f1 and filename, matches the Commons API original URL path.",
+        "creator": "水だらけのプール",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attributionRequired": true,
+        "sourceComponents": [
+          {
+            "file": "霞城公園（山形城址） - panoramio (3).jpg",
+            "creator": "くろふね",
+            "license": "CC BY 3.0",
+            "attributionRequired": true
+          },
+          {
+            "file": "Hanagasa Festa 2002.jpg",
+            "creator": "Crown of Lenten rose is marked assumed by Commons; not independently established.",
+            "license": "Public domain",
+            "attributionRequired": false
+          },
+          {
+            "file": "Risshaku-ji Main Hall 201706a.jpg",
+            "creator": "Tak1701d",
+            "license": "CC BY-SA 3.0",
+            "attributionRequired": true
+          },
+          {
+            "file": "Zaō Onsen 20170331.jpg",
+            "creator": "Suicasmo",
+            "license": "CC BY-SA 4.0",
+            "attributionRequired": true
+          },
+          {
+            "file": "Yamagata-Bunshokan.jpg",
+            "creator": "かもめ2号",
+            "license": "CC BY-SA 3.0",
+            "attributionRequired": true
+          }
+        ]
+      },
+      "classification": "A",
+      "specificLimitations": [
+        "The montage creator's Commons user page is a redlink; the exact account is named in the file page.",
+        "The Hanagasa Festa 2002 component's creator is not established: Commons labels Crown of Lenten rose as assumed and says no machine-readable author. The same page labels the component Public domain and AttributionRequired=false, so this does not leave a reuse-permission or required-attribution gap for the component."
+      ],
+      "missingForA": [],
+      "proposedImageMetadata": {
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "attribution": "水だらけのプール; くろふね; Tak1701d; Suicasmo; かもめ2号",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yamagata_Montage.jpg"
+      },
+      "proposalSchemaFit": "All four DestinationImageMetadata strings; attribution retains the montage creator and identified component creators whose source-page licenses require attribution. The public-domain component's assumed uploader is not represented as a verified creator. No provider-specific field."
+    }
+  ],
+  "auditValidation": {
+    "catalogueFilesChanged": [],
+    "generatorFilesChanged": [],
+    "excludedCohortsChanged": [],
+    "reportCountsReconcile": true,
+    "classificationTotalsReconcile": true,
+    "urlsChanged": false,
+    "metadataWrittenToCatalogue": false
+  }
+}
