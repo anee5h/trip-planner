@@ -249,33 +249,54 @@
             "file": "Morioka and Mount Iwate and River Kitakami in May 2019.jpg",
             "montageCredits": "Yuichi Shiraishi",
             "filePageCreator": "Yuichi Shiraishi",
-            "license": "CC BY-SA 4.0"
+            "pageId": 78968729,
+            "filePageUrl": "https://commons.wikimedia.org/wiki/File:Morioka_and_Mount_Iwate_and_River_Kitakami_in_May_2019.jpg",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attributionRequired": true,
+            "note": "The exact file page names Yuichi Shiraishi; the linked user page is a redlink."
           },
           {
             "file": "Sansa Odori 2.JPG",
             "montageCredits": "Yuko",
             "filePagePhotographer": "Ümit Yaldiz (2005; with friendly permission)",
             "filePageUploader": "Immanuel Giel",
-            "license": "CC BY-SA 3.0 (GFDL migration/relicense page)"
+            "pageId": 221519,
+            "filePageUrl": "https://commons.wikimedia.org/wiki/File:Sansa_Odori_2.JPG",
+            "license": "CC BY-SA 3.0 (GFDL migration/relicense page)",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "attributionRequired": true
           },
           {
             "file": "Ishiwari Zakura.jpg",
             "montageCredits": "Shacho0822",
             "filePageCreator": "Shacho0822 is explicitly marked assumed; source is own assumed.",
-            "license": "CC BY-SA 3.0"
+            "pageId": 761275,
+            "filePageUrl": "https://commons.wikimedia.org/wiki/File:Ishiwari_Zakura.jpg",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "attributionRequired": true
           },
           {
             "file": "171103 Former Morioka Bank Head Office Morioka Iwate pref Japan01bs5.jpg",
             "montageCredits": "663highland",
             "filePageCreator": "663highland",
-            "license": "CC BY-SA 4.0"
+            "pageId": 63937313,
+            "filePageUrl": "https://commons.wikimedia.org/wiki/File:171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attributionRequired": true
           },
           {
             "file": "Morioka Park 1.JPG",
             "montageCredits": "Immanuel Giel",
             "filePagePhotographer": "Ümit Yaldiz (2005; with friendly permission)",
             "filePageUploader": "Immanuel Giel",
-            "license": "CC BY-SA 3.0 (GFDL migration/relicense page)"
+            "pageId": 221544,
+            "filePageUrl": "https://commons.wikimedia.org/wiki/File:Morioka_Park_1.JPG",
+            "license": "CC BY-SA 3.0 (GFDL migration/relicense page)",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "attributionRequired": true
           }
         ]
       },
@@ -379,31 +400,36 @@
             "file": "霞城公園（山形城址） - panoramio (3).jpg",
             "creator": "くろふね",
             "license": "CC BY 3.0",
-            "attributionRequired": true
+            "attributionRequired": true,
+            "filePageUrl": "https://commons.wikimedia.org/wiki/File:%E9%9C%9E%E5%9F%8E%E5%85%AC%E5%9C%92%EF%BC%88%E5%B1%B1%E5%BD%A2%E5%9F%8E%E5%9D%80%EF%BC%89_-_panoramio_%283%29.jpg"
           },
           {
             "file": "Hanagasa Festa 2002.jpg",
             "creator": "Crown of Lenten rose is marked assumed by Commons; not independently established.",
             "license": "Public domain",
-            "attributionRequired": false
+            "attributionRequired": false,
+            "filePageUrl": "https://commons.wikimedia.org/wiki/File:Hanagasa_Festa_2002.jpg"
           },
           {
             "file": "Risshaku-ji Main Hall 201706a.jpg",
             "creator": "Tak1701d",
             "license": "CC BY-SA 3.0",
-            "attributionRequired": true
+            "attributionRequired": true,
+            "filePageUrl": "https://commons.wikimedia.org/wiki/File:Risshaku-ji_Main_Hall_201706a.jpg"
           },
           {
             "file": "Zaō Onsen 20170331.jpg",
             "creator": "Suicasmo",
             "license": "CC BY-SA 4.0",
-            "attributionRequired": true
+            "attributionRequired": true,
+            "filePageUrl": "https://commons.wikimedia.org/wiki/File:Za%C5%8D_Onsen_20170331.jpg"
           },
           {
             "file": "Yamagata-Bunshokan.jpg",
             "creator": "かもめ2号",
             "license": "CC BY-SA 3.0",
-            "attributionRequired": true
+            "attributionRequired": true,
+            "filePageUrl": "https://commons.wikimedia.org/wiki/File:Yamagata-Bunshokan.jpg"
           }
         ]
       },
