@@ -9,14 +9,18 @@
  * the custom domain when the caller supplies EXPECTED_DEPLOYMENT_SHA.
  *
  * Usage: node scripts/check-security-headers.mjs [baseUrl]
+ * `SECURITY_SMOKE_BASE_URL` may provide the production Pages alias when the
+ * custom domain's Cloudflare edge challenges non-browser CI traffic. The
+ * embedded deployment SHA check still proves the alias serves production.
  * Exit codes: 0 pass, 1 application/deployment failure, 2 Cloudflare challenge.
  */
 import { pathToFileURL } from "node:url";
 
-const BASE_URL = (process.argv[2] ?? "https://meguruto.app").replace(
-  /\/+$/,
-  "",
-);
+const BASE_URL = (
+  process.argv[2] ??
+  process.env.SECURITY_SMOKE_BASE_URL ??
+  "https://meguruto.app"
+).replace(/\/+$/, "");
 const EXPECTED_DEPLOYMENT_SHA =
   process.env.EXPECTED_DEPLOYMENT_SHA?.trim() || null;
 

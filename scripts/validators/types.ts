@@ -16,6 +16,8 @@ export interface ValidationResult {
   name: string;
   passed: boolean;
   issues: ValidationIssue[];
+  /** Optional aggregate counters for validators with external request costs. */
+  diagnostics?: Record<string, number>;
   metrics: {
     totalChecked: number;
     errorsCount: number;
