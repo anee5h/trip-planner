@@ -172,7 +172,7 @@
     "react-dom": "^19.3.0",
     "react-i18next": "^17.0.13",
     "react-leaflet": "^5.0.0",
-    "react-router-dom": "^7.18.3",
+    "react-router-dom": "^7.18.4",
     "sonner": "^2.0.8",
     "tailwind-merge": "^3.7.0"
   },
