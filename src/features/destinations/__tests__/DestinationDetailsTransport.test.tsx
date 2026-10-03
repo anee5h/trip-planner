@@ -485,6 +485,43 @@ describe("DestinationDetails transport rows", () => {
     expect(planningState.selectedTransport).toBe("train");
   });
 
+  it.each([
+    ["English", "en", "rental", "Rough estimate:", "Rough estimate"],
+    ["Japanese", "ja", "my_car", "概算：", "概算"],
+  ])(
+    "keeps exactly one approximation label in the %s car row",
+    async (
+      _localeName,
+      locale,
+      carMode,
+      formattedPrefix,
+      approximationText,
+    ) => {
+      localeState.locale = locale as "en" | "ja";
+      render("/destinations/national-museum-western-art-tokyo", {
+        carMode,
+        publicModes: [],
+        partySize: 2,
+        duration: "fullDay",
+      });
+      await act(async () => {
+        await flush(80);
+      });
+
+      const estimate = Array.from(host.querySelectorAll(".font-semibold")).find(
+        (element) => element.textContent?.includes(formattedPrefix),
+      );
+      expect(estimate?.textContent).toContain(formattedPrefix);
+      expect(
+        (
+          estimate?.textContent?.match(
+            new RegExp(approximationText as string, "g"),
+          ) ?? []
+        ).length,
+      ).toBe(1);
+    },
+  );
+
   it("projects a provider-backed rental-car cost through the production seam", async () => {
     carRefinementState.routes = providerCarRoute;
     carRefinementState.status = "provider-backed";

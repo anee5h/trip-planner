@@ -2067,7 +2067,8 @@ export default function DestinationDetails() {
 
               {composedDetailRails.featuredChildSights.length > 0 && (
                 <DestinationDetailRail
-                  title={locale === "ja" ? "注目の見どころ" : "Top sights"}
+                  title={locale === "ja" ? "注目スポット" : "Featured sights"}
+                  showHeading={false}
                   destinations={composedDetailRails.featuredChildSights}
                   currentDestinationId={destination.id}
                   partySize={partySize}
@@ -2336,14 +2337,6 @@ export default function DestinationDetails() {
                                   <div className="min-w-0 text-right">
                                     <div className="font-semibold text-slate-700 dark:text-slate-300">
                                       {formatGroundTime("car")}
-                                      {groundEstimateFor("car")?.evidence ===
-                                        "estimated" && (
-                                        <span className="ml-1 text-[10px] font-medium text-amber-600 dark:text-amber-500">
-                                          {locale === "ja"
-                                            ? "概算目安"
-                                            : "Rough estimate"}
-                                        </span>
-                                      )}
                                     </div>
                                     <div className="text-xs text-slate-500">
                                       {formatGroundCost("car")}
@@ -2362,14 +2355,6 @@ export default function DestinationDetails() {
                                   <div className="min-w-0 text-right">
                                     <div className="font-semibold text-slate-700 dark:text-slate-300">
                                       {formatGroundTime("my_car")}
-                                      {groundEstimateFor("my_car")?.evidence ===
-                                        "estimated" && (
-                                        <span className="ml-1 text-[10px] font-medium text-amber-600 dark:text-amber-500">
-                                          {locale === "ja"
-                                            ? "概算目安"
-                                            : "Rough estimate"}
-                                        </span>
-                                      )}
                                     </div>
                                     <div className="text-xs text-slate-500">
                                       {formatGroundCost("my_car")}

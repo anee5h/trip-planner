@@ -60,6 +60,29 @@ describe("DestinationDetailRail", () => {
     expect(text).toContain("Place two");
   });
 
+  it("keeps featured sights accessible when the visible heading is omitted", () => {
+    act(() => {
+      root.render(
+        <DestinationDetailRail
+          title="Featured sights"
+          showHeading={false}
+          destinations={[destination("one", "Place one")]}
+          partySize={2}
+          previousLabel="Scroll left"
+          nextLabel="Scroll right"
+        />,
+      );
+    });
+
+    const rail = host.querySelector('[data-testid="destination-detail-rail"]');
+    const region = host.querySelector('[role="region"]');
+    expect(rail?.querySelector("h3")).toBeNull();
+    expect(rail?.getAttribute("aria-label")).toBeNull();
+    expect(rail?.getAttribute("aria-labelledby")).toBeNull();
+    expect(region?.getAttribute("aria-label")).toBe("Featured sights");
+    expect(rail?.textContent).toContain("Place one");
+  });
+
   it("omits an empty relationship rail", () => {
     act(() => {
       root.render(
