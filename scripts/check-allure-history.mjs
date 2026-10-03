@@ -163,12 +163,22 @@ function main() {
   const historyB = JSON.parse(
     fs.readFileSync(path.join(reportB, "history", "history.json"), "utf8"),
   );
-  // Allure writes history.json as { [historyId]: { statistic, items } }.
-  const sharedHistory = historyB?.[SHARED_HISTORY_ID];
+  // Allure CLI versions may normalize the history key. This fixture has one
+  // shared test, so prove continuity from its accumulated stats and distinct
+  // run items rather than relying on the serialized key format.
+  const sharedHistories = Object.values(historyB ?? {}).filter((entry) => {
+    const runCount = entry?.statistic?.total ?? entry?.total ?? 0;
+    const items = Array.isArray(entry?.items) ? entry.items : [];
+    const uniqueItemIds = new Set(
+      items.map((item) => item?.uid).filter(Boolean),
+    );
+    return runCount >= 2 && items.length >= 2 && uniqueItemIds.size >= 2;
+  });
   assert(
-    sharedHistory,
-    "history.json must contain the shared test's history entry",
+    sharedHistories.length === 1,
+    `history.json must contain exactly one shared-test record with two distinct runs (got ${sharedHistories.length})`,
   );
+  const sharedHistory = sharedHistories[0];
   const runCount = sharedHistory?.statistic?.total ?? sharedHistory?.total ?? 0;
   assert(
     runCount >= 2,
