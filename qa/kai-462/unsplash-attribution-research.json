@@ -1,0 +1,480 @@
+{
+  "summary": "Reviewed all 20 unique paths and the subject of each image for every listed destination. The supplied destination associations total 24, not the stated 23 warning rows; I retained every listed destination ID. Unsplash’s direct pages were blocked by its BotStopper, so page-specific findings rely on indexed excerpts from official Unsplash pages; no credentials, login, or API-key attempts were made. Three photo-page excerpts explicitly exposed the matching CDN image path; other page matches are candidates, not confirmed mappings. No files were created or modified.",
+  "shared_official_evidence": {
+    "standard_license": {
+      "url": "https://unsplash.com/license",
+      "quote": "Unsplash grants you an irrevocable, nonexclusive, worldwide copyright license to download, copy, modify, distribute, perform, and use images from Unsplash for free, including for commercial purposes, without permission from or attributing the photographer or Unsplash."
+    },
+    "attribution_guideline": {
+      "url": "https://help.unsplash.com/en/articles/2511315-guideline-attribution",
+      "quote": "While the Unsplash License doesn’t require attribution because some uses may make it hard or impossible to attribute in a meaningful way..."
+    },
+    "evidence_limit": "The shared license and attribution policy establish Unsplash’s general rule, not that an unidentified image is covered by that license. CDN URLs were used only to inspect image content, never as licensing evidence."
+  },
+  "records": [
+    {
+      "photo_path": "photo-1441974231531-c6227db76b6e",
+      "affected_destination_ids": [
+        "chiba-yoro-valley",
+        "yamanashi-nishizawa-valley"
+      ],
+      "official_source_urls": [
+        "https://unsplash.com/photos/trees-on-forest-with-sun-rays-sp-p7uuT0tw"
+      ],
+      "source_evidence": [
+        {
+          "field": "page title and creator/location excerpt",
+          "quote": "Trees on forest with sun rays ... Download this free HD photo of forest, land, green, and landscape wallpaper in Bad Pyrmont, Deutschland by Sebastian Unrau (@sebastian_unrau)."
+        },
+        {
+          "field": "license excerpt",
+          "quote": "Free to use under the Unsplash License."
+        }
+      ],
+      "photographer_creator": "Sebastian Unrau (@sebastian_unrau), candidate attribution; the indexed excerpt did not expose this CDN path, so the page-to-image mapping is not fully confirmed.",
+      "current_license": "Candidate page states Unsplash License; mapping to this exact image is not fully confirmed.",
+      "required_attribution": "Not required if this image is covered by the Standard Unsplash License; see shared policy evidence. Otherwise unresolved.",
+      "subject_and_destination_fit": "Visible image is a wooded forest scene. Plausible generic nature imagery for both valley destinations, but it does not establish either place.",
+      "confidence": "medium",
+      "unresolved_status": "Partially unresolved: official matching page is a plausible candidate, but exact image-to-page linkage is not confirmed.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:chiba-yoro-valley:02",
+        "UNRESOLVED_IMAGE_ATTRIBUTION:yamanashi-nishizawa-valley:20"
+      ],
+      "warningDestinationIds": [
+        "chiba-yoro-valley",
+        "yamanashi-nishizawa-valley"
+      ]
+    },
+    {
+      "photo_path": "photo-1464822759023-fed622ff2c3b",
+      "affected_destination_ids": ["kushiro-city"],
+      "official_source_urls": [
+        "https://unsplash.com/photos/snow-capped-mountains-with-valley-and-forest-Bkci_8qcdvQ"
+      ],
+      "source_evidence": [
+        {
+          "field": "page title and creator/location excerpt",
+          "quote": "Snow capped mountains with valley and forest. Download this free HD photo of forest, blue, green, and mountains in Canada by Kalen Emsley (@kalenemsley)."
+        },
+        {
+          "field": "license excerpt",
+          "quote": "Free to use under the Unsplash License."
+        }
+      ],
+      "photographer_creator": "Kalen Emsley (@kalenemsley), candidate attribution; the page describes the matching mountain scene, but the indexed excerpt did not expose this exact CDN path.",
+      "current_license": "Candidate page states Unsplash License; exact image-to-page linkage is not independently confirmed.",
+      "required_attribution": "Not required if this image is covered by the Standard Unsplash License; see shared policy evidence. Otherwise unresolved.",
+      "subject_and_destination_fit": "Visible image is an alpine mountain-and-lake landscape, not a city view or identifiable Kushiro scene. Poor destination-specific fit.",
+      "confidence": "medium",
+      "unresolved_status": "Partially unresolved: plausible official page match, but the page describes Canada and the destination fit is weak.",
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:kushiro-city:07"],
+      "warningDestinationIds": ["kushiro-city"]
+    },
+    {
+      "photo_path": "photo-1470071459604-3b5ec3a7fe05",
+      "affected_destination_ids": ["yamanashi-shosenkyo-gorge"],
+      "official_source_urls": [],
+      "source_evidence": [
+        {
+          "field": "individual photo page",
+          "quote": "No unambiguous official Unsplash photo page or creator metadata was found for this image."
+        }
+      ],
+      "photographer_creator": "Unresolved.",
+      "current_license": "Unresolved at the image level. Shared Standard Unsplash License evidence applies only if this photo is confirmed as covered by that license.",
+      "required_attribution": "Unresolved for this item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image is a misty, hilly landscape with a rocky slope. It is broadly plausible for a gorge-area destination, but neither Shosenkyo nor Japan is established by the image.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:yamanashi-shosenkyo-gorge:21"
+      ],
+      "warningDestinationIds": ["yamanashi-shosenkyo-gorge"]
+    },
+    {
+      "photo_path": "photo-1473448912268-2022ce9509d8",
+      "affected_destination_ids": [
+        "nagano-bessho-onsen",
+        "nachi-falls-wakayama"
+      ],
+      "official_source_urls": [],
+      "source_evidence": [
+        {
+          "field": "individual photo page",
+          "quote": "No unambiguous official Unsplash photo page or creator metadata was found for this image."
+        }
+      ],
+      "photographer_creator": "Unresolved.",
+      "current_license": "Unresolved at the image level. Shared Standard Unsplash License evidence applies only if this photo is confirmed as covered by that license.",
+      "required_attribution": "Unresolved for this item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image is a forested river scene. It is plausible as generic nature imagery for Bessho Onsen, but it does not show an identifiable onsen. For the duplicate Nachi Falls co-user, it is not a clearly identifiable waterfall image.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: no primary page/creator match; duplicate co-user assessed separately.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:nagano-bessho-onsen:11"
+      ],
+      "warningDestinationIds": ["nagano-bessho-onsen"]
+    },
+    {
+      "photo_path": "photo-1486870591958-9b9d0d1dda99",
+      "affected_destination_ids": ["abashiri-city"],
+      "official_source_urls": [],
+      "source_evidence": [
+        {
+          "field": "individual photo page",
+          "quote": "No unambiguous official Unsplash photo page or creator metadata was found for this image."
+        }
+      ],
+      "photographer_creator": "Unresolved.",
+      "current_license": "Unresolved at the image level. Shared Standard Unsplash License evidence applies only if this photo is confirmed as covered by that license.",
+      "required_attribution": "Unresolved for this item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image is a snowy mountain and meadow. It does not depict an identifiable Abashiri city scene; destination-specific fit is weak.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable.",
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:abashiri-city:01"],
+      "warningDestinationIds": ["abashiri-city"]
+    },
+    {
+      "photo_path": "photo-1490806843957-31f4c9a91c65",
+      "affected_destination_ids": ["mount-fuji"],
+      "official_source_urls": [],
+      "source_evidence": [
+        {
+          "field": "individual photo page",
+          "quote": "Official Unsplash search surfaced multiple Fuji-and-cherry-blossom pages, but none was unambiguously tied to this CDN path."
+        }
+      ],
+      "photographer_creator": "Unresolved; visually similar official page candidates are not reliable attribution evidence.",
+      "current_license": "Unresolved at the image level. Shared Standard Unsplash License evidence applies only if this photo is confirmed as covered by that license.",
+      "required_attribution": "Unresolved for this item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image clearly depicts Mount Fuji framed by cherry blossoms. Strong subject fit for Mount Fuji, but the exact viewpoint and photographer are unverified.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: visually similar official pages found, but no exact page mapping.",
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:mount-fuji:10"],
+      "warningDestinationIds": ["mount-fuji"]
+    },
+    {
+      "photo_path": "photo-1493976040374-85c8e12f0c0e",
+      "affected_destination_ids": ["kyoto-historic"],
+      "official_source_urls": [
+        "https://unsplash.com/photos/two-women-in-purple-and-pink-kimono-standing-on-street-_UIN-pFfJ7c"
+      ],
+      "source_evidence": [
+        {
+          "field": "page title and creator/location excerpt",
+          "quote": "Two women in purple and pink kimono standing on street ... Download this free HD photo of woman, travel, people, and female in Kyoto, Japan by Sorasak (@boontohhgraphy). A map marker Kyoto, Japan."
+        }
+      ],
+      "photographer_creator": "Sorasak (@boontohhgraphy), candidate attribution; exact image-to-page linkage is not confirmed by a visible CDN-path match.",
+      "current_license": "The official excerpt calls it a free HD photo but did not expose an item-level license quote. Standard Unsplash License coverage is therefore not fully verified for this exact path.",
+      "required_attribution": "Unresolved for this exact item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image shows a traditional Kyoto street and pagoda, a strong subject fit for Kyoto historic. Exact location not established in the indexed excerpt.",
+      "confidence": "medium",
+      "unresolved_status": "Partially unresolved: plausible official page and creator, but exact mapping and item-level license statement are not confirmed.",
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:kyoto-historic:08"],
+      "warningDestinationIds": ["kyoto-historic"]
+    },
+    {
+      "photo_path": "photo-1500595046743-cd271d694d30",
+      "affected_destination_ids": ["mother-farm-chiba"],
+      "official_source_urls": [],
+      "source_evidence": [
+        {
+          "field": "individual photo page",
+          "quote": "No unambiguous official Unsplash photo page or creator metadata was found for this image."
+        }
+      ],
+      "photographer_creator": "Unresolved.",
+      "current_license": "Unresolved at the image level. Shared Standard Unsplash License evidence applies only if this photo is confirmed as covered by that license.",
+      "required_attribution": "Unresolved for this item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image shows cattle in a pasture at sunset. Plausible farm imagery for Mother Farm, but the location and photographer are not verified.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:mother-farm-chiba:09"
+      ],
+      "warningDestinationIds": ["mother-farm-chiba"]
+    },
+    {
+      "photo_path": "photo-1534567153574-2b12153a87f0",
+      "affected_destination_ids": ["yokohama-zoorasia"],
+      "official_source_urls": [
+        "https://unsplash.com/photos/two-giraffe-and-three-zebra-on-green-grass-field-under-trees-at-daytime-ttpNCevA1tA"
+      ],
+      "source_evidence": [
+        {
+          "field": "matching image/page title and description",
+          "quote": "two giraffe and three zebra on green grass field under trees at daytime ... Giraffes and zebras in the zoo."
+        },
+        {
+          "field": "license excerpt",
+          "quote": "Free to use under the Unsplash License."
+        }
+      ],
+      "photographer_creator": "Unresolved; the official indexed excerpt did not expose the photographer/creator field.",
+      "current_license": "Unsplash License, as stated on the matching official page excerpt.",
+      "required_attribution": "Not required under the Standard Unsplash License; see shared policy evidence.",
+      "subject_and_destination_fit": "Image depicts zoo giraffes and zebras, a plausible fit for Yokohama Zoorasia. No page evidence confirms these animals were photographed at Zoorasia.",
+      "confidence": "high for subject/page match; creator remains unresolved.",
+      "unresolved_status": "Partially unresolved: image/page and standard license match are supported, but photographer/creator was not identified.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:yokohama-zoorasia:23"
+      ],
+      "warningDestinationIds": ["yokohama-zoorasia"]
+    },
+    {
+      "photo_path": "photo-1542051841857-5f90071e7989",
+      "affected_destination_ids": ["shibuya-city"],
+      "official_source_urls": [],
+      "source_evidence": [
+        {
+          "field": "individual photo page",
+          "quote": "No unambiguous official Unsplash photo page or creator metadata was found for this image."
+        }
+      ],
+      "photographer_creator": "Unresolved.",
+      "current_license": "Unresolved at the image level. Shared Standard Unsplash License evidence applies only if this photo is confirmed as covered by that license.",
+      "required_attribution": "Unresolved for this item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image is a brightly lit Japanese urban street at night. Plausible for Shibuya, but no page-level location evidence ties it to Shibuya.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable.",
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:shibuya-city:15"],
+      "warningDestinationIds": ["shibuya-city"]
+    },
+    {
+      "photo_path": "photo-1545569341-9eb8b30979d9",
+      "affected_destination_ids": [
+        "higashiyama-sky-tower-nagoya",
+        "nara-historic"
+      ],
+      "official_source_urls": [
+        "https://unsplash.com/photos/pagoda-surrounded-by-trees-E_eWwM29wfU"
+      ],
+      "source_evidence": [
+        {
+          "field": "page title and creator/location excerpt",
+          "quote": "Pagoda surrounded by trees ... Download this free HD photo of japan, sunset, japanese wallpaper, and grey in Kyoto, Japan by Su San Lee (@blackodc)."
+        },
+        {
+          "field": "license excerpt",
+          "quote": "Free to use under the Unsplash License."
+        }
+      ],
+      "photographer_creator": "Su San Lee (@blackodc), candidate attribution; exact page-to-CDN-path linkage is not confirmed.",
+      "current_license": "Candidate page states Unsplash License; the exact image-to-page mapping remains unconfirmed.",
+      "required_attribution": "Not required if this image is covered by the Standard Unsplash License; see shared policy evidence. Otherwise unresolved.",
+      "subject_and_destination_fit": "Visible image is a Kyoto pagoda and cityscape. It is not Nagoya’s Higashiyama Sky Tower. It is broadly historic Japanese architecture but is a Kyoto scene, not evidence of Nara.",
+      "confidence": "medium",
+      "unresolved_status": "Partially unresolved: plausible official source page, but exact path mapping and fit to either listed destination are not confirmed.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:higashiyama-sky-tower-nagoya:05",
+        "UNRESOLVED_IMAGE_ATTRIBUTION:nara-historic:12"
+      ],
+      "warningDestinationIds": ["higashiyama-sky-tower-nagoya", "nara-historic"]
+    },
+    {
+      "photo_path": "photo-1546182990-dffeafbe841d",
+      "affected_destination_ids": ["hino-city", "tama-zoological-park"],
+      "official_source_urls": [],
+      "source_evidence": [
+        {
+          "field": "individual photo page",
+          "quote": "No unambiguous official Unsplash photo page or creator metadata was found for this image."
+        }
+      ],
+      "photographer_creator": "Unresolved.",
+      "current_license": "Unresolved at the image level. Shared Standard Unsplash License evidence applies only if this photo is confirmed as covered by that license.",
+      "required_attribution": "Unresolved for this item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image is a lion. It is plausible generic zoo imagery for Tama Zoological Park, but there is no evidence it was photographed there. It is not a destination-specific image of Hino city.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable; both co-users assessed.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:hino-city:06",
+        "UNRESOLVED_IMAGE_ATTRIBUTION:tama-zoological-park:16"
+      ],
+      "warningDestinationIds": ["hino-city", "tama-zoological-park"]
+    },
+    {
+      "photo_path": "photo-1556326059-3cfc41f90fb1",
+      "affected_destination_ids": ["ueno-taito"],
+      "official_source_urls": [
+        "https://unsplash.com/photos/people-on-street-during-daytime-xcKF1LatmyE"
+      ],
+      "source_evidence": [
+        {
+          "field": "matching image path/title/location excerpt",
+          "quote": "people on street during daytime ... Ueno , Tokyo , Japan."
+        },
+        {
+          "field": "license excerpt",
+          "quote": "Free to use under the Unsplash License."
+        }
+      ],
+      "photographer_creator": "Unresolved; the official indexed excerpt did not expose the photographer/creator field.",
+      "current_license": "Unsplash License, as stated on the matching official page excerpt.",
+      "required_attribution": "Not required under the Standard Unsplash License; see shared policy evidence.",
+      "subject_and_destination_fit": "The official excerpt identifies Ueno, Tokyo, Japan; this is a strong location fit for ueno-taito.",
+      "confidence": "high for image/page/location match; creator remains unresolved.",
+      "unresolved_status": "Partially unresolved: standard license and Ueno location are supported, but photographer/creator was not identified.",
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:ueno-taito:19"],
+      "warningDestinationIds": ["ueno-taito"]
+    },
+    {
+      "photo_path": "photo-1570459027562-4a916cc6113f",
+      "affected_destination_ids": ["gotemba-city"],
+      "official_source_urls": [],
+      "source_evidence": [
+        {
+          "field": "individual photo page",
+          "quote": "No unambiguous official Unsplash photo page or creator metadata was found for this image."
+        }
+      ],
+      "photographer_creator": "Unresolved.",
+      "current_license": "Unresolved at the image level. Shared Standard Unsplash License evidence applies only if this photo is confirmed as covered by that license.",
+      "required_attribution": "Unresolved for this item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image shows Mount Fuji across a lake. It is regionally plausible for Gotemba, but the lake/viewpoint is not identified and may not be in Gotemba.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable.",
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:gotemba-city:04"],
+      "warningDestinationIds": ["gotemba-city"]
+    },
+    {
+      "photo_path": "photo-1590559899731-a382839e5549",
+      "affected_destination_ids": ["osaka-city"],
+      "official_source_urls": ["https://unsplash.com/photos/gCG0MAJ1gOw"],
+      "source_evidence": [
+        {
+          "field": "page title and creator/location excerpt",
+          "quote": "Tower building between establishment signages ... Download this free HD photo of grey, street photography, building, and banner by Charles Postiaux (@charlespostiaux). A map marker Osaka."
+        }
+      ],
+      "photographer_creator": "Charles Postiaux (@charlespostiaux), candidate attribution; the indexed excerpt did not expose this CDN path, so exact page-to-image linkage is not confirmed.",
+      "current_license": "Candidate page describes a free HD photo; no item-level license quote was retrieved for a confirmed match.",
+      "required_attribution": "Unresolved for this exact item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image shows dense Osaka-style street signage and buildings. The candidate page is located in Osaka, making this a plausible fit, but the exact match is unconfirmed.",
+      "confidence": "medium",
+      "unresolved_status": "Partially unresolved: plausible official page and creator, but exact image mapping and license statement are not confirmed.",
+      "warningFindingIds": ["UNRESOLVED_IMAGE_ATTRIBUTION:osaka-city:14"],
+      "warningDestinationIds": ["osaka-city"]
+    },
+    {
+      "photo_path": "photo-1593073862407-a3ce22748763",
+      "affected_destination_ids": ["teamlab-borderless-azabudai"],
+      "official_source_urls": [
+        "https://unsplash.com/photos/two-people-sit-on-floor-with-swirling-blue-light-patterns-bVPM7Tumbgw"
+      ],
+      "source_evidence": [
+        {
+          "field": "page title and creator/location excerpt",
+          "quote": "Download this free HD photo of couple, together, lights, and art exhibition in Minato City, Japón by Florencia Gonzalez Bazzano (@flor050881)."
+        }
+      ],
+      "photographer_creator": "Florencia Gonzalez Bazzano (@flor050881), candidate attribution; exact page-to-CDN-path match was not exposed in the indexed excerpt.",
+      "current_license": "Candidate page describes a free HD photo; exact item-level license confirmation is incomplete.",
+      "required_attribution": "Unresolved for this exact item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image shows an immersive light-art exhibit. Minato City and art-exhibition metadata make it a plausible fit for teamLab Borderless Azabudai, but the specific venue is not stated in the excerpt.",
+      "confidence": "medium",
+      "unresolved_status": "Partially unresolved: strong subject/location candidate, but exact CDN mapping and page-level license text are not confirmed.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:teamlab-borderless-azabudai:17"
+      ],
+      "warningDestinationIds": ["teamlab-borderless-azabudai"]
+    },
+    {
+      "photo_path": "photo-1609375855883-411e45d77365",
+      "affected_destination_ids": ["yokohama-landmark-tower-sky-garden"],
+      "official_source_urls": [],
+      "source_evidence": [
+        {
+          "field": "individual photo page",
+          "quote": "No unambiguous official Unsplash photo page or creator metadata was found for this image."
+        }
+      ],
+      "photographer_creator": "Unresolved.",
+      "current_license": "Unresolved at the image level. Shared Standard Unsplash License evidence applies only if this photo is confirmed as covered by that license.",
+      "required_attribution": "Unresolved for this item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image is a daytime waterfront cityscape with tall buildings. It may plausibly depict Yokohama’s Minato Mirai area, but the Landmark Tower is not confirmed from page evidence.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:yokohama-landmark-tower-sky-garden:22"
+      ],
+      "warningDestinationIds": ["yokohama-landmark-tower-sky-garden"]
+    },
+    {
+      "photo_path": "photo-1614651857407-9b22acceb43a",
+      "affected_destination_ids": ["nikko-toshogu-shrine-tochigi"],
+      "official_source_urls": [],
+      "source_evidence": [
+        {
+          "field": "individual photo page",
+          "quote": "No unambiguous official Unsplash photo page or creator metadata was found for this image."
+        }
+      ],
+      "photographer_creator": "Unresolved.",
+      "current_license": "Unresolved at the image level. Shared Standard Unsplash License evidence applies only if this photo is confirmed as covered by that license.",
+      "required_attribution": "Unresolved for this item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image shows a line of Jizo-like statues with red coverings along a forest path. This is plausible Japanese religious-site imagery, but it does not identify Nikko Toshogu Shrine.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: primary photo-page and creator evidence unavailable.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:nikko-toshogu-shrine-tochigi:13"
+      ],
+      "warningDestinationIds": ["nikko-toshogu-shrine-tochigi"]
+    },
+    {
+      "photo_path": "photo-1693188074158-00e5edb3d0ac",
+      "affected_destination_ids": ["tottori-sand-dunes"],
+      "official_source_urls": [
+        "https://unsplash.com/photos/a-couple-of-people-standing-on-top-of-a-sandy-hill-uG5xy-QiyB8"
+      ],
+      "source_evidence": [
+        {
+          "field": "matching image path, title, creator, and location excerpt",
+          "quote": "Download this free HD photo of japan, sand dunes, beach, and sea in Tottori, Japan by Nakaharu Line (@rissun_line). Tottori Sand Dunes, Tottori, Japan."
+        },
+        {
+          "field": "license excerpt",
+          "quote": "Free to use under the Unsplash License."
+        }
+      ],
+      "photographer_creator": "Nakaharu Line (@rissun_line).",
+      "current_license": "Unsplash License, as stated on the matching official page.",
+      "required_attribution": "Not required under the Standard Unsplash License; see shared policy evidence.",
+      "subject_and_destination_fit": "The official page identifies the location as Tottori Sand Dunes, matching the destination. The image visibly depicts a sandy dune and sea.",
+      "confidence": "high",
+      "unresolved_status": "Resolved from available public official page evidence.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:tottori-sand-dunes:18"
+      ],
+      "warningDestinationIds": ["tottori-sand-dunes"]
+    },
+    {
+      "photo_path": "photo-1749498682646-45e7c11506ec",
+      "affected_destination_ids": ["fujikawaguchiko-town"],
+      "official_source_urls": [
+        "https://unsplash.com/photos/mount-fuji-rises-behind-a-lawson-convenience-store-at-sunset-sE2_E4ON64A",
+        "https://unsplash.com/photos/lawson-store-with-mount-fuji-in-the-background-Eksn6gxDdBc",
+        "https://unsplash.com/photos/mount-fuji-looms-behind-a-lawson-convenience-store-dILFKshI5hQ",
+        "https://unsplash.com/photos/pink-sunset-over-mount-fuji-and-a-lawson-store-Q8T2fDYn_4w"
+      ],
+      "source_evidence": [
+        {
+          "field": "candidate page subjects/locations",
+          "quote": "Official Unsplash search surfaced multiple similar Lawson-and-Mount-Fuji pages, including pages located in Fujikawaguchiko; none of the indexed excerpts unambiguously linked this exact CDN path to one page."
+        }
+      ],
+      "photographer_creator": "Unresolved for this image; candidate pages list different creators, so none can be assigned safely.",
+      "current_license": "Unresolved at the image level; candidate-page license metadata cannot be attached without a confirmed page-to-image mapping.",
+      "required_attribution": "Unresolved for this exact item; if covered by the Standard Unsplash License, attribution is not required.",
+      "subject_and_destination_fit": "Visible image shows a Lawson store with Mount Fuji in the background, strongly plausible for Fujikawaguchiko. Exact location and page attribution remain unverified.",
+      "confidence": "low",
+      "unresolved_status": "Unresolved: several visually similar official pages prevent exact identification; creator and item-level license remain unknown.",
+      "warningFindingIds": [
+        "UNRESOLVED_IMAGE_ATTRIBUTION:fujikawaguchiko-town:03"
+      ],
+      "warningDestinationIds": ["fujikawaguchiko-town"]
+    }
+  ]
+}

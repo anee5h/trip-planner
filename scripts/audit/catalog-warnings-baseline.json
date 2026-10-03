@@ -14,7 +14,7 @@
     "OPEN_ACCESS_ON_PAID_KIND": 58,
     "REL_CROSS_PREFECTURE_REF": 213,
     "SEASON_BESTMONTHS_CONTRADICTION": 2,
-    "UNRESOLVED_IMAGE_ATTRIBUTION": 23,
+    "UNRESOLVED_IMAGE_ATTRIBUTION": 22,
     "WALKING_MIN_IMPLAUSIBLE": 18
   },
   "warningFingerprints": {
@@ -1596,7 +1596,6 @@
     "UNRESOLVED_IMAGE_ATTRIBUTION:shibuya-city": 1,
     "UNRESOLVED_IMAGE_ATTRIBUTION:tama-zoological-park": 1,
     "UNRESOLVED_IMAGE_ATTRIBUTION:teamlab-borderless-azabudai": 1,
-    "UNRESOLVED_IMAGE_ATTRIBUTION:tottori-sand-dunes": 1,
     "UNRESOLVED_IMAGE_ATTRIBUTION:ueno-taito": 1,
     "UNRESOLVED_IMAGE_ATTRIBUTION:yamanashi-nishizawa-valley": 1,
     "UNRESOLVED_IMAGE_ATTRIBUTION:yamanashi-shosenkyo-gorge": 1,

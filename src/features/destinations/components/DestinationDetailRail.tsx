@@ -16,6 +16,8 @@ interface DestinationDetailRailProps {
   nextLabel: string;
   /** Keep detail-page discovery rails scannable without removing actions. */
   compact?: boolean;
+  /** Omit a redundant visible heading when the parent section is already named. */
+  showHeading?: boolean;
   /** Explicit current-page anchor for local/final-segment journey cards. */
   journeyOrigin?: Destination;
   journeyScope?: JourneyScope;
@@ -35,6 +37,7 @@ export function DestinationDetailRail({
   previousLabel,
   nextLabel,
   compact = false,
+  showHeading = true,
   journeyOrigin,
   journeyScope,
 }: DestinationDetailRailProps) {
@@ -51,22 +54,24 @@ export function DestinationDetailRail({
   return (
     <section
       data-testid="destination-detail-rail"
-      aria-labelledby={headingId}
+      aria-labelledby={showHeading ? headingId : undefined}
       className="space-y-3"
     >
-      <div>
-        <h3
-          id={headingId}
-          className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-2xl"
-        >
-          {title}
-        </h3>
-        {description && (
-          <p className="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-300">
-            {description}
-          </p>
-        )}
-      </div>
+      {showHeading && (
+        <div>
+          <h3
+            id={headingId}
+            className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-2xl"
+          >
+            {title}
+          </h3>
+          {description && (
+            <p className="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-300">
+              {description}
+            </p>
+          )}
+        </div>
+      )}
 
       <ScrollContainer
         ariaLabel={title}

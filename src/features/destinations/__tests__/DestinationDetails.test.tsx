@@ -396,6 +396,18 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     expect(text).toContain("【見どころ】大津市");
     expect(text).not.toContain("【見どころ】Otsu City");
 
+    const featuredRail = host.querySelector(
+      '[data-section="top-sights"] [data-testid="destination-detail-rail"]',
+    );
+    expect(featuredRail?.querySelector(":scope > div > h3")).toBeNull();
+    expect(featuredRail?.getAttribute("aria-label")).toBeNull();
+    expect(featuredRail?.getAttribute("aria-labelledby")).toBeNull();
+    expect(
+      featuredRail
+        ?.querySelector('[role="region"]')
+        ?.getAttribute("aria-label"),
+    ).toBe("注目スポット");
+
     const sections = Array.from(host.querySelectorAll("[data-section]")).map(
       (section) => section.getAttribute("data-section"),
     );
@@ -421,11 +433,22 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
 
     const text = host.textContent ?? "";
     expect(text).toContain("Top sights in Otsu City");
-    expect(text).toContain("Top sights");
     expect(text).toContain("Explore by area");
     expect(text).toContain("Explore Otsu City");
     expect(text).toContain("Plan your visit");
     expect(text).not.toContain("大津市の見どころ");
+
+    const featuredRail = host.querySelector(
+      '[data-section="top-sights"] [data-testid="destination-detail-rail"]',
+    );
+    expect(featuredRail?.querySelector(":scope > div > h3")).toBeNull();
+    expect(featuredRail?.getAttribute("aria-label")).toBeNull();
+    expect(featuredRail?.getAttribute("aria-labelledby")).toBeNull();
+    expect(
+      featuredRail
+        ?.querySelector('[role="region"]')
+        ?.getAttribute("aria-label"),
+    ).toBe("Featured sights");
   });
 
   it("renders not found state for genuinely non-existent destinations in Japanese and English", async () => {
