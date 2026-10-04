@@ -6,7 +6,7 @@ The image validator separates remote verification from deterministic catalogue c
 
 - **Verified** — the request completed successfully and the response used an allowed image MIME type.
 - **Broken** — a definitive response or deterministic policy check shows the URL/resource is invalid (for example HTTP 404/410, disallowed URL, or non-image response). These are errors and block validation.
-- **Inconclusive** — the validator could not establish validity (429/rate limit, timeout, transient 5xx, retry-budget exhaustion, or transient network/DNS failure). These are warnings, remain unverified, and do not make the remote monitor green by implication.
+- **Inconclusive** — the validator could not establish validity (429/rate limit, timeout, transient 5xx, retry-budget exhaustion, or network/DNS resolution failure). These are warnings, remain unverified, and do not make the remote monitor green by implication.
 
 A mixed run fails when it contains any blocking deterministic or confirmed-broken finding, even if other URLs are inconclusive. With zero blocking findings and at least one inconclusive URL, the result is `INCOMPLETE`; only zero inconclusive URLs yields a remote `PASSED` result.
 

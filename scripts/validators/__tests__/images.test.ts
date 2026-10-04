@@ -130,16 +130,13 @@ describe("classifyImageFailure", () => {
 });
 
 describe("classifyDnsError", () => {
-  it("classifies temporary resolver failures as transient", () => {
+  it("classifies DNS resolution failures as transient", () => {
     expect(classifyDnsError("EAI_AGAIN")).toBe("transient");
     expect(classifyDnsError("ENETUNREACH")).toBe("transient");
     expect(classifyDnsError("ETIMEDOUT")).toBe("transient");
-  });
-
-  it("classifies definitive resolution failures as hard", () => {
-    expect(classifyDnsError("ENOTFOUND")).toBe("hard");
-    expect(classifyDnsError("EAI_NONAME")).toBe("hard");
-    expect(classifyDnsError(undefined)).toBe("hard");
+    expect(classifyDnsError("ENOTFOUND")).toBe("transient");
+    expect(classifyDnsError("EAI_NONAME")).toBe("transient");
+    expect(classifyDnsError(undefined)).toBe("transient");
   });
 });
 

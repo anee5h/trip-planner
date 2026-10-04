@@ -128,7 +128,7 @@ describe("image validator transient network recovery", () => {
     );
   });
 
-  it("keeps permanent DNS resolution failures terminal", async () => {
+  it("reports DNS resolution failures as inconclusive after bounded retries", async () => {
     mockLookup.mockImplementation(
       (
         _hostname: string,
@@ -140,18 +140,55 @@ describe("image validator transient network recovery", () => {
         ),
     );
 
-    const result = await imagesValidator.validate(makeContext());
+    vi.useFakeTimers();
+    const pending = imagesValidator.validate(makeContext());
+    await vi.runAllTimersAsync();
+    const result = await pending;
 
-    expect(mockLookup).toHaveBeenCalledTimes(1);
+    expect(mockLookup).toHaveBeenCalledTimes(3);
     expect(mockGet).not.toHaveBeenCalled();
-    expect(result.metrics.errorsCount).toBe(1);
+    expect(result.status).toBe("inconclusive");
+    expect(result.passed).toBe(false);
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(1);
     expect(result.issues[0]).toMatchObject({
-      severity: "error",
-      code: "IMAGE_FETCH_BROKEN",
+      severity: "warning",
+      code: "IMAGE_FETCH_INCONCLUSIVE",
     });
     expect(result.diagnostics).toMatchObject({
-      permanentDnsFailures: 1,
-      dnsRetries: 0,
+      permanentDnsFailures: 0,
+      transientDnsFailures: 3,
+      dnsRetries: 2,
+      retryExhaustedUrls: 1,
+      inconclusiveUrls: 1,
+      inconclusiveNetworkUrls: 1,
+    });
+  });
+
+  it("reports empty DNS answers as inconclusive after bounded retries", async () => {
+    mockLookup.mockImplementation(
+      (
+        _hostname: string,
+        _options: unknown,
+        callback: (error: null, addresses: unknown[]) => void,
+      ) => callback(null, []),
+    );
+
+    vi.useFakeTimers();
+    const pending = imagesValidator.validate(makeContext());
+    await vi.runAllTimersAsync();
+    const result = await pending;
+
+    expect(mockLookup).toHaveBeenCalledTimes(3);
+    expect(mockGet).not.toHaveBeenCalled();
+    expect(result.status).toBe("inconclusive");
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(1);
+    expect(result.diagnostics).toMatchObject({
+      dnsRetries: 2,
+      retryExhaustedUrls: 1,
+      inconclusiveUrls: 1,
+      inconclusiveNetworkUrls: 1,
     });
   });
 

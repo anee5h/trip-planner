@@ -25,8 +25,10 @@ export function renderImageValidationSummary(
   const verified = count(diagnostics, "verifiedUrls");
   const broken = count(diagnostics, "brokenUrls");
   const inconclusive = count(diagnostics, "inconclusiveUrls");
+  const statusLabel =
+    status === "inconclusive" ? "INCOMPLETE" : status.toUpperCase();
   const lines = [
-    `## Catalog image validation — ${status.toUpperCase()}`,
+    `## Catalog image validation — ${statusLabel}`,
     "",
     `Mode: \`${mode}\``,
     "",

@@ -422,13 +422,9 @@ export function isPrivateOrReservedAddress(address: string): boolean {
 
 export type ImageFailureType = "policy" | "hard" | "transient";
 
-/** Classifies a DNS lookup error code: temporary resolver/infrastructure
- *  failures are transient; everything else is a hard resolution failure. */
-export function classifyDnsError(code: string | undefined): ImageFailureType {
-  if (code === "EAI_AGAIN" || code === "ENETUNREACH" || code === "ETIMEDOUT") {
-    return "transient";
-  }
-  return "hard";
+/** A DNS failure cannot establish that the image resource itself is invalid. */
+export function classifyDnsError(_code: string | undefined): ImageFailureType {
+  return "transient";
 }
 
 const TRANSIENT_NETWORK_ERROR_CODES = new Set([
@@ -1167,7 +1163,7 @@ const imageValidationRunner = {
               finishDns({
                 ok: false,
                 error: `no addresses resolved for '${parsed.hostname}'`,
-                failureType: "hard",
+                failureType: "transient",
                 failureSource: "dns",
               });
               return;

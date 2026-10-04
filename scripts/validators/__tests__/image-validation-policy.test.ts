@@ -124,7 +124,7 @@ describe("image validation CI policy", () => {
       "all",
     );
 
-    expect(summary).toContain("INCONCLUSIVE");
+    expect(summary).toContain("## Catalog image validation — INCOMPLETE");
     expect(summary).toContain("429 / rate limited: 5");
     expect(summary).toContain("Unverified URLs are not counted as verified");
     expect(summary).not.toContain("All checked image URLs were verified");
