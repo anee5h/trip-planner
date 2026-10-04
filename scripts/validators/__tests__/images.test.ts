@@ -84,44 +84,47 @@ describe("classifyImageFailure", () => {
     });
   });
 
-  it("classifies non-transient HTTP failures (403/404/410/500) as errors", () => {
+  it("classifies definitive HTTP failures (403/404/410) as broken", () => {
     expect(classifyImageFailure(undefined, 403)).toEqual({
       severity: "error",
-      code: "BROKEN_IMAGE_URL",
+      code: "IMAGE_FETCH_BROKEN",
     });
     expect(classifyImageFailure(undefined, 404)).toEqual({
       severity: "error",
-      code: "BROKEN_IMAGE_URL",
+      code: "IMAGE_FETCH_BROKEN",
     });
     expect(classifyImageFailure(undefined, 410)).toEqual({
       severity: "error",
-      code: "BROKEN_IMAGE_URL",
-    });
-    expect(classifyImageFailure(undefined, 500)).toEqual({
-      severity: "error",
-      code: "BROKEN_IMAGE_URL",
+      code: "IMAGE_FETCH_BROKEN",
     });
   });
 
-  it("classifies transient failures (429/503) as warnings", () => {
+  it("classifies server 5xx responses as transient inconclusive results", () => {
+    expect(classifyImageFailure(undefined, 500)).toEqual({
+      severity: "warning",
+      code: "IMAGE_FETCH_INCONCLUSIVE",
+    });
+  });
+
+  it("classifies transient failures (429/503) as inconclusive warnings", () => {
     expect(classifyImageFailure(undefined, 429)).toEqual({
       severity: "warning",
-      code: "IMAGE_FETCH_WARNING",
+      code: "IMAGE_FETCH_INCONCLUSIVE",
     });
     expect(classifyImageFailure(undefined, 503)).toEqual({
       severity: "warning",
-      code: "IMAGE_FETCH_WARNING",
+      code: "IMAGE_FETCH_INCONCLUSIVE",
     });
     expect(classifyImageFailure("transient")).toEqual({
       severity: "warning",
-      code: "IMAGE_FETCH_WARNING",
+      code: "IMAGE_FETCH_INCONCLUSIVE",
     });
   });
 
   it("does not mark other HTTP statuses as transient fetch warnings", () => {
     expect(classifyImageFailure(undefined, 401)).toEqual({
       severity: "error",
-      code: "BROKEN_IMAGE_URL",
+      code: "IMAGE_FETCH_BROKEN",
     });
   });
 });

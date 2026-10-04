@@ -103,6 +103,12 @@ describe("image validator transient network recovery", () => {
 
     const result = await imagesValidator.validate(makeContext());
 
+    expect(result.status).toBe("passed");
+    expect(result.diagnostics).toMatchObject({
+      verifiedUrls: 1,
+      brokenUrls: 0,
+      inconclusiveUrls: 0,
+    });
     expect(result.diagnostics).toMatchObject({
       uniqueUrlsChecked: 1,
       httpRequests: 1,
@@ -141,7 +147,7 @@ describe("image validator transient network recovery", () => {
     expect(result.metrics.errorsCount).toBe(1);
     expect(result.issues[0]).toMatchObject({
       severity: "error",
-      code: "BROKEN_IMAGE_URL",
+      code: "IMAGE_FETCH_BROKEN",
     });
     expect(result.diagnostics).toMatchObject({
       permanentDnsFailures: 1,
@@ -149,7 +155,7 @@ describe("image validator transient network recovery", () => {
     });
   });
 
-  it("fails validation when DNS stays stalled through bounded retries", async () => {
+  it("reports stalled DNS as inconclusive after bounded retries", async () => {
     mockLookup.mockImplementation(() => {});
     vi.useFakeTimers();
 
@@ -159,13 +165,15 @@ describe("image validator transient network recovery", () => {
 
     expect(mockLookup).toHaveBeenCalledTimes(3);
     expect(mockGet).not.toHaveBeenCalled();
+    expect(result.status).toBe("inconclusive");
     expect(result.passed).toBe(false);
-    expect(result.metrics.errorsCount).toBe(1);
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(1);
     expect(result.issues).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          severity: "error",
-          code: "IMAGE_FETCH_UNVERIFIED",
+          severity: "warning",
+          code: "IMAGE_FETCH_INCONCLUSIVE",
           message: expect.stringContaining("after 3 attempts"),
         }),
       ]),
@@ -174,6 +182,8 @@ describe("image validator transient network recovery", () => {
       dnsTimeouts: 3,
       dnsRetries: 2,
       retryExhaustedUrls: 1,
+      inconclusiveUrls: 1,
+      inconclusiveTimeoutUrls: 1,
       successfulFirstAttempts: 0,
       successfulRetries: 0,
     });
@@ -205,9 +215,16 @@ describe("image validator transient network recovery", () => {
     expect(maxOutstandingLookups).toBe(3);
     expect(mockLookup).toHaveBeenCalledTimes(3);
     expect(mockGet).not.toHaveBeenCalled();
+    expect(result.status).toBe("inconclusive");
     expect(result.passed).toBe(false);
-    expect(result.metrics.errorsCount).toBe(6);
-    expect(result.diagnostics).toMatchObject({ dnsTimeouts: 3 });
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(6);
+    expect(result.diagnostics).toMatchObject({
+      dnsTimeouts: 3,
+      inconclusiveUrls: 6,
+      inconclusiveTimeoutUrls: 0,
+      inconclusiveNetworkUrls: 6,
+    });
     expect(result.diagnostics.dnsCapacitySkips).toBeGreaterThan(0);
   });
 
@@ -582,7 +599,146 @@ describe("image validator transient network recovery", () => {
     });
   });
 
-  it("blocks same-provider URLs after an over-budget Retry-After", async () => {
+  it("opens a Wikimedia rate-limit circuit during a storm and leaves URLs inconclusive", async () => {
+    mockLookup.mockImplementation(
+      (
+        _hostname: string,
+        _options: unknown,
+        callback: (error: null, addresses: unknown[]) => void,
+      ) => callback(null, [{ address: "208.80.154.224", family: 4 }]),
+    );
+    mockGet.mockImplementation(
+      (
+        _url: string,
+        _options: unknown,
+        callback: (response: EventEmitter) => void,
+      ) => {
+        const request = createRequest();
+        queueMicrotask(() =>
+          callback(createResponse(429, { "retry-after": "1" })),
+        );
+        return request;
+      },
+    );
+    vi.useFakeTimers();
+
+    const pending = imagesValidator.validate(
+      makeContext(
+        Array.from({ length: 100 }, (_, index) => ({
+          id: `wikimedia-storm-${index}`,
+          url: `https://upload.wikimedia.org/storm-${index}.jpg`,
+        })),
+      ),
+    );
+    await vi.runAllTimersAsync();
+    const result = await pending;
+
+    expect(mockGet).toHaveBeenCalledTimes(4);
+    expect(result.status).toBe("inconclusive");
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(100);
+    expect(result.diagnostics).toMatchObject({
+      uniqueUrlsChecked: 100,
+      verifiedUrls: 0,
+      brokenUrls: 0,
+      inconclusiveUrls: 100,
+      inconclusiveRateLimitedUrls: 100,
+      providerCooldownSkippedUrls: expect.any(Number),
+      maxConcurrentRequests: 1,
+    });
+    expect(
+      result.issues.every((issue) => issue.code === "IMAGE_FETCH_INCONCLUSIVE"),
+    ).toBe(true);
+  });
+
+  it("opens a provider circuit on a repeated 5xx storm without marking URLs broken", async () => {
+    mockLookup.mockImplementation(
+      (
+        _hostname: string,
+        _options: unknown,
+        callback: (error: null, addresses: unknown[]) => void,
+      ) => callback(null, [{ address: "208.80.154.224", family: 4 }]),
+    );
+    mockGet.mockImplementation(
+      (
+        _url: string,
+        _options: unknown,
+        callback: (response: EventEmitter) => void,
+      ) => {
+        const request = createRequest();
+        queueMicrotask(() => callback(createResponse(503)));
+        return request;
+      },
+    );
+    vi.useFakeTimers();
+
+    const pending = imagesValidator.validate(
+      makeContext(
+        Array.from({ length: 40 }, (_, index) => ({
+          id: `server-error-${index}`,
+          url: `https://upload.wikimedia.org/503-${index}.jpg`,
+        })),
+      ),
+    );
+    await vi.runAllTimersAsync();
+    const result = await pending;
+
+    expect(mockGet).toHaveBeenCalledTimes(4);
+    expect(result.status).toBe("inconclusive");
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(40);
+    expect(result.diagnostics).toMatchObject({
+      brokenUrls: 0,
+      inconclusiveUrls: 40,
+      inconclusiveTransient5xxUrls: 40,
+    });
+  });
+
+  it("opens a provider circuit after repeated timeout outcomes", async () => {
+    mockLookup.mockImplementation(
+      (
+        _hostname: string,
+        _options: unknown,
+        callback: (error: null, addresses: unknown[]) => void,
+      ) => callback(null, [{ address: "208.80.154.224", family: 4 }]),
+    );
+    mockGet.mockImplementation(
+      (
+        _url: string,
+        _options: unknown,
+        _callback: (response: EventEmitter) => void,
+      ) => {
+        const request = createRequest();
+        queueMicrotask(() => request.emit("timeout"));
+        return request;
+      },
+    );
+    vi.useFakeTimers();
+
+    const pending = imagesValidator.validate(
+      makeContext(
+        Array.from({ length: 40 }, (_, index) => ({
+          id: `timeout-${index}`,
+          url: `https://upload.wikimedia.org/timeout-${index}.jpg`,
+        })),
+      ),
+    );
+    await vi.runAllTimersAsync();
+    const result = await pending;
+
+    expect(mockGet).toHaveBeenCalledTimes(4);
+    expect(result.status).toBe("inconclusive");
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(40);
+    expect(result.diagnostics).toMatchObject({
+      brokenUrls: 0,
+      inconclusiveUrls: 40,
+      inconclusiveTimeoutUrls: 40,
+      providerCircuitOpenCount: 1,
+    });
+  });
+
+  it("marks same-provider URLs inconclusive after an over-budget Retry-After", async () => {
     mockLookup.mockImplementation(
       (
         _hostname: string,
@@ -632,15 +788,22 @@ describe("image validator transient network recovery", () => {
     expect(mockGet.mock.calls.map(([url]) => url)).not.toContain(
       "https://commons.wikimedia.org/sibling.jpg",
     );
+    expect(result.status).toBe("inconclusive");
     expect(result.passed).toBe(false);
-    expect(result.metrics.errorsCount).toBe(2);
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(2);
+    expect(result.diagnostics).toMatchObject({
+      brokenUrls: 0,
+      inconclusiveUrls: 2,
+      inconclusiveRateLimitedUrls: 2,
+    });
     expect(result.diagnostics).toMatchObject({
       retryAfterOverBudget: 1,
       providerCooldownSkippedUrls: 1,
     });
   });
 
-  it("omits URL paths and query credentials from image failure issues", async () => {
+  it("reports actionable image paths without leaking query credentials", async () => {
     mockLookup.mockImplementation(
       (
         _hostname: string,
@@ -668,8 +831,9 @@ describe("image validator transient network recovery", () => {
 
     expect(result.metrics.errorsCount).toBe(1);
     expect(result.issues[0].message).toContain("https://upload.wikimedia.org");
+    expect(result.issues[0].message).toContain("/private/path.jpg");
     expect(result.issues[0].message).not.toMatch(
-      /private\/path|private-secret|token=|fragment/,
+      /private-secret|token=|fragment/,
     );
   });
 
@@ -1073,11 +1237,11 @@ describe("image validator transient network recovery", () => {
     expect(result.metrics.errorsCount).toBe(1);
     expect(result.issues[0]).toMatchObject({
       severity: "error",
-      code: "BROKEN_IMAGE_URL",
+      code: "IMAGE_FETCH_BROKEN",
     });
   });
 
-  it("fails verification after exhausting retries for a persistent 429", async () => {
+  it("reports a persistent 429 as inconclusive after one conservative retry", async () => {
     mockLookup.mockImplementation(
       (
         _hostname: string,
@@ -1092,7 +1256,9 @@ describe("image validator transient network recovery", () => {
         callback: (response: EventEmitter) => void,
       ) => {
         const request = createRequest();
-        queueMicrotask(() => callback(createResponse(429)));
+        queueMicrotask(() =>
+          callback(createResponse(429, { "retry-after": "1" })),
+        );
         return request;
       },
     );
@@ -1102,23 +1268,29 @@ describe("image validator transient network recovery", () => {
     await vi.runAllTimersAsync();
     const result = await pending;
 
-    expect(mockGet).toHaveBeenCalledTimes(3);
+    expect(mockGet).toHaveBeenCalledTimes(2);
+    expect(result.status).toBe("inconclusive");
     expect(result.passed).toBe(false);
-    expect(result.metrics.errorsCount).toBe(1);
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(1);
     expect(result.issues).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          severity: "error",
-          code: "IMAGE_FETCH_UNVERIFIED",
-          message: expect.stringContaining("after 3 attempts"),
+          severity: "warning",
+          code: "IMAGE_FETCH_INCONCLUSIVE",
+          message: expect.stringContaining("after 2 attempts"),
         }),
       ]),
     );
     expect(result.diagnostics).toMatchObject({
-      http429Responses: 3,
+      http429Responses: 2,
       successfulFirstAttempts: 0,
       successfulRetries: 0,
       retryExhaustedUrls: 1,
+      verifiedUrls: 0,
+      brokenUrls: 0,
+      inconclusiveUrls: 1,
+      inconclusiveRateLimitedUrls: 1,
     });
   });
 
@@ -1147,15 +1319,19 @@ describe("image validator transient network recovery", () => {
     const result = await imagesValidator.validate(makeContext());
 
     expect(mockGet).toHaveBeenCalledTimes(1);
+    expect(result.status).toBe("inconclusive");
     expect(result.passed).toBe(false);
-    expect(result.metrics.errorsCount).toBe(1);
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(1);
     expect(result.issues[0]).toMatchObject({
-      severity: "error",
-      code: "IMAGE_FETCH_UNVERIFIED",
+      severity: "warning",
+      code: "IMAGE_FETCH_INCONCLUSIVE",
     });
     expect(result.diagnostics).toMatchObject({
       retryAfterOverBudget: 1,
       retryAttempts: 0,
+      inconclusiveUrls: 1,
+      inconclusiveRateLimitedUrls: 1,
     });
   });
 
@@ -1320,21 +1496,100 @@ describe("image validator transient network recovery", () => {
     expect(result.metrics.errorsCount).toBe(1);
     expect(result.issues[0]).toMatchObject({
       severity: "error",
-      code: "BROKEN_IMAGE_URL",
+      code: "IMAGE_FETCH_BROKEN",
     });
     expect(result.issues[0].message).toContain("HTTP 403");
     expect(result.diagnostics?.http403Responses).toBe(1);
   });
 
-  it("retains a 404 as a blocking broken-image error without retrying", async () => {
+  it.each([404, 410])(
+    "retains HTTP %i as an actionable broken-image error without retrying",
+    async (statusCode) => {
+      mockLookup.mockImplementation(
+        (
+          _hostname: string,
+          _options: unknown,
+          callback: (error: null, addresses: unknown[]) => void,
+        ) => {
+          callback(null, [{ address: "208.80.154.224", family: 4 }]);
+        },
+      );
+      mockGet.mockImplementation(
+        (
+          _url: string,
+          _options: unknown,
+          callback: (response: EventEmitter) => void,
+        ) => {
+          const request = createRequest();
+          queueMicrotask(() => callback(createResponse(statusCode)));
+          return request;
+        },
+      );
+
+      const result = await imagesValidator.validate(makeContext());
+
+      expect(mockGet).toHaveBeenCalledTimes(1);
+      expect(result.status).toBe("failed");
+      expect(result.metrics.errorsCount).toBe(1);
+      expect(result.diagnostics).toMatchObject({
+        verifiedUrls: 0,
+        brokenUrls: 1,
+        inconclusiveUrls: 0,
+      });
+      expect(result.issues).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            severity: "error",
+            code: "IMAGE_FETCH_BROKEN",
+            message: expect.stringContaining(`HTTP ${statusCode}`),
+          }),
+        ]),
+      );
+    },
+  );
+
+  it("reports exhausted request timeouts as inconclusive, not broken", async () => {
     mockLookup.mockImplementation(
       (
         _hostname: string,
         _options: unknown,
         callback: (error: null, addresses: unknown[]) => void,
-      ) => {
-        callback(null, [{ address: "208.80.154.224", family: 4 }]);
-      },
+      ) => callback(null, [{ address: "208.80.154.224", family: 4 }]),
+    );
+    mockGet.mockImplementation(() => {
+      const request = createRequest();
+      queueMicrotask(() => request.emit("timeout"));
+      return request;
+    });
+    vi.useFakeTimers();
+
+    const pending = imagesValidator.validate(makeContext());
+    await vi.runAllTimersAsync();
+    const result = await pending;
+
+    expect(mockGet).toHaveBeenCalledTimes(3);
+    expect(result.status).toBe("inconclusive");
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.metrics.warningsCount).toBe(1);
+    expect(result.issues[0]).toMatchObject({
+      severity: "warning",
+      code: "IMAGE_FETCH_INCONCLUSIVE",
+    });
+    expect(result.diagnostics).toMatchObject({
+      verifiedUrls: 0,
+      brokenUrls: 0,
+      inconclusiveUrls: 1,
+      inconclusiveTimeoutUrls: 1,
+    });
+  });
+
+  it("reports exhausted transient 5xx responses as inconclusive", async () => {
+    mockLookup.mockImplementation(
+      (
+        _hostname: string,
+        _options: unknown,
+        callback: (error: null, addresses: unknown[]) => void,
+      ) => callback(null, [{ address: "208.80.154.224", family: 4 }]),
     );
     mockGet.mockImplementation(
       (
@@ -1343,22 +1598,135 @@ describe("image validator transient network recovery", () => {
         callback: (response: EventEmitter) => void,
       ) => {
         const request = createRequest();
-        queueMicrotask(() => callback(createResponse(404)));
+        queueMicrotask(() => callback(createResponse(500)));
         return request;
       },
     );
+    vi.useFakeTimers();
 
-    const result = await imagesValidator.validate(makeContext());
+    const pending = imagesValidator.validate(makeContext());
+    await vi.runAllTimersAsync();
+    const result = await pending;
 
-    expect(mockGet).toHaveBeenCalledTimes(1);
-    expect(result.metrics.errorsCount).toBe(1);
+    expect(mockGet).toHaveBeenCalledTimes(3);
+    expect(result.status).toBe("inconclusive");
+    expect(result.metrics.errorsCount).toBe(0);
+    expect(result.diagnostics).toMatchObject({
+      brokenUrls: 0,
+      inconclusiveUrls: 1,
+      inconclusiveTransient5xxUrls: 1,
+    });
+  });
+
+  it("summarizes a mixed run without losing broken or inconclusive evidence", async () => {
+    mockLookup.mockImplementation(
+      (
+        _hostname: string,
+        _options: unknown,
+        callback: (error: null, addresses: unknown[]) => void,
+      ) => callback(null, [{ address: "208.80.154.224", family: 4 }]),
+    );
+    mockGet.mockImplementation(
+      (
+        url: string,
+        _options: unknown,
+        callback: (response: EventEmitter) => void,
+      ) => {
+        const request = createRequest();
+        queueMicrotask(() => {
+          if (url.includes("broken")) {
+            callback(createResponse(404));
+          } else if (url.includes("timeout")) {
+            request.emit("timeout");
+          } else {
+            const response = createResponse(200, {
+              "content-type": "image/jpeg",
+            });
+            callback(response);
+            response.emit("end");
+          }
+        });
+        return request;
+      },
+    );
+    vi.useFakeTimers();
+
+    const pending = imagesValidator.validate(
+      makeContext([
+        { id: "verified", url: "https://upload.wikimedia.org/valid.jpg" },
+        { id: "broken", url: "https://upload.wikimedia.org/broken.jpg" },
+        { id: "inconclusive", url: "https://upload.wikimedia.org/timeout.jpg" },
+      ]),
+    );
+    await vi.runAllTimersAsync();
+    const result = await pending;
+
+    expect(result.status).toBe("failed");
+    expect(result.diagnostics).toMatchObject({
+      uniqueUrlsChecked: 3,
+      verifiedUrls: 1,
+      brokenUrls: 1,
+      inconclusiveUrls: 1,
+      inconclusiveTimeoutUrls: 1,
+    });
     expect(result.issues).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
           severity: "error",
-          code: "BROKEN_IMAGE_URL",
-          message: expect.stringContaining("HTTP 404"),
+          code: "IMAGE_FETCH_BROKEN",
         }),
+        expect.objectContaining({
+          severity: "warning",
+          code: "IMAGE_FETCH_INCONCLUSIVE",
+        }),
+      ]),
+    );
+  });
+
+  it("runs deterministic image checks without contacting the network", async () => {
+    const result = await imagesValidator.validateDeterministic(
+      makeContext([
+        {
+          id: "valid-local-shape",
+          url: "https://upload.wikimedia.org/valid.jpg",
+        },
+      ]),
+    );
+
+    expect(mockLookup).not.toHaveBeenCalled();
+    expect(mockGet).not.toHaveBeenCalled();
+    expect(result.passed).toBe(true);
+    expect(result.status).toBe("not-run");
+    expect(result.metrics.totalChecked).toBe(0);
+    expect(result.diagnostics).toMatchObject({
+      imageUrlsInScope: 1,
+      uniqueUrlsChecked: 0,
+      verifiedUrls: 0,
+      brokenUrls: 0,
+      inconclusiveUrls: 0,
+    });
+  });
+
+  it("keeps local image policy and required-image errors blocking", async () => {
+    const context = makeContext([
+      { id: "wrong-scheme", url: "http://upload.wikimedia.org/image.jpg" },
+      { id: "wrong-host", url: "https://example.com/image.jpg" },
+    ]);
+    context.catalog.destinations.push({
+      id: "missing-image",
+    } as ValidationContext["catalog"]["destinations"][number]);
+
+    const result = await imagesValidator.validateDeterministic(context);
+
+    expect(mockLookup).not.toHaveBeenCalled();
+    expect(mockGet).not.toHaveBeenCalled();
+    expect(result.passed).toBe(false);
+    expect(result.status).toBe("failed");
+    expect(result.metrics.errorsCount).toBe(3);
+    expect(result.issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: "IMAGE_POLICY_VIOLATION" }),
+        expect.objectContaining({ code: "MISSING_DESTINATION_IMAGES" }),
       ]),
     );
   });
