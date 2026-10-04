@@ -28,20 +28,48 @@ function imageProviderKey(urlStr: string): string {
   }
 }
 
-function safeImageOrigin(urlStr: string): string {
+function safeImageUrlForReport(urlStr: string): string {
   try {
-    return new URL(urlStr).origin;
+    const url = new URL(urlStr);
+    url.username = "";
+    url.password = "";
+    url.hash = "";
+    for (const key of Array.from(url.searchParams.keys())) {
+      if (/token|key|secret|auth|sig|credential|password|passwd/i.test(key)) {
+        url.searchParams.delete(key);
+      }
+    }
+    return url.toString();
   } catch {
     return "[invalid image URL]";
   }
 }
 
+function validateImageUrlShape(urlStr: string): string | undefined {
+  let url: URL;
+  try {
+    url = new URL(urlStr);
+  } catch {
+    return "malformed URL";
+  }
+  if (url.protocol !== "https:") return "URL must use HTTPS";
+  if (url.username || url.password) {
+    return "URL must not contain embedded credentials";
+  }
+  if (!ALLOWED_IMAGE_HOSTS.has(url.hostname)) {
+    return `host '${url.hostname}' is not on the allowed image host list`;
+  }
+  return undefined;
+}
+
 function publicImageFailureSummary(result: ImageCheckResult): string {
   if (result.providerCooldownBlocked) {
-    return "provider throttling pause exceeded the retry budget";
+    const status =
+      result.status === undefined ? "provider" : `HTTP ${result.status}`;
+    return `${status} cooldown; remaining checks were deferred`;
   }
   if (result.retryBudgetExceeded && result.status !== undefined) {
-    return `HTTP ${result.status}; Retry-After exceeds the retry budget`;
+    return `HTTP ${result.status}; retry budget exhausted`;
   }
   if (result.status !== undefined) return `HTTP ${result.status}`;
 
@@ -68,18 +96,68 @@ const MAX_RESPONSE_BYTES = 20 * 1024 * 1024;
 
 /** Maximum redirect hops to follow. */
 const MAX_REDIRECTS = 3;
-const MAX_IMAGE_FETCH_RETRIES = 2;
-const BASE_RETRY_DELAY_MS = 1_000;
-const MAX_RETRY_DELAY_MS = 8_000;
-const MAX_RETRY_AFTER_MS = 30_000;
-// Per imagesValidator.validate invocation, across all allowed providers.
-const MAX_CONCURRENT_IMAGE_REQUESTS = 3;
-// Include resolver calls that outlive the DNS deadline in this hard cap.
+
+function boundedIntegerEnv(
+  name: string,
+  fallback: number,
+  minimum: number,
+  maximum: number,
+): number {
+  const raw = process.env[name];
+  if (!raw || !/^\d+$/.test(raw)) return fallback;
+  const value = Number(raw);
+  return Number.isSafeInteger(value) && value >= minimum && value <= maximum
+    ? value
+    : fallback;
+}
+
+/**
+ * Centralized live-probe budget. Wikimedia subdomains share a provider key,
+ * so their requests are serialized and paced even when unrelated hosts run in
+ * parallel. CI can lower the global concurrency without editing validator code.
+ */
+export const IMAGE_VALIDATION_POLICY = Object.freeze({
+  maxConcurrentRequests: boundedIntegerEnv(
+    "IMAGE_VALIDATION_MAX_CONCURRENT_REQUESTS",
+    3,
+    1,
+    5,
+  ),
+  maxConcurrentRequestsPerProvider: 1,
+  maxRetries: 2,
+  maxRateLimitRetries: 1,
+  maxProviderTransientHttpResponses: 4,
+  maxProviderTransportFailures: 4,
+  maxProviderInconclusiveUrls: 8,
+  baseRetryDelayMs: 1_000,
+  maxRetryDelayMs: 8_000,
+  maxRetryAfterMs: 30_000,
+  minRequestStartIntervalMs: 200,
+  minWikimediaRequestStartIntervalMs: 1_000,
+});
+
+// Keep tuning values centralized above while preserving local names at call sites.
+const MAX_IMAGE_FETCH_RETRIES = IMAGE_VALIDATION_POLICY.maxRetries;
+const MAX_RATE_LIMIT_RETRIES = IMAGE_VALIDATION_POLICY.maxRateLimitRetries;
+const MAX_PROVIDER_TRANSIENT_HTTP_RESPONSES =
+  IMAGE_VALIDATION_POLICY.maxProviderTransientHttpResponses;
+const MAX_PROVIDER_TRANSPORT_FAILURES =
+  IMAGE_VALIDATION_POLICY.maxProviderTransportFailures;
+const MAX_PROVIDER_INCONCLUSIVE_URLS =
+  IMAGE_VALIDATION_POLICY.maxProviderInconclusiveUrls;
+const BASE_RETRY_DELAY_MS = IMAGE_VALIDATION_POLICY.baseRetryDelayMs;
+const MAX_RETRY_DELAY_MS = IMAGE_VALIDATION_POLICY.maxRetryDelayMs;
+const MAX_RETRY_AFTER_MS = IMAGE_VALIDATION_POLICY.maxRetryAfterMs;
+const MAX_CONCURRENT_IMAGE_REQUESTS =
+  IMAGE_VALIDATION_POLICY.maxConcurrentRequests;
 const MAX_OUTSTANDING_DNS_LOOKUPS = MAX_CONCURRENT_IMAGE_REQUESTS;
-// Serialize requests per provider; Wikimedia subdomains share one provider key.
-const MAX_CONCURRENT_IMAGE_REQUESTS_PER_PROVIDER = 1;
-const MIN_IMAGE_REQUEST_START_INTERVAL_MS = 200;
-const MIN_WIKIMEDIA_REQUEST_START_INTERVAL_MS = 1_000;
+const MAX_CONCURRENT_IMAGE_REQUESTS_PER_PROVIDER =
+  IMAGE_VALIDATION_POLICY.maxConcurrentRequestsPerProvider;
+const MIN_IMAGE_REQUEST_START_INTERVAL_MS =
+  IMAGE_VALIDATION_POLICY.minRequestStartIntervalMs;
+const MIN_WIKIMEDIA_REQUEST_START_INTERVAL_MS =
+  IMAGE_VALIDATION_POLICY.minWikimediaRequestStartIntervalMs;
+
 const HTTP_DATE_MONTHS = new Map(
   [
     "Jan",
@@ -262,10 +340,12 @@ export async function retryImageFetch(
 
     if (result.ok) return { ...result, attempts };
 
+    const retryLimit =
+      result.status === 429 ? MAX_RATE_LIMIT_RETRIES : MAX_IMAGE_FETCH_RETRIES;
     if (
       result.failureType !== "transient" ||
       result.retryBudgetExceeded === true ||
-      retryIndex === MAX_IMAGE_FETCH_RETRIES
+      retryIndex === retryLimit
     ) {
       return { ...result, attempts };
     }
@@ -342,13 +422,9 @@ export function isPrivateOrReservedAddress(address: string): boolean {
 
 export type ImageFailureType = "policy" | "hard" | "transient";
 
-/** Classifies a DNS lookup error code: temporary resolver/infrastructure
- *  failures are transient; everything else is a hard resolution failure. */
-export function classifyDnsError(code: string | undefined): ImageFailureType {
-  if (code === "EAI_AGAIN" || code === "ENETUNREACH" || code === "ETIMEDOUT") {
-    return "transient";
-  }
-  return "hard";
+/** A DNS failure cannot establish that the image resource itself is invalid. */
+export function classifyDnsError(_code: string | undefined): ImageFailureType {
+  return "transient";
 }
 
 const TRANSIENT_NETWORK_ERROR_CODES = new Set([
@@ -473,18 +549,49 @@ export function classifyImageFailure(
 ): { severity: Severity; code: string } {
   const effective =
     failureType ??
-    (status === 429 || status === 503
+    (status === 429 || (status !== undefined && status >= 500 && status <= 599)
       ? "transient"
       : status === undefined
         ? "transient"
         : "hard");
   if (effective === "transient") {
-    return { severity: "warning", code: "IMAGE_FETCH_WARNING" };
+    return { severity: "warning", code: "IMAGE_FETCH_INCONCLUSIVE" };
   }
   if (effective === "policy") {
     return { severity: "error", code: "IMAGE_POLICY_VIOLATION" };
   }
-  return { severity: "error", code: "BROKEN_IMAGE_URL" };
+  return { severity: "error", code: "IMAGE_FETCH_BROKEN" };
+}
+
+function inconclusiveCause(
+  result: ImageCheckResult,
+): "rate_limited" | "timeout" | "transient_5xx" | "network" | "other" {
+  if (result.status === 429) return "rate_limited";
+  if (
+    result.failureSource === "timeout" ||
+    result.error?.toLowerCase().includes("timed out")
+  ) {
+    return "timeout";
+  }
+  if (
+    result.status !== undefined &&
+    result.status >= 500 &&
+    result.status <= 599
+  ) {
+    return "transient_5xx";
+  }
+  if (
+    result.failureSource === "dns" ||
+    result.failureSource === "request" ||
+    result.failureSource === "stream"
+  ) {
+    return "network";
+  }
+  return "other";
+}
+
+function isTransientHttpStatus(statusCode: number): boolean {
+  return statusCode === 429 || (statusCode >= 500 && statusCode <= 599);
 }
 
 export const imagesValidator: ValidatorModule = {
@@ -505,6 +612,20 @@ export const imagesValidator: ValidatorModule = {
   ],
   doesNotValidate: ["Perceptual image content hashing", "Search ranking"],
   async validate(context: ValidationContext): Promise<ValidationResult> {
+    return imageValidationRunner.run(context, true);
+  },
+  async validateDeterministic(
+    context: ValidationContext,
+  ): Promise<ValidationResult> {
+    return imageValidationRunner.run(context, false);
+  },
+};
+
+const imageValidationRunner = {
+  async run(
+    context: ValidationContext,
+    remoteChecks: boolean,
+  ): Promise<ValidationResult> {
     const validationStartedAt = performance.now();
     const { destinations } = context.catalog;
     const { httpTimeoutMs, allowedImageMimeTypes } = context.config;
@@ -559,6 +680,15 @@ export const imagesValidator: ValidatorModule = {
     const totalChecked = urlsToTest.size;
     const diagnostics = {
       uniqueUrlsChecked: totalChecked,
+      imageUrlsInScope: totalChecked,
+      verifiedUrls: 0,
+      brokenUrls: 0,
+      inconclusiveUrls: 0,
+      inconclusiveRateLimitedUrls: 0,
+      inconclusiveTimeoutUrls: 0,
+      inconclusiveTransient5xxUrls: 0,
+      inconclusiveNetworkUrls: 0,
+      inconclusiveOtherUrls: 0,
       duplicateUrlReferences,
       imageFetchAttempts: 0,
       retryAttempts: 0,
@@ -586,6 +716,7 @@ export const imagesValidator: ValidatorModule = {
       wikimediaHttp429Responses: 0,
       providerCooldownWaitMs: 0,
       providerCooldownSkippedUrls: 0,
+      providerCircuitOpenCount: 0,
       maxConcurrentRequests: 0,
       networkRequestDurationMs: 0,
       responseBodyBytes: 0,
@@ -604,9 +735,63 @@ export const imagesValidator: ValidatorModule = {
       validatorDurationMs: 0,
     };
 
+    if (!remoteChecks) {
+      diagnostics.uniqueUrlsChecked = 0;
+      for (const [urlStr, refs] of urlsToTest.entries()) {
+        const shapeError = validateImageUrlShape(urlStr);
+        if (!shapeError) continue;
+        diagnostics.brokenUrls += 1;
+        for (const ref of refs) {
+          issues.push({
+            severity: "error",
+            code: "IMAGE_POLICY_VIOLATION",
+            message: `Destination '${ref.destId}' (${ref.field}) has an invalid image URL: ${shapeError} -> ${safeImageUrlForReport(urlStr)}`,
+            targetId: ref.destId,
+          });
+        }
+      }
+      const errorsCount = issues.filter(
+        (issue) => issue.severity === "error",
+      ).length;
+      const warningsCount = issues.filter(
+        (issue) => issue.severity === "warning",
+      ).length;
+      const infoCount = issues.filter(
+        (issue) => issue.severity === "info",
+      ).length;
+      const validatorDurationMs = Math.round(
+        performance.now() - validationStartedAt,
+      );
+      diagnostics.validatorDurationMs = validatorDurationMs;
+      return {
+        name: imagesValidator.name,
+        passed: errorsCount === 0,
+        status: errorsCount === 0 ? "not-run" : "failed",
+        issues,
+        diagnostics,
+        metrics: {
+          totalChecked: 0,
+          errorsCount,
+          warningsCount,
+          infoCount,
+          durationMs: validatorDurationMs,
+        },
+      };
+    }
+
     const providerCooldowns = new Map<string, number>();
     const providerRequestStartTimes = new Map<string, number>();
     const blockedProviders = new Set<string>();
+    const blockedProviderStatuses = new Map<string, number>();
+    const blockedProviderFailureSources = new Map<
+      string,
+      NonNullable<ImageCheckResult["failureSource"]>
+    >();
+    const rateLimitCountsByUrl = new Map<string, number>();
+    const rateLimitCountsByProvider = new Map<string, number>();
+    const transientHttpCountsByProvider = new Map<string, number>();
+    const transportFailureCountsByProvider = new Map<string, number>();
+    const inconclusiveUrlCountsByProvider = new Map<string, number>();
     const activeProviders = new Map<string, number>();
     const providerWaiters = new Map<string, Array<() => void>>();
     const requestWaiters: Array<() => void> = [];
@@ -770,16 +955,64 @@ export const imagesValidator: ValidatorModule = {
       return { blocked: false, waitMs };
     };
 
+    const openProviderCircuit = (
+      provider: string,
+      status: number | undefined,
+      source: NonNullable<ImageCheckResult["failureSource"]>,
+    ) => {
+      if (blockedProviders.has(provider)) return;
+      providerCooldowns.delete(provider);
+      blockedProviders.add(provider);
+      if (status !== undefined) blockedProviderStatuses.set(provider, status);
+      blockedProviderFailureSources.set(provider, source);
+      diagnostics.providerCircuitOpenCount += 1;
+    };
+
+    const recordProviderTransportFailure = (
+      urlStr: string,
+      source: NonNullable<ImageCheckResult["failureSource"]>,
+    ) => {
+      const provider = imageProviderKey(urlStr);
+      const count = (transportFailureCountsByProvider.get(provider) ?? 0) + 1;
+      transportFailureCountsByProvider.set(provider, count);
+      if (count >= MAX_PROVIDER_TRANSPORT_FAILURES) {
+        openProviderCircuit(provider, undefined, source);
+      }
+    };
+
     const recordProviderThrottle = (
       urlStr: string,
+      statusCode: number,
       retryAfterHeader: string | undefined,
     ) => {
       const provider = imageProviderKey(urlStr);
       const retryAfterMs = parseRetryAfterMs(retryAfterHeader, Date.now());
       if (retryAfterMs !== undefined && retryAfterMs > MAX_RETRY_AFTER_MS) {
-        providerCooldowns.delete(provider);
-        blockedProviders.add(provider);
+        openProviderCircuit(provider, statusCode, "http");
         return;
+      }
+
+      if (statusCode === 429) {
+        const rateLimitCount = (rateLimitCountsByUrl.get(urlStr) ?? 0) + 1;
+        const providerRateLimitCount =
+          (rateLimitCountsByProvider.get(provider) ?? 0) + 1;
+        rateLimitCountsByUrl.set(urlStr, rateLimitCount);
+        rateLimitCountsByProvider.set(provider, providerRateLimitCount);
+        if (
+          rateLimitCount > MAX_RATE_LIMIT_RETRIES ||
+          providerRateLimitCount >= MAX_PROVIDER_TRANSIENT_HTTP_RESPONSES
+        ) {
+          openProviderCircuit(provider, statusCode, "http");
+          return;
+        }
+      } else if (statusCode >= 500 && statusCode <= 599) {
+        const failureCount =
+          (transientHttpCountsByProvider.get(provider) ?? 0) + 1;
+        transientHttpCountsByProvider.set(provider, failureCount);
+        if (failureCount >= MAX_PROVIDER_TRANSIENT_HTTP_RESPONSES) {
+          openProviderCircuit(provider, statusCode, "http");
+          return;
+        }
       }
 
       const cooldownMs = Math.max(BASE_RETRY_DELAY_MS, retryAfterMs ?? 0);
@@ -792,11 +1025,14 @@ export const imagesValidator: ValidatorModule = {
 
     const providerBlockedResult = (urlStr: string): ImageCheckResult => {
       diagnostics.providerCooldownSkippedUrls += 1;
+      const provider = imageProviderKey(urlStr);
+      const status = blockedProviderStatuses.get(provider);
       return {
         ok: false,
-        error: `provider '${imageProviderKey(urlStr)}' paused because Retry-After exceeds the ${MAX_RETRY_AFTER_MS}ms retry budget`,
+        ...(status === undefined ? {} : { status }),
+        error: `provider '${provider}' paused after repeated transient failures or a Retry-After beyond the retry budget`,
         failureType: "transient",
-        failureSource: "http",
+        failureSource: blockedProviderFailureSources.get(provider) ?? "http",
         retryBudgetExceeded: true,
         providerCooldownBlocked: true,
       };
@@ -836,29 +1072,12 @@ export const imagesValidator: ValidatorModule = {
         }
     > => {
       return new Promise((resolve) => {
-        let parsed: URL;
-        try {
-          parsed = new URL(urlStr);
-        } catch {
-          resolve({ ok: false, error: "malformed URL", failureType: "policy" });
+        const shapeError = validateImageUrlShape(urlStr);
+        if (shapeError) {
+          resolve({ ok: false, error: shapeError, failureType: "policy" });
           return;
         }
-        if (parsed.protocol !== "https:") {
-          resolve({
-            ok: false,
-            error: "URL must use HTTPS",
-            failureType: "policy",
-          });
-          return;
-        }
-        if (!ALLOWED_IMAGE_HOSTS.has(parsed.hostname)) {
-          resolve({
-            ok: false,
-            error: `host '${parsed.hostname}' is not on the allowed image host list`,
-            failureType: "policy",
-          });
-          return;
-        }
+        const parsed = new URL(urlStr);
         if (activeDnsLookups >= MAX_OUTSTANDING_DNS_LOOKUPS) {
           diagnostics.dnsCapacitySkips += 1;
           resolve({
@@ -905,6 +1124,7 @@ export const imagesValidator: ValidatorModule = {
           if (result.ok === false && result.failureSource === "dns") {
             if (result.failureType === "transient") {
               diagnostics.transientDnsFailures += 1;
+              recordProviderTransportFailure(urlStr, "dns");
             } else {
               diagnostics.permanentDnsFailures += 1;
             }
@@ -943,7 +1163,7 @@ export const imagesValidator: ValidatorModule = {
               finishDns({
                 ok: false,
                 error: `no addresses resolved for '${parsed.hostname}'`,
-                failureType: "hard",
+                failureType: "transient",
                 failureSource: "dns",
               });
               return;
@@ -1048,18 +1268,20 @@ export const imagesValidator: ValidatorModule = {
             responseReceived = true;
             const statusCode = res.statusCode ?? 0;
             if (statusCode >= 200 && statusCode < 300) {
+              const successfulProvider = imageProviderKey(urlStr);
+              rateLimitCountsByUrl.delete(urlStr);
+              rateLimitCountsByProvider.delete(successfulProvider);
+              transientHttpCountsByProvider.delete(successfulProvider);
+              transportFailureCountsByProvider.delete(successfulProvider);
+              inconclusiveUrlCountsByProvider.delete(successfulProvider);
               diagnostics.http2xxResponses += 1;
             } else if (statusCode === 429) {
               diagnostics.http429Responses += 1;
               if (provider === "wikimedia.org") {
                 diagnostics.wikimediaHttp429Responses += 1;
               }
-              if (res.headers["retry-after"])
-                diagnostics.retryAfterHeaders += 1;
             } else if (statusCode === 503) {
               diagnostics.http503Responses += 1;
-              if (res.headers["retry-after"])
-                diagnostics.retryAfterHeaders += 1;
             } else if (statusCode === 403) {
               diagnostics.http403Responses += 1;
             } else if (statusCode === 404) {
@@ -1067,8 +1289,14 @@ export const imagesValidator: ValidatorModule = {
             } else if (statusCode >= 400) {
               diagnostics.otherHttpErrorResponses += 1;
             }
-            if (statusCode === 429 || statusCode === 503) {
-              recordProviderThrottle(urlStr, res.headers["retry-after"]);
+            if (isTransientHttpStatus(statusCode)) {
+              if (res.headers["retry-after"])
+                diagnostics.retryAfterHeaders += 1;
+              recordProviderThrottle(
+                urlStr,
+                statusCode,
+                res.headers["retry-after"],
+              );
             }
 
             // Redirect: validate the next hop and follow up to MAX_REDIRECTS.
@@ -1147,7 +1375,7 @@ export const imagesValidator: ValidatorModule = {
 
             recordRequestDuration();
             res.destroy?.();
-            const transient = res.statusCode === 429 || res.statusCode === 503;
+            const transient = isTransientHttpStatus(res.statusCode ?? 0);
             resolve({
               ok: false,
               status: res.statusCode,
@@ -1165,12 +1393,16 @@ export const imagesValidator: ValidatorModule = {
           if (responseReceived || requestTimedOut) return;
           diagnostics.requestFailures += 1;
           recordRequestDuration();
+          const failureType = classifyNetworkError(
+            (err as NodeJS.ErrnoException).code,
+          );
+          if (failureType === "transient") {
+            recordProviderTransportFailure(urlStr, "request");
+          }
           resolve({
             ok: false,
             error: err.message,
-            failureType: classifyNetworkError(
-              (err as NodeJS.ErrnoException).code,
-            ),
+            failureType,
             failureSource: "request",
           });
         });
@@ -1179,6 +1411,7 @@ export const imagesValidator: ValidatorModule = {
           requestTimedOut = true;
           diagnostics.requestTimeouts += 1;
           recordRequestDuration();
+          recordProviderTransportFailure(urlStr, "timeout");
           req.destroy();
           resolve({
             ok: false,
@@ -1273,10 +1506,42 @@ export const imagesValidator: ValidatorModule = {
               diagnostics.successfulRetries += 1;
             } else if (
               attempt > 1 &&
-              attempt === MAX_IMAGE_FETCH_RETRIES + 1 &&
+              attempt ===
+                (result.status === 429
+                  ? MAX_RATE_LIMIT_RETRIES + 1
+                  : MAX_IMAGE_FETCH_RETRIES + 1) &&
               result.failureType === "transient"
             ) {
               diagnostics.retryExhaustedUrls += 1;
+            }
+
+            const provider = imageProviderKey(urlStr);
+            if (result.ok || result.failureType !== "transient") {
+              inconclusiveUrlCountsByProvider.delete(provider);
+            } else {
+              const retryLimit =
+                result.status === 429
+                  ? MAX_RATE_LIMIT_RETRIES
+                  : MAX_IMAGE_FETCH_RETRIES;
+              const exhausted =
+                result.retryBudgetExceeded === true ||
+                attempt === retryLimit + 1;
+              if (exhausted && !blockedProviders.has(provider)) {
+                const failedUrlCount =
+                  (inconclusiveUrlCountsByProvider.get(provider) ?? 0) + 1;
+                inconclusiveUrlCountsByProvider.set(provider, failedUrlCount);
+                if (failedUrlCount >= MAX_PROVIDER_INCONCLUSIVE_URLS) {
+                  blockedProviders.add(provider);
+                  if (result.status !== undefined) {
+                    blockedProviderStatuses.set(provider, result.status);
+                  }
+                  blockedProviderFailureSources.set(
+                    provider,
+                    result.failureSource ?? "request",
+                  );
+                  diagnostics.providerCircuitOpenCount += 1;
+                }
+              }
             }
           },
           onWait: (wait) => {
@@ -1302,24 +1567,42 @@ export const imagesValidator: ValidatorModule = {
     await Promise.all(
       entries.map(async ([urlStr, refs]) => {
         const res = await checkUrl(urlStr);
-        if (res.ok) return;
+        if (res.ok) {
+          diagnostics.verifiedUrls += 1;
+          return;
+        }
 
-        const retryUnverified =
-          res.failureType === "transient" &&
-          (res.retryBudgetExceeded === true ||
-            res.attempts === MAX_IMAGE_FETCH_RETRIES + 1);
-        const { severity: classifiedSeverity, code: classifiedCode } =
-          classifyImageFailure(res.failureType, res.status);
-        const severity = retryUnverified ? "error" : classifiedSeverity;
-        const code = retryUnverified
-          ? "IMAGE_FETCH_UNVERIFIED"
-          : classifiedCode;
+        const { severity, code } = classifyImageFailure(
+          res.failureType,
+          res.status,
+        );
+        if (severity === "warning") {
+          diagnostics.inconclusiveUrls += 1;
+          const cause = inconclusiveCause(res);
+          if (cause === "rate_limited") {
+            diagnostics.inconclusiveRateLimitedUrls += 1;
+          } else if (cause === "timeout") {
+            diagnostics.inconclusiveTimeoutUrls += 1;
+          } else if (cause === "transient_5xx") {
+            diagnostics.inconclusiveTransient5xxUrls += 1;
+          } else if (cause === "network") {
+            diagnostics.inconclusiveNetworkUrls += 1;
+          } else {
+            diagnostics.inconclusiveOtherUrls += 1;
+          }
+        } else {
+          diagnostics.brokenUrls += 1;
+        }
 
+        const finding =
+          severity === "warning"
+            ? `verification incomplete (${inconclusiveCause(res)})`
+            : "confirmed broken";
         for (const ref of refs) {
           issues.push({
             severity,
             code,
-            message: `Destination '${ref.destId}' (${ref.field}) image ${retryUnverified ? "verification incomplete" : "check result"}: ${publicImageFailureSummary(res)}${(res.attempts ?? 1) > 1 ? ` (after ${res.attempts} attempts)` : ""} -> ${safeImageOrigin(urlStr)}`,
+            message: `Destination '${ref.destId}' (${ref.field}) image ${finding}: ${publicImageFailureSummary(res)}${(res.attempts ?? 1) > 1 ? ` (after ${res.attempts} attempts)` : ""} -> ${safeImageUrlForReport(urlStr)}`,
             targetId: ref.destId,
           });
         }
@@ -1333,10 +1616,17 @@ export const imagesValidator: ValidatorModule = {
       performance.now() - validationStartedAt,
     );
     diagnostics.validatorDurationMs = validatorDurationMs;
+    const status =
+      errorsCount > 0
+        ? "failed"
+        : diagnostics.inconclusiveUrls > 0
+          ? "inconclusive"
+          : "passed";
 
     return {
       name: imagesValidator.name,
-      passed: errorsCount === 0,
+      passed: status === "passed",
+      status,
       issues,
       diagnostics,
       metrics: {

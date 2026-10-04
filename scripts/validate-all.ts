@@ -3,6 +3,7 @@ import path from "path";
 import { execSync } from "child_process";
 import { createValidationContext } from "./catalog/loader";
 import { validators } from "./validators/registry";
+import { shouldFailValidationRun } from "./validators/image-validation-policy";
 import {
   QA_FRAMEWORK_VERSION,
   type ValidationResult,
@@ -13,6 +14,17 @@ const args = process.argv.slice(2);
 const profileArgIndex = args.indexOf("--profile");
 const profile = profileArgIndex !== -1 ? args[profileArgIndex + 1] : "full";
 const noReport = args.includes("--no-report");
+
+function statusLabel(result: ValidationResult): string {
+  if (result.status === "not-run") {
+    return result.passed
+      ? "✅ LOCAL PASSED; REMOTE NOT RUN"
+      : "❌ LOCAL FAILED; REMOTE NOT RUN";
+  }
+  if (result.status === "inconclusive") return "⚠️ INCOMPLETE";
+  if (result.status === "failed" || !result.passed) return "❌ FAILED";
+  return "✅ PASSED";
+}
 
 async function runAll() {
   console.log(`\n======================================================`);
@@ -26,6 +38,7 @@ async function runAll() {
   let totalErrors = 0;
   let totalWarnings = 0;
   let totalInfo = 0;
+  let totalInconclusiveUrls = 0;
 
   const activeValidators =
     profile === "fast"
@@ -36,7 +49,10 @@ async function runAll() {
     console.log(`▶ Running [${validator.name}]...`);
     const startTime = performance.now();
     try {
-      const res = await validator.validate(context);
+      const res =
+        profile === "deterministic" && validator.validateDeterministic
+          ? await validator.validateDeterministic(context)
+          : await validator.validate(context);
       const durationMs = Math.round(performance.now() - startTime);
       res.metrics.durationMs = durationMs;
 
@@ -45,8 +61,9 @@ async function runAll() {
       totalErrors += res.metrics.errorsCount;
       totalWarnings += res.metrics.warningsCount;
       totalInfo += res.metrics.infoCount;
+      totalInconclusiveUrls += res.diagnostics?.inconclusiveUrls ?? 0;
 
-      const statusSymbol = res.passed ? "✅ PASSED" : "❌ FAILED";
+      const statusSymbol = statusLabel(res);
       console.log(
         `  └─ ${statusSymbol} | Checked: ${res.metrics.totalChecked} | Errors: ${res.metrics.errorsCount} | Warnings: ${res.metrics.warningsCount} | Time: ${durationMs}ms\n`,
       );
@@ -114,7 +131,7 @@ async function runAll() {
   mdReport += `| :--- | :---: | :---: | :---: | :---: | :---: | :---: |\n`;
 
   for (const r of results) {
-    const icon = r.passed ? "✅ PASSED" : "❌ FAILED";
+    const icon = statusLabel(r);
     mdReport += `| ${r.name} | ${icon} | ${r.metrics.durationMs}ms | ${r.metrics.totalChecked} | ${r.metrics.errorsCount} | ${r.metrics.warningsCount} | ${r.metrics.infoCount} |\n`;
   }
 
@@ -150,14 +167,32 @@ async function runAll() {
     );
   }
 
+  const qaStatus =
+    totalErrors > 0
+      ? "FAILED"
+      : totalInconclusiveUrls > 0
+        ? "INCOMPLETE"
+        : "PASSED";
   console.log(`======================================================`);
-  console.log(` 📊 QA SUMMARY: ${totalErrors === 0 ? "PASSED" : "FAILED"}`);
+  console.log(` 📊 QA SUMMARY: ${qaStatus}`);
   console.log(` Total Errors:   ${totalErrors}`);
   console.log(` Total Warnings: ${totalWarnings}`);
-  console.log(` Reports saved to /reports/release-report.md & .json`);
+  if (totalInconclusiveUrls > 0) {
+    console.log(` Inconclusive image URLs: ${totalInconclusiveUrls}`);
+    console.log(
+      " Remote image verification is incomplete; unknown URLs are not verified.",
+    );
+  }
+  if (noReport) {
+    console.log(" Reports not written (--no-report)");
+  } else {
+    console.log(
+      ` Reports saved to ${path.join(reportsDir, "release-report.md")} & ${path.join(reportsDir, "release-report.json")}`,
+    );
+  }
   console.log(`======================================================\n`);
 
-  if (totalErrors > 0) {
+  if (totalErrors > 0 || shouldFailValidationRun(results)) {
     process.exit(1);
   }
 }

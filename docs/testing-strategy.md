@@ -107,7 +107,8 @@ The compact job matrix below describes the implementation, not branch-protection
 | `PR Checks / protected-routes` | PR | `npm run build`; `node scripts/check-protected-routes.mjs`; `node scripts/check-allure-history.mjs` | Local Pages Function JWT/JWKS allow/deny paths, protected artifacts, Allure history fixture | Local keys/R2 mock; no production Access/R2 binding proof. |
 | `PR Checks / catalogue-fast` | PR | `npm run validate:catalog-fast` | Fast data-quality profile | Not the full read-only audit or generated sync gate. |
 | `PR Checks / build` | PR | `npm run build`, `npm run seo:check`, bundle budget/secrets, `npm run check:pwa` | Build, SEO freshness, budget, browser-bundle secrets, PWA policy | Does not call live production headers or all Pages Function routes. |
-| `PR Checks / changed-external` | PR | `validate:images:changed`, `validate:links:changed` | Changed catalogue image/link failures | Scope is changed external assets, not an all-record refresh. |
+| `PR Checks / changed-external` | PR | `validate:images:changed`, `validate:links:changed` | Changed catalogue image/link failures | Scope is changed external assets; confirmed broken images block, while transiently inconclusive probes are reported without claiming verification. |
+| `validate.yml / Changed Catalogue Images (Push)` | Push to `main`/`dev` | `validate:images:changed --base-ref <event.before>` | Changed image fields in the pushed range | Full-history diff; confirmed broken images fail, transient inconclusive results are reported but non-blocking. |
 | `PR Checks / allure-report` | PR, `always()` after E2E/PWA/a11y | Download results, `allure generate`, strip analytics, privacy scan, upload preview artifact | Aggregated, traceable test evidence and report privacy | Artifact preview is not a production release; it is public-repo artifact data after sanitization. |
 
 The repository's current `main` branch-protection API lists only these required status contexts: `quality`, `tests`, `catalogue-fast`, `build`, and `validate-title` (strict status checks). The other PR Checks jobs still provide valuable evidence and can fail the workflow, but they must not be described as globally required branch-protection checks without re-reading repository settings.
@@ -118,15 +119,16 @@ The repository's current `main` branch-protection API lists only these required 
 - [`catalogue-integrity.yml`](../.github/workflows/catalogue-integrity.yml) runs on PRs to `main`/`data/collections-*` and manual dispatch. It runs `npm run check:catalog-ci`; it has no YAML path filter because [`changed-scope.ts`](../scripts/cli/changed-scope.ts) is the classifier.
 - [`destination-checks.yml`](../.github/workflows/destination-checks.yml) runs only when selected destination/catalogue/validator paths change and runs `npm run validate:catalog-fast`.
 - [`ci.yml`](../.github/workflows/ci.yml) runs on pushes to `main`, `dev`, or `release`, and PRs targeting those branches or `data/collections-*`; it runs `npm install`, Prettier check, and `npm run build`. Its `test-and-build` context is separate from the five currently required `main` contexts.
-- [`validate.yml`](../.github/workflows/validate.yml) runs Fast Validation on push/PR and has a separate schedule/manual-only Full Remote Validation job, described next.
+- [`validate.yml`](../.github/workflows/validate.yml) runs Fast Validation on push/PR, adds a changed-image-only gate for direct pushes, and separates nightly/manual deterministic data quality from the remote image monitor.
 
 ## 5. Fast PR versus nightly, manual, and release validation
 
 `validate.yml` is intentionally conditional:
 
 - **Fast Validation** runs only when `github.event_name` is `push` or `pull_request`: Node 22, `npm ci`, lint, `tsc --noEmit`, build, translation parity, and editorial-freshness report.
-- **Full Remote Validation** runs only for the nightly schedule (`0 19 * * *`, 19:00 UTC) or `workflow_dispatch`: `npm run validate-all`, translation parity, editorial-freshness report, and report artifacts.
-- On a normal PR, Full Remote Validation is **skipped by its job condition**. A skipped Full Remote Validation is not a pass and is not evidence that the full remote/data validation ran.
+- **Deterministic Data Quality** runs only for the nightly schedule (`0 19 * * *`, 19:00 UTC) or `workflow_dispatch`: `npm run validate-all -- --profile deterministic`, translation parity, editorial-freshness report, and deterministic report artifacts. All non-image validators and local image/catalogue rules remain blocking; no live image requests are made in this job.
+- **Catalog Image Monitor** runs on the same nightly/manual triggers with a 30-minute ceiling. It verifies the full remote image catalogue and writes a step summary plus JSON/Markdown artifacts. Confirmed broken/policy-invalid URLs fail; transiently inconclusive probes are warnings and make the result explicitly `INCOMPLETE`, not a remote pass.
+- On a PR, `PR Checks / changed-external` checks changed image URLs. On a push to `main`/`dev`, `Changed Catalogue Images (Push)` uses `github.event.before` as its diff base. Both skip when no image fields changed; neither claims full-catalogue remote verification. The nightly/manual jobs are separate. See [Catalogue image validation](catalog-image-validation.md) for the three-state model and retry/circuit policy.
 
 `npm run check:catalog-ci` has a second intentional conditional boundary. [`changed-scope.ts`](../scripts/cli/changed-scope.ts) treats `src/shared/data/`, `public/data/`, `scripts/`, `src/shared/types/`, workflow files, and package manifests as catalogue-affecting; otherwise its catalogue-audit stage prints a skip notice and exits zero. The top-level npm script then continues with its additional KAI-89, model, destination-completeness, and deprecated-field checks. A successful catalogue-stage skip means “this diff was classified as irrelevant,” not “every catalogue record was revalidated.” When relevant, the stage runs the read-only audit/warning-baseline and generated-file sync/idempotency checks.
 
@@ -177,7 +179,7 @@ The only numeric suite snapshot intentionally carried forward here is historical
 - **reported commands/evidence:** 385 Vitest files, 5,319 passed, 2 skipped; 34 E2E specs assigned exactly once across four bins; 853 translation keys with zero placeholder mismatches; and the report's recorded exact-head PR checks;
 - **historical source context:** the report identifies its local validation source SHA separately from its published PR head and records production observations against an older main source.
 
-These figures are not a current-main guarantee and were not silently rerun for this documentation change. The current branch's authoritative evidence is its own exact-head CI run; pending, cancelled, failed, or skipped jobs must be reported with those states. In particular, the skipped Full Remote Validation job must never be relabelled as a pass. No uptime, performance, coverage percentage, defect-prevention, conversion, or reliability metric is inferred from these tests.
+These figures are not a current-main guarantee and were not silently rerun for this documentation change. The current branch's authoritative evidence is its own exact-head CI run; pending, cancelled, failed, or skipped jobs must be reported with those states. In particular, a skipped Catalog Image Monitor must never be relabelled as a remote pass; deterministic validation is a separate job. No uptime, performance, coverage percentage, defect-prevention, conversion, or reliability metric is inferred from these tests.
 
 Known unverified or owner-managed areas include:
 

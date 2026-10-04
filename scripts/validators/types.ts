@@ -15,6 +15,8 @@ export interface ValidationIssue {
 export interface ValidationResult {
   name: string;
   passed: boolean;
+  /** Explicit image-verification state; `inconclusive` is never a verified pass. */
+  status?: "passed" | "failed" | "inconclusive" | "not-run";
   issues: ValidationIssue[];
   /** Optional aggregate counters for validators with external request costs. */
   diagnostics?: Record<string, number>;
@@ -54,6 +56,8 @@ export interface ValidatorModule {
   guarantees: string[];
   doesNotValidate: string[];
   validate(context: ValidationContext): Promise<ValidationResult>;
+  /** Optional local-only pass for validators that also contact external providers. */
+  validateDeterministic?(context: ValidationContext): Promise<ValidationResult>;
 }
 
 export interface ReleaseReportMetadata {

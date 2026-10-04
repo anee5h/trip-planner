@@ -123,15 +123,9 @@ describe("image fetch retry policy", () => {
     expect(wait).not.toHaveBeenCalled();
   });
 
-  it("uses bounded exponential backoff for 429 without Retry-After", async () => {
+  it("uses one bounded backoff retry for 429 without Retry-After", async () => {
     const attempt = vi
       .fn<() => Promise<ImageCheckResult>>()
-      .mockResolvedValueOnce({
-        ok: false,
-        status: 429,
-        error: "HTTP 429",
-        failureType: "transient",
-      })
       .mockResolvedValueOnce({
         ok: false,
         status: 429,
@@ -146,9 +140,9 @@ describe("image fetch retry policy", () => {
       random: () => 0.5,
     });
 
-    expect(result).toMatchObject({ ok: true, status: 200, attempts: 3 });
-    expect(attempt).toHaveBeenCalledTimes(3);
-    expect(wait.mock.calls.map(([delayMs]) => delayMs)).toEqual([1_000, 2_000]);
+    expect(result).toMatchObject({ ok: true, status: 200, attempts: 2 });
+    expect(attempt).toHaveBeenCalledTimes(2);
+    expect(wait.mock.calls.map(([delayMs]) => delayMs)).toEqual([1_000]);
   });
 
   it("reports persistent 429 exhaustion as failure rather than success", async () => {
@@ -169,10 +163,10 @@ describe("image fetch retry policy", () => {
       ok: false,
       status: 429,
       failureType: "transient",
-      attempts: 3,
+      attempts: 2,
     });
-    expect(attempt).toHaveBeenCalledTimes(3);
-    expect(wait).toHaveBeenCalledTimes(2);
+    expect(attempt).toHaveBeenCalledTimes(2);
+    expect(wait).toHaveBeenCalledTimes(1);
   });
 
   it("recovers from HTTP 503 within the same retry budget", async () => {
