@@ -15388,7 +15388,8 @@
       "rainFriendly": 6,
       "walkingIntensity": 8
     },
-    "businessHours": "Open access",
+    "businessHours": "Individual venue and transport hours vary.",
+    "openingHours": "Individual venue and transport hours vary.",
     "relationships": {
       "featuredDestinationIds": [
         "kumoba-pond",
@@ -16761,7 +16762,7 @@
     "tags": ["History", "Kyoto City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg",
     "description": "A Zen temple officially named Rokuon-ji, famous for its gold-leaf Golden Pavilion and recognized as part of the Historic Monuments of Ancient Kyoto.",
-    "highlights": ["History"],
+    "highlights": ["The Golden Pavilion", "Mirror Pond", "Rokuon-ji Temple"],
     "coordinates": {
       "lat": 35.0395,
       "lng": 135.7285
@@ -20044,7 +20045,8 @@
       "rainFriendly": 5,
       "walkingIntensity": 8
     },
-    "businessHours": "Open access",
+    "businessHours": "Individual venue hours vary.",
+    "openingHours": "Individual venue hours vary.",
     "relationships": {
       "featuredDestinationIds": [
         "kiyomizu-dera",
@@ -30334,7 +30336,7 @@
     "tags": ["Museum", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaka%20Kaiyukan01s3872.jpg?width=1600",
     "description": "One of the world’s largest aquariums, presenting Pacific Rim marine life around the enormous Kuroshio tank.",
-    "highlights": ["Aquarium"],
+    "highlights": ["Pacific Ocean journey and marine habitats"],
     "coordinates": {
       "lat": 34.654472222222,
       "lng": 135.42888888889
@@ -30403,7 +30405,7 @@
       "rainFriendly": 9,
       "walkingIntensity": 3
     },
-    "businessHours": "10:00 - 20:00 (Last admission 19:00)",
+    "businessHours": "Hours vary by date; check the official calendar.",
     "relationships": {
       "parentDestinationId": "osaka-city"
     }
@@ -30675,7 +30677,8 @@
       "rainFriendly": 8,
       "walkingIntensity": 8
     },
-    "businessHours": "Open access",
+    "businessHours": "Individual venue hours vary.",
+    "openingHours": "Individual venue hours vary.",
     "relationships": {
       "featuredDestinationIds": [
         "osaka-castle",
@@ -35256,7 +35259,7 @@
     "tags": ["Shinjuku City", "Tokyo Travel", "Regional Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
-    "description": "Tokyo's major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.",
+    "description": "Shinjuku City is a central Tokyo ward with the Tokyo Metropolitan Government observatories and visitor areas such as Shinjuku Gyoen and Kabukicho.",
     "highlights": [
       "Shinjuku Gyoen National Garden",
       "Tokyo Metropolitan Government Views",
@@ -35317,8 +35320,8 @@
       "rainFriendly": 6,
       "walkingIntensity": 3
     },
-    "businessHours": "Open access",
-    "openingHours": "09:00 - 17:00",
+    "businessHours": "Individual venue hours vary.",
+    "openingHours": "Individual venue hours vary.",
     "relationships": {
       "featuredDestinationIds": [
         "kagurazaka",
@@ -41941,8 +41944,8 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "24 Hours (Open access)",
+    "businessHours": "Park grounds are always open; facilities have separate hours.",
+    "openingHours": "Park grounds are always open; facilities have separate hours.",
     "relationships": {
       "parentDestinationId": "taito-city"
     }

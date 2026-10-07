@@ -7,12 +7,12 @@
     "en": {
       "name": "Kinkaku-ji",
       "description": "A Zen temple officially named Rokuon-ji, famous for its gold-leaf Golden Pavilion and recognized as part of the Historic Monuments of Ancient Kyoto.",
-      "highlights": ["History"]
+      "highlights": ["The Golden Pavilion", "Mirror Pond", "Rokuon-ji Temple"]
     },
     "ja": {
       "name": "鹿苑寺",
       "description": "金閣寺の正式名称は鹿苑寺で、金箔を施した舎利殿・金閣と古都京都の文化財で知られる禅寺です。",
-      "highlights": ["歴史"]
+      "highlights": ["金閣", "鏡湖池", "鹿苑寺（正式名称）"]
     }
   },
   "prefecture": "Kyoto",
@@ -40,7 +40,7 @@
     "lng": 135.7285
   },
   "description": "A Zen temple officially named Rokuon-ji, famous for its gold-leaf Golden Pavilion and recognized as part of the Historic Monuments of Ancient Kyoto.",
-  "highlights": ["History"],
+  "highlights": ["The Golden Pavilion", "Mirror Pond", "Rokuon-ji Temple"],
   "transportOptions": {
     "train": 235,
     "bus": 235,
@@ -182,7 +182,7 @@
   "notesJa": "【見どころ】鹿苑寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "09:00〜17:00（最終入場16:30）",
   "municipalityId": "Kyoto:kyoto",
   "transportMetadata": {
     "method": "legacy-fallback",

@@ -83,7 +83,7 @@
     "min": 9,
     "max": 12
   },
-  "businessHours": "Open access",
+  "businessHours": "Individual venue hours vary.",
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
@@ -138,14 +138,15 @@
   "notesJa": "【見どころ】Osaka Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "市内の観光施設ごとに営業時間が異なります。",
   "ratingsSchemaVersion": 2,
   "nameJa": "大阪市",
   "content": {
     "en": {
       "name": "Osaka City",
       "description": "Kansai's vibrant commercial metropolis, famous for neon-lit Dotonbori canals, Osaka Castle, street food culture, and warm hospitality.",
-      "highlights": []
+      "highlights": ["Dotonbori", "Osaka Castle"],
+      "openingHours": "Hours vary by attraction and venue."
     },
     "ja": {
       "name": "大阪市",
@@ -154,7 +155,8 @@
         "道頓堀のグリコサインと食い倒れ",
         "大阪城と天守閣",
         "あべのハルカス＆梅田スカイビル"
-      ]
+      ],
+      "openingHours": "市内の観光施設ごとに営業時間が異なります。"
     }
   },
   "municipalityId": "Osaka:osaka",
@@ -231,5 +233,6 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka",
   "wikipediaPageId": 52230,
-  "wikidataId": "Q35765"
+  "wikidataId": "Q35765",
+  "openingHours": "Individual venue hours vary."
 }

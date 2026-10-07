@@ -7,12 +7,14 @@
     "en": {
       "name": "Osaka Aquarium Kaiyukan",
       "description": "One of the world’s largest aquariums, presenting Pacific Rim marine life around the enormous Kuroshio tank.",
-      "highlights": ["Aquarium"]
+      "highlights": ["Pacific Ocean journey and marine habitats"],
+      "openingHours": "Hours vary by date; check the official calendar."
     },
     "ja": {
       "name": "海遊館",
       "description": "海遊館は巨大な「太平洋」水槽を中心に環太平洋の海洋生物を紹介する世界最大級の水族館です。",
-      "highlights": ["水族館"]
+      "highlights": ["太平洋をめぐる展示と海洋生物の生息環境"],
+      "openingHours": "営業時間は日付により異なります。公式カレンダーをご確認ください。"
     }
   },
   "prefecture": "Osaka",
@@ -39,7 +41,7 @@
     "lng": 135.42888888889
   },
   "description": "One of the world’s largest aquariums, presenting Pacific Rim marine life around the enormous Kuroshio tank.",
-  "highlights": ["Aquarium"],
+  "highlights": ["Pacific Ocean journey and marine habitats"],
   "transportOptions": {
     "train": 186,
     "bus": 206,
@@ -169,12 +171,12 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "10:00 - 20:00 (Last admission 19:00)",
+  "businessHours": "Hours vary by date; check the official calendar.",
   "nearHubs": ["osaka-city"],
   "notesJa": "【見どころ】海遊館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-  "openingHoursJa": "10:00〜20:00（最終入場 19:00）",
+  "openingHoursJa": "営業時間は日付により異なります。公式カレンダーをご確認ください。",
   "municipalityId": "Osaka:osaka",
   "durationMetadata": {
     "method": "model",

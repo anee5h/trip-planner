@@ -98,7 +98,7 @@
     "min": 9,
     "max": 12
   },
-  "businessHours": "Open access",
+  "businessHours": "Individual venue hours vary.",
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
@@ -145,14 +145,20 @@
   "notesJa": "【見どころ】Kyoto Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "市内の観光施設ごとに営業時間が異なります。",
   "ratingsSchemaVersion": 2,
   "nameJa": "京都市",
   "content": {
     "en": {
       "name": "Kyoto City",
       "description": "Japan's ancient imperial capital, renowned for thousands of classical Buddhist temples, Shinto shrines, traditional wooden machiya, and zen gardens.",
-      "highlights": []
+      "highlights": [
+        "Kinkaku-ji",
+        "Fushimi Inari Taisha",
+        "Kiyomizu-dera",
+        "Arashiyama Bamboo Grove"
+      ],
+      "openingHours": "Hours vary by attraction and facility."
     },
     "ja": {
       "name": "京都市",
@@ -161,7 +167,8 @@
         "古都京都の世界遺産群",
         "伏見稲荷大社・千本鳥居",
         "祇園の花街と町家景観"
-      ]
+      ],
+      "openingHours": "市内の観光施設ごとに営業時間が異なります。"
     }
   },
   "municipalityId": "Kyoto:kyoto",
@@ -222,5 +229,6 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Kyoto",
   "wikipediaPageId": 37652,
-  "wikidataId": "Q34600"
+  "wikidataId": "Q34600",
+  "openingHours": "Individual venue hours vary."
 }
