@@ -36868,15 +36868,7 @@
       "reason": "fare_not_found"
     },
     "openingHours": "Individual venue and transport hours vary.",
-    "openingHoursJa": "施設や交通機関により営業時間が異なります。",
-    "content": {
-      "en": {
-        "openingHours": "Hours vary by venue and transport service."
-      },
-      "ja": {
-        "openingHours": "施設や交通機関により営業時間が異なります。"
-      }
-    }
+    "openingHoursJa": "施設や交通機関により営業時間が異なります。"
   },
   {
     "id": "kashiya-yokocho",

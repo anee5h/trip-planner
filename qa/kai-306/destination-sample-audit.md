@@ -5,7 +5,7 @@ Checked: 2026-10-07 · Base: `08b4ee6dca318f0738cf95d3f40caceee412eefd`
 ## Result
 
 - Public-fact gate: **8 PASS / 12 FAIL** after review (baseline: 2 PASS / 18 FAIL).
-- Canonical rows changed: **7 / 20**; field paths changed: **47**.
+- Canonical rows changed: **7 / 20**; field paths changed: **46**.
 - Population: **1130** records, **1130** unique; 1129 visible / 1 hidden.
 
 **Gate definition:** PASS means reviewed public identity/kind, core descriptions/highlights, admission interpretation and opening-hours assertions have no known contradiction after repair; explicit unavailable/unknown values pass only when not presented as free, zero, or a verified specific value. This does not certify full planning readiness, image content/licensing, exact coordinates, or route accuracy.

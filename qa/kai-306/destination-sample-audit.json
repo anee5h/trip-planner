@@ -12,7 +12,7 @@
     "uniqueCount": 1130
   },
   "candidate": {
-    "canonicalSha256": "891573eab41ba382f70d6770375cd51080998a23c680636cfec70d25fdd21e70",
+    "canonicalSha256": "24eca2bd3b89bbc3481712f0a7cab52830bbf859ef86b6f5022cba03442f3d01",
     "canonicalCount": 1130,
     "uniqueCount": 1130,
     "changedRecordCount": 7,
@@ -25,7 +25,7 @@
       "kinkaku-ji",
       "osaka-aquarium-kaiyukan"
     ],
-    "fieldPathChangeCount": 47
+    "fieldPathChangeCount": 46
   },
   "methodology": {
     "gateName": "source-backed public-fact gate",
@@ -927,21 +927,6 @@
       "outcomeAfter": "PASS",
       "findingNotes": [],
       "changes": [
-        {
-          "path": ["content"],
-          "beforePresent": false,
-          "before": null,
-          "afterPresent": true,
-          "after": {
-            "en": {
-              "openingHours": "Hours vary by venue and transport service."
-            },
-            "ja": {
-              "openingHours": "施設や交通機関により営業時間が異なります。"
-            }
-          },
-          "sourceRefs": ["S07"]
-        },
         {
           "path": ["openingHours"],
           "beforePresent": false,
@@ -1868,7 +1853,7 @@
   },
   "runtimeProbe": {
     "environment": "Local Vite destination detail page; unauthenticated; not production/provider validation.",
-    "candidateCanonicalSha256": "891573eab41ba382f70d6770375cd51080998a23c680636cfec70d25fdd21e70",
+    "candidateCanonicalSha256": "24eca2bd3b89bbc3481712f0a7cab52830bbf859ef86b6f5022cba03442f3d01",
     "baselineCommit": "08b4ee6dca318f0738cf95d3f40caceee412eefd",
     "routes": [
       {

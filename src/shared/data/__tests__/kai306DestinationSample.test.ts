@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import auditManifest from "../../../../qa/kai-306/destination-sample-audit.json";
 import destinationIndex from "../destinations-index.json";
 import type { Destination } from "../../types/destination";
+import { toCanonicalPlace } from "../../services/place/PlaceCatalog";
 import { getOpeningHoursAssessment } from "../../services/recommendation/OpeningHoursPolicy";
 import { getLocalizedOpeningHours } from "../../../features/destinations/destinationOpeningHours";
 
@@ -64,6 +65,20 @@ describe("KAI-306 reviewed destination sample", () => {
     for (const [id, hours] of expected) {
       expect(getLocalizedOpeningHours(destination(id), "en"), id).toBe(hours);
     }
+  });
+
+  it("keeps Karuizawa's canonical hours without incomplete content overrides", () => {
+    const karuizawa = destination("karuizawa-town");
+    expect(karuizawa.content).toBeUndefined();
+    expect(getLocalizedOpeningHours(karuizawa, "en")).toBe(
+      "Individual venue and transport hours vary.",
+    );
+    expect(getLocalizedOpeningHours(karuizawa, "ja")).toBe(
+      "施設や交通機関により営業時間が異なります。",
+    );
+    const place = toCanonicalPlace(karuizawa);
+    expect(place.content.en.name).toBe(karuizawa.name);
+    expect(place.content.en.description).toBe(karuizawa.description);
   });
 
   it("marks Ueno Park hours verified from its current official source", () => {
