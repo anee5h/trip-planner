@@ -129,7 +129,9 @@ describe("KAI-306 audit reproducibility", () => {
     expect(visual.imagesCommitted).toBe(allCommitted);
     expect(report).toContain("Human approval: **approved**");
     expect(report).toContain(
-      allCommitted ? "Sheets are committed below." : "Sheets are not yet committed.",
+      allCommitted
+        ? "Sheets are committed below."
+        : "Sheets are not yet committed.",
     );
   });
 

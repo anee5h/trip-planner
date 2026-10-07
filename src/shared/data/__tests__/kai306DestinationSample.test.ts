@@ -83,10 +83,7 @@ describe("KAI-306 reviewed destination sample", () => {
       "【駐車場】第1・第2・第3駐車場合計250台。利用時間は8:40〜17:10。乗用車は最初の60分400円、以後30分ごとに200円です。",
     );
     expect(
-      getOpeningHoursAssessment(
-        kinkaku,
-        new Date("2026-10-07T23:59:59.999Z"),
-      ),
+      getOpeningHoursAssessment(kinkaku, new Date("2026-10-07T23:59:59.999Z")),
     ).toMatchObject({
       status: "verified",
       requiresWarning: false,
