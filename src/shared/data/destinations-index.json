@@ -40658,10 +40658,16 @@
           "url": "https://www.shokoku-ji.jp/kinkakuji/",
           "title": "Kinkaku-ji official website",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.shokoku-ji.jp/kinkakuji/access/",
+          "title": "アクセス | 金閣寺",
+          "accessedAt": "2026-10-08"
         }
       ],
       "reviewedAt": "2026-08-03T00:00:00Z",
-      "checkedAt": "2026-08-13",
+      "checkedAt": "2026-10-08",
       "freshness": "current",
       "fieldSources": {
         "description": [
@@ -40703,14 +40709,50 @@
             "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 60% of 3h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "businessHours": [
+          {
+            "type": "official",
+            "url": "https://www.shokoku-ji.jp/en/kinkakuji/access/",
+            "title": "ACCESS | Kinkaku-ji (English)",
+            "accessedAt": "2026-10-08"
+          }
+        ],
+        "openingHoursJa": [
+          {
+            "type": "official",
+            "url": "https://www.shokoku-ji.jp/kinkakuji/access/",
+            "title": "アクセス | 金閣寺",
+            "accessedAt": "2026-10-08"
+          },
+          {
+            "type": "official",
+            "url": "https://www.shokoku-ji.jp/en/kinkakuji/access/",
+            "title": "ACCESS | Kinkaku-ji (English)",
+            "accessedAt": "2026-10-08"
+          }
+        ],
+        "parkingJa": [
+          {
+            "type": "official",
+            "url": "https://www.shokoku-ji.jp/kinkakuji/access/",
+            "title": "アクセス | 金閣寺",
+            "accessedAt": "2026-10-08"
+          }
         ]
       },
-      "changeSummary": "KAI-89 source-backed template-copy correction",
+      "changeSummary": "KAI-306 official opening-hours and parking correction",
       "changes": [
         {
           "changedAt": "2026-08-13",
           "changedBy": "Meguruto editorial",
           "summary": "Replaced repeated template description with source-backed destination copy",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-10-08",
+          "changedBy": "KAI-306 source audit",
+          "summary": "Corrected hours and parking from official access pages; removed unsupported last-admission claim.",
           "method": "assisted"
         }
       ]
@@ -40720,14 +40762,18 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "09:00–17:00, open all year round; hours may change for special exhibitions.",
     "nearHubs": [
       "kyoto-city"
     ],
     "notesJa": "【見どころ】鹿苑寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
-    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00〜17:00（最終入場16:30）",
+    "parkingJa": "【駐車場】第1・第2・第3駐車場合計250台。利用時間は8:40〜17:10。乗用車は最初の60分400円、以後30分ごとに200円です。",
+    "openingHoursJa": "09:00〜17:00（年中無休。特別展開催時は時間変更の場合あり）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-10-07",
+      "sourceUrl": "https://www.shokoku-ji.jp/kinkakuji/access/"
+    },
     "municipalityId": "Kyoto:kyoto",
     "transportMetadata": {
       "method": "legacy-fallback",

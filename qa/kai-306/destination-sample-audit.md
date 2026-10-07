@@ -1,11 +1,11 @@
 # KAI-306: 20-Destination Sample Audit
 
-Checked: 2026-10-07 · Base: `08b4ee6dca318f0738cf95d3f40caceee412eefd`
+Checked: 2026-10-08 · Base: `08b4ee6dca318f0738cf95d3f40caceee412eefd`
 
 ## Result
 
 - Public-fact gate: **8 PASS / 12 FAIL** after review (baseline: 2 PASS / 18 FAIL).
-- Canonical rows changed: **7 / 20**; field paths changed: **46**.
+- Canonical rows changed: **7 / 20**; field paths changed: **56**.
 - Population: **1130** records, **1130** unique; 1129 visible / 1 hidden.
 
 **Gate definition:** PASS means reviewed public identity/kind, core descriptions/highlights, admission interpretation and opening-hours assertions have no known contradiction after repair; explicit unavailable/unknown values pass only when not presented as free, zero, or a verified specific value. This does not certify full planning readiness, image content/licensing, exact coordinates, or route accuracy.
@@ -32,7 +32,7 @@ These unauthenticated local renders are product-page observations, not productio
 
 - `shinjuku-city` (en): **PASS**. Observed values: description: “Tokyo’s major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.” → “Shinjuku City is a central Tokyo ward with the Tokyo Metropolitan Government observatories and visitor areas such as Shinjuku Gyoen and Kabukicho.”; opening hours: “Open access; individual facilities may have separate hours” → “Open access; individual facilities may have separate hours”. The city hub uses shared open-area guidance in both versions; destination-specific businessHours are not displayed as a ward-wide schedule.
   Review path: [src/shared/services/recommendation/OpeningHoursPolicy.ts](../../src/shared/services/recommendation/OpeningHoursPolicy.ts).
-- `kinkaku-ji` (en): **PASS**. Observed values: highlights: ["History"] → ["The Golden Pavilion","Mirror Pond","Rokuon-ji Temple"]. All revised highlights are visible in the expanded details card and match the official operator evidence.
+- `kinkaku-ji` (en): **PASS**. Observed values: highlights: ["History"] → ["The Golden Pavilion","Mirror Pond","Rokuon-ji Temple"]; opening hours: “09:00 - 17:00 (Daily)” → “09:00–17:00, open all year round; hours may change for special exhibitions.”. The expanded details show source-backed highlights and 09:00–17:00 year-round hours; the official page caveats special-exhibition changes.
 - `ueno-park` (ja): **PASS**. Observed values: highlights: ["上野恩賜公園の名所","美術館 &散策"] → ["桜と不忍池","上野公園の文化・自然散策"]. The revised Japanese highlights are visible in the expanded details card and match the official park evidence.
 - `osaka-aquarium-kaiyukan` (ja): **PASS**. Observed values: opening hours: “10:00〜20:00（最終入場 19:00）” → “営業時間は日付により異なります。公式カレンダーをご確認ください。”. Japanese detail displays date-specific calendar guidance; the English schedule is audited separately.
 - `kyoto-city` (ja): **FAIL**. Observed values: highlights: ["清水寺・金閣寺","祇園と町家","嵐山"] → ["清水寺・金閣寺","祇園と町家","嵐山"]. The Japanese page is overridden by EDITORIAL_PILOT and does not render the revised canonical content.ja.highlights.
@@ -41,17 +41,25 @@ These unauthenticated local renders are product-page observations, not productio
 - `osaka-city` (en): **PASS**. Observed values: highlights: [] → ["Dotonbori","Osaka Castle"]. The expanded English practical-information section now renders the two source-backed highlights.
 - `ueno-park` (en): **PASS**. Observed values: opening hours: “Open access; individual facilities may have separate hours” → “Park grounds are always open; facilities have separate hours.”; opening-hours status: “unverified” → “verified”. The official source states 常時開園; current source metadata supports the park-hours claim and removes the Not yet verified warning.
 - `osaka-aquarium-kaiyukan` (en): **PASS**. Observed values: opening hours: “10:00 - 20:00 (Last admission 19:00)” → “Hours vary by date; check the official calendar.”. English detail replaces fixed daily hours with date-specific official-calendar guidance.
-- Matched screenshots: 48 across shinjuku-city/en/overview, kinkaku-ji/en/highlights, ueno-park/ja/highlights, osaka-aquarium-kaiyukan/ja/overview, kyoto-city/en/highlights, osaka-city/en/highlights, ueno-park/en/opening-hours, osaka-aquarium-kaiyukan/en/opening-hours at 375x812, 768x1024, 1280x900. Inspected all four refreshed English sheets across mobile/tablet/desktop: updated highlights and hours are visible with no obvious clipping or overflow. The Ueno after-state no longer shows the unverified warning. The previously approved English/Japanese sheets remain unchanged. Human approval: **pending user review**. Sheets are included in the worktree pending user approval.
+- `kinkaku-ji` (ja): **PASS**. Observed values: opening hours: “09:00 - 17:00 (最終入場 16:30)” → “09:00〜17:00（年中無休。特別展開催時は時間変更の場合あり）”; parking: “【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。” → “【駐車場】第1・第2・第3駐車場合計250台。利用時間は8:40〜17:10。乗用車は最初の60分400円、以後30分ごとに200円です。”. The Japanese detail uses the corrected parkingJa fallback; the official access page supports its capacity, hours, and fees. The unsupported 16:30 last-admission claim is removed.
+  Review path: [src/features/destinations/DestinationDetails.tsx](../../src/features/destinations/DestinationDetails.tsx).
+- Matched screenshots: 66 across shinjuku-city/en/overview, kinkaku-ji/en/highlights, kinkaku-ji/en/opening-hours, kinkaku-ji/ja/opening-hours, kinkaku-ji/ja/parking, ueno-park/ja/highlights, osaka-aquarium-kaiyukan/ja/overview, kyoto-city/en/highlights, osaka-city/en/highlights, ueno-park/en/opening-hours, osaka-aquarium-kaiyukan/en/opening-hours at 375x812, 768x1024, 1280x900. The refreshed Kinkaku-ji English highlights and hours, Japanese hours, and Japanese parking sheets were checked at mobile, tablet, and desktop widths. The after-state hours sheets show the source-backed verified state, and all inspected captures show no clipping. The user approved the visual/content changes and requested verified-hours metadata before commit. Human approval: **approved**. Sheets are committed below.
 
 ## Per-destination results
 
-![Approved before/after comparison for Shinjuku City Office, English](visual/shinjuku-city-en-comparison.png)
+![Before/after comparison for Shinjuku City Office, English](visual/shinjuku-city-en-comparison.png)
 
-![Approved before/after comparison for Kinkaku-ji, English](visual/kinkaku-ji-en-comparison.png)
+![Before/after English Kinkaku-ji expanded highlights at mobile, tablet, and desktop sizes.](visual/kinkaku-ji-en-comparison.png)
 
-![Approved before/after comparison for Ueno Park, Japanese](visual/ueno-park-ja-comparison.png)
+![Before/after English Kinkaku-ji opening hours at mobile, tablet, and desktop sizes.](visual/kinkaku-ji-en-hours-comparison.png)
 
-![Approved before/after comparison for Osaka Aquarium Kaiyukan, Japanese](visual/osaka-aquarium-kaiyukan-ja-comparison.png)
+![Before/after Japanese Kinkaku-ji opening hours at mobile, tablet, and desktop sizes.](visual/kinkaku-ji-ja-hours-comparison.png)
+
+![Before/after Japanese Kinkaku-ji parking details at mobile, tablet, and desktop sizes.](visual/kinkaku-ji-ja-parking-comparison.png)
+
+![Before/after comparison for Ueno Park, Japanese](visual/ueno-park-ja-comparison.png)
+
+![Before/after comparison for Osaka Aquarium Kaiyukan, Japanese](visual/osaka-aquarium-kaiyukan-ja-comparison.png)
 
 ![Before/after English Kyoto City expanded highlights at mobile, tablet, and desktop sizes.](visual/kyoto-city-en-comparison.png)
 
@@ -186,7 +194,7 @@ These unauthenticated local renders are product-page observations, not productio
 - Coordinates: numeric point present; not georeferenced. Image: URL present; metadata present; visual/source-page check not performed.
 - Findings: no unresolved contradiction remains in the reviewed public-fact fields.
 - Fix: [canonical catalogue](../../src/shared/data/destinations-index.json) · [generated detail](../../public/data/destinations/kinkaku-ji.json).
-- Sources: [S16](https://www.shokoku-ji.jp/en/kinkakuji/access/).
+- Sources: [S16](https://www.shokoku-ji.jp/en/kinkakuji/access/), [S27](https://www.shokoku-ji.jp/kinkakuji/access/).
 
 ### Kiyomizu-dera Temple / kiyomizu-dera
 

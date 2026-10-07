@@ -33,7 +33,10 @@ describe("KAI-306 reviewed destination sample", () => {
       ["kyoto-city", "市内の観光施設ごとに営業時間が異なります。"],
       ["osaka-city", "市内の観光施設ごとに営業時間が異なります。"],
       ["karuizawa-town", "施設や交通機関により営業時間が異なります。"],
-      ["kinkaku-ji", "09:00〜17:00（最終入場16:30）"],
+      [
+        "kinkaku-ji",
+        "09:00〜17:00（年中無休。特別展開催時は時間変更の場合あり）",
+      ],
       ["ueno-park", "公園は常時開園（各施設の営業時間は異なります）。"],
       [
         "osaka-aquarium-kaiyukan",
@@ -65,6 +68,37 @@ describe("KAI-306 reviewed destination sample", () => {
     for (const [id, hours] of expected) {
       expect(getLocalizedOpeningHours(destination(id), "en"), id).toBe(hours);
     }
+  });
+
+  it("keeps Kinkaku-ji hours and parking aligned with official guidance", () => {
+    const kinkaku = destination("kinkaku-ji");
+    expect(getLocalizedOpeningHours(kinkaku, "en")).toBe(
+      "09:00–17:00, open all year round; hours may change for special exhibitions.",
+    );
+    expect(getLocalizedOpeningHours(kinkaku, "ja")).toBe(
+      "09:00〜17:00（年中無休。特別展開催時は時間変更の場合あり）",
+    );
+    expect(kinkaku.openingHoursJa).not.toMatch(/最終入場|16:30/);
+    expect(kinkaku.parkingJa).toBe(
+      "【駐車場】第1・第2・第3駐車場合計250台。利用時間は8:40〜17:10。乗用車は最初の60分400円、以後30分ごとに200円です。",
+    );
+    expect(
+      getOpeningHoursAssessment(
+        kinkaku,
+        new Date("2026-10-07T23:59:59.999Z"),
+      ),
+    ).toMatchObject({
+      status: "verified",
+      requiresWarning: false,
+      sourceUrl: "https://www.shokoku-ji.jp/kinkakuji/access/",
+      verifiedAt: "2026-10-07",
+    });
+    const audit = auditById.get("kinkaku-ji");
+    expect(audit?.outcomeAfter).toBe("PASS");
+    expect(audit?.sourceRefs).toContain("S27");
+    expect(
+      auditManifest.sources.find((source) => source.id === "S27")?.url,
+    ).toBe("https://www.shokoku-ji.jp/kinkakuji/access/");
   });
 
   it("keeps Karuizawa's canonical hours without incomplete content overrides", () => {

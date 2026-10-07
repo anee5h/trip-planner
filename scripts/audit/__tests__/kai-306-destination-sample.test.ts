@@ -1,4 +1,5 @@
 import { execFileSync, spawnSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import {
   existsSync,
   mkdtempSync,
@@ -54,6 +55,19 @@ function run(args: string[]) {
   });
 }
 
+function committedHash(relativePath: string): string | null {
+  try {
+    const bytes = execFileSync("git", ["show", `HEAD:${relativePath}`], {
+      cwd: repoRoot,
+      encoding: null,
+      maxBuffer: 16 * 1024 * 1024,
+    });
+    return createHash("sha256").update(bytes).digest("hex");
+  } catch {
+    return null;
+  }
+}
+
 describe("KAI-306 audit reproducibility", () => {
   it("keeps each destination finding note unique", () => {
     const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
@@ -90,8 +104,50 @@ describe("KAI-306 audit reproducibility", () => {
       "manually adjudicated",
     );
     expect(report).toContain(manifest.methodology.outcomeAdjudication);
+    expect(report).toContain("250台");
     expect("undefined").toMatch(/\bundefined\b/);
     expect(report).not.toMatch(/\bundefined\b/);
+  });
+
+  it("reports committed screenshot bytes truthfully", () => {
+    const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
+      runtimeProbe: {
+        visualComparison: {
+          imagesCommitted: boolean;
+          contactSheets: Array<{ path: string; sha256: string }>;
+        };
+      };
+    };
+    const visual = manifest.runtimeProbe.visualComparison;
+    const allCommitted = visual.contactSheets.every(
+      (sheet) => committedHash(sheet.path) === sheet.sha256,
+    );
+    const report = readFileSync(
+      resolve(repoRoot, "qa/kai-306/destination-sample-audit.md"),
+      "utf8",
+    );
+    expect(visual.imagesCommitted).toBe(allCommitted);
+    expect(report).toContain("Human approval: **approved**");
+    expect(report).toContain(
+      allCommitted ? "Sheets are committed below." : "Sheets are not yet committed.",
+    );
+  });
+
+  it("does not label screenshots approved while human approval is pending", () => {
+    const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
+      runtimeProbe: {
+        visualComparison: {
+          humanApproval: string;
+          contactSheets: Array<{ alt: string }>;
+        };
+      };
+    };
+    const visual = manifest.runtimeProbe.visualComparison;
+    if (visual.humanApproval === "pending user review") {
+      expect(
+        visual.contactSheets.some((sheet) => /\bapproved\b/i.test(sheet.alt)),
+      ).toBe(false);
+    }
   });
 
   it("checks the frozen cohort, candidate source, and rendered report", () => {
@@ -106,19 +162,11 @@ describe("KAI-306 audit reproducibility", () => {
     };
     const tempDir = mkdtempSync(join(tmpdir(), "kai306-replay-"));
     try {
-      const basePath = join(tempDir, "base.json");
       const outputA = join(tempDir, "candidate-a.json");
       const outputB = join(tempDir, "candidate-b.json");
       const mixedPath = join(tempDir, "mixed.json");
       const outputC = join(tempDir, "candidate-c.json");
-      const base = execFileSync(
-        "git",
-        ["show", `${manifest.base.commit}:${manifest.base.canonicalPath}`],
-        { cwd: repoRoot, encoding: "utf8", maxBuffer: 32 * 1024 * 1024 },
-      );
-      writeFileSync(basePath, base);
-
-      const first = run(["--replay", "--input", basePath, "--output", outputA]);
+      const first = run(["--replay", "--output", outputA]);
       expect(first.status, first.stderr || first.stdout).toBe(0);
       expect(first.stdout).toContain("state=A");
       expect(JSON.parse(readFileSync(outputA, "utf8"))).toEqual(

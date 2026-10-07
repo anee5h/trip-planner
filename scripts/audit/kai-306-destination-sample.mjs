@@ -249,6 +249,28 @@ function validateManifest(manifest) {
     visual.matchedBeforeAfterScreenshots,
     visual.destinations.length * visual.viewports.length * 2,
   );
+  const committedImagesMatch = visual.contactSheets.every((sheet) => {
+    try {
+      const committed = execFileSync("git", ["show", `HEAD:${sheet.path}`], {
+        cwd: repoRoot,
+        maxBuffer: 16 * 1024 * 1024,
+      });
+      return sha256(committed) === sheet.sha256;
+    } catch {
+      return false;
+    }
+  });
+  assert.equal(
+    visual.imagesCommitted,
+    committedImagesMatch,
+    "Screenshot commit metadata does not match HEAD contents",
+  );
+  if (visual.humanApproval === "pending user review") {
+    assert.ok(
+      visual.contactSheets.every((sheet) => !/\bapproved\b/i.test(sheet.alt)),
+      "Pending screenshots must not be labeled approved",
+    );
+  }
   for (const sheet of visual.contactSheets) {
     const image = readFileSync(resolveInside(repoRoot, sheet.path));
     assert.equal(
@@ -280,18 +302,59 @@ function validateManifest(manifest) {
 }
 
 function loadBase(manifest) {
-  const raw = execFileSync(
-    "git",
-    ["show", `${manifest.base.commit}:${canonicalPath}`],
-    { cwd: repoRoot, encoding: "utf8", maxBuffer: 32 * 1024 * 1024 },
+  // Reverse the declared patch from the exact candidate; the full-file hash then
+  // proves the frozen baseline without requiring its Git object in shallow CI.
+  const candidateRaw = readFileSync(
+    resolveInside(repoRoot, manifest.base.canonicalPath),
+    "utf8",
   );
+  assert.equal(
+    sha256(candidateRaw),
+    manifest.candidate.canonicalSha256,
+    "Pinned candidate hash changed",
+  );
+  const candidate = readJson(candidateRaw, "Pinned candidate catalogue");
+  assert.ok(
+    Array.isArray(candidate),
+    "Pinned candidate catalogue is not an array",
+  );
+  assert.equal(candidate.length, manifest.base.canonicalCount);
+
+  const data = structuredClone(candidate);
+  const byId = new Map(data.map((record) => [record.id, record]));
+  assert.equal(byId.size, data.length, "Pinned candidate has duplicate IDs");
+  for (const record of [...manifest.records].reverse()) {
+    const target = byId.get(record.id);
+    assert.ok(target, `Pinned candidate is missing ${record.id}`);
+    for (const change of [...record.changes].reverse()) {
+      const current = getPath(target, change.path, record.id);
+      assert.equal(
+        current.present,
+        change.afterPresent,
+        `Candidate presence mismatch at ${record.id}.${change.path.join(".")}`,
+      );
+      if (change.afterPresent) {
+        assert.ok(
+          isDeepStrictEqual(current.value, change.after),
+          `Candidate value mismatch at ${record.id}.${change.path.join(".")}`,
+        );
+      }
+      setPath(
+        target,
+        change.path,
+        change.before,
+        change.beforePresent,
+        record.id,
+      );
+    }
+  }
+
+  const raw = stableJson(data);
   assert.equal(
     sha256(raw),
     manifest.base.canonicalSha256,
-    "Frozen base hash changed",
+    "Reconstructed frozen base hash changed",
   );
-  const data = readJson(raw, "Frozen base catalogue");
-  assert.ok(Array.isArray(data), "Frozen base catalogue is not an array");
   assert.equal(data.length, manifest.base.canonicalCount);
   const ids = data.map((record) => record.id);
   assert.equal(
@@ -374,6 +437,7 @@ function routeObservation(route) {
     ["visibleHighlightsBefore", "visibleHighlightsAfter", "highlights"],
     ["openingHoursBefore", "openingHoursAfter", "opening hours"],
     ["visibleOpeningHoursBefore", "visibleOpeningHoursAfter", "opening hours"],
+    ["visibleParkingBefore", "visibleParkingAfter", "parking"],
     [
       "openingHoursStatusBefore",
       "openingHoursStatusAfter",
@@ -450,7 +514,7 @@ function renderMarkdown(manifest) {
   }
 
   lines.push(
-    `- Matched screenshots: ${manifest.runtimeProbe.visualComparison.matchedBeforeAfterScreenshots} across ${manifest.runtimeProbe.visualComparison.destinations.join(", ")} at ${manifest.runtimeProbe.visualComparison.viewports.join(", ")}. ${manifest.runtimeProbe.visualComparison.agentVisualInspection} Human approval: **${manifest.runtimeProbe.visualComparison.humanApproval}**. ${manifest.runtimeProbe.visualComparison.imagesCommitted ? "Sheets are committed below." : "Sheets are included in the worktree pending user approval."}`,
+    `- Matched screenshots: ${manifest.runtimeProbe.visualComparison.matchedBeforeAfterScreenshots} across ${manifest.runtimeProbe.visualComparison.destinations.join(", ")} at ${manifest.runtimeProbe.visualComparison.viewports.join(", ")}. ${manifest.runtimeProbe.visualComparison.agentVisualInspection} Human approval: **${manifest.runtimeProbe.visualComparison.humanApproval}**. ${manifest.runtimeProbe.visualComparison.imagesCommitted ? "Sheets are committed below." : "Sheets are not yet committed."}`,
     "",
     "## Per-destination results",
     "",
