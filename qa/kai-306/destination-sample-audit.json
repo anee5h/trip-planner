@@ -1,0 +1,2265 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-306",
+  "title": "20-Destination Sample Audit",
+  "auditDate": "2026-10-08",
+  "base": {
+    "repository": "anee5h/trip-planner",
+    "commit": "08b4ee6dca318f0738cf95d3f40caceee412eefd",
+    "canonicalPath": "src/shared/data/destinations-index.json",
+    "canonicalSha256": "d7b24c6830857f13df0a28d7106d3cea47f5784cda6d8c084f4b62422a576c02",
+    "canonicalCount": 1130,
+    "uniqueCount": 1130
+  },
+  "candidate": {
+    "canonicalSha256": "1a7f6fa064cb0bb021c69cc635a39d137389608afca9dd4c1135f316267294ee",
+    "canonicalCount": 1130,
+    "uniqueCount": 1130,
+    "changedRecordCount": 7,
+    "changedIds": [
+      "shinjuku-city",
+      "kyoto-city",
+      "osaka-city",
+      "karuizawa-town",
+      "ueno-park",
+      "kinkaku-ji",
+      "osaka-aquarium-kaiyukan"
+    ],
+    "fieldPathChangeCount": 56
+  },
+  "methodology": {
+    "gateName": "source-backed public-fact gate",
+    "gateDefinition": "PASS means reviewed public identity/kind, core descriptions/highlights, admission interpretation and opening-hours assertions have no known contradiction after repair; explicit unavailable/unknown values pass only when not presented as free, zero, or a verified specific value. This does not certify full planning readiness, image content/licensing, exact coordinates, or route accuracy.",
+    "beforeResult": {
+      "PASS": 2,
+      "FAIL": 18
+    },
+    "afterResult": {
+      "PASS": 8,
+      "FAIL": 12
+    },
+    "nonGoals": [
+      "Do not fill unknown admission, transport, parking or seasonality values with guesses.",
+      "Do not change recommendation, budget or comfort formulas.",
+      "Do not certify routes from the derived estimates.",
+      "Do not validate image subject or licenses by visual inspection in this audit.",
+      "Do not geocode or certify exact coordinate placement.",
+      "Do not update Notion or create follow-up issues.",
+      "Do not treat manifest validation as independent source-truth verification or automatic outcome adjudication."
+    ],
+    "outcomeAdjudication": "PASS/FAIL labels are manually adjudicated row by row against cited source observations and the stated gate. The audit script replays the frozen base-to-candidate edits and checks source references, counts, hashes, and report freshness; it does not re-fetch source pages or mechanically recompute those judgments."
+  },
+  "sourceAccess": {
+    "method": "one-time manual consultation of official operator/municipal/visitor-guide pages; no recurring fetch or source scraping",
+    "checkedOn": "2026-10-08",
+    "robotsAndTerms": "not systematically reviewed for every source; no automation or recurring reuse is authorized by this report",
+    "excludedSources": [
+      {
+        "authority": "Fushimi Inari Taisha",
+        "url": "https://inari.jp/en/",
+        "reusePermission": "not authorized",
+        "observation": "The site footer restricts reuse of its information/images without authorization. It was excluded from evidence used for the revised Fushimi record.",
+        "usedForRevisedPublicFacts": false,
+        "id": "EXCLUDED_FUSHIMI_SITE"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "S01",
+      "authority": "Shinjuku City Office",
+      "url": "https://www.foreign.city.shinjuku.lg.jp/en/introduction/",
+      "observation": "Municipal information identifies Shinjuku City as a Tokyo ward and describes its position among Tokyo’s 23 cities.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S02",
+      "authority": "GO TOKYO / Tokyo Convention & Visitors Bureau",
+      "url": "https://www.gotokyo.org/en/destinations/western-tokyo/shinjuku/index.html",
+      "observation": "Visitor guide describes the Shinjuku district and named observatory features; its around-the-clock wording is not treated as every venue’s schedule.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S03",
+      "authority": "Kyoto City Tourism Association — Kyoto City Official Guide",
+      "url": "https://kyoto.travel/en/discover/",
+      "observation": "Official guide gives Kyoto’s historic-capital context and distinguishes heritage sites within city limits.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S04",
+      "authority": "Osaka Convention & Tourism Bureau",
+      "url": "https://osaka-info.jp/en/",
+      "observation": "Official tourism guide describes Osaka as a major urban and historic economic/cultural center.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S05",
+      "authority": "Odakyu Hakone / Hakone Navi",
+      "url": "https://www.hakonenavi.jp/international/en/destination",
+      "observation": "Official destination guide identifies Lake Ashi, Hakone Shrine, Owakudani and Hakone Open-Air Museum as area features.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S06",
+      "authority": "Hakone Town",
+      "url": "https://www.town.hakone.kanagawa.jp/www/index.html",
+      "observation": "Municipal site identifies Hakone Town and its official address; it does not establish a town-wide visitor schedule.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S07",
+      "authority": "Town of Karuizawa",
+      "url": "https://www.town.karuizawa.lg.jp/page/1194.html",
+      "observation": "Municipal tourism listing identifies Kumoba Pond in Karuizawa and does not assign it a fixed opening schedule.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S08",
+      "authority": "Tokyo Tower — official operator",
+      "url": "https://www.tokyotower.co.jp/fee/",
+      "observation": "Official fee page lists the 150 m Main Deck, 09:00–23:00 hours, 22:30 last admission, and ¥1,500 adult ticket.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S09",
+      "authority": "TOKYO SKYTREE — official operator",
+      "url": "https://en.tokyo-skytree.jp/open-hours/day_hours/",
+      "observation": "Official calendar for 2026-10-05 shows 10:00–22:00 hours, last admission 21:00, and warns hours may change.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S10",
+      "authority": "TOKYO SKYTREE — official operator",
+      "url": "https://en.tokyo-skytree.jp/ticket/",
+      "observation": "Official ticket page identifies the Tembo Deck product and an adult starting price; date-selected fares are not a fixed amount.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S11",
+      "authority": "Meiji Jingu — official shrine site",
+      "url": "https://www.meijijingu.or.jp/en/visit/",
+      "observation": "Official visitor page says grounds are free and gates follow seasonal sunrise/sunset; internal facilities can have shorter hours and separate fees.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S12",
+      "authority": "GO TOKYO / Tokyo Convention & Visitors Bureau",
+      "url": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
+      "observation": "Official Tokyo guide locates Shibuya Scramble Crossing outside Shibuya Station.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S13",
+      "authority": "GO TOKYO / Tokyo Convention & Visitors Bureau",
+      "url": "https://www.gotokyo.org/en/spot/86/index.html",
+      "observation": "Official guide locates the Hachiko Statue near Shibuya Scramble Crossing.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S14",
+      "authority": "Tokyo Metropolitan Park Association",
+      "url": "https://www.tokyo-park.or.jp/park/ueno/index.html",
+      "observation": "Official Tokyo Metropolitan Park Association page states the park is continuously open (常時開園), notes service-center and facility closures during year-end/New Year, directs users to inquire about operating hours, and identifies paid facilities.",
+      "checkedOn": "2026-10-07",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S15",
+      "authority": "Kyoto City and Kyoto City Tourism Association — Kyoto Travel",
+      "url": "https://kyoto.travel/en/destinations/fushimi-inaritaisha-shrine/",
+      "observation": "Official guide identifies Fushimi Inari Taisha as a shrine, describes a hillside path with over 5,000 torii gates and fox statues, and does not list general visitor hours or an admission amount.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S16",
+      "authority": "Shokoku-ji Religious Corporation — official Kinkaku-ji site",
+      "url": "https://www.shokoku-ji.jp/en/kinkakuji/access/",
+      "observation": "Official English access page lists 09:00–17:00 visits year-round, notes hours may change for special exhibitions, and lists 250-car parking, parking hours 08:40–17:10, and passenger-car fees of ¥400 for the first 60 minutes then ¥200 per additional 30 minutes.",
+      "checkedOn": "2026-10-08",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S17",
+      "authority": "Kiyomizu-dera Temple — official site",
+      "url": "https://www.kiyomizudera.or.jp/access.php#worship",
+      "observation": "Official 2026 schedule lists seasonal opening/closing hours; the reviewed page does not state an ordinary general-admission amount.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S18",
+      "authority": "Kiyomizu-dera Temple — official site",
+      "url": "https://www.kiyomizudera.or.jp/faq.php",
+      "observation": "Official FAQ confirms hours vary seasonally and refers users to visitor guidance; it gives no standard fee amount.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S19",
+      "authority": "Kyoto City — official Nijo-jo Castle site",
+      "url": "https://nijo-jocastle.city.kyoto.lg.jp/guide/annai/?lang=en",
+      "observation": "Official site distinguishes 08:45–16:00 entry from 17:00 closure and lists separate tickets for castle and palace.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S20",
+      "authority": "Kyoto City and Kyoto City Tourism Association — Kyoto Travel",
+      "url": "https://kyoto.travel/en/areas/saga-arashiyama/",
+      "observation": "Official area guide identifies the Bamboo Forest and Togetsu-kyo Bridge as Saga/Arashiyama features; the area has no single facility schedule.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S21",
+      "authority": "Osaka Castle Main Tower — official operator",
+      "url": "https://www.osakacastle.net/guide/",
+      "observation": "Official page lists 09:00–18:00 hours, 17:30 last admission, and ¥1,200 general adult Main Tower admission.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S22",
+      "authority": "Osaka Aquarium Kaiyukan — official operator",
+      "url": "https://www.kaiyukan.com/info/ticket/kaiyukan/",
+      "observation": "Official page describes a Pacific Ocean exhibit journey, variable date-based pricing and a calendar; on 2026-10-05 it showed age 16+ admission ¥2,800 and 10:30–20:00 hours.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S23",
+      "authority": "Osaka Convention & Tourism Bureau",
+      "url": "https://osaka-info.jp/en/spot/dotonbori/",
+      "observation": "Official Dotonbori listing describes a shopping/business district and says store business hours vary.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S24",
+      "authority": "The Hakone Open-Air Museum — official operator",
+      "url": "https://www.hakone-oam.or.jp/en/info/",
+      "observation": "Official page lists 09:00–17:00, 16:30 last admission, year-round schedule, adult same-day ¥2,000 and online ¥1,800.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S25",
+      "authority": "The Hakone Open-Air Museum — official collection page",
+      "url": "https://www.hakone-oam.or.jp/en/permanentexhibits/",
+      "observation": "Official collection page describes about 100 outdoor modern/contemporary masterpieces and a Picasso collection exceeding 300 works.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S26",
+      "authority": "Karuizawa Tourist Association",
+      "url": "https://karuizawa-kankokyokai.jp/spot/30092/",
+      "observation": "Official destination listing describes Kyu-Karuizawa Ginza as a roughly 750 m shopping street with bakeries, cafés and eateries.",
+      "checkedOn": "2026-10-05",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    },
+    {
+      "id": "S27",
+      "authority": "Shokoku-ji Religious Corporation — official Kinkaku-ji Japanese access page",
+      "url": "https://www.shokoku-ji.jp/kinkakuji/access/",
+      "observation": "Official Japanese access page lists parking 08:40–17:10; 250 spaces across lots 1–3; passenger-car fees ¥400 for the first 60 minutes and ¥200 per additional 30 minutes; visiting hours 09:00–17:00 year-round.",
+      "checkedOn": "2026-10-08",
+      "method": "manual page/source inspection",
+      "robotsReview": "not systematically assessed",
+      "termsReview": "not systematically assessed",
+      "automationAuthorized": false
+    }
+  ],
+  "summary": {
+    "population": {
+      "canonicalCount": 1130,
+      "uniqueCount": 1130,
+      "recommendationVisibleCount": 1129,
+      "recommendationHiddenCount": 1,
+      "hiddenIds": ["kyoto-historic"]
+    },
+    "baselineAudit": {
+      "planning": {
+        "budget": {
+          "unknown-critical": 15,
+          "partial": 5
+        },
+        "seasonality": {
+          "unknown": 14,
+          "derived": 4,
+          "verified": 2
+        },
+        "logistics": {
+          "partial": 15,
+          "complete": 5
+        },
+        "content": {
+          "complete": 19,
+          "partial": 1
+        },
+        "provenance": {
+          "verified": 19,
+          "unknown": 1
+        }
+      },
+      "derivedRouteEvidence": {
+        "derived": 20
+      },
+      "admissionIncomplete": 54,
+      "emptyEnglishHighlightOverridesInSample": [
+        "kyoto-city",
+        "nijo-castle-kyoto",
+        "osaka-castle",
+        "osaka-city"
+      ]
+    },
+    "currentAudit": {
+      "planning": {
+        "budget": {
+          "unknown-critical": 15,
+          "partial": 5
+        },
+        "seasonality": {
+          "unknown": 14,
+          "derived": 4,
+          "verified": 2
+        },
+        "logistics": {
+          "partial": 13,
+          "complete": 7
+        },
+        "content": {
+          "complete": 19,
+          "partial": 1
+        },
+        "provenance": {
+          "verified": 19,
+          "unknown": 1
+        }
+      },
+      "derivedRouteEvidence": {
+        "derived": 20
+      },
+      "admissionIncomplete": 54,
+      "emptyEnglishHighlightOverridesInSample": [
+        "nijo-castle-kyoto",
+        "osaka-castle"
+      ],
+      "emptyJapaneseHighlightRecords": ["karuizawa-town"],
+      "contentPartialId": "hakone-open-air-museum",
+      "provenanceUnknownId": "karuizawa-town",
+      "sampleSourceBackedHighlights": {
+        "en": 20,
+        "ja": 19
+      },
+      "sampleBrokenRelationships": 0,
+      "sampleWithNearby": 7,
+      "sampleWithRelated": 4,
+      "sampleWithParent": 14
+    },
+    "admissionPopulation": {
+      "before": {
+        "not_applicable": 771,
+        "verified_paid": 238,
+        "variable_price": 54,
+        "verified_free": 38,
+        "unavailable": 29
+      },
+      "after": {
+        "not_applicable": 771,
+        "verified_paid": 238,
+        "variable_price": 54,
+        "verified_free": 38,
+        "unavailable": 29
+      },
+      "currentDebt": {
+        "legacy_unverified_numeric": 0,
+        "numeric_without_provenance": 0,
+        "free_without_evidence": 0,
+        "deprecated_budget_field_authoring": 0
+      },
+      "currentProseConflicts": 0
+    },
+    "kai203": {
+      "generatedDetailCount": 1130,
+      "synchronized": true,
+      "structuralErrorCount": 0,
+      "sampleEmptyEnglishHighlights": 2,
+      "sampleEmptyJapaneseHighlights": 1,
+      "sampleSourceBackedHighlights": {
+        "en": 20,
+        "ja": 19
+      },
+      "sampleBrokenRelationships": 0,
+      "sampleRelationships": {
+        "nearby": 7,
+        "related": 4,
+        "parent": 14
+      }
+    },
+    "kai257": {
+      "catalogueSize": 1130,
+      "totalDefects": 0,
+      "originalSuspiciousRelationshipCount": 74,
+      "genuinelyInvalidRelationshipsRemoved": 73,
+      "legitimateRelationshipsRetained": 24,
+      "ambiguousReviewLedgerCount": 56
+    },
+    "kai285": {
+      "totalRecords": 1130,
+      "incomplete": 54,
+      "deterministicNaCandidates": 391
+    },
+    "images": {
+      "destinationCount": 20,
+      "heroUrlCount": 20,
+      "uniqueHeroUrlCount": 20,
+      "duplicateHeroUrlCount": 0,
+      "imageMetadataPresentCount": 17,
+      "imageMetadataMissingCount": 3,
+      "imageMetadataMissingIds": [
+        "shinjuku-city",
+        "hakone-town",
+        "osaka-castle"
+      ],
+      "visualSubjectCheckedCount": 0,
+      "sourcePageAndLicenseCheckedCount": 0
+    },
+    "coordinates": {
+      "numericCoordinateCount": 20,
+      "exactPositionRegeocodedCount": 0
+    },
+    "modelDerivation": {
+      "changeCount": 0,
+      "models": [],
+      "changedIds": [],
+      "method": "no model changes; baseline model outputs preserved",
+      "validation": "PASS"
+    },
+    "kai219": {
+      "total": 1130,
+      "admissionStates": {
+        "verified_paid": 238,
+        "verified_free": 38,
+        "variable_price": 54,
+        "not_applicable": 771,
+        "unavailable": 29,
+        "absent": 0
+      },
+      "proseConflicts": 0
+    },
+    "imageLocationCoverage": {
+      "sampleRecords": 20,
+      "heroImageUrls": 20,
+      "imageMetadataRecords": 17,
+      "recordsWithCoordinates": 20,
+      "imageVisualVerification": "not performed",
+      "imageRightsReview": "not performed",
+      "coordinateAccuracyReview": "not performed"
+    }
+  },
+  "records": [
+    {
+      "id": "shinjuku-city",
+      "name": "Shinjuku City",
+      "nameJa": "新宿区",
+      "kind": "ward",
+      "sourceRefs": ["S01", "S02"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "PASS",
+      "findingNotes": [],
+      "changes": [
+        {
+          "path": ["content", "en", "description"],
+          "beforePresent": true,
+          "before": "Tokyo's major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.",
+          "afterPresent": true,
+          "after": "Shinjuku City is a central Tokyo ward with the Tokyo Metropolitan Government observatories and visitor areas such as Shinjuku Gyoen and Kabukicho.",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["content", "en", "openingHours"],
+          "beforePresent": true,
+          "before": "09:00 - 17:00",
+          "afterPresent": true,
+          "after": "Hours vary by venue.",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["content", "en", "parking"],
+          "beforePresent": true,
+          "before": "Paid public parking options available nearby.",
+          "afterPresent": true,
+          "after": "Parking options and rules vary by facility.",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["content", "en", "reservation"],
+          "beforePresent": true,
+          "before": "No advance reservation required; tickets available on arrival.",
+          "afterPresent": true,
+          "after": "Reservation and admission requirements vary by venue.",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["content", "ja", "description"],
+          "beforePresent": true,
+          "before": "世界最大の乗降客数を誇る新宿駅を中心に、東京都庁展望室、静寂な新宿御苑、歌舞伎町やゴールデン街などの多彩な顔を持つ大繁華街です。",
+          "afterPresent": true,
+          "after": "新宿区は東京23区のほぼ中央に位置し、東京都庁展望室や新宿御苑、歌舞伎町など多彩な地域を含みます。",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["content", "ja", "highlights"],
+          "beforePresent": true,
+          "before": ["庭園散策", "新宿区の名所", "&散策"],
+          "afterPresent": true,
+          "after": ["東京都庁展望室", "新宿御苑", "歌舞伎町・ゴールデン街"],
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["content", "ja", "openingHours"],
+          "beforePresent": true,
+          "before": "09:00 - 17:00",
+          "afterPresent": true,
+          "after": "各施設の営業時間は施設ごとに異なります。",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["content", "ja", "parking"],
+          "beforePresent": true,
+          "before": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+          "afterPresent": true,
+          "after": "駐車場の条件は施設により異なります。",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["content", "ja", "reservation"],
+          "beforePresent": true,
+          "before": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+          "afterPresent": true,
+          "after": "予約・入場条件は施設により異なります。",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["description"],
+          "beforePresent": true,
+          "before": "Tokyo's major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.",
+          "afterPresent": true,
+          "after": "Shinjuku City is a central Tokyo ward with the Tokyo Metropolitan Government observatories and visitor areas such as Shinjuku Gyoen and Kabukicho.",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["openingHours"],
+          "beforePresent": true,
+          "before": "09:00 - 17:00",
+          "afterPresent": true,
+          "after": "Individual venue hours vary.",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["openingHoursJa"],
+          "beforePresent": true,
+          "before": "09:00 - 17:00",
+          "afterPresent": true,
+          "after": "各施設の営業時間は施設ごとに異なります。",
+          "sourceRefs": ["S01", "S02"]
+        },
+        {
+          "path": ["businessHours"],
+          "beforePresent": true,
+          "before": "Open access",
+          "afterPresent": true,
+          "after": "Individual venue hours vary.",
+          "sourceRefs": ["S01", "S02"]
+        }
+      ],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": ["access_caveat_missing"]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": false,
+        "metadataSourceUrlPresent": false,
+        "licenseFieldPresent": false,
+        "attributionFieldPresent": false,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [],
+      "followUpPath": "src/shared/data/destinations-index.json#shinjuku-city"
+    },
+    {
+      "id": "kyoto-city",
+      "name": "Kyoto City",
+      "nameJa": "京都市",
+      "kind": "city",
+      "sourceRefs": ["S03", "S15", "S16", "S17", "S19", "S20"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "The Japanese highlights remain overridden by EDITORIAL_PILOT and do not display the revised canonical list."
+      ],
+      "changes": [
+        {
+          "path": ["content", "en", "highlights"],
+          "beforePresent": true,
+          "before": [],
+          "afterPresent": true,
+          "after": [
+            "Kinkaku-ji",
+            "Fushimi Inari Taisha",
+            "Kiyomizu-dera",
+            "Arashiyama Bamboo Grove"
+          ],
+          "sourceRefs": ["S03", "S15", "S16", "S17", "S19", "S20"]
+        },
+        {
+          "path": ["content", "en", "openingHours"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": "Hours vary by attraction and facility.",
+          "sourceRefs": ["S03", "S15", "S16", "S17", "S19", "S20"]
+        },
+        {
+          "path": ["content", "ja", "openingHours"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": "市内の観光施設ごとに営業時間が異なります。",
+          "sourceRefs": ["S03", "S15", "S16", "S17", "S19", "S20"]
+        },
+        {
+          "path": ["openingHours"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": "Individual venue hours vary.",
+          "sourceRefs": ["S03", "S15", "S16", "S17", "S19", "S20"]
+        },
+        {
+          "path": ["openingHoursJa"],
+          "beforePresent": true,
+          "before": "09:00 - 17:00 (最終入場 16:30)",
+          "afterPresent": true,
+          "after": "市内の観光施設ごとに営業時間が異なります。",
+          "sourceRefs": ["S03", "S15", "S16", "S17", "S19", "S20"]
+        },
+        {
+          "path": ["businessHours"],
+          "beforePresent": true,
+          "before": "Open access",
+          "afterPresent": true,
+          "after": "Individual venue hours vary.",
+          "sourceRefs": ["S03", "S15", "S16", "S17", "S19", "S20"]
+        }
+      ],
+      "englishHighlightsWereHiddenByEmptyOverride": true,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "partial",
+        "budgetCriticalGap": false,
+        "seasonalityState": "unknown",
+        "logisticsState": "complete",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": []
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "The Japanese highlights remain overridden by EDITORIAL_PILOT and do not display the revised canonical list."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#kyoto-city"
+    },
+    {
+      "id": "osaka-city",
+      "name": "Osaka City",
+      "nameJa": "大阪市",
+      "kind": "city",
+      "sourceRefs": ["S04", "S21", "S23"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "PASS",
+      "findingNotes": [],
+      "changes": [
+        {
+          "path": ["content", "en", "highlights"],
+          "beforePresent": true,
+          "before": [],
+          "afterPresent": true,
+          "after": ["Dotonbori", "Osaka Castle"],
+          "sourceRefs": ["S04", "S21", "S23"]
+        },
+        {
+          "path": ["content", "en", "openingHours"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": "Hours vary by attraction and venue.",
+          "sourceRefs": ["S04", "S21", "S23"]
+        },
+        {
+          "path": ["content", "ja", "openingHours"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": "市内の観光施設ごとに営業時間が異なります。",
+          "sourceRefs": ["S04", "S21", "S23"]
+        },
+        {
+          "path": ["openingHours"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": "Individual venue hours vary.",
+          "sourceRefs": ["S04", "S21", "S23"]
+        },
+        {
+          "path": ["openingHoursJa"],
+          "beforePresent": true,
+          "before": "09:00 - 17:00 (最終入場 16:30)",
+          "afterPresent": true,
+          "after": "市内の観光施設ごとに営業時間が異なります。",
+          "sourceRefs": ["S04", "S21", "S23"]
+        },
+        {
+          "path": ["businessHours"],
+          "beforePresent": true,
+          "before": "Open access",
+          "afterPresent": true,
+          "after": "Individual venue hours vary.",
+          "sourceRefs": ["S04", "S21", "S23"]
+        }
+      ],
+      "englishHighlightsWereHiddenByEmptyOverride": true,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "partial",
+        "budgetCriticalGap": false,
+        "seasonalityState": "unknown",
+        "logisticsState": "complete",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": []
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [],
+      "followUpPath": "src/shared/data/destinations-index.json#osaka-city"
+    },
+    {
+      "id": "hakone-town",
+      "name": "Hakone Town",
+      "nameJa": "箱根",
+      "kind": "town",
+      "sourceRefs": ["S05", "S06", "S24"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "Town-wide 24-hour access and malformed Japanese highlights remain; official sources reviewed do not establish a town-wide schedule."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "complete",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": []
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": false,
+        "metadataSourceUrlPresent": false,
+        "licenseFieldPresent": false,
+        "attributionFieldPresent": false,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "Town-wide 24-hour access and malformed Japanese highlights remain; official sources reviewed do not establish a town-wide schedule."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#hakone-town"
+    },
+    {
+      "id": "karuizawa-town",
+      "name": "Karuizawa Town",
+      "nameJa": "軽井沢町",
+      "kind": "town",
+      "sourceRefs": ["S07"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "PASS",
+      "findingNotes": [],
+      "changes": [
+        {
+          "path": ["openingHours"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": "Individual venue and transport hours vary.",
+          "sourceRefs": ["S07"]
+        },
+        {
+          "path": ["openingHoursJa"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": "施設や交通機関により営業時間が異なります。",
+          "sourceRefs": ["S07"]
+        },
+        {
+          "path": ["businessHours"],
+          "beforePresent": true,
+          "before": "Open access",
+          "afterPresent": true,
+          "after": "Individual venue and transport hours vary.",
+          "sourceRefs": ["S07"]
+        }
+      ],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "unknown",
+        "issueCodes": ["access_caveat_missing"]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [],
+      "followUpPath": "src/shared/data/destinations-index.json#karuizawa-town"
+    },
+    {
+      "id": "tokyo-tower-minato",
+      "name": "Tokyo Tower",
+      "nameJa": "東京タワー",
+      "kind": "tower",
+      "sourceRefs": ["S08"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "Canonical Main Deck schedule still differs from the operator listing (09:00–23:00, last entry 22:30); identity/copy needs follow-up."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "verified_paid",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "partial",
+        "budgetCriticalGap": false,
+        "seasonalityState": "derived",
+        "logisticsState": "complete",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": []
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "Canonical Main Deck schedule still differs from the operator listing (09:00–23:00, last entry 22:30); identity/copy needs follow-up."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#tokyo-tower-minato"
+    },
+    {
+      "id": "tokyo-skytree-sumida",
+      "name": "Tokyo Skytree",
+      "nameJa": "東京スカイツリー",
+      "kind": "tower",
+      "sourceRefs": ["S09", "S10"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "Canonical fixed hours do not match the operator’s date-specific calendar (10:00–22:00, last entry 21:00 on 2026-10-05); copy needs follow-up."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "variable_price",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "derived",
+        "logisticsState": "complete",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": []
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "Canonical fixed hours do not match the operator’s date-specific calendar (10:00–22:00, last entry 21:00 on 2026-10-05); copy needs follow-up."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#tokyo-skytree-sumida"
+    },
+    {
+      "id": "meiji-jingu",
+      "name": "Meiji Jingu",
+      "nameJa": "明治神宮",
+      "kind": "shrine",
+      "sourceRefs": ["S11"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "The canonical 24-hour claim conflicts with the shrine’s seasonal sunrise-to-sunset grounds schedule."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "verified",
+        "logisticsState": "complete",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": []
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "The canonical 24-hour claim conflicts with the shrine’s seasonal sunrise-to-sunset grounds schedule."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#meiji-jingu"
+    },
+    {
+      "id": "shibuya-crossing-hachiko",
+      "name": "Shibuya Crossing and Hachiko",
+      "nameJa": "渋谷スクランブル交差点と忠犬ハチ公像",
+      "kind": "district",
+      "sourceRefs": ["S12", "S13"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "The “world’s busiest” claim and 09:00–17:00 schedule were not established by reviewed official sources."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": ["access_caveat_missing"]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "The “world’s busiest” claim and 09:00–17:00 schedule were not established by reviewed official sources."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#shibuya-crossing-hachiko"
+    },
+    {
+      "id": "ueno-park",
+      "name": "Ueno Park",
+      "nameJa": "上野恩賜公園",
+      "kind": "park",
+      "sourceRefs": ["S14"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "PASS",
+      "findingNotes": [],
+      "changes": [
+        {
+          "path": ["content", "en", "openingHours"],
+          "beforePresent": true,
+          "before": "24 Hours (Open access)",
+          "afterPresent": true,
+          "after": "The park grounds are always open; individual facilities have separate hours.",
+          "sourceRefs": ["S14"]
+        },
+        {
+          "path": ["content", "ja", "highlights"],
+          "beforePresent": true,
+          "before": ["&散策", "上野恩賜公園の名所", "美術館 &散策"],
+          "afterPresent": true,
+          "after": ["桜と不忍池", "上野公園の文化・自然散策"],
+          "sourceRefs": ["S14"]
+        },
+        {
+          "path": ["content", "ja", "openingHours"],
+          "beforePresent": true,
+          "before": "散策自由（24時間開放）",
+          "afterPresent": true,
+          "after": "公園は常時開園（各施設の営業時間は異なります）。",
+          "sourceRefs": ["S14"]
+        },
+        {
+          "path": ["openingHours"],
+          "beforePresent": true,
+          "before": "24 Hours (Open access)",
+          "afterPresent": true,
+          "after": "Park grounds are always open; facilities have separate hours.",
+          "sourceRefs": ["S14"]
+        },
+        {
+          "path": ["openingHoursJa"],
+          "beforePresent": true,
+          "before": "散策自由（24時間開放）",
+          "afterPresent": true,
+          "after": "公園は常時開園（各施設の営業時間は異なります）。",
+          "sourceRefs": ["S14"]
+        },
+        {
+          "path": ["businessHours"],
+          "beforePresent": true,
+          "before": "Open access",
+          "afterPresent": true,
+          "after": "Park grounds are always open; facilities have separate hours.",
+          "sourceRefs": ["S14"]
+        },
+        {
+          "path": ["openingHoursMetadata"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": {
+            "verifiedAt": "2026-10-07",
+            "sourceUrl": "https://www.tokyo-park.or.jp/park/ueno/index.html"
+          },
+          "sourceRefs": ["S14"]
+        }
+      ],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "partial",
+        "budgetCriticalGap": false,
+        "seasonalityState": "unknown",
+        "logisticsState": "complete",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": []
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": []
+    },
+    {
+      "id": "fushimi-inari-taisha",
+      "name": "Fushimi Inari Taisha",
+      "nameJa": "伏見稲荷大社",
+      "kind": "shrine",
+      "sourceRefs": ["S15"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "Canonical kind remains museum although the Kyoto guide identifies a shrine; 24-hour access and general admission were not established."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "unavailable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": [
+          "access_caveat_missing",
+          "personal_car_viability_unknown",
+          "rental_car_viability_unknown"
+        ]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "Canonical kind remains museum although the Kyoto guide identifies a shrine; 24-hour access and general admission were not established."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#fushimi-inari-taisha"
+    },
+    {
+      "id": "kinkaku-ji",
+      "name": "Kinkaku-ji",
+      "nameJa": "鹿苑寺",
+      "kind": "temple",
+      "sourceRefs": ["S16", "S27"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "PASS",
+      "findingNotes": [],
+      "changes": [
+        {
+          "path": ["content", "en", "highlights"],
+          "beforePresent": true,
+          "before": ["History"],
+          "afterPresent": true,
+          "after": ["The Golden Pavilion", "Mirror Pond", "Rokuon-ji Temple"],
+          "sourceRefs": ["S16"]
+        },
+        {
+          "path": ["content", "ja", "highlights"],
+          "beforePresent": true,
+          "before": ["歴史"],
+          "afterPresent": true,
+          "after": ["金閣", "鏡湖池", "鹿苑寺（正式名称）"],
+          "sourceRefs": ["S16"]
+        },
+        {
+          "path": ["highlights"],
+          "beforePresent": true,
+          "before": ["History"],
+          "afterPresent": true,
+          "after": ["The Golden Pavilion", "Mirror Pond", "Rokuon-ji Temple"],
+          "sourceRefs": ["S16"]
+        },
+        {
+          "path": ["editorial", "sources"],
+          "beforePresent": true,
+          "before": [
+            {
+              "type": "wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Kinkaku-ji",
+              "title": "Kinkaku-ji",
+              "accessedAt": "2026-07-29"
+            },
+            {
+              "type": "official",
+              "url": "https://www.shokoku-ji.jp/kinkakuji/",
+              "title": "Kinkaku-ji official website",
+              "accessedAt": "2026-07-29"
+            }
+          ],
+          "afterPresent": true,
+          "after": [
+            {
+              "type": "wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Kinkaku-ji",
+              "title": "Kinkaku-ji",
+              "accessedAt": "2026-07-29"
+            },
+            {
+              "type": "official",
+              "url": "https://www.shokoku-ji.jp/kinkakuji/",
+              "title": "Kinkaku-ji official website",
+              "accessedAt": "2026-07-29"
+            },
+            {
+              "type": "official",
+              "url": "https://www.shokoku-ji.jp/kinkakuji/access/",
+              "title": "アクセス | 金閣寺",
+              "accessedAt": "2026-10-08"
+            }
+          ],
+          "sourceRefs": ["S27"]
+        },
+        {
+          "path": ["editorial", "checkedAt"],
+          "beforePresent": true,
+          "before": "2026-08-13",
+          "afterPresent": true,
+          "after": "2026-10-08",
+          "sourceRefs": ["S27"]
+        },
+        {
+          "path": ["editorial", "fieldSources", "businessHours"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": [
+            {
+              "type": "official",
+              "url": "https://www.shokoku-ji.jp/en/kinkakuji/access/",
+              "title": "ACCESS | Kinkaku-ji (English)",
+              "accessedAt": "2026-10-08"
+            }
+          ],
+          "sourceRefs": ["S16"]
+        },
+        {
+          "path": ["editorial", "fieldSources", "openingHoursJa"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": [
+            {
+              "type": "official",
+              "url": "https://www.shokoku-ji.jp/kinkakuji/access/",
+              "title": "アクセス | 金閣寺",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "type": "official",
+              "url": "https://www.shokoku-ji.jp/en/kinkakuji/access/",
+              "title": "ACCESS | Kinkaku-ji (English)",
+              "accessedAt": "2026-10-08"
+            }
+          ],
+          "sourceRefs": ["S16", "S27"]
+        },
+        {
+          "path": ["editorial", "fieldSources", "parkingJa"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": [
+            {
+              "type": "official",
+              "url": "https://www.shokoku-ji.jp/kinkakuji/access/",
+              "title": "アクセス | 金閣寺",
+              "accessedAt": "2026-10-08"
+            }
+          ],
+          "sourceRefs": ["S27"]
+        },
+        {
+          "path": ["editorial", "changeSummary"],
+          "beforePresent": true,
+          "before": "KAI-89 source-backed template-copy correction",
+          "afterPresent": true,
+          "after": "KAI-306 official opening-hours and parking correction",
+          "sourceRefs": ["S16", "S27"]
+        },
+        {
+          "path": ["editorial", "changes"],
+          "beforePresent": true,
+          "before": [
+            {
+              "changedAt": "2026-08-13",
+              "changedBy": "Meguruto editorial",
+              "summary": "Replaced repeated template description with source-backed destination copy",
+              "method": "assisted"
+            }
+          ],
+          "afterPresent": true,
+          "after": [
+            {
+              "changedAt": "2026-08-13",
+              "changedBy": "Meguruto editorial",
+              "summary": "Replaced repeated template description with source-backed destination copy",
+              "method": "assisted"
+            },
+            {
+              "changedAt": "2026-10-08",
+              "changedBy": "KAI-306 source audit",
+              "summary": "Corrected hours and parking from official access pages; removed unsupported last-admission claim.",
+              "method": "assisted"
+            }
+          ],
+          "sourceRefs": ["S16", "S27"]
+        },
+        {
+          "path": ["businessHours"],
+          "beforePresent": true,
+          "before": "09:00 - 17:00 (Daily)",
+          "afterPresent": true,
+          "after": "09:00–17:00, open all year round; hours may change for special exhibitions.",
+          "sourceRefs": ["S16"]
+        },
+        {
+          "path": ["parkingJa"],
+          "beforePresent": true,
+          "before": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+          "afterPresent": true,
+          "after": "【駐車場】第1・第2・第3駐車場合計250台。利用時間は8:40〜17:10。乗用車は最初の60分400円、以後30分ごとに200円です。",
+          "sourceRefs": ["S27"]
+        },
+        {
+          "path": ["openingHoursJa"],
+          "beforePresent": true,
+          "before": "09:00 - 17:00 (最終入場 16:30)",
+          "afterPresent": true,
+          "after": "09:00〜17:00（年中無休。特別展開催時は時間変更の場合あり）",
+          "sourceRefs": ["S16", "S27"]
+        },
+        {
+          "path": ["openingHoursMetadata"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": {
+            "verifiedAt": "2026-10-07",
+            "sourceUrl": "https://www.shokoku-ji.jp/kinkakuji/access/"
+          },
+          "sourceRefs": ["S27"]
+        }
+      ],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "verified_paid",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": []
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": []
+    },
+    {
+      "id": "kiyomizu-dera",
+      "name": "Kiyomizu-dera Temple",
+      "nameJa": "清水寺",
+      "kind": "temple",
+      "sourceRefs": ["S17", "S18"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "The canonical ¥500 general-admission amount could not be confirmed on the official visitor/FAQ pages reviewed."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "unavailable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "verified",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": [
+          "personal_car_viability_unknown",
+          "rental_car_viability_unknown",
+          "weather_sensitivity_missing"
+        ]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "The canonical ¥500 general-admission amount could not be confirmed on the official visitor/FAQ pages reviewed."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#kiyomizu-dera"
+    },
+    {
+      "id": "nijo-castle-kyoto",
+      "name": "Nijo Castle (Kyoto)",
+      "nameJa": "二条城",
+      "kind": "castle",
+      "sourceRefs": ["S19"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "Source-backed Ninomaru Palace highlights were not applied because generated editorial outputs are kept at their frozen base; English highlight coverage remains incomplete."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": true,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "verified_paid",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": ["access_caveat_missing"]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "Source-backed Ninomaru Palace highlights were not applied because generated editorial outputs are kept at their frozen base; English highlight coverage remains incomplete."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#nijo-castle-kyoto"
+    },
+    {
+      "id": "arashiyama-bamboo-togetsukyo",
+      "name": "Arashiyama Bamboo Grove and Togetsukyo Bridge",
+      "nameJa": "嵐山竹林・渡月橋",
+      "kind": "nature",
+      "sourceRefs": ["S20"],
+      "outcomeBefore": "PASS",
+      "outcomeAfter": "PASS",
+      "findingNotes": [],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": [
+          "personal_car_viability_unknown",
+          "rental_car_viability_unknown",
+          "weather_sensitivity_missing"
+        ]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": false,
+      "unresolvedChecks": []
+    },
+    {
+      "id": "osaka-castle",
+      "name": "Osaka Castle (Osaka-jo)",
+      "nameJa": "大阪城",
+      "kind": "castle",
+      "sourceRefs": ["S21"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "Generic/placeholder highlights remain; the paid Main Tower fee/hours do not describe the whole castle grounds."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": true,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "verified_paid",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "derived",
+        "logisticsState": "complete",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": []
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": false,
+        "metadataSourceUrlPresent": false,
+        "licenseFieldPresent": false,
+        "attributionFieldPresent": false,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "Generic/placeholder highlights remain; the paid Main Tower fee/hours do not describe the whole castle grounds."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#osaka-castle"
+    },
+    {
+      "id": "osaka-aquarium-kaiyukan",
+      "name": "Osaka Aquarium Kaiyukan",
+      "nameJa": "海遊館",
+      "kind": "aquarium",
+      "sourceRefs": ["S22"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "PASS",
+      "findingNotes": [],
+      "changes": [
+        {
+          "path": ["content", "en", "highlights"],
+          "beforePresent": true,
+          "before": ["Aquarium"],
+          "afterPresent": true,
+          "after": ["Pacific Ocean journey and marine habitats"],
+          "sourceRefs": ["S22"]
+        },
+        {
+          "path": ["content", "en", "openingHours"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": "Hours vary by date; check the official calendar.",
+          "sourceRefs": ["S22"]
+        },
+        {
+          "path": ["content", "ja", "highlights"],
+          "beforePresent": true,
+          "before": ["水族館"],
+          "afterPresent": true,
+          "after": ["太平洋をめぐる展示と海洋生物の生息環境"],
+          "sourceRefs": ["S22"]
+        },
+        {
+          "path": ["content", "ja", "openingHours"],
+          "beforePresent": false,
+          "before": null,
+          "afterPresent": true,
+          "after": "営業時間は日付により異なります。公式カレンダーをご確認ください。",
+          "sourceRefs": ["S22"]
+        },
+        {
+          "path": ["highlights"],
+          "beforePresent": true,
+          "before": ["Aquarium"],
+          "afterPresent": true,
+          "after": ["Pacific Ocean journey and marine habitats"],
+          "sourceRefs": ["S22"]
+        },
+        {
+          "path": ["openingHoursJa"],
+          "beforePresent": true,
+          "before": "10:00〜20:00（最終入場 19:00）",
+          "afterPresent": true,
+          "after": "営業時間は日付により異なります。公式カレンダーをご確認ください。",
+          "sourceRefs": ["S22"]
+        },
+        {
+          "path": ["businessHours"],
+          "beforePresent": true,
+          "before": "10:00 - 20:00 (Last admission 19:00)",
+          "afterPresent": true,
+          "after": "Hours vary by date; check the official calendar.",
+          "sourceRefs": ["S22"]
+        }
+      ],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "variable_price",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": [
+          "access_caveat_missing",
+          "personal_car_viability_unknown",
+          "rental_car_viability_unknown"
+        ]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [],
+      "followUpPath": "src/shared/data/destinations-index.json#osaka-aquarium-kaiyukan"
+    },
+    {
+      "id": "dotonbori",
+      "name": "Dotonbori",
+      "nameJa": "道頓堀",
+      "kind": "district",
+      "sourceRefs": ["S23"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "Canonical kind remains museum although the official guide identifies a shopping/entertainment district; no district-wide schedule was established."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": ["access_caveat_missing", "opening_caveat_missing"]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "Canonical kind remains museum although the official guide identifies a shopping/entertainment district; no district-wide schedule was established."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#dotonbori"
+    },
+    {
+      "id": "hakone-open-air-museum",
+      "name": "Hakone Open-Air Museum",
+      "nameJa": "箱根彫刻の森美術館",
+      "kind": "museum",
+      "sourceRefs": ["S24", "S25"],
+      "outcomeBefore": "FAIL",
+      "outcomeAfter": "FAIL",
+      "findingNotes": [
+        "The canonical “120 works” total is unsupported; official museum pages distinguish 2,000+ collection works from about 100 outdoor masterpieces."
+      ],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "variable_price",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "derived",
+        "logisticsState": "partial",
+        "contentIntegrityState": "partial",
+        "provenanceState": "verified",
+        "issueCodes": [
+          "destination_relationships_missing",
+          "personal_car_viability_unknown",
+          "relationships_missing",
+          "rental_car_viability_unknown",
+          "weather_sensitivity_missing"
+        ]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": true,
+      "unresolvedChecks": [
+        "The canonical “120 works” total is unsupported; official museum pages distinguish 2,000+ collection works from about 100 outdoor masterpieces."
+      ],
+      "followUpPath": "src/shared/data/destinations-index.json#hakone-open-air-museum"
+    },
+    {
+      "id": "kyu-karuizawa-ginza",
+      "name": "Kyu-Karuizawa Ginza",
+      "nameJa": "旧軽井沢銀座",
+      "kind": "street",
+      "sourceRefs": ["S26"],
+      "outcomeBefore": "PASS",
+      "outcomeAfter": "PASS",
+      "findingNotes": [],
+      "changes": [],
+      "englishHighlightsWereHiddenByEmptyOverride": false,
+      "englishHighlightsHiddenAfter": false,
+      "admissionState": "not_applicable",
+      "plannerAudit": {
+        "routeEvidence": "derived",
+        "budgetState": "unknown-critical",
+        "budgetCriticalGap": true,
+        "seasonalityState": "unknown",
+        "logisticsState": "partial",
+        "contentIntegrityState": "complete",
+        "provenanceState": "verified",
+        "issueCodes": [
+          "personal_car_viability_unknown",
+          "rental_car_viability_unknown",
+          "weather_sensitivity_missing"
+        ]
+      },
+      "coordinates": {
+        "numericLatLngPresent": true,
+        "exactPositionRegeocoded": false
+      },
+      "image": {
+        "heroUrlPresent": true,
+        "imageMetadataPresent": true,
+        "metadataSourceUrlPresent": true,
+        "licenseFieldPresent": true,
+        "attributionFieldPresent": true,
+        "visualSubjectChecked": false,
+        "sourcePageAndLicenseChecked": false
+      },
+      "fixLinks": false,
+      "unresolvedChecks": []
+    }
+  ],
+  "sampleIds": [
+    "shinjuku-city",
+    "kyoto-city",
+    "osaka-city",
+    "hakone-town",
+    "karuizawa-town",
+    "tokyo-tower-minato",
+    "tokyo-skytree-sumida",
+    "meiji-jingu",
+    "shibuya-crossing-hachiko",
+    "ueno-park",
+    "fushimi-inari-taisha",
+    "kinkaku-ji",
+    "kiyomizu-dera",
+    "nijo-castle-kyoto",
+    "arashiyama-bamboo-togetsukyo",
+    "osaka-castle",
+    "osaka-aquarium-kaiyukan",
+    "dotonbori",
+    "hakone-open-air-museum",
+    "kyu-karuizawa-ginza"
+  ],
+  "scope": {
+    "baselineResult": {
+      "PASS": 2,
+      "FAIL": 18
+    },
+    "finalResult": {
+      "PASS": 8,
+      "FAIL": 12
+    },
+    "sampleIds": [
+      "shinjuku-city",
+      "kyoto-city",
+      "osaka-city",
+      "hakone-town",
+      "karuizawa-town",
+      "tokyo-tower-minato",
+      "tokyo-skytree-sumida",
+      "meiji-jingu",
+      "shibuya-crossing-hachiko",
+      "ueno-park",
+      "fushimi-inari-taisha",
+      "kinkaku-ji",
+      "kiyomizu-dera",
+      "nijo-castle-kyoto",
+      "arashiyama-bamboo-togetsukyo",
+      "osaka-castle",
+      "osaka-aquarium-kaiyukan",
+      "dotonbori",
+      "hakone-open-air-museum",
+      "kyu-karuizawa-ginza"
+    ],
+    "gateDefinition": "PASS means reviewed public identity/kind, core descriptions/highlights, admission interpretation and opening-hours assertions have no known contradiction after repair; explicit unavailable/unknown values pass only when not presented as free, zero, or a verified specific value. This does not certify full planning readiness, image content/licensing, exact coordinates, or route accuracy.",
+    "fullPlanningResult": "FAIL"
+  },
+  "runtimeProbe": {
+    "environment": "Local Vite destination detail page; unauthenticated; not production/provider validation.",
+    "candidateCanonicalSha256": "6e2f3c54d7ad73ea06dffdb18b80d84e6d41d02e0d19c7474c970a1857b4daf3",
+    "baselineCommit": "08b4ee6dca318f0738cf95d3f40caceee412eefd",
+    "routes": [
+      {
+        "id": "shinjuku-city",
+        "locale": "en",
+        "path": "/destinations/shinjuku-city",
+        "visibleDescriptionBefore": "Tokyo’s major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.",
+        "visibleDescriptionAfter": "Shinjuku City is a central Tokyo ward with the Tokyo Metropolitan Government observatories and visitor areas such as Shinjuku Gyoen and Kabukicho.",
+        "result": "PASS",
+        "finding": "The city hub uses shared open-area guidance in both versions; destination-specific businessHours are not displayed as a ward-wide schedule.",
+        "reviewPath": "src/shared/services/recommendation/OpeningHoursPolicy.ts",
+        "visibleOpeningHoursBefore": "Open access; individual facilities may have separate hours",
+        "visibleOpeningHoursAfter": "Open access; individual facilities may have separate hours"
+      },
+      {
+        "id": "kinkaku-ji",
+        "locale": "en",
+        "path": "/destinations/kinkaku-ji",
+        "visibleHighlightsBefore": ["History"],
+        "visibleHighlightsAfter": [
+          "The Golden Pavilion",
+          "Mirror Pond",
+          "Rokuon-ji Temple"
+        ],
+        "result": "PASS",
+        "finding": "The expanded details show source-backed highlights and 09:00–17:00 year-round hours; the official page caveats special-exhibition changes.",
+        "visibleOpeningHoursBefore": "09:00 - 17:00 (Daily)",
+        "visibleOpeningHoursAfter": "09:00–17:00, open all year round; hours may change for special exhibitions."
+      },
+      {
+        "id": "ueno-park",
+        "locale": "ja",
+        "path": "/ja/destinations/ueno-park",
+        "visibleHighlightsBefore": ["上野恩賜公園の名所", "美術館 &散策"],
+        "visibleHighlightsAfter": ["桜と不忍池", "上野公園の文化・自然散策"],
+        "result": "PASS",
+        "finding": "The revised Japanese highlights are visible in the expanded details card and match the official park evidence."
+      },
+      {
+        "id": "osaka-aquarium-kaiyukan",
+        "locale": "ja",
+        "path": "/ja/destinations/osaka-aquarium-kaiyukan",
+        "openingHoursBefore": "10:00〜20:00（最終入場 19:00）",
+        "openingHoursAfter": "営業時間は日付により異なります。公式カレンダーをご確認ください。",
+        "result": "PASS",
+        "finding": "Japanese detail displays date-specific calendar guidance; the English schedule is audited separately."
+      },
+      {
+        "id": "kyoto-city",
+        "locale": "ja",
+        "path": "/ja/destinations/kyoto-city",
+        "visibleHighlightsBefore": ["清水寺・金閣寺", "祇園と町家", "嵐山"],
+        "visibleHighlightsAfter": ["清水寺・金閣寺", "祇園と町家", "嵐山"],
+        "result": "FAIL",
+        "finding": "The Japanese page is overridden by EDITORIAL_PILOT and does not render the revised canonical content.ja.highlights."
+      },
+      {
+        "id": "hakone-open-air-museum",
+        "locale": "en",
+        "path": "/destinations/hakone-open-air-museum",
+        "auditBudgetState": "unknown-critical",
+        "visibleBudgetClaim": "Within your ¥100,000 total budget",
+        "result": "FAIL",
+        "finding": "The detail page asserts the trip fits the total budget while required budget evidence is unknown-critical."
+      },
+      {
+        "id": "kyoto-city",
+        "locale": "en",
+        "path": "/destinations/kyoto-city",
+        "visibleHighlightsBefore": [],
+        "visibleHighlightsAfter": [
+          "Kinkaku-ji",
+          "Fushimi Inari Taisha",
+          "Kiyomizu-dera",
+          "Arashiyama Bamboo Grove"
+        ],
+        "result": "PASS",
+        "finding": "The expanded English practical-information section now renders the four source-backed highlights."
+      },
+      {
+        "id": "osaka-city",
+        "locale": "en",
+        "path": "/destinations/osaka-city",
+        "visibleHighlightsBefore": [],
+        "visibleHighlightsAfter": ["Dotonbori", "Osaka Castle"],
+        "result": "PASS",
+        "finding": "The expanded English practical-information section now renders the two source-backed highlights."
+      },
+      {
+        "id": "ueno-park",
+        "locale": "en",
+        "path": "/destinations/ueno-park",
+        "visibleOpeningHoursBefore": "Open access; individual facilities may have separate hours",
+        "visibleOpeningHoursAfter": "Park grounds are always open; facilities have separate hours.",
+        "result": "PASS",
+        "finding": "The official source states 常時開園; current source metadata supports the park-hours claim and removes the Not yet verified warning.",
+        "openingHoursStatusBefore": "unverified",
+        "openingHoursStatusAfter": "verified"
+      },
+      {
+        "id": "osaka-aquarium-kaiyukan",
+        "locale": "en",
+        "path": "/destinations/osaka-aquarium-kaiyukan",
+        "visibleOpeningHoursBefore": "10:00 - 20:00 (Last admission 19:00)",
+        "visibleOpeningHoursAfter": "Hours vary by date; check the official calendar.",
+        "result": "PASS",
+        "finding": "English detail replaces fixed daily hours with date-specific official-calendar guidance."
+      },
+      {
+        "id": "kinkaku-ji",
+        "locale": "ja",
+        "path": "/ja/destinations/kinkaku-ji",
+        "visibleOpeningHoursBefore": "09:00 - 17:00 (最終入場 16:30)",
+        "visibleOpeningHoursAfter": "09:00〜17:00（年中無休。特別展開催時は時間変更の場合あり）",
+        "visibleParkingBefore": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+        "visibleParkingAfter": "【駐車場】第1・第2・第3駐車場合計250台。利用時間は8:40〜17:10。乗用車は最初の60分400円、以後30分ごとに200円です。",
+        "result": "PASS",
+        "finding": "The Japanese detail uses the corrected parkingJa fallback; the official access page supports its capacity, hours, and fees. The unsupported 16:30 last-admission claim is removed.",
+        "reviewPath": "src/features/destinations/DestinationDetails.tsx"
+      }
+    ],
+    "visualComparison": {
+      "destinations": [
+        "shinjuku-city/en/overview",
+        "kinkaku-ji/en/highlights",
+        "kinkaku-ji/en/opening-hours",
+        "kinkaku-ji/ja/opening-hours",
+        "kinkaku-ji/ja/parking",
+        "ueno-park/ja/highlights",
+        "osaka-aquarium-kaiyukan/ja/overview",
+        "kyoto-city/en/highlights",
+        "osaka-city/en/highlights",
+        "ueno-park/en/opening-hours",
+        "osaka-aquarium-kaiyukan/en/opening-hours"
+      ],
+      "viewports": ["375x812", "768x1024", "1280x900"],
+      "matchedBeforeAfterScreenshots": 66,
+      "sections": "Overview, opening hours, parking, or expanded practical-information highlights, matched by page and viewport",
+      "pageErrors": 0,
+      "offscreenMapTileCancellationsIgnored": "OpenStreetMap tile requests were blocked during screenshot capture; application pageerror count was zero.",
+      "agentVisualInspection": "The refreshed Kinkaku-ji English highlights and hours, Japanese hours, and Japanese parking sheets were checked at mobile, tablet, and desktop widths. The after-state hours sheets show the source-backed verified state, and all inspected captures show no clipping. The user approved the visual/content changes and requested verified-hours metadata before commit.",
+      "humanApproval": "approved",
+      "imagesCommitted": true,
+      "contactSheets": [
+        {
+          "path": "qa/kai-306/visual/shinjuku-city-en-comparison.png",
+          "alt": "Before/after comparison for Shinjuku City Office, English",
+          "sha256": "d9df48ed6512de7cf84ce7d40d1f2b67d89ddae1e044e627c477a88c1617f81c",
+          "bytes": 611397,
+          "width": 1296,
+          "height": 1972
+        },
+        {
+          "path": "qa/kai-306/visual/kinkaku-ji-en-comparison.png",
+          "alt": "Before/after English Kinkaku-ji expanded highlights at mobile, tablet, and desktop sizes.",
+          "sha256": "ec4193836455fd346daa94a5173957944619dd606b308d7bd44d5169f5379c8d",
+          "bytes": 467332,
+          "width": 1296,
+          "height": 1972
+        },
+        {
+          "path": "qa/kai-306/visual/kinkaku-ji-en-hours-comparison.png",
+          "alt": "Before/after English Kinkaku-ji opening hours at mobile, tablet, and desktop sizes.",
+          "sha256": "e4d11862c234de94c499b6a59ccd3b988995a73043e8b888bb67dff829d1e16c",
+          "bytes": 1112939,
+          "width": 1296,
+          "height": 1972
+        },
+        {
+          "path": "qa/kai-306/visual/kinkaku-ji-ja-hours-comparison.png",
+          "alt": "Before/after Japanese Kinkaku-ji opening hours at mobile, tablet, and desktop sizes.",
+          "sha256": "6dcbc5f1d138d25fde19812853eeb02f98b67aec6c1fe1816bb299208d1bb8b1",
+          "bytes": 1078515,
+          "width": 1296,
+          "height": 1972
+        },
+        {
+          "path": "qa/kai-306/visual/kinkaku-ji-ja-parking-comparison.png",
+          "alt": "Before/after Japanese Kinkaku-ji parking details at mobile, tablet, and desktop sizes.",
+          "sha256": "1fa0e5fdb8467cb349d5d70e9b8308529b5225e87b1a934d9d456e440b8ad754",
+          "bytes": 767821,
+          "width": 1296,
+          "height": 1972
+        },
+        {
+          "path": "qa/kai-306/visual/ueno-park-ja-comparison.png",
+          "alt": "Before/after comparison for Ueno Park, Japanese",
+          "sha256": "76b976a3bd3da52118700ce0e9f1dc3763b91c25cb62b717be0ea1d9f47243cb",
+          "bytes": 756984,
+          "width": 1296,
+          "height": 1972
+        },
+        {
+          "path": "qa/kai-306/visual/osaka-aquarium-kaiyukan-ja-comparison.png",
+          "alt": "Before/after comparison for Osaka Aquarium Kaiyukan, Japanese",
+          "sha256": "ef9e2c6e677b7f74571a3392e6557e7376b33ebb6abd58dc0b7344fa88650f2c",
+          "bytes": 606444,
+          "width": 1296,
+          "height": 1972
+        },
+        {
+          "path": "qa/kai-306/visual/kyoto-city-en-comparison.png",
+          "alt": "Before/after English Kyoto City expanded highlights at mobile, tablet, and desktop sizes.",
+          "sha256": "1a35b7fb65a08bdfc9653ae19775fd37f1088edf9ca2fed11b84ee632e5ed271",
+          "bytes": 504482,
+          "width": 1296,
+          "height": 1972
+        },
+        {
+          "path": "qa/kai-306/visual/osaka-city-en-comparison.png",
+          "alt": "Before/after English Osaka City expanded highlights at mobile, tablet, and desktop sizes.",
+          "sha256": "1054a11d1fe775263ea052efa1984f023edaa49572cd4c073e31ecf8ace32114",
+          "bytes": 504377,
+          "width": 1296,
+          "height": 1972
+        },
+        {
+          "path": "qa/kai-306/visual/ueno-park-en-comparison.png",
+          "alt": "Before/after English Ueno Park hours, verified against the current official source, at mobile, tablet, and desktop sizes.",
+          "sha256": "6e39c9d1be9cceaf7564e9920650f3603e555b31015b298094fc84e9ce9a02e4",
+          "bytes": 663482,
+          "width": 1296,
+          "height": 1972
+        },
+        {
+          "path": "qa/kai-306/visual/osaka-aquarium-kaiyukan-en-comparison.png",
+          "alt": "Before/after English Osaka Aquarium Kaiyukan opening hours at mobile, tablet, and desktop sizes.",
+          "sha256": "38a947a65332dfc62915a135eaf8aad76bd587ec27abfb718752e8ba8fcb348c",
+          "bytes": 793085,
+          "width": 1296,
+          "height": 1972
+        }
+      ]
+    }
+  }
+}

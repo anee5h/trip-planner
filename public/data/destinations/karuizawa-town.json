@@ -67,7 +67,7 @@
     "min": 8,
     "max": 12
   },
-  "businessHours": "Open access",
+  "businessHours": "Individual venue and transport hours vary.",
   "municipalityId": "Nagano:karuizawa",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -132,5 +132,7 @@
     "detail": "Canonical arrival Karuizawa Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "openingHours": "Individual venue and transport hours vary.",
+  "openingHoursJa": "施設や交通機関により営業時間が異なります。"
 }

@@ -9,7 +9,7 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
-  "description": "Tokyo's major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.",
+  "description": "Shinjuku City is a central Tokyo ward with the Tokyo Metropolitan Government observatories and visitor areas such as Shinjuku Gyoen and Kabukicho.",
   "highlights": [
     "Shinjuku Gyoen National Garden",
     "Tokyo Metropolitan Government Views",
@@ -68,7 +68,7 @@
     "min": 9,
     "max": 12
   },
-  "businessHours": "Open access",
+  "businessHours": "Individual venue hours vary.",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -107,23 +107,23 @@
   "content": {
     "en": {
       "name": "Shinjuku City",
-      "description": "Tokyo's major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.",
+      "description": "Shinjuku City is a central Tokyo ward with the Tokyo Metropolitan Government observatories and visitor areas such as Shinjuku Gyoen and Kabukicho.",
       "highlights": [
         "Shinjuku Gyoen National Garden",
         "Tokyo Metropolitan Government Views",
         "Golden Gai & Omoide Yokocho"
       ],
-      "reservation": "No advance reservation required; tickets available on arrival.",
-      "parking": "Paid public parking options available nearby.",
-      "openingHours": "09:00 - 17:00"
+      "reservation": "Reservation and admission requirements vary by venue.",
+      "parking": "Parking options and rules vary by facility.",
+      "openingHours": "Hours vary by venue."
     },
     "ja": {
       "name": "新宿区",
-      "description": "世界最大の乗降客数を誇る新宿駅を中心に、東京都庁展望室、静寂な新宿御苑、歌舞伎町やゴールデン街などの多彩な顔を持つ大繁華街です。",
-      "highlights": ["庭園散策", "新宿区の名所", "&散策"],
-      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
-      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-      "openingHours": "09:00 - 17:00"
+      "description": "新宿区は東京23区のほぼ中央に位置し、東京都庁展望室や新宿御苑、歌舞伎町など多彩な地域を含みます。",
+      "highlights": ["東京都庁展望室", "新宿御苑", "歌舞伎町・ゴールデン街"],
+      "reservation": "予約・入場条件は施設により異なります。",
+      "parking": "駐車場の条件は施設により異なります。",
+      "openingHours": "各施設の営業時間は施設ごとに異なります。"
     }
   },
   "ratingMetadata": {
@@ -133,8 +133,8 @@
   },
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "09:00 - 17:00",
-  "openingHoursJa": "09:00 - 17:00",
+  "openingHours": "Individual venue hours vary.",
+  "openingHoursJa": "各施設の営業時間は施設ごとに異なります。",
   "municipalityId": "Tokyo:shinjuku",
   "transportMetadata": {
     "method": "legacy-fallback",

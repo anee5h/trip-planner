@@ -36801,7 +36801,7 @@
       "min": 8,
       "max": 12
     },
-    "businessHours": "Open access",
+    "businessHours": "Individual venue and transport hours vary.",
     "municipalityId": "Nagano:karuizawa",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -36866,7 +36866,9 @@
       "detail": "Canonical arrival Karuizawa Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "openingHours": "Individual venue and transport hours vary.",
+    "openingHoursJa": "施設や交通機関により営業時間が異なります。"
   },
   {
     "id": "kashiya-yokocho",
@@ -40525,14 +40527,18 @@
         "name": "Kinkaku-ji",
         "description": "A Zen temple officially named Rokuon-ji, famous for its gold-leaf Golden Pavilion and recognized as part of the Historic Monuments of Ancient Kyoto.",
         "highlights": [
-          "History"
+          "The Golden Pavilion",
+          "Mirror Pond",
+          "Rokuon-ji Temple"
         ]
       },
       "ja": {
         "name": "鹿苑寺",
         "description": "金閣寺の正式名称は鹿苑寺で、金箔を施した舎利殿・金閣と古都京都の文化財で知られる禅寺です。",
         "highlights": [
-          "歴史"
+          "金閣",
+          "鏡湖池",
+          "鹿苑寺（正式名称）"
         ]
       }
     },
@@ -40567,7 +40573,9 @@
     },
     "description": "A Zen temple officially named Rokuon-ji, famous for its gold-leaf Golden Pavilion and recognized as part of the Historic Monuments of Ancient Kyoto.",
     "highlights": [
-      "History"
+      "The Golden Pavilion",
+      "Mirror Pond",
+      "Rokuon-ji Temple"
     ],
     "transportOptions": {
       "train": 235,
@@ -40650,10 +40658,16 @@
           "url": "https://www.shokoku-ji.jp/kinkakuji/",
           "title": "Kinkaku-ji official website",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.shokoku-ji.jp/kinkakuji/access/",
+          "title": "アクセス | 金閣寺",
+          "accessedAt": "2026-10-08"
         }
       ],
       "reviewedAt": "2026-08-03T00:00:00Z",
-      "checkedAt": "2026-08-13",
+      "checkedAt": "2026-10-08",
       "freshness": "current",
       "fieldSources": {
         "description": [
@@ -40695,14 +40709,50 @@
             "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 60% of 3h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "businessHours": [
+          {
+            "type": "official",
+            "url": "https://www.shokoku-ji.jp/en/kinkakuji/access/",
+            "title": "ACCESS | Kinkaku-ji (English)",
+            "accessedAt": "2026-10-08"
+          }
+        ],
+        "openingHoursJa": [
+          {
+            "type": "official",
+            "url": "https://www.shokoku-ji.jp/kinkakuji/access/",
+            "title": "アクセス | 金閣寺",
+            "accessedAt": "2026-10-08"
+          },
+          {
+            "type": "official",
+            "url": "https://www.shokoku-ji.jp/en/kinkakuji/access/",
+            "title": "ACCESS | Kinkaku-ji (English)",
+            "accessedAt": "2026-10-08"
+          }
+        ],
+        "parkingJa": [
+          {
+            "type": "official",
+            "url": "https://www.shokoku-ji.jp/kinkakuji/access/",
+            "title": "アクセス | 金閣寺",
+            "accessedAt": "2026-10-08"
+          }
         ]
       },
-      "changeSummary": "KAI-89 source-backed template-copy correction",
+      "changeSummary": "KAI-306 official opening-hours and parking correction",
       "changes": [
         {
           "changedAt": "2026-08-13",
           "changedBy": "Meguruto editorial",
           "summary": "Replaced repeated template description with source-backed destination copy",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-10-08",
+          "changedBy": "KAI-306 source audit",
+          "summary": "Corrected hours and parking from official access pages; removed unsupported last-admission claim.",
           "method": "assisted"
         }
       ]
@@ -40712,14 +40762,18 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "09:00–17:00, open all year round; hours may change for special exhibitions.",
     "nearHubs": [
       "kyoto-city"
     ],
     "notesJa": "【見どころ】鹿苑寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
-    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "parkingJa": "【駐車場】第1・第2・第3駐車場合計250台。利用時間は8:40〜17:10。乗用車は最初の60分400円、以後30分ごとに200円です。",
+    "openingHoursJa": "09:00〜17:00（年中無休。特別展開催時は時間変更の場合あり）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-10-07",
+      "sourceUrl": "https://www.shokoku-ji.jp/kinkakuji/access/"
+    },
     "municipalityId": "Kyoto:kyoto",
     "transportMetadata": {
       "method": "legacy-fallback",
@@ -48355,7 +48409,7 @@
       "min": 9,
       "max": 12
     },
-    "businessHours": "Open access",
+    "businessHours": "Individual venue hours vary.",
     "editorial": {
       "rating": 4.8,
       "recommendedDurationMinutes": 90,
@@ -48402,14 +48456,20 @@
     "notesJa": "【見どころ】Kyoto Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "市内の観光施設ごとに営業時間が異なります。",
     "ratingsSchemaVersion": 2,
     "nameJa": "京都市",
     "content": {
       "en": {
         "name": "Kyoto City",
         "description": "Japan's ancient imperial capital, renowned for thousands of classical Buddhist temples, Shinto shrines, traditional wooden machiya, and zen gardens.",
-        "highlights": []
+        "highlights": [
+          "Kinkaku-ji",
+          "Fushimi Inari Taisha",
+          "Kiyomizu-dera",
+          "Arashiyama Bamboo Grove"
+        ],
+        "openingHours": "Hours vary by attraction and facility."
       },
       "ja": {
         "name": "京都市",
@@ -48418,7 +48478,8 @@
           "古都京都の世界遺産群",
           "伏見稲荷大社・千本鳥居",
           "祇園の花街と町家景観"
-        ]
+        ],
+        "openingHours": "市内の観光施設ごとに営業時間が異なります。"
       }
     },
     "municipalityId": "Kyoto:kyoto",
@@ -48481,7 +48542,8 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Kyoto",
     "wikipediaPageId": 37652,
-    "wikidataId": "Q34600"
+    "wikidataId": "Q34600",
+    "openingHours": "Individual venue hours vary."
   },
   {
     "id": "kyoto-historic",
@@ -72636,15 +72698,17 @@
         "name": "Osaka Aquarium Kaiyukan",
         "description": "One of the world’s largest aquariums, presenting Pacific Rim marine life around the enormous Kuroshio tank.",
         "highlights": [
-          "Aquarium"
-        ]
+          "Pacific Ocean journey and marine habitats"
+        ],
+        "openingHours": "Hours vary by date; check the official calendar."
       },
       "ja": {
         "name": "海遊館",
         "description": "海遊館は巨大な「太平洋」水槽を中心に環太平洋の海洋生物を紹介する世界最大級の水族館です。",
         "highlights": [
-          "水族館"
-        ]
+          "太平洋をめぐる展示と海洋生物の生息環境"
+        ],
+        "openingHours": "営業時間は日付により異なります。公式カレンダーをご確認ください。"
       }
     },
     "prefecture": "Osaka",
@@ -72677,7 +72741,7 @@
     },
     "description": "One of the world’s largest aquariums, presenting Pacific Rim marine life around the enormous Kuroshio tank.",
     "highlights": [
-      "Aquarium"
+      "Pacific Ocean journey and marine habitats"
     ],
     "transportOptions": {
       "train": 186,
@@ -72815,14 +72879,14 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "10:00 - 20:00 (Last admission 19:00)",
+    "businessHours": "Hours vary by date; check the official calendar.",
     "nearHubs": [
       "osaka-city"
     ],
     "notesJa": "【見どころ】海遊館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "10:00〜20:00（最終入場 19:00）",
+    "openingHoursJa": "営業時間は日付により異なります。公式カレンダーをご確認ください。",
     "municipalityId": "Osaka:osaka",
     "durationMetadata": {
       "method": "model",
@@ -73509,7 +73573,7 @@
       "min": 9,
       "max": 12
     },
-    "businessHours": "Open access",
+    "businessHours": "Individual venue hours vary.",
     "editorial": {
       "rating": 4.8,
       "recommendedDurationMinutes": 90,
@@ -73564,14 +73628,18 @@
     "notesJa": "【見どころ】Osaka Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "市内の観光施設ごとに営業時間が異なります。",
     "ratingsSchemaVersion": 2,
     "nameJa": "大阪市",
     "content": {
       "en": {
         "name": "Osaka City",
         "description": "Kansai's vibrant commercial metropolis, famous for neon-lit Dotonbori canals, Osaka Castle, street food culture, and warm hospitality.",
-        "highlights": []
+        "highlights": [
+          "Dotonbori",
+          "Osaka Castle"
+        ],
+        "openingHours": "Hours vary by attraction and venue."
       },
       "ja": {
         "name": "大阪市",
@@ -73580,7 +73648,8 @@
           "道頓堀のグリコサインと食い倒れ",
           "大阪城と天守閣",
           "あべのハルカス＆梅田スカイビル"
-        ]
+        ],
+        "openingHours": "市内の観光施設ごとに営業時間が異なります。"
       }
     },
     "municipalityId": "Osaka:osaka",
@@ -73657,7 +73726,8 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka",
     "wikipediaPageId": 52230,
-    "wikidataId": "Q35765"
+    "wikidataId": "Q35765",
+    "openingHours": "Individual venue hours vary."
   },
   {
     "id": "osaka-museum-of-housing-and-living",
@@ -84842,7 +84912,7 @@
     ],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
-    "description": "Tokyo's major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.",
+    "description": "Shinjuku City is a central Tokyo ward with the Tokyo Metropolitan Government observatories and visitor areas such as Shinjuku Gyoen and Kabukicho.",
     "highlights": [
       "Shinjuku Gyoen National Garden",
       "Tokyo Metropolitan Government Views",
@@ -84909,7 +84979,7 @@
       "min": 9,
       "max": 12
     },
-    "businessHours": "Open access",
+    "businessHours": "Individual venue hours vary.",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -84948,27 +85018,27 @@
     "content": {
       "en": {
         "name": "Shinjuku City",
-        "description": "Tokyo's major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.",
+        "description": "Shinjuku City is a central Tokyo ward with the Tokyo Metropolitan Government observatories and visitor areas such as Shinjuku Gyoen and Kabukicho.",
         "highlights": [
           "Shinjuku Gyoen National Garden",
           "Tokyo Metropolitan Government Views",
           "Golden Gai & Omoide Yokocho"
         ],
-        "reservation": "No advance reservation required; tickets available on arrival.",
-        "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "reservation": "Reservation and admission requirements vary by venue.",
+        "parking": "Parking options and rules vary by facility.",
+        "openingHours": "Hours vary by venue."
       },
       "ja": {
         "name": "新宿区",
-        "description": "世界最大の乗降客数を誇る新宿駅を中心に、東京都庁展望室、静寂な新宿御苑、歌舞伎町やゴールデン街などの多彩な顔を持つ大繁華街です。",
+        "description": "新宿区は東京23区のほぼ中央に位置し、東京都庁展望室や新宿御苑、歌舞伎町など多彩な地域を含みます。",
         "highlights": [
-          "庭園散策",
-          "新宿区の名所",
-          "&散策"
+          "東京都庁展望室",
+          "新宿御苑",
+          "歌舞伎町・ゴールデン街"
         ],
-        "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
-        "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "reservation": "予約・入場条件は施設により異なります。",
+        "parking": "駐車場の条件は施設により異なります。",
+        "openingHours": "各施設の営業時間は施設ごとに異なります。"
       }
     },
     "ratingMetadata": {
@@ -84978,8 +85048,8 @@
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00",
+    "openingHours": "Individual venue hours vary.",
+    "openingHoursJa": "各施設の営業時間は施設ごとに異なります。",
     "municipalityId": "Tokyo:shinjuku",
     "transportMetadata": {
       "method": "legacy-fallback",
@@ -100975,20 +101045,19 @@
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
         "parking": "Park parking lot available on site.",
-        "openingHours": "24 Hours (Open access)"
+        "openingHours": "The park grounds are always open; individual facilities have separate hours."
       },
       "ja": {
         "name": "上野恩賜公園",
         "description": "日本初の公立公園。上野動物園、不忍池の蓮、東京国立博物館、国立西洋美術館、春の約800本の桜並木が多くの訪客を迎えます。",
         "highlights": [
-          "&散策",
-          "上野恩賜公園の名所",
-          "美術館 &散策"
+          "桜と不忍池",
+          "上野公園の文化・自然散策"
         ],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "散策自由（24時間開放）"
+        "openingHours": "公園は常時開園（各施設の営業時間は異なります）。"
       }
     },
     "prefecture": "Tokyo",
@@ -101157,12 +101226,12 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access",
+    "businessHours": "Park grounds are always open; facilities have separate hours.",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "Park grounds are always open; facilities have separate hours.",
+    "openingHoursJa": "公園は常時開園（各施設の営業時間は異なります）。",
     "municipalityId": "Tokyo:taito",
     "transportMetadata": {
       "method": "legacy-fallback",
@@ -101228,7 +101297,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Ueno_Park",
     "wikipediaPageId": 626921,
-    "wikidataId": "Q746216"
+    "wikidataId": "Q746216",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-10-07",
+      "sourceUrl": "https://www.tokyo-park.or.jp/park/ueno/index.html"
+    }
   },
   {
     "id": "ueno-taito",
