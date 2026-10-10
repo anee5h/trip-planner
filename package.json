@@ -16,6 +16,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
+    "test:kai-307-smoke": "vitest run src/shared/data/__tests__/kai307DestinationReleaseSmoke.test.ts --maxWorkers=1",
     "test:e2e": "playwright test",
     "check:protected-routes": "node scripts/check-protected-routes.mjs",
     "check:allure-privacy": "node scripts/check-allure-privacy.mjs allure-report",

@@ -30,6 +30,7 @@ const WEIGHTS = {
   "kai-89-data-safety": 389,
   "kai-89-score-surfaces": 196,
   "kai-68-seo": 155,
+  "kai-307-destination-release-smoke": 30,
   "kai-63-bus-eligibility": 142,
   "kai-74-homepage-rails": 106,
   "kai-94-beta-version-email": 81,
@@ -65,7 +66,11 @@ const WEIGHTS = {
 
 const BINS = {
   1: ["kai-89-data-safety"],
-  2: ["kai-89-score-surfaces", "kai-68-seo"],
+  2: [
+    "kai-89-score-surfaces",
+    "kai-68-seo",
+    "kai-307-destination-release-smoke",
+  ],
   3: [
     "kai-63-bus-eligibility",
     "kai-74-homepage-rails",
