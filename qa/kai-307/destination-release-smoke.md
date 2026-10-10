@@ -10,7 +10,7 @@ For each cohort member, the focused suite exercises the production place resolve
 
 Admission checks call the trip-cost engine and preserve semantic states such as verified paid, variable, not applicable, and unavailable. Controlled negative cases prove that unknown admission does not become free or zero, not-applicable admission does not become a free claim, and an invalid generated admission state is detected. Generated detail files are checked for sample identity and admission-state parity. Exact generated-output freshness and idempotency remain owned by the existing `check:catalog-sync` implementation, invoked by `check:catalog-ci` for catalogue-affecting diffs; KAI-307 does not add a second generator or sync mechanism.
 
-Opening-hours checks call the existing resolver and policy with the fixed instant `2026-10-09T12:00:00Z`. They cover verified, date-variable, venue-dependent, and unverified states; stale localized text must not override canonical verified hours, and warnings must track the policy state. These tests use committed data and deterministic fixtures; they do not fetch or crawl official source pages.
+Opening-hours checks call the existing resolver and policy with a deterministic instant derived from each destination's valid `verifiedAt` metadata, advanced by one day. Destinations without verification metadata use the fixed fallback instant `2026-10-09T12:00:00.000Z`. This avoids coupling the regression gate to historical verification dates while keeping policy evaluation deterministic. The checks cover verified, date-variable, venue-dependent, and unverified states; stale localized text must not override canonical verified hours, and warnings must track the policy state. These tests use committed data and deterministic fixtures; they do not fetch or crawl official source pages.
 
 The KAI-306 PASS/FAIL adjudication is not a release predicate. Known unresolved findings remain visible evidence and do not fail this gate solely because a row is not PASS.
 
@@ -24,7 +24,7 @@ The existing weighted Playwright E2E matrix covers five routes in its mobile and
 - Osaka Aquarium Kaiyukan (JA): date-variable hours and variable admission.
 - Tokyo Tower (EN): unverified-hours warning state.
 
-Each case checks route loading, page errors, identity, overview, opening-hours presentation, admission rendering, and section navigation. The browser date and weather response are fixed, all other remote requests are blocked, and local catalogue/detail assets are used. Weather, mapping, and other external services are not test dependencies.
+Each case checks route loading, page errors, identity, overview, opening-hours presentation, admission rendering, and section navigation. The browser clock is deterministic per case, derived from verification metadata where available, with the fixed fallback used otherwise. Weather fixture dates are derived from that case clock; all other remote requests are blocked, and local catalogue/detail assets are used. Weather, mapping, and other external services are not test dependencies.
 
 CI uses the existing PR Checks unit gate and the existing E2E shard manifest. The browser spec is assigned to weighted bin 2; no additional workflow was introduced.
 
