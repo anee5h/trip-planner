@@ -5,19 +5,22 @@ import { expect, test } from "./fixtures";
 
 type SmokeLocale = "en" | "ja";
 type AdmissionState = "not_applicable" | "verified_paid" | "variable_price";
+interface DestinationFixtureRecord {
+  id: string;
+  name: string;
+  nameJa?: string;
+  content?: Partial<Record<SmokeLocale, { name?: string }>>;
+  openingHoursMetadata?: { verifiedAt?: string };
+}
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+const FALLBACK_POLICY_INSTANT = "2026-10-09T12:00:00.000Z";
 const destinationIndex = JSON.parse(
   readFileSync(
     path.join(ROOT, "src/shared/data/destinations-index.json"),
     "utf8",
   ),
-) as Array<{
-  id: string;
-  name: string;
-  nameJa?: string;
-  content?: Partial<Record<SmokeLocale, { name?: string }>>;
-}>;
+) as DestinationFixtureRecord[];
 
 interface RuntimeCase {
   id: string;
@@ -64,12 +67,7 @@ const runtimeCases: RuntimeCase[] = [
   },
 ];
 
-const sourceRecords = destinationIndex as Array<{
-  id: string;
-  name: string;
-  nameJa?: string;
-  content?: Partial<Record<SmokeLocale, { name?: string }>>;
-}>;
+const sourceRecords = destinationIndex;
 
 function expectedName(id: string, locale: SmokeLocale): string {
   const record = sourceRecords.find((candidate) => candidate.id === id);
@@ -81,7 +79,40 @@ function expectedName(id: string, locale: SmokeLocale): string {
   );
 }
 
-async function blockRemoteRequests(page: import("@playwright/test").Page) {
+function isValidIsoDate(value: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const [year, month, day] = value.split("-").map(Number);
+  const parsed = new Date(Date.UTC(year, month - 1, day));
+  return (
+    parsed.getUTCFullYear() === year &&
+    parsed.getUTCMonth() === month - 1 &&
+    parsed.getUTCDate() === day
+  );
+}
+
+function policyInstantFor(id: string): string {
+  const record = sourceRecords.find((candidate) => candidate.id === id);
+  if (!record) throw new Error(`${id}: missing from canonical test fixture`);
+  const verifiedAt = record.openingHoursMetadata?.verifiedAt;
+  if (verifiedAt === undefined) return FALLBACK_POLICY_INSTANT;
+  if (!isValidIsoDate(verifiedAt)) {
+    throw new Error(`${id}: opening-hours verifiedAt is not a valid ISO date`);
+  }
+  const instant = new Date(`${verifiedAt}T12:00:00.000Z`);
+  instant.setUTCDate(instant.getUTCDate() + 1);
+  return instant.toISOString();
+}
+
+function isoDateAfter(instant: string, days: number): string {
+  const date = new Date(instant);
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
+}
+
+async function blockRemoteRequests(
+  page: import("@playwright/test").Page,
+  policyInstant: string,
+) {
   await page.route("**/*", async (route) => {
     const url = new URL(route.request().url());
     if (
@@ -93,7 +124,7 @@ async function blockRemoteRequests(page: import("@playwright/test").Page) {
         contentType: "application/json",
         body: JSON.stringify({
           daily: {
-            time: ["2026-10-10", "2026-10-11", "2026-10-17", "2026-10-18"],
+            time: [1, 2, 8, 9].map((days) => isoDateAfter(policyInstant, days)),
             temperature_2m_max: [21, 22, 20, 19],
             temperature_2m_min: [12, 13, 11, 10],
             weathercode: [1, 2, 3, 61],
@@ -114,10 +145,13 @@ async function blockRemoteRequests(page: import("@playwright/test").Page) {
   });
 }
 
-async function fixBrowserDate(page: import("@playwright/test").Page) {
-  await page.addInitScript(() => {
+async function fixBrowserDate(
+  page: import("@playwright/test").Page,
+  policyInstant: string,
+) {
+  await page.addInitScript((instant: string) => {
     const RealDate = Date;
-    const fixedTime = new RealDate("2026-10-09T12:00:00.000Z").valueOf();
+    const fixedTime = new RealDate(instant).valueOf();
     class FixedDate extends RealDate {
       constructor(...args: unknown[]) {
         if (args.length === 0) super(fixedTime);
@@ -129,7 +163,7 @@ async function fixBrowserDate(page: import("@playwright/test").Page) {
     }
     Object.setPrototypeOf(FixedDate, RealDate);
     window.Date = FixedDate as unknown as DateConstructor;
-  });
+  }, policyInstant);
 }
 
 for (const runtimeCase of runtimeCases) {
@@ -138,8 +172,9 @@ for (const runtimeCase of runtimeCases) {
   }) => {
     const pageErrors: string[] = [];
     page.on("pageerror", (error) => pageErrors.push(error.message));
-    await blockRemoteRequests(page);
-    await fixBrowserDate(page);
+    const policyInstant = policyInstantFor(runtimeCase.id);
+    await blockRemoteRequests(page, policyInstant);
+    await fixBrowserDate(page, policyInstant);
 
     const localePrefix = runtimeCase.locale === "ja" ? "/ja" : "";
     const route = `${localePrefix}/destinations/${encodeURIComponent(runtimeCase.id)}`;

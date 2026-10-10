@@ -32,7 +32,7 @@ const ROOT = path.resolve(
 );
 const SAMPLE_SIZE = 20;
 type RuntimeSummaryRecord = Pick<Destination, "id">;
-const POLICY_NOW = new Date("2026-10-09T12:00:00.000Z");
+const FALLBACK_POLICY_INSTANT = "2026-10-09T12:00:00.000Z";
 const destinations = destinationIndex as unknown as Destination[];
 const liteDestinations =
   destinationIndexLite as unknown as RuntimeSummaryRecord[];
@@ -99,6 +99,19 @@ const PLACEHOLDER_COPY =
   /^(?:n\/a|unknown|tbd|todo|placeholder|undefined|null|lorem ipsum)[.!… ]*$/i;
 const MALFORMED_SEPARATOR = /(?:\|\s*\||,,|;;)/;
 const FIXED_HOURS = /\b\d{1,2}(?::\d{2})?\s*[-–—~〜～]\s*\d{1,2}(?::\d{2})?\b/;
+
+function policyNowFor(destination: Destination): Date {
+  const verifiedAt = destination.openingHoursMetadata?.verifiedAt;
+  if (verifiedAt === undefined) return new Date(FALLBACK_POLICY_INSTANT);
+  if (!isValidIsoDate(verifiedAt)) {
+    throw new Error(
+      `${destination.id}: opening-hours verifiedAt is not a valid ISO date`,
+    );
+  }
+  const now = new Date(`${verifiedAt}T12:00:00.000Z`);
+  now.setUTCDate(now.getUTCDate() + 1);
+  return now;
+}
 
 function countId(records: readonly { id?: unknown }[], id: string): number {
   return records.filter((record) => record.id === id).length;
@@ -294,11 +307,19 @@ function collectDestinationIssues(destination: Destination): string[] {
 
 function collectOpeningHoursPolicyIssues(
   destination: Destination,
-  now = POLICY_NOW,
+  now = policyNowFor(destination),
 ): string[] {
   const id = destination.id;
   const assessment = getOpeningHoursAssessment(destination, now);
   const issues: string[] = [];
+  if (
+    destination.openingHoursMetadata?.verifiedAt &&
+    assessment.status !== "verified"
+  ) {
+    issues.push(
+      `${id}: source-verified opening hours did not resolve as verified`,
+    );
+  }
   if (
     (assessment.status === "unverified" || assessment.status === "stale") &&
     !assessment.requiresWarning
@@ -588,16 +609,47 @@ describe("KAI-307 golden destination release smoke", () => {
     );
   });
 
+  it("derives verified-hours checks from each destination verification date", () => {
+    const kinkaku = recordFor("kinkaku-ji");
+    const refreshedAt = "2035-11-15";
+    const refreshed = {
+      ...kinkaku,
+      openingHoursMetadata: {
+        ...kinkaku.openingHoursMetadata,
+        verifiedAt: refreshedAt,
+      },
+    } as Destination;
+
+    expect(
+      collectOpeningHoursPolicyIssues(
+        refreshed,
+        new Date(FALLBACK_POLICY_INSTANT),
+      ),
+    ).toContain(
+      "kinkaku-ji: source-verified opening hours did not resolve as verified",
+    );
+    expect(collectOpeningHoursPolicyIssues(refreshed)).toEqual([]);
+    const expectedPolicyNow = new Date(`${refreshedAt}T12:00:00.000Z`);
+    expectedPolicyNow.setUTCDate(expectedPolicyNow.getUTCDate() + 1);
+    expect(policyNowFor(refreshed).getTime()).toBe(expectedPolicyNow.getTime());
+  });
+
   it("keeps Kinkaku-ji hours on the verified canonical path", () => {
     const kinkaku = recordFor("kinkaku-ji");
-    const assessment = getOpeningHoursAssessment(kinkaku, POLICY_NOW);
+    const metadata = kinkaku.openingHoursMetadata;
+    const verifiedAt = metadata?.verifiedAt;
     expect(
-      kinkaku.openingHoursMetadata,
+      metadata?.sourceUrl,
       "kinkaku-ji: verified opening-hours metadata missing",
-    ).toMatchObject({
-      sourceUrl: "https://www.shokoku-ji.jp/kinkakuji/access/",
-      verifiedAt: "2026-10-07",
-    });
+    ).toBe("https://www.shokoku-ji.jp/kinkakuji/access/");
+    expect(
+      isValidIsoDate(verifiedAt),
+      "kinkaku-ji: verification date must be valid ISO metadata",
+    ).toBe(true);
+    const assessment = getOpeningHoursAssessment(
+      kinkaku,
+      policyNowFor(kinkaku),
+    );
     expect(
       assessment,
       "kinkaku-ji: verified hours must not show a warning",
@@ -605,8 +657,8 @@ describe("KAI-307 golden destination release smoke", () => {
       status: "verified",
       requiresWarning: false,
       sourceUrl: "https://www.shokoku-ji.jp/kinkakuji/access/",
-      verifiedAt: "2026-10-07",
     });
+    expect(assessment.verifiedAt).toBe(verifiedAt);
     expect(getLocalizedOpeningHours(kinkaku, "en")).toMatch(/09:00–17:00/);
     expect(getLocalizedOpeningHours(kinkaku, "ja")).toMatch(/09:00〜17:00/);
     expect(
@@ -618,7 +670,7 @@ describe("KAI-307 golden destination release smoke", () => {
       openingHoursMetadata: undefined,
     } as Destination;
     expect(
-      getOpeningHoursAssessment(withoutMetadata, POLICY_NOW),
+      getOpeningHoursAssessment(withoutMetadata, policyNowFor(withoutMetadata)),
       "kinkaku-ji: removing verified metadata must restore the warning",
     ).toMatchObject({
       status: "unverified",
@@ -652,7 +704,15 @@ describe("KAI-307 golden destination release smoke", () => {
 
   it("keeps Kaiyukan date-variable hours from collapsing into a fixed schedule", () => {
     const kaiyukan = recordFor("osaka-aquarium-kaiyukan");
-    const assessment = getOpeningHoursAssessment(kaiyukan, POLICY_NOW);
+    const verifiedAt = kaiyukan.openingHoursMetadata?.verifiedAt;
+    expect(
+      isValidIsoDate(verifiedAt),
+      "osaka-aquarium-kaiyukan: verification date must be valid ISO metadata",
+    ).toBe(true);
+    const assessment = getOpeningHoursAssessment(
+      kaiyukan,
+      policyNowFor(kaiyukan),
+    );
     const englishHours = getLocalizedOpeningHours(kaiyukan, "en") ?? "";
     const japaneseHours = getLocalizedOpeningHours(kaiyukan, "ja") ?? "";
     expect(
@@ -682,7 +742,10 @@ describe("KAI-307 golden destination release smoke", () => {
   it("preserves hub, verified, and unknown opening-hours trust states", () => {
     for (const id of ["shinjuku-city", "kyoto-city", "osaka-city"]) {
       const destination = recordFor(id);
-      const assessment = getOpeningHoursAssessment(destination, POLICY_NOW);
+      const assessment = getOpeningHoursAssessment(
+        destination,
+        policyNowFor(destination),
+      );
       const localizedHours = `${getLocalizedOpeningHours(destination, "en") ?? ""} ${getLocalizedOpeningHours(destination, "ja") ?? ""}`;
       expect(
         assessment,
@@ -702,24 +765,30 @@ describe("KAI-307 golden destination release smoke", () => {
     }
 
     const ueno = recordFor("ueno-park");
+    const uenoMetadata = ueno.openingHoursMetadata;
     expect(
-      ueno.openingHoursMetadata,
+      uenoMetadata?.sourceUrl,
       "ueno-park: verified opening-hours metadata missing",
-    ).toMatchObject({
-      sourceUrl: "https://www.tokyo-park.or.jp/park/ueno/index.html",
-      verifiedAt: "2026-10-07",
-    });
+    ).toBe("https://www.tokyo-park.or.jp/park/ueno/index.html");
     expect(
-      getOpeningHoursAssessment(ueno, POLICY_NOW),
+      isValidIsoDate(uenoMetadata?.verifiedAt),
+      "ueno-park: verification date must be valid ISO metadata",
+    ).toBe(true);
+    const uenoAssessment = getOpeningHoursAssessment(ueno, policyNowFor(ueno));
+    expect(
+      uenoAssessment,
       "ueno-park: valid verified metadata must not show a warning",
     ).toMatchObject({
       status: "verified",
       requiresWarning: false,
+      sourceUrl: "https://www.tokyo-park.or.jp/park/ueno/index.html",
     });
+    expect(uenoAssessment.verifiedAt).toBe(uenoMetadata?.verifiedAt);
 
+    const unknownDestination = recordFor("tokyo-tower-minato");
     const unknown = getOpeningHoursAssessment(
-      recordFor("tokyo-tower-minato"),
-      POLICY_NOW,
+      unknownDestination,
+      policyNowFor(unknownDestination),
     );
     expect(
       unknown,
