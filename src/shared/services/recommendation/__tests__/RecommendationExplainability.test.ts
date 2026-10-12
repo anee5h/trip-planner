@@ -61,7 +61,10 @@ const baseDest = {
 describe("RecommendationExplainability Unit Tests", () => {
   it("derives a compact straddling warning from the canonical classifier", () => {
     const reason = createBudgetMayExceedReason(
-      { total: { kind: "bounded", min: 18000, max: 24000 } },
+      {
+        total: { kind: "bounded", min: 18000, max: 24000 },
+        estimateQuality: "estimated",
+      },
       20000,
     );
 
@@ -73,7 +76,10 @@ describe("RecommendationExplainability Unit Tests", () => {
     expect(reason?.description).toContain("¥20,000");
     expect(
       createBudgetMayExceedReason(
-        { total: { kind: "bounded", min: 12000, max: 18000 } },
+        {
+          total: { kind: "bounded", min: 12000, max: 18000 },
+          estimateQuality: "estimated",
+        },
         20000,
       ),
     ).toBeUndefined();
@@ -138,13 +144,30 @@ describe("RecommendationExplainability Unit Tests", () => {
     const match = createRecommendationMatch(baseDest, context, 85);
     expect(match.confidence).toBe(71);
     expect(match.reasons.length).toBeGreaterThan(0);
-    // The range-first engine can now make the within-budget claim even when
-    // the total includes clearly labelled modeled components; transport
-    // remains present as a separate explanation.
-    expect(match.reasons[0].title).toBe("Within Budget");
     expect(
       match.reasons.some((reason) => reason.title === "Fast Train Access"),
     ).toBe(false);
+  });
+
+  it("does not call a rough bounded estimate within budget", () => {
+    const match = createRecommendationMatch(
+      baseDest,
+      {
+        tripType: "any",
+        budget: 15000,
+        carMode: "none",
+        publicModes: ["train"],
+        partySize: 1,
+        currentWeatherCondition: "any",
+        visitedIds: [],
+        homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+      },
+      85,
+    );
+
+    expect(match.reasons.some((reason) => reason.code === "budgetWithin")).toBe(
+      false,
+    );
   });
 
   it("explains weather from the current recommendation context", () => {

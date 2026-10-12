@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "./fixtures";
+import AxeBuilder from "@axe-core/playwright";
 
 /**
  * KAI-279: budget is an explicit whole-trip party-total yen constraint that
@@ -414,4 +415,41 @@ test("KAI-279: Economy preset carries its visible ¥50,000 party-total into Expl
   // Applied Economy preset is visibly selected with its numeric party-total
   // semantics inside the budget modal (visible on both viewports).
   await assertEconomyPresetOnExplore(page);
+});
+
+test("PR A: Hakone keeps its estimate but discloses uncertain affordability in EN and JA", async ({
+  page,
+}) => {
+  for (const [path, expected] of [
+    [
+      "/destinations/hakone-open-air-museum",
+      "Budget fit uncertain — some required costs are unavailable",
+    ],
+    [
+      "/ja/destinations/hakone-open-air-museum",
+      "予算内か不明 — 必須費用の一部が利用できません",
+    ],
+  ] as const) {
+    await page.goto(path);
+    const note = page.getByTestId("budget-fit-note");
+    await expect(note).toBeVisible();
+    await expect(note).toContainText(expected);
+    await expect(note).not.toContainText(/Within your|予算内に収まる見込み/);
+
+    const breakdown = page.getByTestId("trip-cost-breakdown");
+    await expect(breakdown).toBeVisible();
+    await expect(breakdown).toContainText("¥");
+    const a11y = await new AxeBuilder({ page })
+      .include('[data-testid="budget-fit-note"]')
+      .withTags([
+        "wcag2a",
+        "wcag21a",
+        "wcag22a",
+        "wcag2aa",
+        "wcag21aa",
+        "wcag22aa",
+      ])
+      .analyze();
+    expect(a11y.violations).toEqual([]);
+  }
 });

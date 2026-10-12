@@ -1004,12 +1004,20 @@ function qualityFor(components: readonly TripCostComponent[]): EstimateQuality {
       item.evidence.reason === "insufficient_model_evidence",
   );
 
+  const hasUnresolvedRequiredLocalTransport = components.some(
+    (item) =>
+      item.evidence.scope === "local_transport" &&
+      item.evidence.derivation === "model_estimate" &&
+      item.evidence.reason === "insufficient_model_evidence",
+  );
+
   // Deterministic profiles (including meals) are intentionally modeled but
-  // usable. Reserve rough for broad source-missing fallbacks or non-bounded
-  // required components rather than making every estimate look equally weak.
+  // usable. A bounded local profile cannot replace missing required access
+  // evidence for an affordability decision, though its range remains useful.
   return components.some(
     (item) =>
       hasBroadOriginModel ||
+      hasUnresolvedRequiredLocalTransport ||
       item.evidence.reason === "source_missing" ||
       (item.evidence.scope === "admission" &&
         item.evidence.reason === "insufficient_model_evidence"),
@@ -1164,11 +1172,22 @@ export function calculateTripEstimate(
 /** @deprecated Use calculateTripEstimate / TripEstimateEngine. */
 export const calculateTripCost = calculateTripEstimate;
 
+export type AffordabilityEstimate = Pick<
+  TripEstimateResult,
+  "total" | "estimateQuality"
+>;
+
 export function evaluateAffordability(
-  result: Pick<TripEstimateResult, "total">,
+  result: AffordabilityEstimate,
   budget: number | undefined,
 ): "fits" | "may_exceed" | "over" | "unknown" {
-  if (!finiteNonNegative(budget) || !result.total) return "unknown";
+  if (
+    !finiteNonNegative(budget) ||
+    !result.total ||
+    result.estimateQuality === "rough"
+  ) {
+    return "unknown";
+  }
   if (budget >= result.total.max) return "fits";
   if (budget >= result.total.min) return "may_exceed";
   return "over";
@@ -1182,11 +1201,11 @@ export function evaluateAffordability(
  * transport cost is unknown and `total` is absent) — a partial estimate must
  * not be treated as definitively unaffordable. Three-state + unknown:
  *
- *   fits     complete total bounded AND max <= ceiling
+ *   fits     complete bounded total with usable evidence AND max <= ceiling
  *   exceeds  complete total bounded AND max > ceiling, OR the known subtotal
  *            minimum already proves the trip cannot fit the ceiling
- *   partial  no complete total, but the bounded known subtotal does NOT prove
- *            over-budget (retain; never claim it fits)
+ *   partial  rough bounded total, or no complete total but the bounded known
+ *            subtotal does NOT prove over-budget (retain; never claim it fits)
  *   unknown  completeness unavailable (no meaningful bounded cost) — callers
  *            keep their restricted-tier unknown policy
  *
@@ -1196,12 +1215,16 @@ export type ExploreAffordabilityState =
   "fits" | "partial" | "exceeds" | "unknown";
 
 export function evaluateBudgetAffordability(
-  result: Pick<TripEstimateResult, "total" | "knownSubtotal" | "completeness">,
+  result: Pick<
+    TripEstimateResult,
+    "total" | "knownSubtotal" | "completeness" | "estimateQuality"
+  >,
   budget: number | undefined,
 ): ExploreAffordabilityState {
   if (!finiteNonNegative(budget)) return "unknown";
   if (result.completeness === "unavailable") return "unknown";
   if (result.total) {
+    if (result.estimateQuality === "rough") return "partial";
     return budget >= result.total.max ? "fits" : "exceeds";
   }
   // Partial estimate: keep only what the KNOWN bounded subtotal can prove.

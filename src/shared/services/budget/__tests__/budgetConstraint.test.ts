@@ -185,10 +185,14 @@ describe("KAI-279 review regression: affordability follows the ACTIVE mode", () 
   function complete(min: number, max: number) {
     return {
       total: { kind: "bounded" as const, min, max },
+      estimateQuality: "estimated" as const,
     };
   }
   function partial() {
-    return { total: undefined as undefined };
+    return {
+      total: undefined as undefined,
+      estimateQuality: "rough" as const,
+    };
   }
 
   it("selected Personal Car partial -> UNCERTAIN even though Train fits the cap", () => {

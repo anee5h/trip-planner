@@ -20,7 +20,7 @@ import {
 } from "@/shared/services/budget/budgetConstraint";
 import {
   calculateTripEstimate,
-  type TripEstimateResult,
+  type AffordabilityEstimate,
 } from "@/shared/services/budget/tripEstimateEngine";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import {
@@ -135,7 +135,7 @@ export function getPrimaryDisplayReason(
  * canonical budget classifier. This does not change recommendation eligibility.
  */
 export function createBudgetMayExceedReason(
-  estimate: Pick<TripEstimateResult, "total"> | undefined,
+  estimate: AffordabilityEstimate | undefined,
   cap: number | undefined,
 ): MatchReason | undefined {
   if (classifyBudgetFit(estimate, cap) !== "may_exceed" || !estimate?.total) {
@@ -180,7 +180,7 @@ export function createRecommendationMatch(
   // 1. Budget and Transport Explainability
   let bestMode = validModesForDest[0];
   let bestModeBudget: PriceRange | undefined;
-  let bestModeMayExceed: PriceRange | undefined;
+  let bestModeMayExceed: AffordabilityEstimate | undefined;
   let hasFastTrain = false;
   const modeEstimates = new Map<
     string,
@@ -189,8 +189,8 @@ export function createRecommendationMatch(
 
   for (const mode of validModesForDest) {
     let estimatedBudget: PriceRange | undefined;
-    // A bounded canonical estimate can support an affordability reason even
-    // when one or more ingredients are model-derived.
+    // Only the shared affordability decision can support a positive reason;
+    // modeled ranges remain available without overstating incomplete evidence.
     const engineResult = calculateTripEstimate({
       dest,
       mode,
@@ -208,17 +208,20 @@ export function createRecommendationMatch(
     if (
       budgetFit === "may_exceed" &&
       engineResult.total &&
-      (!bestModeMayExceed || engineResult.total.max < bestModeMayExceed[1])
+      (!bestModeMayExceed?.total ||
+        engineResult.total.max < bestModeMayExceed.total.max)
     ) {
-      bestModeMayExceed = [engineResult.total.min, engineResult.total.max];
+      bestModeMayExceed = {
+        total: engineResult.total,
+        estimateQuality: engineResult.estimateQuality,
+      };
     }
-    if (engineResult.total && engineResult.total.max <= budget) {
+    if (budgetFit === "within" && engineResult.total) {
       estimatedBudget = [engineResult.total.min, engineResult.total.max];
     }
 
     if (
       estimatedBudget &&
-      estimatedBudget[1] <= budget &&
       (!bestModeBudget || estimatedBudget[1] < bestModeBudget[1])
     ) {
       bestModeBudget = estimatedBudget;
@@ -264,42 +267,31 @@ export function createRecommendationMatch(
 
   // Budget Reason
   if (bestModeBudget) {
-    if (bestModeBudget && bestModeBudget[1] <= budget) {
-      matchedPreferences.push("budget");
-      if (budget - bestModeBudget[1] >= 5000) {
-        const cost = formatJPYRange(bestModeBudget);
-        reasons.push({
-          type: "Budget",
-          code: "budgetGreatValue",
-          params: { cost },
-          title: "Great Value",
-          description: `Well under budget (estimated ${cost})`,
-        });
-      } else {
-        const cost = formatJPYRange(bestModeBudget);
-        reasons.push({
-          type: "Budget",
-          code: "budgetWithin",
-          params: { cost },
-          title: "Within Budget",
-          description: `Estimated ${cost} is within your range`,
-        });
-      }
+    matchedPreferences.push("budget");
+    if (budget - bestModeBudget[1] >= 5000) {
+      const cost = formatJPYRange(bestModeBudget);
+      reasons.push({
+        type: "Budget",
+        code: "budgetGreatValue",
+        params: { cost },
+        title: "Great Value",
+        description: `Well under budget (estimated ${cost})`,
+      });
     } else {
-      unmatchedPreferences.push("budget");
+      const cost = formatJPYRange(bestModeBudget);
+      reasons.push({
+        type: "Budget",
+        code: "budgetWithin",
+        params: { cost },
+        title: "Within Budget",
+        description: `Estimated ${cost} is within your range`,
+      });
     }
   } else if (bestModeMayExceed) {
-    const reason = createBudgetMayExceedReason(
-      {
-        total: {
-          kind: "bounded",
-          min: bestModeMayExceed[0],
-          max: bestModeMayExceed[1],
-        },
-      },
-      budget,
-    );
+    const reason = createBudgetMayExceedReason(bestModeMayExceed, budget);
     if (reason) reasons.push(reason);
+  } else {
+    unmatchedPreferences.push("budget");
   }
 
   // Transport Reasons — minutes come from the same origin-aware estimate
