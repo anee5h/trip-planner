@@ -416,7 +416,10 @@ export function calculateScore(
         affordability === "over"
           ? engineResult.total.min
           : engineResult.total.max;
-      if (affordability === "fits") {
+      // Ranking may use a bounded estimate as a soft preference even when its
+      // evidence quality is rough. User-facing affordability verdicts remain
+      // gated by evaluateAffordability at their canonical decision boundaries.
+      if (engineResult.total.max <= budget) {
         budgetScore += Math.min(
           SCORING_WEIGHTS.BUDGET_UNDER_BONUS_MAX,
           (budget - engineResult.total.max) /

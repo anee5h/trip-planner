@@ -268,16 +268,19 @@ describe("RecommendationService Unit Tests", () => {
     );
 
     const ids = results.map((r) => r.id);
-    // The strict budget policy retains a bounded range that straddles the
-    // ceiling and surfaces it as an affordability warning; only a definite
-    // source-backed overage is excluded.
+    // Required local-access evidence is incomplete, so preserve the bounded
+    // straddling range without turning it into a definitive budget claim.
     const hokkaido = results.find((r) => r.id === "hokkaido-far");
     expect(hokkaido).toBeDefined();
+    expect(hokkaido?.estimatedCostRange?.[0]).toBeLessThan(40000);
     expect(hokkaido?.estimatedCostRange?.[1]).toBeGreaterThan(40000);
-    expect(ids).toContain("kamakura-history");
+    expect(hokkaido?.estimatedCostQuality).toBe("rough");
     expect(
-      results.some((result) => result.estimatedCostQuality === "estimated"),
-    ).toBe(true);
+      hokkaido?.match.reasons.some((reason) =>
+        ["budgetGreatValue", "budgetWithin"].includes(reason.code),
+      ),
+    ).toBe(false);
+    expect(ids).toContain("kamakura-history");
   });
 
   it("excludes already visited destination IDs when provided", () => {
