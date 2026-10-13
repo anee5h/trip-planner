@@ -5,6 +5,8 @@ import {
   createRecommendationMatch,
   getPrimaryDisplayReason,
 } from "../RecommendationExplainability";
+import { calculateScore } from "../RecommendationScorer";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import type { MatchReason } from "../RecommendationTypes";
 import type { Destination } from "@/shared/types/destination";
 
@@ -58,10 +60,41 @@ const baseDest = {
   season: { spring: 5, summer: 5, autumn: 5, winter: 5 },
 } as unknown as Destination;
 
+const testOrigin = { lat: 35.6812, lng: 139.7671 };
+const budgetContext = (budget: number) => ({
+  tripType: "any",
+  budget,
+  carMode: "none",
+  publicModes: ["train"],
+  partySize: 1,
+  visitedIds: [],
+  homeStationCoords: testOrigin,
+});
+const unknownTransportDest = {
+  ...baseDest,
+  localTransport: {
+    kind: "unavailable",
+    reason: "fare_not_found",
+    detail: "No verified local fare is available.",
+  },
+} as Destination;
+const completeCostDest = {
+  ...baseDest,
+  admissionApplicability: "not_applicable",
+  localTransport: {
+    kind: "verified_walking",
+    walkingEvidence:
+      "The official destination guide confirms pedestrian access.",
+  },
+} as Destination;
+
 describe("RecommendationExplainability Unit Tests", () => {
   it("derives a compact straddling warning from the canonical classifier", () => {
     const reason = createBudgetMayExceedReason(
-      { total: { kind: "bounded", min: 18000, max: 24000 } },
+      {
+        total: { kind: "bounded", min: 18000, max: 24000 },
+        estimateQuality: "estimated",
+      },
       20000,
     );
 
@@ -73,7 +106,10 @@ describe("RecommendationExplainability Unit Tests", () => {
     expect(reason?.description).toContain("¥20,000");
     expect(
       createBudgetMayExceedReason(
-        { total: { kind: "bounded", min: 12000, max: 18000 } },
+        {
+          total: { kind: "bounded", min: 12000, max: 18000 },
+          estimateQuality: "estimated",
+        },
         20000,
       ),
     ).toBeUndefined();
@@ -138,13 +174,130 @@ describe("RecommendationExplainability Unit Tests", () => {
     const match = createRecommendationMatch(baseDest, context, 85);
     expect(match.confidence).toBe(71);
     expect(match.reasons.length).toBeGreaterThan(0);
-    // The range-first engine can now make the within-budget claim even when
-    // the total includes clearly labelled modeled components; transport
-    // remains present as a separate explanation.
-    expect(match.reasons[0].title).toBe("Within Budget");
     expect(
       match.reasons.some((reason) => reason.title === "Fast Train Access"),
     ).toBe(false);
+  });
+
+  it("does not call a rough bounded estimate within budget", () => {
+    const match = createRecommendationMatch(
+      baseDest,
+      {
+        tripType: "any",
+        budget: 15000,
+        carMode: "none",
+        publicModes: ["train"],
+        partySize: 1,
+        currentWeatherCondition: "any",
+        visitedIds: [],
+        homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+      },
+      85,
+    );
+
+    expect(match.reasons.some((reason) => reason.code === "budgetWithin")).toBe(
+      false,
+    );
+    expect(
+      match.reasons.some((reason) => reason.code === "budgetGreatValue"),
+    ).toBe(false);
+    expect(match.matchedPreferences).not.toContain("budget");
+    expect(match.unmatchedPreferences).not.toContain("budget");
+  });
+
+  it("keeps Any budget neutral in preference metadata", () => {
+    const contexts = [
+      budgetContext(0),
+      {
+        ...budgetContext(Number.POSITIVE_INFINITY),
+        budgetTier: "luxury" as const,
+      },
+    ];
+
+    for (const context of contexts) {
+      const match = createRecommendationMatch(baseDest, context, 85);
+
+      expect(match.matchedPreferences).not.toContain("budget");
+      expect(match.unmatchedPreferences).not.toContain("budget");
+      expect(
+        match.reasons.some((reason) =>
+          ["budgetGreatValue", "budgetWithin"].includes(reason.code),
+        ),
+      ).toBe(false);
+    }
+  });
+
+  it("keeps an unknown required transport cost neutral", () => {
+    const match = createRecommendationMatch(
+      unknownTransportDest,
+      budgetContext(15000),
+      85,
+    );
+
+    expect(match.matchedPreferences).not.toContain("budget");
+    expect(match.unmatchedPreferences).not.toContain("budget");
+    expect(
+      match.reasons.some((reason) =>
+        ["budgetGreatValue", "budgetWithin"].includes(reason.code),
+      ),
+    ).toBe(false);
+  });
+
+  it("marks a complete non-rough over-budget estimate as unmatched", () => {
+    const match = createRecommendationMatch(
+      completeCostDest,
+      budgetContext(1),
+      85,
+    );
+
+    expect(match.unmatchedPreferences).toContain("budget");
+    expect(match.matchedPreferences).not.toContain("budget");
+  });
+
+  it("marks a complete affordable estimate as a matched budget preference", () => {
+    const match = createRecommendationMatch(
+      completeCostDest,
+      budgetContext(100000),
+      85,
+    );
+
+    expect(match.matchedPreferences).toContain("budget");
+    expect(match.unmatchedPreferences).not.toContain("budget");
+    expect(
+      match.reasons.some((reason) =>
+        ["budgetGreatValue", "budgetWithin"].includes(reason.code),
+      ),
+    ).toBe(true);
+  });
+
+  it("lets a rough estimate influence ranking without emitting a budget verdict", () => {
+    const highCapContext = budgetContext(100000);
+    const lowCapContext = budgetContext(1);
+    const highCapMatch = createRecommendationMatch(
+      baseDest,
+      highCapContext,
+      85,
+    );
+    const roughEstimate = calculateTripEstimate({
+      dest: baseDest,
+      mode: "train",
+      partySize: 1,
+      homeCoords: highCapContext.homeStationCoords,
+      includeOriginTravel: true,
+      duration: "fullDay",
+    });
+
+    expect(roughEstimate.total).toBeDefined();
+    expect(roughEstimate.estimateQuality).toBe("rough");
+    expect(calculateScore(baseDest, highCapContext).score).toBeGreaterThan(
+      calculateScore(baseDest, lowCapContext).score,
+    );
+    expect(
+      highCapMatch.reasons.some((reason) =>
+        ["budgetGreatValue", "budgetWithin"].includes(reason.code),
+      ),
+    ).toBe(false);
+    expect(highCapMatch.unmatchedPreferences).not.toContain("budget");
   });
 
   it("explains weather from the current recommendation context", () => {

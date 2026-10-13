@@ -1,6 +1,6 @@
 import { BUDGET_TIER_LIMITS, type BudgetTier } from "@/shared/types/planner";
 import type { TripBudget } from "@/shared/context/TripContext";
-import type { TripEstimateResult } from "./tripEstimateEngine";
+import type { AffordabilityEstimate } from "./tripEstimateEngine";
 import { evaluateAffordability } from "./tripEstimateEngine";
 
 /**
@@ -121,7 +121,7 @@ export type BudgetFitState = "within" | "may_exceed" | "above" | "uncertain";
  *   no complete total (partial/unavail) -> uncertain (never a within claim)
  */
 export function classifyBudgetFit(
-  estimate: Pick<TripEstimateResult, "total"> | undefined | null,
+  estimate: AffordabilityEstimate | undefined | null,
   cap: number | undefined,
 ): BudgetFitState {
   if (cap === undefined || !Number.isFinite(cap)) return "uncertain";

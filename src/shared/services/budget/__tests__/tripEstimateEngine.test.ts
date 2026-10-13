@@ -114,6 +114,8 @@ describe("KAI-260 TripEstimateEngine", () => {
       max: 1000,
     });
     expect(result.total!.min).toBeLessThan(result.total!.max);
+    expect(result.estimateQuality).toBe("estimated");
+    expect(evaluateAffordability(result, 100000)).toBe("fits");
   });
 
   it("uses a deterministic local profile when local transport is estimated", () => {
@@ -130,7 +132,7 @@ describe("KAI-260 TripEstimateEngine", () => {
     expect(local.cost).toEqual({ kind: "bounded", min: 800, max: 3200 });
     expect(local.evidence.derivation).toBe("model_estimate");
     expect(local.evidence.provenance).toBe("model");
-    expect(result.estimateQuality).toBe("estimated");
+    expect(result.estimateQuality).toBe("rough");
     expect(result.total).toBeDefined();
   });
 
@@ -154,15 +156,11 @@ describe("KAI-260 TripEstimateEngine", () => {
 
   it("keeps verified-free admission explicit and leaves missing mandatory admission unresolved", () => {
     const free = calculateTripEstimate({
-      dest: destination({
-        admission: {
-          ...verifiedAdmission,
-          state: "verified_free",
-          cost: { kind: "bounded", min: 0, max: 0 },
-          basis: "official free admission",
-        },
-      }),
+      dest: catalogue.find(
+        (item) => item.id === "kyoto-imperial-palace",
+      ) as Destination,
       duration: "fullDay",
+      partySize: 2,
       includeOriginTravel: false,
     });
     expect(component(free, "admission").cost).toEqual({
@@ -171,6 +169,8 @@ describe("KAI-260 TripEstimateEngine", () => {
       max: 0,
     });
     expect(component(free, "admission").evidence.state).toBe("verified_free");
+    expect(free.total).toBeDefined();
+    expect(evaluateAffordability(free, 100000)).toBe("unknown");
 
     const missing = calculateTripEstimate({
       dest: destination({ admission: undefined }),
@@ -186,6 +186,7 @@ describe("KAI-260 TripEstimateEngine", () => {
       expect.arrayContaining([expect.objectContaining({ scope: "admission" })]),
     );
     expect(missing.total).toBeUndefined();
+    expect(evaluateAffordability(missing, 100000)).toBe("unknown");
   });
 
   it("does not turn variable mandatory admission into a cheap bounded fallback", () => {
@@ -213,6 +214,7 @@ describe("KAI-260 TripEstimateEngine", () => {
 
     expect(admission.cost).toEqual({ kind: "variable" });
     expect(disneySea.total).toBeUndefined();
+    expect(evaluateAffordability(disneySea, 20000)).toBe("unknown");
     expect(evaluateBudgetAffordability(disneySea, 20000)).toBe("partial");
   });
 
@@ -240,6 +242,8 @@ describe("KAI-260 TripEstimateEngine", () => {
         municipalityId: "Gifu:gero",
         coordinates: { lat: 35.8056, lng: 137.2444 },
         transportOptions: { train: 240 },
+        admission: verifiedAdmission,
+        localTransport: verifiedLocal,
       }),
       mode: "train",
       homeCoords: origin,
@@ -254,6 +258,31 @@ describe("KAI-260 TripEstimateEngine", () => {
     expect(travel.evidence.provenance).toBe("model");
     expect(result.estimateQuality).toBe("rough");
     expect(result.total).toBeDefined();
+    expect(evaluateAffordability(result, 100000)).toBe("unknown");
+    expect(evaluateBudgetAffordability(result, 100000)).toBe("partial");
+  });
+
+  it("does not charge an open-access city hub for attractions inside it", () => {
+    const abashiri = catalogue.find(
+      (item) => item.id === "abashiri-city",
+    ) as Destination;
+    const result = calculateTripEstimate({
+      dest: abashiri,
+      mode: "train",
+      duration: "fullDay",
+      partySize: 2,
+      includeOriginTravel: false,
+    });
+
+    expect(component(result, "admission").cost).toEqual({
+      kind: "not_applicable",
+    });
+    expect(component(result, "local_transport").cost).toEqual({
+      kind: "not_applicable",
+    });
+    expect(result.estimateQuality).toBe("estimated");
+    expect(result.total).toBeDefined();
+    expect(evaluateAffordability(result, 100000)).toBe("fits");
   });
 
   it("adds modelled origin travel to a recognizable on-site subtotal", () => {
@@ -445,7 +474,7 @@ describe("KAI-260 TripEstimateEngine", () => {
 
   it("uses the same bounded range for low/middle/high affordability", () => {
     const result = calculateTripEstimate({
-      dest: destination(),
+      dest: destination({ localTransport: verifiedLocal }),
       duration: "fullDay",
       includeOriginTravel: false,
     });
@@ -456,6 +485,28 @@ describe("KAI-260 TripEstimateEngine", () => {
     );
     expect(evaluateAffordability(result, range.max)).toBe("fits");
     expect(evaluateAffordability(result, undefined)).toBe("unknown");
+  });
+
+  it("keeps Hakone's range but treats unavailable required local transport as uncertain", () => {
+    const hakone = catalogue.find(
+      (item) => item.id === "hakone-open-air-museum",
+    ) as Destination;
+    const result = calculateTripEstimate({
+      dest: hakone,
+      mode: "train",
+      duration: "fullDay",
+      partySize: 2,
+      includeOriginTravel: false,
+    });
+
+    expect(result.total).toBeDefined();
+    expect(component(result, "local_transport")).toMatchObject({
+      cost: { kind: "bounded" },
+      evidence: { reason: "insufficient_model_evidence" },
+    });
+    expect(result.estimateQuality).toBe("rough");
+    expect(evaluateAffordability(result, 100000)).toBe("unknown");
+    expect(evaluateBudgetAffordability(result, 100000)).toBe("partial");
   });
 
   it("never represents an unknown component as silent zero", () => {
@@ -519,6 +570,7 @@ describe("evaluateBudgetAffordability (Explore restricted-tier filter)", () => {
       completeness: "partial",
       total: undefined,
       knownSubtotal,
+      estimateQuality: "rough",
     }) as const;
 
   const completeResult = (min: number, max: number) =>
@@ -526,6 +578,7 @@ describe("evaluateBudgetAffordability (Explore restricted-tier filter)", () => {
       completeness: "complete",
       total: { kind: "bounded", min, max },
       knownSubtotal: [min, max],
+      estimateQuality: "estimated",
     }) as const;
 
   it("complete total below the ceiling fits", () => {
@@ -559,6 +612,7 @@ describe("evaluateBudgetAffordability (Explore restricted-tier filter)", () => {
           completeness: "unavailable",
           total: undefined,
           knownSubtotal: [0, 0],
+          estimateQuality: "rough",
         },
         10000,
       ),

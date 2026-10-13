@@ -27,11 +27,15 @@ const PRESETS = ["economy", "standard", "comfortable"] as const;
 function completeResult(
   min: number,
   max: number,
-): Pick<TripEstimateResult, "total" | "knownSubtotal" | "completeness"> {
+): Pick<
+  TripEstimateResult,
+  "total" | "knownSubtotal" | "completeness" | "estimateQuality"
+> {
   return {
     total: { kind: "bounded", min, max },
     knownSubtotal: [min, max],
     completeness: "complete",
+    estimateQuality: "estimated",
   };
 }
 
@@ -160,11 +164,12 @@ describe("KAI-279 range classification (canonical classifiers)", () => {
   it("partial mandatory cost -> uncertain / partial (never confident within)", () => {
     const partial: Pick<
       TripEstimateResult,
-      "total" | "knownSubtotal" | "completeness"
+      "total" | "knownSubtotal" | "completeness" | "estimateQuality"
     > = {
       total: undefined,
       knownSubtotal: [40000, 50000],
       completeness: "partial",
+      estimateQuality: "rough",
     };
     expect(evaluateAffordability(partial, C)).toBe("unknown");
     expect(evaluateBudgetAffordability(partial, C)).toBe("partial");

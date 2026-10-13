@@ -451,6 +451,27 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     ).toBe("Featured sights");
   });
 
+  it("renders Hakone budget uncertainty in English and Japanese", async () => {
+    for (const [locale, expected] of [
+      ["en", "Budget fit uncertain — some required costs are unavailable"],
+      ["ja", "予算内か不明 — 必須費用の一部が利用できません"],
+    ] as const) {
+      localeState.locale = locale;
+      render("/destinations/hakone-open-air-museum");
+      await act(async () => {
+        await flush(120);
+      });
+
+      const note = host.querySelector<HTMLParagraphElement>(
+        '[data-testid="budget-fit-note"]',
+      );
+      expect(note).not.toBeNull();
+      expect(note?.tagName).toBe("P");
+      expect(note?.textContent).toBe(expected);
+      expect(note?.textContent).not.toMatch(/Within your|予算内に収まる見込み/);
+    }
+  });
+
   it("renders not found state for genuinely non-existent destinations in Japanese and English", async () => {
     // Japanese locale
     render("/destinations/non-existent-destination-id");

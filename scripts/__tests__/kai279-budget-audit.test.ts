@@ -32,12 +32,16 @@ function estimate(
   min: number,
   max: number,
   completeness: "complete" | "partial" | "unavailable",
-): Pick<TripEstimateResult, "total" | "knownSubtotal" | "completeness"> {
+): Pick<
+  TripEstimateResult,
+  "total" | "knownSubtotal" | "completeness" | "estimateQuality"
+> {
   return {
     total:
       completeness === "complete" ? { kind: "bounded", min, max } : undefined,
     knownSubtotal: [min, max] as [number, number],
     completeness,
+    estimateQuality: completeness === "complete" ? "estimated" : "rough",
   };
 }
 
