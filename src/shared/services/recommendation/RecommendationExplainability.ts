@@ -159,6 +159,7 @@ export function createRecommendationMatch(
   score: number,
 ): RecommendationMatch {
   const { budget, carMode, publicModes, partySize } = context;
+  const hasBudgetConstraint = Number.isFinite(budget) && budget > 0;
   const vibe = context.vibe ?? context.tripType ?? "any";
   const { actual } = resolveRecommendationWeather(context);
 
@@ -176,6 +177,7 @@ export function createRecommendationMatch(
     context.originZoneId,
     context.ferryTemporal,
   );
+  let everyValidModeDefinitelyOverBudget = validModesForDest.length > 0;
 
   // 1. Budget and Transport Explainability
   let bestMode = validModesForDest[0];
@@ -204,7 +206,10 @@ export function createRecommendationMatch(
       carRoute: resolveCarRouteForDestination(dest, context),
       carCostOptions: context.carCostOptions,
     });
-    const budgetFit = classifyBudgetFit(engineResult, budget);
+    const budgetFit = hasBudgetConstraint
+      ? classifyBudgetFit(engineResult, budget)
+      : "uncertain";
+    if (budgetFit !== "above") everyValidModeDefinitelyOverBudget = false;
     if (
       budgetFit === "may_exceed" &&
       engineResult.total &&
@@ -290,7 +295,8 @@ export function createRecommendationMatch(
   } else if (bestModeMayExceed) {
     const reason = createBudgetMayExceedReason(bestModeMayExceed, budget);
     if (reason) reasons.push(reason);
-  } else {
+  } else if (hasBudgetConstraint && everyValidModeDefinitelyOverBudget) {
+    // Unknown estimates and absent routes are neutral, not budget failures.
     unmatchedPreferences.push("budget");
   }
 
