@@ -1,7 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
 import { calculateScore } from "../RecommendationScorer";
 import { createRecommendationMatch } from "../RecommendationExplainability";
+import { runRecommendationPipeline } from "../RecommendationPipeline";
 import { getTransportCost } from "@/shared/services/budget/BudgetService";
+import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
 
 const { engineCalls } = vi.hoisted(() => ({
@@ -68,6 +70,10 @@ const twoModeDest = {
   season: { spring: 5, summer: 3, autumn: 4, winter: 2 },
 } as unknown as Destination;
 
+const pipelineDest = (destinationsIndex as Destination[]).find(
+  ({ id }) => id === "sendai-city",
+)!;
+
 function context() {
   return {
     tripType: "any",
@@ -81,6 +87,21 @@ function context() {
     originZoneId: "mainland-honshu" as const,
     budgetTier: "standard" as const,
   };
+}
+
+function runPipelineForBudgetEvidence(
+  budgetTier: "economy" | "comfortable" | undefined,
+) {
+  return runRecommendationPipeline([pipelineDest], {
+    ...context(),
+    budget: 20_000,
+    publicModes: ["shinkansen"],
+    partySize: 2,
+    budgetTier,
+    homeStationCoords: { lat: 35.9063, lng: 139.6239 },
+    originZoneId: "mainland-honshu",
+    tripDuration: "2d1n",
+  });
 }
 
 function modeCallsFromEngine(): string[] {
@@ -106,6 +127,25 @@ describe("per-mode budget consistency", () => {
     }
   });
 
+  it("normalizes the default duration consistently across standalone stages", () => {
+    const recommendationContext = context();
+
+    engineCalls.length = 0;
+    calculateScore(twoModeDest, recommendationContext);
+    const scoringDurations = engineCalls.map(
+      (args) => (args[0] as { duration?: string }).duration,
+    );
+
+    engineCalls.length = 0;
+    createRecommendationMatch(twoModeDest, recommendationContext, 85);
+    const explanationDurations = engineCalls.map(
+      (args) => (args[0] as { duration?: string }).duration,
+    );
+
+    expect(scoringDurations).toEqual(["any", "any"]);
+    expect(explanationDurations).toEqual(scoringDurations);
+  });
+
   it("explainability prices the same per-mode budget contract", () => {
     engineCalls.length = 0;
     createRecommendationMatch(twoModeDest, context(), 85);
@@ -116,6 +156,46 @@ describe("per-mode budget consistency", () => {
     for (const args of engineCalls) {
       expect((args[0] as { mode?: string }).mode).toBeTruthy();
     }
+  });
+
+  it.each(["economy", "comfortable"] as const)(
+    "uses the selected %s budget tier for every estimate in the pipeline",
+    (budgetTier) => {
+      engineCalls.length = 0;
+      const results = runPipelineForBudgetEvidence(budgetTier);
+
+      expect(results.map(({ id }) => id)).toContain("sendai-city");
+      expect(results[0].estimatedCostTransportScope).toBe("corridor_only");
+      const estimates = engineCalls.map(
+        (args) => args[0] as { budgetTier?: string; mode?: string },
+      );
+      expect(estimates.length).toBeGreaterThan(0);
+      expect(
+        estimates.every((estimate) => estimate.budgetTier === budgetTier),
+      ).toBe(true);
+    },
+  );
+
+  it("does not infer a profile tier from the numeric budget cap", () => {
+    engineCalls.length = 0;
+    const results = runPipelineForBudgetEvidence(undefined);
+
+    expect(results.map(({ id }) => id)).toContain("sendai-city");
+    expect(results[0].estimatedCostTransportScope).toBe("corridor_only");
+    const estimates = engineCalls.map(
+      (args) => args[0] as { budgetTier?: string },
+    );
+    expect(estimates.length).toBeGreaterThan(0);
+    expect(estimates.every(({ budgetTier }) => budgetTier === undefined)).toBe(
+      true,
+    );
+  });
+
+  it("reuses one canonical estimate per candidate mode through the pipeline", () => {
+    engineCalls.length = 0;
+    runPipelineForBudgetEvidence("economy");
+
+    expect(modeCallsFromEngine()).toEqual(["shinkansen"]);
   });
 });
 

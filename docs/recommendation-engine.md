@@ -92,7 +92,11 @@ A base score starts the candidate. The destination's overall rating contributes 
 
 ### Mode and budget
 
-For each valid mode, the scorer calls `calculateTripEstimate` and `evaluateAffordability`. A bounded estimate contributes budget fit or over-budget penalty; `may_exceed` remains mild/neutral because the range overlaps the cap. Transport contributes mode-specific signals when the estimate has the required evidence. Personal-car discovery does not receive a fabricated duration bonus from unproven catalogue values.
+Before budget eligibility, the pipeline resolves the candidate's valid modes and computes one canonical `TripEstimateResult` per candidate/mode in [`RecommendationBudgetEvidence.ts`](../src/shared/services/recommendation/RecommendationBudgetEvidence.ts). The normalized inputs include duration, budget tier, party size, origin travel, route, and vehicle-cost assumptions. The module passes `RecommendationContext.budgetTier` through as supplied; if absent, the canonical estimator retains its existing standard-profile default. It does not infer a tier from the numeric cap or change how callers map presets and custom caps. Eligibility, scoring, explainability, and the card projection reuse this evidence while retaining separate policies: the gate decides retention, the scorer applies ranking signals, explainability decides which budget reasons are justified, and the card projects the selected-mode range. Reuse shares facts; it does not collapse those decisions.
+
+Standalone scorer or explainability calls without supplied candidate evidence continue to use the canonical estimate engine directly. The card projection reuses evidence when its selected mode and route inputs match; otherwise it retains its card-specific estimate path, including stripping an unusable provider route for the existing outage behavior.
+
+A bounded estimate contributes budget fit or over-budget penalty; `may_exceed` remains mild/neutral because the range overlaps the cap. Transport contributes mode-specific signals when the estimate has the required evidence. Personal-car discovery does not receive a fabricated duration bonus from unprovenanced catalogue values.
 
 The best usable mode becomes the candidate's mode-specific score context. The separate pipeline budget gate decides whether the candidate remains eligible. Thus “ranked lower because of budget” and “removed because every source-backed mode is definitely over” are different outcomes.
 

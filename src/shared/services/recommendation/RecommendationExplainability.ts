@@ -3,6 +3,8 @@ import {
   resolveRecommendationWeather,
   type RecommendationContext,
 } from "./RecommendationContext";
+import type { RecommendationBudgetEvidence } from "./RecommendationBudgetEvidence";
+import { calculateRecommendationBudgetEstimate } from "./RecommendationBudgetEvidence";
 import type {
   MatchReason,
   RecommendationMatch,
@@ -18,10 +20,7 @@ import {
   classifyBudgetFit,
   formatYenAmount,
 } from "@/shared/services/budget/budgetConstraint";
-import {
-  calculateTripEstimate,
-  type AffordabilityEstimate,
-} from "@/shared/services/budget/tripEstimateEngine";
+import type { AffordabilityEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import {
   getOriginAwareTransportEstimate,
@@ -157,8 +156,9 @@ export function createRecommendationMatch(
   dest: Destination,
   context: RecommendationContext,
   score: number,
+  budgetEvidence?: RecommendationBudgetEvidence,
 ): RecommendationMatch {
-  const { budget, carMode, publicModes, partySize } = context;
+  const { budget, carMode, publicModes } = context;
   const hasBudgetConstraint = Number.isFinite(budget) && budget > 0;
   const vibe = context.vibe ?? context.tripType ?? "any";
   const { actual } = resolveRecommendationWeather(context);
@@ -193,19 +193,9 @@ export function createRecommendationMatch(
     let estimatedBudget: PriceRange | undefined;
     // Only the shared affordability decision can support a positive reason;
     // modeled ranges remain available without overstating incomplete evidence.
-    const engineResult = calculateTripEstimate({
-      dest,
-      mode,
-      partySize,
-      homeCoords: context.homeStationCoords ?? undefined,
-      includeOriginTravel: Boolean(context.homeStationCoords),
-      budgetTier: context.budgetTier,
-      // KAI-260: use the same canonical duration as the scorer.
-      duration: context.tripDuration ?? "fullDay",
-      ferryTemporal: context.ferryTemporal,
-      carRoute: resolveCarRouteForDestination(dest, context),
-      carCostOptions: context.carCostOptions,
-    });
+    const engineResult =
+      budgetEvidence?.get(mode) ??
+      calculateRecommendationBudgetEstimate(dest, context, mode);
     const budgetFit = hasBudgetConstraint
       ? classifyBudgetFit(engineResult, budget)
       : "uncertain";

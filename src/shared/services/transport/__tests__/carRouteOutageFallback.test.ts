@@ -1,4 +1,5 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+import * as tripEstimateEngine from "@/shared/services/budget/tripEstimateEngine";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
 import { getTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
@@ -398,12 +399,29 @@ describe("sabotage regression: recommendation surface during outage and recovery
         "quota_exceeded",
       ),
     };
+    const estimateSpy = vi.spyOn(tripEstimateEngine, "calculateTripEstimate");
     const results = runRecommendationPipeline([yomiuriland, tokyoStation], {
       ...pipelineContext(),
       carRoutes: outagePairs,
       carCostOptions: carOptions(2),
     });
     expect(results.length).toBeGreaterThan(0);
+    const carEstimateInputs = estimateSpy.mock.calls
+      .map(([input]) => input)
+      .filter(({ mode }) => mode === "car" || mode === "my_car");
+    estimateSpy.mockRestore();
+
+    expect(
+      carEstimateInputs.some(
+        ({ carRoute }) => carRoute === outagePairs.yomiuriland,
+      ),
+    ).toBe(true);
+    expect(
+      carEstimateInputs.some(
+        ({ mode, carRoute }) =>
+          (mode === "car" || mode === "my_car") && carRoute === undefined,
+      ),
+    ).toBe(true);
     for (const result of results) {
       // The travel-time surface still shows a clearly-labeled rough estimate.
       expect(result.transportEstimate?.source).toBe(
