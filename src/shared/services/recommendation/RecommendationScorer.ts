@@ -11,10 +11,9 @@ import {
   resolveRecommendationWeather,
   type RecommendationContext,
 } from "./RecommendationContext";
-import {
-  calculateTripEstimate,
-  evaluateAffordability,
-} from "@/shared/services/budget/tripEstimateEngine";
+import type { RecommendationBudgetEvidence } from "./RecommendationBudgetEvidence";
+import { calculateRecommendationBudgetEstimate } from "./RecommendationBudgetEvidence";
+import { evaluateAffordability } from "@/shared/services/budget/tripEstimateEngine";
 import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
@@ -22,7 +21,6 @@ import {
   getOriginAwareTransportEstimate,
   getTravelDecisionSemantics,
 } from "@/shared/services/transport/OriginAwareTransportService";
-import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import { isCarModeEligible } from "@/shared/services/transport/CarAccessService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
@@ -341,6 +339,7 @@ export interface ModeScoreBreakdown {
 export function calculateScore(
   dest: Destination,
   context: RecommendationContext,
+  budgetEvidence?: RecommendationBudgetEvidence,
 ): {
   score: number;
   eligible: boolean;
@@ -351,7 +350,7 @@ export function calculateScore(
   dayTripTravelEfficiency?: DayTripTravelEfficiency;
   modeScoreBreakdown: Record<string, ModeScoreBreakdown>;
 } {
-  const { budget, carMode, publicModes, partySize, userRatings } = context;
+  const { budget, carMode, publicModes, userRatings } = context;
   const vibe = context.vibe ?? context.tripType ?? "any";
   const { actual, preferred } = resolveRecommendationWeather(context);
 
@@ -396,17 +395,9 @@ export function calculateScore(
     let adjustedBudget = Number.POSITIVE_INFINITY;
     // KAI-260: every candidate gets the same range-first estimate. A missing
     // legacy budgetRecommended must not disable custom-budget scoring.
-    const engineResult = calculateTripEstimate({
-      dest,
-      mode,
-      partySize,
-      homeCoords: context.homeStationCoords || undefined,
-      duration: context.tripDuration ?? "any",
-      budgetTier: context.budgetTier,
-      ferryTemporal: context.ferryTemporal,
-      carRoute: resolveCarRouteForDestination(dest, context),
-      carCostOptions: context.carCostOptions,
-    });
+    const engineResult =
+      budgetEvidence?.get(mode) ??
+      calculateRecommendationBudgetEstimate(dest, context, mode);
     const affordability = evaluateAffordability(engineResult, budget);
     if (engineResult.total) {
       // Always retain a finite comparison value for a bounded estimate. The

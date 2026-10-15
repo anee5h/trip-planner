@@ -7,6 +7,10 @@ import {
 import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import {
+  calculateRecommendationBudgetEvidence,
+  type RecommendationBudgetEvidence,
+} from "./RecommendationBudgetEvidence";
+import {
   hasPersonalizedOrigin,
   getDayTripTravelDurationEvidence,
   matchesPersonalizedDayTripDuration,
@@ -167,6 +171,10 @@ export function runRecommendationPipeline(
 
   // Cache weekend evaluations keyed by destination id
   const weekendEvalCache = new Map<string, WeekendCandidateEvaluation>();
+  const budgetEvidenceByCandidate = new Map<
+    Destination,
+    RecommendationBudgetEvidence
+  >();
 
   const eligible = candidates.filter((destination) => {
     if (!destination.id || context.visitedIds.includes(destination.id))
@@ -261,6 +269,14 @@ export function runRecommendationPipeline(
       }
     }
 
+    const budgetEvidence = calculateRecommendationBudgetEvidence(
+      destination,
+      context,
+      modes,
+      tripDuration,
+    );
+    budgetEvidenceByCandidate.set(destination, budgetEvidence);
+
     if (context.budgetTier === "luxury") return true;
 
     // KAI-217B round-2: the budget gate evaluates the CANONICAL engine cost
@@ -273,19 +289,7 @@ export function runRecommendationPipeline(
     //   - over       → hard-fail ONLY when there is no valid fits/
     //                  may_exceed/neutral alternative mode (per-mode, the
     //                  destination still has other usable modes).
-    const modeResults = modes.map((mode) =>
-      calculateTripEstimate({
-        dest: destination,
-        mode,
-        partySize: context.partySize,
-        homeCoords: context.homeStationCoords || undefined,
-        duration: tripDuration,
-        includeOriginTravel: Boolean(context.homeStationCoords),
-        ferryTemporal: context.ferryTemporal,
-        carRoute: resolveCarRouteForDestination(destination, context),
-        carCostOptions: context.carCostOptions,
-      }),
-    );
+    const modeResults = [...budgetEvidence.values()];
     const affordances = modeResults.map((r) =>
       evaluateAffordability(r, context.budget),
     );
@@ -337,7 +341,12 @@ export function runRecommendationPipeline(
         !isOvernight || (overnightPrimaryIds?.has(candidate.id) ?? false),
     )
     .map((candidate) => {
-      const scoreResult = calculateScore(candidate, scoreContext);
+      const budgetEvidence = budgetEvidenceByCandidate.get(candidate);
+      const scoreResult = calculateScore(
+        candidate,
+        scoreContext,
+        budgetEvidence,
+      );
       const weekend = isOvernight
         ? weekendEvalCache.get(candidate.id)
         : undefined;
@@ -357,7 +366,12 @@ export function runRecommendationPipeline(
         scoreResult.score +
         (weekend?.scoreDelta ?? 0) +
         (condition?.scoreDelta ?? 0);
-      const match = createRecommendationMatch(candidate, context, totalScore);
+      const match = createRecommendationMatch(
+        candidate,
+        context,
+        totalScore,
+        budgetEvidence,
+      );
 
       // Append weekend reasons
       if (weekend) {
@@ -425,8 +439,20 @@ export function runRecommendationPipeline(
       // KAI-260: the card's displayed cost range comes from the canonical
       // engine. Bounded model/profile estimates remain displayable with an
       // explicit estimated label; only truly unbounded results omit the chip.
+      const cardCanReuseBudgetEvidence =
+        cardTransportMode !== "car" && cardTransportMode !== "my_car"
+          ? true
+          : scopedCarRoute === usableCarRoute;
+      const cardBudgetEvidence =
+        cardTransportMode && cardCanReuseBudgetEvidence
+          ? budgetEvidence?.get(cardTransportMode)
+          : undefined;
+      // A car card with an unusable provider route intentionally estimates
+      // with `undefined` instead of the scoped outage route. Preserve that
+      // card-only fallback by recomputing only when those inputs differ.
       const cardEngineResult = cardTransportMode
-        ? calculateTripEstimate({
+        ? (cardBudgetEvidence ??
+          calculateTripEstimate({
             dest: candidate,
             mode: cardTransportMode,
             partySize: context.partySize,
@@ -437,7 +463,7 @@ export function runRecommendationPipeline(
             ferryTemporal: context.ferryTemporal,
             carRoute: usableCarRoute,
             carCostOptions: context.carCostOptions,
-          })
+          }))
         : null;
       const originComponent = cardEngineResult?.components.find(
         (component) => component.evidence.scope === "origin_travel",
