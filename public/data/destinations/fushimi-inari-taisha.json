@@ -6,18 +6,24 @@
   "content": {
     "en": {
       "name": "Fushimi Inari Taisha",
-      "description": "The head shrine of Inari in Kyoto, set at the foot of Mount Inari with a four-kilometer trail through thousands of torii gates and smaller shrines.",
-      "highlights": ["History"]
+      "description": "Fushimi Inari Taisha is the head shrine of Inari, at the foot of Mount Inari. Its approach and mountain paths pass through rows of vermilion torii gates and smaller shrines.",
+      "highlights": [
+        "Senbon Torii gates",
+        "Mount Inari paths",
+        "Head shrine of Inari"
+      ],
+      "reservation": "Check the shrine's official guidance for booking requirements for services or special visits."
     },
     "ja": {
       "name": "伏見稲荷大社",
-      "description": "伏見稲荷大社は稲荷社の総本宮で、稲荷山のふもとから千本鳥居や小さな社を巡る約4キロの参道が続きます。",
-      "highlights": ["歴史"]
+      "description": "伏見稲荷大社は稲荷社の総本宮で、稲荷山のふもとにあります。境内から山へ続く参道には、朱色の鳥居や小さな社が並びます。",
+      "highlights": ["千本鳥居", "稲荷山の参道", "稲荷社の総本宮"],
+      "reservation": "祈祷などのサービスや特別な参拝については、公式案内で予約の要否をご確認ください。"
     }
   },
   "prefecture": "Kyoto",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "shrine",
   "role": "destination",
   "placeType": "destination",
   "areaId": "fushimi",
@@ -39,8 +45,12 @@
     "lat": 34.967202,
     "lng": 135.773386
   },
-  "description": "The head shrine of Inari in Kyoto, set at the foot of Mount Inari with a four-kilometer trail through thousands of torii gates and smaller shrines.",
-  "highlights": ["History"],
+  "description": "Fushimi Inari Taisha is the head shrine of Inari, at the foot of Mount Inari. Its approach and mountain paths pass through rows of vermilion torii gates and smaller shrines.",
+  "highlights": [
+    "Senbon Torii gates",
+    "Mount Inari paths",
+    "Head shrine of Inari"
+  ],
   "transportOptions": {
     "train": 229,
     "bus": 229,
@@ -56,7 +66,7 @@
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 5,
-    "rainFriendly": 5,
+    "rainFriendly": 4,
     "walkingIntensity": 5
   },
   "ratings": {
@@ -82,7 +92,7 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
+  "reservation": "Check the shrine's official guidance for booking requirements for services or special visits.",
   "parking": "Check local parking and public transport guidance.",
   "schemaVersion": 2,
   "status": "published",
@@ -142,7 +152,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=90",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='shrine', walkingMin=90",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -170,12 +180,11 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "Open 24 hours (Shrine offices 08:30 - 16:30)",
+  "businessHours": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules.",
   "nearHubs": ["kyoto-city"],
-  "notesJa": "【見どころ】伏見稲荷大社は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
-  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "reservationJa": "祈祷などのサービスや特別な参拝については、公式案内で予約の要否をご確認ください。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-  "openingHoursJa": "24時間（社務所 08:30〜16:30）",
+  "openingHoursJa": "確認した公式の参拝案内には参拝時間の記載がありません。訪問前に最新の公式案内をご確認ください。社務所などは別の時間で運営されます。",
   "municipalityId": "Kyoto:kyoto",
   "transportMetadata": {
     "method": "legacy-fallback",
@@ -187,7 +196,7 @@
     "method": "model",
     "modelVersion": "comfort-model-v1",
     "confidence": "low",
-    "basis": "derived from indoorPercent=20, kind='museum', walkingMin=90"
+    "basis": "derived from indoorPercent=20, kind='shrine', walkingMin=90"
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -208,16 +217,21 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "not_applicable",
-    "provenance": "verified_source",
-    "reasonCode": "no_single_admission_product",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
     "cost": {
-      "kind": "not_applicable"
+      "kind": "unavailable",
+      "reason": "source_missing"
     },
-    "scope": "open_area",
-    "basis": "The catalogue identity represents Fushimi Inari Taisha as an open area, aggregate, worship site, transport facility, or event venue rather than one coherent required admission product. Optional rides, transport, events, donations, purchases, and separate facilities are excluded.",
-    "sourceUrls": ["https://inari.jp/en/"],
-    "checkedAt": "2026-08-28",
+    "scope": "general_entry",
+    "basis": "Reviewed official visitor information does not establish a general-entry fee or free-entry claim. Keep the value unavailable; do not infer zero or not_applicable.",
+    "sourceUrls": [
+      "https://inari.jp/en/",
+      "https://inari.jp/en/access/",
+      "https://inari.jp/en/request/"
+    ],
+    "checkedAt": "2026-10-16",
     "reviewIntervalMonths": 12
   },
   "localTransport": {
@@ -238,5 +252,6 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
   "wikipediaPageId": 1659910,
-  "wikidataId": "Q714828"
+  "wikidataId": "Q714828",
+  "openingHours": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules."
 }

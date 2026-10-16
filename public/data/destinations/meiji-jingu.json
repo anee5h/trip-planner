@@ -6,21 +6,25 @@
   "content": {
     "en": {
       "name": "Meiji Jingu",
-      "description": "Tokyo's most celebrated Shinto shrine, nestled within a tranquil 170-acre forest planted with 100,000 trees. Dedicated to Emperor Meiji, it features a grand wooden Torii gate and serene gravel paths.",
-      "highlights": ["History", "Culture", "Nature"],
+      "description": "Meiji Jingu is a Shinto shrine in central Tokyo, set among forested shrine grounds and dedicated to Emperor Meiji and Empress Shoken. The approach includes a large torii gate and wooded paths.",
+      "highlights": [
+        "Forested shrine grounds",
+        "Large torii gate",
+        "Emperor Meiji and Empress Shoken"
+      ],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
-      "reservation": "Open access; no entrance reservation required.",
+      "reservation": "Check the official visitor guidance for reservation requirements for special services and facilities.",
       "parking": "Park parking lot available on site.",
-      "openingHours": "24 Hours (Open access)"
+      "openingHours": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours."
     },
     "ja": {
       "name": "明治神宮",
-      "description": "明治天皇と昭憲皇太后を祀る明治神宮は、都心に広がる70ヘクタールの豊かな鎮守の杜に包まれています。荘厳な木造大鳥居と静謐な参道が広がる神聖なスポットです。",
-      "highlights": ["明治神宮の名所"],
+      "description": "明治神宮は東京の都心にある神社で、明治天皇と昭憲皇太后を祀っています。鎮守の杜に囲まれた境内へ、大鳥居をくぐって参道を進みます。",
+      "highlights": ["鎮守の杜", "大鳥居", "明治天皇・昭憲皇太后を祀る神社"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "reservation": "特別な祈願や施設の利用については、公式案内で予約要件をご確認ください。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-      "openingHours": "散策自由（24時間開放）"
+      "openingHours": "日の出とともに開門し、日没とともに閉門します（時刻は月ごとに異なります）。境内の施設には、より短い時間で運営されるものがあります。"
     }
   },
   "prefecture": "Tokyo",
@@ -45,8 +49,12 @@
     "lat": 35.6764,
     "lng": 139.6993
   },
-  "description": "Tokyo's most celebrated Shinto shrine, nestled within a tranquil 170-acre forest planted with 100,000 trees. Dedicated to Emperor Meiji, it features a grand wooden Torii gate and serene gravel paths.",
-  "highlights": ["History", "Culture", "Nature"],
+  "description": "Meiji Jingu is a Shinto shrine in central Tokyo, set among forested shrine grounds and dedicated to Emperor Meiji and Empress Shoken. The approach includes a large torii gate and wooded paths.",
+  "highlights": [
+    "Forested shrine grounds",
+    "Large torii gate",
+    "Emperor Meiji and Empress Shoken"
+  ],
   "transportOptions": {
     "train": 18
   },
@@ -77,7 +85,7 @@
   },
   "ratingsSchemaVersion": 2,
   "weatherDependence": "moderate",
-  "reservation": "Open access; no entrance reservation required.",
+  "reservation": "Check the official visitor guidance for reservation requirements for special services and facilities.",
   "parking": "Park parking lot available on site.",
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
@@ -127,7 +135,7 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-  "businessHours": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
+  "businessHours": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours.",
   "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meiji_Jingu_Shrine_Tokyo_Japan.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -136,10 +144,10 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meiji_Jingu_Shrine_Tokyo_Japan.jpg"
   },
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "reservationJa": "特別な祈願や施設の利用については、公式案内で予約要件をご確認ください。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
-  "openingHoursJa": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
+  "openingHours": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours.",
+  "openingHoursJa": "日の出とともに開門し、日没とともに閉門します（時刻は月ごとに異なります）。境内の施設には、より短い時間で運営されるものがあります。",
   "municipalityId": "Tokyo:shibuya",
   "transportMetadata": {
     "method": "legacy-fallback",
@@ -187,11 +195,9 @@
       "kind": "not_applicable"
     },
     "scope": "open_area",
-    "basis": "The catalogue identity is the open worship grounds of Meiji Jingu; offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product.",
-    "sourceUrls": [
-      "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html"
-    ],
-    "checkedAt": "2026-08-28",
+    "basis": "The official visit page states that entry to Meiji Jingu is free of charge; separate facilities and services are not represented as one required precinct admission product.",
+    "sourceUrls": ["https://www.meijijingu.or.jp/en/visit/"],
+    "checkedAt": "2026-10-16",
     "reviewIntervalMonths": 12
   },
   "localTransport": {
@@ -211,5 +217,9 @@
     "summer": 5,
     "autumn": 5,
     "winter": 5
+  },
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.meijijingu.or.jp/en/visit/",
+    "verifiedAt": "2026-10-16"
   }
 }

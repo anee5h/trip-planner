@@ -267,7 +267,22 @@
     "canonicalArrivalAccessPoint": "Kyoto Station for Kyoto:Kyoto intercity arrival",
     "reason": "The shrine's official access page says it is next to JR Inari Station and two stations/five minutes from Kyoto Station. The Kyoto-to-Inari local rail leg is a required paid component and belongs in F2, not verified walking.",
     "sourceUrls": ["https://inari.jp/en/access/"],
-    "deferredCohort": "F2"
+    "deferredCohort": "F2",
+    "identityFollowUp": {
+      "kind": {
+        "before": "museum",
+        "after": "shrine",
+        "sourceUrls": [
+          "https://inari.jp/en/",
+          "https://inari.jp/en/access/",
+          "https://inari.jp/en/request/",
+          "https://inari.jp/en/faq/"
+        ],
+        "rationale": "Official shrine pages identify Fushimi Inari Taisha as an Inari shrine, not a museum.",
+        "checkedAt": "2026-10-16",
+        "relatedTicket": "KAI-306"
+      }
+    }
   },
   {
     "id": "atsuta-shrine-nagoya",

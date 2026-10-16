@@ -106,6 +106,31 @@ describe("DestinationCard — Japanese Localization", () => {
     expect(addBtn).not.toBeNull();
   });
 
+  it.each([
+    ["fushimi-inari-taisha", "神社", "博物館"],
+    ["dotonbori", "街並", "博物館"],
+  ])("renders corrected Japanese kind label for %s", (id, expected, stale) => {
+    tripStoreState.visited = false;
+    const destination = destinations.find(
+      (item) => item.id === id,
+    ) as Destination;
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <DestinationCard destination={destination} />
+        </MemoryRouter>,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain(expected);
+    expect(text).not.toContain(stale);
+  });
+
   it("renders Japanese '訪問済み' badge and '未訪問に戻す' button when visited", () => {
     tripStoreState.visited = true;
     host = document.createElement("div");

@@ -1,0 +1,2245 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-306",
+  "kind": "follow-up-ledger",
+  "notice": "Append-only. The 2026-10-08 audit is a frozen historical record. Add entries via scripts/audit/kai-306-follow-up-diff.mjs; never edit earlier entries.",
+  "entries": [
+    {
+      "id": "pr-a-operational-facts",
+      "sequence": 1,
+      "date": "2026-10-16",
+      "sourceCheckedOn": "2026-10-16",
+      "title": "PR A — operational facts, hours and localized copy (7 destinations)",
+      "baseCommit": "03eab1e82820d8d3ff4e0396ddcc217d32085a68",
+      "pr": {
+        "label": "PR A (kai-306-pr-a-operational-facts)",
+        "status": "PR creation authorized by user; URL pending",
+        "url": null
+      },
+      "beforeCanonicalSha256": "1a7f6fa064cb0bb021c69cc635a39d137389608afca9dd4c1135f316267294ee",
+      "afterCanonicalSha256": "1b2aaac01b825d5d39829ea894e251097b53715c545d6ac7c25a84afd90f1575",
+      "validation": {
+        "automated": [
+          "npm run sync-destination-details regenerated all 1,130 details; npm run check:catalog-sync confirmed byte-identical idempotence.",
+          "npm run check:destination-models, npm run validate-destinations, npm run validate-destination-details and npm run validate:i18n passed.",
+          "npm run test:kai-307-smoke passed (12 tests); KAI-307 Playwright release smoke passed 18 desktop and 18 mobile cases. The smoke asserts rendered EN/JA descriptions, hours, highlights, reservation text, admission applicability and forbidden stale copy for all seven PR A destinations.",
+          "KAI-203, KAI-257 and KAI-219 audits passed. KAI-219 reports zero free-without-evidence admission facts.",
+          "Targeted PR A and audit-cohort Vitest checks passed 83 tests across 9 files after the final copy/source edits, including versioned KAI-219E2/KAI-250/KAI-251/KAI-252 identity/admission follow-ups and KAI-260 Fushimi transition justification.",
+          "npx tsc --noEmit -p tsconfig.app.json, npm run lint, npm run format:check and npm run build passed; lint/build emitted only non-blocking warnings.",
+          "npm run audit:kai-306 verified exact frozen replay and the 7-record/56-field canonical follow-up chain; the original 8 PASS / 12 FAIL report is unchanged. Manual follow-up adjudication is 15 PASS / 5 FAIL; KAI-306 remains incomplete.",
+          "Full Vitest suite run before the final Tower/Skytree copy-only adjustments: 5,502 passed, 2 skipped, 3 timed out. The three timed-out tests passed in isolated reruns (ExploreDefaultState: 32; KAI-292C4E prerequisite: 10); no assertion failures appeared in the full run. The final copy/source edits are covered by the 83 focused tests and 36 E2E cases above."
+        ],
+        "manual": [
+          "Official primary pages were opened and reviewed on 2026-10-16; observations are source-linked paraphrases, not copied page text.",
+          "PASS/FAIL outcomes are manual adjudications of the listed findings, not an independent reassessment of the complete 20-destination public-fact gate.",
+          "Matched EN/JA mobile/desktop screenshots are local review artifacts, not committed binaries. The user explicitly requested PR creation; visual/content review remains open on PR A, and no merge is authorized."
+        ]
+      },
+      "records": [
+        {
+          "id": "fushimi-inari-taisha",
+          "outcomeBefore": "FAIL",
+          "adjudicatedOutcome": "PASS",
+          "adjudicationBasis": "manual",
+          "originalFinding": "Classified as museum; unsupported 24-hour and admission assertions.",
+          "currentObservation": "At origin/main, kind was museum; the rendered schedule claimed 24-hour access (with separate office hours), EN/JA copy still included an unsupported fixed trail length/count, and admission was marked not_applicable without a reviewed source establishing free general entry or a fee.",
+          "correctedFields": [
+            "kind",
+            "admission unavailable/source_missing; no fee/free-entry claim",
+            "businessHours/openingHours/openingHoursJa",
+            "description and highlights (EN/JA; no exact route length or gate count)",
+            "reservation copy (EN/JA)",
+            "notesJa removed",
+            "kind-derived comfort model output"
+          ],
+          "sources": [
+            {
+              "url": "https://inari.jp/en/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official shrine site identifies Fushimi Inari Taisha as the head shrine of Inari; the reviewed visitor pages do not establish a general-entry fee or free-entry claim."
+            },
+            {
+              "url": "https://inari.jp/en/access/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official access page was reviewed; it did not publish a shrine visiting-hours schedule or general admission price. No replacement hours or price are inferred."
+            },
+            {
+              "url": "https://inari.jp/en/request/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official visitor guidance was reviewed; it did not publish a general admission price or 24-hour access schedule."
+            },
+            {
+              "url": "https://inari.jp/en/map/spot_07/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official map entry names the Senbon Torii feature; the displayed copy uses that name instead of an unsupported total gate count."
+            },
+            {
+              "url": "https://inari.jp/en/map/spot_01/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official map entry identifies Inariyama as a sacred site; no exact visitor-route length is inferred."
+            }
+          ],
+          "adjudicationNote": "The category now identifies a shrine. Visiting hours and general-entry cost remain unknown; the detail surfaces preserve an unverified-hours warning and unavailable admission rather than imply 24-hour/free access. PASS means the unsupported claims were removed, not that those unknowns are verified.",
+          "residual": [
+            "Official visitor pages reviewed on 2026-10-16 did not establish shrine visiting hours or a general-entry price; keep hours unverified and admission unavailable/source_missing."
+          ],
+          "changes": [
+            {
+              "path": ["content", "en", "description"],
+              "beforePresent": true,
+              "before": "The head shrine of Inari in Kyoto, set at the foot of Mount Inari with a four-kilometer trail through thousands of torii gates and smaller shrines.",
+              "afterPresent": true,
+              "after": "Fushimi Inari Taisha is the head shrine of Inari, at the foot of Mount Inari. Its approach and mountain paths pass through rows of vermilion torii gates and smaller shrines.",
+              "beforeParentKeys": ["name", "description", "highlights"],
+              "afterParentKeys": [
+                "name",
+                "description",
+                "highlights",
+                "reservation"
+              ]
+            },
+            {
+              "path": ["content", "en", "highlights"],
+              "beforePresent": true,
+              "before": ["History"],
+              "afterPresent": true,
+              "after": [
+                "Senbon Torii gates",
+                "Mount Inari paths",
+                "Head shrine of Inari"
+              ]
+            },
+            {
+              "path": ["content", "en", "reservation"],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": "Check the shrine's official guidance for booking requirements for services or special visits."
+            },
+            {
+              "path": ["content", "ja", "description"],
+              "beforePresent": true,
+              "before": "伏見稲荷大社は稲荷社の総本宮で、稲荷山のふもとから千本鳥居や小さな社を巡る約4キロの参道が続きます。",
+              "afterPresent": true,
+              "after": "伏見稲荷大社は稲荷社の総本宮で、稲荷山のふもとにあります。境内から山へ続く参道には、朱色の鳥居や小さな社が並びます。",
+              "beforeParentKeys": ["name", "description", "highlights"],
+              "afterParentKeys": [
+                "name",
+                "description",
+                "highlights",
+                "reservation"
+              ]
+            },
+            {
+              "path": ["content", "ja", "highlights"],
+              "beforePresent": true,
+              "before": ["歴史"],
+              "afterPresent": true,
+              "after": ["千本鳥居", "稲荷山の参道", "稲荷社の総本宮"]
+            },
+            {
+              "path": ["content", "ja", "reservation"],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": "祈祷などのサービスや特別な参拝については、公式案内で予約の要否をご確認ください。"
+            },
+            {
+              "path": ["kind"],
+              "beforePresent": true,
+              "before": "museum",
+              "afterPresent": true,
+              "after": "shrine",
+              "beforeParentKeys": [
+                "id",
+                "name",
+                "nameJa",
+                "aliases",
+                "content",
+                "prefecture",
+                "region",
+                "kind",
+                "role",
+                "placeType",
+                "areaId",
+                "relationships",
+                "officialWebsite",
+                "officialWebsiteRequirement",
+                "categories",
+                "tags",
+                "heroImage",
+                "imageMetadata",
+                "coordinates",
+                "description",
+                "highlights",
+                "transportOptions",
+                "totalTripHours",
+                "recommendedVisitHours",
+                "walkingMin",
+                "walkingIntensity",
+                "indoorPercent",
+                "comfort",
+                "ratings",
+                "ratingsSchemaVersion",
+                "season",
+                "bestMonths",
+                "weatherDependence",
+                "reservation",
+                "parking",
+                "schemaVersion",
+                "status",
+                "travelEstimate",
+                "collections",
+                "addedAt",
+                "editorial",
+                "ratingMetadata",
+                "businessHours",
+                "nearHubs",
+                "notesJa",
+                "reservationJa",
+                "parkingJa",
+                "openingHoursJa",
+                "municipalityId",
+                "transportMetadata",
+                "comfortMetadata",
+                "crowdMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId"
+              ],
+              "afterParentKeys": [
+                "id",
+                "name",
+                "nameJa",
+                "aliases",
+                "content",
+                "prefecture",
+                "region",
+                "kind",
+                "role",
+                "placeType",
+                "areaId",
+                "relationships",
+                "officialWebsite",
+                "officialWebsiteRequirement",
+                "categories",
+                "tags",
+                "heroImage",
+                "imageMetadata",
+                "coordinates",
+                "description",
+                "highlights",
+                "transportOptions",
+                "totalTripHours",
+                "recommendedVisitHours",
+                "walkingMin",
+                "walkingIntensity",
+                "indoorPercent",
+                "comfort",
+                "ratings",
+                "ratingsSchemaVersion",
+                "season",
+                "bestMonths",
+                "weatherDependence",
+                "reservation",
+                "parking",
+                "schemaVersion",
+                "status",
+                "travelEstimate",
+                "collections",
+                "addedAt",
+                "editorial",
+                "ratingMetadata",
+                "businessHours",
+                "nearHubs",
+                "reservationJa",
+                "parkingJa",
+                "openingHoursJa",
+                "municipalityId",
+                "transportMetadata",
+                "comfortMetadata",
+                "crowdMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId",
+                "openingHours"
+              ]
+            },
+            {
+              "path": ["description"],
+              "beforePresent": true,
+              "before": "The head shrine of Inari in Kyoto, set at the foot of Mount Inari with a four-kilometer trail through thousands of torii gates and smaller shrines.",
+              "afterPresent": true,
+              "after": "Fushimi Inari Taisha is the head shrine of Inari, at the foot of Mount Inari. Its approach and mountain paths pass through rows of vermilion torii gates and smaller shrines."
+            },
+            {
+              "path": ["highlights"],
+              "beforePresent": true,
+              "before": ["History"],
+              "afterPresent": true,
+              "after": [
+                "Senbon Torii gates",
+                "Mount Inari paths",
+                "Head shrine of Inari"
+              ]
+            },
+            {
+              "path": ["comfort", "rainFriendly"],
+              "beforePresent": true,
+              "before": 5,
+              "afterPresent": true,
+              "after": 4
+            },
+            {
+              "path": ["reservation"],
+              "beforePresent": true,
+              "before": "Usually not required; check current visitor guidance.",
+              "afterPresent": true,
+              "after": "Check the shrine's official guidance for booking requirements for services or special visits."
+            },
+            {
+              "path": ["editorial", "fieldSources", "comfort"],
+              "beforePresent": true,
+              "before": [
+                {
+                  "type": "calculated",
+                  "url": "catalogue-model://kai-89",
+                  "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=90",
+                  "accessedAt": "2026-08-14"
+                }
+              ],
+              "afterPresent": true,
+              "after": [
+                {
+                  "type": "calculated",
+                  "url": "catalogue-model://kai-89",
+                  "title": "comfort-model-v1; derived from indoorPercent=20, kind='shrine', walkingMin=90",
+                  "accessedAt": "2026-08-14"
+                }
+              ]
+            },
+            {
+              "path": ["businessHours"],
+              "beforePresent": true,
+              "before": "Open 24 hours (Shrine offices 08:30 - 16:30)",
+              "afterPresent": true,
+              "after": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules."
+            },
+            {
+              "path": ["notesJa"],
+              "beforePresent": true,
+              "before": "【見どころ】伏見稲荷大社は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+              "afterPresent": false,
+              "after": null
+            },
+            {
+              "path": ["reservationJa"],
+              "beforePresent": true,
+              "before": "【予約】一般参拝・見学は事前予約不要です。",
+              "afterPresent": true,
+              "after": "祈祷などのサービスや特別な参拝については、公式案内で予約の要否をご確認ください。"
+            },
+            {
+              "path": ["openingHoursJa"],
+              "beforePresent": true,
+              "before": "24時間（社務所 08:30〜16:30）",
+              "afterPresent": true,
+              "after": "確認した公式の参拝案内には参拝時間の記載がありません。訪問前に最新の公式案内をご確認ください。社務所などは別の時間で運営されます。"
+            },
+            {
+              "path": ["comfortMetadata", "basis"],
+              "beforePresent": true,
+              "before": "derived from indoorPercent=20, kind='museum', walkingMin=90",
+              "afterPresent": true,
+              "after": "derived from indoorPercent=20, kind='shrine', walkingMin=90"
+            },
+            {
+              "path": ["admission", "state"],
+              "beforePresent": true,
+              "before": "not_applicable",
+              "afterPresent": true,
+              "after": "unavailable"
+            },
+            {
+              "path": ["admission", "provenance"],
+              "beforePresent": true,
+              "before": "verified_source",
+              "afterPresent": true,
+              "after": "none"
+            },
+            {
+              "path": ["admission", "reasonCode"],
+              "beforePresent": true,
+              "before": "no_single_admission_product",
+              "afterPresent": true,
+              "after": "source_missing"
+            },
+            {
+              "path": ["admission", "cost", "kind"],
+              "beforePresent": true,
+              "before": "not_applicable",
+              "afterPresent": true,
+              "after": "unavailable",
+              "beforeParentKeys": ["kind"],
+              "afterParentKeys": ["kind", "reason"]
+            },
+            {
+              "path": ["admission", "cost", "reason"],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": "source_missing"
+            },
+            {
+              "path": ["admission", "scope"],
+              "beforePresent": true,
+              "before": "open_area",
+              "afterPresent": true,
+              "after": "general_entry"
+            },
+            {
+              "path": ["admission", "basis"],
+              "beforePresent": true,
+              "before": "The catalogue identity represents Fushimi Inari Taisha as an open area, aggregate, worship site, transport facility, or event venue rather than one coherent required admission product. Optional rides, transport, events, donations, purchases, and separate facilities are excluded.",
+              "afterPresent": true,
+              "after": "Reviewed official visitor information does not establish a general-entry fee or free-entry claim. Keep the value unavailable; do not infer zero or not_applicable."
+            },
+            {
+              "path": ["admission", "sourceUrls"],
+              "beforePresent": true,
+              "before": ["https://inari.jp/en/"],
+              "afterPresent": true,
+              "after": [
+                "https://inari.jp/en/",
+                "https://inari.jp/en/access/",
+                "https://inari.jp/en/request/"
+              ]
+            },
+            {
+              "path": ["admission", "checkedAt"],
+              "beforePresent": true,
+              "before": "2026-08-28",
+              "afterPresent": true,
+              "after": "2026-10-16"
+            },
+            {
+              "path": ["openingHours"],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules."
+            }
+          ],
+          "auditReconciliations": [
+            {
+              "file": "scripts/audit/kai-219e2-candidates.json",
+              "id": "fushimi-inari-taisha",
+              "currentPath": "identityFollowUp.kind.after",
+              "previousPath": "identity.kind",
+              "before": "museum",
+              "after": "shrine",
+              "checkedOn": "2026-10-16",
+              "sourceUrls": [
+                "https://inari.jp/en/",
+                "https://inari.jp/en/access/"
+              ],
+              "rationale": "The original cohort identity is preserved and the current category follows reviewed official shrine evidence."
+            },
+            {
+              "file": "scripts/audit/kai-219e2-candidates.json",
+              "id": "fushimi-inari-taisha",
+              "currentPath": "state",
+              "previousPath": "admissionFollowUp.before.state",
+              "before": "not_applicable",
+              "after": "unavailable",
+              "checkedOn": "2026-10-16",
+              "sourceUrls": [
+                "https://inari.jp/en/",
+                "https://inari.jp/en/access/",
+                "https://inari.jp/en/request/"
+              ],
+              "rationale": "No reviewed official visitor page established a general-entry fee or free-entry assertion; the admission amount remains unavailable."
+            },
+            {
+              "file": "scripts/audit/kai-219e2-candidates.json",
+              "id": "fushimi-inari-taisha",
+              "currentPath": "reasonCode",
+              "previousPath": "admissionFollowUp.before.reasonCode",
+              "before": "no_single_admission_product",
+              "after": "source_missing",
+              "checkedOn": "2026-10-16",
+              "sourceUrls": [
+                "https://inari.jp/en/",
+                "https://inari.jp/en/access/",
+                "https://inari.jp/en/request/"
+              ],
+              "rationale": "Replace the unsupported N/A reason with a current source-missing status; do not infer a zero cost."
+            },
+            {
+              "file": "scripts/audit/kai-250-candidates.json",
+              "id": "fushimi-inari-taisha",
+              "currentPath": "identityFollowUp.kind.after",
+              "previousPath": "identity.kind",
+              "before": "museum",
+              "after": "shrine",
+              "checkedOn": "2026-10-16",
+              "sourceUrls": [
+                "https://inari.jp/en/",
+                "https://inari.jp/en/access/"
+              ],
+              "rationale": "The source-backed category correction is versioned separately from the cohort's historical identity value."
+            },
+            {
+              "file": "scripts/audit/kai-251-local-transport-manifest.json",
+              "id": "fushimi-inari-taisha",
+              "currentPath": "identityFollowUp.kind.after",
+              "previousPath": "identity.kind",
+              "before": "museum",
+              "after": "shrine",
+              "checkedOn": "2026-10-16",
+              "sourceUrls": [
+                "https://inari.jp/en/",
+                "https://inari.jp/en/access/"
+              ],
+              "rationale": "The source-backed category correction is versioned separately from the cohort's historical identity value."
+            }
+          ]
+        },
+        {
+          "id": "dotonbori",
+          "outcomeBefore": "FAIL",
+          "adjudicatedOutcome": "PASS",
+          "adjudicationBasis": "manual",
+          "originalFinding": "Classified as museum; unsupported district-wide hours.",
+          "currentObservation": "At origin/main, kind was museum, the district carried a museum-style 09:30–17:00 schedule and Monday closure, English highlights were generic, Japanese reservation copy referred to general shrine visits, and its not_applicable admission fact still cited the association homepage whose fetch had failed.",
+          "correctedFields": [
+            "kind",
+            "businessHours/openingHours/openingHoursJa",
+            "description and highlights (EN/JA)",
+            "admission applicability remains not_applicable for the district; source provenance refreshed",
+            "reservation copy (EN/JA)",
+            "notesJa removed",
+            "kind-derived comfort model output"
+          ],
+          "sources": [
+            {
+              "url": "https://osaka-info.jp/en/spot/dotonbori/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official Osaka tourism page describes Dotonbori as a shopping/entertainment district and canal-side area, calls out the Glico sign, three-dimensional signs, restaurants, takoyaki and Tonbori Riverwalk, and gives store-dependent hours rather than a district schedule."
+            }
+          ],
+          "adjudicationNote": "The kind is district, the museum schedule is removed, and local copy names attractions present on the reviewed official district page. Public streets are distinguished from businesses; individual venue hours and reservations remain venue-specific. The scoped not_applicable admission state is retained for the district itself, and its provenance now points to the reviewed official district listing rather than the failed association URL.",
+          "residual": [
+            "No single district-wide schedule is asserted; individual businesses may change hours and booking policies."
+          ],
+          "changes": [
+            {
+              "path": ["content", "en", "description"],
+              "beforePresent": true,
+              "before": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
+              "afterPresent": true,
+              "after": "Dotonbori is Osaka's canal-side shopping and entertainment district, known for the Glico sign, oversized three-dimensional signs, restaurants and takoyaki. The Tonbori Riverwalk follows the canal.",
+              "beforeParentKeys": ["name", "description", "highlights"],
+              "afterParentKeys": [
+                "name",
+                "description",
+                "highlights",
+                "reservation"
+              ]
+            },
+            {
+              "path": ["content", "en", "highlights"],
+              "beforePresent": true,
+              "before": ["Shopping", "Food"],
+              "afterPresent": true,
+              "after": [
+                "Glico sign",
+                "Tonbori Riverwalk",
+                "Takoyaki and restaurants"
+              ]
+            },
+            {
+              "path": ["content", "en", "reservation"],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": "No booking is needed to walk the public district; individual venues may require reservations."
+            },
+            {
+              "path": ["content", "ja", "description"],
+              "beforePresent": true,
+              "before": "大阪を代表する歓楽街。道頓堀川沿いにグリコのランナー看板や戎橋など名物が並ぶ。「食い倒れ」の街として知られ、たこ焼きやお好み焼きの店、劇場などがひしめく。",
+              "afterPresent": true,
+              "after": "道頓堀は大阪・ミナミを代表する川沿いの商業・歓楽街です。グリコの看板をはじめ立体看板が並び、飲食店やたこ焼き店が集まります。道頓堀川沿いにはとんぼりリバーウォークがあります。",
+              "beforeParentKeys": ["name", "description", "highlights"],
+              "afterParentKeys": [
+                "name",
+                "description",
+                "highlights",
+                "reservation"
+              ]
+            },
+            {
+              "path": ["content", "ja", "highlights"],
+              "beforePresent": true,
+              "before": ["ショッピング", "グルメ"],
+              "afterPresent": true,
+              "after": [
+                "グリコの看板",
+                "とんぼりリバーウォーク",
+                "たこ焼き・飲食店"
+              ]
+            },
+            {
+              "path": ["content", "ja", "reservation"],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": "街区の散策に予約は不要です。店舗・施設については各施設の案内をご確認ください。"
+            },
+            {
+              "path": ["kind"],
+              "beforePresent": true,
+              "before": "museum",
+              "afterPresent": true,
+              "after": "district",
+              "beforeParentKeys": [
+                "id",
+                "name",
+                "nameJa",
+                "aliases",
+                "content",
+                "prefecture",
+                "region",
+                "kind",
+                "role",
+                "placeType",
+                "areaId",
+                "relationships",
+                "officialWebsite",
+                "officialWebsiteRequirement",
+                "categories",
+                "tags",
+                "heroImage",
+                "imageMetadata",
+                "coordinates",
+                "description",
+                "highlights",
+                "transportOptions",
+                "totalTripHours",
+                "recommendedVisitHours",
+                "walkingMin",
+                "walkingIntensity",
+                "indoorPercent",
+                "comfort",
+                "ratings",
+                "ratingsSchemaVersion",
+                "season",
+                "bestMonths",
+                "weatherDependence",
+                "reservation",
+                "parking",
+                "schemaVersion",
+                "status",
+                "travelEstimate",
+                "collections",
+                "addedAt",
+                "editorial",
+                "ratingMetadata",
+                "businessHours",
+                "nearHubs",
+                "notesJa",
+                "reservationJa",
+                "parkingJa",
+                "openingHoursJa",
+                "municipalityId",
+                "comfortMetadata",
+                "crowdMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId"
+              ],
+              "afterParentKeys": [
+                "id",
+                "name",
+                "nameJa",
+                "aliases",
+                "content",
+                "prefecture",
+                "region",
+                "kind",
+                "role",
+                "placeType",
+                "areaId",
+                "relationships",
+                "officialWebsite",
+                "officialWebsiteRequirement",
+                "categories",
+                "tags",
+                "heroImage",
+                "imageMetadata",
+                "coordinates",
+                "description",
+                "highlights",
+                "transportOptions",
+                "totalTripHours",
+                "recommendedVisitHours",
+                "walkingMin",
+                "walkingIntensity",
+                "indoorPercent",
+                "comfort",
+                "ratings",
+                "ratingsSchemaVersion",
+                "season",
+                "bestMonths",
+                "weatherDependence",
+                "reservation",
+                "parking",
+                "schemaVersion",
+                "status",
+                "travelEstimate",
+                "collections",
+                "addedAt",
+                "editorial",
+                "ratingMetadata",
+                "businessHours",
+                "nearHubs",
+                "reservationJa",
+                "parkingJa",
+                "openingHoursJa",
+                "municipalityId",
+                "comfortMetadata",
+                "crowdMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId",
+                "openingHours"
+              ]
+            },
+            {
+              "path": ["description"],
+              "beforePresent": true,
+              "before": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
+              "afterPresent": true,
+              "after": "Dotonbori is Osaka's canal-side shopping and entertainment district, known for the Glico sign, oversized three-dimensional signs, restaurants and takoyaki. The Tonbori Riverwalk follows the canal."
+            },
+            {
+              "path": ["highlights"],
+              "beforePresent": true,
+              "before": ["Shopping", "Food"],
+              "afterPresent": true,
+              "after": [
+                "Glico sign",
+                "Tonbori Riverwalk",
+                "Takoyaki and restaurants"
+              ]
+            },
+            {
+              "path": ["comfort", "heatTolerance"],
+              "beforePresent": true,
+              "before": 6,
+              "afterPresent": true,
+              "after": 5
+            },
+            {
+              "path": ["comfort", "rainFriendly"],
+              "beforePresent": true,
+              "before": 7,
+              "afterPresent": true,
+              "after": 6
+            },
+            {
+              "path": ["reservation"],
+              "beforePresent": true,
+              "before": "Usually not required; check current visitor guidance.",
+              "afterPresent": true,
+              "after": "No booking is needed to walk the public district; individual venues may require reservations."
+            },
+            {
+              "path": ["editorial", "fieldSources", "comfort"],
+              "beforePresent": true,
+              "before": [
+                {
+                  "type": "calculated",
+                  "url": "catalogue-model://kai-89",
+                  "title": "comfort-model-v1; derived from indoorPercent=55, kind='museum', walkingMin=90",
+                  "accessedAt": "2026-08-14"
+                }
+              ],
+              "afterPresent": true,
+              "after": [
+                {
+                  "type": "calculated",
+                  "url": "catalogue-model://kai-89",
+                  "title": "comfort-model-v1; derived from indoorPercent=55, kind='district', walkingMin=90",
+                  "accessedAt": "2026-08-14"
+                }
+              ]
+            },
+            {
+              "path": ["businessHours"],
+              "beforePresent": true,
+              "before": "09:30 - 17:00 (Closed Mondays)",
+              "afterPresent": true,
+              "after": "Public streets are open access; shops and venues have separate hours."
+            },
+            {
+              "path": ["notesJa"],
+              "beforePresent": true,
+              "before": "【見どころ】道頓堀は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+              "afterPresent": false,
+              "after": null
+            },
+            {
+              "path": ["reservationJa"],
+              "beforePresent": true,
+              "before": "【予約】一般参拝・見学は事前予約不要です。",
+              "afterPresent": true,
+              "after": "街区の散策に予約は不要です。店舗・施設については各施設の案内をご確認ください。"
+            },
+            {
+              "path": ["openingHoursJa"],
+              "beforePresent": true,
+              "before": "09:00 - 17:00 (最終入場 16:30)",
+              "afterPresent": true,
+              "after": "街路は自由に散策でき、店舗・施設の営業時間はそれぞれ異なります。"
+            },
+            {
+              "path": ["comfortMetadata", "basis"],
+              "beforePresent": true,
+              "before": "derived from indoorPercent=55, kind='museum', walkingMin=90",
+              "afterPresent": true,
+              "after": "derived from indoorPercent=55, kind='district', walkingMin=90"
+            },
+            {
+              "path": ["admission", "basis"],
+              "beforePresent": true,
+              "before": "The catalogue identity represents Dotonbori as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
+              "afterPresent": true,
+              "after": "Dotonbori is a district/area, not one coherent required admission product. The reviewed official district listing describes store-dependent businesses; separate paid venues and purchases are not promoted as a district admission fee."
+            },
+            {
+              "path": ["admission", "sourceUrls"],
+              "beforePresent": true,
+              "before": ["https://www.dotonbori.or.jp/en/"],
+              "afterPresent": true,
+              "after": ["https://osaka-info.jp/en/spot/dotonbori/"]
+            },
+            {
+              "path": ["admission", "checkedAt"],
+              "beforePresent": true,
+              "before": "2026-08-28",
+              "afterPresent": true,
+              "after": "2026-10-16"
+            },
+            {
+              "path": ["openingHours"],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": "Public streets are open access; shops and venues have separate hours."
+            }
+          ],
+          "auditReconciliations": [
+            {
+              "file": "scripts/audit/kai-219e2-candidates.json",
+              "id": "dotonbori",
+              "currentPath": "identityFollowUp.kind.after",
+              "previousPath": "identity.kind",
+              "before": "museum",
+              "after": "district",
+              "checkedOn": "2026-10-16",
+              "sourceUrls": ["https://osaka-info.jp/en/spot/dotonbori/"],
+              "rationale": "Preserve the cohort's originally recorded kind while recording the source-backed KAI-306 correction."
+            },
+            {
+              "file": "scripts/audit/kai-219e2-candidates.json",
+              "id": "dotonbori",
+              "currentPath": "sourceUrls",
+              "previousPath": "admissionFollowUp.before.sourceUrls",
+              "before": ["https://www.dotonbori.or.jp/en/"],
+              "after": ["https://osaka-info.jp/en/spot/dotonbori/"],
+              "checkedOn": "2026-10-16",
+              "sourceUrls": ["https://osaka-info.jp/en/spot/dotonbori/"],
+              "rationale": "Refresh the area identity/provenance link from the historically failed association homepage to the reviewed official Osaka tourism listing."
+            },
+            {
+              "file": "scripts/audit/kai-252-local-transport-manifest.json",
+              "id": "dotonbori",
+              "currentPath": "identityFollowUp.kind.after",
+              "previousPath": "identity.kind",
+              "before": "museum",
+              "after": "district",
+              "checkedOn": "2026-10-16",
+              "sourceUrls": ["https://osaka-info.jp/en/spot/dotonbori/"],
+              "rationale": "The source-backed category correction is versioned separately from the cohort's historical identity value."
+            }
+          ]
+        },
+        {
+          "id": "meiji-jingu",
+          "outcomeBefore": "FAIL",
+          "adjudicatedOutcome": "PASS",
+          "adjudicationBasis": "manual",
+          "originalFinding": "Incorrect 24-hour access claim; seasonal shrine hours.",
+          "currentObservation": "At origin/main, the canonical hours field described sunrise-to-sunset, but localized detail hours still claimed 24-hour access; Japanese hours were English, reservation copy implied on-site tickets, highlights were generic, and the admission source URL pointed to a Shibuya tourism page.",
+          "correctedFields": [
+            "businessHours/openingHours/openingHoursJa",
+            "openingHoursMetadata",
+            "description and highlights (EN/JA)",
+            "admission source, checkedAt and basis",
+            "reservation copy (EN/JA)"
+          ],
+          "sources": [
+            {
+              "url": "https://www.meijijingu.or.jp/en/visit/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official visit page states the shrine is free of charge and its gates open with sunrise and close with sunset, provides a month-by-month table, and notes that facilities inside have shorter hours. The catalogue avoids a fixed clock range."
+            },
+            {
+              "url": "https://www.meijijingu.or.jp/en/about/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official about page identifies Meiji Jingu as a Shinto shrine in central Tokyo and names Emperor Meiji and Empress Shoken."
+            },
+            {
+              "url": "https://www.meijijingu.or.jp/en/whattosee/forest/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official forest page describes the forest surrounding the main shrine buildings; copy avoids an unsupported tree-count claim."
+            }
+          ],
+          "adjudicationNote": "Localized detail fields now agree with the official seasonal sunrise/sunset policy. A fixed time window is not derived; facilities inside remain separately scoped.",
+          "residual": [
+            "Seasonal clock times remain on the official monthly table; inner-garden and museum schedules/fees are not asserted here."
+          ],
+          "changes": [
+            {
+              "path": ["content", "en", "description"],
+              "beforePresent": true,
+              "before": "Tokyo's most celebrated Shinto shrine, nestled within a tranquil 170-acre forest planted with 100,000 trees. Dedicated to Emperor Meiji, it features a grand wooden Torii gate and serene gravel paths.",
+              "afterPresent": true,
+              "after": "Meiji Jingu is a Shinto shrine in central Tokyo, set among forested shrine grounds and dedicated to Emperor Meiji and Empress Shoken. The approach includes a large torii gate and wooded paths."
+            },
+            {
+              "path": ["content", "en", "highlights"],
+              "beforePresent": true,
+              "before": ["History", "Culture", "Nature"],
+              "afterPresent": true,
+              "after": [
+                "Forested shrine grounds",
+                "Large torii gate",
+                "Emperor Meiji and Empress Shoken"
+              ]
+            },
+            {
+              "path": ["content", "en", "reservation"],
+              "beforePresent": true,
+              "before": "Open access; no entrance reservation required.",
+              "afterPresent": true,
+              "after": "Check the official visitor guidance for reservation requirements for special services and facilities."
+            },
+            {
+              "path": ["content", "en", "openingHours"],
+              "beforePresent": true,
+              "before": "24 Hours (Open access)",
+              "afterPresent": true,
+              "after": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours."
+            },
+            {
+              "path": ["content", "ja", "description"],
+              "beforePresent": true,
+              "before": "明治天皇と昭憲皇太后を祀る明治神宮は、都心に広がる70ヘクタールの豊かな鎮守の杜に包まれています。荘厳な木造大鳥居と静謐な参道が広がる神聖なスポットです。",
+              "afterPresent": true,
+              "after": "明治神宮は東京の都心にある神社で、明治天皇と昭憲皇太后を祀っています。鎮守の杜に囲まれた境内へ、大鳥居をくぐって参道を進みます。"
+            },
+            {
+              "path": ["content", "ja", "highlights"],
+              "beforePresent": true,
+              "before": ["明治神宮の名所"],
+              "afterPresent": true,
+              "after": ["鎮守の杜", "大鳥居", "明治天皇・昭憲皇太后を祀る神社"]
+            },
+            {
+              "path": ["content", "ja", "reservation"],
+              "beforePresent": true,
+              "before": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+              "afterPresent": true,
+              "after": "特別な祈願や施設の利用については、公式案内で予約要件をご確認ください。"
+            },
+            {
+              "path": ["content", "ja", "openingHours"],
+              "beforePresent": true,
+              "before": "散策自由（24時間開放）",
+              "afterPresent": true,
+              "after": "日の出とともに開門し、日没とともに閉門します（時刻は月ごとに異なります）。境内の施設には、より短い時間で運営されるものがあります。"
+            },
+            {
+              "path": ["description"],
+              "beforePresent": true,
+              "before": "Tokyo's most celebrated Shinto shrine, nestled within a tranquil 170-acre forest planted with 100,000 trees. Dedicated to Emperor Meiji, it features a grand wooden Torii gate and serene gravel paths.",
+              "afterPresent": true,
+              "after": "Meiji Jingu is a Shinto shrine in central Tokyo, set among forested shrine grounds and dedicated to Emperor Meiji and Empress Shoken. The approach includes a large torii gate and wooded paths.",
+              "beforeParentKeys": [
+                "id",
+                "name",
+                "nameJa",
+                "aliases",
+                "content",
+                "prefecture",
+                "region",
+                "kind",
+                "role",
+                "placeType",
+                "relationships",
+                "officialWebsiteRequirement",
+                "categories",
+                "tags",
+                "heroImage",
+                "coordinates",
+                "description",
+                "highlights",
+                "transportOptions",
+                "totalTripHours",
+                "recommendedVisitHours",
+                "walkingMin",
+                "walkingIntensity",
+                "indoorPercent",
+                "comfort",
+                "ratings",
+                "ratingsSchemaVersion",
+                "weatherDependence",
+                "reservation",
+                "parking",
+                "notes",
+                "schemaVersion",
+                "status",
+                "travelEstimate",
+                "collections",
+                "addedAt",
+                "editorial",
+                "ratingMetadata",
+                "officialWebsite",
+                "businessHours",
+                "image",
+                "imageMetadata",
+                "notesJa",
+                "reservationJa",
+                "parkingJa",
+                "openingHours",
+                "openingHoursJa",
+                "municipalityId",
+                "transportMetadata",
+                "seasonMetadata",
+                "comfortMetadata",
+                "crowdMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId",
+                "bestSeason",
+                "bestMonths",
+                "season"
+              ],
+              "afterParentKeys": [
+                "id",
+                "name",
+                "nameJa",
+                "aliases",
+                "content",
+                "prefecture",
+                "region",
+                "kind",
+                "role",
+                "placeType",
+                "relationships",
+                "officialWebsiteRequirement",
+                "categories",
+                "tags",
+                "heroImage",
+                "coordinates",
+                "description",
+                "highlights",
+                "transportOptions",
+                "totalTripHours",
+                "recommendedVisitHours",
+                "walkingMin",
+                "walkingIntensity",
+                "indoorPercent",
+                "comfort",
+                "ratings",
+                "ratingsSchemaVersion",
+                "weatherDependence",
+                "reservation",
+                "parking",
+                "notes",
+                "schemaVersion",
+                "status",
+                "travelEstimate",
+                "collections",
+                "addedAt",
+                "editorial",
+                "ratingMetadata",
+                "officialWebsite",
+                "businessHours",
+                "image",
+                "imageMetadata",
+                "notesJa",
+                "reservationJa",
+                "parkingJa",
+                "openingHours",
+                "openingHoursJa",
+                "municipalityId",
+                "transportMetadata",
+                "seasonMetadata",
+                "comfortMetadata",
+                "crowdMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId",
+                "bestSeason",
+                "bestMonths",
+                "season",
+                "openingHoursMetadata"
+              ]
+            },
+            {
+              "path": ["highlights"],
+              "beforePresent": true,
+              "before": ["History", "Culture", "Nature"],
+              "afterPresent": true,
+              "after": [
+                "Forested shrine grounds",
+                "Large torii gate",
+                "Emperor Meiji and Empress Shoken"
+              ]
+            },
+            {
+              "path": ["reservation"],
+              "beforePresent": true,
+              "before": "Open access; no entrance reservation required.",
+              "afterPresent": true,
+              "after": "Check the official visitor guidance for reservation requirements for special services and facilities."
+            },
+            {
+              "path": ["businessHours"],
+              "beforePresent": true,
+              "before": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
+              "afterPresent": true,
+              "after": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours."
+            },
+            {
+              "path": ["reservationJa"],
+              "beforePresent": true,
+              "before": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+              "afterPresent": true,
+              "after": "特別な祈願や施設の利用については、公式案内で予約要件をご確認ください。"
+            },
+            {
+              "path": ["openingHours"],
+              "beforePresent": true,
+              "before": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
+              "afterPresent": true,
+              "after": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours."
+            },
+            {
+              "path": ["openingHoursJa"],
+              "beforePresent": true,
+              "before": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
+              "afterPresent": true,
+              "after": "日の出とともに開門し、日没とともに閉門します（時刻は月ごとに異なります）。境内の施設には、より短い時間で運営されるものがあります。"
+            },
+            {
+              "path": ["admission", "basis"],
+              "beforePresent": true,
+              "before": "The catalogue identity is the open worship grounds of Meiji Jingu; offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product.",
+              "afterPresent": true,
+              "after": "The official visit page states that entry to Meiji Jingu is free of charge; separate facilities and services are not represented as one required precinct admission product."
+            },
+            {
+              "path": ["admission", "sourceUrls"],
+              "beforePresent": true,
+              "before": [
+                "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html"
+              ],
+              "afterPresent": true,
+              "after": ["https://www.meijijingu.or.jp/en/visit/"]
+            },
+            {
+              "path": ["admission", "checkedAt"],
+              "beforePresent": true,
+              "before": "2026-08-28",
+              "afterPresent": true,
+              "after": "2026-10-16"
+            },
+            {
+              "path": ["openingHoursMetadata"],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": {
+                "sourceUrl": "https://www.meijijingu.or.jp/en/visit/",
+                "verifiedAt": "2026-10-16"
+              }
+            }
+          ]
+        },
+        {
+          "id": "shibuya-crossing-hachiko",
+          "outcomeBefore": "FAIL",
+          "adjudicatedOutcome": "PASS",
+          "adjudicationBasis": "manual",
+          "originalFinding": "Unsupported “world's busiest” superlative and 09:00–17:00 hours.",
+          "currentObservation": "At origin/main, Shibuya Crossing was described with an unsupported world's-busiest claim and giant screens, carried 09:00–17:00 hours, and reservation copy referred to tickets for a public crossing.",
+          "correctedFields": [
+            "description and highlights (EN/JA)",
+            "businessHours/openingHours/openingHoursJa",
+            "reservation copy (EN/JA)"
+          ],
+          "sources": [
+            {
+              "url": "https://www.gotokyo.org/en/spot/78/index.html",
+              "checkedOn": "2026-10-16",
+              "observation": "Official Tokyo tourism page describes pedestrians crossing the multi-cornered intersection from all directions and does not establish an opening schedule or world's-busiest ranking."
+            },
+            {
+              "url": "https://www.gotokyo.org/en/spot/86/index.html",
+              "checkedOn": "2026-10-16",
+              "observation": "Official Tokyo tourism page identifies the Hachiko statue near Shibuya Station as a meeting point."
+            }
+          ],
+          "adjudicationNote": "The unsupported ranking, screen copy and facility-style schedule are removed. EN/JA copy now describes the crossing and nearby Hachiko statue; no admission or booking is asserted for the public crossing.",
+          "residual": [
+            "Nearby shops and facilities keep their own hours and reservation policies; these are not attributed to the crossing."
+          ],
+          "changes": [
+            {
+              "path": ["content", "en", "description"],
+              "beforePresent": true,
+              "before": "The world's busiest pedestrian intersection and iconic meeting landmark anchored by the beloved loyalty statue of Hachiko. Thousands cross simultaneously surrounded by giant digital screens and neon displays.",
+              "afterPresent": true,
+              "after": "At Shibuya Station, pedestrians cross the multi-cornered scramble crossing from all directions. The nearby Hachiko statue serves as a meeting point."
+            },
+            {
+              "path": ["content", "en", "highlights"],
+              "beforePresent": true,
+              "before": ["Culture", "Landmark", "Photography"],
+              "afterPresent": true,
+              "after": ["Shibuya Scramble Crossing", "Hachiko Statue"]
+            },
+            {
+              "path": ["content", "en", "reservation"],
+              "beforePresent": true,
+              "before": "No advance reservation required; tickets available on arrival.",
+              "afterPresent": true,
+              "after": "No booking is needed to use the public crossing; check nearby venues separately."
+            },
+            {
+              "path": ["content", "en", "openingHours"],
+              "beforePresent": true,
+              "before": "09:00 - 17:00",
+              "afterPresent": true,
+              "after": "Open access; nearby shops and facilities have separate hours."
+            },
+            {
+              "path": ["content", "ja", "description"],
+              "beforePresent": true,
+              "before": "世界最大級の交通量を誇るスクランブル交差点と、忠犬ハチ公像で知られる東京のシンボル的ランドマークです。巨大ビジョンに囲まれた圧倒的な都市景観を楽しめます。",
+              "afterPresent": true,
+              "after": "渋谷駅前のスクランブル交差点では、多くの歩行者が各方向から一斉に渡ります。近くの忠犬ハチ公像は待ち合わせ場所として親しまれています。"
+            },
+            {
+              "path": ["content", "ja", "highlights"],
+              "beforePresent": true,
+              "before": ["渋谷スクランブル交差点と忠犬ハチ公像の名所"],
+              "afterPresent": true,
+              "after": ["渋谷スクランブル交差点", "忠犬ハチ公像"]
+            },
+            {
+              "path": ["content", "ja", "reservation"],
+              "beforePresent": true,
+              "before": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+              "afterPresent": true,
+              "after": "交差点の通行に予約は不要です。周辺の店舗・施設は各施設の案内をご確認ください。"
+            },
+            {
+              "path": ["content", "ja", "openingHours"],
+              "beforePresent": true,
+              "before": "09:00 - 17:00",
+              "afterPresent": true,
+              "after": "散策自由（周辺の店舗・施設の営業時間は異なります）"
+            },
+            {
+              "path": ["description"],
+              "beforePresent": true,
+              "before": "The world's busiest pedestrian intersection and iconic meeting landmark anchored by the beloved loyalty statue of Hachiko. Thousands cross simultaneously surrounded by giant digital screens and neon displays.",
+              "afterPresent": true,
+              "after": "At Shibuya Station, pedestrians cross the multi-cornered scramble crossing from all directions. The nearby Hachiko statue serves as a meeting point."
+            },
+            {
+              "path": ["highlights"],
+              "beforePresent": true,
+              "before": ["Culture", "Landmark", "Photography"],
+              "afterPresent": true,
+              "after": ["Shibuya Scramble Crossing", "Hachiko Statue"]
+            },
+            {
+              "path": ["reservation"],
+              "beforePresent": true,
+              "before": "No advance reservation required; tickets available on arrival.",
+              "afterPresent": true,
+              "after": "No booking is needed to use the public crossing; check nearby venues separately."
+            },
+            {
+              "path": ["businessHours"],
+              "beforePresent": true,
+              "before": "Open access",
+              "afterPresent": true,
+              "after": "Open access; nearby shops and facilities have separate hours."
+            },
+            {
+              "path": ["reservationJa"],
+              "beforePresent": true,
+              "before": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+              "afterPresent": true,
+              "after": "交差点の通行に予約は不要です。周辺の店舗・施設は各施設の案内をご確認ください。"
+            },
+            {
+              "path": ["openingHours"],
+              "beforePresent": true,
+              "before": "09:00 - 17:00",
+              "afterPresent": true,
+              "after": "Open access; nearby shops and facilities have separate hours."
+            },
+            {
+              "path": ["openingHoursJa"],
+              "beforePresent": true,
+              "before": "09:00 - 17:00",
+              "afterPresent": true,
+              "after": "散策自由（周辺の店舗・施設の営業時間は異なります）"
+            }
+          ]
+        },
+        {
+          "id": "hakone-town",
+          "outcomeBefore": "FAIL",
+          "adjudicatedOutcome": "PASS",
+          "adjudicationBasis": "manual",
+          "originalFinding": "Unsupported 24-hour town-wide access; malformed Japanese highlights.",
+          "currentObservation": "At origin/main, the town-wide hub claimed 24-hour access and the canonical JA highlights were generic/template copy; the reviewed editorial pilot also overrode the canonical Japanese highlight list with broad Lake Ashi/onsen/Owakudani labels.",
+          "correctedFields": [
+            "description (EN/JA)",
+            "businessHours/openingHours/openingHoursJa",
+            "highlights (JA; canonical content and reviewed editorial pilot)",
+            "reservation copy (EN/JA)",
+            "generic notes removed"
+          ],
+          "sources": [
+            {
+              "url": "https://www.hakonenavi.jp/international/en/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official Hakone tourism portal presents multiple areas and separately operated attractions; it does not publish a single town-wide visitor schedule."
+            },
+            {
+              "url": "https://www.hakonenavi.jp/international/en/spot/105",
+              "checkedOn": "2026-10-16",
+              "observation": "Official Hakone Sightseeing Cruise page identifies the Lake Ashi pirate-ship cruise and its ports, supporting the localized highlight without a numeric claim."
+            },
+            {
+              "url": "https://www.hakonenavi.jp/international/en/spot/99",
+              "checkedOn": "2026-10-16",
+              "observation": "Official Hakone tourism page identifies Owakudani as a visitor attraction; the Japanese pilot highlight names it directly."
+            },
+            {
+              "url": "https://www.hakonenavi.jp/international/en/spot/65",
+              "checkedOn": "2026-10-16",
+              "observation": "Official Hakone tourism page identifies the Hakone Open-Air Museum as a separate attraction; its individual schedule is not generalized to the town."
+            }
+          ],
+          "adjudicationNote": "The town hub no longer claims a fixed or 24-hour schedule. EN/JA descriptions and highlights name distinct attractions, while venue hours and reservations remain operator-specific. The PlaceCatalog editorial pilot took precedence over canonical Japanese highlights, so only this destination's reviewed pilot highlights were aligned with the sourced canonical list; its reviewed Japanese description was preserved.",
+          "residual": [
+            "Operating hours, fees and booking requirements remain specific to each attraction; no town-wide schedule or ticket is asserted."
+          ],
+          "changes": [
+            {
+              "path": ["description"],
+              "beforePresent": true,
+              "before": "Japan's premier mountain hot spring resort town, famous for Lake Ashi pirate ships, Owakudani volcanic crater, and Fuji views.",
+              "afterPresent": true,
+              "after": "Hakone is a mountain resort area known for its hot springs, Lake Ashi and Owakudani. Some viewpoints offer views of Mount Fuji on clear days.",
+              "beforeParentKeys": [
+                "id",
+                "name",
+                "kind",
+                "role",
+                "importance",
+                "aliases",
+                "prefecture",
+                "region",
+                "categories",
+                "heroImage",
+                "image",
+                "description",
+                "highlights",
+                "totalTripHours",
+                "walkingMin",
+                "indoorPercent",
+                "ratings",
+                "crowd",
+                "season",
+                "bestMonths",
+                "bestSeason",
+                "weatherDependence",
+                "tags",
+                "coordinates",
+                "comfort",
+                "transportOptions",
+                "reservation",
+                "parking",
+                "notes",
+                "status",
+                "travelEstimate",
+                "collections",
+                "relationships",
+                "walkingIntensity",
+                "ratingsSchemaVersion",
+                "recommendedVisitHours",
+                "businessHours",
+                "editorial",
+                "nameJa",
+                "content",
+                "ratingMetadata",
+                "notesJa",
+                "reservationJa",
+                "parkingJa",
+                "openingHours",
+                "openingHoursJa",
+                "municipalityId",
+                "durationMetadata",
+                "comfortMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId"
+              ],
+              "afterParentKeys": [
+                "id",
+                "name",
+                "kind",
+                "role",
+                "importance",
+                "aliases",
+                "prefecture",
+                "region",
+                "categories",
+                "heroImage",
+                "image",
+                "description",
+                "highlights",
+                "totalTripHours",
+                "walkingMin",
+                "indoorPercent",
+                "ratings",
+                "crowd",
+                "season",
+                "bestMonths",
+                "bestSeason",
+                "weatherDependence",
+                "tags",
+                "coordinates",
+                "comfort",
+                "transportOptions",
+                "reservation",
+                "parking",
+                "status",
+                "travelEstimate",
+                "collections",
+                "relationships",
+                "walkingIntensity",
+                "ratingsSchemaVersion",
+                "recommendedVisitHours",
+                "businessHours",
+                "editorial",
+                "nameJa",
+                "content",
+                "ratingMetadata",
+                "reservationJa",
+                "parkingJa",
+                "openingHours",
+                "openingHoursJa",
+                "municipalityId",
+                "durationMetadata",
+                "comfortMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId"
+              ]
+            },
+            {
+              "path": ["reservation"],
+              "beforePresent": true,
+              "before": "Open access; no entrance reservation required.",
+              "afterPresent": true,
+              "after": "Reservation requirements vary by attraction and activity; check each operator."
+            },
+            {
+              "path": ["notes"],
+              "beforePresent": true,
+              "before": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+              "afterPresent": false,
+              "after": null
+            },
+            {
+              "path": ["businessHours"],
+              "beforePresent": true,
+              "before": "Open access",
+              "afterPresent": true,
+              "after": "Individual venue hours vary."
+            },
+            {
+              "path": ["content", "en", "description"],
+              "beforePresent": true,
+              "before": "Japan's premier mountain hot spring resort town, famous for Lake Ashi pirate ships, Owakudani volcanic crater, and Fuji views.",
+              "afterPresent": true,
+              "after": "Hakone is a mountain resort area known for its hot springs, Lake Ashi and Owakudani. Some viewpoints offer views of Mount Fuji on clear days.",
+              "beforeParentKeys": [
+                "name",
+                "description",
+                "highlights",
+                "notes",
+                "reservation",
+                "parking",
+                "openingHours"
+              ],
+              "afterParentKeys": [
+                "name",
+                "description",
+                "highlights",
+                "reservation",
+                "parking",
+                "openingHours"
+              ]
+            },
+            {
+              "path": ["content", "en", "notes"],
+              "beforePresent": true,
+              "before": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+              "afterPresent": false,
+              "after": null
+            },
+            {
+              "path": ["content", "en", "reservation"],
+              "beforePresent": true,
+              "before": "Open access; no entrance reservation required.",
+              "afterPresent": true,
+              "after": "Reservation requirements vary by attraction and activity; check each operator."
+            },
+            {
+              "path": ["content", "en", "openingHours"],
+              "beforePresent": true,
+              "before": "24 Hours (Open access)",
+              "afterPresent": true,
+              "after": "Individual venue hours vary."
+            },
+            {
+              "path": ["content", "ja", "description"],
+              "beforePresent": true,
+              "before": "富士山を望む日本有数の温泉リゾート地。芦ノ湖の海賊船、大涌谷の火山景観、箱根彫刻の森美術館など見どころが満載です。",
+              "afterPresent": true,
+              "after": "箱根は温泉や芦ノ湖、大涌谷などを巡る山あいの観光地です。晴れた日には富士山を望める場所もあります。",
+              "beforeParentKeys": [
+                "name",
+                "description",
+                "highlights",
+                "notes",
+                "reservation",
+                "parking",
+                "openingHours"
+              ],
+              "afterParentKeys": [
+                "name",
+                "description",
+                "highlights",
+                "reservation",
+                "parking",
+                "openingHours"
+              ]
+            },
+            {
+              "path": ["content", "ja", "highlights"],
+              "beforePresent": true,
+              "before": ["箱根の名所", "-美術館散策"],
+              "afterPresent": true,
+              "after": [
+                "芦ノ湖の海賊船クルーズ",
+                "大涌谷",
+                "箱根彫刻の森美術館"
+              ]
+            },
+            {
+              "path": ["content", "ja", "notes"],
+              "beforePresent": true,
+              "before": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+              "afterPresent": false,
+              "after": null
+            },
+            {
+              "path": ["content", "ja", "reservation"],
+              "beforePresent": true,
+              "before": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+              "afterPresent": true,
+              "after": "予約の要否は施設や体験によって異なります。各事業者の案内をご確認ください。"
+            },
+            {
+              "path": ["content", "ja", "openingHours"],
+              "beforePresent": true,
+              "before": "散策自由（24時間開放）",
+              "afterPresent": true,
+              "after": "各施設の営業時間は施設ごとに異なります。"
+            },
+            {
+              "path": ["notesJa"],
+              "beforePresent": true,
+              "before": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+              "afterPresent": false,
+              "after": null
+            },
+            {
+              "path": ["reservationJa"],
+              "beforePresent": true,
+              "before": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+              "afterPresent": true,
+              "after": "予約の要否は施設や体験によって異なります。各事業者の案内をご確認ください。"
+            },
+            {
+              "path": ["openingHours"],
+              "beforePresent": true,
+              "before": "24 Hours (Open access)",
+              "afterPresent": true,
+              "after": "Individual venue hours vary."
+            },
+            {
+              "path": ["openingHoursJa"],
+              "beforePresent": true,
+              "before": "散策自由（24時間開放）",
+              "afterPresent": true,
+              "after": "各施設の営業時間は施設ごとに異なります。"
+            }
+          ],
+          "editorialOverrides": [
+            {
+              "file": "src/shared/data/editorialPilot.ts",
+              "field": "EDITORIAL_PILOT.hakone-town.ja.highlights",
+              "before": ["芦ノ湖", "温泉", "大涌谷"],
+              "after": [
+                "芦ノ湖の海賊船クルーズ",
+                "大涌谷",
+                "箱根彫刻の森美術館"
+              ],
+              "rationale": "PlaceCatalog gives the reviewed pilot precedence over canonical content.ja; the specific pilot highlights now match the sourced canonical list without replacing the reviewed Japanese description."
+            }
+          ]
+        },
+        {
+          "id": "tokyo-tower-minato",
+          "outcomeBefore": "FAIL",
+          "adjudicatedOutcome": "PASS",
+          "adjudicationBasis": "manual",
+          "originalFinding": "Main Deck hours conflict with operator information; identity/copy needs review.",
+          "currentObservation": "At origin/main, Main Deck hours ended at 22:30 with last admission 22:00; EN copy claimed 332.9m and called the tower a post-war symbol, while JA copy was template text and highlights mixed facilities/features without source scope.",
+          "correctedFields": [
+            "businessHours/openingHours/openingHoursJa",
+            "openingHoursMetadata",
+            "description (EN/JA): align height to operator's 333m and remove unsupported post-war characterization",
+            "highlights/notes (EN/JA)"
+          ],
+          "sources": [
+            {
+              "url": "https://en.tokyotower.co.jp/fee/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official operator fee/business-hours page describes Tokyo Tower as 333m and lists Main Deck 09:00–23:00 with last admission 22:30; it notes congestion may close it earlier. The corrected schedule is scoped only to Main Deck."
+            },
+            {
+              "url": "https://tdt.tokyotower.co.jp/en/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official Top Deck Tour site describes a distinct tour experience; its schedule remains separate from Main Deck hours, and no other facility hours are asserted."
+            }
+          ],
+          "adjudicationNote": "Main Deck hours now match the operator; EN/JA description uses the operator-rounded 333m height, removes the post-war characterization, and keeps Top Deck Tour separate without substituting its schedule.",
+          "residual": [
+            "Top Deck Tour and other facility schedules remain separate and are not asserted. Parking/reservation details were not re-audited in this scope."
+          ],
+          "changes": [
+            {
+              "path": ["highlights"],
+              "beforePresent": true,
+              "before": [
+                "Main Deck (150m)",
+                "Top Deck Tour (250m)",
+                "RED° TOKYO TOWER e-sports park",
+                "Landmark Light Night Illumination"
+              ],
+              "afterPresent": true,
+              "after": [
+                "Main Deck (150m)",
+                "Top Deck Tour (250m)",
+                "Night illumination"
+              ],
+              "beforeParentKeys": [
+                "id",
+                "name",
+                "prefecture",
+                "region",
+                "categories",
+                "heroImage",
+                "image",
+                "totalTripHours",
+                "walkingMin",
+                "indoorPercent",
+                "ratings",
+                "crowd",
+                "season",
+                "bestMonths",
+                "bestSeason",
+                "weatherDependence",
+                "tags",
+                "coordinates",
+                "comfort",
+                "transportOptions",
+                "highlights",
+                "description",
+                "reservation",
+                "parking",
+                "notes",
+                "schemaVersion",
+                "imageMetadata",
+                "status",
+                "travelEstimate",
+                "collections",
+                "relationships",
+                "walkingIntensity",
+                "ratingsSchemaVersion",
+                "recommendedVisitHours",
+                "officialWebsite",
+                "businessHours",
+                "editorial",
+                "nameJa",
+                "content",
+                "ratingMetadata",
+                "notesJa",
+                "reservationJa",
+                "parkingJa",
+                "openingHours",
+                "openingHoursJa",
+                "municipalityId",
+                "seasonMetadata",
+                "comfortMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId"
+              ],
+              "afterParentKeys": [
+                "id",
+                "name",
+                "prefecture",
+                "region",
+                "categories",
+                "heroImage",
+                "image",
+                "totalTripHours",
+                "walkingMin",
+                "indoorPercent",
+                "ratings",
+                "crowd",
+                "season",
+                "bestMonths",
+                "bestSeason",
+                "weatherDependence",
+                "tags",
+                "coordinates",
+                "comfort",
+                "transportOptions",
+                "highlights",
+                "description",
+                "reservation",
+                "parking",
+                "notes",
+                "schemaVersion",
+                "imageMetadata",
+                "status",
+                "travelEstimate",
+                "collections",
+                "relationships",
+                "walkingIntensity",
+                "ratingsSchemaVersion",
+                "recommendedVisitHours",
+                "officialWebsite",
+                "businessHours",
+                "editorial",
+                "nameJa",
+                "content",
+                "ratingMetadata",
+                "notesJa",
+                "reservationJa",
+                "parkingJa",
+                "openingHours",
+                "openingHoursJa",
+                "municipalityId",
+                "seasonMetadata",
+                "comfortMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId",
+                "openingHoursMetadata"
+              ]
+            },
+            {
+              "path": ["description"],
+              "beforePresent": true,
+              "before": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
+              "afterPresent": true,
+              "after": "Tokyo Tower stands 333 meters tall. Visitors can choose between the Main Deck and the Top Deck Tour, which have separate hours."
+            },
+            {
+              "path": ["notes"],
+              "beforePresent": true,
+              "before": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
+              "afterPresent": true,
+              "after": "The Top Deck Tour (250m) adds a 360-degree panorama from 250 meters and has its own hours."
+            },
+            {
+              "path": ["businessHours"],
+              "beforePresent": true,
+              "before": "09:00 - 22:30 (Last admission 22:00)",
+              "afterPresent": true,
+              "after": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours."
+            },
+            {
+              "path": ["content", "en", "description"],
+              "beforePresent": true,
+              "before": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
+              "afterPresent": true,
+              "after": "Tokyo Tower stands 333 meters tall. Visitors can choose between the Main Deck and the Top Deck Tour, which have separate hours."
+            },
+            {
+              "path": ["content", "en", "highlights"],
+              "beforePresent": true,
+              "before": [
+                "Main Deck (150m)",
+                "Top Deck Tour (250m)",
+                "RED° TOKYO TOWER e-sports park",
+                "Landmark Light Night Illumination"
+              ],
+              "afterPresent": true,
+              "after": [
+                "Main Deck (150m)",
+                "Top Deck Tour (250m)",
+                "Night illumination"
+              ]
+            },
+            {
+              "path": ["content", "en", "notes"],
+              "beforePresent": true,
+              "before": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
+              "afterPresent": true,
+              "after": "The Top Deck Tour (250m) adds a 360-degree panorama from 250 meters and has its own hours."
+            },
+            {
+              "path": ["content", "en", "openingHours"],
+              "beforePresent": true,
+              "before": "09:00 - 22:30 (Last admission 22:00)",
+              "afterPresent": true,
+              "after": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours."
+            },
+            {
+              "path": ["content", "ja", "description"],
+              "beforePresent": true,
+              "before": "Tokyo Towerは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+              "afterPresent": true,
+              "after": "高さ333メートルの東京タワーには、メインデッキとトップデッキツアーがあります。営業時間はそれぞれ異なります。"
+            },
+            {
+              "path": ["content", "ja", "highlights"],
+              "beforePresent": true,
+              "before": [
+                "(150m)散策",
+                "(250m)散策",
+                "°   e-公園散策",
+                "東京タワーの名所"
+              ],
+              "afterPresent": true,
+              "after": [
+                "メインデッキ（150m）",
+                "トップデッキツアー（250m）",
+                "夜間ライトアップ"
+              ]
+            },
+            {
+              "path": ["content", "ja", "notes"],
+              "beforePresent": true,
+              "before": "高さ250mのトップデッキツアーでは、音声ガイドによる歴史解説とガラス床の絶景写真が楽しめます。",
+              "afterPresent": true,
+              "after": "トップデッキツアー（250m）では、高さ250mからの360度のパノラマを楽しめます。営業時間は別に定められています。"
+            },
+            {
+              "path": ["content", "ja", "openingHours"],
+              "beforePresent": true,
+              "before": "09:00 - 22:30（最終入場 22:00）",
+              "afterPresent": true,
+              "after": "メインデッキ（150m）：9:00〜23:00（最終入場 22:30、混雑時は早まる場合あり）。トップデッキツアーなどその他の施設は営業時間が異なります。"
+            },
+            {
+              "path": ["notesJa"],
+              "beforePresent": true,
+              "before": "高さ250mのトップデッキツアーでは、音声ガイドによる歴史解説とガラス床の絶景写真が楽しめます。",
+              "afterPresent": true,
+              "after": "トップデッキツアー（250m）では、高さ250mからの360度のパノラマを楽しめます。営業時間は別に定められています。"
+            },
+            {
+              "path": ["openingHours"],
+              "beforePresent": true,
+              "before": "09:00 - 22:30 (Last admission 22:00)",
+              "afterPresent": true,
+              "after": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours."
+            },
+            {
+              "path": ["openingHoursJa"],
+              "beforePresent": true,
+              "before": "09:00 - 22:30（最終入場 22:00）",
+              "afterPresent": true,
+              "after": "メインデッキ（150m）：9:00〜23:00（最終入場 22:30、混雑時は早まる場合あり）。トップデッキツアーなどその他の施設は営業時間が異なります。"
+            },
+            {
+              "path": ["openingHoursMetadata"],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": {
+                "sourceUrl": "https://en.tokyotower.co.jp/fee/",
+                "verifiedAt": "2026-10-16",
+                "lastAdmission": "22:30"
+              }
+            }
+          ]
+        },
+        {
+          "id": "tokyo-skytree-sumida",
+          "outcomeBefore": "FAIL",
+          "adjudicatedOutcome": "PASS",
+          "adjudicationBasis": "manual",
+          "originalFinding": "Fixed hours conflict with date-specific official calendar.",
+          "currentObservation": "At origin/main, a fixed 08:00–22:00 schedule was attached to a venue whose operator publishes a date-specific calendar and can change hours; Japanese copy was template text and its adjacent Solamachi/Planetarium highlights lacked Tokyo Skytree Town scope.",
+          "correctedFields": [
+            "businessHours/openingHours/openingHoursJa",
+            "openingHoursMetadata",
+            "description and highlights (EN/JA; nearby Tokyo Skytree Town facilities explicitly scoped)"
+          ],
+          "sources": [
+            {
+              "url": "https://en.tokyo-skytree.jp/open-hours/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official operator hours page states hours may change without notice, gives last admission one hour before closing, and links a per-day calendar."
+            },
+            {
+              "url": "https://en.tokyo-skytree.jp/open-hours/day_hours/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official date-specific calendar was reviewed; one day's schedule is not promoted as a fixed daily opening time."
+            },
+            {
+              "url": "https://en.tokyo-skytree.jp/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official operator homepage names the 634m tower and its 350m/450m observation decks, with Mount Fuji visible on clear days."
+            },
+            {
+              "url": "https://en.tokyo-skytree.jp/floor/tembodeck_350/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official floor page identifies the Tembo Deck at 350m and says clear-day views span the Kanto Plain."
+            },
+            {
+              "url": "https://en.tokyo-skytree.jp/floor/tembogalleria/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official floor page identifies the Tembo Galleria at 450m."
+            },
+            {
+              "url": "https://www.tokyo-solamachi.jp/",
+              "checkedOn": "2026-10-16",
+              "observation": "Official Tokyo Solamachi site identifies the adjacent shopping complex and its 300-plus stores."
+            },
+            {
+              "url": "https://www.konicaminolta.com/planetarium/theaters/tenku/index.html",
+              "checkedOn": "2026-10-16",
+              "observation": "Official Konica Minolta page identifies Planetarium TENKU as a separately operated attraction in TOKYO SKYTREE TOWN, not inside the tower."
+            }
+          ],
+          "adjudicationNote": "The fixed schedule is replaced with date-variable guidance and the operator calendar link. Japanese template copy now names the observation decks and scopes Solamachi/Planetarium TENKU as nearby Tokyo Skytree Town facilities; no single historical day's hours are generalized.",
+          "residual": [
+            "The per-day calendar is not machine-checked for a selected visit date; guests must consult the official calendar for their date."
+          ],
+          "changes": [
+            {
+              "path": ["highlights"],
+              "beforePresent": true,
+              "before": [
+                "Tembo Deck (350m)",
+                "Tembo Galleria (450m)",
+                "Tokyo Solamachi Shopping Center",
+                "Planetarium Ten"
+              ],
+              "afterPresent": true,
+              "after": [
+                "Tembo Deck (350m)",
+                "Tembo Galleria (450m)",
+                "Tokyo Solamachi (adjacent shopping complex)",
+                "Planetarium Tenku (in Tokyo Skytree Town)"
+              ],
+              "beforeParentKeys": [
+                "id",
+                "name",
+                "prefecture",
+                "region",
+                "categories",
+                "heroImage",
+                "image",
+                "totalTripHours",
+                "walkingMin",
+                "indoorPercent",
+                "ratings",
+                "crowd",
+                "season",
+                "bestMonths",
+                "bestSeason",
+                "weatherDependence",
+                "tags",
+                "coordinates",
+                "comfort",
+                "transportOptions",
+                "highlights",
+                "description",
+                "reservation",
+                "parking",
+                "notes",
+                "schemaVersion",
+                "imageMetadata",
+                "status",
+                "travelEstimate",
+                "collections",
+                "relationships",
+                "walkingIntensity",
+                "ratingsSchemaVersion",
+                "recommendedVisitHours",
+                "officialWebsite",
+                "businessHours",
+                "editorial",
+                "nameJa",
+                "content",
+                "ratingMetadata",
+                "notesJa",
+                "reservationJa",
+                "parkingJa",
+                "openingHours",
+                "openingHoursJa",
+                "municipalityId",
+                "seasonMetadata",
+                "transportMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId"
+              ],
+              "afterParentKeys": [
+                "id",
+                "name",
+                "prefecture",
+                "region",
+                "categories",
+                "heroImage",
+                "image",
+                "totalTripHours",
+                "walkingMin",
+                "indoorPercent",
+                "ratings",
+                "crowd",
+                "season",
+                "bestMonths",
+                "bestSeason",
+                "weatherDependence",
+                "tags",
+                "coordinates",
+                "comfort",
+                "transportOptions",
+                "highlights",
+                "description",
+                "reservation",
+                "parking",
+                "notes",
+                "schemaVersion",
+                "imageMetadata",
+                "status",
+                "travelEstimate",
+                "collections",
+                "relationships",
+                "walkingIntensity",
+                "ratingsSchemaVersion",
+                "recommendedVisitHours",
+                "officialWebsite",
+                "businessHours",
+                "editorial",
+                "nameJa",
+                "content",
+                "ratingMetadata",
+                "notesJa",
+                "reservationJa",
+                "parkingJa",
+                "openingHours",
+                "openingHoursJa",
+                "municipalityId",
+                "seasonMetadata",
+                "transportMetadata",
+                "scoreMetadata",
+                "admission",
+                "localTransport",
+                "wikipediaTitle",
+                "wikipediaLanguage",
+                "wikipediaUrl",
+                "wikipediaPageId",
+                "wikidataId",
+                "openingHoursMetadata"
+              ]
+            },
+            {
+              "path": ["businessHours"],
+              "beforePresent": true,
+              "before": "08:00 - 22:00 (Last admission 21:00)",
+              "afterPresent": true,
+              "after": "Hours vary by date; check the official calendar."
+            },
+            {
+              "path": ["content", "en", "highlights"],
+              "beforePresent": true,
+              "before": [
+                "Tembo Deck (350m)",
+                "Tembo Galleria (450m)",
+                "Tokyo Solamachi Shopping Center",
+                "Planetarium Ten"
+              ],
+              "afterPresent": true,
+              "after": [
+                "Tembo Deck (350m)",
+                "Tembo Galleria (450m)",
+                "Tokyo Solamachi (adjacent shopping complex)",
+                "Planetarium Tenku (in Tokyo Skytree Town)"
+              ]
+            },
+            {
+              "path": ["content", "en", "openingHours"],
+              "beforePresent": true,
+              "before": "08:00 - 22:00 (Last admission 21:00)",
+              "afterPresent": true,
+              "after": "Hours vary by date; check the official calendar."
+            },
+            {
+              "path": ["content", "ja", "description"],
+              "beforePresent": true,
+              "before": "Tokyo Skytreeは東京都を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+              "afterPresent": true,
+              "after": "高さ634メートルの東京スカイツリーは、天望デッキと天望回廊から関東平野を一望できる展望タワーです。足元には商業施設の東京ソラマチがあります。"
+            },
+            {
+              "path": ["content", "ja", "highlights"],
+              "beforePresent": true,
+              "before": ["(350m)散策", "(450m)散策", "東京スカイツリーの名所"],
+              "afterPresent": true,
+              "after": [
+                "天望デッキ（350m）",
+                "天望回廊（450m）",
+                "東京ソラマチ（隣接する商業施設）",
+                "プラネタリウム天空（東京スカイツリータウン内）"
+              ]
+            },
+            {
+              "path": ["content", "ja", "openingHours"],
+              "beforePresent": true,
+              "before": "08:00 - 22:00（最終入場 21:00）",
+              "afterPresent": true,
+              "after": "営業時間は日付により異なります。公式カレンダーをご確認ください。"
+            },
+            {
+              "path": ["openingHours"],
+              "beforePresent": true,
+              "before": "08:00 - 22:00 (Last admission 21:00)",
+              "afterPresent": true,
+              "after": "Hours vary by date; check the official calendar."
+            },
+            {
+              "path": ["openingHoursJa"],
+              "beforePresent": true,
+              "before": "08:00 - 22:00（最終入場 21:00）",
+              "afterPresent": true,
+              "after": "営業時間は日付により異なります。公式カレンダーをご確認ください。"
+            },
+            {
+              "path": ["openingHoursMetadata"],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": {
+                "sourceUrl": "https://en.tokyo-skytree.jp/open-hours/",
+                "verifiedAt": "2026-10-16"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

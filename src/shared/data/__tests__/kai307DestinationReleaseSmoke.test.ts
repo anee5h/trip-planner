@@ -785,14 +785,14 @@ describe("KAI-307 golden destination release smoke", () => {
     });
     expect(uenoAssessment.verifiedAt).toBe(uenoMetadata?.verifiedAt);
 
-    const unknownDestination = recordFor("tokyo-tower-minato");
+    const unknownDestination = recordFor("fushimi-inari-taisha");
     const unknown = getOpeningHoursAssessment(
       unknownDestination,
       policyNowFor(unknownDestination),
     );
     expect(
       unknown,
-      "tokyo-tower-minato: unverified hours must retain a warning",
+      "fushimi-inari-taisha: unverified hours must retain a warning",
     ).toMatchObject({
       status: "unverified",
       requiresWarning: true,

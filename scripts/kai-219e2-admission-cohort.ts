@@ -5,6 +5,10 @@ import type {
   Destination,
 } from "../src/shared/types/destination";
 import { validateAdmissionFact } from "../src/shared/services/budget/factValidation";
+import {
+  currentManifestIdentityValue,
+  type ManifestIdentityFollowUp,
+} from "./audit/kai-306-identity-follow-up";
 
 type EvidenceAttempt = {
   url: string | null;
@@ -19,6 +23,8 @@ export type ManifestEntry = {
     kind?: string;
     role?: string;
   };
+  identityFollowUp?: ManifestIdentityFollowUp;
+  admissionFollowUp?: Record<string, unknown>;
   evidenceAttempted: EvidenceAttempt[];
   state: AdmissionCostFact["state"];
   provenance: AdmissionCostFact["provenance"];
@@ -86,7 +92,8 @@ export function buildFact(
       );
     }
     if (
-      (destination.kind ?? undefined) !== (entry.identity.kind ?? undefined)
+      (destination.kind ?? undefined) !==
+      currentManifestIdentityValue(entry, "kind")
     ) {
       throw new Error(
         `${entry.id}: manifest identity kind differs from catalogue`,
@@ -104,6 +111,8 @@ export function buildFact(
   const {
     id: _id,
     identity: _identity,
+    identityFollowUp: _identityFollowUp,
+    admissionFollowUp: _admissionFollowUp,
     evidenceAttempted: _evidenceAttempted,
     ...fact
   } = entry;

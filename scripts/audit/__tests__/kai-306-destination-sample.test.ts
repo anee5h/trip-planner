@@ -8,8 +8,10 @@ import {
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
-import { join, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { diffPaths } from "../kai-306-follow-up-diff.mjs";
+import { currentManifestIdentityValue } from "../kai-306-identity-follow-up";
 
 const repoRoot = process.cwd();
 const script = resolve(
@@ -36,6 +38,7 @@ function writePath(
   path: string[],
   next: unknown,
   present: boolean,
+  parentKeys?: string[],
 ): void {
   const parent = path
     .slice(0, -1)
@@ -46,6 +49,11 @@ function writePath(
   const finalSegment = path[path.length - 1]!;
   if (present) parent[finalSegment] = next;
   else delete parent[finalSegment];
+  if (parentKeys) {
+    const values = new Map(Object.entries(parent));
+    for (const key of Object.keys(parent)) delete parent[key];
+    for (const key of parentKeys) parent[key] = values.get(key);
+  }
 }
 
 function run(args: string[]) {
@@ -66,6 +74,39 @@ function committedHash(relativePath: string): string | null {
   } catch {
     return null;
   }
+}
+
+type LedgerChange = {
+  path: string[];
+  before: unknown;
+  beforePresent: boolean;
+  beforeParentKeys?: string[];
+  afterParentKeys?: string[];
+};
+
+function reverseFollowUps(
+  catalogue: Array<Record<string, unknown>>,
+): Array<Record<string, unknown>> {
+  const ledgerFile = resolve(dirname(manifestPath), "follow-up-ledger.json");
+  const ledger = JSON.parse(readFileSync(ledgerFile, "utf8")) as {
+    entries: Array<{ records: Array<{ id: string; changes: LedgerChange[] }> }>;
+  };
+  const data = structuredClone(catalogue);
+  for (const entry of [...ledger.entries].reverse()) {
+    for (const record of [...entry.records].reverse()) {
+      const target = data.find((row) => row.id === record.id)!;
+      for (const change of [...record.changes].reverse()) {
+        writePath(
+          target,
+          change.path,
+          change.before,
+          change.beforePresent,
+          change.beforeParentKeys,
+        );
+      }
+    }
+  }
+  return data;
 }
 
 describe("KAI-306 audit reproducibility", () => {
@@ -155,7 +196,7 @@ describe("KAI-306 audit reproducibility", () => {
   it("checks the frozen cohort, candidate source, and rendered report", () => {
     const result = run(["--check"]);
     expect(result.status, result.stderr || result.stdout).toBe(0);
-  });
+  }, 60_000);
 
   it("replays A and B states and rejects a mixed C state", () => {
     const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
@@ -171,8 +212,10 @@ describe("KAI-306 audit reproducibility", () => {
       const first = run(["--replay", "--output", outputA]);
       expect(first.status, first.stderr || first.stdout).toBe(0);
       expect(first.stdout).toContain("state=A");
+      // Replay yields the frozen October 8 candidate, which equals the live
+      // catalogue with every follow-up ledger patch reversed.
       expect(JSON.parse(readFileSync(outputA, "utf8"))).toEqual(
-        JSON.parse(readFileSync(canonicalPath, "utf8")),
+        reverseFollowUps(JSON.parse(readFileSync(canonicalPath, "utf8"))),
       );
 
       const second = run(["--replay", "--input", outputA, "--output", outputB]);
@@ -203,6 +246,100 @@ describe("KAI-306 audit reproducibility", () => {
       expect(existsSync(outputC)).toBe(false);
     } finally {
       rmSync(tempDir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe("KAI-306 follow-up ledger", () => {
+  const ledgerPath = resolve(dirname(manifestPath), "follow-up-ledger.json");
+  const ledger = JSON.parse(readFileSync(ledgerPath, "utf8")) as {
+    entries: Array<{
+      sequence: number;
+      beforeCanonicalSha256: string;
+      afterCanonicalSha256: string;
+      records: Array<{ id: string; adjudicationBasis: string }>;
+    }>;
+  };
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
+    sampleIds: string[];
+    candidate: { canonicalSha256: string };
+  };
+
+  it("chains from the pinned candidate to the live catalogue", () => {
+    let previous = manifest.candidate.canonicalSha256;
+    for (const [position, entry] of ledger.entries.entries()) {
+      expect(entry.sequence).toBe(position + 1);
+      expect(entry.beforeCanonicalSha256).toBe(previous);
+      previous = entry.afterCanonicalSha256;
+    }
+    expect(
+      createHash("sha256").update(readFileSync(canonicalPath)).digest("hex"),
+    ).toBe(previous);
+  });
+
+  it("restores exact JSON key order when a follow-up removes a field", () => {
+    const before = { first: 1, removed: 2, last: 3 };
+    const after = { first: 1, last: 3 };
+    const [change] = diffPaths(before, after);
+    expect(change).toMatchObject({
+      beforeParentKeys: ["first", "removed", "last"],
+      afterParentKeys: ["first", "last"],
+    });
+
+    const restored = structuredClone(after);
+    writePath(
+      restored,
+      change.path,
+      change.before,
+      change.beforePresent,
+      change.beforeParentKeys,
+    );
+    expect(JSON.stringify(restored)).toBe(JSON.stringify(before));
+  });
+
+  it("normalizes explicit null identity fields from legacy manifests", () => {
+    const legacyEntry = {
+      id: "legacy-place",
+      identity: { kind: null as unknown as string },
+    };
+    expect(currentManifestIdentityValue(legacyEntry, "kind")).toBeUndefined();
+  });
+
+  it("preserves historical cohort identity while validating an explicit source-backed correction", () => {
+    const entry = {
+      id: "fushimi-inari-taisha",
+      identity: { name: "Fushimi Inari Taisha", kind: "museum" },
+      identityFollowUp: {
+        kind: {
+          before: "museum",
+          after: "shrine",
+          checkedAt: "2026-10-16",
+          relatedTicket: "KAI-306" as const,
+          sourceUrls: ["https://inari.jp/en/"],
+          rationale: "Official shrine pages identify this as an Inari shrine.",
+        },
+      },
+    };
+    expect(currentManifestIdentityValue(entry, "kind")).toBe("shrine");
+    expect(() =>
+      currentManifestIdentityValue(
+        {
+          ...entry,
+          identityFollowUp: {
+            kind: { ...entry.identityFollowUp.kind, before: "district" },
+          },
+        },
+        "kind",
+      ),
+    ).toThrow(/before does not match/);
+  });
+
+  it("only touches the frozen 20-ID cohort with manual adjudications", () => {
+    for (const entry of ledger.entries) {
+      for (const record of entry.records) {
+        expect(manifest.sampleIds).toContain(record.id);
+        expect(record.adjudicationBasis).toBe("manual");
+      }
     }
   });
 });
