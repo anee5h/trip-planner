@@ -1627,7 +1627,7 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "role": "destination",
-    "kind": "museum",
+    "kind": "district",
     "status": "published",
     "relationships": {
       "parentDestinationId": "osaka-city"
@@ -2276,7 +2276,7 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "role": "destination",
-    "kind": "museum",
+    "kind": "shrine",
     "status": "published",
     "relationships": {
       "parentDestinationId": "kyoto-city"

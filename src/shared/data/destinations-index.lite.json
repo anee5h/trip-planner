@@ -5247,7 +5247,7 @@
     "id": "dotonbori",
     "name": "Dotonbori",
     "nameJa": "道頓堀",
-    "kind": "museum",
+    "kind": "district",
     "role": "destination",
     "placeType": "destination",
     "municipalityId": "Osaka:osaka",
@@ -5258,8 +5258,12 @@
     "categories": ["Food"],
     "tags": ["Food", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E5%8A%9B%E3%82%92%E5%90%88%E3%82%8F%E3%81%9B%E3%82%88%E3%81%86%E6%97%A5%E6%9C%AC%202014%20%E5%A4%A7%E9%98%AA%20(12206068196).jpg?width=1600",
-    "description": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
-    "highlights": ["Shopping", "Food"],
+    "description": "Dotonbori is Osaka's canal-side shopping and entertainment district, known for the Glico sign, oversized three-dimensional signs, restaurants and takoyaki. The Tonbori Riverwalk follows the canal.",
+    "highlights": [
+      "Glico sign",
+      "Tonbori Riverwalk",
+      "Takoyaki and restaurants"
+    ],
     "coordinates": {
       "lat": 34.66861111,
       "lng": 135.50138889
@@ -5324,11 +5328,12 @@
     },
     "walkingIntensity": "medium",
     "comfort": {
-      "heatTolerance": 6,
-      "rainFriendly": 7,
+      "heatTolerance": 5,
+      "rainFriendly": 6,
       "walkingIntensity": 5
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "Public streets are open access; shops and venues have separate hours.",
+    "openingHours": "Public streets are open access; shops and venues have separate hours.",
     "relationships": {
       "parentDestinationId": "osaka-city"
     }
@@ -7388,7 +7393,7 @@
     "id": "fushimi-inari-taisha",
     "name": "Fushimi Inari Taisha",
     "nameJa": "伏見稲荷大社",
-    "kind": "museum",
+    "kind": "shrine",
     "role": "destination",
     "placeType": "destination",
     "municipalityId": "Kyoto:kyoto",
@@ -7399,8 +7404,12 @@
     "categories": ["Culture"],
     "tags": ["Culture", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fushimiinari-taisha%2C%20naihaiden-1.jpg?width=1600",
-    "description": "The head shrine of Inari in Kyoto, set at the foot of Mount Inari with a four-kilometer trail through thousands of torii gates and smaller shrines.",
-    "highlights": ["History"],
+    "description": "Fushimi Inari Taisha is the head shrine of Inari, at the foot of Mount Inari. Its approach and mountain paths pass through rows of vermilion torii gates and smaller shrines.",
+    "highlights": [
+      "Senbon Torii gates",
+      "Mount Inari paths",
+      "Head shrine of Inari"
+    ],
     "coordinates": {
       "lat": 34.967202,
       "lng": 135.773386
@@ -7466,10 +7475,11 @@
     "walkingIntensity": "medium",
     "comfort": {
       "heatTolerance": 5,
-      "rainFriendly": 5,
+      "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "Open 24 hours (Shrine offices 08:30 - 16:30)",
+    "businessHours": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules.",
+    "openingHours": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules.",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
@@ -9850,7 +9860,7 @@
     "tags": ["Hakone Onsen", "Mount Fuji View", "Owakudani", "Lake Ashi"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
-    "description": "Japan's premier mountain hot spring resort town, famous for Lake Ashi pirate ships, Owakudani volcanic crater, and Fuji views.",
+    "description": "Hakone is a mountain resort area known for its hot springs, Lake Ashi and Owakudani. Some viewpoints offer views of Mount Fuji on clear days.",
     "highlights": [
       "Lake Ashi Sightseeing Cruise",
       "Owakudani Volcanic Valley",
@@ -9926,8 +9936,8 @@
       "rainFriendly": 6,
       "walkingIntensity": 3
     },
-    "businessHours": "Open access",
-    "openingHours": "24 Hours (Open access)",
+    "businessHours": "Individual venue hours vary.",
+    "openingHours": "Individual venue hours vary.",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
@@ -40201,8 +40211,8 @@
     "highlights": [
       "Tembo Deck (350m)",
       "Tembo Galleria (450m)",
-      "Tokyo Solamachi Shopping Center",
-      "Planetarium Ten"
+      "Tokyo Solamachi (adjacent shopping complex)",
+      "Planetarium Tenku (in Tokyo Skytree Town)"
     ],
     "coordinates": {
       "lat": 35.710063,
@@ -40281,8 +40291,8 @@
       "rainFriendly": 10,
       "walkingIntensity": 3
     },
-    "businessHours": "08:00 - 22:00 (Last admission 21:00)",
-    "openingHours": "08:00 - 22:00 (Last admission 21:00)",
+    "businessHours": "Hours vary by date; check the official calendar.",
+    "openingHours": "Hours vary by date; check the official calendar.",
     "relationships": {
       "parentDestinationId": "sumida-city"
     }
@@ -40392,12 +40402,11 @@
     "tags": ["Iconic", "Eiffel-Inspired", "Night Illumination", "Romance"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg",
-    "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
+    "description": "Tokyo Tower stands 333 meters tall. Visitors can choose between the Main Deck and the Top Deck Tour, which have separate hours.",
     "highlights": [
       "Main Deck (150m)",
       "Top Deck Tour (250m)",
-      "RED° TOKYO TOWER e-sports park",
-      "Landmark Light Night Illumination"
+      "Night illumination"
     ],
     "coordinates": {
       "lat": 35.658581,
@@ -40469,8 +40478,8 @@
       "rainFriendly": 8,
       "walkingIntensity": 3
     },
-    "businessHours": "09:00 - 22:30 (Last admission 22:00)",
-    "openingHours": "09:00 - 22:30 (Last admission 22:00)",
+    "businessHours": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours.",
+    "openingHours": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours.",
     "relationships": {
       "parentDestinationId": "minato-city"
     }
@@ -45029,8 +45038,8 @@
     ],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/1920px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/1920px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
-    "description": "The world's busiest pedestrian intersection and iconic meeting landmark anchored by the beloved loyalty statue of Hachiko. Thousands cross simultaneously surrounded by giant digital screens and neon displays.",
-    "highlights": ["Culture", "Landmark", "Photography"],
+    "description": "At Shibuya Station, pedestrians cross the multi-cornered scramble crossing from all directions. The nearby Hachiko statue serves as a meeting point.",
+    "highlights": ["Shibuya Scramble Crossing", "Hachiko Statue"],
     "coordinates": {
       "lat": 35.6595,
       "lng": 139.7005
@@ -45088,8 +45097,8 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:00 - 17:00",
+    "businessHours": "Open access; nearby shops and facilities have separate hours.",
+    "openingHours": "Open access; nearby shops and facilities have separate hours.",
     "relationships": {
       "parentDestinationId": "shibuya-city"
     }
@@ -45115,8 +45124,12 @@
     ],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meiji_Jingu_Shrine_Tokyo_Japan.jpg?width=1600",
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meiji_Jingu_Shrine_Tokyo_Japan.jpg?width=1600",
-    "description": "Tokyo's most celebrated Shinto shrine, nestled within a tranquil 170-acre forest planted with 100,000 trees. Dedicated to Emperor Meiji, it features a grand wooden Torii gate and serene gravel paths.",
-    "highlights": ["History", "Culture", "Nature"],
+    "description": "Meiji Jingu is a Shinto shrine in central Tokyo, set among forested shrine grounds and dedicated to Emperor Meiji and Empress Shoken. The approach includes a large torii gate and wooded paths.",
+    "highlights": [
+      "Forested shrine grounds",
+      "Large torii gate",
+      "Emperor Meiji and Empress Shoken"
+    ],
     "coordinates": {
       "lat": 35.6764,
       "lng": 139.6993
@@ -45184,8 +45197,8 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
-    "openingHours": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
+    "businessHours": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours.",
+    "openingHours": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours.",
     "relationships": {
       "parentDestinationId": "shibuya-city"
     }

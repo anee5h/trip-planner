@@ -8,6 +8,10 @@ import {
   isValidCheckedAtDate,
   validateLocalTransportFact,
 } from "../src/shared/services/budget/factValidation";
+import {
+  currentManifestIdentityValue,
+  type ManifestIdentityFollowUp,
+} from "./audit/kai-306-identity-follow-up";
 
 export type AuthoringState = "STATE A" | "STATE B" | "STATE C";
 
@@ -47,6 +51,7 @@ export type SourceAttempt = {
 export type ManifestEntry = {
   id: string;
   identity: { name: string; kind?: string; role?: string };
+  identityFollowUp?: ManifestIdentityFollowUp;
   decision: "author";
   cohort: string;
   cohortLabel: string;
@@ -143,7 +148,7 @@ function assertIdentity(
   destination: LocalTransportDestination,
 ): void {
   for (const key of ["name", "kind", "role"] as const) {
-    const expected = entry.identity[key] ?? undefined;
+    const expected = currentManifestIdentityValue(entry, key);
     const actual = destination[key] ?? undefined;
     if (expected !== actual) {
       throw new Error(

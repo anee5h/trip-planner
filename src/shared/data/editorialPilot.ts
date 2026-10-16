@@ -158,9 +158,14 @@ export const EDITORIAL_PILOT: Record<string, PilotRecord> = {
       name: "箱根",
       description:
         "温泉、芦ノ湖、火山地形が織りなす山の保養地です。美術館や旧街道もあり、天候がよければ湖畔や高台から富士山を望めます。",
-      highlights: ["芦ノ湖", "温泉", "大涌谷"],
+      highlights: ["芦ノ湖の海賊船クルーズ", "大涌谷", "箱根彫刻の森美術館"],
     },
-    source: wikipedia("箱根町"),
+    source: {
+      type: "official",
+      title: "HAKONE | Your Guide to All Things Hakone",
+      url: "https://www.hakonenavi.jp/international/en/",
+      accessedAt: "2026-10-16",
+    },
   },
   "nikko-city": {
     ja: {

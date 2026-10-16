@@ -51,13 +51,12 @@
   "highlights": [
     "Main Deck (150m)",
     "Top Deck Tour (250m)",
-    "RED° TOKYO TOWER e-sports park",
-    "Landmark Light Night Illumination"
+    "Night illumination"
   ],
-  "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
+  "description": "Tokyo Tower stands 333 meters tall. Visitors can choose between the Main Deck and the Top Deck Tour, which have separate hours.",
   "reservation": "Advance booking recommended for Top Deck Tour; Main Deck tickets available on site.",
   "parking": "Paid underground parking structure at Tokyo Tower footprint.",
-  "notes": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
+  "notes": "The Top Deck Tour (250m) adds a 360-degree panorama from 250 meters and has its own hours.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -86,7 +85,7 @@
     "max": 4
   },
   "officialWebsite": "https://www.tokyotower.co.jp/",
-  "businessHours": "09:00 - 22:30 (Last admission 22:00)",
+  "businessHours": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours.",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -133,31 +132,29 @@
   "content": {
     "en": {
       "name": "Tokyo Tower",
-      "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
+      "description": "Tokyo Tower stands 333 meters tall. Visitors can choose between the Main Deck and the Top Deck Tour, which have separate hours.",
       "highlights": [
         "Main Deck (150m)",
         "Top Deck Tour (250m)",
-        "RED° TOKYO TOWER e-sports park",
-        "Landmark Light Night Illumination"
+        "Night illumination"
       ],
-      "notes": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
+      "notes": "The Top Deck Tour (250m) adds a 360-degree panorama from 250 meters and has its own hours.",
       "reservation": "Advance booking recommended for Top Deck Tour; Main Deck tickets available on site.",
       "parking": "Paid underground parking structure at Tokyo Tower footprint.",
-      "openingHours": "09:00 - 22:30 (Last admission 22:00)"
+      "openingHours": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours."
     },
     "ja": {
       "name": "東京タワー",
-      "description": "Tokyo Towerは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "高さ333メートルの東京タワーには、メインデッキとトップデッキツアーがあります。営業時間はそれぞれ異なります。",
       "highlights": [
-        "(150m)散策",
-        "(250m)散策",
-        "°   e-公園散策",
-        "東京タワーの名所"
+        "メインデッキ（150m）",
+        "トップデッキツアー（250m）",
+        "夜間ライトアップ"
       ],
-      "notes": "高さ250mのトップデッキツアーでは、音声ガイドによる歴史解説とガラス床の絶景写真が楽しめます。",
+      "notes": "トップデッキツアー（250m）では、高さ250mからの360度のパノラマを楽しめます。営業時間は別に定められています。",
       "reservation": "トップデッキツアーは事前予約推奨。メインデッキは当日券購入も可能です。",
       "parking": "東京タワー敷地内の有料地下駐車場をご利用いただけます。",
-      "openingHours": "09:00 - 22:30（最終入場 22:00）"
+      "openingHours": "メインデッキ（150m）：9:00〜23:00（最終入場 22:30、混雑時は早まる場合あり）。トップデッキツアーなどその他の施設は営業時間が異なります。"
     }
   },
   "ratingMetadata": {
@@ -165,11 +162,11 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "高さ250mのトップデッキツアーでは、音声ガイドによる歴史解説とガラス床の絶景写真が楽しめます。",
+  "notesJa": "トップデッキツアー（250m）では、高さ250mからの360度のパノラマを楽しめます。営業時間は別に定められています。",
   "reservationJa": "トップデッキツアーは事前予約推奨。メインデッキは当日券購入も可能です。",
   "parkingJa": "東京タワー敷地内の有料地下駐車場をご利用いただけます。",
-  "openingHours": "09:00 - 22:30 (Last admission 22:00)",
-  "openingHoursJa": "09:00 - 22:30（最終入場 22:00）",
+  "openingHours": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours.",
+  "openingHoursJa": "メインデッキ（150m）：9:00〜23:00（最終入場 22:30、混雑時は早まる場合あり）。トップデッキツアーなどその他の施設は営業時間が異なります。",
   "municipalityId": "Tokyo:minato",
   "seasonMetadata": {
     "method": "model",
@@ -227,5 +224,10 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Tokyo_Tower",
   "wikipediaPageId": 148869,
-  "wikidataId": "Q183536"
+  "wikidataId": "Q183536",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://en.tokyotower.co.jp/fee/",
+    "verifiedAt": "2026-10-16",
+    "lastAdmission": "22:30"
+  }
 }
