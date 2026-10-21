@@ -2295,27 +2295,21 @@
           ],
           "changes": [
             {
-              "path": [
-                "businessHours"
-              ],
+              "path": ["businessHours"],
               "beforePresent": true,
               "before": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules.",
               "afterPresent": true,
               "after": "No visiting hours are listed for the shrine grounds. Shrine offices and services keep separate schedules; check current access information before visiting."
             },
             {
-              "path": [
-                "openingHours"
-              ],
+              "path": ["openingHours"],
               "beforePresent": true,
               "before": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules.",
               "afterPresent": true,
               "after": "No visiting hours are listed for the shrine grounds. Shrine offices and services keep separate schedules; check current access information before visiting."
             },
             {
-              "path": [
-                "openingHoursJa"
-              ],
+              "path": ["openingHoursJa"],
               "beforePresent": true,
               "before": "確認した公式の参拝案内には参拝時間の記載がありません。訪問前に最新の公式案内をご確認ください。社務所などは別の時間で運営されます。",
               "afterPresent": true,
@@ -2349,11 +2343,7 @@
           "residual": [],
           "changes": [
             {
-              "path": [
-                "editorial",
-                "fieldSources",
-                "highlights"
-              ],
+              "path": ["editorial", "fieldSources", "highlights"],
               "beforePresent": false,
               "before": null,
               "afterPresent": true,
@@ -2367,11 +2357,7 @@
               ]
             },
             {
-              "path": [
-                "editorial",
-                "fieldSources",
-                "content.en.highlights"
-              ],
+              "path": ["editorial", "fieldSources", "content.en.highlights"],
               "beforePresent": false,
               "before": null,
               "afterPresent": true,
@@ -2385,11 +2371,7 @@
               ]
             },
             {
-              "path": [
-                "editorial",
-                "fieldSources",
-                "content.ja.highlights"
-              ],
+              "path": ["editorial", "fieldSources", "content.ja.highlights"],
               "beforePresent": false,
               "before": null,
               "afterPresent": true,
