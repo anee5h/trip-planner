@@ -180,11 +180,11 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules.",
+  "businessHours": "No visiting hours are listed for the shrine grounds. Shrine offices and services keep separate schedules; check current access information before visiting.",
   "nearHubs": ["kyoto-city"],
   "reservationJa": "祈祷などのサービスや特別な参拝については、公式案内で予約の要否をご確認ください。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-  "openingHoursJa": "確認した公式の参拝案内には参拝時間の記載がありません。訪問前に最新の公式案内をご確認ください。社務所などは別の時間で運営されます。",
+  "openingHoursJa": "境内の参拝時間は案内されていません。社務所や各種サービスはそれぞれ別の時間で運営されます。訪問前に最新のアクセス情報をご確認ください。",
   "municipalityId": "Kyoto:kyoto",
   "transportMetadata": {
     "method": "legacy-fallback",
@@ -253,5 +253,5 @@
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
   "wikipediaPageId": 1659910,
   "wikidataId": "Q714828",
-  "openingHours": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules."
+  "openingHours": "No visiting hours are listed for the shrine grounds. Shrine offices and services keep separate schedules; check current access information before visiting."
 }

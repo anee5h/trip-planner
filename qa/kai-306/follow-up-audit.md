@@ -121,3 +121,39 @@ This ledger is **append-only** and sits beside the frozen 2026-10-08 audit (`des
 - Source (2026-10-16): [https://www.tokyo-solamachi.jp/](https://www.tokyo-solamachi.jp/) — Official Tokyo Solamachi site identifies the adjacent shopping complex and its 300-plus stores.
 - Source (2026-10-16): [https://www.konicaminolta.com/planetarium/theaters/tenku/index.html](https://www.konicaminolta.com/planetarium/theaters/tenku/index.html) — Official Konica Minolta page identifies Planetarium TENKU as a separately operated attraction in TOKYO SKYTREE TOWN, not inside the tower.
 - Residual: The per-day calendar is not machine-checked for a selected visit date; guests must consult the official calendar for their date.
+
+## 2. Polish Fushimi hours copy and source Tokyo Tower illumination
+
+- Date: 2026-10-21 · sources checked: 2026-10-21 · base `b7b6ba2ea6565985a17c01cb869349fcab188860`
+- Related PR: [PR A follow-up (kai-306-pr-a-operational-facts)](https://github.com/anee5h/trip-planner/pull/492) (open).
+- Canonical SHA-256: `1b2aaac01b82` → `4680b70b5463`.
+
+**Automated validation**
+
+- npm run audit:kai-306 — passed; verified 20 records, 7 changed, 56 field paths and the canonical SHA-256 chain.
+- npm run check:catalog-sync — passed; second generation produced zero diff and all generated files are current.
+- npm run check:kai-89-structured-templates — passed; audit snapshot is current.
+
+**Manual review**
+
+- Fushimi Inari official access and visitor-guidance pages checked on 2026-10-21; neither lists fixed shrine-ground visiting hours, so the copy states this without claiming 24-hour access.
+- Tokyo Tower official Towerpedia and light-up pages checked on 2026-10-21; they support the night-illumination highlight and EN/JA field-specific source links.
+
+### fushimi-inari-taisha: PASS → PASS
+
+- Original finding: Hours text described the review process instead of giving a concise visitor-facing status.
+- Observation at check time: The cited official access and visitor-guidance pages provide no fixed visiting-hours schedule for the shrine grounds; no specific schedule is asserted.
+- Corrected fields: `businessHours/openingHours/openingHoursJa (EN/JA)`.
+- Adjudication (manual): Reworded the hours to remove review-process language while keeping the schedule unknown and office/service schedules separate; no 24-hour claim was restored.
+- Source (2026-10-21): [https://inari.jp/en/access/](https://inari.jp/en/access/) — Official access guidance gives transport directions and does not list fixed shrine-ground visiting hours.
+- Source (2026-10-21): [https://inari.jp/en/request/](https://inari.jp/en/request/) — Official visitor guidance describes shrine-ground rules and does not list fixed visiting hours.
+- Residual: A fixed shrine-ground visiting-hours schedule is not published on the cited official pages.
+
+### tokyo-tower-minato: PASS → PASS
+
+- Original finding: Night illumination highlight lacked a field-specific official source.
+- Observation at check time: Official English and Japanese Tokyo Tower pages describe the Tower light-up, including its nightly Landmark Light presentation.
+- Corrected fields: `highlights and content.en/content.ja.highlights source metadata`.
+- Adjudication (manual): Kept the concise Night illumination highlight and added official EN/JA field-specific sources.
+- Source (2026-10-21): [https://en.tokyotower.co.jp/plan/towerpedia/](https://en.tokyotower.co.jp/plan/towerpedia/) — Official Towerpedia describes Tokyo Tower lighting as Landmark Light and states that it switches off at midnight.
+- Source (2026-10-21): [https://www.tokyotower.co.jp/lightup/](https://www.tokyotower.co.jp/lightup/) — Official Japanese light-up page describes the tower illumination and its sunset-to-midnight schedule.

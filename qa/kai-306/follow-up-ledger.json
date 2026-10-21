@@ -2240,6 +2240,171 @@
           ]
         }
       ]
+    },
+    {
+      "id": "pr-a-content-signoff",
+      "sequence": 2,
+      "date": "2026-10-21",
+      "sourceCheckedOn": "2026-10-21",
+      "title": "Polish Fushimi hours copy and source Tokyo Tower illumination",
+      "baseCommit": "b7b6ba2ea6565985a17c01cb869349fcab188860",
+      "pr": {
+        "label": "PR A follow-up (kai-306-pr-a-operational-facts)",
+        "status": "open",
+        "url": "https://github.com/anee5h/trip-planner/pull/492"
+      },
+      "beforeCanonicalSha256": "1b2aaac01b825d5d39829ea894e251097b53715c545d6ac7c25a84afd90f1575",
+      "afterCanonicalSha256": "4680b70b54630baa9d9bc8248edbbbc4b029f41526c749190bff2fe6fef5b257",
+      "validation": {
+        "automated": [
+          "npm run audit:kai-306 — passed; verified 20 records, 7 changed, 56 field paths and the canonical SHA-256 chain.",
+          "npm run check:catalog-sync — passed; second generation produced zero diff and all generated files are current.",
+          "npm run check:kai-89-structured-templates — passed; audit snapshot is current."
+        ],
+        "manual": [
+          "Fushimi Inari official access and visitor-guidance pages checked on 2026-10-21; neither lists fixed shrine-ground visiting hours, so the copy states this without claiming 24-hour access.",
+          "Tokyo Tower official Towerpedia and light-up pages checked on 2026-10-21; they support the night-illumination highlight and EN/JA field-specific source links."
+        ]
+      },
+      "records": [
+        {
+          "id": "fushimi-inari-taisha",
+          "outcomeBefore": "PASS",
+          "adjudicatedOutcome": "PASS",
+          "adjudicationBasis": "manual",
+          "originalFinding": "Hours text described the review process instead of giving a concise visitor-facing status.",
+          "currentObservation": "The cited official access and visitor-guidance pages provide no fixed visiting-hours schedule for the shrine grounds; no specific schedule is asserted.",
+          "correctedFields": [
+            "businessHours/openingHours/openingHoursJa (EN/JA)"
+          ],
+          "sources": [
+            {
+              "url": "https://inari.jp/en/access/",
+              "checkedOn": "2026-10-21",
+              "observation": "Official access guidance gives transport directions and does not list fixed shrine-ground visiting hours."
+            },
+            {
+              "url": "https://inari.jp/en/request/",
+              "checkedOn": "2026-10-21",
+              "observation": "Official visitor guidance describes shrine-ground rules and does not list fixed visiting hours."
+            }
+          ],
+          "adjudicationNote": "Reworded the hours to remove review-process language while keeping the schedule unknown and office/service schedules separate; no 24-hour claim was restored.",
+          "residual": [
+            "A fixed shrine-ground visiting-hours schedule is not published on the cited official pages."
+          ],
+          "changes": [
+            {
+              "path": [
+                "businessHours"
+              ],
+              "beforePresent": true,
+              "before": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules.",
+              "afterPresent": true,
+              "after": "No visiting hours are listed for the shrine grounds. Shrine offices and services keep separate schedules; check current access information before visiting."
+            },
+            {
+              "path": [
+                "openingHours"
+              ],
+              "beforePresent": true,
+              "before": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules.",
+              "afterPresent": true,
+              "after": "No visiting hours are listed for the shrine grounds. Shrine offices and services keep separate schedules; check current access information before visiting."
+            },
+            {
+              "path": [
+                "openingHoursJa"
+              ],
+              "beforePresent": true,
+              "before": "確認した公式の参拝案内には参拝時間の記載がありません。訪問前に最新の公式案内をご確認ください。社務所などは別の時間で運営されます。",
+              "afterPresent": true,
+              "after": "境内の参拝時間は案内されていません。社務所や各種サービスはそれぞれ別の時間で運営されます。訪問前に最新のアクセス情報をご確認ください。"
+            }
+          ]
+        },
+        {
+          "id": "tokyo-tower-minato",
+          "outcomeBefore": "PASS",
+          "adjudicatedOutcome": "PASS",
+          "adjudicationBasis": "manual",
+          "originalFinding": "Night illumination highlight lacked a field-specific official source.",
+          "currentObservation": "Official English and Japanese Tokyo Tower pages describe the Tower light-up, including its nightly Landmark Light presentation.",
+          "correctedFields": [
+            "highlights and content.en/content.ja.highlights source metadata"
+          ],
+          "sources": [
+            {
+              "url": "https://en.tokyotower.co.jp/plan/towerpedia/",
+              "checkedOn": "2026-10-21",
+              "observation": "Official Towerpedia describes Tokyo Tower lighting as Landmark Light and states that it switches off at midnight."
+            },
+            {
+              "url": "https://www.tokyotower.co.jp/lightup/",
+              "checkedOn": "2026-10-21",
+              "observation": "Official Japanese light-up page describes the tower illumination and its sunset-to-midnight schedule."
+            }
+          ],
+          "adjudicationNote": "Kept the concise Night illumination highlight and added official EN/JA field-specific sources.",
+          "residual": [],
+          "changes": [
+            {
+              "path": [
+                "editorial",
+                "fieldSources",
+                "highlights"
+              ],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": [
+                {
+                  "type": "official",
+                  "url": "https://en.tokyotower.co.jp/plan/towerpedia/",
+                  "title": "Towerpedia | TOKYO TOWER",
+                  "accessedAt": "2026-10-21"
+                }
+              ]
+            },
+            {
+              "path": [
+                "editorial",
+                "fieldSources",
+                "content.en.highlights"
+              ],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": [
+                {
+                  "type": "official",
+                  "url": "https://en.tokyotower.co.jp/plan/towerpedia/",
+                  "title": "Towerpedia | TOKYO TOWER",
+                  "accessedAt": "2026-10-21"
+                }
+              ]
+            },
+            {
+              "path": [
+                "editorial",
+                "fieldSources",
+                "content.ja.highlights"
+              ],
+              "beforePresent": false,
+              "before": null,
+              "afterPresent": true,
+              "after": [
+                {
+                  "type": "official",
+                  "url": "https://www.tokyotower.co.jp/lightup/",
+                  "title": "ライトアップ | 東京タワー",
+                  "accessedAt": "2026-10-21"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

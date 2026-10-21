@@ -125,6 +125,30 @@
           "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://en.tokyotower.co.jp/plan/towerpedia/",
+          "title": "Towerpedia | TOKYO TOWER",
+          "accessedAt": "2026-10-21"
+        }
+      ],
+      "content.en.highlights": [
+        {
+          "type": "official",
+          "url": "https://en.tokyotower.co.jp/plan/towerpedia/",
+          "title": "Towerpedia | TOKYO TOWER",
+          "accessedAt": "2026-10-21"
+        }
+      ],
+      "content.ja.highlights": [
+        {
+          "type": "official",
+          "url": "https://www.tokyotower.co.jp/lightup/",
+          "title": "ライトアップ | 東京タワー",
+          "accessedAt": "2026-10-21"
+        }
       ]
     }
   },

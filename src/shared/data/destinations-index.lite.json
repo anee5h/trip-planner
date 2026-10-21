@@ -7478,8 +7478,8 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules.",
-    "openingHours": "The reviewed official visitor guidance does not list shrine visiting hours; check current access before visiting. Shrine offices and services keep separate schedules.",
+    "businessHours": "No visiting hours are listed for the shrine grounds. Shrine offices and services keep separate schedules; check current access information before visiting.",
+    "openingHours": "No visiting hours are listed for the shrine grounds. Shrine offices and services keep separate schedules; check current access information before visiting.",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
