@@ -67,7 +67,7 @@ const runtimeCases: RuntimeCase[] = [
   {
     id: "fushimi-inari-taisha",
     locale: "ja",
-    hours: /参拝時間の記載がありません/,
+    hours: /境内の参拝時間は案内されていません/,
     highlights: ["千本鳥居", "稲荷山の参道", "稲荷社の総本宮"],
     warning: true,
     admission: "unavailable",
@@ -134,7 +134,7 @@ const runtimeCases: RuntimeCase[] = [
   {
     id: "fushimi-inari-taisha",
     locale: "en",
-    hours: /does not list shrine visiting hours/i,
+    hours: /No visiting hours are listed for the shrine grounds/i,
     highlights: [
       "Senbon Torii gates",
       "Mount Inari paths",
