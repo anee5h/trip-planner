@@ -298,14 +298,19 @@ describe("KAI-260 range-first benchmark", () => {
     ) as Record<string, { boundedIds: readonly string[] }>;
     const current = classifyRangeDestinations(destinations);
     const transitions = findBoundedToUnavailableTransitions(baseline, current);
-    const fushimiAdmissionReason =
-      "KAI-306 PR A (2026-10-16): reviewed official visitor pages do not establish a general-entry fee or free-entry claim, so the prior not_applicable admission fact is now unavailable/source_missing. This conservative data correction avoids treating unverified admission as zero; no recommendation or budget algorithm changed.";
-    const explicitJustifications: Record<string, string> = Object.fromEntries(
-      ["nakayama", "tokyo", "osaka", "hakata", "naha"].map((origin) => [
-        `${origin}:fushimi-inari-taisha`,
-        fushimiAdmissionReason,
-      ]),
-    );
+    const explicitJustifications: Record<string, string> = {};
+    for (const origin of ORIGINS) {
+      const fushimi = current[origin.key].find(
+        (row) => row.id === "fushimi-inari-taisha",
+      );
+      expect(
+        fushimi?.classification,
+        `${origin.key}:fushimi-inari-taisha`,
+      ).toBe("bounded_plannable");
+    }
+    expect(
+      transitions.filter((row) => row.destinationId === "fushimi-inari-taisha"),
+    ).toEqual([]);
     const unjustified = transitions.filter(
       (transition) =>
         !explicitJustifications[

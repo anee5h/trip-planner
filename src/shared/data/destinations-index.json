@@ -18678,21 +18678,19 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "admission": {
-      "state": "unavailable",
-      "provenance": "none",
-      "reasonCode": "source_missing",
+      "state": "verified_free",
+      "provenance": "verified_source",
       "cost": {
-        "kind": "unavailable",
-        "reason": "source_missing"
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
       },
       "scope": "general_entry",
-      "basis": "Reviewed official visitor information does not establish a general-entry fee or free-entry claim. Keep the value unavailable; do not infer zero or not_applicable.",
+      "basis": "The KANSAI Guide lists general shrine entry as free (updated 2026-06-23). Voluntary offerings and separate services are excluded.",
       "sourceUrls": [
-        "https://inari.jp/en/",
-        "https://inari.jp/en/access/",
-        "https://inari.jp/en/request/"
+        "https://www.the-kansai-guide.com/en/directory/item/11818/"
       ],
-      "checkedAt": "2026-10-16",
+      "checkedAt": "2026-10-22",
       "reviewIntervalMonths": 12
     },
     "localTransport": {
@@ -109388,7 +109386,69 @@
     },
     "openingHoursMetadata": {
       "sourceUrl": "https://www.meijijingu.or.jp/en/visit/",
-      "verifiedAt": "2026-10-16"
+      "verifiedAt": "2026-10-22",
+      "monthlySchedule": [
+        {
+          "month": 1,
+          "opensAt": "06:40",
+          "closesAt": "16:20"
+        },
+        {
+          "month": 2,
+          "opensAt": "06:20",
+          "closesAt": "16:50"
+        },
+        {
+          "month": 3,
+          "opensAt": "05:40",
+          "closesAt": "17:20"
+        },
+        {
+          "month": 4,
+          "opensAt": "05:10",
+          "closesAt": "17:50"
+        },
+        {
+          "month": 5,
+          "opensAt": "05:00",
+          "closesAt": "18:10"
+        },
+        {
+          "month": 6,
+          "opensAt": "05:00",
+          "closesAt": "18:30"
+        },
+        {
+          "month": 7,
+          "opensAt": "05:00",
+          "closesAt": "18:20"
+        },
+        {
+          "month": 8,
+          "opensAt": "05:00",
+          "closesAt": "18:00"
+        },
+        {
+          "month": 9,
+          "opensAt": "05:20",
+          "closesAt": "17:20"
+        },
+        {
+          "month": 10,
+          "opensAt": "05:40",
+          "closesAt": "16:40"
+        },
+        {
+          "month": 11,
+          "opensAt": "06:10",
+          "closesAt": "16:10"
+        },
+        {
+          "month": 12,
+          "opensAt": "06:40",
+          "closesAt": "16:00"
+        }
+      ]
     }
   },
   {

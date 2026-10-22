@@ -795,6 +795,11 @@ export interface Destination {
     sourceUrl?: string;
     lastAdmission?: string;
     closedDays?: string;
+    monthlySchedule?: readonly {
+      month: number;
+      opensAt: string;
+      closesAt: string;
+    }[];
   };
   verifiedAt?: string;
   ratingMetadata?: {

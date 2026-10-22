@@ -220,6 +220,68 @@
   },
   "openingHoursMetadata": {
     "sourceUrl": "https://www.meijijingu.or.jp/en/visit/",
-    "verifiedAt": "2026-10-16"
+    "verifiedAt": "2026-10-22",
+    "monthlySchedule": [
+      {
+        "month": 1,
+        "opensAt": "06:40",
+        "closesAt": "16:20"
+      },
+      {
+        "month": 2,
+        "opensAt": "06:20",
+        "closesAt": "16:50"
+      },
+      {
+        "month": 3,
+        "opensAt": "05:40",
+        "closesAt": "17:20"
+      },
+      {
+        "month": 4,
+        "opensAt": "05:10",
+        "closesAt": "17:50"
+      },
+      {
+        "month": 5,
+        "opensAt": "05:00",
+        "closesAt": "18:10"
+      },
+      {
+        "month": 6,
+        "opensAt": "05:00",
+        "closesAt": "18:30"
+      },
+      {
+        "month": 7,
+        "opensAt": "05:00",
+        "closesAt": "18:20"
+      },
+      {
+        "month": 8,
+        "opensAt": "05:00",
+        "closesAt": "18:00"
+      },
+      {
+        "month": 9,
+        "opensAt": "05:20",
+        "closesAt": "17:20"
+      },
+      {
+        "month": 10,
+        "opensAt": "05:40",
+        "closesAt": "16:40"
+      },
+      {
+        "month": 11,
+        "opensAt": "06:10",
+        "closesAt": "16:10"
+      },
+      {
+        "month": 12,
+        "opensAt": "06:40",
+        "closesAt": "16:00"
+      }
+    ]
   }
 }

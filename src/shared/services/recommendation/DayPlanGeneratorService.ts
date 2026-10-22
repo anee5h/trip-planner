@@ -149,8 +149,7 @@ export function buildUsablePlanCandidates(
       (c) =>
         c.required &&
         c.destination.role !== "hub" &&
-        c.destination.kind !== "city" &&
-        c.destination.kind !== "district",
+        c.destination.kind !== "city",
     ),
     optional: usable
       .filter((c) => !c.required)
@@ -786,8 +785,12 @@ export function generateDayPlan(
   }> = [];
 
   activeCandidates.forEach((c) => {
-    const assessment = getOpeningHoursAssessment(c.destination);
-    if (assessment.status === "stale" || assessment.status === "unverified") {
+    const assessment = getOpeningHoursAssessment(
+      c.destination,
+      undefined,
+      options?.travelDate,
+    );
+    if (assessment.requiresWarning) {
       const loc = getLocalizedPlace(c.destination, "en");
       uncertainHoursDisclosures.push({
         destinationId: c.destination.id,
@@ -1100,7 +1103,7 @@ function simulateRouteIncremental(
       };
     }
 
-    const openingWindow = getOpeningHoursWindow(dest);
+    const openingWindow = getOpeningHoursWindow(dest, travelDate);
     const locEn = getLocalizedPlace(dest, "en");
     const locJa = getLocalizedPlace(dest, "ja");
     if (openingWindow && currentMins < openingWindow.opensAtMinutes) {
@@ -1140,7 +1143,7 @@ function simulateRouteIncremental(
       visitMins = Math.min(visitMins, remainingOpenMinutes);
     }
 
-    const assessment = getOpeningHoursAssessment(dest);
+    const assessment = getOpeningHoursAssessment(dest, undefined, travelDate);
     steps.push({
       id: `step-${dest.id}`,
       type: "destination",

@@ -329,8 +329,13 @@ function collectOpeningHoursPolicyIssues(
     );
   }
   if (assessment.status === "verified") {
-    if (assessment.requiresWarning) {
-      issues.push(`${id}: verified opening hours must not require a warning`);
+    if (
+      assessment.requiresWarning !==
+      (assessment.scheduleStatus !== "schedulable")
+    ) {
+      issues.push(
+        `${id}: verified hours must warn when a planning window cannot be resolved`,
+      );
     }
     if (!assessment.sourceUrl || !assessment.verifiedAt) {
       issues.push(`${id}: verified opening hours lack source metadata`);
@@ -717,10 +722,11 @@ describe("KAI-307 golden destination release smoke", () => {
     const japaneseHours = getLocalizedOpeningHours(kaiyukan, "ja") ?? "";
     expect(
       assessment,
-      "osaka-aquarium-kaiyukan: date-variable hours must remain verified without a warning",
+      "osaka-aquarium-kaiyukan: date-variable hours must remain verified but require a scheduling warning",
     ).toMatchObject({
       status: "verified",
-      requiresWarning: false,
+      scheduleStatus: "descriptive",
+      requiresWarning: true,
       sourceUrl: "https://www.kaiyukan.com/info/hours/",
     });
     expect(englishHours).toMatch(/vary by date/i);
@@ -777,10 +783,11 @@ describe("KAI-307 golden destination release smoke", () => {
     const uenoAssessment = getOpeningHoursAssessment(ueno, policyNowFor(ueno));
     expect(
       uenoAssessment,
-      "ueno-park: valid verified metadata must not show a warning",
+      "ueno-park: descriptive verified hours must warn when no window can be scheduled",
     ).toMatchObject({
       status: "verified",
-      requiresWarning: false,
+      scheduleStatus: "descriptive",
+      requiresWarning: true,
       sourceUrl: "https://www.tokyo-park.or.jp/park/ueno/index.html",
     });
     expect(uenoAssessment.verifiedAt).toBe(uenoMetadata?.verifiedAt);

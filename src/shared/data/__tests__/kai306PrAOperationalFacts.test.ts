@@ -108,13 +108,13 @@ describe("KAI-306 PR A operational facts", () => {
     expect(resolveAdmissionApplicability(dotonbori)).toBe("not_applicable");
   });
 
-  it("keeps Dotonbori's district kind out of required plan-stop filtering", () => {
+  it("keeps Dotonbori as a required anchor without enough nearby stops", () => {
     const dotonbori = canonical("dotonbori");
     const eligibility = getPlanEligibility(dotonbori, {
       planType: "half_day",
       catalogue: [dotonbori],
     });
-    expect(eligibility.candidateCount).toBe(0);
+    expect(eligibility.candidateCount).toBe(1);
     expect(eligibility.eligible).toBe(false);
   });
 
@@ -131,17 +131,20 @@ describe("KAI-306 PR A operational facts", () => {
     expect(localizePlaceLabel(canonical("dotonbori").kind!, "ja")).toBe("街並");
   });
 
-  it("keeps Fushimi admission unknown instead of asserting a free or absent fee", () => {
+  it("uses the regional tourism source for Fushimi's free general entry", () => {
     const record = canonical("fushimi-inari-taisha");
     expect(record.admission).toMatchObject({
-      state: "unavailable",
-      provenance: "none",
-      reasonCode: "source_missing",
+      state: "verified_free",
+      provenance: "verified_source",
       cost: {
-        kind: "unavailable",
-        reason: "source_missing",
+        kind: "bounded",
+        min: 0,
+        max: 0,
       },
+      scope: "general_entry",
+      sourceUrls: ["https://www.the-kansai-guide.com/en/directory/item/11818/"],
     });
+    expect(record.admission?.basis).toMatch(/general shrine entry as free/i);
     expect(resolveAdmissionApplicability(record)).toBe("applicable");
   });
 
@@ -179,14 +182,20 @@ describe("KAI-306 PR A operational facts", () => {
     expect(record.businessHours).not.toMatch(/\d{1,2}:\d{2}/);
   });
 
-  it("represents Meiji Jingu as seasonal sunrise-to-sunset without a clock range", () => {
+  it("represents Meiji Jingu as monthly sunrise-to-sunset hours", () => {
     const record = canonical("meiji-jingu");
     expect(getLocalizedOpeningHours(record, "en")).toMatch(/sunrise.*sunset/i);
     expect(getLocalizedOpeningHours(record, "ja")).toMatch(/日の出.*日没/);
     expect(getLocalizedOpeningHours(record, "ja")).not.toMatch(/[A-Za-z]{4}/);
     expect(getOpeningHoursWindow(record)).toBeNull();
+    expect(getOpeningHoursWindow(record, "2026-10-22")).toMatchObject({
+      opensAtMinutes: 5 * 60 + 40,
+      closesAtMinutes: 16 * 60 + 40,
+    });
     expect(getOpeningHoursAssessment(record)).toMatchObject({
       status: "verified",
+      scheduleStatus: "date_required",
+      requiresWarning: true,
       sourceUrl: "https://www.meijijingu.or.jp/en/visit/",
     });
     expect(record.admission?.state).toBe("not_applicable");

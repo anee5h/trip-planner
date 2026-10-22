@@ -12,9 +12,19 @@ export type AccessType =
 export type OpeningHoursStatus =
   "verified" | "sourced" | "stale" | "unverified" | "not_required";
 
+export type OpeningHoursScheduleStatus =
+  | "schedulable"
+  | "date_required"
+  | "descriptive"
+  | "stale"
+  | "unverified"
+  | "not_required";
+
 export interface OpeningHoursAssessment {
   accessType: AccessType;
   status: OpeningHoursStatus;
+  /** Evidence may be verified while still lacking a plan-ready time window. */
+  scheduleStatus: OpeningHoursScheduleStatus;
   requiresWarning: boolean;
   displayText?: string;
   sourceUrl?: string;
@@ -75,35 +85,20 @@ function parseClosedWeekdays(text: string): number[] {
   return [...new Set(days)].sort((a, b) => a - b);
 }
 
-/** Only verified destination-specific hours may constrain a generated plan. */
-export function getOpeningHoursWindow(
-  destination: Destination,
+function parseWindowText(
+  text: string,
+  metadataClosedDays: string,
 ): OpeningHoursWindow | null {
-  if (getOpeningHoursAssessment(destination).status !== "verified") return null;
-
-  const text = destination.businessHours || destination.openingHours;
-  if (!text) return null;
   const match = text.match(TIME_RANGE_PATTERN);
   if (!match) return null;
-
   const opensAtMinutes = parseClock(match[1], match[2]);
   const closesAtMinutes = parseClock(match[3], match[4]);
   if (
     opensAtMinutes === null ||
     closesAtMinutes === null ||
     closesAtMinutes <= opensAtMinutes
-  ) {
+  )
     return null;
-  }
-
-  const metadata = destination.openingHoursMetadata as
-    (Record<string, unknown> & { closedDays?: unknown }) | undefined;
-  const metadataClosedDays =
-    typeof metadata?.closedDays === "string"
-      ? metadata.closedDays
-      : Array.isArray(metadata?.closedDays)
-        ? metadata.closedDays.join(", ")
-        : "";
 
   return {
     opensAtMinutes,
@@ -117,11 +112,75 @@ export function getOpeningHoursWindow(
   };
 }
 
+function metadataClosedDays(destination: Destination): string {
+  const metadata = destination.openingHoursMetadata as
+    (Record<string, unknown> & { closedDays?: unknown }) | undefined;
+  return typeof metadata?.closedDays === "string"
+    ? metadata.closedDays
+    : Array.isArray(metadata?.closedDays)
+      ? metadata.closedDays.join(", ")
+      : "";
+}
+
+function resolveOpeningHoursWindow(
+  destination: Destination,
+  travelDate?: string,
+): OpeningHoursWindow | null {
+  const monthlySchedule = destination.openingHoursMetadata?.monthlySchedule;
+  if (monthlySchedule?.length) {
+    if (!travelDate || !isValidIsoDate(travelDate)) return null;
+    const month = Number(travelDate.slice(5, 7));
+    const entry = monthlySchedule.find((item) => item.month === month);
+    if (!entry) return null;
+    return parseWindowText(
+      entry.opensAt + " - " + entry.closesAt,
+      metadataClosedDays(destination),
+    );
+  }
+
+  const text = destination.businessHours || destination.openingHours;
+  if (!text) return null;
+  return parseWindowText(text, metadataClosedDays(destination));
+}
+
+/** Only fresh, verified, date-resolved hours constrain a generated plan. */
+export function getOpeningHoursWindow(
+  destination: Destination,
+  travelDate?: string,
+): OpeningHoursWindow | null {
+  const assessment = getOpeningHoursAssessment(
+    destination,
+    undefined,
+    travelDate,
+  );
+  if (
+    assessment.status !== "verified" ||
+    assessment.scheduleStatus !== "schedulable"
+  )
+    return null;
+  return resolveOpeningHoursWindow(destination, travelDate);
+}
+
+function scheduleStatusFor(
+  destination: Destination,
+  status: OpeningHoursStatus,
+  travelDate?: string,
+): OpeningHoursScheduleStatus {
+  if (status === "not_required") return "not_required";
+  if (status === "stale") return "stale";
+  if (status !== "verified") return "unverified";
+  if (resolveOpeningHoursWindow(destination, travelDate)) return "schedulable";
+  if (destination.openingHoursMetadata?.monthlySchedule?.length) {
+    return isValidIsoDate(travelDate) ? "descriptive" : "date_required";
+  }
+  return "descriptive";
+}
+
 export function isOpeningHoursClosedOnDate(
   destination: Destination,
   isoDate: string,
 ): boolean {
-  const window = getOpeningHoursWindow(destination);
+  const window = getOpeningHoursWindow(destination, isoDate);
   if (!window || !/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) return false;
   const date = new Date(`${isoDate}T12:00:00Z`);
   if (Number.isNaN(date.getTime())) return false;
@@ -156,10 +215,10 @@ export function isValidIsoDate(value: string | undefined): boolean {
 
 const FRESHNESS_WINDOW_DAYS = 180;
 
-export function getOpeningHoursAssessment(
+function getOpeningHoursEvidenceAssessment(
   dest: Destination,
   now: Date = new Date(),
-): OpeningHoursAssessment {
+): Omit<OpeningHoursAssessment, "scheduleStatus"> {
   if (!dest || !dest.id) {
     return {
       accessType: "unknown",
@@ -191,7 +250,11 @@ export function getOpeningHoursAssessment(
   const sourceUrl = meta?.sourceUrl || dest.officialWebsite;
   const metadataSourceUrl = meta?.sourceUrl;
   const displayText =
-    typeof dest.businessHours === "string" ? dest.businessHours : undefined;
+    typeof dest.businessHours === "string"
+      ? dest.businessHours
+      : typeof dest.openingHours === "string"
+        ? dest.openingHours
+        : undefined;
 
   if (fieldVerifiedAt) {
     const isValidPastDate =
@@ -279,12 +342,27 @@ export function getOpeningHoursAssessment(
   };
 }
 
+export function getOpeningHoursAssessment(
+  dest: Destination,
+  now: Date = new Date(),
+  travelDate?: string,
+): OpeningHoursAssessment {
+  const evidence = getOpeningHoursEvidenceAssessment(dest, now);
+  const scheduleStatus = scheduleStatusFor(dest, evidence.status, travelDate);
+  return {
+    ...evidence,
+    scheduleStatus,
+    requiresWarning:
+      evidence.requiresWarning ||
+      (scheduleStatus !== "schedulable" && scheduleStatus !== "not_required"),
+  };
+}
+
 export function requiresOpeningHours(dest: Destination): boolean {
   const assessment = getOpeningHoursAssessment(dest);
   return assessment.status !== "not_required";
 }
 
 export function hasVerifiedOpeningHours(dest: Destination): boolean {
-  const assessment = getOpeningHoursAssessment(dest);
-  return assessment.status === "verified";
+  return getOpeningHoursAssessment(dest).status === "verified";
 }

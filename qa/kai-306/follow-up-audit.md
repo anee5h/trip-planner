@@ -157,3 +157,39 @@ This ledger is **append-only** and sits beside the frozen 2026-10-08 audit (`des
 - Adjudication (manual): Kept the concise Night illumination highlight and added official EN/JA field-specific sources.
 - Source (2026-10-21): [https://en.tokyotower.co.jp/plan/towerpedia/](https://en.tokyotower.co.jp/plan/towerpedia/) — Official Towerpedia describes Tokyo Tower lighting as Landmark Light and states that it switches off at midnight.
 - Source (2026-10-21): [https://www.tokyotower.co.jp/lightup/](https://www.tokyotower.co.jp/lightup/) — Official Japanese light-up page describes the tower illumination and its sunset-to-midnight schedule.
+
+## 3. PR #492 review — Fushimi admission evidence and date-aware opening hours
+
+- Date: 2026-10-22 · sources checked: 2026-10-22 · base `9fbac8eea2cdd89e55219eb0f50ec20e221b910a`
+- Related PR: [PR #492 review remediation](https://github.com/anee5h/trip-planner/pull/492) (Open; awaiting checks and required sign-off; merge remains unauthorized).
+- Canonical SHA-256: `4680b70b5463` → `b830e1595282`.
+
+**Automated validation**
+
+- npm run sync-destination-details regenerated all 1,130 details after canonical edits; npm run check:catalog-sync confirmed a byte-identical second generation.
+- Focused Vitest checks passed: 91 tests across six files, including date-aware Meiji evening itinerary, Dotonbori district anchor, and five bounded KAI-260 Fushimi budget estimates.
+- npm run audit:kai-219 passed with zero free-without-evidence admission facts.
+- npm run audit:kai-306 passed with the 3-entry canonical hash chain; npx tsc --noEmit -p tsconfig.app.json, npm run lint and npm run format:check passed.
+
+**Manual review**
+
+- The KANSAI Guide and Meiji Jingu official visitor page were reviewed on 2026-10-22; source observations are recorded below.
+- The additional audit-wide hash-scope issue is recorded for follow-up; this PR keeps the existing 20-destination cohort boundary and does not change the ledger design.
+
+### fushimi-inari-taisha: PASS → PASS
+
+- Original finding: Admission was kept unavailable because the reviewed shrine pages did not state whether general entry is free.
+- Observation at check time: The KANSAI Guide lists the shrine fee as free and its grounds as open year-round; the listing was updated 2026-06-23.
+- Corrected fields: `admission: verified_free, ¥0–¥0, general_entry`.
+- Adjudication (manual): The explicit regional tourism listing is accepted as source evidence for free general entry. The cost is bounded at ¥0–¥0; optional offerings and services remain outside this field.
+- Source (2026-10-22): [https://www.the-kansai-guide.com/en/directory/item/11818/](https://www.the-kansai-guide.com/en/directory/item/11818/) — Official Kansai tourism listing explicitly says “[Fee] Free” and “Grounds open year-round”; the price field is scoped to general shrine entry.
+- Residual: Voluntary offerings and separate services are excluded from the general-entry cost; the source does not provide a daily visiting-hours schedule.
+
+### meiji-jingu: PASS → PASS
+
+- Original finding: The fresh verifiedAt metadata classified sunrise-to-sunset text as verified, but the planner could not resolve a closing window and could schedule an evening visit after closing.
+- Observation at check time: The official visitor page publishes opening and closing times for each month and notes that some facilities inside have shorter hours.
+- Corrected fields: `openingHoursMetadata.monthlySchedule`, `planner date-aware schedule assessment and warning`.
+- Adjudication (manual): Date-selected plans now use the published month-specific grounds schedule. Without a travel date, the verified descriptive hours remain visible with a scheduling warning.
+- Source (2026-10-22): [https://www.meijijingu.or.jp/en/visit/](https://www.meijijingu.or.jp/en/visit/) — Official visitor page provides all 12 monthly opening and closing times, including October 05:40–16:40, and says some internal facilities have shorter hours.
+- Residual: The monthly schedule covers the shrine grounds; shorter hours for facilities inside are not modeled as separate itinerary stops.
