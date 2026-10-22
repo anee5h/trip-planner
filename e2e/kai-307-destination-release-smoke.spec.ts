@@ -5,7 +5,11 @@ import { expect, test } from "./fixtures";
 
 type SmokeLocale = "en" | "ja";
 type AdmissionState =
-  "not_applicable" | "verified_paid" | "variable_price" | "unavailable";
+  | "not_applicable"
+  | "verified_free"
+  | "verified_paid"
+  | "variable_price"
+  | "unavailable";
 interface DestinationFixtureRecord {
   id: string;
   name: string;
@@ -70,7 +74,7 @@ const runtimeCases: RuntimeCase[] = [
     hours: /境内の参拝時間は案内されていません/,
     highlights: ["千本鳥居", "稲荷山の参道", "稲荷社の総本宮"],
     warning: true,
-    admission: "unavailable",
+    admission: "verified_free",
   },
   {
     id: "dotonbori",
@@ -141,7 +145,7 @@ const runtimeCases: RuntimeCase[] = [
       "Head shrine of Inari",
     ],
     warning: true,
-    admission: "unavailable",
+    admission: "verified_free",
   },
   {
     id: "dotonbori",
@@ -554,12 +558,22 @@ for (const runtimeCase of runtimeCases) {
         /\s+/g,
         " ",
       );
-      await expect
-        .soft(
-          rowText,
-          `${runtimeCase.id}: admission was rendered as free or zero`,
-        )
-        .not.toMatch(/\bFree\b|無料|¥\s*0(?:\b|\D)/i);
+      const freeAdmissionPattern = /\bFree\b|無料|¥\s*0(?:\b|\D)/i;
+      if (runtimeCase.admission === "verified_free") {
+        await expect
+          .soft(
+            rowText,
+            `${runtimeCase.id}: verified free admission is not rendered as free or zero`,
+          )
+          .toMatch(freeAdmissionPattern);
+      } else {
+        await expect
+          .soft(
+            rowText,
+            `${runtimeCase.id}: admission was rendered as free or zero`,
+          )
+          .not.toMatch(freeAdmissionPattern);
+      }
       if (runtimeCase.admission === "verified_paid") {
         await expect
           .soft(

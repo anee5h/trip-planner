@@ -425,6 +425,17 @@ function collectAdmissionIssues(destination: Destination): string[] {
         );
       }
       break;
+    case "verified_free":
+      if (
+        component.cost.kind !== "bounded" ||
+        component.cost.min !== 0 ||
+        component.cost.max !== 0
+      ) {
+        issues.push(
+          `${id}: verified free admission is not represented as ¥0–¥0`,
+        );
+      }
+      break;
     case "variable_price":
       if (
         component.cost.kind === "bounded" &&

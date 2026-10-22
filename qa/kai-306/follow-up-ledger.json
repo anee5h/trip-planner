@@ -2681,7 +2681,9 @@
           "adjudicatedOutcome": "PASS",
           "originalFinding": "The regional tourism source supports free general entry, but the catalogue fast validator requires an explicit FREE_ENTRY marker in the evidence basis.",
           "currentObservation": "The KANSAI Guide lists the shrine admission fee as free and its grounds open year-round; its listing was updated 2026-06-23.",
-          "correctedFields": ["admission.basis: explicit FREE_ENTRY marker with source and scope retained"],
+          "correctedFields": [
+            "admission.basis: explicit FREE_ENTRY marker with source and scope retained"
+          ],
           "sources": [
             {
               "url": "https://www.the-kansai-guide.com/en/directory/item/11818/",
