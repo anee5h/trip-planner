@@ -31,6 +31,11 @@ const reportPath = path.join(
   "qa/kai-306/destination-sample-audit.md",
 );
 const canonicalPath = "src/shared/data/destinations-index.json";
+const followUpLedgerPath = path.join(
+  repoRoot,
+  "qa/kai-306/follow-up-ledger.json",
+);
+const followUpReportPath = path.join(repoRoot, "qa/kai-306/follow-up-audit.md");
 
 function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -79,7 +84,7 @@ function getPath(value, segments, label) {
   return { present: true, value: current };
 }
 
-function setPath(value, segments, next, present, label) {
+function setPath(value, segments, next, present, label, parentKeys) {
   if (!segments.length) throw new Error(`Empty field path for ${label}`);
   let current = value;
   for (const segment of segments.slice(0, -1)) {
@@ -111,6 +116,16 @@ function setPath(value, segments, next, present, label) {
   }
   if (present) current[finalSegment] = next;
   else delete current[finalSegment];
+  if (parentKeys) {
+    assert.deepEqual(
+      new Set(Object.keys(current)),
+      new Set(parentKeys),
+      `Parent key set mismatch for ${label}: ${segments.join(".")}`,
+    );
+    const values = new Map(Object.entries(current));
+    for (const key of Object.keys(current)) delete current[key];
+    for (const key of parentKeys) current[key] = values.get(key);
+  }
 }
 
 function validateManifest(manifest) {
@@ -301,13 +316,322 @@ function validateManifest(manifest) {
   }
 }
 
-function loadBase(manifest) {
-  // Reverse the declared patch from the exact candidate; the full-file hash then
-  // proves the frozen baseline without requiring its Git object in shallow CI.
-  const candidateRaw = readFileSync(
+function readLedger() {
+  if (!existsSync(followUpLedgerPath)) return null;
+  return readJson(
+    readFileSync(followUpLedgerPath, "utf8"),
+    "KAI-306 follow-up ledger",
+  );
+}
+
+/**
+ * The October 8 candidate is a frozen historical artifact. Later reviewed
+ * catalogue corrections are recorded as an append-only, hash-chained ledger
+ * of field-path patches. Reversing that chain from the live catalogue must
+ * reproduce the exact pinned candidate bytes; any unledgered change, edited
+ * ledger value or broken chain link fails here instead of being tolerated.
+ */
+function reconstructPinnedCandidate(manifest, ledger) {
+  const currentRaw = readFileSync(
     resolveInside(repoRoot, manifest.base.canonicalPath),
     "utf8",
   );
+  const entries = ledger?.entries ?? [];
+  if (!entries.length) return { raw: currentRaw, currentRaw };
+  validateLedger(ledger, manifest);
+  assert.equal(
+    sha256(currentRaw),
+    entries.at(-1).afterCanonicalSha256,
+    "Current canonical hash is not the last follow-up ledger hash",
+  );
+  let data = readJson(currentRaw, "Current canonical catalogue");
+  const byId = () => new Map(data.map((record) => [record.id, record]));
+  for (const entry of [...entries].reverse()) {
+    const index = byId();
+    for (const record of [...entry.records].reverse()) {
+      const target = index.get(record.id);
+      assert.ok(target, `Follow-up ledger record missing: ${record.id}`);
+      for (const change of record.changes) {
+        if (!change.beforeParentKeys) continue;
+        const parent = getPath(target, change.path.slice(0, -1), record.id);
+        assert.deepEqual(
+          Object.keys(parent.value),
+          change.afterParentKeys,
+          `Follow-up parent key order mismatch at ${record.id}.${change.path.join(".")}`,
+        );
+      }
+      for (const change of [...record.changes].reverse()) {
+        const current = getPath(target, change.path, record.id);
+        assert.equal(
+          current.present,
+          change.afterPresent,
+          `Follow-up presence mismatch at ${record.id}.${change.path.join(".")}`,
+        );
+        if (change.afterPresent) {
+          assert.ok(
+            isDeepStrictEqual(current.value, change.after),
+            `Follow-up value mismatch at ${record.id}.${change.path.join(".")}`,
+          );
+        }
+        setPath(
+          target,
+          change.path,
+          change.before,
+          change.beforePresent,
+          record.id,
+          change.beforeParentKeys,
+        );
+      }
+    }
+    assert.equal(
+      sha256(stableJson(data)),
+      entry.beforeCanonicalSha256,
+      `Follow-up ${entry.id} does not reverse to its recorded prior hash`,
+    );
+  }
+  return { raw: stableJson(data), currentRaw };
+}
+
+const LEDGER_OUTCOMES = ["PASS", "FAIL"];
+const GENERATED_DETAIL_FIELDS = [
+  "kind",
+  "description",
+  "highlights",
+  "content",
+  "businessHours",
+  "openingHours",
+  "openingHoursJa",
+  "notes",
+  "notesJa",
+  "reservation",
+  "reservationJa",
+  "admission",
+  "openingHoursMetadata",
+];
+
+function isIsoDate(value) {
+  return (
+    typeof value === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(value) &&
+    new Date(`${value}T00:00:00Z`).toISOString().startsWith(value)
+  );
+}
+
+function validateLedger(ledger, manifest) {
+  assert.equal(ledger.schemaVersion, 1, "Unsupported follow-up ledger version");
+  assert.equal(ledger.ticket, "KAI-306");
+  assert.ok(Array.isArray(ledger.entries), "Follow-up entries missing");
+  const cohort = new Set(manifest.sampleIds);
+  let previousHash = manifest.candidate.canonicalSha256;
+  ledger.entries.forEach((entry, position) => {
+    const label = `follow-up ${entry.id}`;
+    assert.equal(entry.sequence, position + 1, `${label}: sequence gap`);
+    assert.ok(isIsoDate(entry.date), `${label}: invalid date`);
+    assert.ok(isIsoDate(entry.sourceCheckedOn), `${label}: invalid check date`);
+    assert.equal(
+      entry.beforeCanonicalSha256,
+      previousHash,
+      `${label}: hash chain broken`,
+    );
+    assert.match(entry.afterCanonicalSha256, /^[0-9a-f]{64}$/);
+    previousHash = entry.afterCanonicalSha256;
+    assert.ok(entry.records?.length, `${label}: no records`);
+    const seen = new Set();
+    for (const record of entry.records) {
+      assert.ok(
+        cohort.has(record.id),
+        `${label}: ${record.id} is outside the frozen 20-ID cohort`,
+      );
+      assert.ok(!seen.has(record.id), `${label}: duplicate ${record.id}`);
+      seen.add(record.id);
+      for (const key of [
+        "originalFinding",
+        "currentObservation",
+        "adjudicationNote",
+      ]) {
+        assert.ok(
+          typeof record[key] === "string" && record[key].trim(),
+          `${label}: ${record.id} missing ${key}`,
+        );
+      }
+      assert.ok(
+        LEDGER_OUTCOMES.includes(record.outcomeBefore) &&
+          LEDGER_OUTCOMES.includes(record.adjudicatedOutcome),
+        `${label}: ${record.id} invalid outcome`,
+      );
+      assert.equal(
+        record.adjudicationBasis,
+        "manual",
+        `${label}: ${record.id} outcomes are manual adjudications`,
+      );
+      assert.ok(record.correctedFields?.length, `${label}: ${record.id}`);
+      assert.ok(record.sources?.length, `${label}: ${record.id} has no source`);
+      for (const source of record.sources) {
+        assert.match(source.url, /^https:\/\//, `${label}: ${record.id} URL`);
+        assert.ok(isIsoDate(source.checkedOn), `${label}: ${record.id} date`);
+        assert.ok(source.observation, `${label}: ${record.id} observation`);
+      }
+      assert.ok(record.changes?.length, `${label}: ${record.id} no changes`);
+      for (const override of record.editorialOverrides ?? []) {
+        assert.ok(
+          override.file && override.field && override.rationale,
+          `${label}: ${record.id} incomplete editorial override`,
+        );
+        assert.ok(
+          Array.isArray(override.before) && Array.isArray(override.after),
+          `${label}: ${record.id} invalid editorial override values`,
+        );
+      }
+      for (const change of record.changes) {
+        if (change.beforeParentKeys === undefined) {
+          assert.equal(
+            change.afterParentKeys,
+            undefined,
+            `${label}: ${record.id} incomplete parent key order`,
+          );
+          continue;
+        }
+        assert.ok(
+          Array.isArray(change.beforeParentKeys) &&
+            change.beforeParentKeys.every((key) => typeof key === "string") &&
+            new Set(change.beforeParentKeys).size ===
+              change.beforeParentKeys.length,
+          `${label}: ${record.id} invalid before parent key order`,
+        );
+        assert.ok(
+          Array.isArray(change.afterParentKeys) &&
+            change.afterParentKeys.every((key) => typeof key === "string") &&
+            new Set(change.afterParentKeys).size ===
+              change.afterParentKeys.length,
+          `${label}: ${record.id} invalid after parent key order`,
+        );
+      }
+    }
+  });
+}
+
+/** Ledgered corrections must be present in the generated detail files. */
+function verifyFollowUps(ledger, manifest, current) {
+  const byId = new Map(current.map((record) => [record.id, record]));
+  for (const entry of ledger.entries) {
+    for (const record of entry.records) {
+      const detailFile = resolveInside(
+        repoRoot,
+        `public/data/destinations/${record.id}.json`,
+      );
+      const detail = readJson(readFileSync(detailFile, "utf8"), detailFile);
+      const canonical = byId.get(record.id);
+      const fields = new Set(GENERATED_DETAIL_FIELDS);
+      for (const change of record.changes) fields.add(change.path[0]);
+      for (const field of fields) {
+        const generatedField = GENERATED_DETAIL_FIELDS.includes(field);
+        if (!generatedField && !Object.hasOwn(detail, field)) continue;
+        assert.equal(
+          Object.hasOwn(detail, field),
+          Object.hasOwn(canonical, field),
+          `Generated detail ${record.id}.${field} has stale field presence; run npm run sync-destination-details`,
+        );
+        if (!Object.hasOwn(canonical, field)) continue;
+        assert.ok(
+          isDeepStrictEqual(detail[field], canonical[field]),
+          `Generated detail ${record.id}.${field} differs from canonical; run npm run sync-destination-details`,
+        );
+      }
+    }
+  }
+}
+
+function currentOutcomes(ledger, manifest) {
+  const outcomes = new Map(
+    manifest.records.map((record) => [record.id, record.outcomeAfter]),
+  );
+  for (const entry of ledger.entries) {
+    for (const record of entry.records) {
+      outcomes.set(record.id, record.adjudicatedOutcome);
+    }
+  }
+  return outcomes;
+}
+
+function renderFollowUpMarkdown(ledger, manifest) {
+  const outcomes = currentOutcomes(ledger, manifest);
+  const pass = [...outcomes.values()].filter((o) => o === "PASS").length;
+  const failing = [...outcomes]
+    .filter(([, o]) => o === "FAIL")
+    .map(([id]) => id);
+  const lines = [
+    "# KAI-306: Follow-up Audit Ledger",
+    "",
+    "This ledger is **append-only** and sits beside the frozen 2026-10-08 audit (`destination-sample-audit.json/.md`), which is unchanged. `npm run audit:kai-306` reverses every ledger patch from the live catalogue and requires the exact pinned October 8 candidate bytes, so the historical replay stays reproducible and no unledgered catalogue change passes silently.",
+    "",
+    "**Automated vs manual:** the script verifies the hash chain, the patch values, the 20-ID cohort and that generated detail files match canonical fields. It does **not** re-fetch sources. Each PASS/FAIL below is a manual adjudication against the cited source observation on the stated check date.",
+    "",
+    "## Current adjudicated state",
+    "",
+    `- Public-fact gate: **${pass} PASS / ${20 - pass} FAIL** (2026-10-08 frozen result: ${manifest.scope.finalResult.PASS} PASS / ${manifest.scope.finalResult.FAIL} FAIL).`,
+    `- Still FAIL: ${failing.length ? failing.map((id) => `\`${id}\``).join(", ") : "none"}.`,
+    "- KAI-306 is **not** complete: the 20-destination gate has not been independently reassessed.",
+    "",
+  ];
+  for (const entry of ledger.entries) {
+    lines.push(`## ${entry.sequence}. ${entry.title}`, "");
+    lines.push(
+      `- Date: ${entry.date} · sources checked: ${entry.sourceCheckedOn} · base \`${entry.baseCommit}\``,
+      `- Related PR: ${entry.pr.url ? `[${entry.pr.label}](${entry.pr.url})` : entry.pr.label} (${entry.pr.status}).`,
+      `- Canonical SHA-256: \`${entry.beforeCanonicalSha256.slice(0, 12)}\` → \`${entry.afterCanonicalSha256.slice(0, 12)}\`.`,
+      "",
+    );
+    lines.push("**Automated validation**", "");
+    for (const item of entry.validation.automated) lines.push(`- ${item}`);
+    lines.push("", "**Manual review**", "");
+    for (const item of entry.validation.manual) lines.push(`- ${item}`);
+    lines.push("");
+    for (const record of entry.records) {
+      lines.push(
+        `### ${record.id}: ${record.outcomeBefore} → ${record.adjudicatedOutcome}`,
+        "",
+        `- Original finding: ${record.originalFinding}`,
+        `- Observation at check time: ${record.currentObservation}`,
+        `- Corrected fields: ${record.correctedFields.map((f) => `\`${f}\``).join(", ")}.`,
+      );
+      for (const override of record.editorialOverrides ?? []) {
+        lines.push(
+          `- Application override (separate from canonical hash patches): \`${override.file}\` · \`${override.field}\` — ${JSON.stringify(override.before)} → ${JSON.stringify(override.after)}. ${override.rationale}`,
+        );
+      }
+      for (const reconciliation of record.auditReconciliations ?? []) {
+        lines.push(
+          `- Audit-manifest follow-up: \`${reconciliation.file}\` · \`${reconciliation.currentPath}\` — ${JSON.stringify(reconciliation.before)} → ${JSON.stringify(reconciliation.after)}. ${reconciliation.rationale}`,
+        );
+      }
+      lines.push(`- Adjudication (manual): ${record.adjudicationNote}`);
+      for (const source of record.sources) {
+        lines.push(
+          `- Source (${source.checkedOn}): [${source.url}](${source.url}) — ${source.observation}`,
+        );
+      }
+      for (const residual of record.residual ?? []) {
+        lines.push(`- Residual: ${residual}`);
+      }
+      lines.push("");
+    }
+  }
+  return execFileSync(
+    path.join(repoRoot, "node_modules/.bin/prettier"),
+    ["--parser", "markdown"],
+    {
+      cwd: repoRoot,
+      encoding: "utf8",
+      input: `${lines.join("\n")}\n`,
+      timeout: 30000,
+    },
+  );
+}
+
+function loadBase(manifest) {
+  // Reverse the declared patch from the exact candidate; the full-file hash then
+  // proves the frozen baseline without requiring its Git object in shallow CI.
+  const candidateRaw = reconstructPinnedCandidate(manifest, readLedger()).raw;
   assert.equal(
     sha256(candidateRaw),
     manifest.candidate.canonicalSha256,
@@ -644,25 +968,33 @@ function atomicWrite(target, bytes, { allowRepo = false } = {}) {
 
 function verifySnapshot(manifest) {
   validateManifest(manifest);
+  const ledger = readLedger();
   const { data: base } = loadBase(manifest);
   const replay = applyCandidate(base, manifest);
   assert.equal(replay.state, "A", "Frozen base should be candidate state A");
-  const currentRaw = readFileSync(
-    resolveInside(repoRoot, canonicalPath),
-    "utf8",
-  );
+  const pinned = reconstructPinnedCandidate(manifest, ledger);
   assert.equal(
-    sha256(currentRaw),
+    sha256(pinned.raw),
     manifest.candidate.canonicalSha256,
-    "Current canonical hash changed",
+    "Pinned candidate hash changed",
   );
-  const current = readJson(currentRaw, "Current canonical catalogue");
+  const pinnedCandidate = readJson(pinned.raw, "Pinned candidate catalogue");
   assert.deepEqual(
     replay.candidate,
-    current,
-    "Candidate manifest does not reproduce the current canonical catalogue",
+    pinnedCandidate,
+    "Candidate manifest does not reproduce the pinned candidate catalogue",
   );
-  return { currentRaw, current, rendered: renderMarkdown(manifest) };
+  const current = readJson(pinned.currentRaw, "Current canonical catalogue");
+  if (ledger?.entries?.length) verifyFollowUps(ledger, manifest, current);
+  return {
+    currentRaw: pinned.currentRaw,
+    current,
+    ledger,
+    rendered: renderMarkdown(manifest),
+    renderedFollowUp: ledger?.entries?.length
+      ? renderFollowUpMarkdown(ledger, manifest)
+      : null,
+  };
 }
 
 function valueAfterReplay(input, manifest) {
@@ -739,6 +1071,12 @@ function main() {
     console.log(
       `Rendered ${path.relative(repoRoot, renderedPath)} (${Buffer.byteLength(verified.rendered)} bytes).`,
     );
+    if (verified.renderedFollowUp) {
+      writeFileSync(followUpReportPath, verified.renderedFollowUp);
+      console.log(
+        `Rendered ${path.relative(repoRoot, followUpReportPath)} (${Buffer.byteLength(verified.renderedFollowUp)} bytes).`,
+      );
+    }
     return;
   }
 
@@ -748,9 +1086,28 @@ function main() {
     verified.rendered,
     "Rendered audit report is stale; run --render and review the diff",
   );
+  if (verified.renderedFollowUp) {
+    assert.ok(
+      existsSync(followUpReportPath),
+      "Follow-up report missing; run --render",
+    );
+    assert.equal(
+      readFileSync(followUpReportPath, "utf8"),
+      verified.renderedFollowUp,
+      "Rendered follow-up report is stale; run --render and review the diff",
+    );
+  }
+  const followUps = verified.ledger?.entries?.length ?? 0;
   console.log(
-    `KAI-306 audit verified: ${manifest.records.length} records; ${manifest.candidate.changedRecordCount} changed; ${manifest.candidate.fieldPathChangeCount} field paths; state=A; canonical SHA-256 ${sha256(verified.currentRaw)}.`,
+    `KAI-306 audit verified: ${manifest.records.length} records; ${manifest.candidate.changedRecordCount} changed; ${manifest.candidate.fieldPathChangeCount} field paths; state=A; ${followUps} follow-up ledger entr${followUps === 1 ? "y" : "ies"}; canonical SHA-256 ${sha256(verified.currentRaw)}.`,
   );
+  if (followUps) {
+    const outcomes = currentOutcomes(verified.ledger, manifest);
+    const pass = [...outcomes.values()].filter((o) => o === "PASS").length;
+    console.log(
+      `Adjudicated gate after follow-ups (manual, not recomputed): ${pass} PASS / ${20 - pass} FAIL.`,
+    );
+  }
 }
 
 try {

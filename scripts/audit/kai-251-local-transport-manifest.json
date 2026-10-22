@@ -1,7 +1,10 @@
 [
   {
     "id": "atsuta-shrine-nagoya",
-    "identity": { "name": "Atsuta Shrine (Nagoya)", "role": "poi" },
+    "identity": {
+      "name": "Atsuta Shrine (Nagoya)",
+      "role": "poi"
+    },
     "decision": "author",
     "canonicalArrivalAccessPoint": "Nagoya Station / Meitetsu Nagoya Station",
     "exactAccessEvidence": "Atsuta Shrine's official visitor information states that the shrine is three minutes on foot from Meitetsu Jingumae Station. The official Meitetsu route result gives Meitetsu Nagoya to Jingumae as an ordinary adult fare of ¥250.",
@@ -127,6 +130,21 @@
       "basis": "Kyoto → Inari on JR West is ¥150 ordinary adult one-way; the official shrine access page states Inari Station is immediately adjacent to Fushimi Inari.",
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
+    },
+    "identityFollowUp": {
+      "kind": {
+        "before": "museum",
+        "after": "shrine",
+        "sourceUrls": [
+          "https://inari.jp/en/",
+          "https://inari.jp/en/access/",
+          "https://inari.jp/en/request/",
+          "https://inari.jp/en/faq/"
+        ],
+        "rationale": "Official shrine pages identify Fushimi Inari Taisha as an Inari shrine, not a museum.",
+        "checkedAt": "2026-10-16",
+        "relatedTicket": "KAI-306"
+      }
     }
   },
   {
@@ -342,7 +360,9 @@
   },
   {
     "id": "tokyo-tower-minato",
-    "identity": { "name": "Tokyo Tower" },
+    "identity": {
+      "name": "Tokyo Tower"
+    },
     "decision": "author",
     "canonicalArrivalAccessPoint": "Shinagawa Station",
     "exactAccessEvidence": "Tokyo Tower's official access page lists Daimon Station Exit A6 and the ten-minute walk to the tower. The official Tokyo Metro route search gives Shinagawa to Daimon via Keikyu Main Line and Toei Asakusa Line at ¥310 ordinary adult one-way.",
@@ -419,7 +439,9 @@
   },
   {
     "id": "tokyo-skytree-sumida",
-    "identity": { "name": "Tokyo Skytree" },
+    "identity": {
+      "name": "Tokyo Skytree"
+    },
     "decision": "defer_f3",
     "canonicalArrivalAccessPoint": "Tokyo-area intercity arrival; exact local access point unresolved",
     "sourceUrls": [
@@ -432,7 +454,11 @@
   },
   {
     "id": "meiji-jingu",
-    "identity": { "name": "Meiji Jingu", "kind": "shrine", "role": "poi" },
+    "identity": {
+      "name": "Meiji Jingu",
+      "kind": "shrine",
+      "role": "poi"
+    },
     "decision": "defer_f3",
     "canonicalArrivalAccessPoint": "Tokyo Station for Tokyo:Shibuya intercity arrival",
     "sourceUrls": [

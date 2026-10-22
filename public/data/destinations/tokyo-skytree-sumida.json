@@ -57,8 +57,8 @@
   "highlights": [
     "Tembo Deck (350m)",
     "Tembo Galleria (450m)",
-    "Tokyo Solamachi Shopping Center",
-    "Planetarium Ten"
+    "Tokyo Solamachi (adjacent shopping complex)",
+    "Planetarium Tenku (in Tokyo Skytree Town)"
   ],
   "description": "Rising 634 meters over Tokyo, Tokyo Skytree is the world's tallest broadcasting tower, offering breath-taking 360-degree views of Mt. Fuji and the Kanto Plain from two observation decks.",
   "reservation": "Advance online booking recommended to skip ticket queues.",
@@ -97,7 +97,7 @@
     "max": 5
   },
   "officialWebsite": "https://www.tokyo-skytree.jp/",
-  "businessHours": "08:00 - 22:00 (Last admission 21:00)",
+  "businessHours": "Hours vary by date; check the official calendar.",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -140,22 +140,27 @@
       "highlights": [
         "Tembo Deck (350m)",
         "Tembo Galleria (450m)",
-        "Tokyo Solamachi Shopping Center",
-        "Planetarium Ten"
+        "Tokyo Solamachi (adjacent shopping complex)",
+        "Planetarium Tenku (in Tokyo Skytree Town)"
       ],
       "notes": "Best visibility of Mt. Fuji occurs on crisp, clear winter mornings from the Tembo Deck.",
       "reservation": "Advance online booking recommended to skip ticket queues.",
       "parking": "Paid underground parking structure at Tokyo Solamachi complex.",
-      "openingHours": "08:00 - 22:00 (Last admission 21:00)"
+      "openingHours": "Hours vary by date; check the official calendar."
     },
     "ja": {
       "name": "東京スカイツリー",
-      "description": "Tokyo Skytreeは東京都を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
-      "highlights": ["(350m)散策", "(450m)散策", "東京スカイツリーの名所"],
+      "description": "高さ634メートルの東京スカイツリーは、天望デッキと天望回廊から関東平野を一望できる展望タワーです。足元には商業施設の東京ソラマチがあります。",
+      "highlights": [
+        "天望デッキ（350m）",
+        "天望回廊（450m）",
+        "東京ソラマチ（隣接する商業施設）",
+        "プラネタリウム天空（東京スカイツリータウン内）"
+      ],
       "notes": "東京スカイツリー天望デッキからの富士山の眺望は、空気が澄んだ冬の晴れた早朝が最もおすすめです。",
       "reservation": "チケットカウンターの混雑を避けるため、オンラインでの日時指定事前予約がおすすめです。",
       "parking": "東京ソラマチの大型地下有料駐車場をご利用いただけます。",
-      "openingHours": "08:00 - 22:00（最終入場 21:00）"
+      "openingHours": "営業時間は日付により異なります。公式カレンダーをご確認ください。"
     }
   },
   "ratingMetadata": {
@@ -166,8 +171,8 @@
   "notesJa": "東京スカイツリー天望デッキからの富士山の眺望は、空気が澄んだ冬の晴れた早朝が最もおすすめです。",
   "reservationJa": "チケットカウンターの混雑を避けるため、オンラインでの日時指定事前予約がおすすめです。",
   "parkingJa": "東京ソラマチの大型地下有料駐車場をご利用いただけます。",
-  "openingHours": "08:00 - 22:00 (Last admission 21:00)",
-  "openingHoursJa": "08:00 - 22:00（最終入場 21:00）",
+  "openingHours": "Hours vary by date; check the official calendar.",
+  "openingHoursJa": "営業時間は日付により異なります。公式カレンダーをご確認ください。",
   "municipalityId": "Tokyo:sumida",
   "seasonMetadata": {
     "method": "model",
@@ -219,5 +224,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Tokyo_Skytree",
   "wikipediaPageId": 2638104,
-  "wikidataId": "Q57965"
+  "wikidataId": "Q57965",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://en.tokyo-skytree.jp/open-hours/",
+    "verifiedAt": "2026-10-16"
+  }
 }

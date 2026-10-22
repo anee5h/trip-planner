@@ -2606,6 +2606,11 @@
         "url": "https://www.dotonbori.or.jp/en/",
         "result": "fetch_failed",
         "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+      },
+      {
+        "url": "https://osaka-info.jp/en/spot/dotonbori/",
+        "result": "retrieved",
+        "note": "Official Osaka tourism page identifies Dotonbori as a shopping/entertainment district and describes store-dependent hours; admission is not attributed to the district as a whole."
       }
     ],
     "state": "not_applicable",
@@ -2615,10 +2620,38 @@
       "kind": "not_applicable"
     },
     "scope": "open_area",
-    "basis": "The catalogue identity represents Dotonbori as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
-    "sourceUrls": ["https://www.dotonbori.or.jp/en/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "basis": "Dotonbori is a district/area, not one coherent required admission product. The reviewed official district listing describes store-dependent businesses; separate paid venues and purchases are not promoted as a district admission fee.",
+    "sourceUrls": ["https://osaka-info.jp/en/spot/dotonbori/"],
+    "checkedAt": "2026-10-16",
+    "reviewIntervalMonths": 12,
+    "identityFollowUp": {
+      "kind": {
+        "before": "museum",
+        "after": "district",
+        "sourceUrls": ["https://osaka-info.jp/en/spot/dotonbori/"],
+        "rationale": "The current official Osaka tourism listing identifies Dotonbori as a shopping/entertainment district, not a museum.",
+        "checkedAt": "2026-10-16",
+        "relatedTicket": "KAI-306"
+      }
+    },
+    "admissionFollowUp": {
+      "relatedTicket": "KAI-306",
+      "checkedAt": "2026-10-16",
+      "before": {
+        "state": "not_applicable",
+        "reasonCode": "no_single_admission_product",
+        "sourceUrls": ["https://www.dotonbori.or.jp/en/"],
+        "checkedAt": "2026-08-28"
+      },
+      "after": {
+        "state": "not_applicable",
+        "reasonCode": "no_single_admission_product",
+        "sourceUrls": ["https://osaka-info.jp/en/spot/dotonbori/"],
+        "checkedAt": "2026-10-16"
+      },
+      "sourceUrls": ["https://osaka-info.jp/en/spot/dotonbori/"],
+      "rationale": "Refresh the scoped district identity/provenance reference to a currently reviewed official tourism listing; no venue fee or free-entry claim is inferred."
+    }
   },
   {
     "id": "echigo-sanzan-tadami",
@@ -3505,25 +3538,86 @@
       {
         "url": "https://inari.jp/en/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official visitor information was reviewed; it did not establish a general-entry price or free-entry claim."
       },
       {
-        "url": "https://inari.jp/en/",
+        "url": "https://inari.jp/en/access/",
         "result": "retrieved",
-        "note": "Identity and official source review support no single admission product."
+        "note": "Official visitor information was reviewed; it did not establish a general-entry price or free-entry claim."
+      },
+      {
+        "url": "https://inari.jp/en/request/",
+        "result": "retrieved",
+        "note": "Official visitor information was reviewed; it did not establish a general-entry price or free-entry claim."
+      },
+      {
+        "url": "https://inari.jp/en/faq/",
+        "result": "retrieved",
+        "note": "Official visitor information was reviewed; it did not establish a general-entry price or free-entry claim."
       }
     ],
-    "state": "not_applicable",
-    "provenance": "verified_source",
-    "reasonCode": "no_single_admission_product",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
     "cost": {
-      "kind": "not_applicable"
+      "kind": "unavailable",
+      "reason": "source_missing"
     },
-    "scope": "open_area",
-    "basis": "The catalogue identity represents Fushimi Inari Taisha as an open area, aggregate, worship site, transport facility, or event venue rather than one coherent required admission product. Optional rides, transport, events, donations, purchases, and separate facilities are excluded.",
-    "sourceUrls": ["https://inari.jp/en/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "scope": "general_entry",
+    "basis": "Reviewed official visitor information does not establish a general-entry fee or free-entry claim. Keep the value unavailable; do not infer zero or not_applicable.",
+    "sourceUrls": [
+      "https://inari.jp/en/",
+      "https://inari.jp/en/access/",
+      "https://inari.jp/en/request/"
+    ],
+    "checkedAt": "2026-10-16",
+    "reviewIntervalMonths": 12,
+    "identityFollowUp": {
+      "kind": {
+        "before": "museum",
+        "after": "shrine",
+        "sourceUrls": [
+          "https://inari.jp/en/",
+          "https://inari.jp/en/access/",
+          "https://inari.jp/en/request/",
+          "https://inari.jp/en/faq/"
+        ],
+        "rationale": "Official shrine pages identify Fushimi Inari Taisha as an Inari shrine, not a museum.",
+        "checkedAt": "2026-10-16",
+        "relatedTicket": "KAI-306"
+      }
+    },
+    "admissionFollowUp": {
+      "relatedTicket": "KAI-306",
+      "checkedAt": "2026-10-16",
+      "before": {
+        "state": "not_applicable",
+        "provenance": "verified_source",
+        "reasonCode": "no_single_admission_product",
+        "cost": {
+          "kind": "not_applicable"
+        },
+        "scope": "open_area",
+        "checkedAt": "2026-08-28"
+      },
+      "after": {
+        "state": "unavailable",
+        "provenance": "none",
+        "reasonCode": "source_missing",
+        "cost": {
+          "kind": "unavailable",
+          "reason": "source_missing"
+        },
+        "scope": "general_entry"
+      },
+      "sourceUrls": [
+        "https://inari.jp/en/",
+        "https://inari.jp/en/access/",
+        "https://inari.jp/en/request/",
+        "https://inari.jp/en/faq/"
+      ],
+      "rationale": "Reviewed official visitor pages do not establish a general-entry fee or free-entry claim. Preserve an unavailable amount rather than treating absent pricing as zero or not_applicable."
+    }
   },
   {
     "id": "gala-yuzawa",

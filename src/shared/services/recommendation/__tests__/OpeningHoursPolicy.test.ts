@@ -32,6 +32,7 @@ describe("OpeningHoursPolicy", () => {
 
     const assessment = getOpeningHoursAssessment(verifiedDest);
     expect(assessment.status).toBe("verified");
+    expect(assessment.scheduleStatus).toBe("schedulable");
     expect(hasVerifiedOpeningHours(verifiedDest)).toBe(true);
 
     const generalEditorialDest = {
@@ -128,7 +129,68 @@ describe("OpeningHoursPolicy", () => {
       openingHoursMetadata: { sourceUrl: "https://example.com/hours" },
     } as Destination);
     expect(assessment.status).toBe("sourced");
-    expect(assessment.requiresWarning).toBe(false);
+    expect(assessment.requiresWarning).toBe(true);
+  });
+
+  it("resolves Meiji Jingu monthly hours for the selected travel date", () => {
+    const meiji = {
+      id: "meiji-jingu",
+      kind: "shrine",
+      businessHours:
+        "Opens at sunrise and closes at sunset, with times changing by month.",
+      openingHoursMetadata: {
+        verifiedAt: "2026-10-16",
+        sourceUrl: "https://www.meijijingu.or.jp/en/visit/",
+        monthlySchedule: [
+          { month: 1, opensAt: "06:40", closesAt: "16:20" },
+          { month: 10, opensAt: "05:40", closesAt: "16:40" },
+        ],
+      },
+    } as unknown as Destination;
+    const now = new Date("2026-10-22T12:00:00Z");
+
+    expect(getOpeningHoursAssessment(meiji, now)).toMatchObject({
+      status: "verified",
+      scheduleStatus: "date_required",
+      requiresWarning: true,
+    });
+    expect(getOpeningHoursWindow(meiji)).toBeNull();
+    expect(getOpeningHoursAssessment(meiji, now, "2026-10-22")).toMatchObject({
+      status: "verified",
+      scheduleStatus: "schedulable",
+      requiresWarning: false,
+    });
+    expect(getOpeningHoursWindow(meiji, "2026-10-22")).toMatchObject({
+      opensAtMinutes: 5 * 60 + 40,
+      closesAtMinutes: 16 * 60 + 40,
+    });
+    expect(getOpeningHoursWindow(meiji, "2026-01-10")).toMatchObject({
+      opensAtMinutes: 6 * 60 + 40,
+      closesAtMinutes: 16 * 60 + 20,
+    });
+    expect(hasVerifiedOpeningHours(meiji)).toBe(true);
+  });
+
+  it("keeps date-variable Skytree hours verified but warns until a date-specific window exists", () => {
+    const skytree = {
+      id: "tokyo-skytree-sumida",
+      kind: "attraction",
+      businessHours: "Hours vary by date; check the official calendar.",
+      openingHoursMetadata: {
+        verifiedAt: "2026-10-16",
+        sourceUrl: "https://en.tokyo-skytree.jp/open-hours/",
+      },
+    } as unknown as Destination;
+    const now = new Date("2026-10-22T12:00:00Z");
+
+    expect(getOpeningHoursAssessment(skytree, now, "2026-10-22")).toMatchObject(
+      {
+        status: "verified",
+        scheduleStatus: "descriptive",
+        requiresWarning: true,
+      },
+    );
+    expect(getOpeningHoursWindow(skytree, "2026-10-22")).toBeNull();
   });
 
   it("parses a verified interval for planner constraints instead of treating it as all-day", () => {

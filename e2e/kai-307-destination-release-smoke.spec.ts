@@ -4,7 +4,12 @@ import { fileURLToPath } from "node:url";
 import { expect, test } from "./fixtures";
 
 type SmokeLocale = "en" | "ja";
-type AdmissionState = "not_applicable" | "verified_paid" | "variable_price";
+type AdmissionState =
+  | "not_applicable"
+  | "verified_free"
+  | "verified_paid"
+  | "variable_price"
+  | "unavailable";
 interface DestinationFixtureRecord {
   id: string;
   name: string;
@@ -26,6 +31,10 @@ interface RuntimeCase {
   id: string;
   locale: SmokeLocale;
   hours?: RegExp;
+  highlights?: string[];
+  description?: RegExp;
+  reservation?: RegExp;
+  forbiddenCopy?: RegExp[];
   warning: boolean;
   admission: AdmissionState;
 }
@@ -60,14 +69,266 @@ const runtimeCases: RuntimeCase[] = [
     admission: "variable_price",
   },
   {
+    id: "fushimi-inari-taisha",
+    locale: "ja",
+    hours: /境内の参拝時間は案内されていません/,
+    highlights: ["千本鳥居", "稲荷山の参道", "稲荷社の総本宮"],
+    warning: true,
+    admission: "verified_free",
+  },
+  {
+    id: "dotonbori",
+    locale: "en",
+    // Districts render the open-area policy string, not an attraction schedule.
+    hours: /Open access; individual facilities may have separate hours/i,
+    highlights: ["Glico sign", "Tonbori Riverwalk", "Takoyaki and restaurants"],
+    warning: false,
+    admission: "not_applicable",
+  },
+  {
+    id: "meiji-jingu",
+    locale: "ja",
+    hours: /日の出とともに開門/,
+    highlights: ["鎮守の杜", "大鳥居", "明治天皇・昭憲皇太后を祀る神社"],
+    warning: false,
+    admission: "not_applicable",
+  },
+  {
+    id: "shibuya-crossing-hachiko",
+    locale: "en",
+    hours: /Open access/i,
+    highlights: ["Shibuya Scramble Crossing", "Hachiko Statue"],
+    warning: false,
+    admission: "not_applicable",
+  },
+  {
+    id: "hakone-town",
+    locale: "ja",
+    // Hub hours are venue-dependent; the detail intentionally uses its hub fallback.
+    hours: /散策自由（個別施設により営業時間が異なります）/,
+    highlights: ["芦ノ湖の海賊船クルーズ", "大涌谷", "箱根彫刻の森美術館"],
+    warning: false,
+    admission: "not_applicable",
+  },
+  {
     id: "tokyo-tower-minato",
     locale: "en",
-    warning: true,
+    hours: /Main Deck \(150m\): 09:00 - 23:00/,
+    highlights: [
+      "Main Deck (150m)",
+      "Top Deck Tour (250m)",
+      "Night illumination",
+    ],
+    warning: false,
     admission: "verified_paid",
+  },
+  {
+    id: "tokyo-skytree-sumida",
+    locale: "ja",
+    hours: /営業時間は日付により異なります/,
+    highlights: [
+      "天望デッキ（350m）",
+      "天望回廊（450m）",
+      "東京ソラマチ（隣接する商業施設）",
+      "プラネタリウム天空（東京スカイツリータウン内）",
+    ],
+    warning: false,
+    admission: "variable_price",
+  },
+  {
+    id: "fushimi-inari-taisha",
+    locale: "en",
+    hours: /No visiting hours are listed for the shrine grounds/i,
+    highlights: [
+      "Senbon Torii gates",
+      "Mount Inari paths",
+      "Head shrine of Inari",
+    ],
+    warning: true,
+    admission: "verified_free",
+  },
+  {
+    id: "dotonbori",
+    locale: "ja",
+    hours: /散策自由/,
+    highlights: ["グリコの看板", "とんぼりリバーウォーク", "たこ焼き・飲食店"],
+    warning: false,
+    admission: "not_applicable",
+  },
+  {
+    id: "meiji-jingu",
+    locale: "en",
+    hours: /Opens at sunrise and closes at sunset/i,
+    highlights: [
+      "Forested shrine grounds",
+      "Large torii gate",
+      "Emperor Meiji and Empress Shoken",
+    ],
+    warning: false,
+    admission: "not_applicable",
+  },
+  {
+    id: "shibuya-crossing-hachiko",
+    locale: "ja",
+    hours: /散策自由/,
+    highlights: ["渋谷スクランブル交差点", "忠犬ハチ公像"],
+    warning: false,
+    admission: "not_applicable",
+  },
+  {
+    id: "hakone-town",
+    locale: "en",
+    hours: /Open access; individual facilities may have separate hours/i,
+    highlights: [
+      "Lake Ashi Sightseeing Cruise",
+      "Owakudani Volcanic Valley",
+      "Hakone Open-Air Museum",
+    ],
+    warning: false,
+    admission: "not_applicable",
+  },
+  {
+    id: "tokyo-tower-minato",
+    locale: "ja",
+    hours: /メインデッキ（150m）：9:00〜23:00/,
+    highlights: [
+      "メインデッキ（150m）",
+      "トップデッキツアー（250m）",
+      "夜間ライトアップ",
+    ],
+    warning: false,
+    admission: "verified_paid",
+  },
+  {
+    id: "tokyo-skytree-sumida",
+    locale: "en",
+    hours: /Hours vary by date; check the official calendar/i,
+    highlights: [
+      "Tembo Deck (350m)",
+      "Tembo Galleria (450m)",
+      "Tokyo Solamachi (adjacent shopping complex)",
+      "Planetarium Tenku (in Tokyo Skytree Town)",
+    ],
+    warning: false,
+    admission: "variable_price",
   },
 ];
 
 const sourceRecords = destinationIndex;
+
+interface RenderedCopyCheck {
+  description?: RegExp;
+  reservation?: RegExp;
+  forbiddenCopy?: RegExp[];
+}
+
+const renderedCopyChecks: Partial<
+  Record<string, Partial<Record<SmokeLocale, RenderedCopyCheck>>>
+> = {
+  "fushimi-inari-taisha": {
+    en: {
+      description: /head shrine of Inari/,
+      reservation:
+        /Check the shrine's official guidance for booking requirements/,
+      forbiddenCopy: [/four-kilometer trail/i, /thousands of torii gates/i],
+    },
+    ja: {
+      description: /伏見稲荷大社は稲荷社の総本宮/,
+      reservation: /祈祷などのサービスや特別な参拝/,
+      forbiddenCopy: [/関西を代表する観光地/],
+    },
+  },
+  dotonbori: {
+    en: {
+      description: /canal-side shopping and entertainment district/,
+      reservation: /No booking is needed to walk the public district/,
+      forbiddenCopy: [
+        /09:30\s*-\s*17:00/i,
+        /Closed Mondays/i,
+        /general shrine visits/i,
+      ],
+    },
+    ja: {
+      description: /川沿いの商業・歓楽街/,
+      reservation: /街区の散策に予約は不要/,
+      forbiddenCopy: [/一般参拝・見学/, /09:00\s*-\s*17:00/],
+    },
+  },
+  "meiji-jingu": {
+    en: {
+      description: /Shinto shrine in central Tokyo/,
+      reservation:
+        /Check the official visitor guidance for reservation requirements/,
+      forbiddenCopy: [/open 24 hours/i, /most celebrated/i],
+    },
+    ja: {
+      description: /明治神宮は東京の都心にある神社/,
+      reservation: /特別な祈願や施設の利用/,
+      forbiddenCopy: [/24時間/, /現地にてチケット/],
+    },
+  },
+  "shibuya-crossing-hachiko": {
+    en: {
+      description: /pedestrians cross the multi-cornered scramble crossing/,
+      reservation: /No booking is needed to use the public crossing/,
+      forbiddenCopy: [
+        /world'?s busiest/i,
+        /09:00\s*[-–]\s*17:00/,
+        /giant digital screens/i,
+        /tickets available on arrival/i,
+      ],
+    },
+    ja: {
+      description: /スクランブル交差点では、多くの歩行者/,
+      reservation: /交差点の通行に予約は不要/,
+      forbiddenCopy: [
+        /世界で最も忙しい/,
+        /09:00\s*[〜–]\s*17:00/,
+        /デジタルスクリーン/,
+      ],
+    },
+  },
+  "hakone-town": {
+    en: {
+      description: /mountain resort area known for its hot springs/,
+      reservation: /Reservation requirements vary by attraction and activity/,
+      forbiddenCopy: [
+        /open 24 hours/i,
+        /No entrance reservation required/i,
+        /Best visited during clear weather/i,
+      ],
+    },
+    ja: {
+      description: /温泉、芦ノ湖、火山地形/,
+      reservation: /予約の要否は施設や体験によって異なります/,
+      forbiddenCopy: [/24時間/, /事前予約不要/, /おすすめの季節/],
+    },
+  },
+  "tokyo-tower-minato": {
+    en: {
+      description: /Tokyo Tower stands 333 meters tall/,
+      reservation: /Advance booking recommended for Top Deck Tour/,
+      forbiddenCopy: [/332[.]9/, /post-war Tokyo/i],
+    },
+    ja: {
+      description: /高さ333メートルの東京タワー/,
+      reservation: /トップデッキツアーは事前予約推奨/,
+      forbiddenCopy: [/332[.]9/],
+    },
+  },
+  "tokyo-skytree-sumida": {
+    en: {
+      description: /Rising 634 meters over Tokyo/,
+      reservation: /Advance online booking recommended/,
+      forbiddenCopy: [/08:00\s*[-–]\s*22:00/],
+    },
+    ja: {
+      description: /高さ634メートルの東京スカイツリー/,
+      reservation: /日時指定事前予約がおすすめ/,
+      forbiddenCopy: [/08:00\s*[-–]\s*22:00/],
+    },
+  },
+};
 
 function expectedName(id: string, locale: SmokeLocale): string {
   const record = sourceRecords.find((candidate) => candidate.id === id);
@@ -212,6 +473,13 @@ for (const runtimeCase of runtimeCases) {
       atAGlance,
       `${runtimeCase.id}: core overview missing`,
     ).toBeVisible();
+    const copyCheck = renderedCopyChecks[runtimeCase.id]?.[runtimeCase.locale];
+    if (copyCheck?.description) {
+      await expect(
+        page.getByText(copyCheck.description).first(),
+        `${runtimeCase.id} ${runtimeCase.locale}: localized description missing`,
+      ).toBeVisible();
+    }
     const warningText =
       runtimeCase.locale === "ja" ? "未確認" : "Not yet verified";
     if (runtimeCase.warning) {
@@ -225,11 +493,58 @@ for (const runtimeCase of runtimeCases) {
         `${runtimeCase.id}: verified/venue-dependent hours show a stale warning`,
       ).not.toContainText(/Not yet verified|未確認/);
     }
+    if (runtimeCase.locale === "ja" && copyCheck?.reservation) {
+      const restrictionNotice = page.getByRole("complementary", {
+        name: "重要なアクセス情報",
+      });
+      if (await restrictionNotice.count()) {
+        await expect(
+          restrictionNotice,
+          `${runtimeCase.id}: Japanese reservation warning should be localized`,
+        ).toContainText(copyCheck.reservation);
+        await expect(restrictionNotice).toContainText("予約・許可の確認");
+      }
+    }
     if (runtimeCase.hours) {
       await expect(
         atAGlance,
         `${runtimeCase.id}: opening-hours presentation contradicts the expected state`,
       ).toContainText(runtimeCase.hours);
+    }
+    const practicalDetails = page.locator("details").filter({
+      hasText:
+        runtimeCase.locale === "ja"
+          ? "その他の旅行情報"
+          : "More practical information",
+    });
+    const needsPracticalDetails = Boolean(
+      runtimeCase.highlights?.length ||
+      copyCheck?.reservation ||
+      copyCheck?.forbiddenCopy?.length,
+    );
+    if (needsPracticalDetails) {
+      await expect(practicalDetails).toHaveCount(1);
+      if (!(await practicalDetails.evaluate((element) => element.open))) {
+        await practicalDetails.locator("summary").click();
+      }
+    }
+    for (const highlight of runtimeCase.highlights ?? []) {
+      await expect(
+        practicalDetails.getByText(highlight, { exact: true }),
+        `${runtimeCase.id} ${runtimeCase.locale}: localized highlight missing`,
+      ).toBeVisible();
+    }
+    if (copyCheck?.reservation) {
+      await expect(
+        practicalDetails,
+        `${runtimeCase.id} ${runtimeCase.locale}: localized reservation copy missing`,
+      ).toContainText(copyCheck.reservation);
+    }
+    for (const forbidden of copyCheck?.forbiddenCopy ?? []) {
+      await expect(
+        page.locator("main"),
+        `${runtimeCase.id} ${runtimeCase.locale}: stale copy still renders`,
+      ).not.toContainText(forbidden);
     }
 
     const expandBreakdown = page.getByRole("button", {
@@ -255,12 +570,22 @@ for (const runtimeCase of runtimeCases) {
         /\s+/g,
         " ",
       );
-      await expect
-        .soft(
-          rowText,
-          `${runtimeCase.id}: admission was rendered as free or zero`,
-        )
-        .not.toMatch(/\bFree\b|無料|¥\s*0(?:\b|\D)/i);
+      const freeAdmissionPattern = /\bFree\b|無料|¥\s*0(?:\b|\D)/i;
+      if (runtimeCase.admission === "verified_free") {
+        await expect
+          .soft(
+            rowText,
+            `${runtimeCase.id}: verified free admission is not rendered as free or zero`,
+          )
+          .toMatch(freeAdmissionPattern);
+      } else {
+        await expect
+          .soft(
+            rowText,
+            `${runtimeCase.id}: admission was rendered as free or zero`,
+          )
+          .not.toMatch(freeAdmissionPattern);
+      }
       if (runtimeCase.admission === "verified_paid") {
         await expect
           .soft(

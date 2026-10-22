@@ -12905,24 +12905,28 @@
     "content": {
       "en": {
         "name": "Dotonbori",
-        "description": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
+        "description": "Dotonbori is Osaka's canal-side shopping and entertainment district, known for the Glico sign, oversized three-dimensional signs, restaurants and takoyaki. The Tonbori Riverwalk follows the canal.",
         "highlights": [
-          "Shopping",
-          "Food"
-        ]
+          "Glico sign",
+          "Tonbori Riverwalk",
+          "Takoyaki and restaurants"
+        ],
+        "reservation": "No booking is needed to walk the public district; individual venues may require reservations."
       },
       "ja": {
         "name": "道頓堀",
-        "description": "大阪を代表する歓楽街。道頓堀川沿いにグリコのランナー看板や戎橋など名物が並ぶ。「食い倒れ」の街として知られ、たこ焼きやお好み焼きの店、劇場などがひしめく。",
+        "description": "道頓堀は大阪・ミナミを代表する川沿いの商業・歓楽街です。グリコの看板をはじめ立体看板が並び、飲食店やたこ焼き店が集まります。道頓堀川沿いにはとんぼりリバーウォークがあります。",
         "highlights": [
-          "ショッピング",
-          "グルメ"
-        ]
+          "グリコの看板",
+          "とんぼりリバーウォーク",
+          "たこ焼き・飲食店"
+        ],
+        "reservation": "街区の散策に予約は不要です。店舗・施設については各施設の案内をご確認ください。"
       }
     },
     "prefecture": "Osaka",
     "region": "Kansai",
-    "kind": "museum",
+    "kind": "district",
     "role": "destination",
     "placeType": "destination",
     "areaId": "namba-minami",
@@ -12949,10 +12953,11 @@
       "lat": 34.66861111,
       "lng": 135.50138889
     },
-    "description": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
+    "description": "Dotonbori is Osaka's canal-side shopping and entertainment district, known for the Glico sign, oversized three-dimensional signs, restaurants and takoyaki. The Tonbori Riverwalk follows the canal.",
     "highlights": [
-      "Shopping",
-      "Food"
+      "Glico sign",
+      "Tonbori Riverwalk",
+      "Takoyaki and restaurants"
     ],
     "transportOptions": {
       "train": 189,
@@ -12968,8 +12973,8 @@
     "walkingIntensity": "medium",
     "indoorPercent": 55,
     "comfort": {
-      "heatTolerance": 6,
-      "rainFriendly": 7,
+      "heatTolerance": 5,
+      "rainFriendly": 6,
       "walkingIntensity": 5
     },
     "ratings": {
@@ -13002,7 +13007,7 @@
       11
     ],
     "weatherDependence": "moderate",
-    "reservation": "Usually not required; check current visitor guidance.",
+    "reservation": "No booking is needed to walk the public district; individual venues may require reservations.",
     "parking": "Check local parking and public transport guidance.",
     "schemaVersion": 2,
     "status": "published",
@@ -13038,7 +13043,7 @@
           {
             "type": "calculated",
             "url": "catalogue-model://kai-89",
-            "title": "comfort-model-v1; derived from indoorPercent=55, kind='museum', walkingMin=90",
+            "title": "comfort-model-v1; derived from indoorPercent=55, kind='district', walkingMin=90",
             "accessedAt": "2026-08-14"
           }
         ],
@@ -13057,20 +13062,19 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "Public streets are open access; shops and venues have separate hours.",
     "nearHubs": [
       "osaka-city"
     ],
-    "notesJa": "【見どころ】道頓堀は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
-    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "reservationJa": "街区の散策に予約は不要です。店舗・施設については各施設の案内をご確認ください。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "街路は自由に散策でき、店舗・施設の営業時間はそれぞれ異なります。",
     "municipalityId": "Osaka:osaka",
     "comfortMetadata": {
       "method": "model",
       "modelVersion": "comfort-model-v1",
       "confidence": "low",
-      "basis": "derived from indoorPercent=55, kind='museum', walkingMin=90"
+      "basis": "derived from indoorPercent=55, kind='district', walkingMin=90"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -13098,11 +13102,11 @@
         "kind": "not_applicable"
       },
       "scope": "open_area",
-      "basis": "The catalogue identity represents Dotonbori as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
+      "basis": "Dotonbori is a district/area, not one coherent required admission product. The reviewed official district listing describes store-dependent businesses; separate paid venues and purchases are not promoted as a district admission fee.",
       "sourceUrls": [
-        "https://www.dotonbori.or.jp/en/"
+        "https://osaka-info.jp/en/spot/dotonbori/"
       ],
-      "checkedAt": "2026-08-28",
+      "checkedAt": "2026-10-16",
       "reviewIntervalMonths": 12
     },
     "localTransport": {
@@ -13114,7 +13118,8 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/D%C5%8Dtonbori",
     "wikipediaPageId": 998084,
-    "wikidataId": "Q964876"
+    "wikidataId": "Q964876",
+    "openingHours": "Public streets are open access; shops and venues have separate hours."
   },
   {
     "id": "edo-castle-tokyo",
@@ -18444,22 +18449,28 @@
     "content": {
       "en": {
         "name": "Fushimi Inari Taisha",
-        "description": "The head shrine of Inari in Kyoto, set at the foot of Mount Inari with a four-kilometer trail through thousands of torii gates and smaller shrines.",
+        "description": "Fushimi Inari Taisha is the head shrine of Inari, at the foot of Mount Inari. Its approach and mountain paths pass through rows of vermilion torii gates and smaller shrines.",
         "highlights": [
-          "History"
-        ]
+          "Senbon Torii gates",
+          "Mount Inari paths",
+          "Head shrine of Inari"
+        ],
+        "reservation": "Check the shrine's official guidance for booking requirements for services or special visits."
       },
       "ja": {
         "name": "伏見稲荷大社",
-        "description": "伏見稲荷大社は稲荷社の総本宮で、稲荷山のふもとから千本鳥居や小さな社を巡る約4キロの参道が続きます。",
+        "description": "伏見稲荷大社は稲荷社の総本宮で、稲荷山のふもとにあります。境内から山へ続く参道には、朱色の鳥居や小さな社が並びます。",
         "highlights": [
-          "歴史"
-        ]
+          "千本鳥居",
+          "稲荷山の参道",
+          "稲荷社の総本宮"
+        ],
+        "reservation": "祈祷などのサービスや特別な参拝については、公式案内で予約の要否をご確認ください。"
       }
     },
     "prefecture": "Kyoto",
     "region": "Kansai",
-    "kind": "museum",
+    "kind": "shrine",
     "role": "destination",
     "placeType": "destination",
     "areaId": "fushimi",
@@ -18486,9 +18497,11 @@
       "lat": 34.967202,
       "lng": 135.773386
     },
-    "description": "The head shrine of Inari in Kyoto, set at the foot of Mount Inari with a four-kilometer trail through thousands of torii gates and smaller shrines.",
+    "description": "Fushimi Inari Taisha is the head shrine of Inari, at the foot of Mount Inari. Its approach and mountain paths pass through rows of vermilion torii gates and smaller shrines.",
     "highlights": [
-      "History"
+      "Senbon Torii gates",
+      "Mount Inari paths",
+      "Head shrine of Inari"
     ],
     "transportOptions": {
       "train": 229,
@@ -18505,7 +18518,7 @@
     "indoorPercent": 20,
     "comfort": {
       "heatTolerance": 5,
-      "rainFriendly": 5,
+      "rainFriendly": 4,
       "walkingIntensity": 5
     },
     "ratings": {
@@ -18538,7 +18551,7 @@
       11
     ],
     "weatherDependence": "moderate",
-    "reservation": "Usually not required; check current visitor guidance.",
+    "reservation": "Check the shrine's official guidance for booking requirements for services or special visits.",
     "parking": "Check local parking and public transport guidance.",
     "schemaVersion": 2,
     "status": "published",
@@ -18598,7 +18611,7 @@
           {
             "type": "calculated",
             "url": "catalogue-model://kai-89",
-            "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=90",
+            "title": "comfort-model-v1; derived from indoorPercent=20, kind='shrine', walkingMin=90",
             "accessedAt": "2026-08-14"
           }
         ],
@@ -18626,14 +18639,13 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open 24 hours (Shrine offices 08:30 - 16:30)",
+    "businessHours": "No visiting hours are listed for the shrine grounds. Shrine offices and services keep separate schedules; check current access information before visiting.",
     "nearHubs": [
       "kyoto-city"
     ],
-    "notesJa": "【見どころ】伏見稲荷大社は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
-    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "reservationJa": "祈祷などのサービスや特別な参拝については、公式案内で予約の要否をご確認ください。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "24時間（社務所 08:30〜16:30）",
+    "openingHoursJa": "境内の参拝時間は案内されていません。社務所や各種サービスはそれぞれ別の時間で運営されます。訪問前に最新のアクセス情報をご確認ください。",
     "municipalityId": "Kyoto:kyoto",
     "transportMetadata": {
       "method": "legacy-fallback",
@@ -18645,7 +18657,7 @@
       "method": "model",
       "modelVersion": "comfort-model-v1",
       "confidence": "low",
-      "basis": "derived from indoorPercent=20, kind='museum', walkingMin=90"
+      "basis": "derived from indoorPercent=20, kind='shrine', walkingMin=90"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -18666,18 +18678,19 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "admission": {
-      "state": "not_applicable",
+      "state": "verified_free",
       "provenance": "verified_source",
-      "reasonCode": "no_single_admission_product",
       "cost": {
-        "kind": "not_applicable"
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
       },
-      "scope": "open_area",
-      "basis": "The catalogue identity represents Fushimi Inari Taisha as an open area, aggregate, worship site, transport facility, or event venue rather than one coherent required admission product. Optional rides, transport, events, donations, purchases, and separate facilities are excluded.",
+      "scope": "general_entry",
+      "basis": "FREE_ENTRY: The KANSAI Guide lists the admission fee for shrine entry as free (updated 2026-06-23). Voluntary offerings and separate services are excluded.",
       "sourceUrls": [
-        "https://inari.jp/en/"
+        "https://www.the-kansai-guide.com/en/directory/item/11818/"
       ],
-      "checkedAt": "2026-08-28",
+      "checkedAt": "2026-10-22",
       "reviewIntervalMonths": 12
     },
     "localTransport": {
@@ -18701,7 +18714,8 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
     "wikipediaPageId": 1659910,
-    "wikidataId": "Q714828"
+    "wikidataId": "Q714828",
+    "openingHours": "No visiting hours are listed for the shrine grounds. Shrine offices and services keep separate schedules; check current access information before visiting."
   },
   {
     "id": "gala-yuzawa",
@@ -23847,7 +23861,7 @@
     ],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
-    "description": "Japan's premier mountain hot spring resort town, famous for Lake Ashi pirate ships, Owakudani volcanic crater, and Fuji views.",
+    "description": "Hakone is a mountain resort area known for its hot springs, Lake Ashi and Owakudani. Some viewpoints offer views of Mount Fuji on clear days.",
     "highlights": [
       "Lake Ashi Sightseeing Cruise",
       "Owakudani Volcanic Valley",
@@ -23908,9 +23922,8 @@
       "train": 90,
       "bus": 120
     },
-    "reservation": "Open access; no entrance reservation required.",
+    "reservation": "Reservation requirements vary by attraction and activity; check each operator.",
     "parking": "Park parking lot available on site.",
-    "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "status": "published",
     "travelEstimate": {
       "confidence": "high"
@@ -23940,7 +23953,7 @@
       "min": 7,
       "max": 12
     },
-    "businessHours": "Open access",
+    "businessHours": "Individual venue hours vary.",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -23979,28 +23992,27 @@
     "content": {
       "en": {
         "name": "Hakone Town",
-        "description": "Japan's premier mountain hot spring resort town, famous for Lake Ashi pirate ships, Owakudani volcanic crater, and Fuji views.",
+        "description": "Hakone is a mountain resort area known for its hot springs, Lake Ashi and Owakudani. Some viewpoints offer views of Mount Fuji on clear days.",
         "highlights": [
           "Lake Ashi Sightseeing Cruise",
           "Owakudani Volcanic Valley",
           "Hakone Open-Air Museum"
         ],
-        "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
-        "reservation": "Open access; no entrance reservation required.",
+        "reservation": "Reservation requirements vary by attraction and activity; check each operator.",
         "parking": "Park parking lot available on site.",
-        "openingHours": "24 Hours (Open access)"
+        "openingHours": "Individual venue hours vary."
       },
       "ja": {
         "name": "箱根",
-        "description": "富士山を望む日本有数の温泉リゾート地。芦ノ湖の海賊船、大涌谷の火山景観、箱根彫刻の森美術館など見どころが満載です。",
+        "description": "箱根は温泉や芦ノ湖、大涌谷などを巡る山あいの観光地です。晴れた日には富士山を望める場所もあります。",
         "highlights": [
-          "箱根の名所",
-          "-美術館散策"
+          "芦ノ湖の海賊船クルーズ",
+          "大涌谷",
+          "箱根彫刻の森美術館"
         ],
-        "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-        "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+        "reservation": "予約の要否は施設や体験によって異なります。各事業者の案内をご確認ください。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "散策自由（24時間開放）"
+        "openingHours": "各施設の営業時間は施設ごとに異なります。"
       }
     },
     "ratingMetadata": {
@@ -24008,11 +24020,10 @@
       "method": "manual",
       "confidence": "high"
     },
-    "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-    "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+    "reservationJa": "予約の要否は施設や体験によって異なります。各事業者の案内をご確認ください。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "Individual venue hours vary.",
+    "openingHoursJa": "各施設の営業時間は施設ごとに異なります。",
     "municipalityId": "Kanagawa:hakone",
     "durationMetadata": {
       "method": "model",
@@ -97183,8 +97194,8 @@
     "highlights": [
       "Tembo Deck (350m)",
       "Tembo Galleria (450m)",
-      "Tokyo Solamachi Shopping Center",
-      "Planetarium Ten"
+      "Tokyo Solamachi (adjacent shopping complex)",
+      "Planetarium Tenku (in Tokyo Skytree Town)"
     ],
     "description": "Rising 634 meters over Tokyo, Tokyo Skytree is the world's tallest broadcasting tower, offering breath-taking 360-degree views of Mt. Fuji and the Kanto Plain from two observation decks.",
     "reservation": "Advance online booking recommended to skip ticket queues.",
@@ -97223,7 +97234,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.tokyo-skytree.jp/",
-    "businessHours": "08:00 - 22:00 (Last admission 21:00)",
+    "businessHours": "Hours vary by date; check the official calendar.",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -97266,26 +97277,27 @@
         "highlights": [
           "Tembo Deck (350m)",
           "Tembo Galleria (450m)",
-          "Tokyo Solamachi Shopping Center",
-          "Planetarium Ten"
+          "Tokyo Solamachi (adjacent shopping complex)",
+          "Planetarium Tenku (in Tokyo Skytree Town)"
         ],
         "notes": "Best visibility of Mt. Fuji occurs on crisp, clear winter mornings from the Tembo Deck.",
         "reservation": "Advance online booking recommended to skip ticket queues.",
         "parking": "Paid underground parking structure at Tokyo Solamachi complex.",
-        "openingHours": "08:00 - 22:00 (Last admission 21:00)"
+        "openingHours": "Hours vary by date; check the official calendar."
       },
       "ja": {
         "name": "東京スカイツリー",
-        "description": "Tokyo Skytreeは東京都を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+        "description": "高さ634メートルの東京スカイツリーは、天望デッキと天望回廊から関東平野を一望できる展望タワーです。足元には商業施設の東京ソラマチがあります。",
         "highlights": [
-          "(350m)散策",
-          "(450m)散策",
-          "東京スカイツリーの名所"
+          "天望デッキ（350m）",
+          "天望回廊（450m）",
+          "東京ソラマチ（隣接する商業施設）",
+          "プラネタリウム天空（東京スカイツリータウン内）"
         ],
         "notes": "東京スカイツリー天望デッキからの富士山の眺望は、空気が澄んだ冬の晴れた早朝が最もおすすめです。",
         "reservation": "チケットカウンターの混雑を避けるため、オンラインでの日時指定事前予約がおすすめです。",
         "parking": "東京ソラマチの大型地下有料駐車場をご利用いただけます。",
-        "openingHours": "08:00 - 22:00（最終入場 21:00）"
+        "openingHours": "営業時間は日付により異なります。公式カレンダーをご確認ください。"
       }
     },
     "ratingMetadata": {
@@ -97296,8 +97308,8 @@
     "notesJa": "東京スカイツリー天望デッキからの富士山の眺望は、空気が澄んだ冬の晴れた早朝が最もおすすめです。",
     "reservationJa": "チケットカウンターの混雑を避けるため、オンラインでの日時指定事前予約がおすすめです。",
     "parkingJa": "東京ソラマチの大型地下有料駐車場をご利用いただけます。",
-    "openingHours": "08:00 - 22:00 (Last admission 21:00)",
-    "openingHoursJa": "08:00 - 22:00（最終入場 21:00）",
+    "openingHours": "Hours vary by date; check the official calendar.",
+    "openingHoursJa": "営業時間は日付により異なります。公式カレンダーをご確認ください。",
     "municipalityId": "Tokyo:sumida",
     "seasonMetadata": {
       "method": "model",
@@ -97353,7 +97365,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Tokyo_Skytree",
     "wikipediaPageId": 2638104,
-    "wikidataId": "Q57965"
+    "wikidataId": "Q57965",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://en.tokyo-skytree.jp/open-hours/",
+      "verifiedAt": "2026-10-16"
+    }
   },
   {
     "id": "tokyo-station-chiyoda",
@@ -97648,13 +97664,12 @@
     "highlights": [
       "Main Deck (150m)",
       "Top Deck Tour (250m)",
-      "RED° TOKYO TOWER e-sports park",
-      "Landmark Light Night Illumination"
+      "Night illumination"
     ],
-    "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
+    "description": "Tokyo Tower stands 333 meters tall. Visitors can choose between the Main Deck and the Top Deck Tour, which have separate hours.",
     "reservation": "Advance booking recommended for Top Deck Tour; Main Deck tickets available on site.",
     "parking": "Paid underground parking structure at Tokyo Tower footprint.",
-    "notes": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
+    "notes": "The Top Deck Tour (250m) adds a 360-degree panorama from 250 meters and has its own hours.",
     "schemaVersion": 2,
     "imageMetadata": {
       "source": "Wikimedia Commons / Wikipedia",
@@ -97683,7 +97698,7 @@
       "max": 4
     },
     "officialWebsite": "https://www.tokyotower.co.jp/",
-    "businessHours": "09:00 - 22:30 (Last admission 22:00)",
+    "businessHours": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours.",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -97723,6 +97738,30 @@
             "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://en.tokyotower.co.jp/plan/towerpedia/",
+            "title": "Towerpedia | TOKYO TOWER",
+            "accessedAt": "2026-10-21"
+          }
+        ],
+        "content.en.highlights": [
+          {
+            "type": "official",
+            "url": "https://en.tokyotower.co.jp/plan/towerpedia/",
+            "title": "Towerpedia | TOKYO TOWER",
+            "accessedAt": "2026-10-21"
+          }
+        ],
+        "content.ja.highlights": [
+          {
+            "type": "official",
+            "url": "https://www.tokyotower.co.jp/lightup/",
+            "title": "ライトアップ | 東京タワー",
+            "accessedAt": "2026-10-21"
+          }
         ]
       }
     },
@@ -97730,31 +97769,29 @@
     "content": {
       "en": {
         "name": "Tokyo Tower",
-        "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
+        "description": "Tokyo Tower stands 333 meters tall. Visitors can choose between the Main Deck and the Top Deck Tour, which have separate hours.",
         "highlights": [
           "Main Deck (150m)",
           "Top Deck Tour (250m)",
-          "RED° TOKYO TOWER e-sports park",
-          "Landmark Light Night Illumination"
+          "Night illumination"
         ],
-        "notes": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
+        "notes": "The Top Deck Tour (250m) adds a 360-degree panorama from 250 meters and has its own hours.",
         "reservation": "Advance booking recommended for Top Deck Tour; Main Deck tickets available on site.",
         "parking": "Paid underground parking structure at Tokyo Tower footprint.",
-        "openingHours": "09:00 - 22:30 (Last admission 22:00)"
+        "openingHours": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours."
       },
       "ja": {
         "name": "東京タワー",
-        "description": "Tokyo Towerは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+        "description": "高さ333メートルの東京タワーには、メインデッキとトップデッキツアーがあります。営業時間はそれぞれ異なります。",
         "highlights": [
-          "(150m)散策",
-          "(250m)散策",
-          "°   e-公園散策",
-          "東京タワーの名所"
+          "メインデッキ（150m）",
+          "トップデッキツアー（250m）",
+          "夜間ライトアップ"
         ],
-        "notes": "高さ250mのトップデッキツアーでは、音声ガイドによる歴史解説とガラス床の絶景写真が楽しめます。",
+        "notes": "トップデッキツアー（250m）では、高さ250mからの360度のパノラマを楽しめます。営業時間は別に定められています。",
         "reservation": "トップデッキツアーは事前予約推奨。メインデッキは当日券購入も可能です。",
         "parking": "東京タワー敷地内の有料地下駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 22:30（最終入場 22:00）"
+        "openingHours": "メインデッキ（150m）：9:00〜23:00（最終入場 22:30、混雑時は早まる場合あり）。トップデッキツアーなどその他の施設は営業時間が異なります。"
       }
     },
     "ratingMetadata": {
@@ -97762,11 +97799,11 @@
       "method": "manual",
       "confidence": "high"
     },
-    "notesJa": "高さ250mのトップデッキツアーでは、音声ガイドによる歴史解説とガラス床の絶景写真が楽しめます。",
+    "notesJa": "トップデッキツアー（250m）では、高さ250mからの360度のパノラマを楽しめます。営業時間は別に定められています。",
     "reservationJa": "トップデッキツアーは事前予約推奨。メインデッキは当日券購入も可能です。",
     "parkingJa": "東京タワー敷地内の有料地下駐車場をご利用いただけます。",
-    "openingHours": "09:00 - 22:30 (Last admission 22:00)",
-    "openingHoursJa": "09:00 - 22:30（最終入場 22:00）",
+    "openingHours": "Main Deck (150m): 09:00 - 23:00 (Last admission 22:30; may close earlier when crowded). Top Deck Tour and other facilities have separate hours.",
+    "openingHoursJa": "メインデッキ（150m）：9:00〜23:00（最終入場 22:30、混雑時は早まる場合あり）。トップデッキツアーなどその他の施設は営業時間が異なります。",
     "municipalityId": "Tokyo:minato",
     "seasonMetadata": {
       "method": "model",
@@ -97829,7 +97866,12 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Tokyo_Tower",
     "wikipediaPageId": 148869,
-    "wikidataId": "Q183536"
+    "wikidataId": "Q183536",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://en.tokyotower.co.jp/fee/",
+      "verifiedAt": "2026-10-16",
+      "lastAdmission": "22:30"
+    }
   },
   {
     "id": "tomioka-silk-mill-gunma",
@@ -108906,25 +108948,25 @@
     "content": {
       "en": {
         "name": "Shibuya Crossing and Hachiko",
-        "description": "The world's busiest pedestrian intersection and iconic meeting landmark anchored by the beloved loyalty statue of Hachiko. Thousands cross simultaneously surrounded by giant digital screens and neon displays.",
+        "description": "At Shibuya Station, pedestrians cross the multi-cornered scramble crossing from all directions. The nearby Hachiko statue serves as a meeting point.",
         "highlights": [
-          "Culture",
-          "Landmark",
-          "Photography"
+          "Shibuya Scramble Crossing",
+          "Hachiko Statue"
         ],
-        "reservation": "No advance reservation required; tickets available on arrival.",
+        "reservation": "No booking is needed to use the public crossing; check nearby venues separately.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "Open access; nearby shops and facilities have separate hours."
       },
       "ja": {
         "name": "渋谷スクランブル交差点と忠犬ハチ公像",
-        "description": "世界最大級の交通量を誇るスクランブル交差点と、忠犬ハチ公像で知られる東京のシンボル的ランドマークです。巨大ビジョンに囲まれた圧倒的な都市景観を楽しめます。",
+        "description": "渋谷駅前のスクランブル交差点では、多くの歩行者が各方向から一斉に渡ります。近くの忠犬ハチ公像は待ち合わせ場所として親しまれています。",
         "highlights": [
-          "渋谷スクランブル交差点と忠犬ハチ公像の名所"
+          "渋谷スクランブル交差点",
+          "忠犬ハチ公像"
         ],
-        "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+        "reservation": "交差点の通行に予約は不要です。周辺の店舗・施設は各施設の案内をご確認ください。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "散策自由（周辺の店舗・施設の営業時間は異なります）"
       }
     },
     "prefecture": "Tokyo",
@@ -108953,11 +108995,10 @@
       "lat": 35.6595,
       "lng": 139.7005
     },
-    "description": "The world's busiest pedestrian intersection and iconic meeting landmark anchored by the beloved loyalty statue of Hachiko. Thousands cross simultaneously surrounded by giant digital screens and neon displays.",
+    "description": "At Shibuya Station, pedestrians cross the multi-cornered scramble crossing from all directions. The nearby Hachiko statue serves as a meeting point.",
     "highlights": [
-      "Culture",
-      "Landmark",
-      "Photography"
+      "Shibuya Scramble Crossing",
+      "Hachiko Statue"
     ],
     "transportOptions": {
       "train": 18
@@ -108989,7 +109030,7 @@
     },
     "ratingsSchemaVersion": 2,
     "weatherDependence": "moderate",
-    "reservation": "No advance reservation required; tickets available on arrival.",
+    "reservation": "No booking is needed to use the public crossing; check nearby venues separately.",
     "parking": "Paid public parking options available nearby.",
     "schemaVersion": 2,
     "status": "published",
@@ -109038,7 +109079,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-    "businessHours": "Open access",
+    "businessHours": "Open access; nearby shops and facilities have separate hours.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/1920px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -109046,10 +109087,10 @@
       "attribution": "Benh LIEU SONG (Flickr)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg"
     },
-    "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+    "reservationJa": "交差点の通行に予約は不要です。周辺の店舗・施設は各施設の案内をご確認ください。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00",
+    "openingHours": "Open access; nearby shops and facilities have separate hours.",
+    "openingHoursJa": "散策自由（周辺の店舗・施設の営業時間は異なります）",
     "municipalityId": "Tokyo:shibuya",
     "transportMetadata": {
       "method": "legacy-fallback",
@@ -109116,27 +109157,29 @@
     "content": {
       "en": {
         "name": "Meiji Jingu",
-        "description": "Tokyo's most celebrated Shinto shrine, nestled within a tranquil 170-acre forest planted with 100,000 trees. Dedicated to Emperor Meiji, it features a grand wooden Torii gate and serene gravel paths.",
+        "description": "Meiji Jingu is a Shinto shrine in central Tokyo, set among forested shrine grounds and dedicated to Emperor Meiji and Empress Shoken. The approach includes a large torii gate and wooded paths.",
         "highlights": [
-          "History",
-          "Culture",
-          "Nature"
+          "Forested shrine grounds",
+          "Large torii gate",
+          "Emperor Meiji and Empress Shoken"
         ],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
-        "reservation": "Open access; no entrance reservation required.",
+        "reservation": "Check the official visitor guidance for reservation requirements for special services and facilities.",
         "parking": "Park parking lot available on site.",
-        "openingHours": "24 Hours (Open access)"
+        "openingHours": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours."
       },
       "ja": {
         "name": "明治神宮",
-        "description": "明治天皇と昭憲皇太后を祀る明治神宮は、都心に広がる70ヘクタールの豊かな鎮守の杜に包まれています。荘厳な木造大鳥居と静謐な参道が広がる神聖なスポットです。",
+        "description": "明治神宮は東京の都心にある神社で、明治天皇と昭憲皇太后を祀っています。鎮守の杜に囲まれた境内へ、大鳥居をくぐって参道を進みます。",
         "highlights": [
-          "明治神宮の名所"
+          "鎮守の杜",
+          "大鳥居",
+          "明治天皇・昭憲皇太后を祀る神社"
         ],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-        "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+        "reservation": "特別な祈願や施設の利用については、公式案内で予約要件をご確認ください。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "散策自由（24時間開放）"
+        "openingHours": "日の出とともに開門し、日没とともに閉門します（時刻は月ごとに異なります）。境内の施設には、より短い時間で運営されるものがあります。"
       }
     },
     "prefecture": "Tokyo",
@@ -109165,11 +109208,11 @@
       "lat": 35.6764,
       "lng": 139.6993
     },
-    "description": "Tokyo's most celebrated Shinto shrine, nestled within a tranquil 170-acre forest planted with 100,000 trees. Dedicated to Emperor Meiji, it features a grand wooden Torii gate and serene gravel paths.",
+    "description": "Meiji Jingu is a Shinto shrine in central Tokyo, set among forested shrine grounds and dedicated to Emperor Meiji and Empress Shoken. The approach includes a large torii gate and wooded paths.",
     "highlights": [
-      "History",
-      "Culture",
-      "Nature"
+      "Forested shrine grounds",
+      "Large torii gate",
+      "Emperor Meiji and Empress Shoken"
     ],
     "transportOptions": {
       "train": 18
@@ -109201,7 +109244,7 @@
     },
     "ratingsSchemaVersion": 2,
     "weatherDependence": "moderate",
-    "reservation": "Open access; no entrance reservation required.",
+    "reservation": "Check the official visitor guidance for reservation requirements for special services and facilities.",
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
@@ -109251,7 +109294,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-    "businessHours": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
+    "businessHours": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours.",
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meiji_Jingu_Shrine_Tokyo_Japan.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -109260,10 +109303,10 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meiji_Jingu_Shrine_Tokyo_Japan.jpg"
     },
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-    "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+    "reservationJa": "特別な祈願や施設の利用については、公式案内で予約要件をご確認ください。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
-    "openingHoursJa": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
+    "openingHours": "Opens at sunrise and closes at sunset, with times changing by month; some facilities inside have shorter hours.",
+    "openingHoursJa": "日の出とともに開門し、日没とともに閉門します（時刻は月ごとに異なります）。境内の施設には、より短い時間で運営されるものがあります。",
     "municipalityId": "Tokyo:shibuya",
     "transportMetadata": {
       "method": "legacy-fallback",
@@ -109313,11 +109356,11 @@
         "kind": "not_applicable"
       },
       "scope": "open_area",
-      "basis": "The catalogue identity is the open worship grounds of Meiji Jingu; offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product.",
+      "basis": "The official visit page states that entry to Meiji Jingu is free of charge; separate facilities and services are not represented as one required precinct admission product.",
       "sourceUrls": [
-        "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html"
+        "https://www.meijijingu.or.jp/en/visit/"
       ],
-      "checkedAt": "2026-08-28",
+      "checkedAt": "2026-10-16",
       "reviewIntervalMonths": 12
     },
     "localTransport": {
@@ -109340,6 +109383,72 @@
       "summer": 5,
       "autumn": 5,
       "winter": 5
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.meijijingu.or.jp/en/visit/",
+      "verifiedAt": "2026-10-22",
+      "monthlySchedule": [
+        {
+          "month": 1,
+          "opensAt": "06:40",
+          "closesAt": "16:20"
+        },
+        {
+          "month": 2,
+          "opensAt": "06:20",
+          "closesAt": "16:50"
+        },
+        {
+          "month": 3,
+          "opensAt": "05:40",
+          "closesAt": "17:20"
+        },
+        {
+          "month": 4,
+          "opensAt": "05:10",
+          "closesAt": "17:50"
+        },
+        {
+          "month": 5,
+          "opensAt": "05:00",
+          "closesAt": "18:10"
+        },
+        {
+          "month": 6,
+          "opensAt": "05:00",
+          "closesAt": "18:30"
+        },
+        {
+          "month": 7,
+          "opensAt": "05:00",
+          "closesAt": "18:20"
+        },
+        {
+          "month": 8,
+          "opensAt": "05:00",
+          "closesAt": "18:00"
+        },
+        {
+          "month": 9,
+          "opensAt": "05:20",
+          "closesAt": "17:20"
+        },
+        {
+          "month": 10,
+          "opensAt": "05:40",
+          "closesAt": "16:40"
+        },
+        {
+          "month": 11,
+          "opensAt": "06:10",
+          "closesAt": "16:10"
+        },
+        {
+          "month": 12,
+          "opensAt": "06:40",
+          "closesAt": "16:00"
+        }
+      ]
     }
   },
   {

@@ -6,7 +6,7 @@
   "totalRecords": 1130,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 193,
+    "clusterCount": 192,
     "affectedRecordCount": 1127,
     "affectedIds": [
       "abashiri",
@@ -1520,9 +1520,9 @@
       "corrected": 9,
       "legitimate": 15,
       "manual-review": 92,
-      "model-estimate": 41
+      "model-estimate": 40
     },
-    "categoryCounts": { "C": 84, "D": 6, "B": 59, "A": 13, "E": 31 }
+    "categoryCounts": { "C": 83, "D": 6, "B": 59, "A": 13, "E": 31 }
   },
   "categories": [
     {
@@ -10739,14 +10739,13 @@
     {
       "category": "comfort",
       "severity": "review",
-      "clusterCount": 28,
-      "affectedRecordCount": 601,
+      "clusterCount": 27,
+      "affectedRecordCount": 599,
       "affectedIds": [
         "abashiri-city",
         "abeno-harukas-300-osaka",
         "abukuma-cave-fukushima",
         "adachi-city",
-        "aizu-bukeyashiki",
         "aizuwakamatsu-city",
         "akita-city",
         "akiyoshido-cave-yamaguchi",
@@ -10837,7 +10836,6 @@
         "fukuoka-city-museum",
         "fukuoka-paypay-dome",
         "fukuoka-tower",
-        "fukuoka-yatai",
         "fukushima-city",
         "fukuurajima",
         "funabashi-city",
@@ -11446,7 +11444,7 @@
         {
           "id": "fc8339d38bf3",
           "severity": "review",
-          "count": 75,
+          "count": 74,
           "ids": [
             "ameya-yokocho",
             "bizan-ropeway-tokushima",
@@ -11458,7 +11456,6 @@
             "former-hokkaido-government-office",
             "fukagawa-edo-museum",
             "fukuoka-castle-ruins",
-            "fushimi-inari-taisha",
             "gifu-gujo-hachiman",
             "gyokudo-art-museum",
             "hachioji-tokyo",
@@ -11538,7 +11535,7 @@
         {
           "id": "3ff254fd7ba5",
           "severity": "review",
-          "count": 61,
+          "count": 62,
           "ids": [
             "chiba-park",
             "chiba-port-park",
@@ -11549,6 +11546,7 @@
             "enoshima-shrine",
             "fudaten-shrine",
             "fukuoka-tower",
+            "fushimi-inari-taisha",
             "gotoku-ji",
             "hasedera",
             "hokokuji",
@@ -12080,6 +12078,34 @@
           }
         },
         {
+          "id": "1832c76e2596",
+          "severity": "review",
+          "count": 11,
+          "ids": [
+            "dogo-haikara-dori",
+            "dotonbori",
+            "gunma-shima-onsen",
+            "kinugawa-onsen",
+            "komachi-street",
+            "nagano-bessho-onsen",
+            "nankinmachi-chinatown",
+            "osu-shopping-district",
+            "shikoku-mura",
+            "taisho-roman-street",
+            "tanukikoji-shopping-street"
+          ],
+          "value": {
+            "heatTolerance": 5,
+            "rainFriendly": 6,
+            "walkingIntensity": 5
+          },
+          "disposition": {
+            "category": "C",
+            "action": "model-estimate",
+            "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+          }
+        },
+        {
           "id": "33ad413ebe7a",
           "severity": "review",
           "count": 11,
@@ -12099,33 +12125,6 @@
           "value": {
             "heatTolerance": 8,
             "rainFriendly": 9,
-            "walkingIntensity": 5
-          },
-          "disposition": {
-            "category": "C",
-            "action": "model-estimate",
-            "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-          }
-        },
-        {
-          "id": "1832c76e2596",
-          "severity": "review",
-          "count": 10,
-          "ids": [
-            "dogo-haikara-dori",
-            "gunma-shima-onsen",
-            "kinugawa-onsen",
-            "komachi-street",
-            "nagano-bessho-onsen",
-            "nankinmachi-chinatown",
-            "osu-shopping-district",
-            "shikoku-mura",
-            "taisho-roman-street",
-            "tanukikoji-shopping-street"
-          ],
-          "value": {
-            "heatTolerance": 5,
-            "rainFriendly": 6,
             "walkingIntensity": 5
           },
           "disposition": {
@@ -12334,22 +12333,6 @@
           "value": {
             "heatTolerance": 4,
             "rainFriendly": 3,
-            "walkingIntensity": 5
-          },
-          "disposition": {
-            "category": "C",
-            "action": "model-estimate",
-            "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-          }
-        },
-        {
-          "id": "5017dfa271c1",
-          "severity": "review",
-          "count": 3,
-          "ids": ["aizu-bukeyashiki", "dotonbori", "fukuoka-yatai"],
-          "value": {
-            "heatTolerance": 6,
-            "rainFriendly": 7,
             "walkingIntensity": 5
           },
           "disposition": {

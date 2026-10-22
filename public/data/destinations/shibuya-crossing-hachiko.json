@@ -6,19 +6,19 @@
   "content": {
     "en": {
       "name": "Shibuya Crossing and Hachiko",
-      "description": "The world's busiest pedestrian intersection and iconic meeting landmark anchored by the beloved loyalty statue of Hachiko. Thousands cross simultaneously surrounded by giant digital screens and neon displays.",
-      "highlights": ["Culture", "Landmark", "Photography"],
-      "reservation": "No advance reservation required; tickets available on arrival.",
+      "description": "At Shibuya Station, pedestrians cross the multi-cornered scramble crossing from all directions. The nearby Hachiko statue serves as a meeting point.",
+      "highlights": ["Shibuya Scramble Crossing", "Hachiko Statue"],
+      "reservation": "No booking is needed to use the public crossing; check nearby venues separately.",
       "parking": "Paid public parking options available nearby.",
-      "openingHours": "09:00 - 17:00"
+      "openingHours": "Open access; nearby shops and facilities have separate hours."
     },
     "ja": {
       "name": "渋谷スクランブル交差点と忠犬ハチ公像",
-      "description": "世界最大級の交通量を誇るスクランブル交差点と、忠犬ハチ公像で知られる東京のシンボル的ランドマークです。巨大ビジョンに囲まれた圧倒的な都市景観を楽しめます。",
-      "highlights": ["渋谷スクランブル交差点と忠犬ハチ公像の名所"],
-      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "description": "渋谷駅前のスクランブル交差点では、多くの歩行者が各方向から一斉に渡ります。近くの忠犬ハチ公像は待ち合わせ場所として親しまれています。",
+      "highlights": ["渋谷スクランブル交差点", "忠犬ハチ公像"],
+      "reservation": "交差点の通行に予約は不要です。周辺の店舗・施設は各施設の案内をご確認ください。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-      "openingHours": "09:00 - 17:00"
+      "openingHours": "散策自由（周辺の店舗・施設の営業時間は異なります）"
     }
   },
   "prefecture": "Tokyo",
@@ -43,8 +43,8 @@
     "lat": 35.6595,
     "lng": 139.7005
   },
-  "description": "The world's busiest pedestrian intersection and iconic meeting landmark anchored by the beloved loyalty statue of Hachiko. Thousands cross simultaneously surrounded by giant digital screens and neon displays.",
-  "highlights": ["Culture", "Landmark", "Photography"],
+  "description": "At Shibuya Station, pedestrians cross the multi-cornered scramble crossing from all directions. The nearby Hachiko statue serves as a meeting point.",
+  "highlights": ["Shibuya Scramble Crossing", "Hachiko Statue"],
   "transportOptions": {
     "train": 18
   },
@@ -75,7 +75,7 @@
   },
   "ratingsSchemaVersion": 2,
   "weatherDependence": "moderate",
-  "reservation": "No advance reservation required; tickets available on arrival.",
+  "reservation": "No booking is needed to use the public crossing; check nearby venues separately.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
   "status": "published",
@@ -124,7 +124,7 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-  "businessHours": "Open access",
+  "businessHours": "Open access; nearby shops and facilities have separate hours.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/1920px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -132,10 +132,10 @@
     "attribution": "Benh LIEU SONG (Flickr)",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg"
   },
-  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "reservationJa": "交差点の通行に予約は不要です。周辺の店舗・施設は各施設の案内をご確認ください。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "09:00 - 17:00",
-  "openingHoursJa": "09:00 - 17:00",
+  "openingHours": "Open access; nearby shops and facilities have separate hours.",
+  "openingHoursJa": "散策自由（周辺の店舗・施設の営業時間は異なります）",
   "municipalityId": "Tokyo:shibuya",
   "transportMetadata": {
     "method": "legacy-fallback",
