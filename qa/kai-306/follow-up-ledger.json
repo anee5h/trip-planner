@@ -2639,6 +2639,63 @@
           "adjudicationBasis": "manual"
         }
       ]
+    },
+    {
+      "id": "pr492-fushimi-free-entry-validator-marker",
+      "sequence": 4,
+      "date": "2026-10-22",
+      "sourceCheckedOn": "2026-10-22",
+      "title": "PR #492 follow-up — explicit Fushimi free-entry evidence marker",
+      "baseCommit": "799a9c5bdfa9c7ef14eea0199202fbe5bd9451f7",
+      "pr": {
+        "label": "PR #492 review remediation",
+        "status": "Open; awaiting checks and required sign-off; merge remains unauthorized",
+        "url": "https://github.com/anee5h/trip-planner/pull/492"
+      },
+      "beforeCanonicalSha256": "b830e15952820253006c5b6d2f0de83a94dcd54163b89820e22094b590d31527",
+      "afterCanonicalSha256": "7f96234e9e120dbdc74ccb563bce8be7393f9ac931e26b7fa4d51ae4cbabd30c",
+      "validation": {
+        "automated": [
+          "npm run validate:catalog-fast passed with zero errors; the existing catalogue warnings remain non-blocking.",
+          "Focused Vitest check for kai306PrAOperationalFacts.test.ts passed all 29 tests.",
+          "npm run sync-destination-details regenerated the Fushimi detail file, and npm run check:catalog-sync confirmed generated catalogue consistency.",
+          "npm run audit:kai-306 passed after recording this append-only entry, verifying the four-entry canonical hash chain."
+        ],
+        "manual": [
+          "The KANSAI Guide listing was re-reviewed on 2026-10-22; it explicitly labels the shrine fee free. The admission field remains limited to general shrine entry, excluding voluntary offerings and separate services."
+        ]
+      },
+      "records": [
+        {
+          "id": "fushimi-inari-taisha",
+          "changes": [
+            {
+              "path": ["admission", "basis"],
+              "beforePresent": true,
+              "before": "The KANSAI Guide lists general shrine entry as free (updated 2026-06-23). Voluntary offerings and separate services are excluded.",
+              "afterPresent": true,
+              "after": "FREE_ENTRY: The KANSAI Guide lists the admission fee for shrine entry as free (updated 2026-06-23). Voluntary offerings and separate services are excluded."
+            }
+          ],
+          "outcomeBefore": "PASS",
+          "adjudicatedOutcome": "PASS",
+          "originalFinding": "The regional tourism source supports free general entry, but the catalogue fast validator requires an explicit FREE_ENTRY marker in the evidence basis.",
+          "currentObservation": "The KANSAI Guide lists the shrine admission fee as free and its grounds open year-round; its listing was updated 2026-06-23.",
+          "correctedFields": ["admission.basis: explicit FREE_ENTRY marker with source and scope retained"],
+          "sources": [
+            {
+              "url": "https://www.the-kansai-guide.com/en/directory/item/11818/",
+              "checkedOn": "2026-10-22",
+              "observation": "Official Kansai tourism listing explicitly says “[Fee] Free” and “Grounds open year-round”; the price field is scoped to general shrine entry."
+            }
+          ],
+          "residual": [
+            "Voluntary offerings and separate services remain excluded from the general-entry cost."
+          ],
+          "adjudicationNote": "The admission value remains verified_free at ¥0–¥0 for general entry; the explicit marker makes the cited free-entry evidence legible to the automated validator.",
+          "adjudicationBasis": "manual"
+        }
+      ]
     }
   ]
 }

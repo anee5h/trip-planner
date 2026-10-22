@@ -193,3 +193,29 @@ This ledger is **append-only** and sits beside the frozen 2026-10-08 audit (`des
 - Adjudication (manual): Date-selected plans now use the published month-specific grounds schedule. Without a travel date, the verified descriptive hours remain visible with a scheduling warning.
 - Source (2026-10-22): [https://www.meijijingu.or.jp/en/visit/](https://www.meijijingu.or.jp/en/visit/) — Official visitor page provides all 12 monthly opening and closing times, including October 05:40–16:40, and says some internal facilities have shorter hours.
 - Residual: The monthly schedule covers the shrine grounds; shorter hours for facilities inside are not modeled as separate itinerary stops.
+
+## 4. PR #492 follow-up — explicit Fushimi free-entry evidence marker
+
+- Date: 2026-10-22 · sources checked: 2026-10-22 · base `799a9c5bdfa9c7ef14eea0199202fbe5bd9451f7`
+- Related PR: [PR #492 review remediation](https://github.com/anee5h/trip-planner/pull/492) (Open; awaiting checks and required sign-off; merge remains unauthorized).
+- Canonical SHA-256: `b830e1595282` → `7f96234e9e12`.
+
+**Automated validation**
+
+- npm run validate:catalog-fast passed with zero errors; the existing catalogue warnings remain non-blocking.
+- Focused Vitest check for kai306PrAOperationalFacts.test.ts passed all 29 tests.
+- npm run sync-destination-details regenerated the Fushimi detail file, and npm run check:catalog-sync confirmed generated catalogue consistency.
+- npm run audit:kai-306 passed after recording this append-only entry, verifying the four-entry canonical hash chain.
+
+**Manual review**
+
+- The KANSAI Guide listing was re-reviewed on 2026-10-22; it explicitly labels the shrine fee free. The admission field remains limited to general shrine entry, excluding voluntary offerings and separate services.
+
+### fushimi-inari-taisha: PASS → PASS
+
+- Original finding: The regional tourism source supports free general entry, but the catalogue fast validator requires an explicit FREE_ENTRY marker in the evidence basis.
+- Observation at check time: The KANSAI Guide lists the shrine admission fee as free and its grounds open year-round; its listing was updated 2026-06-23.
+- Corrected fields: `admission.basis: explicit FREE_ENTRY marker with source and scope retained`.
+- Adjudication (manual): The admission value remains verified_free at ¥0–¥0 for general entry; the explicit marker makes the cited free-entry evidence legible to the automated validator.
+- Source (2026-10-22): [https://www.the-kansai-guide.com/en/directory/item/11818/](https://www.the-kansai-guide.com/en/directory/item/11818/) — Official Kansai tourism listing explicitly says “[Fee] Free” and “Grounds open year-round”; the price field is scoped to general shrine entry.
+- Residual: Voluntary offerings and separate services remain excluded from the general-entry cost.

@@ -144,7 +144,7 @@ describe("KAI-306 PR A operational facts", () => {
       scope: "general_entry",
       sourceUrls: ["https://www.the-kansai-guide.com/en/directory/item/11818/"],
     });
-    expect(record.admission?.basis).toMatch(/general shrine entry as free/i);
+    expect(record.admission?.basis).toMatch(/FREE_ENTRY/);
     expect(resolveAdmissionApplicability(record)).toBe("applicable");
   });
 
