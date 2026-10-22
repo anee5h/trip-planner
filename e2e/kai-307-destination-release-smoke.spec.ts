@@ -493,6 +493,15 @@ for (const runtimeCase of runtimeCases) {
         `${runtimeCase.id}: verified/venue-dependent hours show a stale warning`,
       ).not.toContainText(/Not yet verified|未確認/);
     }
+    if (
+      runtimeCase.id === "fushimi-inari-taisha" &&
+      runtimeCase.locale === "ja"
+    ) {
+      await expect(
+        page.getByRole("complementary", { name: "重要なアクセス情報" }),
+        "Fushimi Inari Japanese reservation warning should be localized",
+      ).toContainText(/祈祷などのサービスや特別な参拝/);
+    }
     if (runtimeCase.hours) {
       await expect(
         atAGlance,

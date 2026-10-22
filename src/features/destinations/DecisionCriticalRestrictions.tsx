@@ -17,6 +17,8 @@ function combinedOperationalText(destination: Destination): string {
     destination.notes,
     destination.reservation,
     destination.parking,
+    destination.content?.en?.reservation,
+    destination.content?.ja?.reservation,
     destination.content?.en?.notes,
     destination.content?.ja?.notes,
   ]
@@ -40,9 +42,18 @@ function reservationIsExplicitlyNotRequired(value: string): boolean {
 
 export function getDecisionCriticalRestrictions(
   destination: Destination,
+  locale: "en" | "ja" = "en",
 ): DecisionCriticalRestriction[] {
   const text = combinedOperationalText(destination);
   const lower = text.toLowerCase();
+  const englishReservation =
+    destination.content?.en?.reservation ?? destination.reservation;
+  const localizedReservation =
+    locale === "ja"
+      ? (destination.content?.ja?.reservation ??
+        destination.reservationJa ??
+        englishReservation)
+      : englishReservation;
   const restrictions: DecisionCriticalRestriction[] = [];
 
   if (
@@ -80,13 +91,13 @@ export function getDecisionCriticalRestrictions(
   }
 
   if (
-    destination.reservation &&
-    /(reservation|reserve|book|permit)/i.test(destination.reservation) &&
-    !reservationIsExplicitlyNotRequired(destination.reservation)
+    englishReservation &&
+    /(reservation|reserve|book|permit)/i.test(englishReservation) &&
+    !reservationIsExplicitlyNotRequired(englishReservation)
   ) {
     restrictions.push({
       kind: "reservation_required",
-      detail: destination.reservation,
+      detail: localizedReservation ?? englishReservation,
     });
   }
 
@@ -100,7 +111,7 @@ export function DecisionCriticalRestrictionNotice({
   destination: Destination;
   locale: "en" | "ja";
 }) {
-  const restrictions = getDecisionCriticalRestrictions(destination);
+  const restrictions = getDecisionCriticalRestrictions(destination, locale);
   if (restrictions.length === 0) return null;
 
   return (

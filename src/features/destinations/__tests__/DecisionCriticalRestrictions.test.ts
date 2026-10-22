@@ -71,6 +71,26 @@ describe("decision-critical destination restrictions", () => {
     ]);
   });
 
+  it("uses Japanese reservation guidance in the Japanese warning", () => {
+    const destination = {
+      id: "localized-reservation-attraction",
+      name: "Localized Reservation Attraction",
+      reservation: "Advance reservation is required for entry.",
+      reservationJa: "入場には事前予約が必要です。",
+      content: {
+        en: { reservation: "Advance reservation is required for entry." },
+        ja: { reservation: "入場には事前予約が必要です。" },
+      },
+    } as unknown as Destination;
+
+    expect(getDecisionCriticalRestrictions(destination, "ja")).toEqual([
+      {
+        kind: "reservation_required",
+        detail: "入場には事前予約が必要です。",
+      },
+    ]);
+  });
+
   it("does not suppress a later reservation requirement after a negative clause", () => {
     const destination = {
       id: "mixed-reservation-attraction",
