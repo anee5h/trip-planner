@@ -138,7 +138,7 @@ export function DecisionCriticalRestrictionNotice({
                         ? "自家用車の制限"
                         : restriction.kind === "required_transfer"
                           ? "乗り換え必須"
-                          : "予約・許可が必要"
+                          : "予約・許可の確認"
                     : restriction.kind === "seasonal_closure"
                       ? "Seasonal closure"
                       : restriction.kind === "private_car_access"
