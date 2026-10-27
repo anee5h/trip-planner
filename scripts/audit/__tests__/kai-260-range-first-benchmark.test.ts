@@ -299,6 +299,18 @@ describe("KAI-260 range-first benchmark", () => {
     const current = classifyRangeDestinations(destinations);
     const transitions = findBoundedToUnavailableTransitions(baseline, current);
     const explicitJustifications: Record<string, string> = {};
+    for (const origin of ORIGINS) {
+      const fushimi = current[origin.key].find(
+        (row) => row.id === "fushimi-inari-taisha",
+      );
+      expect(
+        fushimi?.classification,
+        `${origin.key}:fushimi-inari-taisha`,
+      ).toBe("bounded_plannable");
+    }
+    expect(
+      transitions.filter((row) => row.destinationId === "fushimi-inari-taisha"),
+    ).toEqual([]);
     const unjustified = transitions.filter(
       (transition) =>
         !explicitJustifications[

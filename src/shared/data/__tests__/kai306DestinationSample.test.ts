@@ -119,7 +119,8 @@ describe("KAI-306 reviewed destination sample", () => {
     );
     expect(assessment).toMatchObject({
       status: "verified",
-      requiresWarning: false,
+      scheduleStatus: "descriptive",
+      requiresWarning: true,
       sourceUrl: "https://www.tokyo-park.or.jp/park/ueno/index.html",
       verifiedAt: "2026-10-07",
     });

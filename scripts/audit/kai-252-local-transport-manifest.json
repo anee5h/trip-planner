@@ -14757,7 +14757,17 @@
         "remainsUnknown": "A current authoritative source tying the exact canonical arrival/access point to every required local segment and its ordinary-adult saleable fare remains unresolved.",
         "excerpt": "dth=\"1300\" height=\"150\" alt=\"アクセス\" /> <div id=\"eyecatch_sub_inner\"> <img src=\"../../images/ja/title_access.png\" width=\"1200\" height=\"150\" alt=\"アクセス\" class=\"eyecatch_text\" /> </div><!-- //eyecatch_inner --> </div><!-- //eyecatch --> <div id=\"gmenu_box\"> <div id=\"gmenu_box_inner\"> <div i"
       }
-    ]
+    ],
+    "identityFollowUp": {
+      "kind": {
+        "before": "museum",
+        "after": "district",
+        "sourceUrls": ["https://osaka-info.jp/en/spot/dotonbori/"],
+        "rationale": "The current official Osaka tourism listing identifies Dotonbori as a shopping/entertainment district, not a museum.",
+        "checkedAt": "2026-10-16",
+        "relatedTicket": "KAI-306"
+      }
+    }
   },
   {
     "id": "echigo-sanzan-tadami",

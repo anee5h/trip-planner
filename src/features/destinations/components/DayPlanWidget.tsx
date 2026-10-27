@@ -956,8 +956,8 @@ export function DayPlanWidget({
                   <span className="flex items-center gap-2">
                     <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
                     {locale === "ja"
-                      ? "一部スポットの営業時間が未確認です（タップで前提条件を確認）"
-                      : "Some opening hours are unverified (click to view plan assumptions)"}
+                      ? "一部スポットの営業時間を行程に反映できません（タップで前提条件を確認）"
+                      : "Some opening hours could not be applied to the itinerary (click to view plan assumptions)"}
                   </span>
                   <span className="text-[10px] uppercase font-mono font-bold text-amber-700 dark:text-amber-400 group-open:rotate-180 transition-transform">
                     ▼
@@ -974,8 +974,8 @@ export function DayPlanWidget({
                     {generatedPlan.uncertainHoursDisclosures.length > 0 && (
                       <li>
                         {locale === "ja"
-                          ? `以下のスポットは営業時間が未確認です: ${generatedPlan.uncertainHoursDisclosures.map((u) => u.name).join("、")}`
-                          : `Opening hours are unverified for: ${generatedPlan.uncertainHoursDisclosures.map((u) => u.name).join(", ")}.`}
+                          ? `営業時間を行程に反映できないスポット: ${generatedPlan.uncertainHoursDisclosures.map((u) => u.name).join("、")}`
+                          : `Opening hours could not be applied to the itinerary for: ${generatedPlan.uncertainHoursDisclosures.map((u) => u.name).join(", ")}.`}
                       </li>
                     )}
                     {generatedPlan.assumptions?.map((assumption, index) => (
@@ -1087,8 +1087,8 @@ export function DayPlanWidget({
                                       className="text-[10px] bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border-amber-300 font-medium"
                                     >
                                       {locale === "ja"
-                                        ? "未確認"
-                                        : "Unverified hours"}
+                                        ? "営業時間要確認"
+                                        : "Check hours"}
                                     </Badge>
                                   )}
                                 </div>

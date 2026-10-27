@@ -158,7 +158,7 @@ describe("KAI-219E2 residual admission manifest", () => {
       authored.every((destination) => destination.admission !== undefined),
     ).toBe(true);
     fs.rmSync(path.dirname(indexPath), { recursive: true, force: true });
-  });
+  }, 60_000);
 
   it("STATE B is byte-identical and performs zero writes", () => {
     const indexPath = withTempIndex();

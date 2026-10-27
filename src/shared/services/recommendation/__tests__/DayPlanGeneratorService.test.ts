@@ -95,6 +95,22 @@ describe("DayPlanGeneratorService", () => {
     expect(uenoStep!.endTime).toBe("12:30");
   });
 
+  it("does not generate an evening Meiji Jingu itinerary after its October closing time", () => {
+    const catalogue = destinationIndex as unknown as Destination[];
+    const meiji = catalogue.find(
+      (destination) => destination.id === "meiji-jingu",
+    )!;
+    const plan = generateDayPlan(meiji, {
+      planType: "half_day",
+      startTime: "17:00",
+      availableMinutes: 300,
+      travelDate: "2026-10-22",
+      catalogue,
+    });
+
+    expect(plan.isUnfeasible).toBe(true);
+  });
+
   it("marks an unknown-hours destination as unverified rather than all-day", () => {
     const unknown = {
       ...mockDestPrimary,
@@ -313,20 +329,30 @@ describe("getPlanEligibility", () => {
     expect(el.candidateCount).toBe(3);
   });
 
-  it("district anchor does not count as a real stop", () => {
+  it("keeps a selected district anchor as a required itinerary stop", () => {
     const district = {
       ...poi("district-anchor", 35.68, 139.76),
       kind: "district",
       role: "destination",
     } as unknown as Destination;
-    const catalogue = [district];
+    const catalogue = [district, a];
     const el = getPlanEligibility(district, {
       planType: "half_day",
       catalogue,
     });
-    // District anchor is not a real stop: 0 candidates -> ineligible.
-    expect(el.eligible).toBe(false);
-    expect(el.candidateCount).toBe(0);
+    expect(el.eligible).toBe(true);
+    expect(el.candidateCount).toBe(2);
+
+    const plan = generateDayPlan(district, {
+      planType: "half_day",
+      startTime: "09:00",
+      availableMinutes: 300,
+      catalogue,
+    });
+    expect(plan.isUnfeasible).toBe(false);
+    expect(
+      plan.steps.some((step) => step.destination?.id === "district-anchor"),
+    ).toBe(true);
   });
 
   it("candidate without coordinates does not count", () => {

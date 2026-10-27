@@ -10,7 +10,7 @@
   "categories": ["Onsen Town", "Mountain Resort", "Mount Fuji View", "Nature"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
-  "description": "Japan's premier mountain hot spring resort town, famous for Lake Ashi pirate ships, Owakudani volcanic crater, and Fuji views.",
+  "description": "Hakone is a mountain resort area known for its hot springs, Lake Ashi and Owakudani. Some viewpoints offer views of Mount Fuji on clear days.",
   "highlights": [
     "Lake Ashi Sightseeing Cruise",
     "Owakudani Volcanic Valley",
@@ -59,9 +59,8 @@
     "train": 90,
     "bus": 120
   },
-  "reservation": "Open access; no entrance reservation required.",
+  "reservation": "Reservation requirements vary by attraction and activity; check each operator.",
   "parking": "Park parking lot available on site.",
-  "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "status": "published",
   "travelEstimate": {
     "confidence": "high"
@@ -84,7 +83,7 @@
     "min": 7,
     "max": 12
   },
-  "businessHours": "Open access",
+  "businessHours": "Individual venue hours vary.",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -123,25 +122,23 @@
   "content": {
     "en": {
       "name": "Hakone Town",
-      "description": "Japan's premier mountain hot spring resort town, famous for Lake Ashi pirate ships, Owakudani volcanic crater, and Fuji views.",
+      "description": "Hakone is a mountain resort area known for its hot springs, Lake Ashi and Owakudani. Some viewpoints offer views of Mount Fuji on clear days.",
       "highlights": [
         "Lake Ashi Sightseeing Cruise",
         "Owakudani Volcanic Valley",
         "Hakone Open-Air Museum"
       ],
-      "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
-      "reservation": "Open access; no entrance reservation required.",
+      "reservation": "Reservation requirements vary by attraction and activity; check each operator.",
       "parking": "Park parking lot available on site.",
-      "openingHours": "24 Hours (Open access)"
+      "openingHours": "Individual venue hours vary."
     },
     "ja": {
       "name": "箱根",
-      "description": "富士山を望む日本有数の温泉リゾート地。芦ノ湖の海賊船、大涌谷の火山景観、箱根彫刻の森美術館など見どころが満載です。",
-      "highlights": ["箱根の名所", "-美術館散策"],
-      "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "description": "箱根は温泉や芦ノ湖、大涌谷などを巡る山あいの観光地です。晴れた日には富士山を望める場所もあります。",
+      "highlights": ["芦ノ湖の海賊船クルーズ", "大涌谷", "箱根彫刻の森美術館"],
+      "reservation": "予約の要否は施設や体験によって異なります。各事業者の案内をご確認ください。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-      "openingHours": "散策自由（24時間開放）"
+      "openingHours": "各施設の営業時間は施設ごとに異なります。"
     }
   },
   "ratingMetadata": {
@@ -149,11 +146,10 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "reservationJa": "予約の要否は施設や体験によって異なります。各事業者の案内をご確認ください。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "24 Hours (Open access)",
-  "openingHoursJa": "散策自由（24時間開放）",
+  "openingHours": "Individual venue hours vary.",
+  "openingHoursJa": "各施設の営業時間は施設ごとに異なります。",
   "municipalityId": "Kanagawa:hakone",
   "durationMetadata": {
     "method": "model",

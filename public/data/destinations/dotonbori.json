@@ -6,18 +6,28 @@
   "content": {
     "en": {
       "name": "Dotonbori",
-      "description": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
-      "highlights": ["Shopping", "Food"]
+      "description": "Dotonbori is Osaka's canal-side shopping and entertainment district, known for the Glico sign, oversized three-dimensional signs, restaurants and takoyaki. The Tonbori Riverwalk follows the canal.",
+      "highlights": [
+        "Glico sign",
+        "Tonbori Riverwalk",
+        "Takoyaki and restaurants"
+      ],
+      "reservation": "No booking is needed to walk the public district; individual venues may require reservations."
     },
     "ja": {
       "name": "道頓堀",
-      "description": "大阪を代表する歓楽街。道頓堀川沿いにグリコのランナー看板や戎橋など名物が並ぶ。「食い倒れ」の街として知られ、たこ焼きやお好み焼きの店、劇場などがひしめく。",
-      "highlights": ["ショッピング", "グルメ"]
+      "description": "道頓堀は大阪・ミナミを代表する川沿いの商業・歓楽街です。グリコの看板をはじめ立体看板が並び、飲食店やたこ焼き店が集まります。道頓堀川沿いにはとんぼりリバーウォークがあります。",
+      "highlights": [
+        "グリコの看板",
+        "とんぼりリバーウォーク",
+        "たこ焼き・飲食店"
+      ],
+      "reservation": "街区の散策に予約は不要です。店舗・施設については各施設の案内をご確認ください。"
     }
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "district",
   "role": "destination",
   "placeType": "destination",
   "areaId": "namba-minami",
@@ -39,8 +49,8 @@
     "lat": 34.66861111,
     "lng": 135.50138889
   },
-  "description": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
-  "highlights": ["Shopping", "Food"],
+  "description": "Dotonbori is Osaka's canal-side shopping and entertainment district, known for the Glico sign, oversized three-dimensional signs, restaurants and takoyaki. The Tonbori Riverwalk follows the canal.",
+  "highlights": ["Glico sign", "Tonbori Riverwalk", "Takoyaki and restaurants"],
   "transportOptions": {
     "train": 189,
     "bus": 209,
@@ -55,8 +65,8 @@
   "walkingIntensity": "medium",
   "indoorPercent": 55,
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 7,
+    "heatTolerance": 5,
+    "rainFriendly": 6,
     "walkingIntensity": 5
   },
   "ratings": {
@@ -82,7 +92,7 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
+  "reservation": "No booking is needed to walk the public district; individual venues may require reservations.",
   "parking": "Check local parking and public transport guidance.",
   "schemaVersion": 2,
   "status": "published",
@@ -118,7 +128,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "comfort-model-v1; derived from indoorPercent=55, kind='museum', walkingMin=90",
+          "title": "comfort-model-v1; derived from indoorPercent=55, kind='district', walkingMin=90",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -137,18 +147,17 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "businessHours": "Public streets are open access; shops and venues have separate hours.",
   "nearHubs": ["osaka-city"],
-  "notesJa": "【見どころ】道頓堀は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
-  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "reservationJa": "街区の散策に予約は不要です。店舗・施設については各施設の案内をご確認ください。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "街路は自由に散策でき、店舗・施設の営業時間はそれぞれ異なります。",
   "municipalityId": "Osaka:osaka",
   "comfortMetadata": {
     "method": "model",
     "modelVersion": "comfort-model-v1",
     "confidence": "low",
-    "basis": "derived from indoorPercent=55, kind='museum', walkingMin=90"
+    "basis": "derived from indoorPercent=55, kind='district', walkingMin=90"
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -176,9 +185,9 @@
       "kind": "not_applicable"
     },
     "scope": "open_area",
-    "basis": "The catalogue identity represents Dotonbori as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
-    "sourceUrls": ["https://www.dotonbori.or.jp/en/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Dotonbori is a district/area, not one coherent required admission product. The reviewed official district listing describes store-dependent businesses; separate paid venues and purchases are not promoted as a district admission fee.",
+    "sourceUrls": ["https://osaka-info.jp/en/spot/dotonbori/"],
+    "checkedAt": "2026-10-16",
     "reviewIntervalMonths": 12
   },
   "localTransport": {
@@ -190,5 +199,6 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/D%C5%8Dtonbori",
   "wikipediaPageId": 998084,
-  "wikidataId": "Q964876"
+  "wikidataId": "Q964876",
+  "openingHours": "Public streets are open access; shops and venues have separate hours."
 }
