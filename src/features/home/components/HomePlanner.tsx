@@ -891,7 +891,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             <button
               type="button"
               data-testid="transport-trigger"
-              aria-label={t("home.transport")}
+              aria-label={`${t("home.transport")}: ${transportSummary}`}
               aria-haspopup="true"
               aria-expanded={transportMenuOpen}
               onClick={() => setTransportMenuOpen((open) => !open)}

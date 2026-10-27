@@ -110,7 +110,6 @@ export default function TravelDatePicker({
   const { t, i18n } = useTranslation();
   const currentLocale: "en" | "ja" =
     propLocale || (i18n.language === "ja" ? "ja" : "en");
-
   const [isOpen, setIsOpen] = useState(initialOpen);
 
   const todayIso = useMemo(() => localDateToIso(new Date()), []);
@@ -309,19 +308,18 @@ export default function TravelDatePicker({
       const isTripEnd = dayModifiers.tripEnd;
       const isSelected = dayModifiers.selected;
       const isToday = dayModifiers.today;
-
       let ForecastIcon = Sun;
       if (marker?.icon === "rain") ForecastIcon = Cloud;
       else if (marker?.icon === "cloud") ForecastIcon = Cloud;
       else if (marker?.icon === "snow") ForecastIcon = Snowflake;
       else if (marker?.icon === "storm") ForecastIcon = CloudLightning;
 
-      let ariaText = (props["aria-label"] || iso).trim();
+      let descriptionText = (props["aria-label"] || iso).trim();
       if (marker) {
-        ariaText += `. ${marker.ariaLabel}`;
+        descriptionText += `. ${marker.ariaLabel}`;
       }
       if (isTripEnd) {
-        ariaText += `. ${t(
+        descriptionText += `. ${t(
           "datePicker.derivedDateHint",
           "End date derived from trip duration",
         )}`;
@@ -331,7 +329,10 @@ export default function TravelDatePicker({
         <DayButton
           {...props}
           data-date={iso}
-          aria-label={ariaText}
+          aria-label={
+            marker ? `${children} ${marker.maxTemp}°` : String(children)
+          }
+          aria-description={descriptionText}
           className={cn(
             btnClassName,
             "relative flex flex-col items-center justify-center h-10 w-full rounded-xl text-xs font-bold transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500/50",
@@ -355,19 +356,22 @@ export default function TravelDatePicker({
         >
           <span>{children}</span>
           {marker && (
-            <span
-              className={cn(
-                "flex items-center gap-0.5 text-[9px] leading-none mt-0.5 font-normal",
-                isSelected
-                  ? "text-emerald-100"
-                  : isTripEnd
-                    ? "text-emerald-800 dark:text-emerald-300"
-                    : "text-slate-500 dark:text-slate-300",
-              )}
-            >
-              <ForecastIcon className="w-2.5 h-2.5 shrink-0" />
-              <span>{marker.maxTemp}°</span>
-            </span>
+            <>
+              {" "}
+              <span
+                className={cn(
+                  "flex items-center gap-0.5 text-[9px] leading-none mt-0.5 font-normal",
+                  isSelected
+                    ? "text-emerald-100"
+                    : isTripEnd
+                      ? "text-emerald-800 dark:text-emerald-300"
+                      : "text-slate-500 dark:text-slate-300",
+                )}
+              >
+                <ForecastIcon className="w-2.5 h-2.5 shrink-0" />
+                <span>{marker.maxTemp}°</span>
+              </span>
+            </>
           )}
         </DayButton>
       );
