@@ -165,7 +165,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
-    "i18next": "^26.4.2",
+    "i18next": "^26.5.7",
     "jose": "^6.2.12",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.52.0",
