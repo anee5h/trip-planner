@@ -6,7 +6,61 @@ import {
   getJapanHolidayStatus,
 } from "../busyPeriodCues";
 
+// Exhaustive expected dates copied from the official Cabinet Office 2026–2027
+// calendar (https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html); this catches
+// omitted substitute and citizens' holidays too.
+const CABINET_OFFICE_HOLIDAYS = new Set([
+  "2026-01-01",
+  "2026-01-12",
+  "2026-02-11",
+  "2026-02-23",
+  "2026-03-20",
+  "2026-04-29",
+  "2026-05-03",
+  "2026-05-04",
+  "2026-05-05",
+  "2026-05-06",
+  "2026-07-20",
+  "2026-08-11",
+  "2026-09-21",
+  "2026-09-22",
+  "2026-09-23",
+  "2026-10-12",
+  "2026-11-03",
+  "2026-11-23",
+  "2027-01-01",
+  "2027-01-11",
+  "2027-02-11",
+  "2027-02-23",
+  "2027-03-21",
+  "2027-03-22",
+  "2027-04-29",
+  "2027-05-03",
+  "2027-05-04",
+  "2027-05-05",
+  "2027-07-19",
+  "2027-08-11",
+  "2027-09-20",
+  "2027-09-23",
+  "2027-10-11",
+  "2027-11-03",
+  "2027-11-23",
+]);
+
 describe("getBusyPeriodCues", () => {
+  it("matches every day in the official 2026–2027 holiday calendar", () => {
+    for (const year of [2026, 2027]) {
+      const date = new Date(Date.UTC(year, 0, 1));
+      while (date.getUTCFullYear() === year) {
+        const isoDate = date.toISOString().slice(0, 10);
+        expect(getJapanHolidayStatus(isoDate)).toBe(
+          CABINET_OFFICE_HOLIDAYS.has(isoDate) ? "holiday" : "not_holiday",
+        );
+        date.setUTCDate(date.getUTCDate() + 1);
+      }
+    }
+  });
+
   it("classifies holidays only inside the published calendar coverage", () => {
     expect(getJapanHolidayStatus("2026-11-23")).toBe("holiday");
     expect(getJapanHolidayStatus("2026-11-24")).toBe("not_holiday");

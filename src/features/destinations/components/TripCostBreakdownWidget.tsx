@@ -431,6 +431,8 @@ export function TripCostBreakdownWidget({
       : "Your plan cost"
     : t("planner.budgetEstimate.estimatedTripTotal");
 
+  // Alternatives replace this stop on the same visit date. Reuse party mix,
+  // but never carry venue-specific product, channel, slot, or add-on choices.
   const alternativeAdmissionSelection = useMemo(
     () =>
       admissionSelection

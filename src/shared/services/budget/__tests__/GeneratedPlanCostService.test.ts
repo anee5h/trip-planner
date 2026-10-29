@@ -74,6 +74,7 @@ describe("GeneratedPlanCostService", () => {
 
     expect(cost.admission.min).toBe(3000); // 1500 * 2
     expect(cost.admission.source).toBe("curated");
+    expect(cost.admission.admissionPricingBasis).toBe("fixed_price");
     expect(cost.originTransport.source).toBe("unknown");
     // Origin travel is not applicable without origin coordinates. The
     // bounded total is complete even though evidence quality stays estimated.
@@ -112,6 +113,7 @@ describe("GeneratedPlanCostService", () => {
     expect(cost.admission.min).toBeGreaterThan(0);
     expect(cost.admission.max).toBeGreaterThan(cost.admission.min);
     expect(cost.admission.source).toBe("estimated");
+    expect(cost.admission.admissionPricingBasis).toBeUndefined();
     const assumption = cost.assumptions.find(
       (a) => a.type === "estimated_cost" && a.destinationId === "dest-1",
     );
@@ -254,6 +256,7 @@ describe("KAI-219A — GeneratedPlan explicit v2 admission authority", () => {
     expect(cost.admission.min).toBe(1200);
     expect(cost.admission.max).toBeGreaterThan(cost.admission.min);
     expect(cost.admission.source).toBe("estimated");
+    expect(cost.admission.admissionPricingBasis).toBeUndefined();
     expect(cost.admission.applicable).toBe(true);
     expect(cost.assumptions.some((a) => a.destinationId === "dest-1")).toBe(
       true,

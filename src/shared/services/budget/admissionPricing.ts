@@ -40,6 +40,62 @@ export function weakerAdmissionPricingBasis(
     : second;
 }
 
+/** Drop a stored adult/child split when the live party no longer matches it. */
+export function selectionForPartySize(
+  selection: AdmissionPriceSelection | undefined,
+  partySize: number,
+): AdmissionPriceSelection | undefined {
+  if (!selection) return undefined;
+  const { adultCount, childCount, ...ticketChoices } = selection;
+  if (adultCount === undefined && childCount === undefined) return selection;
+  if (
+    Number.isInteger(adultCount) &&
+    Number.isInteger(childCount) &&
+    adultCount! >= 0 &&
+    childCount! >= 0 &&
+    adultCount! + childCount! === partySize
+  ) {
+    return selection;
+  }
+  return Object.keys(ticketChoices).length ? ticketChoices : undefined;
+}
+
+/** Apply a chosen child count while preserving ticket-specific choices. */
+export function selectionWithPartyComposition(
+  selection: AdmissionPriceSelection | undefined,
+  partySize: number,
+  childCount: number | null | undefined,
+): AdmissionPriceSelection | undefined {
+  const normalized = selectionForPartySize(selection, partySize);
+  if (childCount === undefined) return normalized;
+  const {
+    adultCount,
+    childCount: previousChildCount,
+    ...ticketChoices
+  } = normalized ?? {};
+  if (childCount === null) {
+    return adultCount === undefined && previousChildCount === undefined
+      ? normalized
+      : Object.keys(ticketChoices).length
+        ? ticketChoices
+        : undefined;
+  }
+  if (
+    !Number.isInteger(childCount) ||
+    childCount < 0 ||
+    childCount > partySize ||
+    !Number.isInteger(partySize) ||
+    partySize < 1
+  ) {
+    return normalized;
+  }
+  return {
+    ...ticketChoices,
+    adultCount: partySize - childCount,
+    childCount,
+  };
+}
+
 interface PriceVariant {
   readonly options: readonly AdmissionPriceOption[];
 }
@@ -208,9 +264,8 @@ function resolveOptionSet(
       option.validUntil !== undefined ||
       option.dayType !== undefined,
   );
-  const exactSelection =
-    visitDate !== undefined && dateSpecific && totals.length === 1;
   const singleTotal = totals.length === 1 && totals[0].min === totals[0].max;
+  const exactSelection = visitDate !== undefined && dateSpecific && singleTotal;
   return {
     kind: "bounded",
     min: Math.min(...totals.map((total) => total.min)),
@@ -293,34 +348,23 @@ export function resolveAdmissionPricing(
   }
 
   if (addOnProductIds.length > 0) {
-    const selectedProducts = options.filter((option) =>
-      option.optional
-        ? addOnProductIds.includes(option.productId) &&
-          optionMatchesSelection(option, selection, true, option.productId)
-        : optionMatchesSelection(option, selection, false),
+    const selectedAddOnOptions = options.filter(
+      (option) => option.optional && addOnProductIds.includes(option.productId),
     );
-    const baseProductIds = new Set(
-      selectedProducts
-        .filter((option) => !option.optional)
-        .map((option) => option.productId),
-    );
-    if (!selection.productId && baseProductIds.size > 1) {
-      return { kind: "unavailable", reason: "price_variable_by_product" };
-    }
     if (
-      selectedProducts.some((option) => option.channel !== undefined) &&
+      selectedAddOnOptions.some((option) => option.channel !== undefined) &&
       selection.channel === undefined
     ) {
       return { kind: "unavailable", reason: "price_variable_by_product" };
     }
     if (
-      selectedProducts.some((option) => option.timeSlot !== undefined) &&
+      selectedAddOnOptions.some((option) => option.timeSlot !== undefined) &&
       selection.timeSlot === undefined
     ) {
       return { kind: "unavailable", reason: "price_variable_by_time" };
     }
     if (
-      selectedProducts.some(
+      selectedAddOnOptions.some(
         (option) =>
           option.validFrom !== undefined ||
           option.validUntil !== undefined ||

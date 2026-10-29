@@ -53,7 +53,10 @@ import type {
 import { buildCarJourney } from "@/shared/services/transport/CarJourneyBuilder";
 import { getDistanceKm } from "@/shared/services/transport/TransportEstimator";
 import { resolveAdmissionApplicability } from "@/shared/services/budget/admissionApplicability";
-import { resolveAdmissionPricing } from "@/shared/services/budget/admissionPricing";
+import {
+  resolveAdmissionPricing,
+  selectionForPartySize,
+} from "@/shared/services/budget/admissionPricing";
 import {
   isVerifiedFree,
   normalizeBudgetState,
@@ -350,6 +353,9 @@ function admissionFromLegacy(
           : "source_fact",
       state: state.state,
       provenance: state.provenance,
+      ...(state.state === "verified_paid"
+        ? { admissionPricingBasis: "fixed_price" as const }
+        : {}),
     },
   );
 }
@@ -392,21 +398,13 @@ function admissionComponent(
   if (!validation.valid) return admissionUnavailable();
 
   if (fact.priceOptions?.length) {
-    const selectionHasNoComposition =
-      selection?.adultCount === undefined &&
-      selection?.childCount === undefined;
-    const hasStaleComposition =
-      selection?.adultCount !== undefined &&
-      selection?.childCount !== undefined &&
-      Number.isInteger(selection.adultCount) &&
-      Number.isInteger(selection.childCount) &&
-      selection.adultCount >= 0 &&
-      selection.childCount >= 0 &&
-      selection.adultCount + selection.childCount !== partySize;
-    const compositionAssumed = selectionHasNoComposition || hasStaleComposition;
+    const normalizedSelection = selectionForPartySize(selection, partySize);
+    const compositionAssumed =
+      normalizedSelection?.adultCount === undefined ||
+      normalizedSelection.childCount === undefined;
     const pricingSelection = compositionAssumed
-      ? { ...selection, adultCount: partySize, childCount: 0 }
-      : selection;
+      ? { ...normalizedSelection, adultCount: partySize, childCount: 0 }
+      : normalizedSelection;
     const pricing = resolveAdmissionPricing(
       fact.priceOptions,
       partySize,
@@ -416,6 +414,10 @@ function admissionComponent(
     if (pricing.kind === "unavailable") {
       return admissionUnavailable(pricing.reason);
     }
+    const admissionPricingBasis =
+      fact.state === "variable_price" && pricing.basis === "fixed_price"
+        ? "supported_range"
+        : pricing.basis;
     return component(
       { kind: "bounded", min: pricing.min, max: pricing.max },
       {
@@ -427,7 +429,7 @@ function admissionComponent(
         derivation: compositionAssumed ? "model_estimate" : "source_fact",
         ...(compositionAssumed
           ? { admissionCompositionAssumed: true }
-          : { admissionPricingBasis: pricing.basis }),
+          : { admissionPricingBasis }),
       },
     );
   }

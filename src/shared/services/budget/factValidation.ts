@@ -209,6 +209,9 @@ export function validateAdmissionFact(
     const optionsMax = Math.max(
       ...baseOptions.map((option) => option.max as number),
     );
+    // A `variable` cost has no numeric envelope to compare; its reviewed
+    // options are the usable values. Bounded and open-ended facts must match
+    // the option envelope so legacy projections cannot disagree with it.
     if (
       (cost.kind === "bounded" &&
         (!isValidBounded(cost.min, cost.max) ||

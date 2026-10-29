@@ -108,7 +108,7 @@ describe("reviewed admission price options", () => {
       }),
     );
     expect(selected.cost).toEqual({ kind: "bounded", min: 5000, max: 5000 });
-    expect(selected.evidence.admissionPricingBasis).toBe("fixed_price");
+    expect(selected.evidence.admissionPricingBasis).toBe("supported_range");
 
     const unselectedSlot = admission(
       estimate(deck, 2, {
@@ -171,6 +171,59 @@ describe("reviewed admission price options", () => {
     expect(
       admission(estimate(themePark, 1, { admissionSelection: adult })).cost,
     ).toEqual({ kind: "unavailable", reason: "price_variable_by_date" });
+  });
+
+  it("keeps variable facts and date-bounded price ranges from reading as exact", () => {
+    const genericVariable = destination(
+      "generic-variable-price",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "general",
+          category: "adult",
+          min: 1500,
+          max: 1500,
+        },
+      ]),
+    );
+    expect(
+      admission(
+        estimate(genericVariable, 1, {
+          admissionSelection: { adultCount: 1, childCount: 0 },
+        }),
+      ).evidence.admissionPricingBasis,
+    ).toBe("supported_range");
+
+    const datedRange = destination("dated-range", {
+      ...variableAdmission([
+        {
+          productId: "standard",
+          variantId: "selected-date-range",
+          category: "adult",
+          min: 1500,
+          max: 2200,
+          validFrom: "2026-11-14",
+          validUntil: "2026-11-14",
+        },
+      ]),
+      state: "verified_paid",
+      reasonCode: undefined,
+      cost: { kind: "bounded", min: 1500, max: 2200 },
+    });
+    const selectedRange = admission(
+      estimate(datedRange, 1, {
+        visitDate: "2026-11-14",
+        admissionSelection: { adultCount: 1, childCount: 0 },
+      }),
+    );
+    expect(selectedRange.cost).toEqual({
+      kind: "bounded",
+      min: 1500,
+      max: 2200,
+    });
+    expect(selectedRange.evidence.admissionPricingBasis).toBe(
+      "supported_range",
+    );
   });
 
   it("does not merge unrelated base products when the product is unspecified", () => {
@@ -406,6 +459,47 @@ describe("reviewed admission price options", () => {
       ).cost,
     ).toEqual({ kind: "unavailable", reason: "price_variable_by_product" });
 
+    const channelVariantBaseWithSimpleAddOn = destination(
+      "channel-base-simple-addon",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "online",
+          category: "adult",
+          min: 1000,
+          max: 1000,
+          channel: "online",
+        },
+        {
+          productId: "standard",
+          variantId: "counter",
+          category: "adult",
+          min: 1200,
+          max: 1200,
+          channel: "counter",
+        },
+        {
+          productId: "guide",
+          variantId: "guide",
+          category: "adult",
+          min: 300,
+          max: 300,
+          optional: true,
+        },
+      ]),
+    );
+    expect(
+      admission(
+        estimate(channelVariantBaseWithSimpleAddOn, 1, {
+          admissionSelection: {
+            adultCount: 1,
+            childCount: 0,
+            addOnProductIds: ["guide"],
+          },
+        }),
+      ).cost,
+    ).toEqual({ kind: "bounded", min: 1300, max: 1500 });
+
     const conditionalAddOn = destination(
       "conditional-addon",
       variableAdmission([
@@ -585,7 +679,7 @@ describe("reviewed admission price options", () => {
       }),
     );
     expect(explicit.cost).toEqual({ kind: "bounded", min: 1000, max: 1000 });
-    expect(explicit.evidence.admissionPricingBasis).toBe("fixed_price");
+    expect(explicit.evidence.admissionPricingBasis).toBe("supported_range");
   });
 
   it("rejects price options that disagree with the fact-level cost envelope", () => {
@@ -605,6 +699,26 @@ describe("reviewed admission price options", () => {
     expect(
       admission(
         estimate(inconsistent, 1, {
+          admissionSelection: { adultCount: 1, childCount: 0 },
+        }),
+      ).cost.kind,
+    ).toBe("unavailable");
+
+    const inconsistentFrom = destination("inconsistent-from", {
+      ...variableAdmission([
+        {
+          productId: "standard",
+          variantId: "adult",
+          category: "adult",
+          min: 1000,
+          max: 1500,
+        },
+      ]),
+      cost: { kind: "open_ended", from: 1200 },
+    });
+    expect(
+      admission(
+        estimate(inconsistentFrom, 1, {
           admissionSelection: { adultCount: 1, childCount: 0 },
         }),
       ).cost.kind,
@@ -764,14 +878,22 @@ describe("reviewed admission price options", () => {
       uncertainHoursDisclosures: [],
     };
 
-    expect(calculateGeneratedPlanCost(plan, 1).admission).toMatchObject({
+    const singleVisit = calculateGeneratedPlanCost(
+      { ...plan, steps: plan.steps.slice(0, 1) },
+      1,
+    );
+    const repeatVisit = calculateGeneratedPlanCost(plan, 1);
+    expect(repeatVisit.admission).toMatchObject({
       min: 3000,
       max: 3000,
       admissionPricingBasis: "selected_date",
     });
+    expect(repeatVisit.localTransit).toEqual(singleVisit.localTransit);
+    expect(repeatVisit.meals).toEqual(singleVisit.meals);
+    expect(repeatVisit.accommodation).toEqual(singleVisit.accommodation);
   });
 
-  it("uses the weakest basis across paid stops, including a stop without one", () => {
+  it("labels a plan estimate when a paid stop has no verified pricing basis", () => {
     const datePriced = destination(
       "date-priced",
       variableAdmission([
@@ -856,13 +978,14 @@ describe("reviewed admission price options", () => {
       admissionPricingBasis: "selected_date",
     });
 
-    const legacyPriced = destination("legacy-priced", undefined, {
-      budgetMetadata: {
-        method: "manual",
-        state: "verified_paid",
-        provenance: "verified_source",
-      },
-      budgetBreakdown: { transport: 0, tickets: 3000, food: 0, cafe: 0 },
+    const legacyPriced = destination("legacy-open-ended", {
+      state: "variable_price",
+      provenance: "verified_source",
+      reasonCode: "price_variable_by_date",
+      cost: { kind: "open_ended", from: 3000 },
+      scope: "general_entry",
+      sourceUrls,
+      checkedAt: "2026-10-01",
     });
     const mixedPlan: DayPlan = {
       ...stopPlan,
@@ -881,9 +1004,14 @@ describe("reviewed admission price options", () => {
 
     expect(calculateGeneratedPlanCost(mixedPlan, 1).admission).toMatchObject({
       min: 4000,
-      max: 4000,
-      admissionPricingBasis: "supported_range",
+      source: "estimated",
     });
+    expect(
+      calculateGeneratedPlanCost(mixedPlan, 1).admission.max,
+    ).toBeGreaterThan(4000);
+    expect(
+      calculateGeneratedPlanCost(mixedPlan, 1).admission.admissionPricingBasis,
+    ).toBeUndefined();
   });
 
   it("retains verified-free park admission as zero with explicit evidence", () => {

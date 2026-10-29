@@ -13,7 +13,11 @@ import type {
   Destination,
 } from "@/shared/types/destination";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
-import { weakerAdmissionPricingBasis } from "@/shared/services/budget/admissionPricing";
+import {
+  selectionForPartySize,
+  selectionWithPartyComposition,
+  weakerAdmissionPricingBasis,
+} from "@/shared/services/budget/admissionPricing";
 import type {
   DayPlan,
   DayPlanStep,
@@ -125,18 +129,19 @@ function sumComponents(
   const unknown = items.some((item) => item.applicable && !item.knownNumeric);
   if (!applicable) return NA;
   if (unknown) return unknownComponent();
-  const estimated = items.some((item) => item.source === "estimated");
   const paidItems = items.filter(
     (item) => item.applicable && item.semanticState !== "verified_free",
   );
+  const missingAdmissionBasis =
+    includeAdmissionEvidence &&
+    paidItems.some((item) => item.admissionPricingBasis === undefined);
+  const estimated =
+    items.some((item) => item.source === "estimated") || missingAdmissionBasis;
   const admissionPricingBasis =
     includeAdmissionEvidence && !estimated
       ? paidItems.reduce<AdmissionPricingBasis | undefined>(
           (weakest, item) =>
-            weakerAdmissionPricingBasis(
-              weakest,
-              item.admissionPricingBasis ?? "supported_range",
-            ),
+            weakerAdmissionPricingBasis(weakest, item.admissionPricingBasis),
           undefined,
         )
       : undefined;
@@ -265,10 +270,25 @@ export function calculateGeneratedPlanCost(
   const visits = Array.from(selectedVisits.values());
 
   const duration = plan.duration ?? "fullDay";
+  const hasLiveAdmissionSelection =
+    costContext !== undefined &&
+    Object.prototype.hasOwnProperty.call(costContext, "admissionSelection");
   const estimates = visits.map(({ destination, day, admissionSelection }) => {
-    const effectiveSelection =
+    const selection =
       admissionSelection ??
       (costContext ? costContext.admissionSelection : plan.admissionSelection);
+    const contextSelection = selectionForPartySize(
+      costContext?.admissionSelection,
+      safeParty,
+    );
+    const liveChildCount =
+      contextSelection?.adultCount !== undefined &&
+      contextSelection.childCount !== undefined
+        ? contextSelection.childCount
+        : null;
+    const effectiveSelection = hasLiveAdmissionSelection
+      ? selectionWithPartyComposition(selection, safeParty, liveChildCount)
+      : selectionForPartySize(selection, safeParty);
     const result = calculateTripEstimate({
       dest: destination,
       mode: transportMode ?? undefined,

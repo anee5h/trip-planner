@@ -361,6 +361,12 @@
     "stayAllowanceRow": "Stay allowance ({{count}} night)",
     "stayAllowanceRow_other": "Stay allowance ({{count}} nights)",
     "stayAllowanceNote": "Inferred planning estimate — not a live hotel quote",
+    "admissionPartyComposition": {
+      "title": "Ticket party composition",
+      "children": "Children",
+      "assumingAdults": "Leave blank to estimate assuming all travelers are adults.",
+      "summary": "Adults: {{adultCount}} · children: {{childCount}}"
+    },
     "budgetEstimate": {
       "estimatedTripTotal": "Estimated trip total",
       "onSiteEstimate": "On-site estimate — set an origin to include travel.",
