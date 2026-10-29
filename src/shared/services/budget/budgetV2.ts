@@ -127,6 +127,8 @@ export interface ComponentEvidence {
   readonly state?: BudgetValueState;
   readonly provenance?: BudgetProvenance;
   readonly reason?: BudgetReasonCode;
+  /** How a reviewed admission option became a party price. */
+  readonly admissionPricingBasis?: "selected_date" | "supported_range";
   readonly sourceUrls?: readonly string[];
   readonly assumptionProvenance?: CostAssumptionProvenance;
   /** True when a car estimate intentionally excludes unknown tolls. */

@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
-import type { Destination } from "@/shared/types/destination";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
 import { DayPlanWidget } from "./DayPlanWidget";
 import { TripCostBreakdownWidget } from "./TripCostBreakdownWidget";
 import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
@@ -28,6 +31,7 @@ interface DestinationPlanningSectionProps {
   ferryTemporal?: FerryTemporalContext;
   /** Optional selected travel date for represented closed weekdays. */
   travelDate?: string;
+  admissionSelection?: AdmissionPriceSelection;
   /** Optional exact origin identity for the scheduled planner seam. */
   scheduledOriginProductId?: string;
   duration?: TripDuration;
@@ -60,6 +64,7 @@ export function DestinationPlanningSection({
   compactUnavailableCost,
   ferryTemporal,
   travelDate,
+  admissionSelection,
   scheduledOriginProductId,
   duration = "fullDay",
   carRoute,
@@ -142,6 +147,7 @@ export function DestinationPlanningSection({
         locale={locale}
         duration={duration}
         travelDate={travelDate}
+        admissionSelection={admissionSelection}
         scheduledOriginProductId={scheduledOriginProductId}
         partySize={activePartySize}
         onPartySizeChange={setActivePartySize}
@@ -183,6 +189,8 @@ export function DestinationPlanningSection({
         compactUnavailableCost={compactUnavailableCost}
         ferryTemporal={ferryTemporal}
         duration={duration}
+        visitDate={travelDate}
+        admissionSelection={admissionSelection}
         hasGeneratedPlan={hasValidGeneratedPlan}
         planCostBreakdown={costBreakdown}
       />

@@ -11,9 +11,11 @@ import type { Destination } from "@/shared/types/destination";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import type {
   DayPlan,
+  DayPlanStep,
   PlanAssumption,
   RouteLeg,
 } from "@/shared/services/recommendation/DayPlanGeneratorService";
+import { isValidCheckedAtDate } from "@/shared/services/budget/factValidation";
 
 export interface CostComponent {
   min: number;
@@ -29,6 +31,7 @@ export interface CostComponent {
     | "estimated"
     | "open_ended_or_variable"
     | "unknown";
+  admissionPricingBasis?: "selected_date" | "supported_range";
   tollsExcluded?: boolean;
 }
 
@@ -92,6 +95,9 @@ function toPlanComponent(
     satisfied: true,
     knownNumeric: true,
     semanticState,
+    ...(component.evidence.admissionPricingBasis
+      ? { admissionPricingBasis: component.evidence.admissionPricingBasis }
+      : {}),
     ...(component.evidence.tollsExcluded ? { tollsExcluded: true } : {}),
   };
 }
@@ -102,6 +108,13 @@ function sumComponents(items: readonly CostComponent[]): CostComponent {
   if (!applicable) return NA;
   if (unknown) return unknownComponent();
   const estimated = items.some((item) => item.source === "estimated");
+  const admissionPricingBasis = items.some(
+    (item) => item.admissionPricingBasis === "supported_range",
+  )
+    ? "supported_range"
+    : items.some((item) => item.admissionPricingBasis === "selected_date")
+      ? "selected_date"
+      : undefined;
   const min = items.reduce(
     (sum, item) => sum + (item.applicable ? item.min : 0),
     0,
@@ -126,7 +139,22 @@ function sumComponents(items: readonly CostComponent[]): CostComponent {
         : estimated
           ? "estimated"
           : "paid",
+    ...(estimated || !admissionPricingBasis ? {} : { admissionPricingBasis }),
   };
+}
+
+function visitDateForStep(
+  planDate: string | undefined,
+  step: Pick<DayPlanStep, "day">,
+): string | undefined {
+  if (planDate === undefined || !isValidCheckedAtDate(planDate)) {
+    return planDate;
+  }
+  const day = step.day ?? 1;
+  if (!Number.isInteger(day) || day < 1) return "";
+  const date = new Date(planDate + "T00:00:00.000Z");
+  date.setUTCDate(date.getUTCDate() + day - 1);
+  return date.toISOString().slice(0, 10);
 }
 
 /** Curated route-leg extraction retained as an explicit override primitive. */
@@ -177,31 +205,40 @@ export function calculateGeneratedPlanCost(
 ): GeneratedPlanCostResult {
   const safeParty = Math.max(1, Math.floor(partySize));
   const assumptions: PlanAssumption[] = [...(plan.assumptions ?? [])];
-  const destinations = Array.from(
-    new Map(
-      plan.steps
-        .filter(
-          (step) =>
-            step.type === "destination" &&
-            step.destination &&
-            step.destination.role !== "hub" &&
-            step.destination.kind !== "city",
-        )
-        .map((step) => [step.destination!.id, step.destination!]),
-    ).values(),
-  );
+  const selectedStops = new Map<
+    string,
+    { destination: Destination; day: number | undefined }
+  >();
+  for (const step of plan.steps) {
+    if (
+      step.type !== "destination" ||
+      !step.destination ||
+      step.destination.role === "hub" ||
+      step.destination.kind === "city" ||
+      selectedStops.has(step.destination.id)
+    ) {
+      continue;
+    }
+    selectedStops.set(step.destination.id, {
+      destination: step.destination,
+      day: step.day,
+    });
+  }
+  const destinations = Array.from(selectedStops.values());
 
   const duration = plan.duration ?? "fullDay";
-  const estimates = destinations.map((dest) => {
+  const estimates = destinations.map(({ destination, day }) => {
     const result = calculateTripEstimate({
-      dest,
+      dest: destination,
       mode: transportMode ?? undefined,
       partySize: safeParty,
       duration,
+      visitDate: visitDateForStep(plan.travelDate, { day }),
+      admissionSelection: plan.admissionSelection,
       includeOriginTravel: false,
     });
     if (result.estimateQuality !== "verified")
-      pushMissingAssumption(dest, assumptions);
+      pushMissingAssumption(destination, assumptions);
     return result;
   });
 

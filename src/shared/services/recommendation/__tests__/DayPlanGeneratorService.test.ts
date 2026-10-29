@@ -39,6 +39,22 @@ const mockDestPrimary = {
 } as unknown as Destination;
 
 describe("DayPlanGeneratorService", () => {
+  it("preserves travel date and admission selections for downstream cost resolution", () => {
+    const selection = {
+      adultCount: 2,
+      childCount: 1,
+      channel: "online" as const,
+      timeSlot: "18:00",
+    };
+    const plan = generateDayPlan(mockDestPrimary, {
+      travelDate: "2026-11-14",
+      admissionSelection: selection,
+    });
+
+    expect(plan.travelDate).toBe("2026-11-14");
+    expect(plan.admissionSelection).toEqual(selection);
+  });
+
   it("generates a structured day plan with minimum real stop thresholds", () => {
     const plan = generateDayPlan(mockDestPrimary);
     expect(plan).toBeDefined();

@@ -381,7 +381,10 @@
       "admissionTickets": "Admission / Tickets",
       "meals": "Meals",
       "accommodation": "Accommodation",
-      "admissionUnavailable": "Admission unavailable/not included"
+      "admissionUnavailable": "Admission unavailable/not included",
+      "admissionVerifiedForDate": "Verified for selected date",
+      "admissionPublishedRange": "Verified published range",
+      "admissionEstimated": "Estimated admission"
     }
   },
   "origin": {

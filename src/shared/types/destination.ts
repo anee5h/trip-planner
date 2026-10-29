@@ -224,6 +224,40 @@ export type AdmissionScope =
   | "open_area"
   | "whole_area";
 
+export type AdmissionVisitorCategory = "adult" | "child";
+export type AdmissionPurchaseChannel = "online" | "counter";
+
+/**
+ * One source-backed price for a ticket product and coherent set of
+ * conditions. Rows with the same productId and variantId describe the same
+ * ticket variant for different visitor categories. Optional products are
+ * kept out of the required admission total.
+ */
+export interface AdmissionPriceOption {
+  readonly productId: string;
+  readonly variantId: string;
+  readonly category: AdmissionVisitorCategory;
+  readonly min: number;
+  readonly max: number;
+  readonly channel?: AdmissionPurchaseChannel;
+  readonly validFrom?: string;
+  readonly validUntil?: string;
+  readonly dayType?: "weekday" | "weekend";
+  readonly timeSlot?: string;
+  readonly optional?: boolean;
+}
+
+/** Selected ticket conditions supplied to the canonical trip estimate. */
+export interface AdmissionPriceSelection {
+  readonly productId?: string;
+  readonly adultCount?: number;
+  readonly childCount?: number;
+  readonly channel?: AdmissionPurchaseChannel;
+  readonly timeSlot?: string;
+  /** Optional ticket products explicitly included in the selected budget. */
+  readonly addOnProductIds?: readonly string[];
+}
+
 /**
  * Whether the destination conceptually has its own admission product.
  *
@@ -274,6 +308,12 @@ export interface AdmissionCostFact {
   readonly basis?: string;
   readonly sourceUrls?: readonly string[];
   readonly checkedAt?: string;
+  /**
+   * Optional reviewed prices for products whose applicable amount depends on
+   * date, time, purchase channel, or visitor category. Each option is
+   * per-person, source-backed by this fact's sourceUrls and checkedAt.
+   */
+  readonly priceOptions?: readonly AdmissionPriceOption[];
   /**
    * KAI-218A: review cadence in months (default 12). A verified fact whose
    * checkedAt is older than reviewIntervalMonths is review-due — never

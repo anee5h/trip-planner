@@ -1,6 +1,9 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import type { Destination } from "@/shared/types/destination";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
 import {
   generateDayPlan,
   generateDayPlanWithScheduledTransit,
@@ -58,6 +61,7 @@ interface DayPlanWidgetProps {
   duration?: TripDuration;
   /** Optional selected travel date for represented closed weekdays. */
   travelDate?: string;
+  admissionSelection?: AdmissionPriceSelection;
   /** Optional exact origin identity for the scheduled planner seam. */
   scheduledOriginProductId?: string;
   /** Optional caller provenance for a pre-supplied planner start time. */
@@ -110,6 +114,7 @@ export function DayPlanWidget({
   eligible = true,
   duration = "fullDay",
   travelDate,
+  admissionSelection,
   scheduledOriginProductId,
   startTimeProvenance: callerStartTimeProvenance,
   defaultPlanType,
@@ -248,6 +253,7 @@ export function DayPlanWidget({
       catchmentScope,
       returnMode,
       travelDate,
+      admissionSelection,
       startTimeProvenance,
       scheduledOriginProductId,
     };

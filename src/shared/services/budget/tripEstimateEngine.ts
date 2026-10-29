@@ -21,6 +21,7 @@
  */
 
 import type {
+  AdmissionPriceSelection,
   Destination,
   LocalTransportAccess,
 } from "@/shared/types/destination";
@@ -52,6 +53,7 @@ import type {
 import { buildCarJourney } from "@/shared/services/transport/CarJourneyBuilder";
 import { getDistanceKm } from "@/shared/services/transport/TransportEstimator";
 import { resolveAdmissionApplicability } from "@/shared/services/budget/admissionApplicability";
+import { resolveAdmissionPricing } from "@/shared/services/budget/admissionPricing";
 import {
   isVerifiedFree,
   normalizeBudgetState,
@@ -76,6 +78,9 @@ export interface TripEstimateContext {
   readonly dest: Destination;
   readonly mode?: string;
   readonly partySize?: number;
+  /** ISO visit date used for date-dependent admission products. */
+  readonly visitDate?: string;
+  readonly admissionSelection?: AdmissionPriceSelection;
   readonly homeCoords?: { lat: number; lng: number };
   readonly duration: TripDuration;
   readonly budgetTier?: BudgetTier;
@@ -233,6 +238,7 @@ function admissionUnavailable(
   reason:
     | "source_missing"
     | "price_variable_by_date"
+    | "price_variable_by_time"
     | "price_variable_by_product" = "source_missing",
 ): TripCostComponent {
   return component(
@@ -351,6 +357,8 @@ function admissionFromLegacy(
 function admissionComponent(
   dest: Destination,
   partySize: number,
+  visitDate?: string,
+  selection?: AdmissionPriceSelection,
 ): TripCostComponent {
   const fact = dest.admission;
   const applicability = resolveAdmissionApplicability(dest);
@@ -382,6 +390,30 @@ function admissionComponent(
 
   const validation = validateAdmissionFact(fact);
   if (!validation.valid) return admissionUnavailable();
+
+  if (fact.priceOptions?.length) {
+    const pricing = resolveAdmissionPricing(
+      fact.priceOptions,
+      partySize,
+      visitDate,
+      selection,
+    );
+    if (pricing.kind === "unavailable") {
+      return admissionUnavailable(pricing.reason);
+    }
+    return component(
+      { kind: "bounded", min: pricing.min, max: pricing.max },
+      {
+        scope: "admission",
+        state: fact.state,
+        provenance: fact.provenance,
+        reason: fact.reasonCode,
+        sourceUrls: fact.sourceUrls,
+        derivation: "source_fact",
+        admissionPricingBasis: pricing.basis,
+      },
+    );
+  }
 
   const evidence = {
     scope: "admission" as const,
@@ -1080,7 +1112,12 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
         scopedCarRoute,
         context.carCostOptions,
       );
-  const admission = admissionComponent(context.dest, partySize);
+  const admission = admissionComponent(
+    context.dest,
+    partySize,
+    context.visitDate,
+    context.admissionSelection,
+  );
   const local = localTransportComponent(context.dest, partySize);
   const estimateTier = estimateTierForBudget(context.budgetTier);
   const meals = mealsComponent(

@@ -1,5 +1,8 @@
 import { useState, useMemo } from "react";
-import type { Destination } from "@/shared/types/destination";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
 import {
   formatLocalizedJPYRange,
   formatTravellerEstimateRange,
@@ -54,6 +57,8 @@ export interface TripCostBreakdownWidgetProps {
   compactUnavailableCost?: boolean;
   /** Planned travel date for ferry availability. */
   ferryTemporal?: FerryTemporalContext;
+  visitDate?: string;
+  admissionSelection?: AdmissionPriceSelection;
   defaultExpanded?: boolean;
   hasGeneratedPlan?: boolean;
   planCostBreakdown?: GeneratedPlanCostResult;
@@ -71,6 +76,8 @@ export function TripCostBreakdownWidget({
   activeTransportMode = null,
   compactUnavailableCost = false,
   ferryTemporal,
+  visitDate,
+  admissionSelection,
   defaultExpanded = false,
   hasGeneratedPlan = false,
   planCostBreakdown,
@@ -93,6 +100,8 @@ export function TripCostBreakdownWidget({
       duration,
       partySize,
       ferryTemporal,
+      visitDate,
+      admissionSelection,
       homeCoords,
       carRoute,
       carCostOptions,
@@ -108,6 +117,8 @@ export function TripCostBreakdownWidget({
     planCostBreakdown,
     duration,
     ferryTemporal,
+    visitDate,
+    admissionSelection,
     shouldIncludeOriginTravel,
   ]);
 
@@ -202,6 +213,18 @@ export function TripCostBreakdownWidget({
   const showAdmissionRow = planCostBreakdown
     ? planCostBreakdown.admission.semanticState !== "not_applicable"
     : admissionComp?.cost.kind !== "not_applicable";
+  const admissionPricingBasis =
+    planCostBreakdown?.admission.admissionPricingBasis ??
+    admissionComp?.evidence.admissionPricingBasis;
+  const admissionPricingNote =
+    admissionPricingBasis === "selected_date"
+      ? t("planner.budgetEstimate.admissionVerifiedForDate")
+      : admissionPricingBasis === "supported_range"
+        ? t("planner.budgetEstimate.admissionPublishedRange")
+        : planCostBreakdown?.admission.source === "estimated" ||
+            admissionComp?.evidence.derivation === "model_estimate"
+          ? t("planner.budgetEstimate.admissionEstimated")
+          : undefined;
   const mealsRange: [number, number] | undefined = planCostBreakdown
     ? planCostBreakdown.meals.applicable && planCostBreakdown.meals.knownNumeric
       ? [planCostBreakdown.meals.min, planCostBreakdown.meals.max]
@@ -410,6 +433,8 @@ export function TripCostBreakdownWidget({
         calculateTripEstimate({
           dest: sec,
           mode: activeTransportMode ?? undefined,
+          visitDate,
+          admissionSelection,
           homeCoords,
           includeOriginTravel: shouldIncludeOriginTravel,
           duration,
@@ -423,6 +448,8 @@ export function TripCostBreakdownWidget({
     activeTransportMode,
     duration,
     totalRange,
+    visitDate,
+    admissionSelection,
     shouldIncludeOriginTravel,
   ]);
 
@@ -791,6 +818,14 @@ export function TripCostBreakdownWidget({
                       })()}
                     </span>
                   </div>
+                  {admissionPricingNote && (
+                    <p
+                      data-testid="admission-pricing-note"
+                      className="text-[11px] text-slate-500 dark:text-slate-400"
+                    >
+                      {admissionPricingNote}
+                    </p>
+                  )}
                   <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-purple-500 rounded-full transition-all"
@@ -881,6 +916,8 @@ export function TripCostBreakdownWidget({
                     const altEstimate = calculateTripEstimate({
                       dest: alt,
                       mode: activeTransportMode ?? undefined,
+                      visitDate,
+                      admissionSelection,
                       homeCoords,
                       includeOriginTravel: shouldIncludeOriginTravel,
                       duration,

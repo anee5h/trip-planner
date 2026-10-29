@@ -74,6 +74,15 @@ vi.mock("react-i18next", () => ({
         "planner.budgetEstimate.admissionUnavailable": ja
           ? "入場料不明・未算入"
           : "Admission unavailable/not included",
+        "planner.budgetEstimate.admissionVerifiedForDate": ja
+          ? "選択日に適用される確認済み料金"
+          : "Verified for selected date",
+        "planner.budgetEstimate.admissionPublishedRange": ja
+          ? "確認済みの公表料金範囲"
+          : "Verified published range",
+        "planner.budgetEstimate.admissionEstimated": ja
+          ? "入場料の概算"
+          : "Estimated admission",
       };
       return translations[key] ?? key;
     },
@@ -555,6 +564,63 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     expect(text).toContain("Missing: Local transport");
     // The bounded admission must NOT be rendered as Cost unavailable.
     expect(text).not.toContain("Cost unavailable");
+  });
+
+  it("labels reviewed admission prices as date-specific or a published range in EN/JA", async () => {
+    const renderWithBasis = async (
+      basis: "selected_date" | "supported_range",
+      locale: "en" | "ja",
+    ) => {
+      const engineMock =
+        (await import("@/shared/services/budget/tripEstimateEngine")) as unknown as {
+          calculateTripEstimate: ReturnType<typeof vi.fn>;
+        };
+      engineMock.calculateTripEstimate = vi.fn().mockReturnValue({
+        completeness: "complete",
+        total: { kind: "bounded", min: 5000, max: 7000 },
+        components: [
+          {
+            cost: { kind: "bounded", min: 5000, max: 7000 },
+            evidence: {
+              scope: "admission",
+              derivation: "source_fact",
+              admissionPricingBasis: basis,
+            },
+          },
+          {
+            cost: { kind: "not_applicable" },
+            evidence: { scope: "local_transport", derivation: "computed" },
+          },
+        ],
+      });
+      translationState.locale = locale;
+      host = document.createElement("div");
+      document.body.appendChild(host);
+      root = createRoot(host);
+      act(() => {
+        root!.render(
+          <TripCostBreakdownWidget
+            destination={testDestination}
+            locale={locale}
+            partySize={2}
+            activeTransportMode="train"
+            defaultExpanded
+          />,
+        );
+      });
+      return host.textContent ?? "";
+    };
+
+    expect(await renderWithBasis("selected_date", "en")).toContain(
+      "Verified for selected date",
+    );
+    act(() => root?.unmount());
+    host?.remove();
+    root = undefined;
+    host = undefined;
+    expect(await renderWithBasis("supported_range", "ja")).toContain(
+      "確認済みの公表料金範囲",
+    );
   });
 
   it("B) bounded [0,0] with verified_paid state must NOT show Free Admission (KAI-217B round-6)", async () => {

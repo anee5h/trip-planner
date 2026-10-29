@@ -1,4 +1,7 @@
-import type { Destination } from "@/shared/types/destination";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
 import {
   getCanonicalTransportCost,
   canonicalTransportCostToNumber,
@@ -541,6 +544,8 @@ export function calculateItemizedTripCost(
     duration?: TripDuration;
     homeCoords?: { lat: number; lng: number };
     ferryTemporal?: FerryTemporalContext;
+    visitDate?: string;
+    admissionSelection?: AdmissionPriceSelection;
   } = {},
 ): ItemizedCostBreakdown {
   const requestedPartySize = options.partySize ?? 2;
@@ -554,6 +559,8 @@ export function calculateItemizedTripCost(
     budgetTier: options.budgetTier ?? "standard",
     homeCoords: options.homeCoords,
     ferryTemporal: options.ferryTemporal,
+    visitDate: options.visitDate,
+    admissionSelection: options.admissionSelection,
     duration: options.duration ?? "fullDay",
     includeOriginTravel: Boolean(options.homeCoords),
   });

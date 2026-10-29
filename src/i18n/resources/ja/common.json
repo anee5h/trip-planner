@@ -381,7 +381,10 @@
       "admissionTickets": "入場料・チケット",
       "meals": "食費",
       "accommodation": "宿泊費",
-      "admissionUnavailable": "入場料不明・未算入"
+      "admissionUnavailable": "入場料不明・未算入",
+      "admissionVerifiedForDate": "選択日に適用される確認済み料金",
+      "admissionPublishedRange": "確認済みの公表料金範囲",
+      "admissionEstimated": "入場料の概算"
     }
   },
   "origin": {

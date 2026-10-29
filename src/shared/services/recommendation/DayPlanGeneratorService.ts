@@ -1,4 +1,7 @@
-import type { Destination } from "@/shared/types/destination";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
 import {
   getTripDays,
   normalizeTripDuration,
@@ -239,6 +242,9 @@ export interface DayPlan {
   id: string;
   /** Canonical planner duration used to generate this plan. */
   duration?: TripDuration;
+  /** Selected first day; stop dates use the step's day offset. */
+  travelDate?: string;
+  admissionSelection?: AdmissionPriceSelection;
   /** Number of calendar days represented by the plan. */
   dayCount?: number;
   title: { en: string; ja: string };
@@ -276,6 +282,7 @@ export interface DayPlan {
 export interface DayPlanOptions {
   /** Canonical duration; overnight values generate multiple day groups. */
   duration?: TripDuration;
+  admissionSelection?: AdmissionPriceSelection;
   planType?: DayPlanType;
   startTime?: string;
   /** Optional ISO date used to enforce represented closed weekdays. */
@@ -803,6 +810,8 @@ export function generateDayPlan(
   const primLocJa = getLocalizedPlace(primary, "ja");
 
   const rawPlan: DayPlan = {
+    travelDate: options?.travelDate,
+    admissionSelection: options?.admissionSelection,
     id: `plan-${primary.id}`,
     duration,
     dayCount,
