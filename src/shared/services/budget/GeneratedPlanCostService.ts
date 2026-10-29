@@ -8,10 +8,12 @@
  */
 
 import type {
+  AdmissionPricingBasis,
   AdmissionPriceSelection,
   Destination,
 } from "@/shared/types/destination";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { weakerAdmissionPricingBasis } from "@/shared/services/budget/admissionPricing";
 import type {
   DayPlan,
   DayPlanStep,
@@ -34,7 +36,8 @@ export interface CostComponent {
     | "estimated"
     | "open_ended_or_variable"
     | "unknown";
-  admissionPricingBasis?: "selected_date" | "supported_range";
+  admissionPricingBasis?: AdmissionPricingBasis;
+  admissionCompositionAssumed?: boolean;
   tollsExcluded?: boolean;
 }
 
@@ -107,27 +110,39 @@ function toPlanComponent(
     ...(component.evidence.admissionPricingBasis
       ? { admissionPricingBasis: component.evidence.admissionPricingBasis }
       : {}),
+    ...(component.evidence.admissionCompositionAssumed
+      ? { admissionCompositionAssumed: true }
+      : {}),
     ...(component.evidence.tollsExcluded ? { tollsExcluded: true } : {}),
   };
 }
 
-function sumComponents(items: readonly CostComponent[]): CostComponent {
+function sumComponents(
+  items: readonly CostComponent[],
+  includeAdmissionEvidence = false,
+): CostComponent {
   const applicable = items.some((item) => item.applicable);
   const unknown = items.some((item) => item.applicable && !item.knownNumeric);
   if (!applicable) return NA;
   if (unknown) return unknownComponent();
   const estimated = items.some((item) => item.source === "estimated");
-  const applicableItems = items.filter((item) => item.applicable);
-  const everyItemHasPricingBasis = applicableItems.every(
-    (item) => item.admissionPricingBasis !== undefined,
+  const paidItems = items.filter(
+    (item) => item.applicable && item.semanticState !== "verified_free",
   );
-  const admissionPricingBasis = everyItemHasPricingBasis
-    ? applicableItems.some(
-        (item) => item.admissionPricingBasis === "supported_range",
-      )
-      ? "supported_range"
-      : "selected_date"
-    : undefined;
+  const admissionPricingBasis =
+    includeAdmissionEvidence && !estimated
+      ? paidItems.reduce<AdmissionPricingBasis | undefined>(
+          (weakest, item) =>
+            weakerAdmissionPricingBasis(
+              weakest,
+              item.admissionPricingBasis ?? "supported_range",
+            ),
+          undefined,
+        )
+      : undefined;
+  const admissionCompositionAssumed =
+    includeAdmissionEvidence &&
+    items.some((item) => item.applicable && item.admissionCompositionAssumed);
   const min = items.reduce(
     (sum, item) => sum + (item.applicable ? item.min : 0),
     0,
@@ -152,7 +167,10 @@ function sumComponents(items: readonly CostComponent[]): CostComponent {
         : estimated
           ? "estimated"
           : "paid",
-    ...(estimated || !admissionPricingBasis ? {} : { admissionPricingBasis }),
+    ...(admissionPricingBasis ? { admissionPricingBasis } : {}),
+    ...(admissionCompositionAssumed
+      ? { admissionCompositionAssumed: true }
+      : {}),
   };
 }
 
@@ -219,29 +237,38 @@ export function calculateGeneratedPlanCost(
 ): GeneratedPlanCostResult {
   const safeParty = Math.max(1, Math.floor(partySize));
   const assumptions: PlanAssumption[] = [...(plan.assumptions ?? [])];
-  const selectedStops = new Map<
+  const selectedVisits = new Map<
     string,
-    { destination: Destination; day: number | undefined }
+    {
+      destination: Destination;
+      day: number | undefined;
+      admissionSelection?: AdmissionPriceSelection;
+    }
   >();
   for (const step of plan.steps) {
     if (
       step.type !== "destination" ||
       !step.destination ||
       step.destination.role === "hub" ||
-      step.destination.kind === "city" ||
-      selectedStops.has(step.destination.id)
+      step.destination.kind === "city"
     ) {
       continue;
     }
-    selectedStops.set(step.destination.id, {
+    const visitKey = [step.destination.id, step.day ?? 1].join("\u0000");
+    if (selectedVisits.has(visitKey)) continue;
+    selectedVisits.set(visitKey, {
       destination: step.destination,
       day: step.day,
+      admissionSelection: step.admissionSelection,
     });
   }
-  const destinations = Array.from(selectedStops.values());
+  const visits = Array.from(selectedVisits.values());
 
   const duration = plan.duration ?? "fullDay";
-  const estimates = destinations.map(({ destination, day }) => {
+  const estimates = visits.map(({ destination, day, admissionSelection }) => {
+    const effectiveSelection =
+      admissionSelection ??
+      (costContext ? costContext.admissionSelection : plan.admissionSelection);
     const result = calculateTripEstimate({
       dest: destination,
       mode: transportMode ?? undefined,
@@ -251,15 +278,31 @@ export function calculateGeneratedPlanCost(
         costContext ? costContext.travelDate : plan.travelDate,
         { day },
       ),
-      admissionSelection: costContext
-        ? costContext.admissionSelection
-        : plan.admissionSelection,
+      admissionSelection: effectiveSelection,
       includeOriginTravel: false,
     });
-    if (result.estimateQuality !== "verified")
+    if (
+      result.estimateQuality !== "verified" &&
+      !assumptions.some(
+        (assumption) =>
+          assumption.type === "estimated_cost" &&
+          assumption.destinationId === destination.id,
+      )
+    ) {
       pushMissingAssumption(destination, assumptions);
+    }
     return result;
   });
+  const uniqueEstimatesByDestination = new Map<
+    string,
+    (typeof estimates)[number]
+  >();
+  visits.forEach(({ destination }, index) => {
+    if (!uniqueEstimatesByDestination.has(destination.id)) {
+      uniqueEstimatesByDestination.set(destination.id, estimates[index]);
+    }
+  });
+  const uniqueEstimates = Array.from(uniqueEstimatesByDestination.values());
 
   const admission = sumComponents(
     estimates.map((result) =>
@@ -267,9 +310,10 @@ export function calculateGeneratedPlanCost(
         result.components.find((c) => c.evidence.scope === "admission")!,
       ),
     ),
+    true,
   );
   const canonicalLocal = sumComponents(
-    estimates.map((result) =>
+    uniqueEstimates.map((result) =>
       toPlanComponent(
         result.components.find((c) => c.evidence.scope === "local_transport")!,
       ),
@@ -279,16 +323,18 @@ export function calculateGeneratedPlanCost(
     estimateLocalTransitFare(leg, transportMode, safeParty),
   );
   const localTransit = sumComponents([canonicalLocal, ...curatedLegs]);
-  const meals = estimates.length
+  const meals = uniqueEstimates.length
     ? toPlanComponent(
-        estimates[0].components.find((c) => c.evidence.scope === "meals")!,
+        uniqueEstimates[0].components.find(
+          (c) => c.evidence.scope === "meals",
+        )!,
       )
     : NA;
   // Accommodation is a plan-level component: estimate it once for the
   // selected duration, never once per destination stop.
-  const accommodation = estimates.length
+  const accommodation = uniqueEstimates.length
     ? toPlanComponent(
-        estimates[0].components.find(
+        uniqueEstimates[0].components.find(
           (c) => c.evidence.scope === "accommodation",
         )!,
       )

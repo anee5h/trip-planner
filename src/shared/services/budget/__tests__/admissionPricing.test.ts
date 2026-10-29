@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type {
+  AdmissionPriceSelection,
   AdmissionPriceOption,
   Destination,
 } from "@/shared/types/destination";
@@ -32,7 +33,7 @@ function destination(
 
 function variableAdmission(
   priceOptions?: readonly AdmissionPriceOption[],
-): Destination["admission"] {
+): NonNullable<Destination["admission"]> {
   return {
     state: "variable_price",
     provenance: "verified_source",
@@ -64,9 +65,6 @@ function estimate(
       channel?: "online" | "counter";
       timeSlot?: string;
       addOnProductIds?: readonly string[];
-      dayTypesByDate?: Readonly<
-        Record<string, "weekday" | "weekend" | "holiday">
-      >;
     };
   } = {},
 ) {
@@ -110,7 +108,7 @@ describe("reviewed admission price options", () => {
       }),
     );
     expect(selected.cost).toEqual({ kind: "bounded", min: 5000, max: 5000 });
-    expect(selected.evidence.admissionPricingBasis).toBe("supported_range");
+    expect(selected.evidence.admissionPricingBasis).toBe("fixed_price");
 
     const unselectedSlot = admission(
       estimate(deck, 2, {
@@ -172,11 +170,39 @@ describe("reviewed admission price options", () => {
     ).toEqual({ kind: "bounded", min: 8900, max: 8900 });
     expect(
       admission(estimate(themePark, 1, { admissionSelection: adult })).cost,
-    ).toEqual({ kind: "bounded", min: 8900, max: 11900 });
+    ).toEqual({ kind: "unavailable", reason: "price_variable_by_date" });
   });
 
-  it("requires explicit calendar evidence for weekday, weekend, and holiday tiers", () => {
-    const date = "2026-11-09";
+  it("does not merge unrelated base products when the product is unspecified", () => {
+    const venue = destination(
+      "multiple-products",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "entry",
+          category: "adult",
+          min: 1000,
+          max: 1000,
+        },
+        {
+          productId: "combo",
+          variantId: "entry-and-exhibit",
+          category: "adult",
+          min: 3000,
+          max: 3000,
+        },
+      ]),
+    );
+    expect(
+      admission(
+        estimate(venue, 1, {
+          admissionSelection: { adultCount: 1, childCount: 0 },
+        }),
+      ).cost,
+    ).toEqual({ kind: "unavailable", reason: "price_variable_by_product" });
+  });
+
+  it("derives holiday tiers from the reviewed calendar and preserves overlapping weekend tiers", () => {
     const venue = destination(
       "holiday-tier-venue",
       variableAdmission([
@@ -190,43 +216,104 @@ describe("reviewed admission price options", () => {
         },
         {
           productId: "standard",
-          variantId: "weekend-holiday",
+          variantId: "weekend",
+          category: "adult",
+          min: 1500,
+          max: 1500,
+          dayType: "weekend",
+        },
+        {
+          productId: "standard",
+          variantId: "holiday",
           category: "adult",
           min: 2000,
           max: 2000,
-          dayType: "weekend_or_holiday",
+          dayType: "holiday",
         },
       ]),
     );
     const party = { adultCount: 1, childCount: 0 };
 
-    expect(
-      admission(
-        estimate(venue, 1, { visitDate: date, admissionSelection: party }),
-      ).cost,
-    ).toEqual({ kind: "unavailable", reason: "price_variable_by_date" });
+    const misclassifiedHoliday = admission(
+      estimate(venue, 1, {
+        visitDate: "2026-11-23",
+        admissionSelection: {
+          ...party,
+          dayTypesByDate: { "2026-11-23": "weekday" },
+        } as AdmissionPriceSelection,
+      }),
+    );
+    expect(misclassifiedHoliday.cost).toEqual({
+      kind: "bounded",
+      min: 2000,
+      max: 2000,
+    });
+    expect(misclassifiedHoliday.evidence.admissionPricingBasis).toBe(
+      "selected_date",
+    );
+
     expect(
       admission(
         estimate(venue, 1, {
-          visitDate: date,
-          admissionSelection: {
-            ...party,
-            dayTypesByDate: { [date]: "holiday" },
-          },
+          visitDate: "2026-05-03",
+          admissionSelection: party,
         }),
       ).cost,
-    ).toEqual({ kind: "bounded", min: 2000, max: 2000 });
+    ).toEqual({ kind: "bounded", min: 1500, max: 2000 });
     expect(
       admission(
         estimate(venue, 1, {
-          visitDate: date,
-          admissionSelection: {
-            ...party,
-            dayTypesByDate: { [date]: "weekday" },
-          },
+          visitDate: "2026-11-24",
+          admissionSelection: party,
+        }),
+      ).evidence.admissionPricingBasis,
+    ).toBe("selected_date");
+    expect(
+      admission(
+        estimate(venue, 1, {
+          visitDate: "2027-01-04",
+          admissionSelection: party,
         }),
       ).cost,
     ).toEqual({ kind: "bounded", min: 1000, max: 1000 });
+    expect(
+      admission(
+        estimate(venue, 1, {
+          visitDate: "2028-01-03",
+          admissionSelection: party,
+        }),
+      ).cost,
+    ).toEqual({ kind: "unavailable", reason: "price_variable_by_date" });
+
+    const weekdayWeekendOnly = destination(
+      "weekday-weekend-only",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "weekday",
+          category: "adult",
+          min: 1000,
+          max: 1000,
+          dayType: "weekday",
+        },
+        {
+          productId: "standard",
+          variantId: "weekend",
+          category: "adult",
+          min: 1500,
+          max: 1500,
+          dayType: "weekend",
+        },
+      ]),
+    );
+    expect(
+      admission(
+        estimate(weekdayWeekendOnly, 1, {
+          visitDate: "2026-11-23",
+          admissionSelection: party,
+        }),
+      ).cost,
+    ).toEqual({ kind: "unavailable", reason: "price_variable_by_date" });
   });
 
   it("honors adult, child, online, and counter choices while excluding optional add-ons", () => {
@@ -318,6 +405,104 @@ describe("reviewed admission price options", () => {
         }),
       ).cost,
     ).toEqual({ kind: "unavailable", reason: "price_variable_by_product" });
+
+    const conditionalAddOn = destination(
+      "conditional-addon",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "online-evening",
+          category: "adult",
+          min: 2600,
+          max: 2600,
+          channel: "online",
+          timeSlot: "18:00",
+          validFrom: "2026-11-14",
+          validUntil: "2026-11-14",
+        },
+        {
+          productId: "audio-guide",
+          variantId: "online-evening-addon",
+          category: "adult",
+          min: 700,
+          max: 700,
+          channel: "online",
+          timeSlot: "18:00",
+          validFrom: "2026-11-14",
+          validUntil: "2026-11-14",
+          optional: true,
+        },
+      ]),
+    );
+    const selectedAddOn = {
+      productId: "standard",
+      adultCount: 1,
+      childCount: 0,
+      addOnProductIds: ["audio-guide"],
+    };
+    const resolution = (
+      selection: AdmissionPriceSelection,
+      visitDate?: string,
+    ) =>
+      admission(
+        estimate(conditionalAddOn, 1, {
+          visitDate,
+          admissionSelection: selection,
+        }),
+      ).cost;
+
+    expect(resolution(selectedAddOn)).toEqual({
+      kind: "unavailable",
+      reason: "price_variable_by_product",
+    });
+    expect(resolution({ ...selectedAddOn, channel: "online" })).toEqual({
+      kind: "unavailable",
+      reason: "price_variable_by_time",
+    });
+    expect(
+      resolution({ ...selectedAddOn, channel: "online", timeSlot: "18:00" }),
+    ).toEqual({ kind: "unavailable", reason: "price_variable_by_date" });
+    expect(
+      resolution(
+        { ...selectedAddOn, channel: "online", timeSlot: "18:00" },
+        "2026-11-14",
+      ),
+    ).toEqual({ kind: "bounded", min: 3300, max: 3300 });
+
+    const fixedBaseWithDatedAddOn = destination(
+      "fixed-base-dated-addon",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "fixed-entry",
+          category: "adult",
+          min: 2600,
+          max: 2600,
+        },
+        {
+          productId: "audio-guide",
+          variantId: "dated-addon",
+          category: "adult",
+          min: 500,
+          max: 500,
+          validFrom: "2026-11-14",
+          validUntil: "2026-11-14",
+          optional: true,
+        },
+      ]),
+    );
+    const fixedAndDated = admission(
+      estimate(fixedBaseWithDatedAddOn, 1, {
+        visitDate: "2026-11-14",
+        admissionSelection: selectedAddOn,
+      }),
+    );
+    expect(fixedAndDated.cost).toEqual({
+      kind: "bounded",
+      min: 3100,
+      max: 3100,
+    });
+    expect(fixedAndDated.evidence.admissionPricingBasis).toBe("selected_date");
     expect(
       admission(
         estimate(museum, 2, {
@@ -335,16 +520,20 @@ describe("reviewed admission price options", () => {
       ).cost,
     ).toEqual({ kind: "bounded", min: 3600, max: 4000 });
 
-    const unknownComposition = admission(
-      estimate(museum, 2, {
-        visitDate: "2026-11-14",
-        admissionSelection: { channel: "online" },
-      }),
-    );
-    expect(unknownComposition.cost).toEqual({
-      kind: "unavailable",
-      reason: "price_variable_by_product",
+    const unknownPartyEstimate = estimate(museum, 2, {
+      visitDate: "2026-11-14",
+      admissionSelection: { channel: "online" },
     });
+    const unknownComposition = admission(unknownPartyEstimate);
+    expect(unknownComposition.cost).toEqual({
+      kind: "bounded",
+      min: 5200,
+      max: 5200,
+    });
+    expect(unknownComposition.evidence.derivation).toBe("model_estimate");
+    expect(unknownComposition.evidence.admissionCompositionAssumed).toBe(true);
+    expect(unknownComposition.evidence.admissionPricingBasis).toBeUndefined();
+    expect(unknownPartyEstimate.estimateQuality).toBe("rough");
 
     expect(
       admission(
@@ -371,7 +560,7 @@ describe("reviewed admission price options", () => {
     expect(result.knownSubtotal).not.toEqual([0, 0]);
   });
 
-  it("does not use an adult-only floor when a solo traveler's age is unknown", () => {
+  it("uses an explicitly labelled adult assumption for an unknown solo party", () => {
     const adultTicket = destination(
       "adult-only-ticket",
       variableAdmission([
@@ -385,17 +574,41 @@ describe("reviewed admission price options", () => {
       ]),
     );
 
-    expect(admission(estimate(adultTicket, 1)).cost).toEqual({
-      kind: "unavailable",
-      reason: "price_variable_by_product",
+    const assumed = admission(estimate(adultTicket, 1));
+    expect(assumed.cost).toEqual({ kind: "bounded", min: 1000, max: 1000 });
+    expect(assumed.evidence.derivation).toBe("model_estimate");
+    expect(assumed.evidence.admissionCompositionAssumed).toBe(true);
+    expect(assumed.evidence.admissionPricingBasis).toBeUndefined();
+    const explicit = admission(
+      estimate(adultTicket, 1, {
+        admissionSelection: { adultCount: 1, childCount: 0 },
+      }),
+    );
+    expect(explicit.cost).toEqual({ kind: "bounded", min: 1000, max: 1000 });
+    expect(explicit.evidence.admissionPricingBasis).toBe("fixed_price");
+  });
+
+  it("rejects price options that disagree with the fact-level cost envelope", () => {
+    const inconsistent = destination("inconsistent-options", {
+      ...variableAdmission([
+        {
+          productId: "standard",
+          variantId: "adult",
+          category: "adult",
+          min: 1000,
+          max: 1000,
+        },
+      ]),
+      state: "verified_paid",
+      cost: { kind: "bounded", min: 1200, max: 1200 },
     });
     expect(
       admission(
-        estimate(adultTicket, 1, {
+        estimate(inconsistent, 1, {
           admissionSelection: { adultCount: 1, childCount: 0 },
         }),
-      ).cost,
-    ).toEqual({ kind: "bounded", min: 1000, max: 1000 });
+      ).cost.kind,
+    ).toBe("unavailable");
   });
 
   it("prices each paid itinerary stop once, skips hubs, and applies the stop date", () => {
@@ -505,7 +718,60 @@ describe("reviewed admission price options", () => {
     expect(cost.totalRange).toBeDefined();
   });
 
-  it("uses the weakest basis across paid stops and drops it when a stop has none", () => {
+  it("prices repeat visits against each visit day", () => {
+    const attraction = destination(
+      "repeat-visit-attraction",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "saturday",
+          category: "adult",
+          min: 1000,
+          max: 1000,
+          validFrom: "2026-11-14",
+          validUntil: "2026-11-14",
+        },
+        {
+          productId: "standard",
+          variantId: "sunday",
+          category: "adult",
+          min: 2000,
+          max: 2000,
+          validFrom: "2026-11-15",
+          validUntil: "2026-11-15",
+        },
+      ]),
+    );
+    const plan: DayPlan = {
+      id: "repeat-visit-plan",
+      duration: "2d1n",
+      travelDate: "2026-11-14",
+      admissionSelection: { adultCount: 1, childCount: 0 },
+      title: { en: "Repeat visit", ja: "再訪" },
+      steps: [1, 2].map((day) => ({
+        id: `visit-${day}`,
+        day,
+        type: "destination" as const,
+        timeBlock: "morning" as const,
+        startTime: "09:00",
+        endTime: "11:00",
+        durationMinutes: 120,
+        destination: attraction,
+        title: { en: "Attraction", ja: "施設" },
+      })),
+      totalDurationMinutes: 240,
+      isOverfilled: false,
+      uncertainHoursDisclosures: [],
+    };
+
+    expect(calculateGeneratedPlanCost(plan, 1).admission).toMatchObject({
+      min: 3000,
+      max: 3000,
+      admissionPricingBasis: "selected_date",
+    });
+  });
+
+  it("uses the weakest basis across paid stops, including a stop without one", () => {
     const datePriced = destination(
       "date-priced",
       variableAdmission([
@@ -568,9 +834,39 @@ describe("reviewed admission price options", () => {
       sourceUrls,
       checkedAt: "2026-10-01",
     });
-    const mixedPlan: DayPlan = {
+    const dateAndFixedPlan: DayPlan = {
       ...stopPlan,
       steps: [datePriced, flatPriced].map((dest) => ({
+        id: dest.id,
+        day: 1,
+        type: "destination" as const,
+        timeBlock: "morning",
+        startTime: "09:00",
+        endTime: "11:00",
+        durationMinutes: 120,
+        destination: dest,
+        title: { en: dest.name, ja: dest.nameJa ?? dest.name },
+      })),
+    };
+    expect(
+      calculateGeneratedPlanCost(dateAndFixedPlan, 1).admission,
+    ).toMatchObject({
+      min: 4000,
+      max: 4000,
+      admissionPricingBasis: "selected_date",
+    });
+
+    const legacyPriced = destination("legacy-priced", undefined, {
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        provenance: "verified_source",
+      },
+      budgetBreakdown: { transport: 0, tickets: 3000, food: 0, cafe: 0 },
+    });
+    const mixedPlan: DayPlan = {
+      ...stopPlan,
+      steps: [datePriced, legacyPriced].map((dest) => ({
         id: dest.id,
         day: 1,
         type: "destination" as const,
@@ -586,10 +882,8 @@ describe("reviewed admission price options", () => {
     expect(calculateGeneratedPlanCost(mixedPlan, 1).admission).toMatchObject({
       min: 4000,
       max: 4000,
+      admissionPricingBasis: "supported_range",
     });
-    expect(
-      calculateGeneratedPlanCost(mixedPlan, 1).admission.admissionPricingBasis,
-    ).toBeUndefined();
   });
 
   it("retains verified-free park admission as zero with explicit evidence", () => {

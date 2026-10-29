@@ -197,6 +197,30 @@ export function validateAdmissionFact(
   if (fact.priceOptions !== undefined) {
     const validation = validateAdmissionPriceOptions(fact);
     if (!validation.valid) return validation;
+    const baseOptions = (
+      fact.priceOptions as readonly Readonly<Record<string, unknown>>[]
+    ).filter((option) => option.optional !== true);
+    if (baseOptions.length === 0) {
+      return { valid: false, reason: "price_options_missing_base_product" };
+    }
+    const optionsMin = Math.min(
+      ...baseOptions.map((option) => option.min as number),
+    );
+    const optionsMax = Math.max(
+      ...baseOptions.map((option) => option.max as number),
+    );
+    if (
+      (cost.kind === "bounded" &&
+        (!isValidBounded(cost.min, cost.max) ||
+          cost.min !== optionsMin ||
+          cost.max !== optionsMax)) ||
+      (cost.kind === "open_ended" && cost.from !== optionsMin) ||
+      (cost.kind !== "bounded" &&
+        cost.kind !== "open_ended" &&
+        cost.kind !== "variable")
+    ) {
+      return { valid: false, reason: "price_options_cost_mismatch" };
+    }
   }
 
   switch (state) {

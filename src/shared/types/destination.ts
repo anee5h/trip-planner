@@ -226,6 +226,8 @@ export type AdmissionScope =
 
 export type AdmissionVisitorCategory = "adult" | "child";
 export type AdmissionPurchaseChannel = "online" | "counter";
+export type AdmissionPricingBasis =
+  "fixed_price" | "selected_date" | "supported_range";
 export type AdmissionDayType = "weekday" | "weekend" | "holiday";
 export type AdmissionPriceDayType = AdmissionDayType | "weekend_or_holiday";
 
@@ -258,8 +260,6 @@ export interface AdmissionPriceSelection {
   readonly timeSlot?: string;
   /** Optional ticket products explicitly included in the selected budget. */
   readonly addOnProductIds?: readonly string[];
-  /** Source-backed calendar classifications, keyed by exact visit date. */
-  readonly dayTypesByDate?: Readonly<Record<string, AdmissionDayType>>;
 }
 
 /**

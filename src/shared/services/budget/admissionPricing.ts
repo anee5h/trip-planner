@@ -1,15 +1,19 @@
 import type {
+  AdmissionDayType,
+  AdmissionPricingBasis,
   AdmissionPriceOption,
   AdmissionPriceSelection,
 } from "@/shared/types/destination";
 import { isValidCheckedAtDate } from "./factValidation";
+import { getJapanHolidayStatus } from "@/shared/data/busyPeriodCues";
+import { getJapanWeekday } from "@/shared/utils/season";
 
 export type AdmissionPricingResolution =
   | {
       readonly kind: "bounded";
       readonly min: number;
       readonly max: number;
-      readonly basis: "selected_date" | "supported_range";
+      readonly basis: AdmissionPricingBasis;
     }
   | {
       readonly kind: "unavailable";
@@ -18,6 +22,23 @@ export type AdmissionPricingResolution =
         | "price_variable_by_time"
         | "price_variable_by_product";
     };
+
+const ADMISSION_BASIS_RANK: Record<AdmissionPricingBasis, number> = {
+  fixed_price: 0,
+  selected_date: 1,
+  supported_range: 2,
+};
+
+export function weakerAdmissionPricingBasis(
+  first: AdmissionPricingBasis | undefined,
+  second: AdmissionPricingBasis | undefined,
+): AdmissionPricingBasis | undefined {
+  if (!first) return second;
+  if (!second) return first;
+  return ADMISSION_BASIS_RANK[first] >= ADMISSION_BASIS_RANK[second]
+    ? first
+    : second;
+}
 
 interface PriceVariant {
   readonly options: readonly AdmissionPriceOption[];
@@ -33,19 +54,30 @@ function visitDateBoundsApply(option: AdmissionPriceOption, visitDate: string) {
   return true;
 }
 
+function dayTypesForDate(
+  visitDate: string,
+): readonly AdmissionDayType[] | undefined {
+  const weekday = getJapanWeekday(visitDate);
+  const isWeekend = weekday === 0 || weekday === 6;
+  const holidayStatus = getJapanHolidayStatus(visitDate);
+  if (holidayStatus === "unknown") return undefined;
+
+  const types: AdmissionDayType[] = [];
+  if (holidayStatus === "holiday") types.push("holiday");
+  if (isWeekend) types.push("weekend");
+  if (!isWeekend && holidayStatus !== "holiday") types.push("weekday");
+  return types;
+}
+
 function dayTypeApplies(
   option: AdmissionPriceOption,
-  visitDate: string,
-  selection: AdmissionPriceSelection,
+  dayTypes: readonly AdmissionDayType[],
 ) {
   if (!option.dayType) return true;
-  const dayType = selection.dayTypesByDate?.[visitDate];
-  if (!dayType) return false;
-  return (
-    option.dayType === dayType ||
-    (option.dayType === "weekend_or_holiday" &&
-      (dayType === "weekend" || dayType === "holiday"))
-  );
+  if (option.dayType === "weekend_or_holiday") {
+    return dayTypes.includes("weekend") || dayTypes.includes("holiday");
+  }
+  return dayTypes.includes(option.dayType);
 }
 
 function optionMatchesSelection(
@@ -103,22 +135,31 @@ function resolveOptionSet(
   const relevantOptions = options.filter((option) =>
     optionMatchesSelection(option, selection, optional, productId),
   );
+  if (
+    !visitDate &&
+    relevantOptions.some(
+      (option) =>
+        option.validFrom !== undefined ||
+        option.validUntil !== undefined ||
+        option.dayType !== undefined,
+    )
+  ) {
+    return { kind: "unavailable", reason: "price_variable_by_date" };
+  }
   const dateRelevantOptions = visitDate
     ? relevantOptions.filter((option) =>
         visitDateBoundsApply(option, visitDate),
       )
     : relevantOptions;
-  if (
-    visitDate &&
-    dateRelevantOptions.some((option) => option.dayType !== undefined) &&
-    selection.dayTypesByDate?.[visitDate] === undefined
-  ) {
+  const dayTypes =
+    visitDate && dateRelevantOptions.some((option) => option.dayType)
+      ? dayTypesForDate(visitDate)
+      : [];
+  if (dayTypes === undefined) {
     return { kind: "unavailable", reason: "price_variable_by_date" };
   }
   const applicable = visitDate
-    ? dateRelevantOptions.filter((option) =>
-        dayTypeApplies(option, visitDate, selection),
-      )
+    ? dateRelevantOptions.filter((option) => dayTypeApplies(option, dayTypes))
     : dateRelevantOptions;
   const variants = groupVariants(applicable);
   if (variants.length === 0) {
@@ -161,7 +202,7 @@ function resolveOptionSet(
     totals.push({ min, max });
   }
 
-  const dateSpecific = applicable.some(
+  const dateSpecific = variants[0]?.options.some(
     (option) =>
       option.validFrom !== undefined ||
       option.validUntil !== undefined ||
@@ -169,11 +210,16 @@ function resolveOptionSet(
   );
   const exactSelection =
     visitDate !== undefined && dateSpecific && totals.length === 1;
+  const singleTotal = totals.length === 1 && totals[0].min === totals[0].max;
   return {
     kind: "bounded",
     min: Math.min(...totals.map((total) => total.min)),
     max: Math.max(...totals.map((total) => total.max)),
-    basis: exactSelection ? "selected_date" : "supported_range",
+    basis: exactSelection
+      ? "selected_date"
+      : totals.length !== 1 || !singleTotal
+        ? "supported_range"
+        : "fixed_price",
   };
 }
 
@@ -209,23 +255,6 @@ export function resolveAdmissionPricing(
   ) {
     return { kind: "unavailable", reason: "price_variable_by_product" };
   }
-  const dayTypesByDate = selection.dayTypesByDate;
-  if (
-    dayTypesByDate !== undefined &&
-    (!dayTypesByDate ||
-      typeof dayTypesByDate !== "object" ||
-      Array.isArray(dayTypesByDate) ||
-      Object.entries(dayTypesByDate).some(
-        ([date, dayType]) =>
-          !isValidCheckedAtDate(date) ||
-          (dayType !== "weekday" &&
-            dayType !== "weekend" &&
-            dayType !== "holiday"),
-      ))
-  ) {
-    return { kind: "unavailable", reason: "price_variable_by_date" };
-  }
-
   const hasAdultCount = selection.adultCount !== undefined;
   const hasChildCount = selection.childCount !== undefined;
   if (hasAdultCount !== hasChildCount) {
@@ -245,6 +274,15 @@ export function resolveAdmissionPricing(
     return { kind: "unavailable", reason: "price_variable_by_product" };
   }
 
+  const requiredProductIds = new Set(
+    options
+      .filter((option) => !option.optional)
+      .map((option) => option.productId),
+  );
+  if (!selection.productId && requiredProductIds.size > 1) {
+    return { kind: "unavailable", reason: "price_variable_by_product" };
+  }
+
   const addOnProductIds = selection.addOnProductIds ?? [];
   if (
     !Array.isArray(addOnProductIds) ||
@@ -257,8 +295,9 @@ export function resolveAdmissionPricing(
   if (addOnProductIds.length > 0) {
     const selectedProducts = options.filter((option) =>
       option.optional
-        ? addOnProductIds.includes(option.productId)
-        : !selection.productId || option.productId === selection.productId,
+        ? addOnProductIds.includes(option.productId) &&
+          optionMatchesSelection(option, selection, true, option.productId)
+        : optionMatchesSelection(option, selection, false),
     );
     const baseProductIds = new Set(
       selectedProducts
@@ -310,7 +349,8 @@ export function resolveAdmissionPricing(
     if (addOn.kind === "unavailable") return addOn;
     min += addOn.min;
     max += addOn.max;
-    if (addOn.basis === "supported_range") basis = "supported_range";
+    const combinedBasis = weakerAdmissionPricingBasis(basis, addOn.basis);
+    if (combinedBasis) basis = combinedBasis;
   }
 
   return { kind: "bounded", min, max, basis };

@@ -58,6 +58,25 @@ export function getPlannerTransportScopeNotice(
     : "Planning time excludes travel to the first stop. On-site estimate — set an origin to include travel.";
 }
 
+export function selectionForPartySize(
+  selection: AdmissionPriceSelection | undefined,
+  partySize: number,
+): AdmissionPriceSelection | undefined {
+  if (!selection) return undefined;
+  const { adultCount, childCount, ...ticketChoices } = selection;
+  if (adultCount === undefined && childCount === undefined) return selection;
+  if (
+    Number.isInteger(adultCount) &&
+    Number.isInteger(childCount) &&
+    adultCount! >= 0 &&
+    childCount! >= 0 &&
+    adultCount! + childCount! === partySize
+  ) {
+    return selection;
+  }
+  return Object.keys(ticketChoices).length ? ticketChoices : undefined;
+}
+
 export function DestinationPlanningSection({
   destination,
   locale,
@@ -121,14 +140,17 @@ export function DestinationPlanningSection({
   const hasValidGeneratedPlan = Boolean(
     generatedPlan && !generatedPlan.isUnfeasible,
   );
-  const primaryPlanDay =
+  const primaryPlanStep =
     destination.role !== "hub" && destination.kind !== "city"
       ? generatedPlan?.steps.find(
           (step) =>
             step.type === "destination" &&
             step.destination?.id === destination.id,
-        )?.day
+        )
       : undefined;
+  const primaryPlanDay = primaryPlanStep?.day;
+  const primaryAdmissionSelection =
+    primaryPlanStep?.admissionSelection ?? admissionSelection;
   const firstPaidStopDay = generatedPlan?.steps.find(
     (step) =>
       step.type === "destination" &&
@@ -185,7 +207,21 @@ export function DestinationPlanningSection({
               ? {
                   ...generatedPlan,
                   travelDate,
-                  admissionSelection,
+                  admissionSelection: selectionForPartySize(
+                    admissionSelection,
+                    activePartySize,
+                  ),
+                  steps: generatedPlan.steps.map((step) =>
+                    step.admissionSelection
+                      ? {
+                          ...step,
+                          admissionSelection: selectionForPartySize(
+                            step.admissionSelection,
+                            activePartySize,
+                          ),
+                        }
+                      : step,
+                  ),
                   totalBudgetRange: costBreakdown?.totalRange,
                 }
               : undefined,
@@ -214,7 +250,7 @@ export function DestinationPlanningSection({
         ferryTemporal={ferryTemporal}
         duration={duration}
         visitDate={costContextVisitDate}
-        admissionSelection={admissionSelection}
+        admissionSelection={primaryAdmissionSelection}
         hasGeneratedPlan={hasValidGeneratedPlan}
         planCostBreakdown={costBreakdown}
       />

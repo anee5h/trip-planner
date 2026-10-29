@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   DestinationPlanningSection,
   getPlannerTransportScopeNotice,
+  selectionForPartySize,
 } from "../DestinationPlanningSection";
 
 describe("DestinationPlanningSection", () => {
@@ -27,5 +28,20 @@ describe("DestinationPlanningSection", () => {
     expect(getPlannerTransportScopeNotice("ja", false)).toContain(
       "現地費用の目安です。出発地を設定すると交通費も含まれます",
     );
+  });
+
+  it("drops stale party counts before saving the ticket context", () => {
+    expect(
+      selectionForPartySize(
+        { adultCount: 2, childCount: 1, channel: "online" },
+        2,
+      ),
+    ).toEqual({ channel: "online" });
+    expect(
+      selectionForPartySize(
+        { adultCount: 1, childCount: 1, channel: "online" },
+        2,
+      ),
+    ).toEqual({ adultCount: 1, childCount: 1, channel: "online" });
   });
 });

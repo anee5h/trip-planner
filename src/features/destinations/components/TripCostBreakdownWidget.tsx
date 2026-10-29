@@ -217,15 +217,21 @@ export function TripCostBreakdownWidget({
     planCostBreakdown !== undefined
       ? planCostBreakdown.admission.admissionPricingBasis
       : admissionComp?.evidence.admissionPricingBasis;
-  const admissionPricingNote =
-    admissionPricingBasis === "selected_date"
+  const admissionCompositionAssumed = planCostBreakdown
+    ? planCostBreakdown.admission.admissionCompositionAssumed === true
+    : admissionComp?.evidence.admissionCompositionAssumed === true;
+  const admissionPricingNote = admissionCompositionAssumed
+    ? t("planner.budgetEstimate.admissionAssumingAdults")
+    : admissionPricingBasis === "selected_date"
       ? t("planner.budgetEstimate.admissionVerifiedForDate")
-      : admissionPricingBasis === "supported_range"
-        ? t("planner.budgetEstimate.admissionPublishedRange")
-        : planCostBreakdown?.admission.source === "estimated" ||
-            admissionComp?.evidence.derivation === "model_estimate"
-          ? t("planner.budgetEstimate.admissionEstimated")
-          : undefined;
+      : admissionPricingBasis === "fixed_price"
+        ? t("planner.budgetEstimate.admissionFixedPrice")
+        : admissionPricingBasis === "supported_range"
+          ? t("planner.budgetEstimate.admissionPublishedRange")
+          : planCostBreakdown?.admission.source === "estimated" ||
+              admissionComp?.evidence.derivation === "model_estimate"
+            ? t("planner.budgetEstimate.admissionEstimated")
+            : undefined;
   const mealsRange: [number, number] | undefined = planCostBreakdown
     ? planCostBreakdown.meals.applicable && planCostBreakdown.meals.knownNumeric
       ? [planCostBreakdown.meals.min, planCostBreakdown.meals.max]
@@ -425,6 +431,17 @@ export function TripCostBreakdownWidget({
       : "Your plan cost"
     : t("planner.budgetEstimate.estimatedTripTotal");
 
+  const alternativeAdmissionSelection = useMemo(
+    () =>
+      admissionSelection
+        ? {
+            adultCount: admissionSelection.adultCount,
+            childCount: admissionSelection.childCount,
+          }
+        : undefined,
+    [admissionSelection],
+  );
+
   const lowerCostAlternatives = useMemo(() => {
     const candidates = findLowerCostAlternativeCandidates(destination);
     return selectLowerCostAlternatives(
@@ -435,7 +452,7 @@ export function TripCostBreakdownWidget({
           dest: sec,
           mode: activeTransportMode ?? undefined,
           visitDate,
-          admissionSelection,
+          admissionSelection: alternativeAdmissionSelection,
           homeCoords,
           includeOriginTravel: shouldIncludeOriginTravel,
           duration,
@@ -450,7 +467,7 @@ export function TripCostBreakdownWidget({
     duration,
     totalRange,
     visitDate,
-    admissionSelection,
+    alternativeAdmissionSelection,
     shouldIncludeOriginTravel,
   ]);
 
@@ -918,7 +935,7 @@ export function TripCostBreakdownWidget({
                       dest: alt,
                       mode: activeTransportMode ?? undefined,
                       visitDate,
-                      admissionSelection,
+                      admissionSelection: alternativeAdmissionSelection,
                       homeCoords,
                       includeOriginTravel: shouldIncludeOriginTravel,
                       duration,

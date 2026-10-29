@@ -392,11 +392,26 @@ function admissionComponent(
   if (!validation.valid) return admissionUnavailable();
 
   if (fact.priceOptions?.length) {
+    const selectionHasNoComposition =
+      selection?.adultCount === undefined &&
+      selection?.childCount === undefined;
+    const hasStaleComposition =
+      selection?.adultCount !== undefined &&
+      selection?.childCount !== undefined &&
+      Number.isInteger(selection.adultCount) &&
+      Number.isInteger(selection.childCount) &&
+      selection.adultCount >= 0 &&
+      selection.childCount >= 0 &&
+      selection.adultCount + selection.childCount !== partySize;
+    const compositionAssumed = selectionHasNoComposition || hasStaleComposition;
+    const pricingSelection = compositionAssumed
+      ? { ...selection, adultCount: partySize, childCount: 0 }
+      : selection;
     const pricing = resolveAdmissionPricing(
       fact.priceOptions,
       partySize,
       visitDate,
-      selection,
+      pricingSelection,
     );
     if (pricing.kind === "unavailable") {
       return admissionUnavailable(pricing.reason);
@@ -409,8 +424,10 @@ function admissionComponent(
         provenance: fact.provenance,
         reason: fact.reasonCode,
         sourceUrls: fact.sourceUrls,
-        derivation: "source_fact",
-        admissionPricingBasis: pricing.basis,
+        derivation: compositionAssumed ? "model_estimate" : "source_fact",
+        ...(compositionAssumed
+          ? { admissionCompositionAssumed: true }
+          : { admissionPricingBasis: pricing.basis }),
       },
     );
   }
@@ -430,6 +447,14 @@ function admissionComponent(
       );
     case "bounded": {
       const total = scalePerPerson([fact.cost.min, fact.cost.max], partySize);
+      const admissionPricingBasis =
+        fact.state === "variable_price"
+          ? "supported_range"
+          : fact.state === "verified_paid"
+            ? fact.cost.min === fact.cost.max
+              ? "fixed_price"
+              : "supported_range"
+            : undefined;
       return component(
         { kind: "bounded", min: total[0], max: total[1] },
         {
@@ -438,6 +463,7 @@ function admissionComponent(
             fact.state === "documented_estimate"
               ? "model_estimate"
               : "source_fact",
+          ...(admissionPricingBasis ? { admissionPricingBasis } : {}),
         },
       );
     }
@@ -1012,6 +1038,14 @@ function qualityFor(components: readonly TripCostComponent[]): EstimateQuality {
         item.cost.kind === "open_ended" ||
         item.cost.kind === "variable" ||
         item.cost.kind === "unavailable",
+    )
+  ) {
+    return "rough";
+  }
+
+  if (
+    components.some(
+      (item) => item.evidence.admissionCompositionAssumed === true,
     )
   ) {
     return "rough";

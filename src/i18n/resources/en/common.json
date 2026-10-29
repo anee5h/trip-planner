@@ -383,8 +383,10 @@
       "accommodation": "Accommodation",
       "admissionUnavailable": "Admission unavailable/not included",
       "admissionVerifiedForDate": "Verified for selected date",
+      "admissionFixedPrice": "Verified fixed ticket price",
       "admissionPublishedRange": "Verified published range",
-      "admissionEstimated": "Estimated admission"
+      "admissionEstimated": "Estimated admission",
+      "admissionAssumingAdults": "Estimated admission (assuming all travelers are adults)"
     }
   },
   "origin": {

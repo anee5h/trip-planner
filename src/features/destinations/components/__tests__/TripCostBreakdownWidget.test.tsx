@@ -80,6 +80,12 @@ vi.mock("react-i18next", () => ({
         "planner.budgetEstimate.admissionPublishedRange": ja
           ? "確認済みの公表料金範囲"
           : "Verified published range",
+        "planner.budgetEstimate.admissionFixedPrice": ja
+          ? "確認済みの固定チケット料金"
+          : "Verified fixed ticket price",
+        "planner.budgetEstimate.admissionAssumingAdults": ja
+          ? "入場料の概算（全員を大人として計算）"
+          : "Estimated admission (assuming all travelers are adults)",
         "planner.budgetEstimate.admissionEstimated": ja
           ? "入場料の概算"
           : "Estimated admission",
@@ -566,10 +572,11 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     expect(text).not.toContain("Cost unavailable");
   });
 
-  it("labels reviewed admission prices as date-specific or a published range in EN/JA", async () => {
+  it("distinguishes date, fixed, range, and assumed admission prices in EN/JA", async () => {
     const renderWithBasis = async (
-      basis: "selected_date" | "supported_range",
+      basis: "selected_date" | "fixed_price" | "supported_range" | undefined,
       locale: "en" | "ja",
+      assumed = false,
     ) => {
       const engineMock =
         (await import("@/shared/services/budget/tripEstimateEngine")) as unknown as {
@@ -583,8 +590,9 @@ describe("TripCostBreakdownWidget canonical duration", () => {
             cost: { kind: "bounded", min: 5000, max: 7000 },
             evidence: {
               scope: "admission",
-              derivation: "source_fact",
-              admissionPricingBasis: basis,
+              derivation: assumed ? "model_estimate" : "source_fact",
+              ...(basis ? { admissionPricingBasis: basis } : {}),
+              ...(assumed ? { admissionCompositionAssumed: true } : {}),
             },
           },
           {
@@ -608,18 +616,25 @@ describe("TripCostBreakdownWidget canonical duration", () => {
           />,
         );
       });
-      return host.textContent ?? "";
+      const text = host.textContent ?? "";
+      act(() => root?.unmount());
+      host?.remove();
+      root = undefined;
+      host = undefined;
+      return text;
     };
 
     expect(await renderWithBasis("selected_date", "en")).toContain(
       "Verified for selected date",
     );
-    act(() => root?.unmount());
-    host?.remove();
-    root = undefined;
-    host = undefined;
+    expect(await renderWithBasis("fixed_price", "en")).toContain(
+      "Verified fixed ticket price",
+    );
     expect(await renderWithBasis("supported_range", "ja")).toContain(
       "確認済みの公表料金範囲",
+    );
+    expect(await renderWithBasis(undefined, "en", true)).toContain(
+      "Estimated admission (assuming all travelers are adults)",
     );
   });
 

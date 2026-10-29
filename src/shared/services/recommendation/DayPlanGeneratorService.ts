@@ -219,6 +219,8 @@ export interface DayPlanStep {
   id: string;
   /** Calendar day within the selected canonical duration (1-based). */
   day?: number;
+  /** Optional ticket choices for this stop; falls back to the plan selection. */
+  admissionSelection?: AdmissionPriceSelection;
   type: "destination" | "meal" | "buffer" | "travel";
   timeBlock: "morning" | "afternoon" | "evening";
   startTime: string;
