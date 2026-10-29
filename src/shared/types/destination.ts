@@ -226,6 +226,8 @@ export type AdmissionScope =
 
 export type AdmissionVisitorCategory = "adult" | "child";
 export type AdmissionPurchaseChannel = "online" | "counter";
+export type AdmissionDayType = "weekday" | "weekend" | "holiday";
+export type AdmissionPriceDayType = AdmissionDayType | "weekend_or_holiday";
 
 /**
  * One source-backed price for a ticket product and coherent set of
@@ -242,7 +244,7 @@ export interface AdmissionPriceOption {
   readonly channel?: AdmissionPurchaseChannel;
   readonly validFrom?: string;
   readonly validUntil?: string;
-  readonly dayType?: "weekday" | "weekend";
+  readonly dayType?: AdmissionPriceDayType;
   readonly timeSlot?: string;
   readonly optional?: boolean;
 }
@@ -256,6 +258,8 @@ export interface AdmissionPriceSelection {
   readonly timeSlot?: string;
   /** Optional ticket products explicitly included in the selected budget. */
   readonly addOnProductIds?: readonly string[];
+  /** Source-backed calendar classifications, keyed by exact visit date. */
+  readonly dayTypesByDate?: Readonly<Record<string, AdmissionDayType>>;
 }
 
 /**

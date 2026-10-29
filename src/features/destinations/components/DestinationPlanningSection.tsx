@@ -7,7 +7,10 @@ import { DayPlanWidget } from "./DayPlanWidget";
 import { TripCostBreakdownWidget } from "./TripCostBreakdownWidget";
 import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { getPlanEligibility } from "@/shared/services/recommendation/DayPlanGeneratorService";
-import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
+import {
+  calculateGeneratedPlanCost,
+  visitDateForStep,
+} from "@/shared/services/budget/GeneratedPlanCostService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
 import type {
@@ -118,6 +121,24 @@ export function DestinationPlanningSection({
   const hasValidGeneratedPlan = Boolean(
     generatedPlan && !generatedPlan.isUnfeasible,
   );
+  const primaryPlanDay =
+    destination.role !== "hub" && destination.kind !== "city"
+      ? generatedPlan?.steps.find(
+          (step) =>
+            step.type === "destination" &&
+            step.destination?.id === destination.id,
+        )?.day
+      : undefined;
+  const firstPaidStopDay = generatedPlan?.steps.find(
+    (step) =>
+      step.type === "destination" &&
+      step.destination &&
+      step.destination.role !== "hub" &&
+      step.destination.kind !== "city",
+  )?.day;
+  const costContextVisitDate = hasValidGeneratedPlan
+    ? visitDateForStep(travelDate, { day: primaryPlanDay ?? firstPaidStopDay })
+    : travelDate;
 
   // Origin transport is priced once when a saved origin is available; local
   // transit remains a separate profile/fact and is never inferred from an
@@ -136,6 +157,7 @@ export function DestinationPlanningSection({
           localTransitMode,
           Boolean(homeCoords),
           homeCoords,
+          { travelDate, admissionSelection },
         )
       : undefined;
 
@@ -162,6 +184,8 @@ export function DestinationPlanningSection({
             generatedPlan
               ? {
                   ...generatedPlan,
+                  travelDate,
+                  admissionSelection,
                   totalBudgetRange: costBreakdown?.totalRange,
                 }
               : undefined,
@@ -189,7 +213,7 @@ export function DestinationPlanningSection({
         compactUnavailableCost={compactUnavailableCost}
         ferryTemporal={ferryTemporal}
         duration={duration}
-        visitDate={travelDate}
+        visitDate={costContextVisitDate}
         admissionSelection={admissionSelection}
         hasGeneratedPlan={hasValidGeneratedPlan}
         planCostBreakdown={costBreakdown}

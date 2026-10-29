@@ -64,6 +64,9 @@ function estimate(
       channel?: "online" | "counter";
       timeSlot?: string;
       addOnProductIds?: readonly string[];
+      dayTypesByDate?: Readonly<
+        Record<string, "weekday" | "weekend" | "holiday">
+      >;
     };
   } = {},
 ) {
@@ -107,10 +110,13 @@ describe("reviewed admission price options", () => {
       }),
     );
     expect(selected.cost).toEqual({ kind: "bounded", min: 5000, max: 5000 });
-    expect(selected.evidence.admissionPricingBasis).toBe("selected_date");
+    expect(selected.evidence.admissionPricingBasis).toBe("supported_range");
 
     const unselectedSlot = admission(
-      estimate(deck, 2, { visitDate: "2026-11-14" }),
+      estimate(deck, 2, {
+        visitDate: "2026-11-14",
+        admissionSelection: { adultCount: 2, childCount: 0 },
+      }),
     );
     expect(unselectedSlot.cost).toEqual({
       kind: "bounded",
@@ -147,17 +153,80 @@ describe("reviewed admission price options", () => {
       ]),
     );
 
+    const adult = { adultCount: 1, childCount: 0 };
     expect(
-      admission(estimate(themePark, 1, { visitDate: "2026-11-14" })).cost,
+      admission(
+        estimate(themePark, 1, {
+          visitDate: "2026-11-14",
+          admissionSelection: adult,
+        }),
+      ).cost,
     ).toEqual({ kind: "bounded", min: 11900, max: 11900 });
     expect(
-      admission(estimate(themePark, 1, { visitDate: "2026-11-05" })).cost,
+      admission(
+        estimate(themePark, 1, {
+          visitDate: "2026-11-05",
+          admissionSelection: adult,
+        }),
+      ).cost,
     ).toEqual({ kind: "bounded", min: 8900, max: 8900 });
-    expect(admission(estimate(themePark, 1)).cost).toEqual({
-      kind: "bounded",
-      min: 8900,
-      max: 11900,
-    });
+    expect(
+      admission(estimate(themePark, 1, { admissionSelection: adult })).cost,
+    ).toEqual({ kind: "bounded", min: 8900, max: 11900 });
+  });
+
+  it("requires explicit calendar evidence for weekday, weekend, and holiday tiers", () => {
+    const date = "2026-11-09";
+    const venue = destination(
+      "holiday-tier-venue",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "weekday",
+          category: "adult",
+          min: 1000,
+          max: 1000,
+          dayType: "weekday",
+        },
+        {
+          productId: "standard",
+          variantId: "weekend-holiday",
+          category: "adult",
+          min: 2000,
+          max: 2000,
+          dayType: "weekend_or_holiday",
+        },
+      ]),
+    );
+    const party = { adultCount: 1, childCount: 0 };
+
+    expect(
+      admission(
+        estimate(venue, 1, { visitDate: date, admissionSelection: party }),
+      ).cost,
+    ).toEqual({ kind: "unavailable", reason: "price_variable_by_date" });
+    expect(
+      admission(
+        estimate(venue, 1, {
+          visitDate: date,
+          admissionSelection: {
+            ...party,
+            dayTypesByDate: { [date]: "holiday" },
+          },
+        }),
+      ).cost,
+    ).toEqual({ kind: "bounded", min: 2000, max: 2000 });
+    expect(
+      admission(
+        estimate(venue, 1, {
+          visitDate: date,
+          admissionSelection: {
+            ...party,
+            dayTypesByDate: { [date]: "weekday" },
+          },
+        }),
+      ).cost,
+    ).toEqual({ kind: "bounded", min: 1000, max: 1000 });
   });
 
   it("honors adult, child, online, and counter choices while excluding optional add-ons", () => {
@@ -273,13 +342,9 @@ describe("reviewed admission price options", () => {
       }),
     );
     expect(unknownComposition.cost).toEqual({
-      kind: "bounded",
-      min: 2000,
-      max: 5200,
+      kind: "unavailable",
+      reason: "price_variable_by_product",
     });
-    expect(unknownComposition.evidence.admissionPricingBasis).toBe(
-      "supported_range",
-    );
 
     expect(
       admission(
@@ -306,6 +371,33 @@ describe("reviewed admission price options", () => {
     expect(result.knownSubtotal).not.toEqual([0, 0]);
   });
 
+  it("does not use an adult-only floor when a solo traveler's age is unknown", () => {
+    const adultTicket = destination(
+      "adult-only-ticket",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "adult",
+          category: "adult",
+          min: 1000,
+          max: 1000,
+        },
+      ]),
+    );
+
+    expect(admission(estimate(adultTicket, 1)).cost).toEqual({
+      kind: "unavailable",
+      reason: "price_variable_by_product",
+    });
+    expect(
+      admission(
+        estimate(adultTicket, 1, {
+          admissionSelection: { adultCount: 1, childCount: 0 },
+        }),
+      ).cost,
+    ).toEqual({ kind: "bounded", min: 1000, max: 1000 });
+  });
+
   it("prices each paid itinerary stop once, skips hubs, and applies the stop date", () => {
     const city = destination(
       "tokyo-hub",
@@ -329,6 +421,15 @@ describe("reviewed admission price options", () => {
           min: 10000,
           max: 10000,
           validFrom: "2026-11-14",
+          validUntil: "2026-11-14",
+        },
+        {
+          productId: "standard",
+          variantId: "selected-sunday",
+          category: "adult",
+          min: 11000,
+          max: 11000,
+          validFrom: "2026-11-15",
           validUntil: "2026-11-30",
         },
       ]),
@@ -337,6 +438,7 @@ describe("reviewed admission price options", () => {
       id: "kai-325-plan",
       duration: "2d1n",
       travelDate: "2026-11-13",
+      admissionSelection: { adultCount: 2, childCount: 0 },
       title: { en: "Test plan", ja: "テストプラン" },
       steps: [
         {
@@ -385,12 +487,109 @@ describe("reviewed admission price options", () => {
       source: "curated",
       admissionPricingBasis: "selected_date",
     });
+    expect(
+      calculateGeneratedPlanCost(plan, 2, null, false, undefined, {
+        travelDate: "2026-11-14",
+        admissionSelection: { adultCount: 2, childCount: 0 },
+      }).admission,
+    ).toMatchObject({
+      min: 22000,
+      max: 22000,
+      admissionPricingBasis: "selected_date",
+    });
     expect(cost.accommodation).toMatchObject({
       applicable: true,
       source: "estimated",
     });
     expect(cost.localTransit.applicable).toBe(true);
     expect(cost.totalRange).toBeDefined();
+  });
+
+  it("uses the weakest basis across paid stops and drops it when a stop has none", () => {
+    const datePriced = destination(
+      "date-priced",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "dated",
+          category: "adult",
+          min: 1000,
+          max: 1000,
+          validFrom: "2026-11-14",
+          validUntil: "2026-11-14",
+        },
+      ]),
+    );
+    const rangePriced = destination(
+      "range-priced",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "published-range",
+          category: "adult",
+          min: 2000,
+          max: 2500,
+        },
+      ]),
+    );
+    const stopPlan: DayPlan = {
+      id: "basis-plan",
+      travelDate: "2026-11-14",
+      admissionSelection: { adultCount: 1, childCount: 0 },
+      title: { en: "Basis plan", ja: "根拠の計画" },
+      steps: [datePriced, rangePriced].map((dest) => ({
+        id: dest.id,
+        day: 1,
+        type: "destination" as const,
+        timeBlock: "morning",
+        startTime: "09:00",
+        endTime: "11:00",
+        durationMinutes: 120,
+        destination: dest,
+        title: { en: dest.name, ja: dest.nameJa ?? dest.name },
+      })),
+      totalDurationMinutes: 240,
+      isOverfilled: false,
+      uncertainHoursDisclosures: [],
+    };
+
+    expect(calculateGeneratedPlanCost(stopPlan, 1).admission).toMatchObject({
+      min: 3000,
+      max: 3500,
+      admissionPricingBasis: "supported_range",
+    });
+
+    const flatPriced = destination("flat-priced", {
+      state: "verified_paid",
+      provenance: "verified_source",
+      cost: { kind: "bounded", min: 3000, max: 3000 },
+      scope: "general_entry",
+      basis: "Synthetic reviewed admission fact.",
+      sourceUrls,
+      checkedAt: "2026-10-01",
+    });
+    const mixedPlan: DayPlan = {
+      ...stopPlan,
+      steps: [datePriced, flatPriced].map((dest) => ({
+        id: dest.id,
+        day: 1,
+        type: "destination" as const,
+        timeBlock: "morning",
+        startTime: "09:00",
+        endTime: "11:00",
+        durationMinutes: 120,
+        destination: dest,
+        title: { en: dest.name, ja: dest.nameJa ?? dest.name },
+      })),
+    };
+
+    expect(calculateGeneratedPlanCost(mixedPlan, 1).admission).toMatchObject({
+      min: 4000,
+      max: 4000,
+    });
+    expect(
+      calculateGeneratedPlanCost(mixedPlan, 1).admission.admissionPricingBasis,
+    ).toBeUndefined();
   });
 
   it("retains verified-free park admission as zero with explicit evidence", () => {

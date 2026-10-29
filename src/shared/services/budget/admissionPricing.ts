@@ -23,17 +23,59 @@ interface PriceVariant {
   readonly options: readonly AdmissionPriceOption[];
 }
 
-function visitDateApplies(option: AdmissionPriceOption, visitDate: string) {
+function visitDateBoundsApply(option: AdmissionPriceOption, visitDate: string) {
   if (
     (option.validFrom && visitDate < option.validFrom) ||
     (option.validUntil && visitDate > option.validUntil)
   ) {
     return false;
   }
-  if (option.dayType) {
-    const weekday = new Date(visitDate + "T00:00:00.000Z").getUTCDay();
-    const isWeekend = weekday === 0 || weekday === 6;
-    if (option.dayType !== (isWeekend ? "weekend" : "weekday")) return false;
+  return true;
+}
+
+function dayTypeApplies(
+  option: AdmissionPriceOption,
+  visitDate: string,
+  selection: AdmissionPriceSelection,
+) {
+  if (!option.dayType) return true;
+  const dayType = selection.dayTypesByDate?.[visitDate];
+  if (!dayType) return false;
+  return (
+    option.dayType === dayType ||
+    (option.dayType === "weekend_or_holiday" &&
+      (dayType === "weekend" || dayType === "holiday"))
+  );
+}
+
+function optionMatchesSelection(
+  option: AdmissionPriceOption,
+  selection: AdmissionPriceSelection,
+  optional: boolean,
+  productId?: string,
+) {
+  if (Boolean(option.optional) !== optional) return false;
+  if (productId && option.productId !== productId) return false;
+  if (
+    !optional &&
+    selection.productId &&
+    option.productId !== selection.productId
+  ) {
+    return false;
+  }
+  if (
+    selection.channel &&
+    option.channel !== undefined &&
+    option.channel !== selection.channel
+  ) {
+    return false;
+  }
+  if (
+    selection.timeSlot &&
+    option.timeSlot !== undefined &&
+    option.timeSlot !== selection.timeSlot
+  ) {
+    return false;
   }
   return true;
 }
@@ -53,37 +95,31 @@ function groupVariants(
 
 function resolveOptionSet(
   options: readonly AdmissionPriceOption[],
-  partySize: number,
   visitDate: string | undefined,
   selection: AdmissionPriceSelection,
   optional: boolean,
   productId?: string,
 ): AdmissionPricingResolution {
-  const applicable = options.filter((option) => {
-    if (Boolean(option.optional) !== optional) return false;
-    if (productId && option.productId !== productId) return false;
-    if (
-      !optional &&
-      selection.productId &&
-      option.productId !== selection.productId
-    )
-      return false;
-    if (
-      selection.channel &&
-      option.channel !== undefined &&
-      option.channel !== selection.channel
-    ) {
-      return false;
-    }
-    if (
-      selection.timeSlot &&
-      option.timeSlot !== undefined &&
-      option.timeSlot !== selection.timeSlot
-    ) {
-      return false;
-    }
-    return !visitDate || visitDateApplies(option, visitDate);
-  });
+  const relevantOptions = options.filter((option) =>
+    optionMatchesSelection(option, selection, optional, productId),
+  );
+  const dateRelevantOptions = visitDate
+    ? relevantOptions.filter((option) =>
+        visitDateBoundsApply(option, visitDate),
+      )
+    : relevantOptions;
+  if (
+    visitDate &&
+    dateRelevantOptions.some((option) => option.dayType !== undefined) &&
+    selection.dayTypesByDate?.[visitDate] === undefined
+  ) {
+    return { kind: "unavailable", reason: "price_variable_by_date" };
+  }
+  const applicable = visitDate
+    ? dateRelevantOptions.filter((option) =>
+        dayTypeApplies(option, visitDate, selection),
+      )
+    : dateRelevantOptions;
   const variants = groupVariants(applicable);
   if (variants.length === 0) {
     return {
@@ -96,60 +132,43 @@ function resolveOptionSet(
     };
   }
 
-  const hasComposition =
-    selection.adultCount !== undefined && selection.childCount !== undefined;
-  const categoriesKnown = new Set(applicable.map((option) => option.category));
-  if (!hasComposition && !categoriesKnown.has("adult")) {
+  if (
+    selection.adultCount === undefined ||
+    selection.childCount === undefined
+  ) {
     return { kind: "unavailable", reason: "price_variable_by_product" };
   }
 
   const totals: Array<{ min: number; max: number }> = [];
   for (const variant of variants) {
-    if (hasComposition) {
-      let min = 0;
-      let max = 0;
-      for (const [category, count] of [
-        ["adult", selection.adultCount!],
-        ["child", selection.childCount!],
-      ] as const) {
-        if (count === 0) continue;
-        const option = variant.options.find(
-          (item) => item.category === category,
-        );
-        if (!option) {
-          return {
-            kind: "unavailable",
-            reason: "price_variable_by_product",
-          };
-        }
-        min += option.min * count;
-        max += option.max * count;
+    let min = 0;
+    let max = 0;
+    for (const [category, count] of [
+      ["adult", selection.adultCount],
+      ["child", selection.childCount],
+    ] as const) {
+      if (count === 0) continue;
+      const option = variant.options.find((item) => item.category === category);
+      if (!option) {
+        return {
+          kind: "unavailable",
+          reason: "price_variable_by_product",
+        };
       }
-      totals.push({ min, max });
-      continue;
+      min += option.min * count;
+      max += option.max * count;
     }
-
-    const requiredCategories = categoriesKnown.has("child")
-      ? (["adult", "child"] as const)
-      : (["adult"] as const);
-    const categoryOptions = requiredCategories.map((category) =>
-      variant.options.find((option) => option.category === category),
-    );
-    if (categoryOptions.some((option) => !option)) {
-      return { kind: "unavailable", reason: "price_variable_by_product" };
-    }
-    totals.push({
-      min:
-        Math.min(...categoryOptions.map((option) => option!.min)) * partySize,
-      max:
-        Math.max(...categoryOptions.map((option) => option!.max)) * partySize,
-    });
+    totals.push({ min, max });
   }
 
+  const dateSpecific = applicable.some(
+    (option) =>
+      option.validFrom !== undefined ||
+      option.validUntil !== undefined ||
+      option.dayType !== undefined,
+  );
   const exactSelection =
-    visitDate !== undefined &&
-    totals.length === 1 &&
-    (hasComposition || categoriesKnown.size === 1);
+    visitDate !== undefined && dateSpecific && totals.length === 1;
   return {
     kind: "bounded",
     min: Math.min(...totals.map((total) => total.min)),
@@ -159,9 +178,8 @@ function resolveOptionSet(
 }
 
 /**
- * Resolves reviewed ticket variants to one party range. Without enough
- * selection context, it returns the envelope of compatible published prices;
- * optional products enter the total only when explicitly selected.
+ * Resolves reviewed ticket variants for an explicitly composed party.
+ * Optional products enter the total only when explicitly selected.
  */
 export function resolveAdmissionPricing(
   options: readonly AdmissionPriceOption[],
@@ -191,10 +209,29 @@ export function resolveAdmissionPricing(
   ) {
     return { kind: "unavailable", reason: "price_variable_by_product" };
   }
+  const dayTypesByDate = selection.dayTypesByDate;
+  if (
+    dayTypesByDate !== undefined &&
+    (!dayTypesByDate ||
+      typeof dayTypesByDate !== "object" ||
+      Array.isArray(dayTypesByDate) ||
+      Object.entries(dayTypesByDate).some(
+        ([date, dayType]) =>
+          !isValidCheckedAtDate(date) ||
+          (dayType !== "weekday" &&
+            dayType !== "weekend" &&
+            dayType !== "holiday"),
+      ))
+  ) {
+    return { kind: "unavailable", reason: "price_variable_by_date" };
+  }
 
   const hasAdultCount = selection.adultCount !== undefined;
   const hasChildCount = selection.childCount !== undefined;
   if (hasAdultCount !== hasChildCount) {
+    return { kind: "unavailable", reason: "price_variable_by_product" };
+  }
+  if (!hasAdultCount) {
     return { kind: "unavailable", reason: "price_variable_by_product" };
   }
   if (
@@ -256,13 +293,7 @@ export function resolveAdmissionPricing(
     }
   }
 
-  const base = resolveOptionSet(
-    options,
-    partySize,
-    visitDate,
-    selection,
-    false,
-  );
+  const base = resolveOptionSet(options, visitDate, selection, false);
   if (base.kind === "unavailable") return base;
 
   let min = base.min;
@@ -271,7 +302,6 @@ export function resolveAdmissionPricing(
   for (const productId of addOnProductIds) {
     const addOn = resolveOptionSet(
       options,
-      partySize,
       visitDate,
       selection,
       true,

@@ -214,8 +214,9 @@ export function TripCostBreakdownWidget({
     ? planCostBreakdown.admission.semanticState !== "not_applicable"
     : admissionComp?.cost.kind !== "not_applicable";
   const admissionPricingBasis =
-    planCostBreakdown?.admission.admissionPricingBasis ??
-    admissionComp?.evidence.admissionPricingBasis;
+    planCostBreakdown !== undefined
+      ? planCostBreakdown.admission.admissionPricingBasis
+      : admissionComp?.evidence.admissionPricingBasis;
   const admissionPricingNote =
     admissionPricingBasis === "selected_date"
       ? t("planner.budgetEstimate.admissionVerifiedForDate")

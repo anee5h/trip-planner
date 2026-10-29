@@ -7,7 +7,10 @@
  * explicitly curated inter-stop route legs where a plan has them.
  */
 
-import type { Destination } from "@/shared/types/destination";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import type {
   DayPlan,
@@ -51,6 +54,12 @@ export interface GeneratedPlanCostResult {
   /** Canonical evidence quality, exposed alongside the legacy confidence name. */
   estimateQuality: "verified" | "estimated";
   assumptions: PlanAssumption[];
+}
+
+export interface GeneratedPlanCostContext {
+  /** Live planner date; step.day is added for each stop. */
+  travelDate?: string;
+  admissionSelection?: AdmissionPriceSelection;
 }
 
 const NA: CostComponent = {
@@ -108,13 +117,17 @@ function sumComponents(items: readonly CostComponent[]): CostComponent {
   if (!applicable) return NA;
   if (unknown) return unknownComponent();
   const estimated = items.some((item) => item.source === "estimated");
-  const admissionPricingBasis = items.some(
-    (item) => item.admissionPricingBasis === "supported_range",
-  )
-    ? "supported_range"
-    : items.some((item) => item.admissionPricingBasis === "selected_date")
-      ? "selected_date"
-      : undefined;
+  const applicableItems = items.filter((item) => item.applicable);
+  const everyItemHasPricingBasis = applicableItems.every(
+    (item) => item.admissionPricingBasis !== undefined,
+  );
+  const admissionPricingBasis = everyItemHasPricingBasis
+    ? applicableItems.some(
+        (item) => item.admissionPricingBasis === "supported_range",
+      )
+      ? "supported_range"
+      : "selected_date"
+    : undefined;
   const min = items.reduce(
     (sum, item) => sum + (item.applicable ? item.min : 0),
     0,
@@ -143,7 +156,7 @@ function sumComponents(items: readonly CostComponent[]): CostComponent {
   };
 }
 
-function visitDateForStep(
+export function visitDateForStep(
   planDate: string | undefined,
   step: Pick<DayPlanStep, "day">,
 ): string | undefined {
@@ -202,6 +215,7 @@ export function calculateGeneratedPlanCost(
   transportMode: "car" | "train" | null = null,
   hasOriginInfo = false,
   homeCoords?: { lat: number; lng: number },
+  costContext?: GeneratedPlanCostContext,
 ): GeneratedPlanCostResult {
   const safeParty = Math.max(1, Math.floor(partySize));
   const assumptions: PlanAssumption[] = [...(plan.assumptions ?? [])];
@@ -233,8 +247,13 @@ export function calculateGeneratedPlanCost(
       mode: transportMode ?? undefined,
       partySize: safeParty,
       duration,
-      visitDate: visitDateForStep(plan.travelDate, { day }),
-      admissionSelection: plan.admissionSelection,
+      visitDate: visitDateForStep(
+        costContext ? costContext.travelDate : plan.travelDate,
+        { day },
+      ),
+      admissionSelection: costContext
+        ? costContext.admissionSelection
+        : plan.admissionSelection,
       includeOriginTravel: false,
     });
     if (result.estimateQuality !== "verified")

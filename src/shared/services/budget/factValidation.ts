@@ -129,7 +129,9 @@ function validateAdmissionPriceOptions(
         option.channel !== "counter") ||
       (option.dayType !== undefined &&
         option.dayType !== "weekday" &&
-        option.dayType !== "weekend") ||
+        option.dayType !== "weekend" &&
+        option.dayType !== "holiday" &&
+        option.dayType !== "weekend_or_holiday") ||
       (option.timeSlot !== undefined &&
         (typeof option.timeSlot !== "string" || !option.timeSlot.trim())) ||
       (option.optional !== undefined && typeof option.optional !== "boolean") ||
