@@ -68,6 +68,60 @@ const BASE_DEST = {
 } as unknown as Destination;
 
 describe("GeneratedPlanCostService", () => {
+  it("preserves legacy assumption append behavior while de-duplicating ticket options", () => {
+    const existingAssumption = {
+      type: "estimated_cost" as const,
+      destinationId: BASE_DEST.id,
+      message: { en: "Existing", ja: "既存" },
+    };
+    const legacyPlan = {
+      ...makePlan(BASE_DEST),
+      assumptions: [existingAssumption],
+    };
+    const legacyCost = calculateGeneratedPlanCost(legacyPlan);
+    expect(
+      legacyCost.assumptions.filter(
+        (assumption) =>
+          assumption.type === "estimated_cost" &&
+          assumption.destinationId === BASE_DEST.id,
+      ),
+    ).toHaveLength(2);
+
+    const ticketDestination = {
+      ...BASE_DEST,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    const ticketPlan = {
+      ...makePlan(ticketDestination),
+      assumptions: [existingAssumption],
+    };
+    const ticketCost = calculateGeneratedPlanCost(ticketPlan);
+    expect(
+      ticketCost.assumptions.filter(
+        (assumption) =>
+          assumption.type === "estimated_cost" &&
+          assumption.destinationId === BASE_DEST.id,
+      ),
+    ).toHaveLength(1);
+  });
+
   it("counts legacy admission once across days but prices ticket options per visit", () => {
     const legacyDestination = {
       ...BASE_DEST,

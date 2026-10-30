@@ -37,9 +37,11 @@ vi.mock("../DayPlanWidget", () => ({
   DayPlanWidget: ({
     admissionSelection,
     onPlanGenerated,
+    onSaveToItinerary,
   }: {
     admissionSelection?: AdmissionPriceSelection;
     onPlanGenerated?: (plan: DayPlan | null) => void;
+    onSaveToItinerary?: () => void;
   }) => (
     <>
       {plannerCapture.selectionRefs.push(admissionSelection) && null}
@@ -51,11 +53,13 @@ vi.mock("../DayPlanWidget", () => ({
         data-testid="generate-plan"
         onClick={() =>
           plannerCapture.generatedPlan &&
-          onPlanGenerated?.({
-            ...(plannerCapture.generatedPlan as DayPlan),
-            admissionSelection,
-          })
+          onPlanGenerated?.(plannerCapture.generatedPlan as DayPlan)
         }
+      />
+      <button
+        type="button"
+        data-testid="save-plan"
+        onClick={onSaveToItinerary}
       />
     </>
   ),
@@ -107,6 +111,7 @@ function renderPlanningSection(
     compactUnavailableCost?: boolean;
     onChildCountChange?: (childCount: number | undefined) => void;
     onPlanGenerated?: (plan: DayPlan | null) => void;
+    onSaveToItinerary?: (plan?: DayPlan) => void;
     locale?: "en" | "ja";
   } = {},
 ) {
@@ -131,7 +136,7 @@ function renderPlanningSection(
         compactUnavailableCost={options.compactUnavailableCost}
         onChildCountChange={options.onChildCountChange}
         onPlanGenerated={options.onPlanGenerated}
-        onSaveToItinerary={vi.fn()}
+        onSaveToItinerary={options.onSaveToItinerary ?? vi.fn()}
       />,
     );
   });
@@ -140,6 +145,71 @@ function renderPlanningSection(
 describe("DestinationPlanningSection", () => {
   it("exports DestinationPlanningSection function component", () => {
     expect(typeof DestinationPlanningSection).toBe("function");
+  });
+
+  it("saves legacy plans without admission context fields", () => {
+    const destination = {
+      id: "legacy-plan",
+      name: "Legacy Plan",
+      nameJa: "従来プラン",
+      kind: "museum",
+      role: "poi",
+      prefecture: "Tokyo",
+      region: "Kanto",
+      categories: ["Culture"],
+      coordinates: { lat: 35.68, lng: 139.76 },
+      budgetBreakdown: { tickets: 1000 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "legacy fixture",
+      },
+    } as unknown as Destination;
+    plannerCapture.generatedPlan = {
+      id: "legacy-generated-plan",
+      title: { en: "Legacy", ja: "従来" },
+      steps: [
+        {
+          id: "legacy-step",
+          type: "destination",
+          timeBlock: "morning",
+          startTime: "09:00",
+          endTime: "10:00",
+          durationMinutes: 60,
+          destination,
+          title: {
+            en: destination.name,
+            ja: destination.nameJa ?? destination.name,
+          },
+        },
+      ],
+      totalDurationMinutes: 60,
+      totalBudgetRange: [1000, 1000],
+      isOverfilled: false,
+      isUnfeasible: false,
+      uncertainHoursDisclosures: [],
+    } satisfies DayPlan;
+    const saved: Array<DayPlan | undefined> = [];
+    renderPlanningSection(destination, {
+      travelDate: "2026-11-14",
+      admissionSelection: { adultCount: 2, childCount: 1 },
+      onSaveToItinerary: (plan) => saved.push(plan),
+    });
+
+    act(() => {
+      host!
+        .querySelector<HTMLButtonElement>('[data-testid="generate-plan"]')!
+        .click();
+    });
+    act(() => {
+      host!
+        .querySelector<HTMLButtonElement>('[data-testid="save-plan"]')!
+        .click();
+    });
+
+    expect(saved.at(-1)).toEqual(plannerCapture.generatedPlan);
+    expect(saved.at(-1)).not.toHaveProperty("travelDate");
+    expect(saved.at(-1)).not.toHaveProperty("admissionSelection");
   });
 
   it("points saved-origin travellers to the canonical cost breakdown", () => {

@@ -808,10 +808,18 @@ export function generateDayPlan(
 
   const primLocEn = getLocalizedPlace(primary, "en");
   const primLocJa = getLocalizedPlace(primary, "ja");
+  const hasTicketOptions = routeForPlan.steps.some(
+    (step: DayPlan["steps"][number]) =>
+      step.destination?.admission?.priceOptions?.length,
+  );
 
   const rawPlan: DayPlan = {
-    travelDate: options?.travelDate,
-    admissionSelection: options?.admissionSelection,
+    ...(hasTicketOptions
+      ? {
+          travelDate: options?.travelDate,
+          admissionSelection: options?.admissionSelection,
+        }
+      : {}),
     id: `plan-${primary.id}`,
     duration,
     dayCount,

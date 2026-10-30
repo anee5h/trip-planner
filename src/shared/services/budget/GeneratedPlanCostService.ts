@@ -311,11 +311,12 @@ export function calculateGeneratedPlanCost(
     });
     if (
       result.estimateQuality !== "verified" &&
-      !assumptions.some(
-        (assumption) =>
-          assumption.type === "estimated_cost" &&
-          assumption.destinationId === destination.id,
-      )
+      (!destination.admission?.priceOptions?.length ||
+        !assumptions.some(
+          (assumption) =>
+            assumption.type === "estimated_cost" &&
+            assumption.destinationId === destination.id,
+        ))
     ) {
       pushMissingAssumption(destination, assumptions);
     }

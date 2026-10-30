@@ -9,6 +9,7 @@ import Destinations from "../Destinations";
 import { TripContextProvider } from "@/shared/context/TripContext";
 import * as travelConditions from "@/shared/services/recommendation/TravelConditions";
 import * as exploreBudget from "../exploreBudget";
+import * as exploreSorting from "../exploreSorting";
 import { localizeDateConditionSummary } from "@/shared/utils/recommendationLabels";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -192,6 +193,7 @@ describe("Destinations date filter", () => {
   it("uses a context date for admission pricing without enabling travel-date conditions", async () => {
     const conditionSpy = vi.spyOn(travelConditions, "evaluateTravelConditions");
     const budgetSpy = vi.spyOn(exploreBudget, "resolveExploreBudgetEstimate");
+    const sortSpy = vi.spyOn(exploreSorting, "computeExploreSortMetrics");
     const container = renderDestinationsWithContext("2030-06-15");
     await act(async () => {
       await new Promise((resolve) => setTimeout(resolve, 60));
@@ -206,8 +208,25 @@ describe("Destinations date filter", () => {
       ),
     ).toBe(true);
     expect(
+      sortSpy.mock.calls.some(
+        ([, context]) => context.visitDate === "2030-06-15",
+      ),
+    ).toBe(true);
+    expect(
       budgetSpy.mock.calls.every(
         ([, context]) => context.ferryTemporal === undefined,
+      ),
+    ).toBe(true);
+  }, 20000);
+
+  it("ignores an impossible context date", () => {
+    const budgetSpy = vi.spyOn(exploreBudget, "resolveExploreBudgetEstimate");
+
+    expect(() => renderDestinationsWithContext("2026-02-31")).not.toThrow();
+    expect(budgetSpy).toHaveBeenCalled();
+    expect(
+      budgetSpy.mock.calls.every(
+        ([, context]) => context.visitDate === undefined,
       ),
     ).toBe(true);
   }, 20000);

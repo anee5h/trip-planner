@@ -7,6 +7,7 @@ import type {
 import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { calculateGeneratedPlanCost } from "../GeneratedPlanCostService";
 import { calculateTripEstimate } from "../tripEstimateEngine";
+import { validateAdmissionFact } from "../factValidation";
 
 const sourceUrls = ["https://example.test/admission"];
 
@@ -78,6 +79,20 @@ function estimate(
 }
 
 describe("reviewed admission price options", () => {
+  it("treats an empty price-options array like an absent one", () => {
+    const legacyFact = {
+      state: "verified_paid",
+      provenance: "verified_source",
+      cost: { kind: "bounded", min: 1000, max: 1000 },
+      sourceUrls,
+      checkedAt: "2026-10-01",
+    };
+
+    expect(validateAdmissionFact({ ...legacyFact, priceOptions: [] })).toEqual(
+      validateAdmissionFact(legacyFact),
+    );
+  });
+
   it("uses the selected Shibuya-Sky-like time tier and shows a range without a slot", () => {
     const deck = destination(
       "shibuya-sky-like",

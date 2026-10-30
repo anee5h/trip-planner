@@ -219,11 +219,13 @@ export function DestinationPlanningSection({
       ? effectiveChildCount
       : null;
 
-  const hasTicketOptions = Boolean(
-    ticketOptions?.length ||
+  const planHasTicketOptions = Boolean(
     generatedPlan?.steps.some(
       (step) => step.destination?.admission?.priceOptions?.length,
     ),
+  );
+  const hasTicketOptions = Boolean(
+    ticketOptions?.length || planHasTicketOptions,
   );
   const childCountError =
     childCountDraft === ""
@@ -341,15 +343,18 @@ export function DestinationPlanningSection({
   const livePlan = useMemo(
     () =>
       generatedPlan
-        ? {
-            ...generatedPlan,
-            travelDate,
-            admissionSelection: activeAdmissionSelection,
-            totalBudgetRange: costBreakdown?.totalRange,
-          }
+        ? planHasTicketOptions
+          ? {
+              ...generatedPlan,
+              travelDate,
+              admissionSelection: activeAdmissionSelection,
+              totalBudgetRange: costBreakdown?.totalRange,
+            }
+          : generatedPlan
         : null,
     [
       generatedPlan,
+      planHasTicketOptions,
       travelDate,
       activeAdmissionSelection,
       costBreakdown?.totalRange,

@@ -411,11 +411,23 @@ export default function DestinationDetails() {
     (hasExplicitTripContext ? tripContext.partySize : undefined) ??
     user?.user_metadata?.preferences?.partySize ??
     2;
+  const pageTicketSelection =
+    ticketSelectionOverride?.destinationId === id
+      ? ticketSelectionOverride?.value
+      : navState?.admissionSelection;
+  const selectionChildCount =
+    pageTicketSelection?.adultCount !== undefined &&
+    pageTicketSelection.childCount !== undefined &&
+    pageTicketSelection.adultCount + pageTicketSelection.childCount ===
+      partySize
+      ? pageTicketSelection.childCount
+      : undefined;
   const requestedChildCount =
     childCountOverride?.destinationId === id
       ? childCountOverride?.value
       : (navState?.childCount ??
-        (hasExplicitTripContext ? tripContext.childCount : undefined));
+        (hasExplicitTripContext ? tripContext.childCount : undefined) ??
+        selectionChildCount);
   const childCount = resolveChildCount({
     partySize,
     childCount: requestedChildCount,
@@ -425,10 +437,6 @@ export default function DestinationDetails() {
     childCountOverride.destinationId === id &&
     childCountOverride.value === undefined,
   );
-  const pageTicketSelection =
-    ticketSelectionOverride?.destinationId === id
-      ? ticketSelectionOverride?.value
-      : navState?.admissionSelection;
   const activeAdmissionSelection = useMemo(
     () =>
       selectionWithPartyComposition(
@@ -439,15 +447,17 @@ export default function DestinationDetails() {
     [pageTicketSelection, partySize, childCount, childCountWasCleared],
   );
   const handlePartySizeChange = (nextPartySize: number) => {
-    setPartySizeOverride({ destinationId: id ?? "", value: nextPartySize });
-    setChildCountOverride({ destinationId: id ?? "", value: undefined });
     if (hasPriceOptions) {
-      updateTripContext({ partySize: nextPartySize, childCount: undefined });
+      setPartySizeOverride({ destinationId: id ?? "", value: nextPartySize });
+      setChildCountOverride({ destinationId: id ?? "", value: undefined });
+      if (hasExplicitTripContext) {
+        updateTripContext({ partySize: nextPartySize, childCount: undefined });
+      }
     }
   };
   const handleChildCountChange = (nextChildCount: number | undefined) => {
     setChildCountOverride({ destinationId: id ?? "", value: nextChildCount });
-    if (hasPriceOptions) {
+    if (hasPriceOptions && hasExplicitTripContext) {
       updateTripContext({ childCount: nextChildCount });
     }
   };

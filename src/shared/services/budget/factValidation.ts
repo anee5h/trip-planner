@@ -204,7 +204,10 @@ export function validateAdmissionFact(
   if (!isValidReviewInterval(fact.reviewIntervalMonths)) {
     return { valid: false, reason: "invalid_review_interval" };
   }
-  if (fact.priceOptions !== undefined) {
+  if (
+    fact.priceOptions !== undefined &&
+    !(Array.isArray(fact.priceOptions) && fact.priceOptions.length === 0)
+  ) {
     const validation = validateAdmissionPriceOptions(fact);
     if (!validation.valid) return validation;
     const baseOptions = (

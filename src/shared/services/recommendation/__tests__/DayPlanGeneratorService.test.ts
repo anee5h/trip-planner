@@ -46,7 +46,28 @@ describe("DayPlanGeneratorService", () => {
       channel: "online" as const,
       timeSlot: "18:00",
     };
-    const plan = generateDayPlan(mockDestPrimary, {
+    const ticketedPrimary = {
+      ...mockDestPrimary,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    const plan = generateDayPlan(ticketedPrimary, {
       travelDate: "2026-11-14",
       admissionSelection: selection,
     });
@@ -59,6 +80,16 @@ describe("DayPlanGeneratorService", () => {
           !Object.prototype.hasOwnProperty.call(step, "admissionSelection"),
       ),
     ).toBe(true);
+  });
+
+  it("does not add admission context fields to legacy plans", () => {
+    const plan = generateDayPlan(mockDestPrimary, {
+      travelDate: "2026-11-14",
+      admissionSelection: { adultCount: 2, childCount: 1 },
+    });
+
+    expect(plan).not.toHaveProperty("travelDate");
+    expect(plan).not.toHaveProperty("admissionSelection");
   });
 
   it("generates a structured day plan with minimum real stop thresholds", () => {

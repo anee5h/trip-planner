@@ -137,6 +137,7 @@ import {
   type ExploreBudgetEstimate,
 } from "./exploreBudget";
 import { resolveChildCount } from "@/shared/utils/tripComposition";
+import { isValidCheckedAtDate } from "@/shared/services/budget/factValidation";
 import {
   applyTripContextBudgetToExplorerState,
   budgetParamsPresent,
@@ -278,9 +279,16 @@ export default function Destinations() {
       ? (tripContext.travelDate ?? undefined)
       : undefined;
   const estimateTravelDate = date || contextTravelDate;
-  const estimateVisitDate = estimateTravelDate
-    ? deriveTripDates(estimateTravelDate, tripDuration).day1
-    : undefined;
+  const estimateVisitDate = useMemo(() => {
+    if (!estimateTravelDate || !isValidCheckedAtDate(estimateTravelDate)) {
+      return undefined;
+    }
+    try {
+      return deriveTripDates(estimateTravelDate, tripDuration).day1;
+    } catch {
+      return undefined;
+    }
+  }, [estimateTravelDate, tripDuration]);
   const estimateChildCount =
     hasExplicitTripContext && tripContext.partySize === partySize
       ? resolveChildCount(tripContext)
@@ -1206,7 +1214,7 @@ export default function Destinations() {
         publicModes: effectivePublicModes,
         partySize,
         duration: tripDuration,
-        visitDate: travelDates?.day1,
+        visitDate: estimateVisitDate,
         childCount: estimateChildCount,
         budgetTier: budgetTier === "any" ? undefined : budgetTier,
         ferryTemporal,
@@ -1530,7 +1538,7 @@ export default function Destinations() {
                     destination={dest}
                     duration={tripDuration}
                     partySize={partySize}
-                    visitDate={travelDates?.day1}
+                    visitDate={estimateVisitDate}
                     childCount={estimateChildCount}
                     carMode={carMode}
                     resolvedBudgetEstimate={budgetEstimatesById.get(dest.id)}
