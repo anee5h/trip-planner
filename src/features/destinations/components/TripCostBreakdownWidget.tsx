@@ -65,6 +65,21 @@ export interface TripCostBreakdownWidgetProps {
   duration?: TripDuration;
 }
 
+export function getAlternativeAdmissionSelection(
+  selection: AdmissionPriceSelection | undefined,
+): AdmissionPriceSelection | undefined {
+  if (
+    selection?.adultCount === undefined ||
+    selection.childCount === undefined
+  ) {
+    return undefined;
+  }
+  return {
+    adultCount: selection.adultCount,
+    childCount: selection.childCount,
+  };
+}
+
 export function TripCostBreakdownWidget({
   destination,
   locale,
@@ -228,10 +243,7 @@ export function TripCostBreakdownWidget({
         ? t("planner.budgetEstimate.admissionFixedPrice")
         : admissionPricingBasis === "supported_range"
           ? t("planner.budgetEstimate.admissionPublishedRange")
-          : planCostBreakdown?.admission.source === "estimated" ||
-              admissionComp?.evidence.derivation === "model_estimate"
-            ? t("planner.budgetEstimate.admissionEstimated")
-            : undefined;
+          : undefined;
   const mealsRange: [number, number] | undefined = planCostBreakdown
     ? planCostBreakdown.meals.applicable && planCostBreakdown.meals.knownNumeric
       ? [planCostBreakdown.meals.min, planCostBreakdown.meals.max]
@@ -431,16 +443,11 @@ export function TripCostBreakdownWidget({
       : "Your plan cost"
     : t("planner.budgetEstimate.estimatedTripTotal");
 
-  // Alternatives replace this stop on the same visit date. Reuse party mix,
-  // but never carry venue-specific product, channel, slot, or add-on choices.
+  // The planner supplies this widget the primary stop's date (day 2 when the
+  // generated plan places it there). The current estimate and alternatives
+  // share that date. Reuse party mix, but never carry venue-specific choices.
   const alternativeAdmissionSelection = useMemo(
-    () =>
-      admissionSelection
-        ? {
-            adultCount: admissionSelection.adultCount,
-            childCount: admissionSelection.childCount,
-          }
-        : undefined,
+    () => getAlternativeAdmissionSelection(admissionSelection),
     [admissionSelection],
   );
 

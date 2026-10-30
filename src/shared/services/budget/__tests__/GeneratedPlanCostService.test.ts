@@ -5,6 +5,7 @@ import {
 } from "../GeneratedPlanCostService";
 import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
+import { calculateTripEstimateForVisit } from "../tripEstimateEngine";
 
 function makePlan(
   dest: Destination,
@@ -74,13 +75,25 @@ describe("GeneratedPlanCostService", () => {
 
     expect(cost.admission.min).toBe(3000); // 1500 * 2
     expect(cost.admission.source).toBe("curated");
-    expect(cost.admission.admissionPricingBasis).toBe("fixed_price");
+    expect(cost.admission.admissionPricingBasis).toBeUndefined();
     expect(cost.originTransport.source).toBe("unknown");
     // Origin travel is not applicable without origin coordinates. The
     // bounded total is complete even though evidence quality stays estimated.
     expect(cost.completeness).toBe("complete");
     expect(cost.knownSubtotal[0]).toBeGreaterThan(0);
     expect(cost.confidence).toBe("estimated");
+
+    const mainAdmission = calculateTripEstimateForVisit({
+      dest: manualDest,
+      partySize: 2,
+      duration: "fullDay",
+      includeOriginTravel: false,
+    }).components.find((component) => component.evidence.scope === "admission");
+    expect(mainAdmission?.cost).toEqual({
+      kind: "bounded",
+      min: cost.admission.min,
+      max: cost.admission.max,
+    });
   });
 
   it("infers one party-level accommodation range from 3D2N", () => {

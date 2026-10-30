@@ -123,6 +123,8 @@ vi.mock("../components/DestinationPlanningSection", () => ({
     travelDate?: string;
     childCount?: number;
     admissionSelection?: AdmissionPriceSelection;
+    onPartySizeChange?: (partySize: number) => void;
+    onChildCountChange?: (childCount: number | undefined) => void;
   }) => {
     planningState.selectedTransport = props.selectedTransport ?? null;
     planningState.partySize = props.partySize;
@@ -132,6 +134,8 @@ vi.mock("../components/DestinationPlanningSection", () => ({
     planningState.travelDate = props.travelDate;
     planningState.childCount = props.childCount;
     planningState.admissionSelection = props.admissionSelection;
+    planningState.changePartySize = props.onPartySizeChange;
+    planningState.changeChildCount = props.onChildCountChange;
     if (!planningState.renderCostWidget || !props.destination) return null;
     return (
       <TripCostBreakdownWidget
@@ -281,6 +285,9 @@ const planningState = vi.hoisted(() => ({
   travelDate: undefined as string | undefined,
   childCount: undefined as number | undefined,
   admissionSelection: undefined as AdmissionPriceSelection | undefined,
+  changePartySize: undefined as ((partySize: number) => void) | undefined,
+  changeChildCount: undefined as
+    ((childCount: number | undefined) => void) | undefined,
   renderCostWidget: false,
 }));
 
@@ -360,6 +367,8 @@ beforeEach(() => {
   planningState.travelDate = undefined;
   planningState.childCount = undefined;
   planningState.admissionSelection = undefined;
+  planningState.changePartySize = undefined;
+  planningState.changeChildCount = undefined;
   planningState.renderCostWidget = false;
   sessionStorage.clear();
   host = document.createElement("div");
@@ -576,6 +585,51 @@ describe("DestinationDetails transport rows", () => {
     expect(planningState.selectedTransport).toBe("train");
     expect(planningState.partySize).toBe(3);
     expect(planningState.duration).toBe("2d1n");
+  });
+
+  it("keeps a party-size edit local when the trip context was not explicit", async () => {
+    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view");
+    await act(async () => {
+      await flush(80);
+    });
+
+    act(() => planningState.changePartySize?.(3));
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.partySize).toBe(3);
+    expect(sessionStorage.getItem("meguruto-active-trip-context")).toBeNull();
+  });
+
+  it("removes nav-provided party composition when child count is cleared", async () => {
+    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view", {
+      partySize: 2,
+      childCount: 1,
+      admissionSelection: {
+        productId: "standard",
+        adultCount: 1,
+        childCount: 1,
+      },
+    });
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.admissionSelection).toEqual({
+      productId: "standard",
+      adultCount: 1,
+      childCount: 1,
+    });
+    act(() => planningState.changeChildCount?.(undefined));
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.childCount).toBeUndefined();
+    expect(planningState.admissionSelection).toEqual({
+      productId: "standard",
+    });
   });
 
   it("migrates a minimal stale destination-only session context", async () => {

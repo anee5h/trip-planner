@@ -42,6 +42,7 @@ export interface CostComponent {
     | "unknown";
   admissionPricingBasis?: AdmissionPricingBasis;
   admissionCompositionAssumed?: boolean;
+  admissionPriceOptionsBacked?: boolean;
   tollsExcluded?: boolean;
 }
 
@@ -117,6 +118,9 @@ function toPlanComponent(
     ...(component.evidence.admissionCompositionAssumed
       ? { admissionCompositionAssumed: true }
       : {}),
+    ...(component.evidence.admissionPriceOptionsBacked
+      ? { admissionPriceOptionsBacked: true }
+      : {}),
     ...(component.evidence.tollsExcluded ? { tollsExcluded: true } : {}),
   };
 }
@@ -134,7 +138,11 @@ function sumComponents(
   );
   const missingAdmissionBasis =
     includeAdmissionEvidence &&
-    paidItems.some((item) => item.admissionPricingBasis === undefined);
+    paidItems.some(
+      (item) =>
+        item.admissionPriceOptionsBacked &&
+        item.admissionPricingBasis === undefined,
+    );
   const estimated =
     items.some((item) => item.source === "estimated") || missingAdmissionBasis;
   const admissionPricingBasis =

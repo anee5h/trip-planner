@@ -6,17 +6,32 @@ import type {
   Destination,
 } from "@/shared/types/destination";
 import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
+import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
 
 const plannerCapture = vi.hoisted(() => ({
   selectionRefs: [] as unknown[],
   generatedPlan: null as unknown,
+  locale: "en" as "en" | "ja",
 }));
 
 vi.mock("@/shared/hooks/useFullCatalogue", () => ({
   useFullCatalogue: () => ({ loading: true, error: null, retry: vi.fn() }),
 }));
 vi.mock("react-i18next", () => ({
-  useTranslation: () => ({ t: (key: string) => key }),
+  useTranslation: () => ({
+    t: (key: string) =>
+      plannerCapture.locale === "ja"
+        ? ((
+            {
+              "planner.admissionOptions.product": "商品",
+              "planner.admissionOptions.addOns": "追加オプション",
+              "planner.admissionPartyComposition.children": "子どもの人数",
+              "planner.admissionPartyComposition.assumingAdults":
+                "全員を大人として計算",
+            } as Record<string, string>
+          )[key] ?? key)
+        : key,
+  }),
 }));
 vi.mock("../DayPlanWidget", () => ({
   DayPlanWidget: ({
@@ -92,6 +107,7 @@ function renderPlanningSection(
     compactUnavailableCost?: boolean;
     onChildCountChange?: (childCount: number | undefined) => void;
     onPlanGenerated?: (plan: DayPlan | null) => void;
+    locale?: "en" | "ja";
   } = {},
 ) {
   if (!host) {
@@ -100,11 +116,13 @@ function renderPlanningSection(
     document.body.appendChild(host);
     root = createRoot(host);
   }
+  plannerCapture.locale = options.locale ?? "en";
   act(() => {
     root!.render(
       <DestinationPlanningSection
+        key={destination.id}
         destination={destination}
-        locale="en"
+        locale={options.locale ?? "en"}
         partySize={options.partySize ?? 4}
         childCount={options.childCount}
         admissionSelection={options.admissionSelection}
@@ -208,6 +226,13 @@ describe("DestinationPlanningSection", () => {
             category: "adult",
             min: 1000,
             max: 1000,
+          },
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "child",
+            min: 500,
+            max: 500,
           },
         ],
       },
@@ -362,7 +387,7 @@ describe("DestinationPlanningSection", () => {
     expect(host!.querySelector('input[inputmode="numeric"]')).not.toBeNull();
   });
 
-  it("keeps the cost selection unchanged and flags an oversized child count", () => {
+  it("rejects invalid child drafts and clears stale party composition immediately", () => {
     const destination = {
       id: "child-count-error",
       name: "Child Count Error",
@@ -393,25 +418,33 @@ describe("DestinationPlanningSection", () => {
         ],
       },
     } as unknown as Destination;
+    const onChildCountChange = vi.fn();
     renderPlanningSection(destination, {
       partySize: 3,
-      admissionSelection: { adultCount: 3, childCount: 0 },
+      childCount: 1,
+      onChildCountChange,
+      admissionSelection: {
+        productId: "standard",
+        adultCount: 2,
+        childCount: 1,
+      },
     });
     const input = host!.querySelector<HTMLInputElement>(
       'input[inputmode="numeric"]',
     )!;
-    const costNoteBefore = host!.querySelector(
-      '[data-testid="cost-selection"]',
-    )!.textContent;
+    const typeValue = (value: string) => {
+      act(() => {
+        const setter = Object.getOwnPropertyDescriptor(
+          window.HTMLInputElement.prototype,
+          "value",
+        )?.set;
+        setter?.call(input, value);
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+      });
+    };
 
-    act(() => {
-      const setter = Object.getOwnPropertyDescriptor(
-        window.HTMLInputElement.prototype,
-        "value",
-      )?.set;
-      setter?.call(input, "9");
-      input.dispatchEvent(new Event("input", { bubbles: true }));
-    });
+    typeValue("5");
+    expect(onChildCountChange).toHaveBeenLastCalledWith(undefined);
 
     expect(input.getAttribute("aria-invalid")).toBe("true");
     expect(input.getAttribute("aria-describedby")).toContain("-error");
@@ -419,8 +452,30 @@ describe("DestinationPlanningSection", () => {
       "planner.admissionPartyComposition.exceedsPartySize",
     );
     expect(
-      host!.querySelector('[data-testid="cost-selection"]')!.textContent,
-    ).toBe(costNoteBefore);
+      JSON.parse(
+        host!.querySelector('[data-testid="cost-selection"]')!.textContent!,
+      ),
+    ).toEqual({ productId: "standard" });
+
+    for (const invalid of ["abc", "1.5", "1e1", "-1"]) {
+      typeValue(invalid);
+      expect(input.getAttribute("aria-invalid")).toBe("true");
+      expect(host!.textContent).toContain(
+        "planner.admissionPartyComposition.invalidCount",
+      );
+      expect(
+        JSON.parse(
+          host!.querySelector('[data-testid="cost-selection"]')!.textContent!,
+        ),
+      ).toEqual({ productId: "standard" });
+    }
+
+    typeValue("");
+    expect(onChildCountChange).toHaveBeenLastCalledWith(undefined);
+    expect(input.getAttribute("aria-invalid")).toBeNull();
+    expect(host!.textContent).toContain(
+      "planner.admissionPartyComposition.assumingAdults",
+    );
   });
 
   it("lets travelers select a ticket product, channel, time slot, and add-on", () => {
@@ -447,6 +502,10 @@ describe("DestinationPlanningSection", () => {
           ...["standard", "premium"].flatMap((productId, index) => [
             {
               productId,
+              productName:
+                productId === "standard"
+                  ? { en: "1-Day Pass", ja: "1日券" }
+                  : { en: "2-Day Pass", ja: "2日券" },
               variantId: "entry",
               category: "adult" as const,
               min: index ? 2000 : 1000,
@@ -466,6 +525,7 @@ describe("DestinationPlanningSection", () => {
           ]),
           {
             productId: "guide",
+            productName: { en: "Audio Guide", ja: "音声ガイド" },
             variantId: "audio-guide",
             category: "adult" as const,
             min: 500,
@@ -477,10 +537,32 @@ describe("DestinationPlanningSection", () => {
         ],
       },
     } as unknown as Destination;
-    renderPlanningSection(destination, { partySize: 2, childCount: 1 });
-    const product = host!.querySelector<HTMLSelectElement>(
-      '[aria-label="planner.admissionOptions.product"]',
-    )!;
+    renderPlanningSection(destination, {
+      partySize: 2,
+      childCount: 1,
+      locale: "ja",
+    });
+    const product = host!.querySelector<HTMLSelectElement>("select")!;
+    expect(product.labels[0]?.textContent).toContain("商品");
+    expect(
+      Array.from(product.options).map((option) => option.textContent),
+    ).toContain("1日券");
+    expect(
+      Array.from(product.options).map((option) => option.textContent),
+    ).toContain("2日券");
+    expect(product.hasAttribute("aria-label")).toBe(false);
+    expect(
+      Array.from(host!.querySelectorAll("label")).some((label) =>
+        label.textContent?.includes("音声ガイド"),
+      ),
+    ).toBe(true);
+    expect(
+      Array.from(product.options).map((option) => option.textContent),
+    ).not.toContain("standard");
+    const addOnLabel = Array.from(host!.querySelectorAll("label")).find(
+      (label) => label.textContent?.includes("音声ガイド"),
+    );
+    expect(addOnLabel?.textContent).not.toContain("guide");
     const channel = host!.querySelector<HTMLSelectElement>(
       '[aria-label="planner.admissionOptions.channel"]',
     )!;
@@ -594,6 +676,13 @@ describe("DestinationPlanningSection", () => {
             min: 1000,
             max: 1000,
           },
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "child",
+            min: 500,
+            max: 500,
+          },
         ],
       },
     } as unknown as Destination;
@@ -603,7 +692,19 @@ describe("DestinationPlanningSection", () => {
       duration: "fullDay",
       travelDate: "2026-01-01",
       title: { en: "Generated", ja: "生成" },
-      steps: [],
+      steps: [
+        {
+          id: "step-1",
+          day: 2,
+          type: "destination",
+          timeBlock: "morning",
+          startTime: "09:00",
+          endTime: "11:00",
+          durationMinutes: 120,
+          destination,
+          title: { en: "Live Plan Selection", ja: "最新の計画選択" },
+        },
+      ],
       totalDurationMinutes: 0,
       isOverfilled: false,
       uncertainHoursDisclosures: [],
@@ -634,7 +735,104 @@ describe("DestinationPlanningSection", () => {
     expect(published.at(-1)).toMatchObject({
       travelDate: "2026-11-14",
       admissionSelection: { adultCount: 1, childCount: 3 },
+      totalBudgetRange: expect.any(Array),
     });
+    const latestPlan = published.at(-1)!;
+    expect(latestPlan.totalBudgetRange).toEqual(
+      calculateGeneratedPlanCost(latestPlan, 4, null, false, undefined, {
+        travelDate: "2026-11-14",
+        admissionSelection: latestPlan.admissionSelection,
+      }).totalRange,
+    );
+    expect(
+      host!
+        .querySelector('[data-testid="cost-selection"]')
+        ?.getAttribute("data-visit-date"),
+    ).toBe("2026-11-15");
     plannerCapture.generatedPlan = null;
+  });
+
+  it("clears ticket selection and child draft when switching destination", () => {
+    const firstDestination = {
+      id: "switch-from",
+      name: "Switch From",
+      kind: "museum",
+      role: "poi",
+      prefecture: "Tokyo",
+      region: "Kanto",
+      categories: ["Culture"],
+      coordinates: { lat: 35.68, lng: 139.76 },
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+          {
+            productId: "premium",
+            variantId: "entry",
+            category: "adult",
+            min: 2000,
+            max: 2000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    const secondDestination = {
+      ...firstDestination,
+      id: "switch-to",
+      name: "Switch To",
+      admission: {
+        ...firstDestination.admission,
+        priceOptions: [
+          {
+            productId: "basic",
+            variantId: "entry",
+            category: "adult" as const,
+            min: 500,
+            max: 500,
+          },
+        ],
+      },
+    } as unknown as Destination;
+
+    renderPlanningSection(firstDestination, {
+      childCount: 1,
+      admissionSelection: {
+        productId: "premium",
+        adultCount: 3,
+        childCount: 1,
+      },
+    });
+    expect(
+      host!.querySelector<HTMLInputElement>('input[inputmode="numeric"]')
+        ?.value,
+    ).toBe("1");
+    expect(
+      JSON.parse(
+        host!.querySelector('[data-testid="day-plan-selection"]')!.textContent!,
+      ).productId,
+    ).toBe("premium");
+
+    renderPlanningSection(secondDestination, { partySize: 4 });
+    expect(
+      host!.querySelector<HTMLInputElement>('input[inputmode="numeric"]')
+        ?.value,
+    ).toBe("");
+    expect(
+      JSON.parse(
+        host!.querySelector('[data-testid="day-plan-selection"]')!.textContent!,
+      ).productId,
+    ).toBe("basic");
   });
 });

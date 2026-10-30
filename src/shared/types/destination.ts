@@ -239,6 +239,8 @@ export type AdmissionPriceDayType = AdmissionDayType | "weekend_or_holiday";
  */
 export interface AdmissionPriceOption {
   readonly productId: string;
+  /** Human-facing name for selectors; productId remains the stable key. */
+  readonly productName?: Readonly<{ en: string; ja: string }>;
   readonly variantId: string;
   readonly category: AdmissionVisitorCategory;
   readonly min: number;

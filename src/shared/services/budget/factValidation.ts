@@ -120,6 +120,16 @@ function validateAdmissionPriceOptions(
     if (
       typeof option.productId !== "string" ||
       !option.productId.trim() ||
+      (option.productName !== undefined &&
+        (!option.productName ||
+          typeof option.productName !== "object" ||
+          Array.isArray(option.productName) ||
+          typeof (option.productName as Record<string, unknown>).en !==
+            "string" ||
+          !(option.productName as Record<string, string>).en.trim() ||
+          typeof (option.productName as Record<string, unknown>).ja !==
+            "string" ||
+          !(option.productName as Record<string, string>).ja.trim())) ||
       typeof option.variantId !== "string" ||
       !option.variantId.trim() ||
       (option.category !== "adult" && option.category !== "child") ||

@@ -1,6 +1,7 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type {
+  AdmissionPriceOption,
   AdmissionPriceSelection,
   Destination,
 } from "@/shared/types/destination";
@@ -58,6 +59,20 @@ function getDistinctOptionValues<T extends string>(
   return [...new Set(values.filter((value): value is T => Boolean(value)))];
 }
 
+function getLocalizedAdmissionPriceOption(
+  options: readonly AdmissionPriceOption[],
+  productId: string,
+  locale: "en" | "ja",
+  fallback: string,
+): string {
+  const name = options.find(
+    (option) => option.productId === productId,
+  )?.productName;
+  return (
+    name?.[locale]?.trim() || name?.en?.trim() || name?.ja?.trim() || fallback
+  );
+}
+
 export function getPlannerTransportScopeNotice(
   locale: "en" | "ja",
   hasOrigin: boolean,
@@ -110,6 +125,7 @@ export function DestinationPlanningSection({
   const childCountInputId = useId();
   const childCountHelpId = `${childCountInputId}-help`;
   const childCountErrorId = `${childCountInputId}-error`;
+  const previousPartySize = useRef(partySize);
   const lastPublishedPlan = useRef<DayPlan | null>(null);
   const configuredTicketSelection =
     selectionOverride?.destinationId === destination.id
@@ -170,31 +186,22 @@ export function DestinationPlanningSection({
   }, [configuredTicketSelection, requiredProductIds, channels, timeSlots]);
 
   useEffect(() => {
+    if (previousPartySize.current === partySize) return;
+    previousPartySize.current = partySize;
     setActivePartySize(partySize);
     setChildCountOverride(null);
-    setChildCountDraft(childCount === undefined ? "" : String(childCount));
-  }, [partySize, childCount]);
+    setChildCountDraft("");
+  }, [partySize]);
 
   useEffect(() => {
     setSelectionOverride(null);
-  }, [destination.id, admissionSelection]);
-
-  useEffect(() => {
-    setChildCountOverride(null);
-  }, [destination.id, childCount]);
-
-  useEffect(() => {
-    setChildCountDraft(
-      selectedChildCount === undefined ? "" : String(selectedChildCount),
-    );
-  }, [destination.id, activePartySize, selectedChildCount]);
+  }, [admissionSelection]);
 
   const handlePartySizeChange = (nextPartySize: number) => {
     setActivePartySize(nextPartySize);
     setChildCountOverride({ destinationId: destination.id, value: null });
     setChildCountDraft("");
     onPartySizeChange?.(nextPartySize);
-    onChildCountChange?.(undefined);
   };
   const activeAdmissionSelection = useMemo(
     () =>
@@ -219,11 +226,14 @@ export function DestinationPlanningSection({
     ),
   );
   const childCountError =
-    /^\d+$/.test(childCountDraft) && Number(childCountDraft) > activePartySize
-      ? t("planner.admissionPartyComposition.exceedsPartySize")
-      : /^-\d+$/.test(childCountDraft)
+    childCountDraft === ""
+      ? undefined
+      : !/^\d+$/.test(childCountDraft) ||
+          !Number.isSafeInteger(Number(childCountDraft))
         ? t("planner.admissionPartyComposition.invalidCount")
-        : undefined;
+        : Number(childCountDraft) > activePartySize
+          ? t("planner.admissionPartyComposition.exceedsPartySize")
+          : undefined;
   const updateTicketSelection = (patch: Partial<AdmissionPriceSelection>) => {
     const nextSelection = { ...selectedTicketSelection, ...patch };
     setSelectionOverride({
@@ -297,24 +307,6 @@ export function DestinationPlanningSection({
   const costContextVisitDate = hasValidGeneratedPlan
     ? visitDateForStep(travelDate, { day: primaryPlanDay ?? firstPaidStopDay })
     : travelDate;
-  const livePlan = useMemo(
-    () =>
-      generatedPlan
-        ? {
-            ...generatedPlan,
-            travelDate,
-            admissionSelection: activeAdmissionSelection,
-          }
-        : null,
-    [generatedPlan, travelDate, activeAdmissionSelection],
-  );
-
-  useEffect(() => {
-    if (!generatedPlan && !lastPublishedPlan.current) return;
-    onPlanGenerated?.(livePlan);
-    lastPublishedPlan.current = livePlan;
-  }, [generatedPlan, livePlan, onPlanGenerated]);
-
   // Origin transport is priced once when a saved origin is available; local
   // transit remains a separate profile/fact and is never inferred from an
   // origin fare.
@@ -324,17 +316,51 @@ export function DestinationPlanningSection({
       : selectedTransport === "train" || selectedTransport === "shinkansen"
         ? "train"
         : null;
-  const costBreakdown =
-    hasValidGeneratedPlan && generatedPlan
-      ? calculateGeneratedPlanCost(
-          generatedPlan,
-          activePartySize,
-          localTransitMode,
-          Boolean(homeCoords),
-          homeCoords,
-          { travelDate, admissionSelection: activeAdmissionSelection },
-        )
-      : undefined;
+  const costBreakdown = useMemo(
+    () =>
+      hasValidGeneratedPlan && generatedPlan
+        ? calculateGeneratedPlanCost(
+            generatedPlan,
+            activePartySize,
+            localTransitMode,
+            Boolean(homeCoords),
+            homeCoords,
+            { travelDate, admissionSelection: activeAdmissionSelection },
+          )
+        : undefined,
+    [
+      hasValidGeneratedPlan,
+      generatedPlan,
+      activePartySize,
+      localTransitMode,
+      homeCoords,
+      travelDate,
+      activeAdmissionSelection,
+    ],
+  );
+  const livePlan = useMemo(
+    () =>
+      generatedPlan
+        ? {
+            ...generatedPlan,
+            travelDate,
+            admissionSelection: activeAdmissionSelection,
+            totalBudgetRange: costBreakdown?.totalRange,
+          }
+        : null,
+    [
+      generatedPlan,
+      travelDate,
+      activeAdmissionSelection,
+      costBreakdown?.totalRange,
+    ],
+  );
+
+  useEffect(() => {
+    if (!generatedPlan && !lastPublishedPlan.current) return;
+    onPlanGenerated?.(livePlan);
+    lastPublishedPlan.current = livePlan;
+  }, [generatedPlan, livePlan, onPlanGenerated]);
 
   return (
     <div className="space-y-3 pb-2 md:pb-0">
@@ -360,25 +386,36 @@ export function DestinationPlanningSection({
               onChange={(event) => {
                 const value = event.currentTarget.value;
                 setChildCountDraft(value);
-                if (/^\d+$/.test(value)) {
-                  const count = Number(value);
-                  if (Number.isSafeInteger(count) && count <= activePartySize) {
-                    setChildCountOverride({
-                      destinationId: destination.id,
-                      value: count,
-                    });
-                    onChildCountChange?.(count);
-                  }
-                }
-              }}
-              onBlur={() => {
-                if (childCountDraft === "") {
+                if (value === "") {
                   setChildCountOverride({
                     destinationId: destination.id,
                     value: null,
                   });
                   onChildCountChange?.(undefined);
+                  return;
                 }
+                if (!/^\d+$/.test(value)) {
+                  setChildCountOverride({
+                    destinationId: destination.id,
+                    value: null,
+                  });
+                  onChildCountChange?.(undefined);
+                  return;
+                }
+                const count = Number(value);
+                if (!Number.isSafeInteger(count) || count > activePartySize) {
+                  setChildCountOverride({
+                    destinationId: destination.id,
+                    value: null,
+                  });
+                  onChildCountChange?.(undefined);
+                  return;
+                }
+                setChildCountOverride({
+                  destinationId: destination.id,
+                  value: count,
+                });
+                onChildCountChange?.(count);
               }}
               className="w-16 rounded-md border border-slate-300 bg-white px-2 py-1 text-sm text-slate-900 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
             />
@@ -408,7 +445,6 @@ export function DestinationPlanningSection({
             <label className="mt-2 flex flex-col gap-1 text-xs text-slate-700 dark:text-slate-200">
               {t("planner.admissionOptions.product")}
               <select
-                aria-label={t("planner.admissionOptions.product")}
                 value={selectedTicketSelection?.productId ?? ""}
                 onChange={(event) =>
                   updateTicketSelection({
@@ -418,9 +454,16 @@ export function DestinationPlanningSection({
                 className="rounded-md border border-slate-300 bg-white px-2 py-1 text-sm dark:border-slate-600 dark:bg-slate-800"
               >
                 <option value="">{t("planner.admissionOptions.choose")}</option>
-                {requiredProductIds.map((productId) => (
+                {requiredProductIds.map((productId, index) => (
                   <option key={productId} value={productId}>
-                    {productId}
+                    {getLocalizedAdmissionPriceOption(
+                      ticketOptions ?? [],
+                      productId,
+                      locale,
+                      t("planner.admissionOptions.productFallback", {
+                        number: index + 1,
+                      }),
+                    )}
                   </option>
                 ))}
               </select>
@@ -476,7 +519,7 @@ export function DestinationPlanningSection({
               <p className="text-xs font-medium text-slate-700 dark:text-slate-200">
                 {t("planner.admissionOptions.addOns")}
               </p>
-              {addOnProductIds.map((productId) => (
+              {addOnProductIds.map((productId, index) => (
                 <label
                   key={productId}
                   className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-200"
@@ -497,7 +540,14 @@ export function DestinationPlanningSection({
                       updateTicketSelection({ addOnProductIds: next });
                     }}
                   />
-                  {productId}
+                  {getLocalizedAdmissionPriceOption(
+                    ticketOptions ?? [],
+                    productId,
+                    locale,
+                    t("planner.admissionOptions.addOnFallback", {
+                      number: index + 1,
+                    }),
+                  )}
                 </label>
               ))}
             </div>
@@ -521,18 +571,7 @@ export function DestinationPlanningSection({
         onRetryCatalogue={retryCatalogue}
         defaultPlanType={fullDayDisabled ? "half_day" : undefined}
         fullDayDisabled={fullDayDisabled}
-        onSaveToItinerary={() =>
-          onSaveToItinerary(
-            generatedPlan
-              ? {
-                  ...livePlan!,
-                  travelDate,
-                  admissionSelection: activeAdmissionSelection,
-                  totalBudgetRange: costBreakdown?.totalRange,
-                }
-              : undefined,
-          )
-        }
+        onSaveToItinerary={() => onSaveToItinerary(livePlan ?? undefined)}
         onPlanGenerated={setGeneratedPlanState}
       />
 

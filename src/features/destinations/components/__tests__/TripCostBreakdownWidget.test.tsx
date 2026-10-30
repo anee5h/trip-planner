@@ -6,7 +6,10 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, describe, it, expect, vi } from "vitest";
-import { TripCostBreakdownWidget } from "../TripCostBreakdownWidget";
+import {
+  getAlternativeAdmissionSelection,
+  TripCostBreakdownWidget,
+} from "../TripCostBreakdownWidget";
 import * as tripEstimateEngine from "@/shared/services/budget/tripEstimateEngine";
 import type { Destination } from "@/shared/types/destination";
 import destinations from "@/shared/data/destinations-index.json";
@@ -583,6 +586,47 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     });
     return host.textContent ?? "";
   }
+
+  it("does not attach a price-options admission note to a legacy fact", async () => {
+    const text = await renderWithEngine({
+      completeness: "complete",
+      total: { kind: "bounded", min: 2000, max: 3000 },
+      components: [
+        {
+          cost: { kind: "bounded", min: 2000, max: 3000 },
+          evidence: { scope: "admission", derivation: "source_fact" },
+        },
+        {
+          cost: { kind: "not_applicable" },
+          evidence: { scope: "local_transport", derivation: "computed" },
+        },
+      ],
+      knownSubtotal: [2000, 3000],
+      missingComponents: [],
+    });
+
+    expect(text).not.toContain("Verified for selected date");
+    expect(text).not.toContain("Verified fixed ticket price");
+    expect(text).not.toContain("Verified published range");
+    expect(text).not.toContain("Estimated admission");
+  });
+
+  it("does not pass ticket-only choices to alternative destinations", () => {
+    expect(
+      getAlternativeAdmissionSelection({
+        productId: "standard",
+        channel: "online",
+        addOnProductIds: ["guide"],
+      }),
+    ).toBeUndefined();
+    expect(
+      getAlternativeAdmissionSelection({
+        productId: "standard",
+        adultCount: 2,
+        childCount: 1,
+      }),
+    ).toEqual({ adultCount: 2, childCount: 1 });
+  });
 
   it("A) partial trip: bounded admission shows its range, NOT Cost unavailable (KAI-217B round-6)", async () => {
     const text = await renderWithEngine({

@@ -355,9 +355,11 @@
     "budgetWholeParty": "グループ合計",
     "admissionOptions": {
       "product": "チケット商品",
+      "productFallback": "チケットの選択肢 {{number}}",
       "channel": "購入方法",
       "timeSlot": "時間帯",
       "addOns": "追加オプション",
+      "addOnFallback": "追加オプション {{number}}",
       "choose": "商品を選択",
       "any": "指定なし",
       "channels": {

@@ -6,6 +6,9 @@ import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, beforeEach, describe, it, expect, vi } from "vitest";
 import Destinations from "../Destinations";
+import { TripContextProvider } from "@/shared/context/TripContext";
+import * as travelConditions from "@/shared/services/recommendation/TravelConditions";
+import * as exploreBudget from "../exploreBudget";
 import { localizeDateConditionSummary } from "@/shared/utils/recommendationLabels";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -92,6 +95,8 @@ afterEach(() => {
   host?.remove();
   root = undefined;
   host = undefined;
+  sessionStorage.clear();
+  vi.restoreAllMocks();
 });
 
 function renderDestinations(entry = "/destinations") {
@@ -102,6 +107,29 @@ function renderDestinations(entry = "/destinations") {
     root!.render(
       <MemoryRouter initialEntries={[entry]}>
         <Destinations />
+      </MemoryRouter>,
+    );
+  });
+  return host;
+}
+
+function renderDestinationsWithContext(travelDate: string) {
+  host = document.createElement("div");
+  document.body.appendChild(host);
+  root = createRoot(host);
+  act(() => {
+    root!.render(
+      <MemoryRouter
+        initialEntries={[
+          {
+            pathname: "/destinations",
+            state: { travelDate, duration: "2d1n", partySize: 2 },
+          },
+        ]}
+      >
+        <TripContextProvider>
+          <Destinations />
+        </TripContextProvider>
       </MemoryRouter>,
     );
   });
@@ -159,6 +187,29 @@ describe("Destinations date filter", () => {
   it("ignores invalid URL dates", () => {
     const container = renderDestinations("/destinations?date=not-a-date");
     expect(dateFilterButton(container)?.textContent).toContain("Any date");
+  }, 20000);
+
+  it("uses a context date for admission pricing without enabling travel-date conditions", async () => {
+    const conditionSpy = vi.spyOn(travelConditions, "evaluateTravelConditions");
+    const budgetSpy = vi.spyOn(exploreBudget, "resolveExploreBudgetEstimate");
+    const container = renderDestinationsWithContext("2030-06-15");
+    await act(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 60));
+    });
+
+    expect(dateFilterButton(container)?.textContent).toContain("Any date");
+    expect(container.textContent).not.toContain("Typical conditions");
+    expect(conditionSpy).not.toHaveBeenCalled();
+    expect(
+      budgetSpy.mock.calls.some(
+        ([, context]) => context.visitDate === "2030-06-15",
+      ),
+    ).toBe(true);
+    expect(
+      budgetSpy.mock.calls.every(
+        ([, context]) => context.ferryTemporal === undefined,
+      ),
+    ).toBe(true);
   }, 20000);
 
   it("date picker calendar enforces today as minimum", () => {

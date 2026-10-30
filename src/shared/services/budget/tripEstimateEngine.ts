@@ -354,9 +354,6 @@ function admissionFromLegacy(
           : "source_fact",
       state: state.state,
       provenance: state.provenance,
-      ...(state.state === "verified_paid"
-        ? { admissionPricingBasis: "fixed_price" as const }
-        : {}),
     },
   );
 }
@@ -428,6 +425,7 @@ function admissionComponent(
         reason: fact.reasonCode,
         sourceUrls: fact.sourceUrls,
         derivation: compositionAssumed ? "model_estimate" : "source_fact",
+        admissionPriceOptionsBacked: true,
         ...(compositionAssumed
           ? { admissionCompositionAssumed: true }
           : { admissionPricingBasis }),
@@ -450,14 +448,6 @@ function admissionComponent(
       );
     case "bounded": {
       const total = scalePerPerson([fact.cost.min, fact.cost.max], partySize);
-      const admissionPricingBasis =
-        fact.state === "variable_price"
-          ? "supported_range"
-          : fact.state === "verified_paid"
-            ? fact.cost.min === fact.cost.max
-              ? "fixed_price"
-              : "supported_range"
-            : undefined;
       return component(
         { kind: "bounded", min: total[0], max: total[1] },
         {
@@ -466,7 +456,6 @@ function admissionComponent(
             fact.state === "documented_estimate"
               ? "model_estimate"
               : "source_fact",
-          ...(admissionPricingBasis ? { admissionPricingBasis } : {}),
         },
       );
     }

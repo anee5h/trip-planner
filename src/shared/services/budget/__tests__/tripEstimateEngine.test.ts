@@ -58,6 +58,24 @@ function component(
 }
 
 describe("KAI-260 TripEstimateEngine", () => {
+  it("does not add a price-options label basis to legacy admission facts", () => {
+    const estimate = calculateTripEstimate({
+      dest: destination(),
+      partySize: 2,
+      duration: "fullDay",
+      includeOriginTravel: false,
+    });
+    const admission = component(estimate, "admission");
+
+    expect(admission.cost).toEqual({
+      kind: "bounded",
+      min: 2000,
+      max: 3000,
+    });
+    expect(admission.evidence.admissionPricingBasis).toBeUndefined();
+    expect(admission.evidence.admissionPriceOptionsBacked).toBeUndefined();
+  });
+
   it("makes the header mode total equal the widget total for dated ticket options", () => {
     const datedDestination = destination({
       admission: {

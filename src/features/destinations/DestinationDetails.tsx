@@ -180,6 +180,7 @@ import {
 } from "@/shared/hooks/useWeather";
 import { calculateTripEstimateForVisit } from "@/shared/services/budget/tripEstimateEngine";
 import { selectionWithPartyComposition } from "@/shared/services/budget/admissionPricing";
+import { resolveChildCount } from "@/shared/utils/tripComposition";
 import { getTransportDisplayCost } from "@/shared/services/budget/transportDisplayCost";
 import {
   buildPersonalCarCostOptions,
@@ -415,29 +416,40 @@ export default function DestinationDetails() {
       ? childCountOverride?.value
       : (navState?.childCount ??
         (hasExplicitTripContext ? tripContext.childCount : undefined));
-  const childCount =
-    Number.isInteger(requestedChildCount) &&
-    requestedChildCount! >= 0 &&
-    requestedChildCount! <= partySize
-      ? requestedChildCount
-      : undefined;
+  const childCount = resolveChildCount({
+    partySize,
+    childCount: requestedChildCount,
+  });
+  const childCountWasCleared = Boolean(
+    childCountOverride &&
+    childCountOverride.destinationId === id &&
+    childCountOverride.value === undefined,
+  );
   const pageTicketSelection =
     ticketSelectionOverride?.destinationId === id
       ? ticketSelectionOverride?.value
       : navState?.admissionSelection;
   const activeAdmissionSelection = useMemo(
     () =>
-      selectionWithPartyComposition(pageTicketSelection, partySize, childCount),
-    [pageTicketSelection, partySize, childCount],
+      selectionWithPartyComposition(
+        pageTicketSelection,
+        partySize,
+        childCountWasCleared ? null : childCount,
+      ),
+    [pageTicketSelection, partySize, childCount, childCountWasCleared],
   );
   const handlePartySizeChange = (nextPartySize: number) => {
     setPartySizeOverride({ destinationId: id ?? "", value: nextPartySize });
     setChildCountOverride({ destinationId: id ?? "", value: undefined });
-    updateTripContext({ partySize: nextPartySize, childCount: undefined });
+    if (hasExplicitTripContext) {
+      updateTripContext({ partySize: nextPartySize, childCount: undefined });
+    }
   };
   const handleChildCountChange = (nextChildCount: number | undefined) => {
     setChildCountOverride({ destinationId: id ?? "", value: nextChildCount });
-    updateTripContext({ childCount: nextChildCount });
+    if (hasExplicitTripContext) {
+      updateTripContext({ childCount: nextChildCount });
+    }
   };
   // Relationship-backed detail sections use a compact generated graph of
   // relationship-relevant nodes, not the nationwide summary catalogue.
@@ -2022,6 +2034,7 @@ export default function DestinationDetails() {
 
               {/* Progressive Planning Section */}
               <DestinationPlanningSection
+                key={destination.id}
                 destination={destination}
                 locale={locale}
                 partySize={partySize}
@@ -2030,7 +2043,7 @@ export default function DestinationDetails() {
                 compactUnavailableCost={isHub}
                 ferryTemporal={ferryTemporal}
                 travelDate={activeTravelDate}
-                admissionSelection={pageTicketSelection}
+                admissionSelection={activeAdmissionSelection}
                 childCount={childCount}
                 onChildCountChange={handleChildCountChange}
                 onAdmissionSelectionChange={(selection) =>

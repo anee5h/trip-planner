@@ -136,6 +136,7 @@ import {
   resolveExploreBudgetEstimate,
   type ExploreBudgetEstimate,
 } from "./exploreBudget";
+import { resolveChildCount } from "@/shared/utils/tripComposition";
 import {
   applyTripContextBudgetToExplorerState,
   budgetParamsPresent,
@@ -277,9 +278,12 @@ export default function Destinations() {
       ? (tripContext.travelDate ?? undefined)
       : undefined;
   const estimateTravelDate = date || contextTravelDate;
+  const estimateVisitDate = estimateTravelDate
+    ? deriveTripDates(estimateTravelDate, tripDuration).day1
+    : undefined;
   const estimateChildCount =
     hasExplicitTripContext && tripContext.partySize === partySize
-      ? tripContext.childCount
+      ? resolveChildCount(tripContext)
       : undefined;
   const query = searchQuery.toLowerCase().trim();
 
@@ -293,9 +297,9 @@ export default function Destinations() {
   // Shared trip-date model: Day 1 + derived Day 2 for 2D1N. Omitted date
   // means no explicit date — any-date browsing is never silently "today".
   const travelDates = useMemo(() => {
-    if (!estimateTravelDate) return undefined;
-    return deriveTripDates(estimateTravelDate, tripDuration);
-  }, [estimateTravelDate, tripDuration]);
+    if (!date) return undefined;
+    return deriveTripDates(date, tripDuration);
+  }, [date, tripDuration]);
   const ferryTemporal = useMemo(
     () =>
       travelDates
@@ -538,7 +542,7 @@ export default function Destinations() {
         publicModes: effectivePublicModes,
         partySize,
         duration: tripDuration,
-        visitDate: travelDates?.day1,
+        visitDate: estimateVisitDate,
         childCount: estimateChildCount,
         budgetTier: budgetTier === "any" ? undefined : budgetTier,
         ferryTemporal,
@@ -1250,7 +1254,7 @@ export default function Destinations() {
     resolvedPublicModes,
     partySize,
     estimateChildCount,
-    tripContext.childCount,
+    estimateVisitDate,
     budgetTier,
     tripDuration,
     walkingIntensity,

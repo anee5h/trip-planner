@@ -355,9 +355,11 @@
     "budgetWholeParty": "for the whole party",
     "admissionOptions": {
       "product": "Ticket product",
+      "productFallback": "Ticket option {{number}}",
       "channel": "Purchase channel",
       "timeSlot": "Time slot",
       "addOns": "Optional add-ons",
+      "addOnFallback": "Add-on {{number}}",
       "choose": "Choose a product",
       "any": "Any",
       "channels": {

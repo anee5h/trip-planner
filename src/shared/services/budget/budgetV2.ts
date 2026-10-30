@@ -131,6 +131,8 @@ export interface ComponentEvidence {
   /** How a reviewed admission option became a party price. */
   readonly admissionPricingBasis?: AdmissionPricingBasis;
   readonly admissionCompositionAssumed?: boolean;
+  /** Set only when this admission amount was resolved from priceOptions. */
+  readonly admissionPriceOptionsBacked?: boolean;
   readonly sourceUrls?: readonly string[];
   readonly assumptionProvenance?: CostAssumptionProvenance;
   /** True when a car estimate intentionally excludes unknown tolls. */
