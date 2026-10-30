@@ -21,6 +21,7 @@
  */
 
 import type {
+  AdmissionPriceSelection,
   Destination,
   LocalTransportAccess,
 } from "@/shared/types/destination";
@@ -53,6 +54,11 @@ import { buildCarJourney } from "@/shared/services/transport/CarJourneyBuilder";
 import { getDistanceKm } from "@/shared/services/transport/TransportEstimator";
 import { resolveAdmissionApplicability } from "@/shared/services/budget/admissionApplicability";
 import {
+  resolveAdmissionPricing,
+  selectionForPartySize,
+  selectionWithPartyComposition,
+} from "@/shared/services/budget/admissionPricing";
+import {
   isVerifiedFree,
   normalizeBudgetState,
 } from "@/shared/services/budget/budgetState";
@@ -76,6 +82,9 @@ export interface TripEstimateContext {
   readonly dest: Destination;
   readonly mode?: string;
   readonly partySize?: number;
+  /** ISO visit date used for date-dependent admission products. */
+  readonly visitDate?: string;
+  readonly admissionSelection?: AdmissionPriceSelection;
   readonly homeCoords?: { lat: number; lng: number };
   readonly duration: TripDuration;
   readonly budgetTier?: BudgetTier;
@@ -233,6 +242,7 @@ function admissionUnavailable(
   reason:
     | "source_missing"
     | "price_variable_by_date"
+    | "price_variable_by_time"
     | "price_variable_by_product" = "source_missing",
 ): TripCostComponent {
   return component(
@@ -351,6 +361,8 @@ function admissionFromLegacy(
 function admissionComponent(
   dest: Destination,
   partySize: number,
+  visitDate?: string,
+  selection?: AdmissionPriceSelection,
 ): TripCostComponent {
   const fact = dest.admission;
   const applicability = resolveAdmissionApplicability(dest);
@@ -382,6 +394,44 @@ function admissionComponent(
 
   const validation = validateAdmissionFact(fact);
   if (!validation.valid) return admissionUnavailable();
+
+  if (fact.priceOptions?.length) {
+    const normalizedSelection = selectionForPartySize(selection, partySize);
+    const compositionAssumed =
+      normalizedSelection?.adultCount === undefined ||
+      normalizedSelection.childCount === undefined;
+    const pricingSelection = compositionAssumed
+      ? { ...normalizedSelection, adultCount: partySize, childCount: 0 }
+      : normalizedSelection;
+    const pricing = resolveAdmissionPricing(
+      fact.priceOptions,
+      partySize,
+      visitDate,
+      pricingSelection,
+    );
+    if (pricing.kind === "unavailable") {
+      return admissionUnavailable(pricing.reason);
+    }
+    const admissionPricingBasis =
+      fact.state === "variable_price" && pricing.basis !== "supported_range"
+        ? "supported_range"
+        : pricing.basis;
+    return component(
+      { kind: "bounded", min: pricing.min, max: pricing.max },
+      {
+        scope: "admission",
+        state: compositionAssumed ? "documented_estimate" : fact.state,
+        provenance: compositionAssumed ? "model" : fact.provenance,
+        reason: fact.reasonCode,
+        sourceUrls: fact.sourceUrls,
+        derivation: compositionAssumed ? "model_estimate" : "source_fact",
+        admissionPriceOptionsBacked: true,
+        ...(compositionAssumed
+          ? { admissionCompositionAssumed: true }
+          : { admissionPricingBasis }),
+      },
+    );
+  }
 
   const evidence = {
     scope: "admission" as const,
@@ -985,6 +1035,14 @@ function qualityFor(components: readonly TripCostComponent[]): EstimateQuality {
     return "rough";
   }
 
+  if (
+    components.some(
+      (item) => item.evidence.admissionCompositionAssumed === true,
+    )
+  ) {
+    return "rough";
+  }
+
   const hasModelEstimate = components.some(
     (item) =>
       item.evidence.derivation === "model_estimate" &&
@@ -1080,7 +1138,12 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
         scopedCarRoute,
         context.carCostOptions,
       );
-  const admission = admissionComponent(context.dest, partySize);
+  const admission = admissionComponent(
+    context.dest,
+    partySize,
+    context.visitDate,
+    context.admissionSelection,
+  );
   const local = localTransportComponent(context.dest, partySize);
   const estimateTier = estimateTierForBudget(context.budgetTier);
   const meals = mealsComponent(
@@ -1166,6 +1229,23 @@ export function calculateTripEstimate(
   context: TripEstimateContext,
 ): TripEstimateResult {
   return TripEstimateEngine.estimate(context);
+}
+
+/** Shared date and party-composition adapter for user-facing estimate paths. */
+export function calculateTripEstimateForVisit(
+  context: TripEstimateContext & { readonly childCount?: number | null },
+): TripEstimateResult {
+  const { childCount, ...estimateContext } = context;
+  const partySize = context.partySize ?? 2;
+  const admissionSelection =
+    childCount === undefined
+      ? selectionForPartySize(context.admissionSelection, partySize)
+      : selectionWithPartyComposition(
+          context.admissionSelection,
+          partySize,
+          childCount,
+        );
+  return calculateTripEstimate({ ...estimateContext, admissionSelection });
 }
 
 /** Compatibility name; production callers should import calculateTripEstimate. */

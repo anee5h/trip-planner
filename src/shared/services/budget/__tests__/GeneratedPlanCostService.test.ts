@@ -5,6 +5,7 @@ import {
 } from "../GeneratedPlanCostService";
 import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
+import { calculateTripEstimateForVisit } from "../tripEstimateEngine";
 
 function makePlan(
   dest: Destination,
@@ -42,6 +43,18 @@ function makePlan(
   };
 }
 
+function makeTwoDayPlan(dest: Destination): DayPlan {
+  const plan = makePlan(dest, "2d1n");
+  const [step] = plan.steps;
+  return {
+    ...plan,
+    steps: [
+      { ...step, day: 1 },
+      { ...step, id: "step-2", day: 2 },
+    ],
+  };
+}
+
 const BASE_DEST = {
   id: "dest-1",
   name: "Dest 1",
@@ -55,6 +68,286 @@ const BASE_DEST = {
 } as unknown as Destination;
 
 describe("GeneratedPlanCostService", () => {
+  it("preserves distinct admission and transport estimate assumptions", () => {
+    const existingAssumption = {
+      type: "estimated_cost" as const,
+      destinationId: BASE_DEST.id,
+      message: { en: "Existing", ja: "既存" },
+    };
+    const legacyPlan = {
+      ...makePlan(BASE_DEST),
+      assumptions: [existingAssumption],
+    };
+    const legacyCost = calculateGeneratedPlanCost(legacyPlan);
+    expect(
+      legacyCost.assumptions.filter(
+        (assumption) =>
+          assumption.type === "estimated_cost" &&
+          assumption.destinationId === BASE_DEST.id,
+      ),
+    ).toHaveLength(2);
+
+    const ticketDestination = {
+      ...BASE_DEST,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    const transportAssumption = {
+      type: "estimated_cost" as const,
+      destinationId: BASE_DEST.id,
+      costScope: "transport" as const,
+      message: { en: "Transport estimate", ja: "交通費の目安" },
+    };
+    const ticketPlan = {
+      ...makePlan(ticketDestination),
+      assumptions: [transportAssumption],
+    };
+    const ticketCost = calculateGeneratedPlanCost(ticketPlan);
+    expect(ticketCost.admission.admissionCompositionAssumed).toBe(true);
+    expect(
+      ticketCost.assumptions.filter(
+        (assumption) =>
+          assumption.type === "estimated_cost" &&
+          assumption.destinationId === BASE_DEST.id &&
+          assumption.costScope === "admission",
+      ),
+    ).toHaveLength(1);
+    expect(
+      ticketCost.assumptions.filter(
+        (assumption) =>
+          assumption.type === "estimated_cost" &&
+          assumption.destinationId === BASE_DEST.id,
+      ),
+    ).toHaveLength(2);
+  });
+
+  it("does not scope a transport or meal estimate as admission", () => {
+    const ticketDestination = {
+      ...BASE_DEST,
+      localTransport: {
+        kind: "bounded_defensible_access",
+        access: "rail",
+        band: "≤15km",
+        fare: [500, 800],
+        fareBasis: "one_way",
+        coverage: "all_required_access",
+        distanceKm: 12,
+        sourceUrls: ["https://example.test/access"],
+        checkedAt: "2026-01-01",
+      },
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    const cost = calculateGeneratedPlanCost(
+      makePlan(ticketDestination),
+      2,
+      null,
+      false,
+      undefined,
+      {
+        travelDate: "2026-11-01",
+        admissionSelection: {
+          productId: "entry",
+          adultCount: 2,
+          childCount: 0,
+        },
+      },
+    );
+
+    expect(cost.admission.admissionPricingBasis).toBe("supported_range");
+    expect(
+      cost.assumptions.some(
+        (assumption) =>
+          assumption.destinationId === ticketDestination.id &&
+          assumption.type === "estimated_cost" &&
+          assumption.costScope === "admission",
+      ),
+    ).toBe(false);
+  });
+
+  it("does not label free or inapplicable admission as a rough admission cost", () => {
+    const destinationWithNoAdmissionCost = {
+      ...BASE_DEST,
+      admission: {
+        state: "not_applicable",
+        provenance: "none",
+        reasonCode: "no_single_admission_product",
+        cost: { kind: "not_applicable" },
+        scope: "general_entry",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+
+    const cost = calculateGeneratedPlanCost(
+      makePlan(destinationWithNoAdmissionCost),
+      2,
+      null,
+      false,
+    );
+
+    expect(cost.estimateQuality).not.toBe("verified");
+    expect(
+      cost.assumptions.some(
+        (assumption) =>
+          assumption.destinationId === destinationWithNoAdmissionCost.id &&
+          assumption.type === "estimated_cost" &&
+          assumption.costScope === "admission",
+      ),
+    ).toBe(false);
+  });
+
+  it("keeps an admission disclosure when an unrelated unscoped estimate exists", () => {
+    const ticketDestination = {
+      ...BASE_DEST,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    const unrelatedAssumption = {
+      type: "estimated_cost" as const,
+      destinationId: ticketDestination.id,
+      message: { en: "Meal estimate", ja: "食費の目安" },
+    };
+    const cost = calculateGeneratedPlanCost(
+      {
+        ...makePlan(ticketDestination),
+        assumptions: [unrelatedAssumption],
+      },
+      2,
+      null,
+      false,
+    );
+
+    expect(
+      cost.assumptions.filter(
+        (assumption) =>
+          assumption.type === "estimated_cost" &&
+          assumption.destinationId === ticketDestination.id &&
+          assumption.costScope === "admission",
+      ),
+    ).toHaveLength(1);
+  });
+
+  it("counts legacy admission once across days but prices ticket options per visit", () => {
+    const legacyDestination = {
+      ...BASE_DEST,
+      budgetBreakdown: { ...BASE_DEST.budgetBreakdown, tickets: 1000 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "verified ticket",
+      },
+    } as unknown as Destination;
+    const legacyPlan = makeTwoDayPlan(legacyDestination);
+    const legacyWithContext = calculateGeneratedPlanCost(
+      legacyPlan,
+      2,
+      null,
+      false,
+      undefined,
+      { travelDate: "2026-11-01", admissionSelection: undefined },
+    );
+    const legacyWithoutContext = calculateGeneratedPlanCost(
+      legacyPlan,
+      2,
+      null,
+      false,
+    );
+
+    expect(legacyWithContext.admission).toMatchObject({ min: 2000, max: 2000 });
+    expect(legacyWithContext.admission).toEqual(legacyWithoutContext.admission);
+
+    const ticketOptionsDestination = {
+      ...legacyDestination,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    const ticketOptionsCost = calculateGeneratedPlanCost(
+      makeTwoDayPlan(ticketOptionsDestination),
+      2,
+      null,
+      false,
+      undefined,
+      { travelDate: "2026-11-01", admissionSelection: undefined },
+    );
+
+    expect(ticketOptionsCost.admission).toMatchObject({
+      min: 4000,
+      max: 4000,
+    });
+  });
+
   it("calculates itemized plan cost using ticket breakdown for TRUSTED (manual) provenance", () => {
     const manualDest = {
       ...BASE_DEST,
@@ -74,12 +367,25 @@ describe("GeneratedPlanCostService", () => {
 
     expect(cost.admission.min).toBe(3000); // 1500 * 2
     expect(cost.admission.source).toBe("curated");
+    expect(cost.admission.admissionPricingBasis).toBeUndefined();
     expect(cost.originTransport.source).toBe("unknown");
     // Origin travel is not applicable without origin coordinates. The
     // bounded total is complete even though evidence quality stays estimated.
     expect(cost.completeness).toBe("complete");
     expect(cost.knownSubtotal[0]).toBeGreaterThan(0);
     expect(cost.confidence).toBe("estimated");
+
+    const mainAdmission = calculateTripEstimateForVisit({
+      dest: manualDest,
+      partySize: 2,
+      duration: "fullDay",
+      includeOriginTravel: false,
+    }).components.find((component) => component.evidence.scope === "admission");
+    expect(mainAdmission?.cost).toEqual({
+      kind: "bounded",
+      min: cost.admission.min,
+      max: cost.admission.max,
+    });
   });
 
   it("infers one party-level accommodation range from 3D2N", () => {
@@ -112,6 +418,7 @@ describe("GeneratedPlanCostService", () => {
     expect(cost.admission.min).toBeGreaterThan(0);
     expect(cost.admission.max).toBeGreaterThan(cost.admission.min);
     expect(cost.admission.source).toBe("estimated");
+    expect(cost.admission.admissionPricingBasis).toBeUndefined();
     const assumption = cost.assumptions.find(
       (a) => a.type === "estimated_cost" && a.destinationId === "dest-1",
     );
@@ -254,6 +561,7 @@ describe("KAI-219A — GeneratedPlan explicit v2 admission authority", () => {
     expect(cost.admission.min).toBe(1200);
     expect(cost.admission.max).toBeGreaterThan(cost.admission.min);
     expect(cost.admission.source).toBe("estimated");
+    expect(cost.admission.admissionPricingBasis).toBeUndefined();
     expect(cost.admission.applicable).toBe(true);
     expect(cost.assumptions.some((a) => a.destinationId === "dest-1")).toBe(
       true,

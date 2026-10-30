@@ -10,6 +10,8 @@ interface DestinationDetailRailProps {
   destinations: Destination[];
   currentDestinationId?: string;
   partySize: number;
+  visitDate?: string;
+  childCount?: number;
   carMode?: string;
   publicModes?: string[];
   previousLabel: string;
@@ -32,6 +34,8 @@ export function DestinationDetailRail({
   destinations,
   currentDestinationId,
   partySize,
+  visitDate,
+  childCount,
   carMode = "none",
   publicModes = ["train", "shinkansen", "bus", "flight"],
   previousLabel,
@@ -84,6 +88,8 @@ export function DestinationDetailRail({
             <DestinationCard
               destination={destination}
               partySize={partySize}
+              visitDate={visitDate}
+              childCount={childCount}
               carMode={carMode}
               publicModes={publicModes}
               activeTransportMode="all"

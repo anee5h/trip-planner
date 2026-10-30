@@ -1,7 +1,9 @@
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { calculateTripEstimateForVisit } from "@/shared/services/budget/tripEstimateEngine";
 import { resolveExploreBudgetEstimate } from "@/features/destinations/exploreBudget";
 import type { Destination } from "@/shared/types/destination";
 import type { TripContext } from "@/shared/context/TripContext";
+import { resolveChildCount } from "@/shared/utils/tripComposition";
+import { resolveEstimateVisitDate } from "@/shared/services/budget/estimateVisitDate";
 
 /**
  * Compare's only estimate adapter. An explicit trip uses the same
@@ -13,7 +15,12 @@ export function resolveCompareEstimate(
   tripContext: TripContext,
   hasExplicitTripContext: boolean,
 ) {
+  const childCount = resolveChildCount(tripContext);
   if (hasExplicitTripContext) {
+    const visitDate = resolveEstimateVisitDate(
+      tripContext.travelDate ?? undefined,
+      tripContext.duration,
+    );
     const resolved = resolveExploreBudgetEstimate(destination, {
       originCoords: tripContext.origin?.coordinates,
       originZoneId: tripContext.origin?.transportZoneId,
@@ -21,22 +28,26 @@ export function resolveCompareEstimate(
       publicModes: tripContext.publicModes,
       partySize: tripContext.partySize,
       duration: tripContext.duration,
+      visitDate,
+      childCount,
       // A finite cap remains context for affordability; it must not filter
       // away the user's explicitly selected mode before it is displayed.
       budgetTier: undefined,
     });
     if (resolved) return resolved.estimate;
 
-    return calculateTripEstimate({
+    return calculateTripEstimateForVisit({
       dest: destination,
       duration: tripContext.duration,
       partySize: tripContext.partySize,
+      visitDate,
+      childCount,
       homeCoords: tripContext.origin?.coordinates,
       includeOriginTravel: Boolean(tripContext.origin?.coordinates),
     });
   }
 
-  return calculateTripEstimate({
+  return calculateTripEstimateForVisit({
     dest: destination,
     duration: "fullDay",
     includeOriginTravel: false,

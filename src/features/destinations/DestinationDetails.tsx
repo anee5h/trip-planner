@@ -19,7 +19,10 @@ import { restorePageMeta, setPageMeta, TITLE_SUFFIX } from "@/seo/meta";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import DestinationMap from "./components/DestinationMap";
 import { getCityArea } from "@/shared/data/cityAreas";
-import type { Destination } from "@/shared/types/destination";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
 import { getLocalizedOpeningHours } from "./destinationOpeningHours";
 import { localizeBestSeason } from "./bestSeasonLabels";
 import {
@@ -175,7 +178,10 @@ import {
   useWeekendWeather,
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { calculateTripEstimateForVisit } from "@/shared/services/budget/tripEstimateEngine";
+import { resolveEstimateVisitDate } from "@/shared/services/budget/estimateVisitDate";
+import { selectionWithPartyComposition } from "@/shared/services/budget/admissionPricing";
+import { resolveChildCount } from "@/shared/utils/tripComposition";
 import { getTransportDisplayCost } from "@/shared/services/budget/transportDisplayCost";
 import {
   buildPersonalCarCostOptions,
@@ -366,25 +372,98 @@ export default function DestinationDetails() {
   const copy = DETAIL_COPY[locale];
   const { id } = useParams();
   const location = useLocation();
-  const { tripContext, hasExplicitTripContext, hasExplicitTransportIntent } =
-    useOptionalTripContext();
+  const {
+    tripContext,
+    hasExplicitTripContext,
+    hasExplicitTransportIntent,
+    updateTripContext,
+  } = useOptionalTripContext();
   const navState = location.state as {
     carMode?: string;
     publicModes?: string[];
     partySize?: number;
+    childCount?: number;
+    admissionSelection?: AdmissionPriceSelection;
     tripType?: string;
     budget?: number;
     /** Planned travel date (ISO) forwarded from the planner. */
     travelDate?: string;
     duration?: TripDuration;
   } | null;
+  const [partySizeOverride, setPartySizeOverride] = useState<{
+    destinationId: string;
+    value: number;
+  } | null>(null);
+  const [childCountOverride, setChildCountOverride] = useState<{
+    destinationId: string;
+    value: number | undefined;
+  } | null>(null);
+  const [ticketSelectionOverride, setTicketSelectionOverride] = useState<{
+    destinationId: string;
+    value: AdmissionPriceSelection | undefined;
+  } | null>(null);
   const { user } = useAuth();
   const { openAuthModal } = useAuthModal();
   const partySize =
+    (partySizeOverride?.destinationId === id
+      ? partySizeOverride?.value
+      : undefined) ??
     navState?.partySize ??
     (hasExplicitTripContext ? tripContext.partySize : undefined) ??
     user?.user_metadata?.preferences?.partySize ??
     2;
+  const pageTicketSelection =
+    ticketSelectionOverride?.destinationId === id
+      ? ticketSelectionOverride?.value
+      : navState?.admissionSelection;
+  const selectionChildCount =
+    pageTicketSelection?.adultCount !== undefined &&
+    pageTicketSelection.childCount !== undefined &&
+    pageTicketSelection.adultCount + pageTicketSelection.childCount ===
+      partySize
+      ? pageTicketSelection.childCount
+      : undefined;
+  const requestedChildCount =
+    childCountOverride?.destinationId === id
+      ? childCountOverride?.value
+      : (navState?.childCount ??
+        (hasExplicitTripContext ? tripContext.childCount : undefined) ??
+        selectionChildCount);
+  const childCount = resolveChildCount({
+    partySize,
+    childCount: requestedChildCount,
+  });
+  const childCountWasCleared = Boolean(
+    childCountOverride &&
+    childCountOverride.destinationId === id &&
+    childCountOverride.value === undefined,
+  );
+  const activeAdmissionSelection = useMemo(
+    () =>
+      selectionWithPartyComposition(
+        pageTicketSelection,
+        partySize,
+        childCountWasCleared ? null : childCount,
+      ),
+    [pageTicketSelection, partySize, childCount, childCountWasCleared],
+  );
+  const handlePartySizeChange = (nextPartySize: number) => {
+    if (hasPriceOptions) {
+      setPartySizeOverride({ destinationId: id ?? "", value: nextPartySize });
+      setChildCountOverride({ destinationId: id ?? "", value: undefined });
+      if (hasExplicitTripContext) {
+        updateTripContext({ partySize: nextPartySize, childCount: undefined });
+      }
+    }
+  };
+  const handleChildCountChange = (nextChildCount: number | undefined) => {
+    if (hasPriceOptions) {
+      setChildCountOverride({ destinationId: id ?? "", value: nextChildCount });
+      if (hasExplicitTripContext) {
+        updateTripContext({ childCount: nextChildCount });
+      }
+    }
+  };
   // Relationship-backed detail sections use a compact generated graph of
   // relationship-relevant nodes, not the nationwide summary catalogue.
   const {
@@ -439,6 +518,12 @@ export default function DestinationDetails() {
     (hasExplicitTripContext
       ? (tripContext.travelDate ?? undefined)
       : undefined);
+  // Estimates match Explore's day-one date; generated plans still price each
+  // stop on its own day from the unmodified travel date.
+  const estimateVisitDate = resolveEstimateVisitDate(
+    activeTravelDate,
+    duration,
+  );
 
   const {
     isVisited,
@@ -454,6 +539,7 @@ export default function DestinationDetails() {
   } = useTripStore();
   const [destination, setDestination] = useState<Destination | null>(null);
   const [destLoading, setDestLoading] = useState(true);
+  const hasPriceOptions = Boolean(destination?.admission?.priceOptions?.length);
 
   const [, setGeneratedPlan] = useState<any>(null);
   const [pendingSave, setPendingSave] = useState<PendingItinerarySave | null>(
@@ -1046,10 +1132,12 @@ export default function DestinationDetails() {
   ) => {
     if (!destination) return undefined;
     const isCarMode = mode === "car" || mode === "my_car";
-    return calculateTripEstimate({
+    return calculateTripEstimateForVisit({
       dest: destination,
       mode,
       partySize,
+      visitDate: estimateVisitDate,
+      admissionSelection: activeAdmissionSelection,
       homeCoords: homeStationCoords ?? undefined,
       duration,
       ferryTemporal,
@@ -1974,6 +2062,16 @@ export default function DestinationDetails() {
                 compactUnavailableCost={isHub}
                 ferryTemporal={ferryTemporal}
                 travelDate={activeTravelDate}
+                admissionSelection={activeAdmissionSelection}
+                childCount={childCount}
+                onChildCountChange={handleChildCountChange}
+                onAdmissionSelectionChange={(selection) =>
+                  setTicketSelectionOverride({
+                    destinationId: id ?? "",
+                    value: selection,
+                  })
+                }
+                onPartySizeChange={handlePartySizeChange}
                 scheduledOriginProductId={scheduledTransitOriginProductId}
                 duration={duration}
                 carRoute={
@@ -2072,6 +2170,8 @@ export default function DestinationDetails() {
                   destinations={composedDetailRails.featuredChildSights}
                   currentDestinationId={destination.id}
                   partySize={partySize}
+                  visitDate={estimateVisitDate}
+                  childCount={childCount}
                   carMode={activeCarMode}
                   publicModes={activePublicModes}
                   journeyScope="local_access"
@@ -2114,6 +2214,8 @@ export default function DestinationDetails() {
                       destinations={composedDetailRails.hubMoreDestinations}
                       currentDestinationId={destination.id}
                       partySize={partySize}
+                      visitDate={estimateVisitDate}
+                      childCount={childCount}
                       carMode={activeCarMode}
                       publicModes={activePublicModes}
                       journeyScope="local_access"
@@ -2427,7 +2529,10 @@ export default function DestinationDetails() {
                                         locale,
                                       )}
                                     </div>
-                                    <div className="text-xs text-slate-500">
+                                    <div
+                                      data-testid="mode-estimate-flight"
+                                      className="text-xs text-slate-500"
+                                    >
                                       {(() => {
                                         // KAI-260: canonical range-first estimate;
                                         // unavailable source fare may still have a
@@ -3010,6 +3115,8 @@ export default function DestinationDetails() {
                   destinations={composedDetailRails.nearbyHubs}
                   currentDestinationId={destination.id}
                   partySize={partySize}
+                  visitDate={estimateVisitDate}
+                  childCount={childCount}
                   carMode={activeCarMode}
                   publicModes={activePublicModes}
                   journeyOrigin={destination}
@@ -3074,6 +3181,8 @@ export default function DestinationDetails() {
                   destinations={composedDetailRails.nearbyPlaces}
                   currentDestinationId={destination.id}
                   partySize={partySize}
+                  visitDate={estimateVisitDate}
+                  childCount={childCount}
                   carMode={activeCarMode}
                   publicModes={activePublicModes}
                   compact
@@ -3092,6 +3201,8 @@ export default function DestinationDetails() {
                   destinations={composedDetailRails.halfDaySiblings}
                   currentDestinationId={destination.id}
                   partySize={partySize}
+                  visitDate={estimateVisitDate}
+                  childCount={childCount}
                   compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}

@@ -1,10 +1,13 @@
 import { useState, useMemo } from "react";
-import type { Destination } from "@/shared/types/destination";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
 import {
   formatLocalizedJPYRange,
   formatTravellerEstimateRange,
 } from "@/shared/services/budget/BudgetService";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { calculateTripEstimateForVisit } from "@/shared/services/budget/tripEstimateEngine";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
@@ -54,10 +57,27 @@ export interface TripCostBreakdownWidgetProps {
   compactUnavailableCost?: boolean;
   /** Planned travel date for ferry availability. */
   ferryTemporal?: FerryTemporalContext;
+  visitDate?: string;
+  admissionSelection?: AdmissionPriceSelection;
   defaultExpanded?: boolean;
   hasGeneratedPlan?: boolean;
   planCostBreakdown?: GeneratedPlanCostResult;
   duration?: TripDuration;
+}
+
+export function getAlternativeAdmissionSelection(
+  selection: AdmissionPriceSelection | undefined,
+): AdmissionPriceSelection | undefined {
+  if (
+    selection?.adultCount === undefined ||
+    selection.childCount === undefined
+  ) {
+    return undefined;
+  }
+  return {
+    adultCount: selection.adultCount,
+    childCount: selection.childCount,
+  };
 }
 
 export function TripCostBreakdownWidget({
@@ -71,6 +91,8 @@ export function TripCostBreakdownWidget({
   activeTransportMode = null,
   compactUnavailableCost = false,
   ferryTemporal,
+  visitDate,
+  admissionSelection,
   defaultExpanded = false,
   hasGeneratedPlan = false,
   planCostBreakdown,
@@ -87,12 +109,14 @@ export function TripCostBreakdownWidget({
   // calculateItemizedTripCost / budgetBreakdown legacy scalars.
   const engineResult = useMemo(() => {
     if (planCostBreakdown) return undefined;
-    return calculateTripEstimate({
+    return calculateTripEstimateForVisit({
       dest: destination,
       mode: activeTransportMode ?? undefined,
       duration,
       partySize,
       ferryTemporal,
+      visitDate,
+      admissionSelection,
       homeCoords,
       carRoute,
       carCostOptions,
@@ -108,6 +132,8 @@ export function TripCostBreakdownWidget({
     planCostBreakdown,
     duration,
     ferryTemporal,
+    visitDate,
+    admissionSelection,
     shouldIncludeOriginTravel,
   ]);
 
@@ -202,6 +228,22 @@ export function TripCostBreakdownWidget({
   const showAdmissionRow = planCostBreakdown
     ? planCostBreakdown.admission.semanticState !== "not_applicable"
     : admissionComp?.cost.kind !== "not_applicable";
+  const admissionPricingBasis =
+    planCostBreakdown !== undefined
+      ? planCostBreakdown.admission.admissionPricingBasis
+      : admissionComp?.evidence.admissionPricingBasis;
+  const admissionCompositionAssumed = planCostBreakdown
+    ? planCostBreakdown.admission.admissionCompositionAssumed === true
+    : admissionComp?.evidence.admissionCompositionAssumed === true;
+  const admissionPricingNote = admissionCompositionAssumed
+    ? t("planner.budgetEstimate.admissionAssumingAdults")
+    : admissionPricingBasis === "selected_date"
+      ? t("planner.budgetEstimate.admissionVerifiedForDate")
+      : admissionPricingBasis === "fixed_price"
+        ? t("planner.budgetEstimate.admissionFixedPrice")
+        : admissionPricingBasis === "supported_range"
+          ? t("planner.budgetEstimate.admissionPublishedRange")
+          : undefined;
   const mealsRange: [number, number] | undefined = planCostBreakdown
     ? planCostBreakdown.meals.applicable && planCostBreakdown.meals.knownNumeric
       ? [planCostBreakdown.meals.min, planCostBreakdown.meals.max]
@@ -401,15 +443,25 @@ export function TripCostBreakdownWidget({
       : "Your plan cost"
     : t("planner.budgetEstimate.estimatedTripTotal");
 
+  // The planner supplies this widget the primary stop's date (day 2 when the
+  // generated plan places it there). The current estimate and alternatives
+  // share that date. Reuse party mix, but never carry venue-specific choices.
+  const alternativeAdmissionSelection = useMemo(
+    () => getAlternativeAdmissionSelection(admissionSelection),
+    [admissionSelection],
+  );
+
   const lowerCostAlternatives = useMemo(() => {
     const candidates = findLowerCostAlternativeCandidates(destination);
     return selectLowerCostAlternatives(
       candidates,
       totalRange?.[0],
       (sec) =>
-        calculateTripEstimate({
+        calculateTripEstimateForVisit({
           dest: sec,
           mode: activeTransportMode ?? undefined,
+          visitDate,
+          admissionSelection: alternativeAdmissionSelection,
           homeCoords,
           includeOriginTravel: shouldIncludeOriginTravel,
           duration,
@@ -423,6 +475,8 @@ export function TripCostBreakdownWidget({
     activeTransportMode,
     duration,
     totalRange,
+    visitDate,
+    alternativeAdmissionSelection,
     shouldIncludeOriginTravel,
   ]);
 
@@ -547,7 +601,10 @@ export function TripCostBreakdownWidget({
               <div className="text-xs text-slate-500 font-semibold uppercase">
                 {locale === "ja" ? "概算合計" : "Est. Range"}
               </div>
-              <div className="text-base font-extrabold text-slate-900 dark:text-white">
+              <div
+                data-testid="trip-cost-total"
+                className="text-base font-extrabold text-slate-900 dark:text-white"
+              >
                 {partialHeadline || partialPlanLabel || enginePartialLabel
                   ? (partialHeadline ?? partialPlanLabel ?? enginePartialLabel)
                   : // KAI-219A final N/A guard: a COMPLETE plan with no
@@ -791,6 +848,14 @@ export function TripCostBreakdownWidget({
                       })()}
                     </span>
                   </div>
+                  {admissionPricingNote && (
+                    <p
+                      data-testid="admission-pricing-note"
+                      className="text-[11px] text-slate-500 dark:text-slate-400"
+                    >
+                      {admissionPricingNote}
+                    </p>
+                  )}
                   <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-purple-500 rounded-full transition-all"
@@ -878,9 +943,11 @@ export function TripCostBreakdownWidget({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {lowerCostAlternatives.map((alt) => {
                     const altLocalized = getLocalizedPlace(alt, locale);
-                    const altEstimate = calculateTripEstimate({
+                    const altEstimate = calculateTripEstimateForVisit({
                       dest: alt,
                       mode: activeTransportMode ?? undefined,
+                      visitDate,
+                      admissionSelection: alternativeAdmissionSelection,
                       homeCoords,
                       includeOriginTravel: shouldIncludeOriginTravel,
                       duration,

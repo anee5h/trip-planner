@@ -21,10 +21,18 @@ import {
 import DestinationDetails, {
   isDetailTransportModeAllowed,
 } from "../DestinationDetails";
+import { TripCostBreakdownWidget } from "../components/TripCostBreakdownWidget";
 import { TripContextProvider } from "@/shared/context/TripContext";
 import liteIndex from "@/shared/data/destinations-index.lite.json";
 import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
+import type { TripDuration } from "@/shared/types/tripDuration";
+import { selectionWithPartyComposition } from "@/shared/services/budget/admissionPricing";
+import { calculateTripEstimateForVisit } from "@/shared/services/budget/tripEstimateEngine";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -38,10 +46,29 @@ vi.mock("react-i18next", () => ({
 }));
 
 const localeState = vi.hoisted(() => ({ locale: "en" as "en" | "ja" }));
+const tripContextUpdates = vi.hoisted(() => ({ calls: [] as unknown[] }));
 
 vi.mock("@/shared/context/LocaleContext", () => ({
   useLocale: () => ({ locale: localeState.locale, setLocale: vi.fn() }),
 }));
+
+vi.mock("@/shared/context/TripContext", async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import("@/shared/context/TripContext")>();
+  return {
+    ...actual,
+    useOptionalTripContext: () => {
+      const context = actual.useOptionalTripContext();
+      return {
+        ...context,
+        updateTripContext: (patch: unknown) => {
+          tripContextUpdates.calls.push(patch);
+          context.updateTripContext(patch as never);
+        },
+      };
+    },
+  };
+});
 
 vi.mock("react-leaflet", () => ({
   MapContainer: ({ children }: { children: React.ReactNode }) => (
@@ -104,18 +131,47 @@ vi.mock("../components/VisitedDateModal", () => ({
 }));
 vi.mock("../components/DestinationPlanningSection", () => ({
   DestinationPlanningSection: (props: {
+    destination?: Destination;
+    locale?: "en" | "ja";
+    homeCoords?: { lat: number; lng: number };
     selectedTransport?: string | null;
     partySize?: number;
     duration?: string;
     carRoute?: CarRoundTripRoute;
     carCostOptions?: Record<string, unknown>;
+    travelDate?: string;
+    childCount?: number;
+    admissionSelection?: AdmissionPriceSelection;
+    onPartySizeChange?: (partySize: number) => void;
+    onChildCountChange?: (childCount: number | undefined) => void;
   }) => {
     planningState.selectedTransport = props.selectedTransport ?? null;
     planningState.partySize = props.partySize;
     planningState.duration = props.duration;
     planningState.carRoute = props.carRoute;
     planningState.carCostOptions = props.carCostOptions;
-    return null;
+    planningState.travelDate = props.travelDate;
+    planningState.childCount = props.childCount;
+    planningState.admissionSelection = props.admissionSelection;
+    planningState.changePartySize = props.onPartySizeChange;
+    planningState.changeChildCount = props.onChildCountChange;
+    if (!planningState.renderCostWidget || !props.destination) return null;
+    return (
+      <TripCostBreakdownWidget
+        destination={props.destination}
+        locale={props.locale ?? "en"}
+        partySize={props.partySize}
+        homeCoords={props.homeCoords}
+        activeTransportMode={props.selectedTransport}
+        duration={props.duration as TripDuration | undefined}
+        visitDate={props.travelDate}
+        admissionSelection={selectionWithPartyComposition(
+          props.admissionSelection,
+          props.partySize ?? 2,
+          props.childCount,
+        )}
+      />
+    );
   },
 }));
 vi.mock("../components/DestinationMap", () => ({ default: () => null }));
@@ -136,6 +192,8 @@ import destinationIndex from "@/shared/data/destinations-index.json";
 const records = new Map<string, Record<string, unknown>>(
   (destinationIndex as Record<string, unknown>[]).map((d) => [String(d.id), d]),
 );
+let destinationRecordOverride:
+  { id: string; previous: Record<string, unknown> } | undefined;
 const nmwaAccessAnchor = {
   id: "nmwa-road-entrance",
   label: "NMWA road entrance",
@@ -243,6 +301,13 @@ const planningState = vi.hoisted(() => ({
   duration: undefined as string | undefined,
   carRoute: undefined as CarRoundTripRoute | undefined,
   carCostOptions: undefined as Record<string, unknown> | undefined,
+  travelDate: undefined as string | undefined,
+  childCount: undefined as number | undefined,
+  admissionSelection: undefined as AdmissionPriceSelection | undefined,
+  changePartySize: undefined as ((partySize: number) => void) | undefined,
+  changeChildCount: undefined as
+    ((childCount: number | undefined) => void) | undefined,
+  renderCostWidget: false,
 }));
 
 const NAKAYAMA = { lat: 35.514745, lng: 139.539692 };
@@ -318,7 +383,14 @@ beforeEach(() => {
   planningState.duration = undefined;
   planningState.carRoute = undefined;
   planningState.carCostOptions = undefined;
+  planningState.travelDate = undefined;
+  planningState.childCount = undefined;
+  planningState.admissionSelection = undefined;
+  planningState.changePartySize = undefined;
+  planningState.changeChildCount = undefined;
+  planningState.renderCostWidget = false;
   sessionStorage.clear();
+  tripContextUpdates.calls.length = 0;
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -327,9 +399,141 @@ beforeEach(() => {
 afterEach(() => {
   act(() => root.unmount());
   host.remove();
+  if (destinationRecordOverride) {
+    records.set(
+      destinationRecordOverride.id,
+      destinationRecordOverride.previous,
+    );
+    destinationRecordOverride = undefined;
+  }
 });
 
 describe("DestinationDetails transport rows", () => {
+  it("keeps the detail header total on the widget's dated ticket and party context", async () => {
+    const destinationId = "nago-pineapple-park";
+    const previousRecord = records.get(destinationId)!;
+    const destination = {
+      ...previousRecord,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_date",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "standard",
+            variantId: "weekday",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+            dayType: "weekday",
+          },
+          {
+            productId: "standard",
+            variantId: "weekday",
+            category: "child",
+            min: 500,
+            max: 500,
+            dayType: "weekday",
+          },
+          {
+            productId: "standard",
+            variantId: "holiday",
+            category: "adult",
+            min: 3000,
+            max: 3000,
+            dayType: "holiday",
+          },
+          {
+            productId: "standard",
+            variantId: "holiday",
+            category: "child",
+            min: 1500,
+            max: 1500,
+            dayType: "holiday",
+          },
+        ],
+      },
+    } as unknown as Record<string, unknown>;
+    records.set(destinationId, destination);
+    destinationRecordOverride = { id: destinationId, previous: previousRecord };
+    planningState.renderCostWidget = true;
+
+    const expectedFor = (travelDate: string) =>
+      calculateTripEstimateForVisit({
+        dest: destination as unknown as Destination,
+        mode: "flight",
+        partySize: 2,
+        childCount: 1,
+        visitDate: travelDate,
+        duration: "fullDay",
+        includeOriginTravel: false,
+      });
+    const weekdayDate = "2026-11-24";
+    const holidayDate = "2026-11-23";
+    expect(expectedFor(weekdayDate).total).toBeDefined();
+    expect(expectedFor(holidayDate).total).toBeDefined();
+    expect(
+      expectedFor(weekdayDate).components.find(
+        (component) => component.evidence.scope === "admission",
+      )?.cost,
+    ).toEqual({ kind: "bounded", min: 1500, max: 1500 });
+    expect(
+      expectedFor(holidayDate).components.find(
+        (component) => component.evidence.scope === "admission",
+      )?.cost,
+    ).toEqual({ kind: "bounded", min: 4500, max: 4500 });
+
+    render(`/destinations/${destinationId}`, {
+      publicModes: ["flight"],
+      partySize: 2,
+      childCount: 1,
+      travelDate: weekdayDate,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+    const weekdayWidgetTotal = host.querySelector(
+      '[data-testid="trip-cost-total"]',
+    )?.textContent;
+    const weekdayModeTotal = host.querySelector(
+      '[data-testid="mode-estimate-flight"]',
+    )?.textContent;
+    expect(weekdayWidgetTotal).toBeTruthy();
+    expect(weekdayModeTotal).toContain(weekdayWidgetTotal);
+    expect(planningState.travelDate).toBe(weekdayDate);
+    expect(planningState.childCount).toBe(1);
+
+    act(() => root.unmount());
+    root = createRoot(host);
+    planningState.travelDate = undefined;
+    render(`/destinations/${destinationId}`, {
+      publicModes: ["flight"],
+      partySize: 2,
+      childCount: 1,
+      travelDate: holidayDate,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+    const holidayWidgetTotal = host.querySelector(
+      '[data-testid="trip-cost-total"]',
+    )?.textContent;
+    const holidayModeTotal = host.querySelector(
+      '[data-testid="mode-estimate-flight"]',
+    )?.textContent;
+    expect(holidayWidgetTotal).toBeTruthy();
+    expect(holidayWidgetTotal).not.toBe(weekdayWidgetTotal);
+    expect(holidayModeTotal).toContain(holidayWidgetTotal);
+    expect(planningState.travelDate).toBe(holidayDate);
+    expect(planningState.childCount).toBe(1);
+  });
+
   it("filters default detail modes by transport intent", () => {
     const publicModes = ["train", "shinkansen", "bus", "flight"];
     expect(
@@ -401,6 +605,251 @@ describe("DestinationDetails transport rows", () => {
     expect(planningState.selectedTransport).toBe("train");
     expect(planningState.partySize).toBe(3);
     expect(planningState.duration).toBe("2d1n");
+  });
+
+  it("keeps legacy party edits local when trip context is already explicit", async () => {
+    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view", {
+      partySize: 2,
+    });
+    await act(async () => {
+      await flush(80);
+    });
+    const storedContext = sessionStorage.getItem(
+      "meguruto-active-trip-context",
+    );
+    expect(storedContext).not.toBeNull();
+    tripContextUpdates.calls.length = 0;
+
+    act(() => planningState.changePartySize?.(3));
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.partySize).toBe(2);
+    act(() => planningState.changeChildCount?.(1));
+    await act(async () => {
+      await flush(80);
+    });
+    expect(planningState.childCount).toBeUndefined();
+    expect(tripContextUpdates.calls).toEqual([]);
+    expect(sessionStorage.getItem("meguruto-active-trip-context")).toBe(
+      storedContext,
+    );
+  });
+
+  it("updates shared trip context for party edits when ticket options exist", async () => {
+    const destinationId = "roppongi-hills-tokyo-city-view";
+    const previousRecord = records.get(destinationId)!;
+    records.set(destinationId, {
+      ...previousRecord,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "child",
+            min: 500,
+            max: 500,
+          },
+        ],
+      },
+    });
+    destinationRecordOverride = {
+      id: destinationId,
+      previous: previousRecord,
+    };
+    renderWithTripContext(`/destinations/${destinationId}`, { partySize: 2 });
+    await act(async () => {
+      await flush(80);
+    });
+
+    act(() => planningState.changePartySize?.(3));
+    await act(async () => {
+      await flush(80);
+    });
+    expect(tripContextUpdates.calls).toContainEqual({
+      partySize: 3,
+      childCount: undefined,
+    });
+
+    act(() => planningState.changeChildCount?.(1));
+    await act(async () => {
+      await flush(80);
+    });
+    expect(tripContextUpdates.calls).toContainEqual({ childCount: 1 });
+  });
+
+  it("keeps ticket-option edits local until a trip context is explicit", async () => {
+    const destinationId = "roppongi-hills-tokyo-city-view";
+    const previousRecord = records.get(destinationId)!;
+    records.set(destinationId, {
+      ...previousRecord,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    });
+    destinationRecordOverride = {
+      id: destinationId,
+      previous: previousRecord,
+    };
+    renderWithTripContext(`/destinations/${destinationId}`);
+    await act(async () => {
+      await flush(80);
+    });
+    tripContextUpdates.calls.length = 0;
+
+    act(() => planningState.changePartySize?.(3));
+    act(() => planningState.changeChildCount?.(1));
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.partySize).toBe(3);
+    expect(planningState.childCount).toBe(1);
+    expect(tripContextUpdates.calls).toEqual([]);
+    expect(sessionStorage.getItem("meguruto-active-trip-context")).toBeNull();
+  });
+
+  it("uses a valid nav ticket split across the page", async () => {
+    const destinationId = "roppongi-hills-tokyo-city-view";
+    const previousRecord = records.get(destinationId)!;
+    records.set(destinationId, {
+      ...previousRecord,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "child",
+            min: 500,
+            max: 500,
+          },
+        ],
+      },
+    });
+    destinationRecordOverride = {
+      id: destinationId,
+      previous: previousRecord,
+    };
+
+    render(`/destinations/${destinationId}`, {
+      partySize: 3,
+      admissionSelection: { adultCount: 2, childCount: 1 },
+    });
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.childCount).toBe(1);
+    expect(planningState.admissionSelection).toMatchObject({
+      adultCount: 2,
+      childCount: 1,
+    });
+  });
+
+  it("removes nav-provided party composition when child count is cleared", async () => {
+    const destinationId = "roppongi-hills-tokyo-city-view";
+    const previousRecord = records.get(destinationId)!;
+    records.set(destinationId, {
+      ...previousRecord,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "child",
+            min: 500,
+            max: 500,
+          },
+        ],
+      },
+    });
+    destinationRecordOverride = { id: destinationId, previous: previousRecord };
+
+    renderWithTripContext(`/destinations/${destinationId}`, {
+      partySize: 2,
+      childCount: 1,
+      admissionSelection: {
+        productId: "standard",
+        adultCount: 1,
+        childCount: 1,
+      },
+    });
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.admissionSelection).toEqual({
+      productId: "standard",
+      adultCount: 1,
+      childCount: 1,
+    });
+    act(() => planningState.changeChildCount?.(undefined));
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.childCount).toBeUndefined();
+    expect(planningState.admissionSelection).toEqual({
+      productId: "standard",
+    });
   });
 
   it("migrates a minimal stale destination-only session context", async () => {

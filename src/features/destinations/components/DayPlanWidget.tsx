@@ -1,6 +1,9 @@
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
-import type { Destination } from "@/shared/types/destination";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
 import {
   generateDayPlan,
   generateDayPlanWithScheduledTransit,
@@ -58,6 +61,7 @@ interface DayPlanWidgetProps {
   duration?: TripDuration;
   /** Optional selected travel date for represented closed weekdays. */
   travelDate?: string;
+  admissionSelection?: AdmissionPriceSelection;
   /** Optional exact origin identity for the scheduled planner seam. */
   scheduledOriginProductId?: string;
   /** Optional caller provenance for a pre-supplied planner start time. */
@@ -110,6 +114,7 @@ export function DayPlanWidget({
   eligible = true,
   duration = "fullDay",
   travelDate,
+  admissionSelection,
   scheduledOriginProductId,
   startTimeProvenance: callerStartTimeProvenance,
   defaultPlanType,
@@ -159,6 +164,24 @@ export function DayPlanWidget({
   }, [startTime, availableMinutes]);
 
   const [generatedPlan, setGeneratedPlan] = useState<DayPlan | null>(null);
+  const destinationIdRef = useRef(destination.id);
+  const generationVersionRef = useRef(0);
+  const onPlanGeneratedRef = useRef(onPlanGenerated);
+  useLayoutEffect(() => {
+    destinationIdRef.current = destination.id;
+  }, [destination.id]);
+  useLayoutEffect(() => {
+    generationVersionRef.current += 1;
+  }, [
+    destination.id,
+    duration,
+    defaultPlanType,
+    fullDayDisabled,
+    callerStartTimeProvenance,
+  ]);
+  useLayoutEffect(() => {
+    onPlanGeneratedRef.current = onPlanGenerated;
+  }, [onPlanGenerated]);
 
   // Reset destination-specific state when the destination or its eligibility
   // changes. useState initializers only run once, so navigating between a
@@ -180,6 +203,7 @@ export function DayPlanWidget({
     setHasGenerated(false);
     setShowConfig(false);
     setShowAdvancedOptions(false);
+    onPlanGeneratedRef.current?.(null);
   }, [
     destination.id,
     duration,
@@ -237,6 +261,8 @@ export function DayPlanWidget({
     if (forcePlanType) setPlanType(forcePlanType);
 
     const isRegen = hasGenerated;
+    const requestedDestinationId = destination.id;
+    const requestedGenerationVersion = generationVersionRef.current;
 
     const planOptions = {
       duration,
@@ -248,12 +274,20 @@ export function DayPlanWidget({
       catchmentScope,
       returnMode,
       travelDate,
+      admissionSelection,
       startTimeProvenance,
       scheduledOriginProductId,
     };
     const newPlan = scheduledOriginProductId
       ? await generateDayPlanWithScheduledTransit(destination, planOptions)
       : generateDayPlan(destination, planOptions);
+
+    if (
+      destinationIdRef.current !== requestedDestinationId ||
+      generationVersionRef.current !== requestedGenerationVersion
+    ) {
+      return;
+    }
 
     setGeneratedPlan(newPlan);
     setHasGenerated(true);

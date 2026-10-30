@@ -353,6 +353,20 @@
   },
   "planner": {
     "budgetWholeParty": "グループ合計",
+    "admissionOptions": {
+      "product": "チケット商品",
+      "productFallback": "チケットの選択肢 {{number}}",
+      "channel": "購入方法",
+      "timeSlot": "時間帯",
+      "addOns": "追加オプション",
+      "addOnFallback": "追加オプション {{number}}",
+      "choose": "商品を選択",
+      "any": "指定なし",
+      "channels": {
+        "online": "オンライン",
+        "counter": "窓口"
+      }
+    },
     "budget": {
       "label": "予算",
       "scope": "グループ合計",
@@ -361,6 +375,14 @@
     "stayAllowanceRow": "宿泊費目安（{{count}}泊）",
     "stayAllowanceRow_other": "宿泊費目安（{{count}}泊）",
     "stayAllowanceNote": "期間と予算帯から算出した目安で、実際の宿泊料金ではありません",
+    "admissionPartyComposition": {
+      "title": "チケット料金の人数構成",
+      "children": "子ども",
+      "assumingAdults": "空欄の場合は、全員を大人として入場料を概算します。",
+      "summary": "大人：{{adultCount}}人・子ども：{{childCount}}人",
+      "exceedsPartySize": "子どもの人数は旅行人数を超えられません。",
+      "invalidCount": "有効な子どもの人数を入力してください。"
+    },
     "budgetEstimate": {
       "estimatedTripTotal": "旅行全体の概算",
       "onSiteEstimate": "現地費用の目安です。出発地を設定すると交通費も含まれます。",
@@ -381,7 +403,12 @@
       "admissionTickets": "入場料・チケット",
       "meals": "食費",
       "accommodation": "宿泊費",
-      "admissionUnavailable": "入場料不明・未算入"
+      "admissionUnavailable": "入場料不明・未算入",
+      "admissionVerifiedForDate": "選択日に適用される確認済み料金",
+      "admissionFixedPrice": "確認済みの固定チケット料金",
+      "admissionPublishedRange": "確認済みの公表料金範囲",
+      "admissionEstimated": "入場料の概算",
+      "admissionAssumingAdults": "入場料の概算（全員を大人として計算）"
     }
   },
   "origin": {

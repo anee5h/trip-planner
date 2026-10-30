@@ -4,6 +4,7 @@ import catalogue from "@/shared/data/destinations-index.json";
 import {
   ACCOMMODATION_PROFILES,
   calculateTripEstimate,
+  calculateTripEstimateForVisit,
   evaluateAffordability,
   evaluateBudgetAffordability,
   estimateQualityLabel,
@@ -57,6 +58,94 @@ function component(
 }
 
 describe("KAI-260 TripEstimateEngine", () => {
+  it("does not add a price-options label basis to legacy admission facts", () => {
+    const estimate = calculateTripEstimate({
+      dest: destination(),
+      partySize: 2,
+      duration: "fullDay",
+      includeOriginTravel: false,
+    });
+    const admission = component(estimate, "admission");
+
+    expect(admission.cost).toEqual({
+      kind: "bounded",
+      min: 2000,
+      max: 3000,
+    });
+    expect(admission.evidence.admissionPricingBasis).toBeUndefined();
+    expect(admission.evidence.admissionPriceOptionsBacked).toBeUndefined();
+  });
+
+  it("makes the header mode total equal the widget total for dated ticket options", () => {
+    const datedDestination = destination({
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_date",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "standard",
+            variantId: "weekday",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+            dayType: "weekday",
+          },
+          {
+            productId: "standard",
+            variantId: "weekday",
+            category: "child",
+            min: 500,
+            max: 500,
+            dayType: "weekday",
+          },
+          {
+            productId: "standard",
+            variantId: "holiday",
+            category: "adult",
+            min: 2000,
+            max: 2000,
+            dayType: "holiday",
+          },
+          {
+            productId: "standard",
+            variantId: "holiday",
+            category: "child",
+            min: 1000,
+            max: 1000,
+            dayType: "holiday",
+          },
+        ],
+      },
+    });
+    const estimateForVisit = (visitDate: string) =>
+      calculateTripEstimateForVisit({
+        dest: datedDestination,
+        duration: "fullDay",
+        partySize: 2,
+        childCount: 1,
+        visitDate,
+        includeOriginTravel: false,
+      });
+
+    for (const visitDate of ["2026-11-24", "2026-11-23"]) {
+      // Detail mode totals and TripCostBreakdownWidget both use this adapter.
+      const headerTotal = estimateForVisit(visitDate).total;
+      const widgetTotal = estimateForVisit(visitDate).total;
+      expect(headerTotal).toEqual(widgetTotal);
+    }
+    expect(component(estimateForVisit("2026-11-24"), "admission").cost).toEqual(
+      { kind: "bounded", min: 1500, max: 1500 },
+    );
+    expect(component(estimateForVisit("2026-11-23"), "admission").cost).toEqual(
+      { kind: "bounded", min: 3000, max: 3000 },
+    );
+  });
+
   it("models origin travel for the real Tokyo-area Roppongi destination", () => {
     const roppongi = catalogue.find(
       (item) => item.id === "roppongi-hills-tokyo-city-view",

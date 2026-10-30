@@ -98,6 +98,27 @@ vi.mock("@/shared/services/analytics/RecommendationAnalyticsService", () => ({
 const destination = destinations.find(
   (candidate) => candidate.id === "kamakura-city",
 ) as Destination;
+const ticketOptionsDestination = {
+  ...destination,
+  admission: {
+    state: "variable_price",
+    provenance: "verified_source",
+    reasonCode: "price_variable_by_product",
+    cost: { kind: "variable" },
+    scope: "general_entry",
+    sourceUrls: ["https://example.test/admission"],
+    checkedAt: "2026-01-01",
+    priceOptions: [
+      {
+        productId: "entry",
+        variantId: "standard",
+        category: "adult",
+        min: 1000,
+        max: 1000,
+      },
+    ],
+  },
+} as unknown as Destination;
 
 function travelRowIcons(container: HTMLElement): string[] {
   const row = container.querySelector(
@@ -248,6 +269,55 @@ describe("KAI-275 DestinationCard transport selection", () => {
     expect(probe).toContain('"partySize":2');
     expect(probe).toContain('"duration":"fullDay"');
     expect(probe).toContain('"travelDate":"2026-10-01"');
+  });
+
+  it("forwards the admission date and child count to the destination page", async () => {
+    const container = await renderAt(
+      "/destinations",
+      {
+        partySize: 3,
+        duration: "2d1n" as TripDuration,
+        visitDate: "2026-11-23",
+        childCount: 1,
+      },
+      ticketOptionsDestination,
+    );
+    const link = container.querySelector(
+      'a[href*="/destinations/kamakura-city"]',
+    ) as HTMLAnchorElement | null;
+    expect(link).not.toBeNull();
+    await act(async () => {
+      link!.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    expect(
+      container.querySelector("[data-testid=location-probe]")?.textContent,
+    ).toContain('"travelDate":"2026-11-23"');
+    expect(
+      container.querySelector("[data-testid=location-probe]")?.textContent,
+    ).toContain('"childCount":1');
+  });
+
+  it("does not forward new admission context from a legacy card", async () => {
+    const container = await renderAt("/destinations", {
+      partySize: 3,
+      duration: "2d1n" as TripDuration,
+      visitDate: "2026-11-23",
+      childCount: 1,
+    });
+    const link = container.querySelector(
+      'a[href*="/destinations/kamakura-city"]',
+    ) as HTMLAnchorElement | null;
+    expect(link).not.toBeNull();
+    await act(async () => {
+      link!.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+
+    const stateValue = JSON.parse(
+      container.querySelector("[data-testid=location-probe]")?.textContent ??
+        "{}",
+    ).state as Record<string, unknown>;
+    expect(stateValue).not.toHaveProperty("travelDate");
+    expect(stateValue).not.toHaveProperty("childCount");
   });
 
   it("undefined publicModes (rails/any) keeps the full-mode default — no car-only leak", async () => {

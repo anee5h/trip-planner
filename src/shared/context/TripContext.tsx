@@ -44,6 +44,8 @@ export interface TripContext {
   dateSemantics: TripDateSemantics;
   duration: TripDuration;
   partySize: number;
+  /** Optional ticket-age composition; adults are derived from partySize. */
+  childCount?: number;
   publicModes: string[];
   carMode: CarMode;
   budget: TripBudget;
@@ -145,7 +147,7 @@ export function mergeTripContext(
   current: TripContext,
   patch: TripContextPatch,
 ): TripContext {
-  return {
+  const next: TripContext = {
     ...current,
     ...patch,
     // Preserve explicit [] and 0 values; never use truthy fallbacks here.
@@ -156,6 +158,14 @@ export function mergeTripContext(
       ? { budget: normalizeTripBudget(patch.budget) }
       : {}),
   };
+  if (
+    patch.partySize !== undefined &&
+    patch.partySize !== current.partySize &&
+    !("childCount" in patch)
+  ) {
+    delete next.childCount;
+  }
+  return next;
 }
 
 function dateSemanticsFor(date: string): TripDateSemantics {
@@ -173,6 +183,12 @@ function parsePartySize(value: string | null): number | undefined {
   if (value === null || !/^\d+$/.test(value)) return undefined;
   const parsed = Number(value);
   return Number.isFinite(parsed) ? parsed : undefined;
+}
+
+function parseChildCount(value: string | null): number | undefined {
+  if (value === null || !/^\d+$/.test(value)) return undefined;
+  const parsed = Number(value);
+  return Number.isSafeInteger(parsed) ? parsed : undefined;
 }
 
 function parseBudget(params: URLSearchParams): TripBudget | undefined {
@@ -246,6 +262,8 @@ export function tripContextFromSearchParams(
   }
   const partySize = parsePartySize(params.get("partySize"));
   if (partySize !== undefined) patch.partySize = partySize;
+  const childCount = parseChildCount(params.get("childCount"));
+  if (childCount !== undefined) patch.childCount = childCount;
   if (params.has("mode")) {
     patch.publicModes =
       params.get("mode") === "none" ? [] : params.getAll("mode");
@@ -297,6 +315,13 @@ export function tripContextFromRouteState(state: unknown): TripContextPatch {
     patch.duration = source.duration as TripDuration;
   }
   if (typeof source.partySize === "number") patch.partySize = source.partySize;
+  if (
+    typeof source.childCount === "number" &&
+    Number.isSafeInteger(source.childCount) &&
+    source.childCount >= 0
+  ) {
+    patch.childCount = source.childCount;
+  }
   if (Array.isArray(source.publicModes)) {
     patch.publicModes = source.publicModes.filter(
       (value): value is string => typeof value === "string",
@@ -341,6 +366,7 @@ function isLegacyStaleDestinationContext(
     "dateSemantics",
     "duration",
     "partySize",
+    "childCount",
     "publicModes",
     "carMode",
     "budget",
@@ -370,6 +396,7 @@ function isLegacyStaleDestinationContext(
   ) {
     return false;
   }
+  if (parsed.childCount !== undefined && parsed.childCount !== 0) return false;
   if (parsed.budget === undefined) return true;
   const normalizedBudget = normalizeTripBudget(parsed.budget);
   const rawBudget = parsed.budget;

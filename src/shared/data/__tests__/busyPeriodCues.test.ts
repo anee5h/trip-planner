@@ -1,27 +1,58 @@
 import { describe, expect, it } from "vitest";
-import {
-  CURATED_PEAK_PERIODS,
-  JAPAN_HOLIDAY_DATA_VERSION,
-  getBusyPeriodCues,
-} from "../busyPeriodCues";
+import { CURATED_PEAK_PERIODS, getBusyPeriodCues } from "../busyPeriodCues";
+import { getJapanHolidayStatus } from "../admissionHolidayCalendar";
 
 describe("getBusyPeriodCues", () => {
   it("returns an explainable Japanese national-holiday cue", () => {
     const [cue] = getBusyPeriodCues("any-destination", "2026-05-03");
 
-    expect(cue).toMatchObject({
-      kind: "nationalHoliday",
-      dateRange: ["2026-05-03", "2026-05-03"],
-      source: expect.objectContaining({
-        en: expect.stringContaining("Cabinet Office"),
-        ja: expect.stringContaining("内閣府"),
+    expect(JSON.stringify(cue)).toBe(
+      JSON.stringify({
+        id: "holiday-2026-05-03",
+        kind: "nationalHoliday",
+        dateRange: ["2026-05-03", "2026-05-03"],
+        reason: {
+          en: "Constitution Memorial Day",
+          ja: "憲法記念日",
+        },
+        evidence: {
+          en: "Constitution Memorial Day is listed in the cabinet-office-2026.1 local holiday extract.",
+          ja: "憲法記念日は、日本の2026年版祝日データに記載されています。",
+        },
+        source: {
+          en: "Japan Cabinet Office national-holiday calendar (2026 extract)",
+          ja: "日本の内閣府・国民の祝日カレンダー（2026年版）",
+        },
+        sourceUrl: "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html",
+        reviewedAt: "2026-08-01",
+        expiresAt: "2026-12-31",
       }),
-      reviewedAt: "2026-08-01",
-    });
-    expect(cue.evidence.en).toContain(JAPAN_HOLIDAY_DATA_VERSION);
-    expect(cue.evidence.ja).toContain("2026年版");
-    expect(cue.reason.en).toBe("Constitution Memorial Day");
-    expect(cue.reason.ja).toBe("憲法記念日");
+    );
+  });
+
+  it("does not add holiday cues outside the existing 2026 cue extract", () => {
+    expect(getBusyPeriodCues("any-destination", "2027-03-22")).toEqual([]);
+  });
+
+  it("keeps the admission and busy-period 2026 holiday extracts aligned", () => {
+    const cueDates = new Set<string>();
+    const admissionDates = new Set<string>();
+    const date = new Date(Date.UTC(2026, 0, 1));
+    while (date.getUTCFullYear() === 2026) {
+      const isoDate = date.toISOString().slice(0, 10);
+      if (
+        getBusyPeriodCues("any-destination", isoDate).some(
+          ({ kind }) => kind === "nationalHoliday",
+        )
+      ) {
+        cueDates.add(isoDate);
+      }
+      if (getJapanHolidayStatus(isoDate) === "holiday") {
+        admissionDates.add(isoDate);
+      }
+      date.setUTCDate(date.getUTCDate() + 1);
+    }
+    expect(admissionDates).toEqual(cueDates);
   });
 
   it("returns a weekend cue using Japan time", () => {

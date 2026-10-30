@@ -6,7 +6,11 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, describe, it, expect, vi } from "vitest";
-import { TripCostBreakdownWidget } from "../TripCostBreakdownWidget";
+import {
+  getAlternativeAdmissionSelection,
+  TripCostBreakdownWidget,
+} from "../TripCostBreakdownWidget";
+import * as tripEstimateEngine from "@/shared/services/budget/tripEstimateEngine";
 import type { Destination } from "@/shared/types/destination";
 import destinations from "@/shared/data/destinations-index.json";
 import type { GeneratedPlanCostResult } from "@/shared/services/budget/GeneratedPlanCostService";
@@ -74,6 +78,21 @@ vi.mock("react-i18next", () => ({
         "planner.budgetEstimate.admissionUnavailable": ja
           ? "入場料不明・未算入"
           : "Admission unavailable/not included",
+        "planner.budgetEstimate.admissionVerifiedForDate": ja
+          ? "選択日に適用される確認済み料金"
+          : "Verified for selected date",
+        "planner.budgetEstimate.admissionPublishedRange": ja
+          ? "確認済みの公表料金範囲"
+          : "Verified published range",
+        "planner.budgetEstimate.admissionFixedPrice": ja
+          ? "確認済みの固定チケット料金"
+          : "Verified fixed ticket price",
+        "planner.budgetEstimate.admissionAssumingAdults": ja
+          ? "入場料の概算（全員を大人として計算）"
+          : "Estimated admission (assuming all travelers are adults)",
+        "planner.budgetEstimate.admissionEstimated": ja
+          ? "入場料の概算"
+          : "Estimated admission",
       };
       return translations[key] ?? key;
     },
@@ -109,8 +128,8 @@ vi.mock("lucide-react", () => ({
 // components (origin_travel 800, local_transport 3000, admission 3000,
 // accommodation = allowance) so the rows + total are derived from the SAME
 // source.
-vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
-  calculateTripEstimate: ({
+vi.mock("@/shared/services/budget/tripEstimateEngine", () => {
+  const calculateTripEstimate = ({
     dest,
     duration,
   }: {
@@ -180,9 +199,13 @@ vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
       },
       components,
     };
-  },
-  evaluateAffordability: () => "fits",
-}));
+  };
+  return {
+    calculateTripEstimate,
+    calculateTripEstimateForVisit: calculateTripEstimate,
+    evaluateAffordability: () => "fits",
+  };
+});
 
 vi.mock("@/shared/services/budget/BudgetService", () => ({
   calculateItemizedTripCost: (
@@ -322,6 +345,7 @@ afterEach(() => {
   host?.remove();
   root = undefined;
   host = undefined;
+  vi.restoreAllMocks();
 });
 
 function renderWidget(props: {
@@ -353,6 +377,34 @@ function renderWidget(props: {
 
 // ── Tests ─────────────────────────────────────────────────────────────────────
 describe("TripCostBreakdownWidget canonical duration", () => {
+  it("does not recalculate on an unrelated parent rerender with a stable selection", () => {
+    const estimateSpy = vi.spyOn(
+      tripEstimateEngine,
+      "calculateTripEstimateForVisit",
+    );
+    const selection = { adultCount: 2, childCount: 0 } as const;
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    const render = (compactUnavailableCost: boolean) => (
+      <TripCostBreakdownWidget
+        destination={testDestination}
+        locale="en"
+        partySize={2}
+        activeTransportMode="train"
+        admissionSelection={selection}
+        visitDate="2026-11-14"
+        compactUnavailableCost={compactUnavailableCost}
+      />
+    );
+
+    act(() => root!.render(render(false)));
+    expect(estimateSpy).toHaveBeenCalledTimes(1);
+    act(() => root!.render(render(true)));
+
+    expect(estimateSpy).toHaveBeenCalledTimes(1);
+  });
+
   it("DisneySea variable admission is disclosed at the collapsed and expanded boundary in EN/JA", () => {
     const disneySea = (destinations as unknown as Destination[]).find(
       (destination) => destination.id === "disneysea",
@@ -463,6 +515,7 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     const engineMock =
       (await import("@/shared/services/budget/tripEstimateEngine")) as unknown as {
         calculateTripEstimate: ReturnType<typeof vi.fn>;
+        calculateTripEstimateForVisit: ReturnType<typeof vi.fn>;
       };
     engineMock.calculateTripEstimate = vi.fn().mockReturnValue({
       completeness: "partial",
@@ -485,6 +538,7 @@ describe("TripCostBreakdownWidget canonical duration", () => {
         { scope: "local_transport", reason: "source_missing" },
       ],
     });
+    engineMock.calculateTripEstimateForVisit = engineMock.calculateTripEstimate;
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -512,8 +566,10 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     const engineMock =
       (await import("@/shared/services/budget/tripEstimateEngine")) as unknown as {
         calculateTripEstimate: ReturnType<typeof vi.fn>;
+        calculateTripEstimateForVisit: ReturnType<typeof vi.fn>;
       };
     engineMock.calculateTripEstimate = vi.fn().mockReturnValue(engineResult);
+    engineMock.calculateTripEstimateForVisit = engineMock.calculateTripEstimate;
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -530,6 +586,47 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     });
     return host.textContent ?? "";
   }
+
+  it("does not attach a price-options admission note to a legacy fact", async () => {
+    const text = await renderWithEngine({
+      completeness: "complete",
+      total: { kind: "bounded", min: 2000, max: 3000 },
+      components: [
+        {
+          cost: { kind: "bounded", min: 2000, max: 3000 },
+          evidence: { scope: "admission", derivation: "source_fact" },
+        },
+        {
+          cost: { kind: "not_applicable" },
+          evidence: { scope: "local_transport", derivation: "computed" },
+        },
+      ],
+      knownSubtotal: [2000, 3000],
+      missingComponents: [],
+    });
+
+    expect(text).not.toContain("Verified for selected date");
+    expect(text).not.toContain("Verified fixed ticket price");
+    expect(text).not.toContain("Verified published range");
+    expect(text).not.toContain("Estimated admission");
+  });
+
+  it("does not pass ticket-only choices to alternative destinations", () => {
+    expect(
+      getAlternativeAdmissionSelection({
+        productId: "standard",
+        channel: "online",
+        addOnProductIds: ["guide"],
+      }),
+    ).toBeUndefined();
+    expect(
+      getAlternativeAdmissionSelection({
+        productId: "standard",
+        adultCount: 2,
+        childCount: 1,
+      }),
+    ).toEqual({ adultCount: 2, childCount: 1 });
+  });
 
   it("A) partial trip: bounded admission shows its range, NOT Cost unavailable (KAI-217B round-6)", async () => {
     const text = await renderWithEngine({
@@ -555,6 +652,75 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     expect(text).toContain("Missing: Local transport");
     // The bounded admission must NOT be rendered as Cost unavailable.
     expect(text).not.toContain("Cost unavailable");
+  });
+
+  it("distinguishes date, fixed, range, and assumed admission prices in EN/JA", async () => {
+    const renderWithBasis = async (
+      basis: "selected_date" | "fixed_price" | "supported_range" | undefined,
+      locale: "en" | "ja",
+      assumed = false,
+    ) => {
+      const engineMock =
+        (await import("@/shared/services/budget/tripEstimateEngine")) as unknown as {
+          calculateTripEstimate: ReturnType<typeof vi.fn>;
+          calculateTripEstimateForVisit: ReturnType<typeof vi.fn>;
+        };
+      engineMock.calculateTripEstimate = vi.fn().mockReturnValue({
+        completeness: "complete",
+        total: { kind: "bounded", min: 5000, max: 7000 },
+        components: [
+          {
+            cost: { kind: "bounded", min: 5000, max: 7000 },
+            evidence: {
+              scope: "admission",
+              derivation: assumed ? "model_estimate" : "source_fact",
+              ...(basis ? { admissionPricingBasis: basis } : {}),
+              ...(assumed ? { admissionCompositionAssumed: true } : {}),
+            },
+          },
+          {
+            cost: { kind: "not_applicable" },
+            evidence: { scope: "local_transport", derivation: "computed" },
+          },
+        ],
+      });
+      engineMock.calculateTripEstimateForVisit =
+        engineMock.calculateTripEstimate;
+      translationState.locale = locale;
+      host = document.createElement("div");
+      document.body.appendChild(host);
+      root = createRoot(host);
+      act(() => {
+        root!.render(
+          <TripCostBreakdownWidget
+            destination={testDestination}
+            locale={locale}
+            partySize={2}
+            activeTransportMode="train"
+            defaultExpanded
+          />,
+        );
+      });
+      const text = host.textContent ?? "";
+      act(() => root?.unmount());
+      host?.remove();
+      root = undefined;
+      host = undefined;
+      return text;
+    };
+
+    expect(await renderWithBasis("selected_date", "en")).toContain(
+      "Verified for selected date",
+    );
+    expect(await renderWithBasis("fixed_price", "en")).toContain(
+      "Verified fixed ticket price",
+    );
+    expect(await renderWithBasis("supported_range", "ja")).toContain(
+      "確認済みの公表料金範囲",
+    );
+    expect(await renderWithBasis(undefined, "en", true)).toContain(
+      "Estimated admission (assuming all travelers are adults)",
+    );
   });
 
   it("B) bounded [0,0] with verified_paid state must NOT show Free Admission (KAI-217B round-6)", async () => {

@@ -136,6 +136,8 @@ import {
   resolveExploreBudgetEstimate,
   type ExploreBudgetEstimate,
 } from "./exploreBudget";
+import { resolveChildCount } from "@/shared/utils/tripComposition";
+import { resolveEstimateVisitDate } from "@/shared/services/budget/estimateVisitDate";
 import {
   applyTripContextBudgetToExplorerState,
   budgetParamsPresent,
@@ -272,6 +274,19 @@ export default function Destinations() {
   const [indoorMin, setIndoorMin] = useState(initialExplorerState.indoorMin);
   const [season, setSeason] = useState(initialExplorerState.season);
   const [date, setDate] = useState(initialExplorerState.date);
+  const contextTravelDate =
+    !date && hasExplicitTripContext
+      ? (tripContext.travelDate ?? undefined)
+      : undefined;
+  const estimateTravelDate = date || contextTravelDate;
+  const estimateVisitDate = resolveEstimateVisitDate(
+    estimateTravelDate,
+    tripDuration,
+  );
+  const estimateChildCount =
+    hasExplicitTripContext && tripContext.partySize === partySize
+      ? resolveChildCount(tripContext)
+      : undefined;
   const query = searchQuery.toLowerCase().trim();
 
   // Live forecast map for the planned origin: lets a selected date use real
@@ -281,8 +296,8 @@ export default function Destinations() {
   );
   const forecastMap = explorerWeatherContext?.forecastMap;
 
-  // Shared trip-date model: Day 1 + derived Day 2 for 2D1N. Omitted date
-  // means no explicit date — any-date browsing is never silently "today".
+  // Explicit URL selection only: context dates may price estimates, but must
+  // not silently enable conditions, forecasts, or ferry availability.
   const travelDates = useMemo(() => {
     if (!date) return undefined;
     return deriveTripDates(date, tripDuration);
@@ -529,6 +544,8 @@ export default function Destinations() {
         publicModes: effectivePublicModes,
         partySize,
         duration: tripDuration,
+        visitDate: estimateVisitDate,
+        childCount: estimateChildCount,
         budgetTier: budgetTier === "any" ? undefined : budgetTier,
         ferryTemporal,
       });
@@ -1191,6 +1208,8 @@ export default function Destinations() {
         publicModes: effectivePublicModes,
         partySize,
         duration: tripDuration,
+        visitDate: estimateVisitDate,
+        childCount: estimateChildCount,
         budgetTier: budgetTier === "any" ? undefined : budgetTier,
         ferryTemporal,
         budgetEstimatesById,
@@ -1236,6 +1255,8 @@ export default function Destinations() {
     publicModes,
     resolvedPublicModes,
     partySize,
+    estimateChildCount,
+    estimateVisitDate,
     budgetTier,
     tripDuration,
     walkingIntensity,
@@ -1511,6 +1532,8 @@ export default function Destinations() {
                     destination={dest}
                     duration={tripDuration}
                     partySize={partySize}
+                    visitDate={estimateVisitDate}
+                    childCount={estimateChildCount}
                     carMode={carMode}
                     resolvedBudgetEstimate={budgetEstimatesById.get(dest.id)}
                     conditionLabel={

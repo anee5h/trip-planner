@@ -89,6 +89,97 @@ function isValidBounded(min: unknown, max: unknown): boolean {
   return isFiniteNumber(min) && isFiniteNumber(max) && min >= 0 && max >= min;
 }
 
+function validateAdmissionPriceOptions(
+  fact: Readonly<{
+    state?: string;
+    provenance?: string;
+    sourceUrls?: readonly string[];
+    checkedAt?: string;
+    priceOptions?: unknown;
+  }>,
+): ValidationResult {
+  if (!Array.isArray(fact.priceOptions) || fact.priceOptions.length === 0) {
+    return { valid: false, reason: "invalid_price_options" };
+  }
+  if (
+    (fact.state !== "verified_paid" && fact.state !== "variable_price") ||
+    fact.provenance !== "verified_source" ||
+    !isNonEmptyUrlList(fact.sourceUrls) ||
+    !isValidCheckedAtDate(fact.checkedAt)
+  ) {
+    return { valid: false, reason: "unverified_price_options" };
+  }
+
+  const variants = new Map<string, string>();
+  const categories = new Set<string>();
+  for (const value of fact.priceOptions) {
+    if (!value || typeof value !== "object" || Array.isArray(value)) {
+      return { valid: false, reason: "invalid_price_option" };
+    }
+    const option = value as Record<string, unknown>;
+    if (
+      typeof option.productId !== "string" ||
+      !option.productId.trim() ||
+      (option.productName !== undefined &&
+        (!option.productName ||
+          typeof option.productName !== "object" ||
+          Array.isArray(option.productName) ||
+          typeof (option.productName as Record<string, unknown>).en !==
+            "string" ||
+          !(option.productName as Record<string, string>).en.trim() ||
+          typeof (option.productName as Record<string, unknown>).ja !==
+            "string" ||
+          !(option.productName as Record<string, string>).ja.trim())) ||
+      typeof option.variantId !== "string" ||
+      !option.variantId.trim() ||
+      (option.category !== "adult" && option.category !== "child") ||
+      !isValidBounded(option.min, option.max) ||
+      (option.channel !== undefined &&
+        option.channel !== "online" &&
+        option.channel !== "counter") ||
+      (option.dayType !== undefined &&
+        option.dayType !== "weekday" &&
+        option.dayType !== "weekend" &&
+        option.dayType !== "holiday" &&
+        option.dayType !== "weekend_or_holiday") ||
+      (option.timeSlot !== undefined &&
+        (typeof option.timeSlot !== "string" || !option.timeSlot.trim())) ||
+      (option.optional !== undefined && typeof option.optional !== "boolean") ||
+      (option.validFrom !== undefined &&
+        !isValidCheckedAtDate(option.validFrom)) ||
+      (option.validUntil !== undefined &&
+        !isValidCheckedAtDate(option.validUntil)) ||
+      (typeof option.validFrom === "string" &&
+        typeof option.validUntil === "string" &&
+        option.validFrom > option.validUntil)
+    ) {
+      return { valid: false, reason: "invalid_price_option" };
+    }
+
+    const group = [option.productId, option.variantId].join("\u0000");
+    const conditions = JSON.stringify([
+      option.channel ?? null,
+      option.validFrom ?? null,
+      option.validUntil ?? null,
+      option.dayType ?? null,
+      option.timeSlot ?? null,
+      option.optional === true,
+    ]);
+    const existingConditions = variants.get(group);
+    if (existingConditions !== undefined && existingConditions !== conditions) {
+      return { valid: false, reason: "inconsistent_price_variant" };
+    }
+    variants.set(group, conditions);
+
+    const categoryKey = [group, option.category].join("\u0000");
+    if (categories.has(categoryKey)) {
+      return { valid: false, reason: "duplicate_price_category" };
+    }
+    categories.add(categoryKey);
+  }
+  return { valid: true };
+}
+
 /**
  * Validates an AdmissionCostFact. Returns { valid: true } or
  * { valid: false, reason } — consumers fail closed to unavailable.
@@ -103,6 +194,7 @@ export function validateAdmissionFact(
     sourceUrls?: readonly string[];
     checkedAt?: string;
     reviewIntervalMonths?: number;
+    priceOptions?: unknown;
   }>,
 ): ValidationResult {
   const { state, provenance, cost } = fact;
@@ -111,6 +203,40 @@ export function validateAdmissionFact(
   }
   if (!isValidReviewInterval(fact.reviewIntervalMonths)) {
     return { valid: false, reason: "invalid_review_interval" };
+  }
+  if (
+    fact.priceOptions !== undefined &&
+    !(Array.isArray(fact.priceOptions) && fact.priceOptions.length === 0)
+  ) {
+    const validation = validateAdmissionPriceOptions(fact);
+    if (!validation.valid) return validation;
+    const baseOptions = (
+      fact.priceOptions as readonly Readonly<Record<string, unknown>>[]
+    ).filter((option) => option.optional !== true);
+    if (baseOptions.length === 0) {
+      return { valid: false, reason: "price_options_missing_base_product" };
+    }
+    const optionsMin = Math.min(
+      ...baseOptions.map((option) => option.min as number),
+    );
+    const optionsMax = Math.max(
+      ...baseOptions.map((option) => option.max as number),
+    );
+    // A `variable` cost has no numeric envelope to compare; its reviewed
+    // options are the usable values. Bounded and open-ended facts must match
+    // the option envelope so legacy projections cannot disagree with it.
+    if (
+      (cost.kind === "bounded" &&
+        (!isValidBounded(cost.min, cost.max) ||
+          cost.min !== optionsMin ||
+          cost.max !== optionsMax)) ||
+      (cost.kind === "open_ended" && cost.from !== optionsMin) ||
+      (cost.kind !== "bounded" &&
+        cost.kind !== "open_ended" &&
+        cost.kind !== "variable")
+    ) {
+      return { valid: false, reason: "price_options_cost_mismatch" };
+    }
   }
 
   switch (state) {

@@ -19,7 +19,7 @@ import {
   CardHeader,
 } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { calculateTripEstimateForVisit } from "@/shared/services/budget/tripEstimateEngine";
 import { Button } from "@/shared/components/ui/button";
 import {
   MapPin,
@@ -107,6 +107,9 @@ interface DestinationCardProps {
   conditionLabel?: string;
   /** Selected travel date for date-aware transport metadata. */
   ferryTemporal?: FerryTemporalContext;
+  /** Selected calendar date for admission pricing. */
+  visitDate?: string;
+  childCount?: number;
   /** Detail-page rails use a denser card while retaining all actions. */
   compact?: boolean;
   /** Saved surfaces use the same card family with a mobile-only dense layout. */
@@ -128,6 +131,8 @@ export default function DestinationCard({
   overnightSummary,
   conditionLabel,
   ferryTemporal,
+  visitDate,
+  childCount,
   compact = false,
   variant = "default",
   journeyOrigin,
@@ -276,16 +281,21 @@ export default function DestinationCard({
     }
   };
 
+  const hasTicketOptions = Boolean(destination.admission?.priceOptions?.length);
   const linkState = useMemo(() => {
     const hasTransport = carMode !== undefined || publicModes !== undefined;
-    const travelDate = ferryTemporal?.travelDate
-      ? ferryTemporal.travelDate.toISOString().slice(0, 10)
-      : undefined;
+    const travelDate =
+      (hasTicketOptions ? visitDate : undefined) ??
+      (ferryTemporal?.travelDate
+        ? ferryTemporal.travelDate.toISOString().slice(0, 10)
+        : undefined);
+    const linkedChildCount = hasTicketOptions ? childCount : undefined;
     if (
       !hasTransport &&
       partySize === undefined &&
       duration === undefined &&
-      travelDate === undefined
+      travelDate === undefined &&
+      linkedChildCount === undefined
     ) {
       return undefined;
     }
@@ -294,8 +304,20 @@ export default function DestinationCard({
       ...(partySize !== undefined ? { partySize } : {}),
       ...(duration !== undefined ? { duration } : {}),
       ...(travelDate ? { travelDate } : {}),
+      ...(linkedChildCount !== undefined
+        ? { childCount: linkedChildCount }
+        : {}),
     };
-  }, [carMode, publicModes, partySize, duration, ferryTemporal]);
+  }, [
+    hasTicketOptions,
+    carMode,
+    publicModes,
+    partySize,
+    duration,
+    ferryTemporal,
+    visitDate,
+    childCount,
+  ]);
 
   const activeCollections = (destination.collections || [])
     .map((m) => getCollectionById(m.collectionId))
@@ -409,10 +431,12 @@ export default function DestinationCard({
       preferredTransport?.mode ??
       (validModes.length > 0 ? validModes[0] : undefined);
     if (!mode) return null;
-    const r = calculateTripEstimate({
+    const r = calculateTripEstimateForVisit({
       dest: destination,
       mode,
       partySize,
+      visitDate,
+      childCount,
       homeCoords: journeyOriginCoords ?? undefined,
       includeOriginTravel: Boolean(journeyOriginCoords),
       duration,
@@ -443,6 +467,8 @@ export default function DestinationCard({
     isOvernight,
     duration,
     ferryTemporal,
+    visitDate,
+    childCount,
   ]);
   const cardBudgetRange = cardEstimate?.range ?? null;
 

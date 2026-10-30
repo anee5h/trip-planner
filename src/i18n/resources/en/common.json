@@ -353,6 +353,20 @@
   },
   "planner": {
     "budgetWholeParty": "for the whole party",
+    "admissionOptions": {
+      "product": "Ticket product",
+      "productFallback": "Ticket option {{number}}",
+      "channel": "Purchase channel",
+      "timeSlot": "Time slot",
+      "addOns": "Optional add-ons",
+      "addOnFallback": "Add-on {{number}}",
+      "choose": "Choose a product",
+      "any": "Any",
+      "channels": {
+        "online": "Online",
+        "counter": "At the counter"
+      }
+    },
     "budget": {
       "label": "Max Budget",
       "scope": "for the whole party",
@@ -361,6 +375,14 @@
     "stayAllowanceRow": "Stay allowance ({{count}} night)",
     "stayAllowanceRow_other": "Stay allowance ({{count}} nights)",
     "stayAllowanceNote": "Inferred planning estimate — not a live hotel quote",
+    "admissionPartyComposition": {
+      "title": "Ticket party composition",
+      "children": "Children",
+      "assumingAdults": "Leave blank to estimate assuming all travelers are adults.",
+      "summary": "Adults: {{adultCount}} · children: {{childCount}}",
+      "exceedsPartySize": "Child count cannot exceed the party size.",
+      "invalidCount": "Enter a valid child count."
+    },
     "budgetEstimate": {
       "estimatedTripTotal": "Estimated trip total",
       "onSiteEstimate": "On-site estimate — set an origin to include travel.",
@@ -381,7 +403,12 @@
       "admissionTickets": "Admission / Tickets",
       "meals": "Meals",
       "accommodation": "Accommodation",
-      "admissionUnavailable": "Admission unavailable/not included"
+      "admissionUnavailable": "Admission unavailable/not included",
+      "admissionVerifiedForDate": "Verified for selected date",
+      "admissionFixedPrice": "Verified fixed ticket price",
+      "admissionPublishedRange": "Verified published range",
+      "admissionEstimated": "Estimated admission",
+      "admissionAssumingAdults": "Estimated admission (assuming all travelers are adults)"
     }
   },
   "origin": {
