@@ -456,9 +456,11 @@ export default function DestinationDetails() {
     }
   };
   const handleChildCountChange = (nextChildCount: number | undefined) => {
-    setChildCountOverride({ destinationId: id ?? "", value: nextChildCount });
-    if (hasPriceOptions && hasExplicitTripContext) {
-      updateTripContext({ childCount: nextChildCount });
+    if (hasPriceOptions) {
+      setChildCountOverride({ destinationId: id ?? "", value: nextChildCount });
+      if (hasExplicitTripContext) {
+        updateTripContext({ childCount: nextChildCount });
+      }
     }
   };
   // Relationship-backed detail sections use a compact generated graph of
@@ -2045,7 +2047,6 @@ export default function DestinationDetails() {
 
               {/* Progressive Planning Section */}
               <DestinationPlanningSection
-                key={destination.id}
                 destination={destination}
                 locale={locale}
                 partySize={partySize}

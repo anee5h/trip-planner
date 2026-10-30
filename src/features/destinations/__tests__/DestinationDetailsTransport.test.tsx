@@ -626,6 +626,11 @@ describe("DestinationDetails transport rows", () => {
     });
 
     expect(planningState.partySize).toBe(2);
+    act(() => planningState.changeChildCount?.(1));
+    await act(async () => {
+      await flush(80);
+    });
+    expect(planningState.childCount).toBeUndefined();
     expect(tripContextUpdates.calls).toEqual([]);
     expect(sessionStorage.getItem("meguruto-active-trip-context")).toBe(
       storedContext,
@@ -786,7 +791,39 @@ describe("DestinationDetails transport rows", () => {
   });
 
   it("removes nav-provided party composition when child count is cleared", async () => {
-    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view", {
+    const destinationId = "roppongi-hills-tokyo-city-view";
+    const previousRecord = records.get(destinationId)!;
+    records.set(destinationId, {
+      ...previousRecord,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "child",
+            min: 500,
+            max: 500,
+          },
+        ],
+      },
+    });
+    destinationRecordOverride = { id: destinationId, previous: previousRecord };
+
+    renderWithTripContext(`/destinations/${destinationId}`, {
       partySize: 2,
       childCount: 1,
       admissionSelection: {

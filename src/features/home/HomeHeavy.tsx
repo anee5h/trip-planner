@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useOptionalTripContext } from "@/shared/context/TripContext";
@@ -57,6 +57,10 @@ export default function HeavyHome({
     favorites,
   } = useTripStore();
   const { tripContext, updateTripContext } = useOptionalTripContext();
+  const contextPartySizeRef = useRef(tripContext.partySize);
+  useEffect(() => {
+    contextPartySizeRef.current = tripContext.partySize;
+  }, [tripContext.partySize]);
 
   const { weatherContext, currentTab, customDate, forecastSelection } =
     useHomeDateState();
@@ -113,7 +117,7 @@ export default function HeavyHome({
       dateSemantics: forecastSelection.type,
       duration: resolvedApplied.tripDuration,
       partySize: resolvedApplied.partySize,
-      ...(resolvedApplied.partySize !== tripContext.partySize
+      ...(resolvedApplied.partySize !== contextPartySizeRef.current
         ? { childCount: undefined }
         : {}),
       publicModes: resolvedApplied.publicModes,
@@ -141,7 +145,6 @@ export default function HeavyHome({
     homeStationTransportZoneId,
     resolvedApplied,
     selectedDate,
-    tripContext.partySize,
     updateTripContext,
   ]);
 

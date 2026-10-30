@@ -137,7 +137,7 @@ import {
   type ExploreBudgetEstimate,
 } from "./exploreBudget";
 import { resolveChildCount } from "@/shared/utils/tripComposition";
-import { isValidCheckedAtDate } from "@/shared/services/budget/factValidation";
+import { resolveEstimateVisitDate } from "@/shared/services/budget/estimateVisitDate";
 import {
   applyTripContextBudgetToExplorerState,
   budgetParamsPresent,
@@ -279,16 +279,10 @@ export default function Destinations() {
       ? (tripContext.travelDate ?? undefined)
       : undefined;
   const estimateTravelDate = date || contextTravelDate;
-  const estimateVisitDate = useMemo(() => {
-    if (!estimateTravelDate || !isValidCheckedAtDate(estimateTravelDate)) {
-      return undefined;
-    }
-    try {
-      return deriveTripDates(estimateTravelDate, tripDuration).day1;
-    } catch {
-      return undefined;
-    }
-  }, [estimateTravelDate, tripDuration]);
+  const estimateVisitDate = resolveEstimateVisitDate(
+    estimateTravelDate,
+    tripDuration,
+  );
   const estimateChildCount =
     hasExplicitTripContext && tripContext.partySize === partySize
       ? resolveChildCount(tripContext)
@@ -302,8 +296,8 @@ export default function Destinations() {
   );
   const forecastMap = explorerWeatherContext?.forecastMap;
 
-  // Shared trip-date model: Day 1 + derived Day 2 for 2D1N. Omitted date
-  // means no explicit date — any-date browsing is never silently "today".
+  // Explicit URL selection only: context dates may price estimates, but must
+  // not silently enable conditions, forecasts, or ferry availability.
   const travelDates = useMemo(() => {
     if (!date) return undefined;
     return deriveTripDates(date, tripDuration);

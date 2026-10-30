@@ -126,6 +126,11 @@ export function DestinationPlanningSection({
   const childCountHelpId = `${childCountInputId}-help`;
   const childCountErrorId = `${childCountInputId}-error`;
   const previousPartySize = useRef(partySize);
+  const latestResetValues = useRef({ partySize, childCount });
+
+  useEffect(() => {
+    latestResetValues.current = { partySize, childCount };
+  }, [partySize, childCount]);
   const lastPublishedPlan = useRef<DayPlan | null>(null);
   const configuredTicketSelection =
     selectionOverride?.destinationId === destination.id
@@ -194,8 +199,16 @@ export function DestinationPlanningSection({
   }, [partySize]);
 
   useEffect(() => {
+    const { partySize: nextPartySize, childCount: nextChildCount } =
+      latestResetValues.current;
+    setGeneratedPlanState(null);
+    setActivePartySize(nextPartySize);
+    setChildCountOverride(null);
+    setChildCountDraft(
+      nextChildCount === undefined ? "" : String(nextChildCount),
+    );
     setSelectionOverride(null);
-  }, [admissionSelection]);
+  }, [destination.id]);
 
   const handlePartySizeChange = (nextPartySize: number) => {
     setActivePartySize(nextPartySize);
@@ -350,7 +363,10 @@ export function DestinationPlanningSection({
               admissionSelection: activeAdmissionSelection,
               totalBudgetRange: costBreakdown?.totalRange,
             }
-          : generatedPlan
+          : {
+              ...generatedPlan,
+              totalBudgetRange: costBreakdown?.totalRange,
+            }
         : null,
     [
       generatedPlan,

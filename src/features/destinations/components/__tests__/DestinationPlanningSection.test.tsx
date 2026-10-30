@@ -38,10 +38,14 @@ vi.mock("../DayPlanWidget", () => ({
     admissionSelection,
     onPlanGenerated,
     onSaveToItinerary,
+    partySize,
+    onPartySizeChange,
   }: {
     admissionSelection?: AdmissionPriceSelection;
     onPlanGenerated?: (plan: DayPlan | null) => void;
     onSaveToItinerary?: () => void;
+    partySize?: number;
+    onPartySizeChange?: (partySize: number) => void;
   }) => (
     <>
       {plannerCapture.selectionRefs.push(admissionSelection) && null}
@@ -60,6 +64,11 @@ vi.mock("../DayPlanWidget", () => ({
         type="button"
         data-testid="save-plan"
         onClick={onSaveToItinerary}
+      />
+      <button
+        type="button"
+        data-testid="change-party-size"
+        onClick={() => onPartySizeChange?.((partySize ?? 2) + 2)}
       />
     </>
   ),
@@ -125,7 +134,6 @@ function renderPlanningSection(
   act(() => {
     root!.render(
       <DestinationPlanningSection
-        key={destination.id}
         destination={destination}
         locale={options.locale ?? "en"}
         partySize={options.partySize ?? 4}
@@ -147,7 +155,7 @@ describe("DestinationPlanningSection", () => {
     expect(typeof DestinationPlanningSection).toBe("function");
   });
 
-  it("saves legacy plans without admission context fields", () => {
+  it("saves legacy plans with the live total and no admission context fields", () => {
     const destination = {
       id: "legacy-plan",
       name: "Legacy Plan",
@@ -191,6 +199,7 @@ describe("DestinationPlanningSection", () => {
     } satisfies DayPlan;
     const saved: Array<DayPlan | undefined> = [];
     renderPlanningSection(destination, {
+      partySize: 2,
       travelDate: "2026-11-14",
       admissionSelection: { adultCount: 2, childCount: 1 },
       onSaveToItinerary: (plan) => saved.push(plan),
@@ -203,11 +212,38 @@ describe("DestinationPlanningSection", () => {
     });
     act(() => {
       host!
+        .querySelector<HTMLButtonElement>('[data-testid="change-party-size"]')!
+        .click();
+    });
+    act(() => {
+      host!
         .querySelector<HTMLButtonElement>('[data-testid="save-plan"]')!
         .click();
     });
 
-    expect(saved.at(-1)).toEqual(plannerCapture.generatedPlan);
+    expect(saved.at(-1)?.totalBudgetRange).toEqual(
+      calculateGeneratedPlanCost(plannerCapture.generatedPlan as DayPlan, 4)
+        .totalRange,
+    );
+    expect(saved.at(-1)).not.toHaveProperty("travelDate");
+    expect(saved.at(-1)).not.toHaveProperty("admissionSelection");
+
+    plannerCapture.generatedPlan = {
+      ...(plannerCapture.generatedPlan as DayPlan),
+      isUnfeasible: true,
+    };
+    act(() => {
+      host!
+        .querySelector<HTMLButtonElement>('[data-testid="generate-plan"]')!
+        .click();
+    });
+    act(() => {
+      host!
+        .querySelector<HTMLButtonElement>('[data-testid="save-plan"]')!
+        .click();
+    });
+
+    expect(saved.at(-1)?.totalBudgetRange).toBeUndefined();
     expect(saved.at(-1)).not.toHaveProperty("travelDate");
     expect(saved.at(-1)).not.toHaveProperty("admissionSelection");
   });
@@ -876,6 +912,15 @@ describe("DestinationPlanningSection", () => {
       },
     } as unknown as Destination;
 
+    const published: Array<DayPlan | null> = [];
+    plannerCapture.generatedPlan = {
+      id: "switch-plan",
+      title: { en: "Switch", ja: "切替" },
+      steps: [],
+      totalDurationMinutes: 0,
+      isOverfilled: false,
+      uncertainHoursDisclosures: [],
+    } satisfies DayPlan;
     renderPlanningSection(firstDestination, {
       childCount: 1,
       admissionSelection: {
@@ -883,7 +928,14 @@ describe("DestinationPlanningSection", () => {
         adultCount: 3,
         childCount: 1,
       },
+      onPlanGenerated: (plan) => published.push(plan),
     });
+    act(() => {
+      host!
+        .querySelector<HTMLButtonElement>('[data-testid="generate-plan"]')!
+        .click();
+    });
+    expect(published.at(-1)).not.toBeNull();
     expect(
       host!.querySelector<HTMLInputElement>('input[inputmode="numeric"]')
         ?.value,
@@ -894,7 +946,10 @@ describe("DestinationPlanningSection", () => {
       ).productId,
     ).toBe("premium");
 
-    renderPlanningSection(secondDestination, { partySize: 4 });
+    renderPlanningSection(secondDestination, {
+      partySize: 4,
+      onPlanGenerated: (plan) => published.push(plan),
+    });
     expect(
       host!.querySelector<HTMLInputElement>('input[inputmode="numeric"]')
         ?.value,
@@ -904,5 +959,6 @@ describe("DestinationPlanningSection", () => {
         host!.querySelector('[data-testid="day-plan-selection"]')!.textContent!,
       ).productId,
     ).toBe("basic");
+    expect(published.at(-1)).toBeNull();
   });
 });

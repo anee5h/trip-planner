@@ -68,7 +68,7 @@ const BASE_DEST = {
 } as unknown as Destination;
 
 describe("GeneratedPlanCostService", () => {
-  it("preserves legacy assumption append behavior while de-duplicating ticket options", () => {
+  it("preserves distinct admission and transport estimate assumptions", () => {
     const existingAssumption = {
       type: "estimated_cost" as const,
       destinationId: BASE_DEST.id,
@@ -108,18 +108,33 @@ describe("GeneratedPlanCostService", () => {
         ],
       },
     } as unknown as Destination;
+    const transportAssumption = {
+      type: "estimated_cost" as const,
+      destinationId: BASE_DEST.id,
+      costScope: "transport" as const,
+      message: { en: "Transport estimate", ja: "交通費の目安" },
+    };
     const ticketPlan = {
       ...makePlan(ticketDestination),
-      assumptions: [existingAssumption],
+      assumptions: [transportAssumption],
     };
     const ticketCost = calculateGeneratedPlanCost(ticketPlan);
+    expect(ticketCost.admission.admissionCompositionAssumed).toBe(true);
+    expect(
+      ticketCost.assumptions.filter(
+        (assumption) =>
+          assumption.type === "estimated_cost" &&
+          assumption.destinationId === BASE_DEST.id &&
+          assumption.costScope === "admission",
+      ),
+    ).toHaveLength(1);
     expect(
       ticketCost.assumptions.filter(
         (assumption) =>
           assumption.type === "estimated_cost" &&
           assumption.destinationId === BASE_DEST.id,
       ),
-    ).toHaveLength(1);
+    ).toHaveLength(2);
   });
 
   it("counts legacy admission once across days but prices ticket options per visit", () => {

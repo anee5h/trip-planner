@@ -229,10 +229,12 @@ export function estimateOriginTransportFare(): CostComponent {
 function pushMissingAssumption(
   dest: Destination,
   assumptions: PlanAssumption[],
+  costScope?: "admission",
 ): void {
   assumptions.push({
     type: "estimated_cost",
     destinationId: dest.id,
+    ...(costScope ? { costScope } : {}),
     message: {
       en: `Some cost inputs for ${dest.name} use a rough planning estimate.`,
       ja: `${dest.nameJa || dest.name}の一部費用は概算です。`,
@@ -309,16 +311,23 @@ export function calculateGeneratedPlanCost(
       admissionSelection: effectiveSelection,
       includeOriginTravel: false,
     });
-    if (
-      result.estimateQuality !== "verified" &&
-      (!destination.admission?.priceOptions?.length ||
-        !assumptions.some(
-          (assumption) =>
-            assumption.type === "estimated_cost" &&
-            assumption.destinationId === destination.id,
-        ))
-    ) {
-      pushMissingAssumption(destination, assumptions);
+    if (result.estimateQuality !== "verified") {
+      const hasTicketOptions = Boolean(
+        destination.admission?.priceOptions?.length,
+      );
+      const hasAdmissionAssumption = assumptions.some(
+        (assumption) =>
+          assumption.type === "estimated_cost" &&
+          assumption.destinationId === destination.id &&
+          assumption.costScope === "admission",
+      );
+      if (!hasTicketOptions || !hasAdmissionAssumption) {
+        pushMissingAssumption(
+          destination,
+          assumptions,
+          hasTicketOptions ? "admission" : undefined,
+        );
+      }
     }
     return result;
   });

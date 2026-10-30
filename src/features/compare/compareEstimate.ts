@@ -3,6 +3,7 @@ import { resolveExploreBudgetEstimate } from "@/features/destinations/exploreBud
 import type { Destination } from "@/shared/types/destination";
 import type { TripContext } from "@/shared/context/TripContext";
 import { resolveChildCount } from "@/shared/utils/tripComposition";
+import { resolveEstimateVisitDate } from "@/shared/services/budget/estimateVisitDate";
 
 /**
  * Compare's only estimate adapter. An explicit trip uses the same
@@ -16,6 +17,10 @@ export function resolveCompareEstimate(
 ) {
   const childCount = resolveChildCount(tripContext);
   if (hasExplicitTripContext) {
+    const visitDate = resolveEstimateVisitDate(
+      tripContext.travelDate ?? undefined,
+      tripContext.duration,
+    );
     const resolved = resolveExploreBudgetEstimate(destination, {
       originCoords: tripContext.origin?.coordinates,
       originZoneId: tripContext.origin?.transportZoneId,
@@ -23,7 +28,7 @@ export function resolveCompareEstimate(
       publicModes: tripContext.publicModes,
       partySize: tripContext.partySize,
       duration: tripContext.duration,
-      visitDate: tripContext.travelDate ?? undefined,
+      visitDate,
       childCount,
       // A finite cap remains context for affordability; it must not filter
       // away the user's explicitly selected mode before it is displayed.
@@ -35,7 +40,7 @@ export function resolveCompareEstimate(
       dest: destination,
       duration: tripContext.duration,
       partySize: tripContext.partySize,
-      visitDate: tripContext.travelDate ?? undefined,
+      visitDate,
       childCount,
       homeCoords: tripContext.origin?.coordinates,
       includeOriginTravel: Boolean(tripContext.origin?.coordinates),

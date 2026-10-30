@@ -212,6 +212,7 @@ export interface PlanAssumption {
     | "estimated_cost"
     | "seasonal_access";
   destinationId?: string;
+  costScope?: "admission" | "transport";
   message: { en: string; ja: string };
 }
 
