@@ -253,6 +253,42 @@ describe("reviewed admission price options", () => {
         }),
       ).cost,
     ).toEqual({ kind: "unavailable", reason: "price_variable_by_product" });
+    expect(
+      admission(
+        estimate(venue, 1, {
+          admissionSelection: {
+            productId: "standard",
+            adultCount: 1,
+            childCount: 0,
+          },
+        }),
+      ).cost,
+    ).toEqual({ kind: "bounded", min: 1000, max: 1000 });
+  });
+
+  it("keeps exact date variants of variable-price facts in a supported range", () => {
+    const venue = destination(
+      "variable-exact-date-option",
+      variableAdmission([
+        {
+          productId: "standard",
+          variantId: "selected-day",
+          category: "adult",
+          min: 1500,
+          max: 1500,
+          validFrom: "2026-11-14",
+          validUntil: "2026-11-14",
+        },
+      ]),
+    );
+    const result = admission(
+      estimate(venue, 1, {
+        visitDate: "2026-11-14",
+        admissionSelection: { adultCount: 1, childCount: 0 },
+      }),
+    );
+    expect(result.cost).toEqual({ kind: "bounded", min: 1500, max: 1500 });
+    expect(result.evidence.admissionPricingBasis).toBe("supported_range");
   });
 
   it("derives holiday tiers from the reviewed calendar and preserves overlapping weekend tiers", () => {
@@ -302,7 +338,7 @@ describe("reviewed admission price options", () => {
       max: 2000,
     });
     expect(misclassifiedHoliday.evidence.admissionPricingBasis).toBe(
-      "selected_date",
+      "supported_range",
     );
 
     expect(
@@ -320,7 +356,7 @@ describe("reviewed admission price options", () => {
           admissionSelection: party,
         }),
       ).evidence.admissionPricingBasis,
-    ).toBe("selected_date");
+    ).toBe("supported_range");
     expect(
       admission(
         estimate(venue, 1, {
@@ -596,7 +632,9 @@ describe("reviewed admission price options", () => {
       min: 3100,
       max: 3100,
     });
-    expect(fixedAndDated.evidence.admissionPricingBasis).toBe("selected_date");
+    expect(fixedAndDated.evidence.admissionPricingBasis).toBe(
+      "supported_range",
+    );
     expect(
       admission(
         estimate(museum, 2, {
@@ -671,6 +709,8 @@ describe("reviewed admission price options", () => {
     const assumed = admission(estimate(adultTicket, 1));
     expect(assumed.cost).toEqual({ kind: "bounded", min: 1000, max: 1000 });
     expect(assumed.evidence.derivation).toBe("model_estimate");
+    expect(assumed.evidence.state).toBe("documented_estimate");
+    expect(assumed.evidence.provenance).toBe("model");
     expect(assumed.evidence.admissionCompositionAssumed).toBe(true);
     expect(assumed.evidence.admissionPricingBasis).toBeUndefined();
     const explicit = admission(
@@ -812,7 +852,7 @@ describe("reviewed admission price options", () => {
       min: 20000,
       max: 20000,
       source: "curated",
-      admissionPricingBasis: "selected_date",
+      admissionPricingBasis: "supported_range",
     });
     expect(
       calculateGeneratedPlanCost(plan, 2, null, false, undefined, {
@@ -822,7 +862,7 @@ describe("reviewed admission price options", () => {
     ).toMatchObject({
       min: 22000,
       max: 22000,
-      admissionPricingBasis: "selected_date",
+      admissionPricingBasis: "supported_range",
     });
     expect(cost.accommodation).toMatchObject({
       applicable: true,
@@ -886,7 +926,7 @@ describe("reviewed admission price options", () => {
     expect(repeatVisit.admission).toMatchObject({
       min: 3000,
       max: 3000,
-      admissionPricingBasis: "selected_date",
+      admissionPricingBasis: "supported_range",
     });
     expect(repeatVisit.localTransit).toEqual(singleVisit.localTransit);
     expect(repeatVisit.meals).toEqual(singleVisit.meals);
@@ -975,7 +1015,7 @@ describe("reviewed admission price options", () => {
     ).toMatchObject({
       min: 4000,
       max: 4000,
-      admissionPricingBasis: "selected_date",
+      admissionPricingBasis: "supported_range",
     });
 
     const legacyPriced = destination("legacy-open-ended", {

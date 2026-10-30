@@ -106,8 +106,8 @@ let scenario: Scenario = {
 // canonical components (origin_travel / local_transport / admission —
 // food/cafe excluded) so the transport-row presentation contract stays the
 // focus.
-vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
-  calculateTripEstimate: (context: Record<string, unknown>) => {
+vi.mock("@/shared/services/budget/tripEstimateEngine", () => {
+  const calculateTripEstimate = (context: Record<string, unknown>) => {
     estimateCall.context = context;
     const s = scenario;
     const components: unknown[] = [];
@@ -154,9 +154,13 @@ vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
       total: { kind: "bounded", min: total, max: total },
       components,
     };
-  },
-  evaluateAffordability: () => "fits",
-}));
+  };
+  return {
+    calculateTripEstimate,
+    calculateTripEstimateForVisit: calculateTripEstimate,
+    evaluateAffordability: () => "fits",
+  };
+});
 
 vi.mock("@/shared/services/budget/BudgetService", () => ({
   calculateItemizedTripCost: () => {

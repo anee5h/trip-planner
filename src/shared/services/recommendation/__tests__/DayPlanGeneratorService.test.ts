@@ -53,6 +53,12 @@ describe("DayPlanGeneratorService", () => {
 
     expect(plan.travelDate).toBe("2026-11-14");
     expect(plan.admissionSelection).toEqual(selection);
+    expect(
+      plan.steps.every(
+        (step) =>
+          !Object.prototype.hasOwnProperty.call(step, "admissionSelection"),
+      ),
+    ).toBe(true);
   });
 
   it("generates a structured day plan with minimum real stop thresholds", () => {

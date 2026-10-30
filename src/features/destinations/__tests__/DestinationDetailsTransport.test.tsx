@@ -21,10 +21,18 @@ import {
 import DestinationDetails, {
   isDetailTransportModeAllowed,
 } from "../DestinationDetails";
+import { TripCostBreakdownWidget } from "../components/TripCostBreakdownWidget";
 import { TripContextProvider } from "@/shared/context/TripContext";
 import liteIndex from "@/shared/data/destinations-index.lite.json";
 import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
+import type { TripDuration } from "@/shared/types/tripDuration";
+import { selectionWithPartyComposition } from "@/shared/services/budget/admissionPricing";
+import { calculateTripEstimateForVisit } from "@/shared/services/budget/tripEstimateEngine";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -104,18 +112,43 @@ vi.mock("../components/VisitedDateModal", () => ({
 }));
 vi.mock("../components/DestinationPlanningSection", () => ({
   DestinationPlanningSection: (props: {
+    destination?: Destination;
+    locale?: "en" | "ja";
+    homeCoords?: { lat: number; lng: number };
     selectedTransport?: string | null;
     partySize?: number;
     duration?: string;
     carRoute?: CarRoundTripRoute;
     carCostOptions?: Record<string, unknown>;
+    travelDate?: string;
+    childCount?: number;
+    admissionSelection?: AdmissionPriceSelection;
   }) => {
     planningState.selectedTransport = props.selectedTransport ?? null;
     planningState.partySize = props.partySize;
     planningState.duration = props.duration;
     planningState.carRoute = props.carRoute;
     planningState.carCostOptions = props.carCostOptions;
-    return null;
+    planningState.travelDate = props.travelDate;
+    planningState.childCount = props.childCount;
+    planningState.admissionSelection = props.admissionSelection;
+    if (!planningState.renderCostWidget || !props.destination) return null;
+    return (
+      <TripCostBreakdownWidget
+        destination={props.destination}
+        locale={props.locale ?? "en"}
+        partySize={props.partySize}
+        homeCoords={props.homeCoords}
+        activeTransportMode={props.selectedTransport}
+        duration={props.duration as TripDuration | undefined}
+        visitDate={props.travelDate}
+        admissionSelection={selectionWithPartyComposition(
+          props.admissionSelection,
+          props.partySize ?? 2,
+          props.childCount,
+        )}
+      />
+    );
   },
 }));
 vi.mock("../components/DestinationMap", () => ({ default: () => null }));
@@ -136,6 +169,8 @@ import destinationIndex from "@/shared/data/destinations-index.json";
 const records = new Map<string, Record<string, unknown>>(
   (destinationIndex as Record<string, unknown>[]).map((d) => [String(d.id), d]),
 );
+let destinationRecordOverride:
+  { id: string; previous: Record<string, unknown> } | undefined;
 const nmwaAccessAnchor = {
   id: "nmwa-road-entrance",
   label: "NMWA road entrance",
@@ -243,6 +278,10 @@ const planningState = vi.hoisted(() => ({
   duration: undefined as string | undefined,
   carRoute: undefined as CarRoundTripRoute | undefined,
   carCostOptions: undefined as Record<string, unknown> | undefined,
+  travelDate: undefined as string | undefined,
+  childCount: undefined as number | undefined,
+  admissionSelection: undefined as AdmissionPriceSelection | undefined,
+  renderCostWidget: false,
 }));
 
 const NAKAYAMA = { lat: 35.514745, lng: 139.539692 };
@@ -318,6 +357,10 @@ beforeEach(() => {
   planningState.duration = undefined;
   planningState.carRoute = undefined;
   planningState.carCostOptions = undefined;
+  planningState.travelDate = undefined;
+  planningState.childCount = undefined;
+  planningState.admissionSelection = undefined;
+  planningState.renderCostWidget = false;
   sessionStorage.clear();
   host = document.createElement("div");
   document.body.appendChild(host);
@@ -327,9 +370,141 @@ beforeEach(() => {
 afterEach(() => {
   act(() => root.unmount());
   host.remove();
+  if (destinationRecordOverride) {
+    records.set(
+      destinationRecordOverride.id,
+      destinationRecordOverride.previous,
+    );
+    destinationRecordOverride = undefined;
+  }
 });
 
 describe("DestinationDetails transport rows", () => {
+  it("keeps the detail header total on the widget's dated ticket and party context", async () => {
+    const destinationId = "nago-pineapple-park";
+    const previousRecord = records.get(destinationId)!;
+    const destination = {
+      ...previousRecord,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_date",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "standard",
+            variantId: "weekday",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+            dayType: "weekday",
+          },
+          {
+            productId: "standard",
+            variantId: "weekday",
+            category: "child",
+            min: 500,
+            max: 500,
+            dayType: "weekday",
+          },
+          {
+            productId: "standard",
+            variantId: "holiday",
+            category: "adult",
+            min: 3000,
+            max: 3000,
+            dayType: "holiday",
+          },
+          {
+            productId: "standard",
+            variantId: "holiday",
+            category: "child",
+            min: 1500,
+            max: 1500,
+            dayType: "holiday",
+          },
+        ],
+      },
+    } as unknown as Record<string, unknown>;
+    records.set(destinationId, destination);
+    destinationRecordOverride = { id: destinationId, previous: previousRecord };
+    planningState.renderCostWidget = true;
+
+    const expectedFor = (travelDate: string) =>
+      calculateTripEstimateForVisit({
+        dest: destination as unknown as Destination,
+        mode: "flight",
+        partySize: 2,
+        childCount: 1,
+        visitDate: travelDate,
+        duration: "fullDay",
+        includeOriginTravel: false,
+      });
+    const weekdayDate = "2026-11-24";
+    const holidayDate = "2026-11-23";
+    expect(expectedFor(weekdayDate).total).toBeDefined();
+    expect(expectedFor(holidayDate).total).toBeDefined();
+    expect(
+      expectedFor(weekdayDate).components.find(
+        (component) => component.evidence.scope === "admission",
+      )?.cost,
+    ).toEqual({ kind: "bounded", min: 1500, max: 1500 });
+    expect(
+      expectedFor(holidayDate).components.find(
+        (component) => component.evidence.scope === "admission",
+      )?.cost,
+    ).toEqual({ kind: "bounded", min: 4500, max: 4500 });
+
+    render(`/destinations/${destinationId}`, {
+      publicModes: ["flight"],
+      partySize: 2,
+      childCount: 1,
+      travelDate: weekdayDate,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+    const weekdayWidgetTotal = host.querySelector(
+      '[data-testid="trip-cost-total"]',
+    )?.textContent;
+    const weekdayModeTotal = host.querySelector(
+      '[data-testid="mode-estimate-flight"]',
+    )?.textContent;
+    expect(weekdayWidgetTotal).toBeTruthy();
+    expect(weekdayModeTotal).toContain(weekdayWidgetTotal);
+    expect(planningState.travelDate).toBe(weekdayDate);
+    expect(planningState.childCount).toBe(1);
+
+    act(() => root.unmount());
+    root = createRoot(host);
+    planningState.travelDate = undefined;
+    render(`/destinations/${destinationId}`, {
+      publicModes: ["flight"],
+      partySize: 2,
+      childCount: 1,
+      travelDate: holidayDate,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+    const holidayWidgetTotal = host.querySelector(
+      '[data-testid="trip-cost-total"]',
+    )?.textContent;
+    const holidayModeTotal = host.querySelector(
+      '[data-testid="mode-estimate-flight"]',
+    )?.textContent;
+    expect(holidayWidgetTotal).toBeTruthy();
+    expect(holidayWidgetTotal).not.toBe(weekdayWidgetTotal);
+    expect(holidayModeTotal).toContain(holidayWidgetTotal);
+    expect(planningState.travelDate).toBe(holidayDate);
+    expect(planningState.childCount).toBe(1);
+  });
+
   it("filters default detail modes by transport intent", () => {
     const publicModes = ["train", "shinkansen", "bus", "flight"];
     expect(

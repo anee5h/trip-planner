@@ -44,6 +44,8 @@ export interface TripContext {
   dateSemantics: TripDateSemantics;
   duration: TripDuration;
   partySize: number;
+  /** Optional ticket-age composition; adults are derived from partySize. */
+  childCount?: number;
   publicModes: string[];
   carMode: CarMode;
   budget: TripBudget;
@@ -175,6 +177,12 @@ function parsePartySize(value: string | null): number | undefined {
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 
+function parseChildCount(value: string | null): number | undefined {
+  if (value === null || !/^\d+$/.test(value)) return undefined;
+  const parsed = Number(value);
+  return Number.isSafeInteger(parsed) ? parsed : undefined;
+}
+
 function parseBudget(params: URLSearchParams): TripBudget | undefined {
   const tier = params.get("budgetTier") ?? undefined;
   const raw = params.get("budget");
@@ -246,6 +254,8 @@ export function tripContextFromSearchParams(
   }
   const partySize = parsePartySize(params.get("partySize"));
   if (partySize !== undefined) patch.partySize = partySize;
+  const childCount = parseChildCount(params.get("childCount"));
+  if (childCount !== undefined) patch.childCount = childCount;
   if (params.has("mode")) {
     patch.publicModes =
       params.get("mode") === "none" ? [] : params.getAll("mode");
@@ -297,6 +307,13 @@ export function tripContextFromRouteState(state: unknown): TripContextPatch {
     patch.duration = source.duration as TripDuration;
   }
   if (typeof source.partySize === "number") patch.partySize = source.partySize;
+  if (
+    typeof source.childCount === "number" &&
+    Number.isSafeInteger(source.childCount) &&
+    source.childCount >= 0
+  ) {
+    patch.childCount = source.childCount;
+  }
   if (Array.isArray(source.publicModes)) {
     patch.publicModes = source.publicModes.filter(
       (value): value is string => typeof value === "string",
@@ -341,6 +358,7 @@ function isLegacyStaleDestinationContext(
     "dateSemantics",
     "duration",
     "partySize",
+    "childCount",
     "publicModes",
     "carMode",
     "budget",
@@ -370,6 +388,7 @@ function isLegacyStaleDestinationContext(
   ) {
     return false;
   }
+  if (parsed.childCount !== undefined && parsed.childCount !== 0) return false;
   if (parsed.budget === undefined) return true;
   const normalizedBudget = normalizeTripBudget(parsed.budget);
   const rawBudget = parsed.budget;

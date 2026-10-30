@@ -19,7 +19,7 @@ import {
   CardHeader,
 } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { calculateTripEstimateForVisit } from "@/shared/services/budget/tripEstimateEngine";
 import { Button } from "@/shared/components/ui/button";
 import {
   MapPin,
@@ -107,6 +107,9 @@ interface DestinationCardProps {
   conditionLabel?: string;
   /** Selected travel date for date-aware transport metadata. */
   ferryTemporal?: FerryTemporalContext;
+  /** Selected calendar date for admission pricing. */
+  visitDate?: string;
+  childCount?: number;
   /** Detail-page rails use a denser card while retaining all actions. */
   compact?: boolean;
   /** Saved surfaces use the same card family with a mobile-only dense layout. */
@@ -128,6 +131,8 @@ export default function DestinationCard({
   overnightSummary,
   conditionLabel,
   ferryTemporal,
+  visitDate,
+  childCount,
   compact = false,
   variant = "default",
   journeyOrigin,
@@ -409,10 +414,12 @@ export default function DestinationCard({
       preferredTransport?.mode ??
       (validModes.length > 0 ? validModes[0] : undefined);
     if (!mode) return null;
-    const r = calculateTripEstimate({
+    const r = calculateTripEstimateForVisit({
       dest: destination,
       mode,
       partySize,
+      visitDate,
+      childCount,
       homeCoords: journeyOriginCoords ?? undefined,
       includeOriginTravel: Boolean(journeyOriginCoords),
       duration,
@@ -443,6 +450,8 @@ export default function DestinationCard({
     isOvernight,
     duration,
     ferryTemporal,
+    visitDate,
+    childCount,
   ]);
   const cardBudgetRange = cardEstimate?.range ?? null;
 

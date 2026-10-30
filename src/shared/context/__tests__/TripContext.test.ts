@@ -70,6 +70,7 @@ describe("TripContext contract", () => {
       dateSemantics: "today",
       duration: "2d1n",
       partySize: 4,
+      childCount: 2,
       publicModes: ["train"],
       carMode: "none",
       budget: { kind: "custom", cap: 50000 },
@@ -81,6 +82,7 @@ describe("TripContext contract", () => {
       dateSemantics: "today",
       duration: "2d1n",
       partySize: 4,
+      childCount: 2,
       publicModes: ["train"],
       destinationId: "ueno-zoo",
     });
@@ -89,7 +91,7 @@ describe("TripContext contract", () => {
 
   it("serializes an explicit date instead of treating Today as Any date", () => {
     const params = new URLSearchParams(
-      "date=2026-08-12&duration=halfDay&partySize=2&mode=train&mode=bus&car=none&budgetKind=custom&budget=75000",
+      "date=2026-08-12&duration=halfDay&partySize=2&childCount=1&mode=train&mode=bus&car=none&budgetKind=custom&budget=75000",
     );
     const parsed = tripContextFromSearchParams(params);
 
@@ -98,6 +100,7 @@ describe("TripContext contract", () => {
       dateSemantics: "custom",
       duration: "halfDay",
       partySize: 2,
+      childCount: 1,
       publicModes: ["train", "bus"],
       carMode: "none",
       budget: { kind: "custom", cap: 75000 },

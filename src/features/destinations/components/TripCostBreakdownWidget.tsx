@@ -7,7 +7,7 @@ import {
   formatLocalizedJPYRange,
   formatTravellerEstimateRange,
 } from "@/shared/services/budget/BudgetService";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { calculateTripEstimateForVisit } from "@/shared/services/budget/tripEstimateEngine";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
@@ -94,7 +94,7 @@ export function TripCostBreakdownWidget({
   // calculateItemizedTripCost / budgetBreakdown legacy scalars.
   const engineResult = useMemo(() => {
     if (planCostBreakdown) return undefined;
-    return calculateTripEstimate({
+    return calculateTripEstimateForVisit({
       dest: destination,
       mode: activeTransportMode ?? undefined,
       duration,
@@ -450,7 +450,7 @@ export function TripCostBreakdownWidget({
       candidates,
       totalRange?.[0],
       (sec) =>
-        calculateTripEstimate({
+        calculateTripEstimateForVisit({
           dest: sec,
           mode: activeTransportMode ?? undefined,
           visitDate,
@@ -594,7 +594,10 @@ export function TripCostBreakdownWidget({
               <div className="text-xs text-slate-500 font-semibold uppercase">
                 {locale === "ja" ? "概算合計" : "Est. Range"}
               </div>
-              <div className="text-base font-extrabold text-slate-900 dark:text-white">
+              <div
+                data-testid="trip-cost-total"
+                className="text-base font-extrabold text-slate-900 dark:text-white"
+              >
                 {partialHeadline || partialPlanLabel || enginePartialLabel
                   ? (partialHeadline ?? partialPlanLabel ?? enginePartialLabel)
                   : // KAI-219A final N/A guard: a COMPLETE plan with no
@@ -933,7 +936,7 @@ export function TripCostBreakdownWidget({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {lowerCostAlternatives.map((alt) => {
                     const altLocalized = getLocalizedPlace(alt, locale);
-                    const altEstimate = calculateTripEstimate({
+                    const altEstimate = calculateTripEstimateForVisit({
                       dest: alt,
                       mode: activeTransportMode ?? undefined,
                       visitDate,

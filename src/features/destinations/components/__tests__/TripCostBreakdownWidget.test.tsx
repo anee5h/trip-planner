@@ -7,6 +7,7 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, describe, it, expect, vi } from "vitest";
 import { TripCostBreakdownWidget } from "../TripCostBreakdownWidget";
+import * as tripEstimateEngine from "@/shared/services/budget/tripEstimateEngine";
 import type { Destination } from "@/shared/types/destination";
 import destinations from "@/shared/data/destinations-index.json";
 import type { GeneratedPlanCostResult } from "@/shared/services/budget/GeneratedPlanCostService";
@@ -124,8 +125,8 @@ vi.mock("lucide-react", () => ({
 // components (origin_travel 800, local_transport 3000, admission 3000,
 // accommodation = allowance) so the rows + total are derived from the SAME
 // source.
-vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
-  calculateTripEstimate: ({
+vi.mock("@/shared/services/budget/tripEstimateEngine", () => {
+  const calculateTripEstimate = ({
     dest,
     duration,
   }: {
@@ -195,9 +196,13 @@ vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
       },
       components,
     };
-  },
-  evaluateAffordability: () => "fits",
-}));
+  };
+  return {
+    calculateTripEstimate,
+    calculateTripEstimateForVisit: calculateTripEstimate,
+    evaluateAffordability: () => "fits",
+  };
+});
 
 vi.mock("@/shared/services/budget/BudgetService", () => ({
   calculateItemizedTripCost: (
@@ -337,6 +342,7 @@ afterEach(() => {
   host?.remove();
   root = undefined;
   host = undefined;
+  vi.restoreAllMocks();
 });
 
 function renderWidget(props: {
@@ -368,6 +374,34 @@ function renderWidget(props: {
 
 // ── Tests ─────────────────────────────────────────────────────────────────────
 describe("TripCostBreakdownWidget canonical duration", () => {
+  it("does not recalculate on an unrelated parent rerender with a stable selection", () => {
+    const estimateSpy = vi.spyOn(
+      tripEstimateEngine,
+      "calculateTripEstimateForVisit",
+    );
+    const selection = { adultCount: 2, childCount: 0 } as const;
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    const render = (compactUnavailableCost: boolean) => (
+      <TripCostBreakdownWidget
+        destination={testDestination}
+        locale="en"
+        partySize={2}
+        activeTransportMode="train"
+        admissionSelection={selection}
+        visitDate="2026-11-14"
+        compactUnavailableCost={compactUnavailableCost}
+      />
+    );
+
+    act(() => root!.render(render(false)));
+    expect(estimateSpy).toHaveBeenCalledTimes(1);
+    act(() => root!.render(render(true)));
+
+    expect(estimateSpy).toHaveBeenCalledTimes(1);
+  });
+
   it("DisneySea variable admission is disclosed at the collapsed and expanded boundary in EN/JA", () => {
     const disneySea = (destinations as unknown as Destination[]).find(
       (destination) => destination.id === "disneysea",
@@ -478,6 +512,7 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     const engineMock =
       (await import("@/shared/services/budget/tripEstimateEngine")) as unknown as {
         calculateTripEstimate: ReturnType<typeof vi.fn>;
+        calculateTripEstimateForVisit: ReturnType<typeof vi.fn>;
       };
     engineMock.calculateTripEstimate = vi.fn().mockReturnValue({
       completeness: "partial",
@@ -500,6 +535,7 @@ describe("TripCostBreakdownWidget canonical duration", () => {
         { scope: "local_transport", reason: "source_missing" },
       ],
     });
+    engineMock.calculateTripEstimateForVisit = engineMock.calculateTripEstimate;
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -527,8 +563,10 @@ describe("TripCostBreakdownWidget canonical duration", () => {
     const engineMock =
       (await import("@/shared/services/budget/tripEstimateEngine")) as unknown as {
         calculateTripEstimate: ReturnType<typeof vi.fn>;
+        calculateTripEstimateForVisit: ReturnType<typeof vi.fn>;
       };
     engineMock.calculateTripEstimate = vi.fn().mockReturnValue(engineResult);
+    engineMock.calculateTripEstimateForVisit = engineMock.calculateTripEstimate;
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -581,6 +619,7 @@ describe("TripCostBreakdownWidget canonical duration", () => {
       const engineMock =
         (await import("@/shared/services/budget/tripEstimateEngine")) as unknown as {
           calculateTripEstimate: ReturnType<typeof vi.fn>;
+          calculateTripEstimateForVisit: ReturnType<typeof vi.fn>;
         };
       engineMock.calculateTripEstimate = vi.fn().mockReturnValue({
         completeness: "complete",
@@ -601,6 +640,8 @@ describe("TripCostBreakdownWidget canonical duration", () => {
           },
         ],
       });
+      engineMock.calculateTripEstimateForVisit =
+        engineMock.calculateTripEstimate;
       translationState.locale = locale;
       host = document.createElement("div");
       document.body.appendChild(host);

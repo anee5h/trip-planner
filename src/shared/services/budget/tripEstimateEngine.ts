@@ -56,6 +56,7 @@ import { resolveAdmissionApplicability } from "@/shared/services/budget/admissio
 import {
   resolveAdmissionPricing,
   selectionForPartySize,
+  selectionWithPartyComposition,
 } from "@/shared/services/budget/admissionPricing";
 import {
   isVerifiedFree,
@@ -415,15 +416,15 @@ function admissionComponent(
       return admissionUnavailable(pricing.reason);
     }
     const admissionPricingBasis =
-      fact.state === "variable_price" && pricing.basis === "fixed_price"
+      fact.state === "variable_price" && pricing.basis !== "supported_range"
         ? "supported_range"
         : pricing.basis;
     return component(
       { kind: "bounded", min: pricing.min, max: pricing.max },
       {
         scope: "admission",
-        state: fact.state,
-        provenance: fact.provenance,
+        state: compositionAssumed ? "documented_estimate" : fact.state,
+        provenance: compositionAssumed ? "model" : fact.provenance,
         reason: fact.reasonCode,
         sourceUrls: fact.sourceUrls,
         derivation: compositionAssumed ? "model_estimate" : "source_fact",
@@ -1239,6 +1240,23 @@ export function calculateTripEstimate(
   context: TripEstimateContext,
 ): TripEstimateResult {
   return TripEstimateEngine.estimate(context);
+}
+
+/** Shared date and party-composition adapter for user-facing estimate paths. */
+export function calculateTripEstimateForVisit(
+  context: TripEstimateContext & { readonly childCount?: number | null },
+): TripEstimateResult {
+  const { childCount, ...estimateContext } = context;
+  const partySize = context.partySize ?? 2;
+  const admissionSelection =
+    childCount === undefined
+      ? selectionForPartySize(context.admissionSelection, partySize)
+      : selectionWithPartyComposition(
+          context.admissionSelection,
+          partySize,
+          childCount,
+        );
+  return calculateTripEstimate({ ...estimateContext, admissionSelection });
 }
 
 /** Compatibility name; production callers should import calculateTripEstimate. */

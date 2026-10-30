@@ -353,6 +353,18 @@
   },
   "planner": {
     "budgetWholeParty": "グループ合計",
+    "admissionOptions": {
+      "product": "チケット商品",
+      "channel": "購入方法",
+      "timeSlot": "時間帯",
+      "addOns": "追加オプション",
+      "choose": "商品を選択",
+      "any": "指定なし",
+      "channels": {
+        "online": "オンライン",
+        "counter": "窓口"
+      }
+    },
     "budget": {
       "label": "予算",
       "scope": "グループ合計",
@@ -365,7 +377,9 @@
       "title": "チケット料金の人数構成",
       "children": "子ども",
       "assumingAdults": "空欄の場合は、全員を大人として入場料を概算します。",
-      "summary": "大人：{{adultCount}}人・子ども：{{childCount}}人"
+      "summary": "大人：{{adultCount}}人・子ども：{{childCount}}人",
+      "exceedsPartySize": "子どもの人数は旅行人数を超えられません。",
+      "invalidCount": "有効な子どもの人数を入力してください。"
     },
     "budgetEstimate": {
       "estimatedTripTotal": "旅行全体の概算",

@@ -247,7 +247,6 @@ export function calculateGeneratedPlanCost(
     {
       destination: Destination;
       day: number | undefined;
-      admissionSelection?: AdmissionPriceSelection;
     }
   >();
   for (const step of plan.steps) {
@@ -264,7 +263,6 @@ export function calculateGeneratedPlanCost(
     selectedVisits.set(visitKey, {
       destination: step.destination,
       day: step.day,
-      admissionSelection: step.admissionSelection,
     });
   }
   const visits = Array.from(selectedVisits.values());
@@ -273,10 +271,10 @@ export function calculateGeneratedPlanCost(
   const hasLiveAdmissionSelection =
     costContext !== undefined &&
     Object.prototype.hasOwnProperty.call(costContext, "admissionSelection");
-  const estimates = visits.map(({ destination, day, admissionSelection }) => {
-    const selection =
-      admissionSelection ??
-      (costContext ? costContext.admissionSelection : plan.admissionSelection);
+  const estimates = visits.map(({ destination, day }) => {
+    const selection = costContext
+      ? costContext.admissionSelection
+      : plan.admissionSelection;
     const contextSelection = selectionForPartySize(
       costContext?.admissionSelection,
       safeParty,

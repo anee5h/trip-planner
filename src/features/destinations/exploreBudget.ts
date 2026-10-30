@@ -1,5 +1,5 @@
 import {
-  calculateTripEstimate,
+  calculateTripEstimateForVisit,
   type TripEstimateResult,
 } from "@/shared/services/budget/tripEstimateEngine";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
@@ -7,7 +7,10 @@ import type { BudgetTier } from "@/shared/types/planner";
 import type { TripDuration } from "@/shared/types/tripDuration";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
-import type { Destination } from "@/shared/types/destination";
+import type {
+  AdmissionPriceSelection,
+  Destination,
+} from "@/shared/types/destination";
 
 export interface ExploreBudgetContext {
   originCoords?: { lat: number; lng: number } | null;
@@ -16,6 +19,9 @@ export interface ExploreBudgetContext {
   publicModes: readonly string[];
   partySize: number;
   duration: TripDuration;
+  visitDate?: string;
+  childCount?: number;
+  admissionSelection?: AdmissionPriceSelection;
   budgetTier?: BudgetTier;
   ferryTemporal?: FerryTemporalContext;
 }
@@ -66,13 +72,16 @@ function calculateForMode(
   context: ExploreBudgetContext,
   mode?: string,
 ): TripEstimateResult {
-  return calculateTripEstimate({
+  return calculateTripEstimateForVisit({
     dest: destination,
     ...(mode ? { mode } : {}),
     partySize: context.partySize,
     homeCoords: context.originCoords ?? undefined,
     includeOriginTravel: Boolean(context.originCoords),
     duration: context.duration,
+    visitDate: context.visitDate,
+    childCount: context.childCount,
+    admissionSelection: context.admissionSelection,
     ferryTemporal: context.ferryTemporal,
   });
 }

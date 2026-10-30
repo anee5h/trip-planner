@@ -28,6 +28,8 @@ export interface ExploreSortContext {
   partySize: number;
   budgetTier?: BudgetTier;
   duration?: TripDuration;
+  visitDate?: string;
+  childCount?: number;
   ferryTemporal?: FerryTemporalContext;
   budgetEstimatesById?: ReadonlyMap<string, ExploreBudgetEstimate>;
 }
@@ -102,6 +104,8 @@ function getExploreBudgetMax(
       publicModes: context.publicModes,
       partySize: context.partySize,
       duration: context.duration ?? "fullDay",
+      visitDate: context.visitDate,
+      childCount: context.childCount,
       budgetTier: context.budgetTier,
       ferryTemporal: context.ferryTemporal,
     });

@@ -353,6 +353,18 @@
   },
   "planner": {
     "budgetWholeParty": "for the whole party",
+    "admissionOptions": {
+      "product": "Ticket product",
+      "channel": "Purchase channel",
+      "timeSlot": "Time slot",
+      "addOns": "Optional add-ons",
+      "choose": "Choose a product",
+      "any": "Any",
+      "channels": {
+        "online": "Online",
+        "counter": "At the counter"
+      }
+    },
     "budget": {
       "label": "Max Budget",
       "scope": "for the whole party",
@@ -365,7 +377,9 @@
       "title": "Ticket party composition",
       "children": "Children",
       "assumingAdults": "Leave blank to estimate assuming all travelers are adults.",
-      "summary": "Adults: {{adultCount}} · children: {{childCount}}"
+      "summary": "Adults: {{adultCount}} · children: {{childCount}}",
+      "exceedsPartySize": "Child count cannot exceed the party size.",
+      "invalidCount": "Enter a valid child count."
     },
     "budgetEstimate": {
       "estimatedTripTotal": "Estimated trip total",
