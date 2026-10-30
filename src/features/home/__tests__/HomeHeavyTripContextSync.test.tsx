@@ -180,8 +180,10 @@ describe("HeavyHome trip context sync", () => {
     expect(homeMocks.updateTripContext).toHaveBeenCalledTimes(1);
     expect(homeMocks.updateTripContext.mock.calls[0][0]).toMatchObject({
       partySize: 3,
-      childCount: undefined,
     });
+    expect(homeMocks.updateTripContext.mock.calls[0][0]).not.toHaveProperty(
+      "childCount",
+    );
 
     homeMocks.tripContext = { partySize: 3 };
     renderHeavyHome();

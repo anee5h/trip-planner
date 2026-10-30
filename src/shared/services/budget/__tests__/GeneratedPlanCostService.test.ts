@@ -137,6 +137,66 @@ describe("GeneratedPlanCostService", () => {
     ).toHaveLength(2);
   });
 
+  it("does not scope a transport or meal estimate as admission", () => {
+    const ticketDestination = {
+      ...BASE_DEST,
+      localTransport: {
+        kind: "bounded_defensible_access",
+        access: "rail",
+        band: "≤15km",
+        fare: [500, 800],
+        fareBasis: "one_way",
+        coverage: "all_required_access",
+        distanceKm: 12,
+        sourceUrls: ["https://example.test/access"],
+        checkedAt: "2026-01-01",
+      },
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    const cost = calculateGeneratedPlanCost(
+      makePlan(ticketDestination),
+      2,
+      null,
+      false,
+      undefined,
+      {
+        travelDate: "2026-11-01",
+        admissionSelection: {
+          productId: "entry",
+          adultCount: 2,
+          childCount: 0,
+        },
+      },
+    );
+
+    expect(cost.admission.admissionPricingBasis).toBe("supported_range");
+    expect(
+      cost.assumptions.some(
+        (assumption) =>
+          assumption.destinationId === ticketDestination.id &&
+          assumption.type === "estimated_cost" &&
+          assumption.costScope === "admission",
+      ),
+    ).toBe(false);
+  });
+
   it("counts legacy admission once across days but prices ticket options per visit", () => {
     const legacyDestination = {
       ...BASE_DEST,

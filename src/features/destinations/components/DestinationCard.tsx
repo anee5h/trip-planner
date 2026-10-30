@@ -283,14 +283,17 @@ export default function DestinationCard({
 
   const linkState = useMemo(() => {
     const hasTransport = carMode !== undefined || publicModes !== undefined;
-    const travelDate = ferryTemporal?.travelDate
-      ? ferryTemporal.travelDate.toISOString().slice(0, 10)
-      : undefined;
+    const travelDate =
+      visitDate ??
+      (ferryTemporal?.travelDate
+        ? ferryTemporal.travelDate.toISOString().slice(0, 10)
+        : undefined);
     if (
       !hasTransport &&
       partySize === undefined &&
       duration === undefined &&
-      travelDate === undefined
+      travelDate === undefined &&
+      childCount === undefined
     ) {
       return undefined;
     }
@@ -299,8 +302,17 @@ export default function DestinationCard({
       ...(partySize !== undefined ? { partySize } : {}),
       ...(duration !== undefined ? { duration } : {}),
       ...(travelDate ? { travelDate } : {}),
+      ...(childCount !== undefined ? { childCount } : {}),
     };
-  }, [carMode, publicModes, partySize, duration, ferryTemporal]);
+  }, [
+    carMode,
+    publicModes,
+    partySize,
+    duration,
+    ferryTemporal,
+    visitDate,
+    childCount,
+  ]);
 
   const activeCollections = (destination.collections || [])
     .map((m) => getCollectionById(m.collectionId))

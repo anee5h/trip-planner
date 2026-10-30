@@ -229,7 +229,7 @@ export function estimateOriginTransportFare(): CostComponent {
 function pushMissingAssumption(
   dest: Destination,
   assumptions: PlanAssumption[],
-  costScope?: "admission",
+  costScope?: "admission" | "transport",
 ): void {
   assumptions.push({
     type: "estimated_cost",
@@ -315,18 +315,32 @@ export function calculateGeneratedPlanCost(
       const hasTicketOptions = Boolean(
         destination.admission?.priceOptions?.length,
       );
-      const hasAdmissionAssumption = assumptions.some(
-        (assumption) =>
-          assumption.type === "estimated_cost" &&
-          assumption.destinationId === destination.id &&
-          assumption.costScope === "admission",
-      );
-      if (!hasTicketOptions || !hasAdmissionAssumption) {
-        pushMissingAssumption(
-          destination,
-          assumptions,
-          hasTicketOptions ? "admission" : undefined,
+      if (!hasTicketOptions) {
+        pushMissingAssumption(destination, assumptions);
+      } else {
+        const admission = result.components.find(
+          (component) => component.evidence.scope === "admission",
         );
+        const admissionNeedsDisclosure =
+          admission?.evidence.admissionCompositionAssumed === true ||
+          admission?.evidence.admissionPricingBasis === undefined;
+        const hasAdmissionAssumption = assumptions.some(
+          (assumption) =>
+            assumption.type === "estimated_cost" &&
+            assumption.destinationId === destination.id &&
+            assumption.costScope === "admission",
+        );
+        const hasOtherCostAssumption = assumptions.some(
+          (assumption) =>
+            assumption.type === "estimated_cost" &&
+            assumption.destinationId === destination.id &&
+            assumption.costScope !== "admission",
+        );
+        if (admissionNeedsDisclosure && !hasAdmissionAssumption) {
+          pushMissingAssumption(destination, assumptions, "admission");
+        } else if (!admissionNeedsDisclosure && !hasOtherCostAssumption) {
+          pushMissingAssumption(destination, assumptions);
+        }
       }
     }
     return result;

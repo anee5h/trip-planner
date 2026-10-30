@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CURATED_PEAK_PERIODS, getBusyPeriodCues } from "../busyPeriodCues";
+import { getJapanHolidayStatus } from "../admissionHolidayCalendar";
 
 describe("getBusyPeriodCues", () => {
   it("returns an explainable Japanese national-holiday cue", () => {
@@ -31,6 +32,27 @@ describe("getBusyPeriodCues", () => {
 
   it("does not add holiday cues outside the existing 2026 cue extract", () => {
     expect(getBusyPeriodCues("any-destination", "2027-03-22")).toEqual([]);
+  });
+
+  it("keeps the admission and busy-period 2026 holiday extracts aligned", () => {
+    const cueDates = new Set<string>();
+    const admissionDates = new Set<string>();
+    const date = new Date(Date.UTC(2026, 0, 1));
+    while (date.getUTCFullYear() === 2026) {
+      const isoDate = date.toISOString().slice(0, 10);
+      if (
+        getBusyPeriodCues("any-destination", isoDate).some(
+          ({ kind }) => kind === "nationalHoliday",
+        )
+      ) {
+        cueDates.add(isoDate);
+      }
+      if (getJapanHolidayStatus(isoDate) === "holiday") {
+        admissionDates.add(isoDate);
+      }
+      date.setUTCDate(date.getUTCDate() + 1);
+    }
+    expect(admissionDates).toEqual(cueDates);
   });
 
   it("returns a weekend cue using Japan time", () => {

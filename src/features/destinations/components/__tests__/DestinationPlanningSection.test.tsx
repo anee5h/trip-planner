@@ -10,6 +10,8 @@ import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPl
 
 const plannerCapture = vi.hoisted(() => ({
   selectionRefs: [] as unknown[],
+  costRenders: [] as { destinationId: string; hasPlanCost: boolean }[],
+  partyRenders: [] as { destinationId: string; partySize: number }[],
   generatedPlan: null as unknown,
   locale: "en" as "en" | "ja",
 }));
@@ -40,14 +42,20 @@ vi.mock("../DayPlanWidget", () => ({
     onSaveToItinerary,
     partySize,
     onPartySizeChange,
+    destination,
   }: {
     admissionSelection?: AdmissionPriceSelection;
     onPlanGenerated?: (plan: DayPlan | null) => void;
     onSaveToItinerary?: () => void;
     partySize?: number;
     onPartySizeChange?: (partySize: number) => void;
+    destination: Destination;
   }) => (
     <>
+      {plannerCapture.partyRenders.push({
+        destinationId: destination.id,
+        partySize: partySize ?? 2,
+      }) && null}
       {plannerCapture.selectionRefs.push(admissionSelection) && null}
       <output data-testid="day-plan-selection">
         {JSON.stringify(admissionSelection)}
@@ -77,14 +85,24 @@ vi.mock("../TripCostBreakdownWidget", () => ({
   TripCostBreakdownWidget: ({
     admissionSelection,
     visitDate,
+    destination,
+    planCostBreakdown,
   }: {
     admissionSelection?: AdmissionPriceSelection;
     visitDate?: string;
-  }) => (
-    <output data-testid="cost-selection" data-visit-date={visitDate}>
-      {JSON.stringify(admissionSelection)}
-    </output>
-  ),
+    destination: Destination;
+    planCostBreakdown?: unknown;
+  }) => {
+    plannerCapture.costRenders.push({
+      destinationId: destination.id,
+      hasPlanCost: Boolean(planCostBreakdown),
+    });
+    return (
+      <output data-testid="cost-selection" data-visit-date={visitDate}>
+        {JSON.stringify(admissionSelection)}
+      </output>
+    );
+  },
 }));
 
 import {
@@ -108,6 +126,8 @@ afterEach(() => {
   host = undefined;
   plannerCapture.generatedPlan = null;
   plannerCapture.selectionRefs = [];
+  plannerCapture.costRenders = [];
+  plannerCapture.partyRenders = [];
 });
 
 function renderPlanningSection(
@@ -422,6 +442,46 @@ describe("DestinationPlanningSection", () => {
     expect(host!.querySelector('input[inputmode="numeric"]')).not.toBeNull();
   });
 
+  it("syncs the child-count draft when context hydrates after mount", () => {
+    const destination = {
+      id: "hydrated-child-count",
+      name: "Hydrated Child Count",
+      kind: "museum",
+      role: "poi",
+      prefecture: "Tokyo",
+      region: "Kanto",
+      categories: ["Culture"],
+      coordinates: { lat: 35.68, lng: 139.76 },
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    renderPlanningSection(destination);
+    expect(
+      host!.querySelector<HTMLInputElement>('input[inputmode="numeric"]')
+        ?.value,
+    ).toBe("");
+
+    renderPlanningSection(destination, { childCount: 1 });
+    expect(
+      host!.querySelector<HTMLInputElement>('input[inputmode="numeric"]')
+        ?.value,
+    ).toBe("1");
+  });
+
   it("shows child count when a generated stop has ticket options", () => {
     const currentDestination = {
       id: "plan-without-options",
@@ -493,7 +553,7 @@ describe("DestinationPlanningSection", () => {
     expect(host!.querySelector('input[inputmode="numeric"]')).not.toBeNull();
   });
 
-  it("rejects invalid child drafts and clears stale party composition immediately", () => {
+  it("rejects invalid child drafts without clearing the last committed composition", () => {
     const destination = {
       id: "child-count-error",
       name: "Child Count Error",
@@ -550,7 +610,7 @@ describe("DestinationPlanningSection", () => {
     };
 
     typeValue("5");
-    expect(onChildCountChange).toHaveBeenLastCalledWith(undefined);
+    expect(onChildCountChange).not.toHaveBeenCalled();
 
     expect(input.getAttribute("aria-invalid")).toBe("true");
     expect(input.getAttribute("aria-describedby")).toContain("-error");
@@ -561,7 +621,11 @@ describe("DestinationPlanningSection", () => {
       JSON.parse(
         host!.querySelector('[data-testid="cost-selection"]')!.textContent!,
       ),
-    ).toEqual({ productId: "standard" });
+    ).toEqual({
+      productId: "standard",
+      adultCount: 2,
+      childCount: 1,
+    });
 
     for (const invalid of ["abc", "1.5", "1e1", "-1"]) {
       typeValue(invalid);
@@ -573,7 +637,11 @@ describe("DestinationPlanningSection", () => {
         JSON.parse(
           host!.querySelector('[data-testid="cost-selection"]')!.textContent!,
         ),
-      ).toEqual({ productId: "standard" });
+      ).toEqual({
+        productId: "standard",
+        adultCount: 2,
+        childCount: 1,
+      });
     }
 
     typeValue("");
@@ -858,6 +926,106 @@ describe("DestinationPlanningSection", () => {
     plannerCapture.generatedPlan = null;
   });
 
+  it("saves current admission assumptions after clearing a selected child count", () => {
+    const destination = {
+      id: "admission-assumption-live",
+      name: "Admission Assumption Live",
+      nameJa: "入場料の見積もり",
+      kind: "museum",
+      role: "poi",
+      prefecture: "Tokyo",
+      region: "Kanto",
+      categories: ["Culture"],
+      coordinates: { lat: 35.68, lng: 139.76 },
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "child",
+            min: 500,
+            max: 500,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    plannerCapture.generatedPlan = {
+      id: "admission-assumption-plan",
+      title: { en: "Plan", ja: "計画" },
+      steps: [
+        {
+          id: "step-1",
+          day: 1,
+          type: "destination",
+          timeBlock: "morning",
+          startTime: "09:00",
+          endTime: "11:00",
+          durationMinutes: 120,
+          destination,
+          title: { en: "Admission Assumption Live", ja: "入場料の見積もり" },
+        },
+      ],
+      totalDurationMinutes: 120,
+      isOverfilled: false,
+      uncertainHoursDisclosures: [],
+    } satisfies DayPlan;
+    const saved: DayPlan[] = [];
+    renderPlanningSection(destination, {
+      partySize: 4,
+      childCount: 1,
+      admissionSelection: { adultCount: 3, childCount: 1 },
+      onSaveToItinerary: (plan) => {
+        if (plan) saved.push(plan);
+      },
+    });
+
+    act(() => {
+      host!
+        .querySelector<HTMLButtonElement>('[data-testid="generate-plan"]')!
+        .click();
+    });
+    const input = host!.querySelector<HTMLInputElement>(
+      'input[inputmode="numeric"]',
+    )!;
+    act(() => {
+      const setter = Object.getOwnPropertyDescriptor(
+        window.HTMLInputElement.prototype,
+        "value",
+      )?.set;
+      setter?.call(input, "");
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    act(() => {
+      host!
+        .querySelector<HTMLButtonElement>('[data-testid="save-plan"]')!
+        .click();
+    });
+
+    expect(saved[0]?.assumptions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: "estimated_cost",
+          destinationId: destination.id,
+          costScope: "admission",
+        }),
+      ]),
+    );
+  });
+
   it("clears ticket selection and child draft when switching destination", () => {
     const firstDestination = {
       id: "switch-from",
@@ -945,7 +1113,13 @@ describe("DestinationPlanningSection", () => {
         host!.querySelector('[data-testid="day-plan-selection"]')!.textContent!,
       ).productId,
     ).toBe("premium");
+    act(() => {
+      host!
+        .querySelector<HTMLButtonElement>('[data-testid="change-party-size"]')!
+        .click();
+    });
 
+    const publishedCountBeforeSwitch = published.length;
     renderPlanningSection(secondDestination, {
       partySize: 4,
       onPlanGenerated: (plan) => published.push(plan),
@@ -959,6 +1133,19 @@ describe("DestinationPlanningSection", () => {
         host!.querySelector('[data-testid="day-plan-selection"]')!.textContent!,
       ).productId,
     ).toBe("basic");
+    expect(
+      plannerCapture.partyRenders.find(
+        ({ destinationId }) => destinationId === secondDestination.id,
+      )?.partySize,
+    ).toBe(4);
     expect(published.at(-1)).toBeNull();
+    expect(
+      plannerCapture.costRenders.find(
+        ({ destinationId }) => destinationId === secondDestination.id,
+      )?.hasPlanCost,
+    ).toBe(false);
+    expect(published.slice(publishedCountBeforeSwitch)).not.toContainEqual(
+      expect.objectContaining({ id: "switch-plan" }),
+    );
   });
 });

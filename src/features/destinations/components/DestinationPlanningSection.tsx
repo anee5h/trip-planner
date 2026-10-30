@@ -1,4 +1,11 @@
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useTranslation } from "react-i18next";
 import type {
   AdmissionPriceOption,
@@ -109,8 +116,28 @@ export function DestinationPlanningSection({
   onPlanGenerated,
 }: DestinationPlanningSectionProps) {
   const { t } = useTranslation();
-  const [generatedPlan, setGeneratedPlanState] = useState<DayPlan | null>(null);
-  const [activePartySize, setActivePartySize] = useState(partySize);
+  const [generatedPlanState, setGeneratedPlanState] = useState<{
+    destinationId: string;
+    plan: DayPlan;
+  } | null>(null);
+  const destinationIdRef = useRef(destination.id);
+  useLayoutEffect(() => {
+    destinationIdRef.current = destination.id;
+  }, [destination.id]);
+  const generatedPlan =
+    generatedPlanState?.destinationId === destination.id
+      ? generatedPlanState.plan
+      : null;
+  const [activePartySizeOverride, setActivePartySizeOverride] = useState<{
+    destinationId: string;
+    sourcePartySize: number;
+    value: number;
+  } | null>(null);
+  const activePartySize =
+    activePartySizeOverride?.destinationId === destination.id &&
+    activePartySizeOverride.sourcePartySize === partySize
+      ? activePartySizeOverride.value
+      : partySize;
   const [childCountOverride, setChildCountOverride] = useState<{
     destinationId: string;
     value: number | null;
@@ -126,11 +153,14 @@ export function DestinationPlanningSection({
   const childCountHelpId = `${childCountInputId}-help`;
   const childCountErrorId = `${childCountInputId}-error`;
   const previousPartySize = useRef(partySize);
-  const latestResetValues = useRef({ partySize, childCount });
+  const latestResetValues = useRef({ childCount });
 
   useEffect(() => {
-    latestResetValues.current = { partySize, childCount };
-  }, [partySize, childCount]);
+    latestResetValues.current = { childCount };
+  }, [childCount]);
+  useEffect(() => {
+    setChildCountDraft(childCount === undefined ? "" : String(childCount));
+  }, [childCount, destination.id]);
   const lastPublishedPlan = useRef<DayPlan | null>(null);
   const configuredTicketSelection =
     selectionOverride?.destinationId === destination.id
@@ -193,16 +223,15 @@ export function DestinationPlanningSection({
   useEffect(() => {
     if (previousPartySize.current === partySize) return;
     previousPartySize.current = partySize;
-    setActivePartySize(partySize);
+    setActivePartySizeOverride(null);
     setChildCountOverride(null);
     setChildCountDraft("");
   }, [partySize]);
 
   useEffect(() => {
-    const { partySize: nextPartySize, childCount: nextChildCount } =
-      latestResetValues.current;
+    const { childCount: nextChildCount } = latestResetValues.current;
     setGeneratedPlanState(null);
-    setActivePartySize(nextPartySize);
+    setActivePartySizeOverride(null);
     setChildCountOverride(null);
     setChildCountDraft(
       nextChildCount === undefined ? "" : String(nextChildCount),
@@ -210,8 +239,19 @@ export function DestinationPlanningSection({
     setSelectionOverride(null);
   }, [destination.id]);
 
+  const handlePlanGenerated = (plan: DayPlan | null) => {
+    if (destinationIdRef.current !== destination.id) return;
+    setGeneratedPlanState(
+      plan ? { destinationId: destination.id, plan } : null,
+    );
+  };
+
   const handlePartySizeChange = (nextPartySize: number) => {
-    setActivePartySize(nextPartySize);
+    setActivePartySizeOverride({
+      destinationId: destination.id,
+      sourcePartySize: partySize,
+      value: nextPartySize,
+    });
     setChildCountOverride({ destinationId: destination.id, value: null });
     setChildCountDraft("");
     onPartySizeChange?.(nextPartySize);
@@ -362,6 +402,8 @@ export function DestinationPlanningSection({
               travelDate,
               admissionSelection: activeAdmissionSelection,
               totalBudgetRange: costBreakdown?.totalRange,
+              assumptions:
+                costBreakdown?.assumptions ?? generatedPlan.assumptions,
             }
           : {
               ...generatedPlan,
@@ -374,6 +416,7 @@ export function DestinationPlanningSection({
       travelDate,
       activeAdmissionSelection,
       costBreakdown?.totalRange,
+      costBreakdown?.assumptions,
     ],
   );
 
@@ -416,20 +459,10 @@ export function DestinationPlanningSection({
                   return;
                 }
                 if (!/^\d+$/.test(value)) {
-                  setChildCountOverride({
-                    destinationId: destination.id,
-                    value: null,
-                  });
-                  onChildCountChange?.(undefined);
                   return;
                 }
                 const count = Number(value);
                 if (!Number.isSafeInteger(count) || count > activePartySize) {
-                  setChildCountOverride({
-                    destinationId: destination.id,
-                    value: null,
-                  });
-                  onChildCountChange?.(undefined);
                   return;
                 }
                 setChildCountOverride({
@@ -593,7 +626,7 @@ export function DestinationPlanningSection({
         defaultPlanType={fullDayDisabled ? "half_day" : undefined}
         fullDayDisabled={fullDayDisabled}
         onSaveToItinerary={() => onSaveToItinerary(livePlan ?? undefined)}
-        onPlanGenerated={setGeneratedPlanState}
+        onPlanGenerated={handlePlanGenerated}
       />
 
       <p

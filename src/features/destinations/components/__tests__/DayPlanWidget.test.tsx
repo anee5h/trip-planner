@@ -139,6 +139,45 @@ describe("DayPlanGeneratorService - Disclosures & Hub Routing", () => {
     });
   });
 
+  it("publishes null when a duration change resets a generated plan", () => {
+    const published: Array<ReturnType<typeof generateDayPlan> | null> = [];
+    const onPlanGenerated = (plan: ReturnType<typeof generateDayPlan> | null) =>
+      published.push(plan);
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <DayPlanWidget
+            destination={mockPoi1}
+            duration="fullDay"
+            onPlanGenerated={onPlanGenerated}
+          />
+        </MemoryRouter>,
+      );
+    });
+    act(() => {
+      Array.from(host!.querySelectorAll("button"))
+        .find((button) => button.textContent?.includes("Create day plan"))
+        ?.click();
+    });
+    expect(published.at(-1)).not.toBeNull();
+
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <DayPlanWidget
+            destination={mockPoi1}
+            duration="halfDay"
+            onPlanGenerated={onPlanGenerated}
+          />
+        </MemoryRouter>,
+      );
+    });
+    expect(published.at(-1)).toBeNull();
+  });
+
   it("does not repeat generated cost in the planner header", () => {
     host = document.createElement("div");
     document.body.appendChild(host);

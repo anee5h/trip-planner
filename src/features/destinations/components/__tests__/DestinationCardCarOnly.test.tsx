@@ -250,6 +250,28 @@ describe("KAI-275 DestinationCard transport selection", () => {
     expect(probe).toContain('"travelDate":"2026-10-01"');
   });
 
+  it("forwards the admission date and child count to the destination page", async () => {
+    const container = await renderAt("/destinations", {
+      partySize: 3,
+      duration: "2d1n" as TripDuration,
+      visitDate: "2026-11-23",
+      childCount: 1,
+    });
+    const link = container.querySelector(
+      'a[href*="/destinations/kamakura-city"]',
+    ) as HTMLAnchorElement | null;
+    expect(link).not.toBeNull();
+    await act(async () => {
+      link!.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    expect(
+      container.querySelector("[data-testid=location-probe]")?.textContent,
+    ).toContain('"travelDate":"2026-11-23"');
+    expect(
+      container.querySelector("[data-testid=location-probe]")?.textContent,
+    ).toContain('"childCount":1');
+  });
+
   it("undefined publicModes (rails/any) keeps the full-mode default — no car-only leak", async () => {
     const container = await renderAt("/destinations", {
       carMode: "none",

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useOptionalTripContext } from "@/shared/context/TripContext";
@@ -56,11 +56,7 @@ export default function HeavyHome({
     isVisited,
     favorites,
   } = useTripStore();
-  const { tripContext, updateTripContext } = useOptionalTripContext();
-  const contextPartySizeRef = useRef(tripContext.partySize);
-  useEffect(() => {
-    contextPartySizeRef.current = tripContext.partySize;
-  }, [tripContext.partySize]);
+  const { updateTripContext } = useOptionalTripContext();
 
   const { weatherContext, currentTab, customDate, forecastSelection } =
     useHomeDateState();
@@ -117,9 +113,6 @@ export default function HeavyHome({
       dateSemantics: forecastSelection.type,
       duration: resolvedApplied.tripDuration,
       partySize: resolvedApplied.partySize,
-      ...(resolvedApplied.partySize !== contextPartySizeRef.current
-        ? { childCount: undefined }
-        : {}),
       publicModes: resolvedApplied.publicModes,
       carMode: resolvedApplied.carMode,
       // KAI-279: write the canonical explicit budget kind — a Custom

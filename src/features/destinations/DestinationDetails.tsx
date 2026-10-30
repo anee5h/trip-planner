@@ -179,6 +179,7 @@ import {
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
 import { calculateTripEstimateForVisit } from "@/shared/services/budget/tripEstimateEngine";
+import { resolveEstimateVisitDate } from "@/shared/services/budget/estimateVisitDate";
 import { selectionWithPartyComposition } from "@/shared/services/budget/admissionPricing";
 import { resolveChildCount } from "@/shared/utils/tripComposition";
 import { getTransportDisplayCost } from "@/shared/services/budget/transportDisplayCost";
@@ -517,6 +518,12 @@ export default function DestinationDetails() {
     (hasExplicitTripContext
       ? (tripContext.travelDate ?? undefined)
       : undefined);
+  // Estimates match Explore's day-one date; generated plans still price each
+  // stop on its own day from the unmodified travel date.
+  const estimateVisitDate = resolveEstimateVisitDate(
+    activeTravelDate,
+    duration,
+  );
 
   const {
     isVisited,
@@ -1129,7 +1136,7 @@ export default function DestinationDetails() {
       dest: destination,
       mode,
       partySize,
-      visitDate: activeTravelDate,
+      visitDate: estimateVisitDate,
       admissionSelection: activeAdmissionSelection,
       homeCoords: homeStationCoords ?? undefined,
       duration,
@@ -2163,7 +2170,7 @@ export default function DestinationDetails() {
                   destinations={composedDetailRails.featuredChildSights}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  visitDate={activeTravelDate}
+                  visitDate={estimateVisitDate}
                   childCount={childCount}
                   carMode={activeCarMode}
                   publicModes={activePublicModes}
@@ -2207,7 +2214,7 @@ export default function DestinationDetails() {
                       destinations={composedDetailRails.hubMoreDestinations}
                       currentDestinationId={destination.id}
                       partySize={partySize}
-                      visitDate={activeTravelDate}
+                      visitDate={estimateVisitDate}
                       childCount={childCount}
                       carMode={activeCarMode}
                       publicModes={activePublicModes}
@@ -3108,7 +3115,7 @@ export default function DestinationDetails() {
                   destinations={composedDetailRails.nearbyHubs}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  visitDate={activeTravelDate}
+                  visitDate={estimateVisitDate}
                   childCount={childCount}
                   carMode={activeCarMode}
                   publicModes={activePublicModes}
@@ -3174,7 +3181,7 @@ export default function DestinationDetails() {
                   destinations={composedDetailRails.nearbyPlaces}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  visitDate={activeTravelDate}
+                  visitDate={estimateVisitDate}
                   childCount={childCount}
                   carMode={activeCarMode}
                   publicModes={activePublicModes}
@@ -3194,7 +3201,7 @@ export default function DestinationDetails() {
                   destinations={composedDetailRails.halfDaySiblings}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  visitDate={activeTravelDate}
+                  visitDate={estimateVisitDate}
                   childCount={childCount}
                   compact
                   previousLabel={copy.scrollLeft}
