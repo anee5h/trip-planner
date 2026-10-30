@@ -46,10 +46,29 @@ vi.mock("react-i18next", () => ({
 }));
 
 const localeState = vi.hoisted(() => ({ locale: "en" as "en" | "ja" }));
+const tripContextUpdates = vi.hoisted(() => ({ calls: [] as unknown[] }));
 
 vi.mock("@/shared/context/LocaleContext", () => ({
   useLocale: () => ({ locale: localeState.locale, setLocale: vi.fn() }),
 }));
+
+vi.mock("@/shared/context/TripContext", async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import("@/shared/context/TripContext")>();
+  return {
+    ...actual,
+    useOptionalTripContext: () => {
+      const context = actual.useOptionalTripContext();
+      return {
+        ...context,
+        updateTripContext: (patch: unknown) => {
+          tripContextUpdates.calls.push(patch);
+          context.updateTripContext(patch as never);
+        },
+      };
+    },
+  };
+});
 
 vi.mock("react-leaflet", () => ({
   MapContainer: ({ children }: { children: React.ReactNode }) => (
@@ -371,6 +390,7 @@ beforeEach(() => {
   planningState.changeChildCount = undefined;
   planningState.renderCostWidget = false;
   sessionStorage.clear();
+  tripContextUpdates.calls.length = 0;
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -587,8 +607,67 @@ describe("DestinationDetails transport rows", () => {
     expect(planningState.duration).toBe("2d1n");
   });
 
-  it("keeps a party-size edit local when the trip context was not explicit", async () => {
-    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view");
+  it("keeps legacy party edits local when trip context is already explicit", async () => {
+    renderWithTripContext("/destinations/roppongi-hills-tokyo-city-view", {
+      partySize: 2,
+    });
+    await act(async () => {
+      await flush(80);
+    });
+    const storedContext = sessionStorage.getItem(
+      "meguruto-active-trip-context",
+    );
+    expect(storedContext).not.toBeNull();
+    tripContextUpdates.calls.length = 0;
+
+    act(() => planningState.changePartySize?.(3));
+    await act(async () => {
+      await flush(80);
+    });
+
+    expect(planningState.partySize).toBe(3);
+    expect(tripContextUpdates.calls).toEqual([]);
+    expect(sessionStorage.getItem("meguruto-active-trip-context")).toBe(
+      storedContext,
+    );
+  });
+
+  it("updates shared trip context for party edits when ticket options exist", async () => {
+    const destinationId = "roppongi-hills-tokyo-city-view";
+    const previousRecord = records.get(destinationId)!;
+    records.set(destinationId, {
+      ...previousRecord,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+          {
+            productId: "standard",
+            variantId: "entry",
+            category: "child",
+            min: 500,
+            max: 500,
+          },
+        ],
+      },
+    });
+    destinationRecordOverride = {
+      id: destinationId,
+      previous: previousRecord,
+    };
+    renderWithTripContext(`/destinations/${destinationId}`, { partySize: 2 });
     await act(async () => {
       await flush(80);
     });
@@ -597,9 +676,16 @@ describe("DestinationDetails transport rows", () => {
     await act(async () => {
       await flush(80);
     });
+    expect(tripContextUpdates.calls).toContainEqual({
+      partySize: 3,
+      childCount: undefined,
+    });
 
-    expect(planningState.partySize).toBe(3);
-    expect(sessionStorage.getItem("meguruto-active-trip-context")).toBeNull();
+    act(() => planningState.changeChildCount?.(1));
+    await act(async () => {
+      await flush(80);
+    });
+    expect(tripContextUpdates.calls).toContainEqual({ childCount: 1 });
   });
 
   it("removes nav-provided party composition when child count is cleared", async () => {

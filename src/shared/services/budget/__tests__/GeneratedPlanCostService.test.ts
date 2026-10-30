@@ -43,6 +43,18 @@ function makePlan(
   };
 }
 
+function makeTwoDayPlan(dest: Destination): DayPlan {
+  const plan = makePlan(dest, "2d1n");
+  const [step] = plan.steps;
+  return {
+    ...plan,
+    steps: [
+      { ...step, day: 1 },
+      { ...step, id: "step-2", day: 2 },
+    ],
+  };
+}
+
 const BASE_DEST = {
   id: "dest-1",
   name: "Dest 1",
@@ -56,6 +68,71 @@ const BASE_DEST = {
 } as unknown as Destination;
 
 describe("GeneratedPlanCostService", () => {
+  it("counts legacy admission once across days but prices ticket options per visit", () => {
+    const legacyDestination = {
+      ...BASE_DEST,
+      budgetBreakdown: { ...BASE_DEST.budgetBreakdown, tickets: 1000 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "verified ticket",
+      },
+    } as unknown as Destination;
+    const legacyPlan = makeTwoDayPlan(legacyDestination);
+    const legacyWithContext = calculateGeneratedPlanCost(
+      legacyPlan,
+      2,
+      null,
+      false,
+      undefined,
+      { travelDate: "2026-11-01", admissionSelection: undefined },
+    );
+    const legacyWithoutContext = calculateGeneratedPlanCost(
+      legacyPlan,
+      2,
+      null,
+      false,
+    );
+
+    expect(legacyWithContext.admission).toMatchObject({ min: 2000, max: 2000 });
+    expect(legacyWithContext.admission).toEqual(legacyWithoutContext.admission);
+
+    const ticketOptionsDestination = {
+      ...legacyDestination,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    const ticketOptionsCost = calculateGeneratedPlanCost(
+      makeTwoDayPlan(ticketOptionsDestination),
+      2,
+      null,
+      false,
+      undefined,
+      { travelDate: "2026-11-01", admissionSelection: undefined },
+    );
+
+    expect(ticketOptionsCost.admission).toMatchObject({
+      min: 4000,
+      max: 4000,
+    });
+  });
+
   it("calculates itemized plan cost using ticket breakdown for TRUSTED (manual) provenance", () => {
     const manualDest = {
       ...BASE_DEST,

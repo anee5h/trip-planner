@@ -147,7 +147,7 @@ export function mergeTripContext(
   current: TripContext,
   patch: TripContextPatch,
 ): TripContext {
-  return {
+  const next: TripContext = {
     ...current,
     ...patch,
     // Preserve explicit [] and 0 values; never use truthy fallbacks here.
@@ -158,6 +158,14 @@ export function mergeTripContext(
       ? { budget: normalizeTripBudget(patch.budget) }
       : {}),
   };
+  if (
+    patch.partySize !== undefined &&
+    patch.partySize !== current.partySize &&
+    !("childCount" in patch)
+  ) {
+    delete next.childCount;
+  }
+  return next;
 }
 
 function dateSemanticsFor(date: string): TripDateSemantics {

@@ -266,7 +266,9 @@ export function calculateGeneratedPlanCost(
     ) {
       continue;
     }
-    const visitKey = [step.destination.id, step.day ?? 1].join("\u0000");
+    const visitKey = step.destination.admission?.priceOptions?.length
+      ? [step.destination.id, step.day ?? 1].join("\u0000")
+      : step.destination.id;
     if (selectedVisits.has(visitKey)) continue;
     selectedVisits.set(visitKey, {
       destination: step.destination,

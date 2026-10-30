@@ -5,7 +5,7 @@ import type {
   AdmissionPriceSelection,
 } from "@/shared/types/destination";
 import { isValidCheckedAtDate } from "./factValidation";
-import { getJapanHolidayStatus } from "@/shared/data/busyPeriodCues";
+import { getJapanHolidayStatus } from "@/shared/data/admissionHolidayCalendar";
 import { getJapanWeekday } from "@/shared/utils/season";
 
 export type AdmissionPricingResolution =

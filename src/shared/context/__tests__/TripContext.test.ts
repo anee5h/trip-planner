@@ -128,6 +128,22 @@ describe("TripContext contract", () => {
     });
   });
 
+  it("clears a stale child count only when party size changes without a new split", () => {
+    const current: TripContext = {
+      ...createDefaultTripContext(),
+      partySize: 3,
+      childCount: 1,
+    };
+
+    expect(
+      mergeTripContext(current, { partySize: 5 }).childCount,
+    ).toBeUndefined();
+    expect(mergeTripContext(current, { partySize: 3 }).childCount).toBe(1);
+    expect(
+      mergeTripContext(current, { partySize: 5, childCount: 2 }).childCount,
+    ).toBe(2);
+  });
+
   it("KAI-279: the default context budget is the canonical Standard preset", () => {
     expect(createDefaultTripContext().budget).toEqual({
       kind: "preset",

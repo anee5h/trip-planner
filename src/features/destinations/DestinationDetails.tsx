@@ -441,13 +441,13 @@ export default function DestinationDetails() {
   const handlePartySizeChange = (nextPartySize: number) => {
     setPartySizeOverride({ destinationId: id ?? "", value: nextPartySize });
     setChildCountOverride({ destinationId: id ?? "", value: undefined });
-    if (hasExplicitTripContext) {
+    if (hasPriceOptions) {
       updateTripContext({ partySize: nextPartySize, childCount: undefined });
     }
   };
   const handleChildCountChange = (nextChildCount: number | undefined) => {
     setChildCountOverride({ destinationId: id ?? "", value: nextChildCount });
-    if (hasExplicitTripContext) {
+    if (hasPriceOptions) {
       updateTripContext({ childCount: nextChildCount });
     }
   };
@@ -520,6 +520,7 @@ export default function DestinationDetails() {
   } = useTripStore();
   const [destination, setDestination] = useState<Destination | null>(null);
   const [destLoading, setDestLoading] = useState(true);
+  const hasPriceOptions = Boolean(destination?.admission?.priceOptions?.length);
 
   const [, setGeneratedPlan] = useState<any>(null);
   const [pendingSave, setPendingSave] = useState<PendingItinerarySave | null>(

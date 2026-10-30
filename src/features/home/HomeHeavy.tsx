@@ -56,7 +56,7 @@ export default function HeavyHome({
     isVisited,
     favorites,
   } = useTripStore();
-  const { updateTripContext } = useOptionalTripContext();
+  const { tripContext, updateTripContext } = useOptionalTripContext();
 
   const { weatherContext, currentTab, customDate, forecastSelection } =
     useHomeDateState();
@@ -113,6 +113,9 @@ export default function HeavyHome({
       dateSemantics: forecastSelection.type,
       duration: resolvedApplied.tripDuration,
       partySize: resolvedApplied.partySize,
+      ...(resolvedApplied.partySize !== tripContext.partySize
+        ? { childCount: undefined }
+        : {}),
       publicModes: resolvedApplied.publicModes,
       carMode: resolvedApplied.carMode,
       // KAI-279: write the canonical explicit budget kind — a Custom
@@ -138,6 +141,7 @@ export default function HeavyHome({
     homeStationTransportZoneId,
     resolvedApplied,
     selectedDate,
+    tripContext.partySize,
     updateTripContext,
   ]);
 
