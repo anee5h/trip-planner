@@ -281,19 +281,21 @@ export default function DestinationCard({
     }
   };
 
+  const hasTicketOptions = Boolean(destination.admission?.priceOptions?.length);
   const linkState = useMemo(() => {
     const hasTransport = carMode !== undefined || publicModes !== undefined;
     const travelDate =
-      visitDate ??
+      (hasTicketOptions ? visitDate : undefined) ??
       (ferryTemporal?.travelDate
         ? ferryTemporal.travelDate.toISOString().slice(0, 10)
         : undefined);
+    const linkedChildCount = hasTicketOptions ? childCount : undefined;
     if (
       !hasTransport &&
       partySize === undefined &&
       duration === undefined &&
       travelDate === undefined &&
-      childCount === undefined
+      linkedChildCount === undefined
     ) {
       return undefined;
     }
@@ -302,9 +304,12 @@ export default function DestinationCard({
       ...(partySize !== undefined ? { partySize } : {}),
       ...(duration !== undefined ? { duration } : {}),
       ...(travelDate ? { travelDate } : {}),
-      ...(childCount !== undefined ? { childCount } : {}),
+      ...(linkedChildCount !== undefined
+        ? { childCount: linkedChildCount }
+        : {}),
     };
   }, [
+    hasTicketOptions,
     carMode,
     publicModes,
     partySize,

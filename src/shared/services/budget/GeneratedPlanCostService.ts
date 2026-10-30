@@ -231,14 +231,26 @@ function pushMissingAssumption(
   assumptions: PlanAssumption[],
   costScope?: "admission" | "transport",
 ): void {
+  const message =
+    costScope === "admission"
+      ? {
+          en: `Admission costs for ${dest.name} use a rough planning estimate.`,
+          ja: `${dest.nameJa || dest.name}の入場料は計画用の概算です。`,
+        }
+      : costScope === "transport"
+        ? {
+            en: `Transport costs for ${dest.name} use a rough planning estimate.`,
+            ja: `${dest.nameJa || dest.name}への交通費は計画用の概算です。`,
+          }
+        : {
+            en: `Some cost inputs for ${dest.name} use a rough planning estimate.`,
+            ja: `${dest.nameJa || dest.name}の一部費用は概算です。`,
+          };
   assumptions.push({
     type: "estimated_cost",
     destinationId: dest.id,
     ...(costScope ? { costScope } : {}),
-    message: {
-      en: `Some cost inputs for ${dest.name} use a rough planning estimate.`,
-      ja: `${dest.nameJa || dest.name}の一部費用は概算です。`,
-    },
+    message,
   });
 }
 
@@ -322,8 +334,11 @@ export function calculateGeneratedPlanCost(
           (component) => component.evidence.scope === "admission",
         );
         const admissionNeedsDisclosure =
-          admission?.evidence.admissionCompositionAssumed === true ||
-          admission?.evidence.admissionPricingBasis === undefined;
+          admission !== undefined &&
+          admission.evidence.state !== "verified_free" &&
+          admission.evidence.state !== "not_applicable" &&
+          (admission.evidence.admissionCompositionAssumed === true ||
+            admission.evidence.admissionPricingBasis === undefined);
         const hasAdmissionAssumption = assumptions.some(
           (assumption) =>
             assumption.type === "estimated_cost" &&

@@ -197,6 +197,92 @@ describe("GeneratedPlanCostService", () => {
     ).toBe(false);
   });
 
+  it("does not label free or inapplicable admission as a rough admission cost", () => {
+    const destinationWithNoAdmissionCost = {
+      ...BASE_DEST,
+      admission: {
+        state: "not_applicable",
+        provenance: "none",
+        reasonCode: "no_single_admission_product",
+        cost: { kind: "not_applicable" },
+        scope: "general_entry",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+
+    const cost = calculateGeneratedPlanCost(
+      makePlan(destinationWithNoAdmissionCost),
+      2,
+      null,
+      false,
+    );
+
+    expect(cost.estimateQuality).not.toBe("verified");
+    expect(
+      cost.assumptions.some(
+        (assumption) =>
+          assumption.destinationId === destinationWithNoAdmissionCost.id &&
+          assumption.type === "estimated_cost" &&
+          assumption.costScope === "admission",
+      ),
+    ).toBe(false);
+  });
+
+  it("keeps an admission disclosure when an unrelated unscoped estimate exists", () => {
+    const ticketDestination = {
+      ...BASE_DEST,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "variable" },
+        scope: "general_entry",
+        sourceUrls: ["https://example.test/admission"],
+        checkedAt: "2026-01-01",
+        priceOptions: [
+          {
+            productId: "entry",
+            variantId: "standard",
+            category: "adult",
+            min: 1000,
+            max: 1000,
+          },
+        ],
+      },
+    } as unknown as Destination;
+    const unrelatedAssumption = {
+      type: "estimated_cost" as const,
+      destinationId: ticketDestination.id,
+      message: { en: "Meal estimate", ja: "食費の目安" },
+    };
+    const cost = calculateGeneratedPlanCost(
+      {
+        ...makePlan(ticketDestination),
+        assumptions: [unrelatedAssumption],
+      },
+      2,
+      null,
+      false,
+    );
+
+    expect(
+      cost.assumptions.filter(
+        (assumption) =>
+          assumption.type === "estimated_cost" &&
+          assumption.destinationId === ticketDestination.id &&
+          assumption.costScope === "admission",
+      ),
+    ).toHaveLength(1);
+  });
+
   it("counts legacy admission once across days but prices ticket options per visit", () => {
     const legacyDestination = {
       ...BASE_DEST,
