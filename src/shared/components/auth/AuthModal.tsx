@@ -352,7 +352,7 @@ export function AuthModal({
             <button
               type="button"
               onClick={() => void handleGoogle()}
-              className="flex items-center gap-3 w-full px-4 py-3 rounded-xl bg-white dark:bg-white text-gray-800 font-medium text-sm border border-slate-200 dark:border-transparent hover:bg-slate-50 dark:hover:bg-gray-100 transition-all duration-200 hover:scale-[1.01]"
+              className="flex items-center gap-3 w-full px-4 py-3 rounded-xl bg-white dark:bg-white text-gray-800 font-medium text-sm border border-slate-200 dark:border-transparent hover:bg-slate-50 dark:hover:bg-gray-100 transition-colors duration-200"
             >
               <svg width="20" height="20" viewBox="0 0 24 24">
                 <path
@@ -435,7 +435,7 @@ export function AuthModal({
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-xl bg-emerald-700 hover:bg-emerald-700 text-white font-semibold text-sm transition-all duration-200 hover:scale-[1.01] disabled:opacity-50"
+              className="w-full py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm transition-colors duration-200 disabled:opacity-50"
             >
               {loading
                 ? t("actions.pleaseWait")
