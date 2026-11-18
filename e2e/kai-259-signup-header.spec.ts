@@ -160,6 +160,87 @@ test.describe("KAI-259 guest header", () => {
     ).toBeVisible();
   });
 
+  test("auth modal buttons do not overflow horizontally when hovered", async ({
+    page,
+  }, testInfo) => {
+    const viewports = isMobile(testInfo.project.name)
+      ? [{ width: 390, height: 844 }]
+      : [
+          { width: 1280, height: 800 },
+          { width: 390, height: 844 },
+        ];
+
+    for (const locale of ["en", "ja"] as const) {
+      const labels =
+        locale === "ja"
+          ? {
+              path: "/ja/",
+              google: "Googleで続ける",
+              signup: "アカウントを作成",
+              signin: "サインイン",
+            }
+          : {
+              path: "/",
+              google: "Continue with Google",
+              signup: "Create account",
+              signin: "Sign In",
+            };
+
+      await page.goto(labels.path);
+      await page.getByTestId("navbar-signup-cta").click();
+      const modal = page.getByTestId("auth-modal-card");
+      await expect(modal).toBeVisible();
+      const scrollArea = modal.locator(".overflow-y-auto");
+
+      for (const mode of ["signup", "signin"] as const) {
+        if (mode === "signin") {
+          await modal
+            .getByRole("button", { name: labels.signin, exact: true })
+            .click();
+        }
+        for (const viewport of viewports) {
+          await page.setViewportSize(viewport);
+          const emailButton = modal.getByRole("button", {
+            name: mode === "signup" ? labels.signup : labels.signin,
+            exact: true,
+          });
+          const buttons = [
+            modal.getByRole("button", { name: labels.google, exact: true }),
+            emailButton,
+          ];
+
+          for (const button of buttons) {
+            await button.scrollIntoViewIfNeeded();
+            const before = await button.boundingBox();
+            if (!before)
+              throw new Error("Expected auth action button to be visible");
+
+            await button.hover();
+            await page.waitForTimeout(250);
+
+            const after = await button.boundingBox();
+            if (!after)
+              throw new Error("Hovered auth action button disappeared");
+            expect
+              .soft(Math.abs(after.width - before.width))
+              .toBeLessThanOrEqual(0.5);
+            expect
+              .soft(Math.abs(after.height - before.height))
+              .toBeLessThanOrEqual(0.5);
+
+            const overflow = await scrollArea.evaluate((element) => ({
+              clientWidth: element.clientWidth,
+              scrollWidth: element.scrollWidth,
+            }));
+            expect
+              .soft(overflow.scrollWidth)
+              .toBeLessThanOrEqual(overflow.clientWidth);
+          }
+        }
+      }
+    }
+  });
+
   test("Japanese guest header uses the responsive signup terminology", async ({
     page,
   }, testInfo) => {
