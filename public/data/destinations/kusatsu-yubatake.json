@@ -34,7 +34,7 @@
       ],
       "notes": "Confirm current access, facility rules, and any seasonal restrictions on the official source before travel.",
       "name": "Yubatake",
-      "reservation": "Reservation requirements are unverified; check the official source before visiting.",
+      "reservation": "No reservation needed; visits are free and unrestricted.",
       "parking": "Parking availability is unverified; check the official source before visiting."
     },
     "ja": {
@@ -46,7 +46,7 @@
       ],
       "notes": "訪問前に公式情報で最新のアクセス、施設案内、季節による制限を確認してください。",
       "name": "湯畑",
-      "reservation": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
+      "reservation": "予約不要。見学自由です。",
       "parking": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
     }
   },
@@ -125,7 +125,7 @@
     "confidence": "unknown",
     "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred."
   },
-  "reservation": "Reservation requirements are unverified; check the official source before visiting.",
+  "reservation": "No reservation needed; visits are free and unrestricted.",
   "parking": "Parking availability is unverified; check the official source before visiting.",
   "notes": "The destination record is evidence-backed; current prices, opening hours, seasonality, and route times are intentionally not inferred.",
   "notesJa": "公式情報で確認できる範囲を記録しています。料金、営業時間、季節性、所要時間は推測していません。",
@@ -258,6 +258,11 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "reservationJa": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
-  "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
+  "reservationJa": "予約不要。見学自由です。",
+  "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。",
+  "businessHours": "Open access",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-11-26",
+    "sourceUrl": "https://rurubu.jp/andmore/spot/80008136"
+  }
 }
