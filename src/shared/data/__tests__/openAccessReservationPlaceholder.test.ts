@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 import catalogue from "../destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
-import { getOpeningHoursAssessment } from "@/shared/services/recommendation/OpeningHoursPolicy";
+import {
+  getOpeningHoursAssessment,
+  requiresOpeningHours,
+} from "@/shared/services/recommendation/OpeningHoursPolicy";
 
 const PLACEHOLDER = /reservation requirements are unverified/i;
 
@@ -47,5 +50,15 @@ describe("open-access places and the reservation placeholder (KAI-338)", () => {
       expect(record?.reservationJa).toMatch(/予約不要/);
       expect(record?.content?.ja?.reservation).toBe(record?.reservationJa);
     }
+  });
+
+  it("shows open access for Fukiware Falls but keeps the hours warning for onsen", () => {
+    const byId = (id: string) =>
+      destinations.find((destination) => destination.id === id)!;
+    expect(requiresOpeningHours(byId("fukiware-falls"))).toBe(false);
+    // Onsen has no verified open-access signal yet (KAI-338 follow-up), so
+    // Yubatake and the paid Takaragawa bath both keep the warning.
+    expect(requiresOpeningHours(byId("kusatsu-yubatake"))).toBe(true);
+    expect(requiresOpeningHours(byId("takaragawa-onsen"))).toBe(true);
   });
 });

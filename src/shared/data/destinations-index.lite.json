@@ -90153,7 +90153,6 @@
     "localAccessModes": ["train", "bus", "car"],
     "localAccessUnestimated": true,
     "walkingIntensity": "medium",
-    "businessHours": "Open access",
     "relationships": {
       "parentDestinationId": "kusatsu-town"
     }

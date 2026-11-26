@@ -195,9 +195,9 @@ function isExplicitlyOpenAccess(dest: Destination): boolean {
 
 // KAI-338: open-air kinds where free, always-accessible visits are the norm.
 // Ticketed/staffed kinds (museum, castle, temple, shrine, garden...) are
-// deliberately absent. onsen is here only for explicit open-access hours,
-// because the kind also covers paid bathhouses.
-const OPEN_AIR_KINDS = new Set(["lake", "waterfall", "bridge", "onsen"]);
+// deliberately absent. onsen is absent too: the data-quality audit treats it
+// as a paid kind (bathhouses), so it needs its own verified signal first.
+const OPEN_AIR_KINDS = new Set(["lake", "waterfall", "bridge"]);
 const OPEN_AIR_NO_EVIDENCE_KINDS = new Set([
   "park",
   "street",
@@ -218,10 +218,12 @@ function isOpenAccessPlace(dest: Destination): boolean {
     );
   }
   // No hours text at all, but the reviewed source found no ticket product.
-  return (
+  const noTicketProduct =
     !dest.businessHours &&
     !dest.openingHours &&
-    dest.admission?.state === "not_applicable" &&
+    dest.admission?.state === "not_applicable";
+  return (
+    noTicketProduct &&
     OPEN_AIR_NO_EVIDENCE_KINDS.has(kind) &&
     (category === "district_park" || category === "generic")
   );

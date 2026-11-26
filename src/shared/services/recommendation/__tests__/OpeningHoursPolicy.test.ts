@@ -232,24 +232,26 @@ describe("OpeningHoursPolicy", () => {
     const base = { id: "x", categories: [] as string[] };
     const notApplicable = { state: "not_applicable" };
 
-    it("treats an onsen with explicit open-access hours as not requiring hours", () => {
-      const yubatake = {
+    it("does not trust open-access hours text on an onsen (paid kind in the data-quality audit)", () => {
+      const onsen = {
         ...base,
         kind: "onsen",
         businessHours: "Open access",
       } as unknown as Destination;
-      expect(requiresOpeningHours(yubatake)).toBe(false);
-      expect(getOpeningHoursAssessment(yubatake).accessType).toBe("open_area");
+      expect(requiresOpeningHours(onsen)).toBe(true);
     });
 
-    it("does not treat a bare onsen (possible paid bathhouse) as open access", () => {
-      const bathhouse = {
-        ...base,
-        kind: "onsen",
-        admission: notApplicable,
-      } as unknown as Destination;
-      expect(requiresOpeningHours(bathhouse)).toBe(true);
-    });
+    it.each(["general_entry", "open_area"])(
+      "does not treat an onsen with a %s admission scope as open access",
+      (scope) => {
+        const onsen = {
+          ...base,
+          kind: "onsen",
+          admission: { state: "not_applicable", scope },
+        } as unknown as Destination;
+        expect(requiresOpeningHours(onsen)).toBe(true);
+      },
+    );
 
     it.each(["lake", "waterfall", "bridge", "park", "street"])(
       "treats a %s with no ticket product and no hours as open access",

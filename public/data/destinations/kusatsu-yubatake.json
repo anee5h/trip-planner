@@ -259,10 +259,5 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "reservationJa": "予約不要。見学自由です。",
-  "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。",
-  "businessHours": "Open access",
-  "openingHoursMetadata": {
-    "verifiedAt": "2026-11-26",
-    "sourceUrl": "https://rurubu.jp/andmore/spot/80008136"
-  }
+  "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
 }
