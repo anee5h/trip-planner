@@ -222,7 +222,8 @@ describe("homepage discovery eligibility", () => {
     const candidates = [
       destination("distant"),
       destination("local-fallback", 0, {
-        coordinates: { lat: 35.68, lng: 139.76 },
+        // Near the origin but not the origin anchor itself (KAI-337).
+        coordinates: { lat: 35.684, lng: 139.76 },
       }),
     ];
 
@@ -277,6 +278,76 @@ describe("homepage discovery eligibility", () => {
         ({ id }) => id,
       ),
     ).toEqual(["coordinate-near", "coordinate-far"]);
+  });
+
+  describe("origin anchor exclusion", () => {
+    const TOKYO = { lat: 35.6812, lng: 139.7671 };
+    const NAHA = { lat: 26.2124, lng: 127.6809 };
+    const ids = (list: { id: string }[]) => list.map(({ id }) => id);
+
+    it("drops the origin's own anchor and keeps the next nearest in order", () => {
+      const candidates = [
+        destination("nihonbashi", 0, {
+          coordinates: { lat: 35.684, lng: 139.774 },
+        }),
+        destination("tokyo-station-chiyoda", 0, {
+          coordinates: { ...TOKYO },
+        }),
+        destination("ginza", 0, { coordinates: { lat: 35.671, lng: 139.765 } }),
+      ];
+      const context = { ...dayContext, homeStationCoords: TOKYO };
+
+      expect(ids(getUnexploredNearbyDestinations(candidates, context))).toEqual(
+        ["nihonbashi", "ginza"],
+      );
+    });
+
+    it("keeps an area-kind record at the origin coordinates", () => {
+      const candidates = [
+        destination("naha-city", 0, {
+          kind: "city",
+          coordinates: { ...NAHA },
+        }),
+        destination("shuri", 0, { coordinates: { lat: 26.217, lng: 127.719 } }),
+      ];
+      const context = { ...dayContext, homeStationCoords: NAHA };
+
+      expect(ids(getUnexploredNearbyDestinations(candidates, context))).toEqual(
+        ["naha-city", "shuri"],
+      );
+    });
+
+    it("excludes the anchor for non-Tokyo origins too", () => {
+      const candidates = [
+        destination("naha-airport", 0, {
+          coordinates: { ...NAHA },
+        }),
+        destination("shuri", 0, { coordinates: { lat: 26.217, lng: 127.719 } }),
+      ];
+      const context = { ...dayContext, homeStationCoords: NAHA };
+
+      expect(ids(getUnexploredNearbyDestinations(candidates, context))).toEqual(
+        ["shuri"],
+      );
+    });
+
+    it("still returns the requested count after the exclusion", () => {
+      const candidates = [
+        destination("origin-anchor", 0, {
+          coordinates: { ...TOKYO },
+        }),
+        ...[1, 2, 3, 4].map((n) =>
+          destination(`near-${n}`, 0, {
+            coordinates: { lat: 35.6812 + n * 0.002, lng: 139.7671 },
+          }),
+        ),
+      ];
+      const context = { ...dayContext, homeStationCoords: TOKYO };
+
+      expect(
+        ids(getUnexploredNearbyDestinations(candidates, context, 3)),
+      ).toEqual(["near-1", "near-2", "near-3"]);
+    });
   });
 
   it("requires weekend fit and destination capacity, then separates longer journeys", () => {

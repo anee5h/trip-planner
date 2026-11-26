@@ -154,7 +154,7 @@
       "topMatches": 10,
       "seasonal": 35,
       "under60": 15,
-      "nearby": 167,
+      "nearby": 166,
       "nearbyFromEligibleRecommendationPool": 39
     },
     "before": {
@@ -276,7 +276,6 @@
           "sunshine-aquarium"
         ],
         "nearby": [
-          "tokyo-station-chiyoda",
           "nihonbashi",
           "ginza-itoya",
           "ginza-urban",
@@ -481,7 +480,6 @@
           "sunshine-aquarium"
         ],
         "nearby": [
-          "tokyo-station-chiyoda",
           "nihonbashi",
           "ginza-itoya",
           "ginza-urban",
@@ -490,7 +488,8 @@
           "kabukiza",
           "tsukiji-outer-market",
           "chiyoda-city",
-          "akihabara-chiyoda"
+          "akihabara-chiyoda",
+          "hamarikyu-gardens"
         ]
       }
     }
