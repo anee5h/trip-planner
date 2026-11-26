@@ -3,6 +3,12 @@ import {
   getJapanDateParts,
   getJapanWeekday,
 } from "@/shared/utils/season";
+import {
+  JAPAN_HOLIDAY_COVERAGE,
+  JAPAN_HOLIDAY_DATA_VERSION,
+  JAPAN_NATIONAL_HOLIDAYS,
+  type JapanNationalHoliday,
+} from "./japanHolidays";
 
 export type BusyPeriodCueKind =
   "nationalHoliday" | "weekend" | "peakSeason" | "localEvent";
@@ -24,11 +30,6 @@ export interface BusyPeriodCue {
   expiresAt: string;
 }
 
-interface NationalHoliday {
-  date: string;
-  name: LocalizedBusyPeriodText;
-}
-
 interface CuratedPeakPeriod {
   id: string;
   destinationIds: readonly string[];
@@ -42,35 +43,13 @@ interface CuratedPeakPeriod {
   expiresAt: string;
 }
 
-/** Cabinet Office national-holiday extract committed for the beta calendar. */
-export const JAPAN_HOLIDAY_DATA_VERSION = "cabinet-office-2026.1";
+export { JAPAN_HOLIDAY_DATA_VERSION };
 const JAPAN_HOLIDAY_SOURCE: LocalizedBusyPeriodText = {
-  en: "Japan Cabinet Office national-holiday calendar (2026 extract)",
-  ja: "日本の内閣府・国民の祝日カレンダー（2026年版）",
+  en: "Japan Cabinet Office national-holiday calendar (2026–2027 extract)",
+  ja: "日本の内閣府・国民の祝日カレンダー（2026〜2027年版）",
 };
 const JAPAN_HOLIDAY_SOURCE_URL =
   "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html";
-
-const JAPAN_NATIONAL_HOLIDAYS: readonly NationalHoliday[] = [
-  ["2026-01-01", "New Year's Day", "元日"],
-  ["2026-01-12", "Coming of Age Day", "成人の日"],
-  ["2026-02-11", "National Foundation Day", "建国記念の日"],
-  ["2026-02-23", "Emperor's Birthday", "天皇誕生日"],
-  ["2026-03-20", "Vernal Equinox Day", "春分の日"],
-  ["2026-04-29", "Showa Day", "昭和の日"],
-  ["2026-05-03", "Constitution Memorial Day", "憲法記念日"],
-  ["2026-05-04", "Greenery Day", "みどりの日"],
-  ["2026-05-05", "Children's Day", "こどもの日"],
-  ["2026-05-06", "Holiday", "休日"],
-  ["2026-07-20", "Marine Day", "海の日"],
-  ["2026-08-11", "Mountain Day", "山の日"],
-  ["2026-09-21", "Respect for the Aged Day", "敬老の日"],
-  ["2026-09-22", "Holiday", "休日"],
-  ["2026-09-23", "Autumnal Equinox Day", "秋分の日"],
-  ["2026-10-12", "Sports Day", "スポーツの日"],
-  ["2026-11-03", "Culture Day", "文化の日"],
-  ["2026-11-23", "Labor Thanksgiving Day", "勤労感謝の日"],
-].map(([date, en, ja]) => ({ date, name: { en, ja } }));
 
 /** Small beta set; this is presentation evidence, never a score input. */
 export const CURATED_PEAK_PERIODS: readonly CuratedPeakPeriod[] = [
@@ -103,20 +82,20 @@ function monthDayInRange(monthDay: string, start: string, end: string) {
     : monthDay >= start || monthDay <= end;
 }
 
-function nationalHolidayCue(holiday: NationalHoliday): BusyPeriodCue {
+function nationalHolidayCue(holiday: JapanNationalHoliday): BusyPeriodCue {
   return {
     id: `holiday-${holiday.date}`,
     kind: "nationalHoliday",
     dateRange: [holiday.date, holiday.date],
-    reason: holiday.name,
+    reason: { en: holiday.en, ja: holiday.ja },
     evidence: {
-      en: `${holiday.name.en} is listed in the ${JAPAN_HOLIDAY_DATA_VERSION} local holiday extract.`,
-      ja: `${holiday.name.ja}は、日本の2026年版祝日データに記載されています。`,
+      en: `${holiday.en} is listed in the ${JAPAN_HOLIDAY_DATA_VERSION} local holiday extract.`,
+      ja: `${holiday.ja}は、日本の2026〜2027年版祝日データに記載されています。`,
     },
     source: JAPAN_HOLIDAY_SOURCE,
     sourceUrl: JAPAN_HOLIDAY_SOURCE_URL,
     reviewedAt: "2026-08-01",
-    expiresAt: "2026-12-31",
+    expiresAt: JAPAN_HOLIDAY_COVERAGE.end,
   };
 }
 

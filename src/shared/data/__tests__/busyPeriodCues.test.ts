@@ -16,44 +16,55 @@ describe("getBusyPeriodCues", () => {
           ja: "憲法記念日",
         },
         evidence: {
-          en: "Constitution Memorial Day is listed in the cabinet-office-2026.1 local holiday extract.",
-          ja: "憲法記念日は、日本の2026年版祝日データに記載されています。",
+          en: "Constitution Memorial Day is listed in the cabinet-office-2027.1 local holiday extract.",
+          ja: "憲法記念日は、日本の2026〜2027年版祝日データに記載されています。",
         },
         source: {
-          en: "Japan Cabinet Office national-holiday calendar (2026 extract)",
-          ja: "日本の内閣府・国民の祝日カレンダー（2026年版）",
+          en: "Japan Cabinet Office national-holiday calendar (2026–2027 extract)",
+          ja: "日本の内閣府・国民の祝日カレンダー（2026〜2027年版）",
         },
         sourceUrl: "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html",
         reviewedAt: "2026-08-01",
-        expiresAt: "2026-12-31",
+        expiresAt: "2027-12-31",
       }),
     );
   });
 
-  it("does not add holiday cues outside the existing 2026 cue extract", () => {
-    expect(getBusyPeriodCues("any-destination", "2027-03-22")).toEqual([]);
+  it("does not add holiday cues outside the holiday extract", () => {
+    expect(getBusyPeriodCues("any-destination", "2028-03-22")).toEqual([]);
   });
 
-  it("keeps the admission and busy-period 2026 holiday extracts aligned", () => {
-    const cueDates = new Set<string>();
-    const admissionDates = new Set<string>();
-    const date = new Date(Date.UTC(2026, 0, 1));
-    while (date.getUTCFullYear() === 2026) {
-      const isoDate = date.toISOString().slice(0, 10);
-      if (
-        getBusyPeriodCues("any-destination", isoDate).some(
-          ({ kind }) => kind === "nationalHoliday",
-        )
-      ) {
-        cueDates.add(isoDate);
-      }
-      if (getJapanHolidayStatus(isoDate) === "holiday") {
-        admissionDates.add(isoDate);
-      }
-      date.setUTCDate(date.getUTCDate() + 1);
-    }
-    expect(admissionDates).toEqual(cueDates);
+  it("returns a holiday cue for 2027 dates", () => {
+    expect(
+      getBusyPeriodCues("any-destination", "2027-01-11").map(
+        ({ kind }) => kind,
+      ),
+    ).toContain("nationalHoliday");
   });
+
+  it.each([2026, 2027])(
+    "keeps admission and busy-period %i holidays aligned",
+    (year) => {
+      const cueDates = new Set<string>();
+      const admissionDates = new Set<string>();
+      const date = new Date(Date.UTC(year, 0, 1));
+      while (date.getUTCFullYear() === year) {
+        const isoDate = date.toISOString().slice(0, 10);
+        if (
+          getBusyPeriodCues("any-destination", isoDate).some(
+            ({ kind }) => kind === "nationalHoliday",
+          )
+        ) {
+          cueDates.add(isoDate);
+        }
+        if (getJapanHolidayStatus(isoDate) === "holiday") {
+          admissionDates.add(isoDate);
+        }
+        date.setUTCDate(date.getUTCDate() + 1);
+      }
+      expect(admissionDates).toEqual(cueDates);
+    },
+  );
 
   it("returns a weekend cue using Japan time", () => {
     const cues = getBusyPeriodCues("any-destination", "2026-08-15");
