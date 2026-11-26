@@ -105,4 +105,64 @@ describe("decision-critical destination restrictions", () => {
       ),
     ).toBe(true);
   });
+
+  describe("KAI-338 unverified reservation placeholder", () => {
+    const PLACEHOLDER =
+      "Reservation requirements are unverified; check the official source before visiting.";
+    const kinds = (destination: Partial<Destination>) =>
+      getDecisionCriticalRestrictions(destination as Destination).map(
+        ({ kind }) => kind,
+      );
+
+    it("does not turn the placeholder into a restriction", () => {
+      expect(
+        kinds({
+          id: "yubatake-like",
+          reservation: PLACEHOLDER,
+          content: { en: { reservation: PLACEHOLDER } },
+        } as Partial<Destination>),
+      ).toEqual([]);
+    });
+
+    it("still flags a real reservation requirement", () => {
+      expect(
+        kinds({
+          id: "real",
+          reservation: "Reservation required; book online in advance.",
+        }),
+      ).toEqual(["reservation_required"]);
+    });
+
+    it("flags a real requirement that sits next to the placeholder", () => {
+      expect(
+        kinds({
+          id: "mixed",
+          reservation: `${PLACEHOLDER} Advance reservation is required for the inner area.`,
+        }),
+      ).toEqual(["reservation_required"]);
+    });
+
+    it("keeps an explicit no-reservation statement clean", () => {
+      expect(
+        kinds({ id: "none", reservation: "No reservation required." }),
+      ).toEqual([]);
+    });
+
+    it("still shows seasonal and private-car restrictions beside the placeholder", () => {
+      expect(
+        kinds({
+          id: "seasonal",
+          reservation: PLACEHOLDER,
+          notes:
+            "Closed in winter (December to March). Private cars are banned; shuttle bus required.",
+        } as Partial<Destination>),
+      ).toEqual(
+        expect.arrayContaining([
+          "seasonal_closure",
+          "private_car_access",
+          "required_transfer",
+        ]),
+      );
+    });
+  });
 });
