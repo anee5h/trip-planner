@@ -234568,7 +234568,7 @@
         ],
         "notes": "Confirm current access, facility rules, and any seasonal restrictions on the official source before travel.",
         "name": "Yubatake",
-        "reservation": "No reservation needed; visits are free and unrestricted.",
+        "reservation": "Reservation requirements are unverified; check the official source before visiting.",
         "parking": "Parking availability is unverified; check the official source before visiting."
       },
       "ja": {
@@ -234580,7 +234580,7 @@
         ],
         "notes": "訪問前に公式情報で最新のアクセス、施設案内、季節による制限を確認してください。",
         "name": "湯畑",
-        "reservation": "予約不要。見学自由です。",
+        "reservation": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
         "parking": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
       }
     },
@@ -234665,7 +234665,7 @@
       "confidence": "unknown",
       "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred."
     },
-    "reservation": "No reservation needed; visits are free and unrestricted.",
+    "reservation": "Reservation requirements are unverified; check the official source before visiting.",
     "parking": "Parking availability is unverified; check the official source before visiting.",
     "notes": "The destination record is evidence-backed; current prices, opening hours, seasonality, and route times are intentionally not inferred.",
     "notesJa": "公式情報で確認できる範囲を記録しています。料金、営業時間、季節性、所要時間は推測していません。",
@@ -234798,7 +234798,7 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "reservationJa": "予約不要。見学自由です。",
+    "reservationJa": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
     "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
   },
   {
@@ -236550,9 +236550,9 @@
           "Rock-cut river gorge landscape",
           "Independent nature stop rather than an onsen-town mention"
         ],
-        "notes": "Closed to visitors from mid-December to late March each year; the walking trail is closed at night.",
+        "notes": "Confirm current access, facility rules, and any seasonal restrictions on the official source before travel.",
         "name": "Fukiware Falls",
-        "reservation": "No reservation needed; free to visit.",
+        "reservation": "Reservation requirements are unverified; check the official source before visiting.",
         "parking": "Parking availability is unverified; check the official source before visiting."
       },
       "ja": {
@@ -236562,9 +236562,9 @@
           "岩を刻む川と渓谷の景観",
           "温泉街の記述に埋もれない独立した自然の見どころ"
         ],
-        "notes": "例年12月中旬から3月下旬は冬季閉鎖です。遊歩道は夜間通行止めです。",
+        "notes": "訪問前に公式情報で最新のアクセス、施設案内、季節による制限を確認してください。",
         "name": "吹割の滝",
-        "reservation": "予約不要。観覧料は無料です。",
+        "reservation": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
         "parking": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
       }
     },
@@ -236648,10 +236648,10 @@
       "confidence": "unknown",
       "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred."
     },
-    "reservation": "No reservation needed; free to visit.",
+    "reservation": "Reservation requirements are unverified; check the official source before visiting.",
     "parking": "Parking availability is unverified; check the official source before visiting.",
-    "notes": "Closed to visitors from mid-December to late March each year; the walking trail is closed at night.",
-    "notesJa": "例年12月中旬から3月下旬は冬季閉鎖です。遊歩道は夜間通行止めです。",
+    "notes": "The destination record is evidence-backed; current prices, opening hours, seasonality, and route times are intentionally not inferred.",
+    "notesJa": "公式情報で確認できる範囲を記録しています。料金、営業時間、季節性、所要時間は推測していません。",
     "status": "verified",
     "travelEstimate": {
       "confidence": "beta"
@@ -236779,7 +236779,7 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "reservationJa": "予約不要。観覧料は無料です。",
+    "reservationJa": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
     "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
   },
   {

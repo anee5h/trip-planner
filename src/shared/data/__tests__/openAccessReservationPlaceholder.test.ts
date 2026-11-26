@@ -11,9 +11,12 @@ const PLACEHOLDER = /reservation requirements are unverified/i;
 /**
  * KAI-338: open-access places must not keep the generic "unverified"
  * reservation placeholder. These records are the only allowed exceptions;
- * each still needs a manual check against its official source.
+ * each still needs its reservation text verified against its source.
  */
 const MANUAL_CHECK_EXCEPTIONS: Record<string, string> = {
+  // Official Numata page says 見学自由 / 観覧料無料, so the reservation text can
+  // be verified. Pending the follow-up data PR (needs a KAI-306 ledger entry).
+  "fukiware-falls": "source found; data edit deferred to follow-up PR",
   // Official Gunma tourism listing says "Admission: Free" but states no
   // booking rule either way.
   "lake-okushima": "admission free per visit-gunma.jp; reservation not stated",
@@ -40,16 +43,6 @@ describe("open-access places and the reservation placeholder (KAI-338)", () => {
     expect(openAccessWithPlaceholder.map(({ id }) => id).sort()).toEqual(
       Object.keys(MANUAL_CHECK_EXCEPTIONS).sort(),
     );
-  });
-
-  it("verified the Yubatake and Fukiware Falls reservation text in both languages", () => {
-    for (const id of ["kusatsu-yubatake", "fukiware-falls"]) {
-      const record = destinations.find((destination) => destination.id === id);
-      expect(record?.reservation).toMatch(/^No reservation needed/);
-      expect(record?.content?.en?.reservation).toBe(record?.reservation);
-      expect(record?.reservationJa).toMatch(/予約不要/);
-      expect(record?.content?.ja?.reservation).toBe(record?.reservationJa);
-    }
   });
 
   it("shows open access for Fukiware Falls but keeps the hours warning for onsen", () => {
