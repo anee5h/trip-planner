@@ -193,6 +193,42 @@ function isExplicitlyOpenAccess(dest: Destination): boolean {
   return lower.includes("24 hours") || lower.includes("open access");
 }
 
+// KAI-338: open-air kinds where free, always-accessible visits are the norm.
+// Ticketed/staffed kinds (museum, castle, temple, shrine, garden...) are
+// deliberately absent. onsen is absent too: the data-quality audit treats it
+// as a paid kind (bathhouses), so it needs its own verified signal first.
+const OPEN_AIR_KINDS = new Set(["lake", "waterfall", "bridge"]);
+const OPEN_AIR_NO_EVIDENCE_KINDS = new Set([
+  "park",
+  "street",
+  "district",
+  "neighborhood",
+  "lake",
+  "waterfall",
+  "bridge",
+]);
+
+function isOpenAccessPlace(dest: Destination): boolean {
+  const category = resolvePlanningCategory(dest);
+  const kind = (dest.kind || "").toLowerCase();
+  if (isExplicitlyOpenAccess(dest)) {
+    return (
+      category === "district_park" ||
+      (category === "generic" && OPEN_AIR_KINDS.has(kind))
+    );
+  }
+  // No hours text at all, but the reviewed source found no ticket product.
+  const noTicketProduct =
+    !dest.businessHours &&
+    !dest.openingHours &&
+    dest.admission?.state === "not_applicable";
+  return (
+    noTicketProduct &&
+    OPEN_AIR_NO_EVIDENCE_KINDS.has(kind) &&
+    (category === "district_park" || category === "generic")
+  );
+}
+
 /**
  * Strict ISO YYYY-MM-DD with a real-calendar round-trip. JS `new Date()`
  * silently normalizes impossible dates ("2026-02-30" → Mar 2) and accepts
@@ -234,8 +270,7 @@ function getOpeningHoursEvidenceAssessment(
     };
   }
 
-  const category = resolvePlanningCategory(dest);
-  if (category === "district_park" && isExplicitlyOpenAccess(dest)) {
+  if (isOpenAccessPlace(dest)) {
     return {
       accessType: "open_area",
       status: "not_required",

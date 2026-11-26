@@ -227,4 +227,78 @@ describe("OpeningHoursPolicy", () => {
     expect(isOpeningHoursClosedOnDate(destination, "2026-09-07")).toBe(true);
     expect(isOpeningHoursClosedOnDate(destination, "2026-09-08")).toBe(false);
   });
+
+  describe("KAI-338 open-access places", () => {
+    const base = { id: "x", categories: [] as string[] };
+    const notApplicable = { state: "not_applicable" };
+
+    it("does not trust open-access hours text on an onsen (paid kind in the data-quality audit)", () => {
+      const onsen = {
+        ...base,
+        kind: "onsen",
+        businessHours: "Open access",
+      } as unknown as Destination;
+      expect(requiresOpeningHours(onsen)).toBe(true);
+    });
+
+    it.each(["general_entry", "open_area"])(
+      "does not treat an onsen with a %s admission scope as open access",
+      (scope) => {
+        const onsen = {
+          ...base,
+          kind: "onsen",
+          admission: { state: "not_applicable", scope },
+        } as unknown as Destination;
+        expect(requiresOpeningHours(onsen)).toBe(true);
+      },
+    );
+
+    it.each(["lake", "waterfall", "bridge", "park", "street"])(
+      "treats a %s with no ticket product and no hours as open access",
+      (kind) => {
+        const place = {
+          ...base,
+          kind,
+          admission: notApplicable,
+        } as unknown as Destination;
+        expect(requiresOpeningHours(place)).toBe(false);
+      },
+    );
+
+    it("keeps the warning when an open-air kind has no evidence at all", () => {
+      const place = { ...base, kind: "lake" } as unknown as Destination;
+      expect(requiresOpeningHours(place)).toBe(true);
+    });
+
+    it("keeps the warning when hours text exists but is not verified", () => {
+      const place = {
+        ...base,
+        kind: "park",
+        businessHours: "9:00-17:00",
+        admission: notApplicable,
+      } as unknown as Destination;
+      expect(requiresOpeningHours(place)).toBe(true);
+    });
+
+    it.each(["museum", "castle", "temple", "shrine", "garden", "zoo"])(
+      "keeps the warning for a ticketed/staffed %s with no hours",
+      (kind) => {
+        const place = {
+          ...base,
+          kind,
+          admission: notApplicable,
+        } as unknown as Destination;
+        expect(requiresOpeningHours(place)).toBe(true);
+      },
+    );
+
+    it("keeps the warning for a museum even if it claims open access", () => {
+      const place = {
+        ...base,
+        kind: "museum",
+        businessHours: "Open access",
+      } as unknown as Destination;
+      expect(requiresOpeningHours(place)).toBe(true);
+    });
+  });
 });

@@ -1,0 +1,57 @@
+import { describe, expect, it } from "vitest";
+import catalogue from "../destinations-index.json";
+import type { Destination } from "@/shared/types/destination";
+import {
+  getOpeningHoursAssessment,
+  requiresOpeningHours,
+} from "@/shared/services/recommendation/OpeningHoursPolicy";
+
+const PLACEHOLDER = /reservation requirements are unverified/i;
+
+/**
+ * KAI-338: open-access places must not keep the generic "unverified"
+ * reservation placeholder. These records are the only allowed exceptions;
+ * each still needs its reservation text verified against its source.
+ */
+const MANUAL_CHECK_EXCEPTIONS: Record<string, string> = {
+  // Official Numata page says 見学自由 / 観覧料無料, so the reservation text can
+  // be verified. Pending the follow-up data PR (needs a KAI-306 ledger entry).
+  "fukiware-falls": "source found; data edit deferred to follow-up PR",
+  // Official Gunma tourism listing says "Admission: Free" but states no
+  // booking rule either way.
+  "lake-okushima": "admission free per visit-gunma.jp; reservation not stated",
+  // Official source retained, but its page gives only parking information.
+  "lake-haruna": "official page covers parking only",
+  // Official city homepage has no page for this bridge.
+  "usui-third-bridge": "no usable official page found",
+};
+
+const destinations = catalogue as unknown as Destination[];
+
+describe("open-access places and the reservation placeholder (KAI-338)", () => {
+  const openAccessWithPlaceholder = destinations.filter(
+    (destination) =>
+      getOpeningHoursAssessment(destination).status === "not_required" &&
+      PLACEHOLDER.test(
+        [destination.reservation, destination.content?.en?.reservation].join(
+          " ",
+        ),
+      ),
+  );
+
+  it("keeps the placeholder only on listed manual-check exceptions", () => {
+    expect(openAccessWithPlaceholder.map(({ id }) => id).sort()).toEqual(
+      Object.keys(MANUAL_CHECK_EXCEPTIONS).sort(),
+    );
+  });
+
+  it("shows open access for Fukiware Falls but keeps the hours warning for onsen", () => {
+    const byId = (id: string) =>
+      destinations.find((destination) => destination.id === id)!;
+    expect(requiresOpeningHours(byId("fukiware-falls"))).toBe(false);
+    // Onsen has no verified open-access signal yet (KAI-338 follow-up), so
+    // Yubatake and the paid Takaragawa bath both keep the warning.
+    expect(requiresOpeningHours(byId("kusatsu-yubatake"))).toBe(true);
+    expect(requiresOpeningHours(byId("takaragawa-onsen"))).toBe(true);
+  });
+});

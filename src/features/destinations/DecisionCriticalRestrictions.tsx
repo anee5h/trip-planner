@@ -40,6 +40,29 @@ function reservationIsExplicitlyNotRequired(value: string): boolean {
   );
 }
 
+/**
+ * KAI-338: "Reservation requirements are unverified" is a placeholder, not a
+ * requirement. A clause only counts as a restriction when it is not a bare
+ * unverified notice (a concrete word like required/must/advance/permit
+ * needed, or a booking URL, keeps it).
+ */
+function isUnverifiedPlaceholder(clause: string): boolean {
+  return (
+    /\b(?:unverified|not\s+(?:yet\s+)?verified)\b/i.test(clause) &&
+    !/\b(?:required|must|mandatory|advance|needed|necessary)\b|https?:\/\//i.test(
+      clause,
+    )
+  );
+}
+
+function withoutPlaceholderClauses(value: string): string {
+  return value
+    .split(/(?<=[.!?;])\s+/)
+    .filter((clause) => !isUnverifiedPlaceholder(clause))
+    .join(" ")
+    .trim();
+}
+
 export function getDecisionCriticalRestrictions(
   destination: Destination,
   locale: "en" | "ja" = "en",
@@ -90,14 +113,20 @@ export function getDecisionCriticalRestrictions(
     });
   }
 
+  const actionableReservation = englishReservation
+    ? withoutPlaceholderClauses(englishReservation)
+    : "";
   if (
-    englishReservation &&
-    /(reservation|reserve|book|permit)/i.test(englishReservation) &&
-    !reservationIsExplicitlyNotRequired(englishReservation)
+    actionableReservation &&
+    /(reservation|reserve|book|permit)/i.test(actionableReservation) &&
+    !reservationIsExplicitlyNotRequired(actionableReservation)
   ) {
     restrictions.push({
       kind: "reservation_required",
-      detail: localizedReservation ?? englishReservation,
+      detail:
+        actionableReservation === englishReservation
+          ? (localizedReservation ?? actionableReservation)
+          : actionableReservation,
     });
   }
 
