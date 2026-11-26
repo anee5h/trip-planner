@@ -174,6 +174,30 @@ describe("UnexploredNearbyRail", () => {
     expect(links.length).toBe(1);
   });
 
+  it("excludes the origin's own anchor on the precomputed path", () => {
+    const anchor = makeDestination(
+      "tokyo-station-chiyoda",
+      origin.lat,
+      origin.lng,
+    );
+    const next = makeDestination("nihonbashi", 35.684, 139.774);
+
+    const container = renderRail({
+      destinations: [anchor, next],
+      precomputedDestinations: [anchor, next],
+      homeStationCoords: origin,
+      isVisited: () => false,
+    });
+
+    const hrefs = Array.from(
+      container.querySelectorAll<HTMLAnchorElement>(
+        "a[href^='/destinations/']",
+      ),
+    ).map((a) => a.getAttribute("href"));
+    expect(hrefs.join(" ")).not.toContain("tokyo-station-chiyoda");
+    expect(hrefs.join(" ")).toContain("nihonbashi");
+  });
+
   it("shows at most 10 origin-aware destinations without filler", () => {
     const dests = [
       makeDestination("far", 34.6937, 135.5023), // Osaka ~400km

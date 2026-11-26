@@ -7,6 +7,7 @@ import { SectionViewAllLink } from "./SectionViewAllLink";
 import HomeMatchCard from "./HomeMatchCard";
 import { ScrollContainer } from "@/shared/components/ui/ScrollContainer";
 import {
+  excludeOriginAnchor,
   getUnexploredNearbyDestinations,
   MAX_HOME_RAIL_CARDS,
 } from "../services/HomeRailService";
@@ -46,7 +47,7 @@ export const UnexploredNearbyRail: React.FC<UnexploredNearbyRailProps> = ({
 
   const nearbyUnvisited = useMemo(() => {
     if (precomputedDestinations) {
-      return precomputedDestinations
+      return excludeOriginAnchor(precomputedDestinations, homeStationCoords)
         .filter((destination) => !isVisited(destination.id))
         .slice(0, MAX_HOME_RAIL_CARDS);
     }

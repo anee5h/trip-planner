@@ -1,5 +1,6 @@
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
+import { destinationSharesOriginAnchor } from "@/shared/services/transport/JourneyEndpoints";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import {
@@ -261,6 +262,17 @@ export function getUnder60Destinations(
   );
 }
 
+/** Drops the point destination that is the user's own origin anchor (0 km away). */
+export function excludeOriginAnchor<T extends Destination>(
+  candidates: readonly T[],
+  homeStationCoords: { lat: number; lng: number } | null,
+): T[] {
+  return candidates.filter(
+    (destination) =>
+      !destinationSharesOriginAnchor(destination, homeStationCoords),
+  );
+}
+
 export function getUnexploredNearbyDestinations(
   candidates: readonly RankedDestination[],
   context: OriginRailContext,
@@ -269,7 +281,10 @@ export function getUnexploredNearbyDestinations(
   if (getTripNights(context.tripDuration) > 0) return [];
   return limit(
     sortOriginCandidates(
-      candidates.filter((destination) => destination.coordinates),
+      excludeOriginAnchor(
+        candidates.filter((destination) => destination.coordinates),
+        context.homeStationCoords,
+      ),
       context,
       (maxMinutes) => maxMinutes <= MAX_NEARBY_TRAVEL_MINUTES,
       true,
