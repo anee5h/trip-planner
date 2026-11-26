@@ -1,18 +1,36 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { experimentFramework } from "../ExperimentFramework";
+import {
+  ExperimentFramework,
+  experimentFramework,
+  type ExperimentConfig,
+} from "../ExperimentFramework";
+
+const FIXTURE: ExperimentConfig = {
+  id: "exp_test_split",
+  name: "Test split",
+  enabled: true,
+  startDate: "2020-01-01",
+  endDate: "2099-12-31",
+  variants: [
+    { id: "control", name: "Control", allocationPercentage: 50 },
+    { id: "treatment", name: "Treatment", allocationPercentage: 50 },
+  ],
+};
 
 describe("ExperimentFramework Unit Tests", () => {
   beforeEach(() => {
-    experimentFramework.setKillSwitch("exp_season_weight_2026", true);
+    localStorage.clear();
+    experimentFramework.registerExperiment(FIXTURE);
+    experimentFramework.setKillSwitch(FIXTURE.id, true);
   });
 
   it("should assign identical variant for the same session ID deterministically", () => {
     const res1 = experimentFramework.getAssignment(
-      "exp_season_weight_2026",
+      FIXTURE.id,
       "user_session_123",
     );
     const res2 = experimentFramework.getAssignment(
-      "exp_season_weight_2026",
+      FIXTURE.id,
       "user_session_123",
     );
 
@@ -21,11 +39,10 @@ describe("ExperimentFramework Unit Tests", () => {
   });
 
   it("should fall back to control variant when an experiment is expired", () => {
-    const expiredDate = new Date("2027-06-01");
     const res = experimentFramework.getAssignment(
-      "exp_season_weight_2026",
+      FIXTURE.id,
       "user_session_123",
-      expiredDate,
+      new Date("2100-06-01"),
     );
 
     expect(res.variantId).toBe("control");
@@ -34,10 +51,10 @@ describe("ExperimentFramework Unit Tests", () => {
   });
 
   it("should fall back to control variant when kill switch is disabled", () => {
-    experimentFramework.setKillSwitch("exp_season_weight_2026", false);
+    experimentFramework.setKillSwitch(FIXTURE.id, false);
 
     const res = experimentFramework.getAssignment(
-      "exp_season_weight_2026",
+      FIXTURE.id,
       "user_session_123",
     );
 
@@ -54,5 +71,30 @@ describe("ExperimentFramework Unit Tests", () => {
 
     expect(res.variantId).toBe("control");
     expect(res.reason).toBe("NOT_FOUND");
+  });
+});
+
+describe("ExperimentFramework with no experiments", () => {
+  beforeEach(() => localStorage.clear());
+
+  it("starts empty and writes nothing to localStorage when constructed", () => {
+    const framework = new ExperimentFramework();
+    expect(framework.listExperiments()).toEqual([]);
+    expect(localStorage.length).toBe(0);
+  });
+
+  it("creates the session id on first use and keeps it stable", () => {
+    const framework = new ExperimentFramework();
+    expect(localStorage.getItem("tabimap_experiment_session_id")).toBeNull();
+
+    const first = framework.getSessionId();
+    expect(localStorage.getItem("tabimap_experiment_session_id")).toBe(first);
+    expect(framework.getSessionId()).toBe(first);
+    expect(new ExperimentFramework().getSessionId()).toBe(first);
+  });
+
+  it("does not create a session id for an unknown experiment", () => {
+    new ExperimentFramework().getAssignment("nope");
+    expect(localStorage.length).toBe(0);
   });
 });

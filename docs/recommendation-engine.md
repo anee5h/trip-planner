@@ -199,4 +199,5 @@ The example demonstrates control flow only. It does not assert that a particular
 - Destination-coordinate live weather is not a general Home ranking input.
 - A route or fare may be regional, corridor-only, estimated, or unavailable. The engine does not turn the current catalogue into universal door-to-door routing.
 - Personalization is optional and profile-dependent; the base guest path remains deterministic for its supplied context.
+- No ranking experiments are currently active; the framework is retained for future use.
 - A high score is a suitability/ranking result, not proof that every underlying fact is verified.

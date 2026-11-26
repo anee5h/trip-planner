@@ -1293,6 +1293,11 @@ export default function QaDashboard() {
                 Active Recommendation Experiments
               </h3>
               <div className="space-y-3">
+                {experimentFramework.listExperiments().length === 0 && (
+                  <p className="text-sm text-slate-500">
+                    No active experiments
+                  </p>
+                )}
                 {experimentFramework.listExperiments().map((exp) => {
                   const assignment = experimentFramework.getAssignment(exp.id);
                   return (
