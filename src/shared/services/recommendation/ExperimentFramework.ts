@@ -40,13 +40,11 @@ function fnv1aHash(str: string): number {
 
 export class ExperimentFramework {
   private experiments: Map<string, ExperimentConfig> = new Map();
-  private sessionId: string;
+  private sessionId: string | null = null;
   private overrides: Record<string, boolean> = {}; // experimentId -> enabled
 
   constructor() {
-    this.sessionId = this.getOrCreateSessionId();
     this.loadOverrides();
-    this.registerDefaultExperiments();
   }
 
   private getOrCreateSessionId(): string {
@@ -82,31 +80,9 @@ export class ExperimentFramework {
     this.experiments.set(config.id, config);
   }
 
-  private registerDefaultExperiments(): void {
-    this.registerExperiment({
-      id: "exp_season_weight_2026",
-      name: "Seasonal Weighting Calibration 2026",
-      enabled: true,
-      startDate: "2026-01-01",
-      endDate: "2026-12-31",
-      variants: [
-        {
-          id: "control",
-          name: "Standard Seasonal Weighting (1.0x)",
-          allocationPercentage: 50,
-          parameters: { seasonalMultiplier: 1.0 },
-        },
-        {
-          id: "treatment_seasonal_boost",
-          name: "High Seasonal Sensitivity (1.25x)",
-          allocationPercentage: 50,
-          parameters: { seasonalMultiplier: 1.25 },
-        },
-      ],
-    });
-  }
-
   public getSessionId(): string {
+    // Lazy: nothing is persisted until an experiment actually needs a bucket.
+    this.sessionId ??= this.getOrCreateSessionId();
     return this.sessionId;
   }
 
@@ -170,7 +146,7 @@ export class ExperimentFramework {
     }
 
     // Deterministic Bucket Hash
-    const targetSessionId = customSessionId || this.sessionId;
+    const targetSessionId = customSessionId || this.getSessionId();
     const hashInput = `${experimentId}:${targetSessionId}`;
     const bucket = fnv1aHash(hashInput) % 100;
 
