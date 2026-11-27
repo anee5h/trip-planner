@@ -22,7 +22,7 @@ planned migrations) at restack time:
   `[{trips, user_id}, {user_data, id}, {feedback, user_id}]` — ownership
   columns are never assumed to be uniform.
 - `feedback` and `error_events` are planned schema (migrations
-  `001_feedback.sql` / `002_error_events.sql`); the manifest treats a
+  `001_feedback.sql` / `20260825011444_create_error_events_from_repo_002.sql`); the manifest treats a
   404 (table not yet applied) as "nothing to delete", so deletion works
   before and after those migrations land.
 - Re-audit the production schema immediately before any deploy/merge.
