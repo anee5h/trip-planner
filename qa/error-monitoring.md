@@ -21,7 +21,7 @@
 2. **Transport** — up to 10 **separate** `POST /api/errors` requests per
    minute (rate-limited client-side; not a single batched request), each
    handled by the Pages Function `functions/api/errors.js` → Supabase
-   `error_events` table (`supabase/migrations/002_error_events.sql`).
+   `error_events` table (`supabase/migrations/20260825011444_create_error_events_from_repo_002.sql`).
    The Function is the privacy boundary: it re-applies the same shared
    redaction (the endpoint can be POSTed directly, bypassing the browser
    reporter), enforces a 16 KiB payload cap, a server-side rate limit
