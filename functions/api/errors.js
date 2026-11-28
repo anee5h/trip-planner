@@ -163,28 +163,38 @@ export const onRequest = async (context) => {
 
   // Every stored value passes through the shared redactor.
   const redact = redactSensitiveValues;
+  const redactOpt = (v) => (v == null ? null : redact(v));
   const row = {
     message: redact(message.slice(0, MAX_MESSAGE)),
-    feature: redact(cap(body.feature, 64)) ?? "app",
-    route: redact(cap(body.route, 200)),
-    locale: redact(cap(body.locale, 16)),
-    app_version: redact(cap(body.appVersion, 32)),
-    commit_sha: redact(cap(body.commitSha, 40)),
-    browser: redact(cap(body.browser, 16)),
-    error_name: redact(cap(body.errorName, 64)),
-    stack_head: redact(cap(body.stackHead, 500)),
+    feature: redact(cap(body.feature, 64) ?? "app"),
+    route: redactOpt(cap(body.route, 200)),
+    locale: redactOpt(cap(body.locale, 16)),
+    app_version: redactOpt(cap(body.appVersion, 32)),
+    commit_sha: redactOpt(cap(body.commitSha, 40)),
+    browser: redactOpt(cap(body.browser, 16)),
+    error_name: redactOpt(cap(body.errorName, 64)),
+    stack_head: redactOpt(cap(body.stackHead, 500)),
     user_id,
   };
 
-  const res = await fetch(`${env.SUPABASE_URL}/rest/v1/error_events`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      apikey: supabaseKey,
-      Prefer: "return=minimal",
-    },
-    body: JSON.stringify(row),
-  });
+  let res;
+  try {
+    res = await fetch(`${env.SUPABASE_URL}/rest/v1/error_events`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: supabaseKey,
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify(row),
+    });
+  } catch (err) {
+    console.error("errors: insert failed", err);
+    return Response.json(
+      { ok: false, error: "storage_failed" },
+      { status: 502 },
+    );
+  }
 
   if (!res.ok) {
     const detail = await res.text().catch(() => "");
@@ -195,7 +205,11 @@ export const onRequest = async (context) => {
     );
   }
 
-  scheduleRetentionCleanup({ ...env, __waitUntil: waitUntil }, supabaseKey);
+  try {
+    scheduleRetentionCleanup({ ...env, __waitUntil: waitUntil }, supabaseKey);
+  } catch (err) {
+    console.error("errors: retention cleanup scheduling failed", err);
+  }
 
   return Response.json({ ok: true }, { status: 201 });
 };
