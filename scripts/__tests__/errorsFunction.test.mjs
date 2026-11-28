@@ -162,6 +162,44 @@ describe("POST /api/errors — validation and guards", () => {
 });
 
 describe("POST /api/errors — attribution and privacy", () => {
+  it("accepts a message-only payload with null optional columns and default feature", async () => {
+    const { calls } = mockSupabase();
+    const res = await onRequest(makeContext({ body: { message: "boom" } }));
+
+    expect(res.status).toBe(201);
+    const row = JSON.parse(
+      calls.find((call) => call.init?.method === "POST").init.body,
+    );
+    expect(row.feature).toBe("app");
+    expect(row).toMatchObject({
+      route: null,
+      locale: null,
+      app_version: null,
+      commit_sha: null,
+      browser: null,
+      error_name: null,
+      stack_head: null,
+      user_id: null,
+    });
+  });
+
+  it("accepts VALID_BODY without feature, errorName, or stackHead", async () => {
+    const body = { ...VALID_BODY };
+    delete body.feature;
+    delete body.errorName;
+    delete body.stackHead;
+    const { calls } = mockSupabase();
+    const res = await onRequest(makeContext({ body }));
+
+    expect(res.status).toBe(201);
+    const row = JSON.parse(
+      calls.find((call) => call.init?.method === "POST").init.body,
+    );
+    expect(row.feature).toBe("app");
+    expect(row.error_name).toBeNull();
+    expect(row.stack_head).toBeNull();
+  });
+
   it("ignores client-supplied user ids and derives the id from the verified token", async () => {
     const { calls } = mockSupabase({ authUser: "server-side-user-id" });
     const res = await onRequest(
@@ -214,6 +252,39 @@ describe("POST /api/errors — attribution and privacy", () => {
     mockSupabase({ insertOk: false });
     const res = await onRequest(makeContext({ body: VALID_BODY }));
     expect(res.status).toBe(502);
+  });
+
+  it("returns 502 and logs when the storage insert fetch rejects", async () => {
+    const error = new Error("network down");
+    const fetchMock = vi.fn().mockRejectedValue(error);
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    vi.stubGlobal("fetch", fetchMock);
+
+    const res = await onRequest(makeContext({ body: VALID_BODY }));
+
+    expect(res.status).toBe(502);
+    expect(await res.json()).toEqual({ ok: false, error: "storage_failed" });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(log).toHaveBeenCalledWith("errors: insert failed", error);
+  });
+
+  it("returns 201 when retention cleanup scheduling throws", async () => {
+    const { calls } = mockSupabase();
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    const context = makeContext({ body: VALID_BODY });
+    const error = new Error("waitUntil unavailable");
+    context.env.__waitUntil.mockImplementation(() => {
+      throw error;
+    });
+
+    const res = await onRequest(context);
+
+    expect(res.status).toBe(201);
+    expect(calls.some((call) => call.init?.method === "POST")).toBe(true);
+    expect(log).toHaveBeenCalledWith(
+      "errors: retention cleanup scheduling failed",
+      error,
+    );
   });
 
   it("runs the 90-day retention DELETE against the SUPABASE host", async () => {
