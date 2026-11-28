@@ -15,7 +15,11 @@ import { __resetRequestGuardState } from "../../functions/_request-guards.js";
 const BASE = "https://example.com/api/errors";
 const TEST_ENV = {
   SUPABASE_URL: "https://fake.supabase.co",
-  SUPABASE_SERVICE_ROLE_KEY: "fake-service-key",
+  SUPABASE_SECRET_KEY: "sb_secret_fake-secret-key",
+};
+const LEGACY_ENV = {
+  SUPABASE_URL: "https://fake.supabase.co",
+  SUPABASE_SERVICE_ROLE_KEY: "fake-service-role-jwt",
 };
 
 function makeContext({ body, raw, authHeader, env = TEST_ENV, ip }) {
@@ -103,9 +107,14 @@ describe("POST /api/errors — validation and guards", () => {
     expect(res.status).toBe(405);
   });
 
-  it("fails closed with 500 when required env vars are missing", async () => {
+  it("fails closed with not_configured when both server keys are missing", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
     const res = await onRequest(makeContext({ body: VALID_BODY, env: {} }));
     expect(res.status).toBe(500);
+    expect(await res.json()).toEqual({ ok: false, error: "not_configured" });
+    expect(log).toHaveBeenCalledWith(
+      "errors: SUPABASE_URL / SUPABASE_SECRET_KEY (or SUPABASE_SERVICE_ROLE_KEY) not configured",
+    );
   });
 
   it("rejects invalid JSON with 400", async () => {
@@ -225,7 +234,65 @@ describe("POST /api/errors — attribution and privacy", () => {
     expect(url.searchParams.get("created_at")).toMatch(
       /^lt\.\d{4}-\d{2}-\d{2}T/,
     );
-    expect(del.init.headers.apikey).toBe("fake-service-key");
-    expect(del.init.headers.Authorization).toBe("Bearer fake-service-key");
+    expect(del.init.headers.apikey).toBe(TEST_ENV.SUPABASE_SECRET_KEY);
+    expect(del.init.headers.Authorization).toBeUndefined();
   });
+});
+
+describe("POST /api/errors — Supabase API key headers (KAI-413)", () => {
+  it("prefers SUPABASE_SECRET_KEY when both server key variables are set", async () => {
+    const { calls } = mockSupabase();
+    const context = makeContext({
+      body: VALID_BODY,
+      env: { ...TEST_ENV, ...LEGACY_ENV },
+    });
+
+    expect((await onRequest(context)).status).toBe(201);
+    await context.env.__waitUntil.mock.calls[0][0];
+
+    for (const call of calls) {
+      expect(call.init.headers.apikey).toBe(TEST_ENV.SUPABASE_SECRET_KEY);
+      expect(call.init.headers.Authorization).toBeUndefined();
+    }
+  });
+
+  it.each([
+    ["SUPABASE_SECRET_KEY", TEST_ENV, TEST_ENV.SUPABASE_SECRET_KEY],
+    [
+      "legacy SUPABASE_SERVICE_ROLE_KEY",
+      LEGACY_ENV,
+      LEGACY_ENV.SUPABASE_SERVICE_ROLE_KEY,
+    ],
+  ])(
+    "sends %s only as apikey while preserving the caller's session token",
+    async (_keyName, env, expectedKey) => {
+      const { calls } = mockSupabase();
+      const context = makeContext({
+        body: VALID_BODY,
+        env,
+        authHeader: "Bearer caller-session-token",
+      });
+
+      expect((await onRequest(context)).status).toBe(201);
+      await context.env.__waitUntil.mock.calls[0][0];
+
+      expect(calls).toHaveLength(3);
+      const auth = calls.find((call) => call.url.includes("/auth/v1/user"));
+      const insert = calls.find((call) => call.init?.method === "POST");
+      const retention = calls.find((call) => call.init?.method === "DELETE");
+      expect(auth.init.headers.apikey).toBe(expectedKey);
+      expect(auth.init.headers.Authorization).toBe(
+        "Bearer caller-session-token",
+      );
+      expect(insert.init.headers.apikey).toBe(expectedKey);
+      expect(insert.init.headers.Authorization).toBeUndefined();
+      expect(retention.init.headers.apikey).toBe(expectedKey);
+      expect(retention.init.headers.Authorization).toBeUndefined();
+
+      for (const call of calls) {
+        const authorization = call.init.headers.Authorization ?? "";
+        expect(authorization).not.toContain(expectedKey);
+      }
+    },
+  );
 });
