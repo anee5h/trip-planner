@@ -58,6 +58,8 @@ describe("KAI-68 private-route indexing policy", () => {
     }
     // Public discovery surfaces must NOT be blanket-noindexed.
     expect(headers).not.toContain("\n/destinations\n");
-    expect(headers).not.toContain("\n/\n");
+    const rootBlock = blocks.find((block) => block.startsWith("/\n"));
+    expect(rootBlock).toBeDefined();
+    expect(rootBlock).not.toContain("X-Robots-Tag: noindex");
   });
 });
