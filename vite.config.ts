@@ -29,6 +29,9 @@ export default defineConfig({
   // KAI-82 bundle-budget gate (scripts/check-bundle-budget.mjs).
   build: {
     manifest: true,
+    // Keep maps available to the build pipeline without adding a public
+    // sourceMappingURL comment to the emitted JavaScript or CSS.
+    sourcemap: "hidden",
   },
   resolve: {
     alias: {

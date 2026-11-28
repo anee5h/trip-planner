@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.sourcemaps/
 # Local-only ingestion stores (KAI-291B2): raw ODPT dumps, staging files and
 # last-known-good snapshots must never be committed (licence/redistribution).
 .cache/

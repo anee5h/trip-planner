@@ -131,8 +131,9 @@ The `build` script in [`package.json`](../package.json) performs this sequence:
 1. TypeScript/Vite build preparation.
 2. Copy the canonical full/lite/relationship catalogue assets and gzip the Toei scheduled artifact through [`copy-catalogue-assets.mjs`](../scripts/copy-catalogue-assets.mjs).
 3. Run Vite, including the static asset graph and manifest.
-4. Generate locale-specific destination HTML, sitemap, and destination manifest through [`generate-seo-outputs.ts`](../scripts/generate-seo-outputs.ts).
-5. Verify GA4 installation and inject PWA assets.
+4. Move hidden source maps out of `dist/` into `.sourcemaps/` with [`strip-sourcemaps.mjs`](../scripts/strip-sourcemaps.mjs).
+5. Generate locale-specific destination HTML, sitemap, and destination manifest through [`generate-seo-outputs.ts`](../scripts/generate-seo-outputs.ts).
+6. Verify GA4 installation, inject PWA assets, and check that no source maps or source-map references remain in the Pages output.
 
 Cloudflare Pages serves the resulting static assets through its asset binding. Pages Functions add behavior where static delivery is insufficient:
 
@@ -142,6 +143,40 @@ Cloudflare Pages serves the resulting static assets through its asset binding. P
 - API Functions hold provider and service credentials in Pages environment bindings. No values from those bindings belong in this repository or in the browser bundle.
 
 Static responses receive headers from [`public/_headers`](../public/_headers). Function responses do not inherit that file automatically; the destination/catch-all handlers reapply [`SECURITY_HEADERS`](../src/seo/meta.ts). This is why static and Function header checks are both meaningful.
+
+### Resolving production crash stacks
+
+Vite emits hidden source maps so JavaScript and CSS files contain no `sourceMappingURL` comments. The build moves every `.map` file from `dist/` to `.sourcemaps/` before SEO generation or PWA precaching. The final build check fails if any map file or source-map reference remains in `dist/`, or if the generated service-worker precache lists a map. **Never publish maps to `dist/` or Cloudflare Pages.**
+
+For reliable production stack resolution, the `sourcemaps.yml` workflow must build with the same public compile-time environment as Cloudflare Pages. Create the GitHub Actions repository variables `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` with the production Pages values before the first main run; the workflow fails if either value is empty. `VITE_EDITORIAL_REVIEW_MODE` is optional, and no code under `src/` currently reads it. These `VITE_` values are public client configuration embedded in the browser build, so they belong in repository variables, not secrets.
+
+The workflow runs only for pushes to the canonical repository's `main` branch and uploads `.sourcemaps/` as `sourcemaps-<commit-sha>`. Error rows are retained for 90 days. The maps artifact expires after 30 days: the measured archive is about 2.08 MB, and the recent main history implies roughly 17 builds per week, or about 153 MB across a 30-day window at one build per commit. Matching the full 90-day row retention would be about 460 MB. Events older than 30 days may therefore outlive their matching map artifact. **The artifact is not confidential.** Because this repository is public, repository readers can access its GitHub Actions artifacts. This keeps maps off Pages but does not keep them secret from repository readers.
+
+To resolve a recent event:
+
+1. Find the row in `public.error_events` and copy `commit_sha` and `stack_head`. A read-only query for recent rows is:
+
+   ```sql
+   select created_at, commit_sha, feature, message, stack_head
+   from public.error_events
+   order by created_at desc
+   limit 20;
+   ```
+
+2. Find the matching build and download its map artifact:
+
+   ```sh
+   gh run list --workflow sourcemaps.yml --commit <sha>
+   gh run download <run-id> -n sourcemaps-<sha> -D /tmp/maps
+   ```
+
+3. Pipe `stack_head` to the local resolver:
+
+   ```sh
+   printf '%s\n' "$stack_head" | node scripts/resolve-stack.mjs --maps /tmp/maps
+   ```
+
+The resolver maps browser frames such as `https://meguruto.app/assets/index-<hash>.js:1:2345` to their original source file, line, column, and mapped function name. Frames without a matching map remain visible with an unresolved note.
 
 ## Failure ownership
 

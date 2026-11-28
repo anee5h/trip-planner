@@ -1,0 +1,68 @@
+name: Source Maps
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sourcemaps-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  upload-sourcemaps:
+    if: github.repository == 'anee5h/trip-planner'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Require production build variables
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$VITE_SUPABASE_URL" ]; then
+            echo "::error::Required repository variable VITE_SUPABASE_URL is empty."
+            exit 1
+          fi
+          if [ -z "$VITE_SUPABASE_ANON_KEY" ]; then
+            echo "::error::Required repository variable VITE_SUPABASE_ANON_KEY is empty."
+            exit 1
+          fi
+
+      - name: Build
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+          VITE_EDITORIAL_REVIEW_MODE: ${{ vars.VITE_EDITORIAL_REVIEW_MODE }}
+        run: npm run build
+
+      - name: Verify commit SHA was baked into the build
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          if ! grep -R -F -q -- "$EXPECTED_SHA" dist; then
+            echo "Expected commit SHA was not found in the built dist/ output" >&2
+            exit 1
+          fi
+
+      - name: Upload source-map artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sourcemaps-${{ github.sha }}
+          path: .sourcemaps/
+          retention-days: 30
+          if-no-files-found: error

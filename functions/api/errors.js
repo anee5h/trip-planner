@@ -4,7 +4,7 @@
  * POST /api/errors — validates the payload, enforces server-side abuse
  * controls, redacts every stored value, derives the caller's user id from
  * a verified Supabase session (when a Bearer token is supplied), inserts
- * into `error_events` via the service-role key, and opportunistically
+ * into `error_events` via the configured server key, and opportunistically
  * enforces the 90-day retention policy.
  *
  * Privacy boundary: the same redaction the browser reporter applies is
@@ -68,7 +68,7 @@ async function rateLimited(env, request) {
  *  once per hour per isolate, run after the response is returned. The
  *  DELETE targets the SUPABASE host — building it from request.url would
  *  point at the Meguruto origin and silently no-op. */
-function scheduleRetentionCleanup(env) {
+function scheduleRetentionCleanup(env, supabaseKey) {
   const now = Date.now();
   if (now - lastCleanupAt < CLEANUP_INTERVAL_MS) return;
   lastCleanupAt = now;
@@ -79,8 +79,7 @@ function scheduleRetentionCleanup(env) {
     fetch(url, {
       method: "DELETE",
       headers: {
-        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+        apikey: supabaseKey,
       },
     }).catch(() => {
       // Best-effort: retention is a policy guard, not a hard requirement
@@ -100,8 +99,11 @@ export const onRequest = async (context) => {
     );
   }
 
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    console.error("errors: missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY");
+  const supabaseKey = env.SUPABASE_SECRET_KEY || env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!env.SUPABASE_URL || !supabaseKey) {
+    console.error(
+      "errors: SUPABASE_URL / SUPABASE_SECRET_KEY (or SUPABASE_SERVICE_ROLE_KEY) not configured",
+    );
     return Response.json(
       { ok: false, error: "not_configured" },
       { status: 500 },
@@ -147,7 +149,7 @@ export const onRequest = async (context) => {
       const userRes = await fetch(`${env.SUPABASE_URL}/auth/v1/user`, {
         headers: {
           Authorization: authHeader,
-          apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+          apikey: supabaseKey,
         },
       });
       if (userRes.ok) {
@@ -178,8 +180,7 @@ export const onRequest = async (context) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-      Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+      apikey: supabaseKey,
       Prefer: "return=minimal",
     },
     body: JSON.stringify(row),
@@ -194,7 +195,7 @@ export const onRequest = async (context) => {
     );
   }
 
-  scheduleRetentionCleanup({ ...env, __waitUntil: waitUntil });
+  scheduleRetentionCleanup({ ...env, __waitUntil: waitUntil }, supabaseKey);
 
   return Response.json({ ok: true }, { status: 201 });
 };
