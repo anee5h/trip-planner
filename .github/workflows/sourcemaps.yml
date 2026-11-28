@@ -8,13 +8,14 @@ permissions:
   contents: read
 
 concurrency:
-  group: sourcemaps-${{ github.ref }}
+  group: sourcemaps-${{ github.sha }}
   cancel-in-progress: false
 
 jobs:
   upload-sourcemaps:
     if: github.repository == 'anee5h/trip-planner'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,6 +30,10 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+          VITE_EDITORIAL_REVIEW_MODE: ${{ vars.VITE_EDITORIAL_REVIEW_MODE }}
         run: npm run build
 
       - name: Verify commit SHA was baked into the build
@@ -40,10 +45,10 @@ jobs:
             exit 1
           fi
 
-      - name: Upload private source maps
+      - name: Upload source-map artifact
         uses: actions/upload-artifact@v4
         with:
           name: sourcemaps-${{ github.sha }}
           path: .sourcemaps/
-          retention-days: 14
+          retention-days: 30
           if-no-files-found: error
