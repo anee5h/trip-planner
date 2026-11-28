@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthModalContext } from "./authModalContext";
+import { AuthModalContext } from "./authModalContextValue";
 
 /**
  * Optional only for shared leaf components that can be rendered closed in

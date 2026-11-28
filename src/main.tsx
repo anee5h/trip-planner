@@ -4,9 +4,11 @@ import "./index.css";
 import App from "./App.tsx";
 import { resolveInitialLanguage } from "./i18n";
 import { installGlobalErrorHandlers } from "./shared/utils/errorReporter";
+import { installChunkLoadRecovery } from "./shared/utils/chunkLoadRecovery";
 
 // KAI-46: capture unhandled errors and unhandled rejections before the app
 // boots so no first-paint crash is lost.
+installChunkLoadRecovery();
 installGlobalErrorHandlers();
 
 // Localized share previews require the locale to be visible in the URL (social

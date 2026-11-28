@@ -30,7 +30,7 @@ export class SupabaseTripRepository implements ITripRepository {
       startDate: row.start_date || undefined,
       endDate: row.end_date || undefined,
       status: row.status,
-      stops: row.stops || [],
+      stops: row.stops ?? [],
       journalNotes: row.journal_notes || undefined,
       createdAt: row.created_at,
       updatedAt: row.updated_at,

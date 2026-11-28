@@ -7,9 +7,9 @@ import {
   AuthModalContext,
   type AuthModalMode,
   type AuthModalSource,
-} from "./authModalContext";
+} from "./authModalContextValue";
 
-export type { AuthModalMode, AuthModalSource } from "./authModalContext";
+export type { AuthModalMode, AuthModalSource } from "./authModalContextValue";
 
 export function AuthModalProvider({ children }: PropsWithChildren) {
   const [isOpen, setIsOpen] = useState(false);

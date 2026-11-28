@@ -32,6 +32,32 @@ describe("TripRepository Unit Tests", () => {
     expect(trips).toEqual([]);
   });
 
+  it.each([
+    ["missing", undefined],
+    ["null", null],
+  ])("defaults %s persisted stops to an empty list", async (_label, stops) => {
+    const row = {
+      id: "trip-without-stops",
+      user_id: "user-1",
+      title: "Older trip",
+      start_date: null,
+      end_date: null,
+      status: "draft",
+      ...(stops === undefined ? {} : { stops }),
+      journal_notes: null,
+      created_at: "2026-01-01T00:00:00Z",
+      updated_at: "2026-01-01T00:00:00Z",
+    };
+    const mockOrder = vi.fn().mockResolvedValue({ data: [row], error: null });
+    const mockEq = vi.fn().mockReturnValue({ order: mockOrder });
+    const mockSelect = vi.fn().mockReturnValue({ eq: mockEq });
+    vi.mocked(supabase!.from).mockReturnValue({ select: mockSelect } as any);
+
+    const [trip] = await new SupabaseTripRepository().fetchTrips("user-1");
+
+    expect(trip.stops).toEqual([]);
+  });
+
   it("round-trips canonical dates and persisted stop order", async () => {
     const stops = [
       { id: "stop-2", type: "custom", name: "Hotel" },

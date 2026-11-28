@@ -1,6 +1,7 @@
 import { APP_VERSION, COMMIT_SHA } from "@/shared/utils/version";
 import { redactSensitiveValues } from "@/shared/utils/redact";
 import { supabase } from "@/lib/supabase";
+import { isChunkLoadFailure } from "@/shared/utils/chunkLoadDetection";
 
 /**
  * KAI-46: privacy-safe frontend error reporting.
@@ -146,24 +147,46 @@ async function deliver(report: ErrorReportContext): Promise<void> {
   }
 }
 
-/** Rate-limited report entry point (up to 10 separate POSTs per minute). */
-export function reportError(error: unknown, feature = "app"): void {
-  if (typeof window === "undefined") return;
+/** Starts a rate-limited report and returns its best-effort delivery promise. */
+function startErrorReport(
+  error: unknown,
+  feature: string,
+): Promise<void> | null {
+  if (typeof window === "undefined") return null;
   const now = Date.now();
   if (now - windowStart > 60_000) {
     windowStart = now;
     sentThisMinute = 0;
   }
-  if (sentThisMinute >= MAX_BATCH_PER_MINUTE) return;
+  // A once-per-60-second chunk recovery must remain measurable even when
+  // ordinary reports have reached their per-minute cap.
+  if (sentThisMinute >= MAX_BATCH_PER_MINUTE && feature !== "chunk-reload") {
+    return null;
+  }
   sentThisMinute += 1;
 
   const { message, name, stackHead } = sanitizeError(error);
-  void deliver({
+  return deliver({
     ...currentContext(feature),
     message,
     errorName: name,
     stackHead,
   });
+}
+
+/** Rate-limited report entry point (up to 10 separate POSTs per minute). */
+export function reportError(error: unknown, feature = "app"): void {
+  const delivery = startErrorReport(error, feature);
+  if (delivery) void delivery;
+}
+
+/** Awaits the existing redacted, keepalive delivery path when the caller must
+ *  finish reporting before a page transition (for example a chunk recovery). */
+export async function reportErrorAndWait(
+  error: unknown,
+  feature: string,
+): Promise<void> {
+  await startErrorReport(error, feature);
 }
 
 /**
@@ -196,9 +219,14 @@ export function reportAuthFailureIfOperational(
 export function installGlobalErrorHandlers(): void {
   if (typeof window === "undefined") return;
   window.addEventListener("error", (event) => {
-    reportError(event.error ?? event.message, "window");
+    const error = event.error ?? event.message;
+    if (!isChunkLoadFailure(error)) reportError(error, "window");
   });
   window.addEventListener("unhandledrejection", (event) => {
-    reportError(event.reason, "promise");
+    // Chunk failures have their own once-only recovery event and must not
+    // also create a generic promise row for the same failure.
+    if (!isChunkLoadFailure(event.reason)) {
+      reportError(event.reason, "promise");
+    }
   });
 }
