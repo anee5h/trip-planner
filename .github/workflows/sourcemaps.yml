@@ -1,0 +1,49 @@
+name: Source Maps
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sourcemaps-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  upload-sourcemaps:
+    if: github.repository == 'anee5h/trip-planner'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify commit SHA was baked into the build
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          if ! grep -R -F -q -- "$EXPECTED_SHA" dist; then
+            echo "Expected commit SHA was not found in the built dist/ output" >&2
+            exit 1
+          fi
+
+      - name: Upload private source maps
+        uses: actions/upload-artifact@v4
+        with:
+          name: sourcemaps-${{ github.sha }}
+          path: .sourcemaps/
+          retention-days: 14
+          if-no-files-found: error

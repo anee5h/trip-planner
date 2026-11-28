@@ -1,5 +1,6 @@
 # Ignore build outputs & dependencies
 dist
+.sourcemaps/
 build
 node_modules
 .gemini

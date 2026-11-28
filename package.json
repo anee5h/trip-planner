@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/copy-catalogue-assets.mjs && vite",
-    "build": "tsc -b && node scripts/copy-catalogue-assets.mjs && vite build && npm run seo:generate && npm run check:ga4-installation && node scripts/inject-pwa-assets.cjs",
+    "build": "tsc -b && node scripts/copy-catalogue-assets.mjs && vite build && node scripts/strip-sourcemaps.mjs && npm run seo:generate && npm run check:ga4-installation && node scripts/inject-pwa-assets.cjs && npm run check:no-public-sourcemaps",
     "seo:generate": "tsx scripts/generate-seo-outputs.ts",
     "og:render": "node scripts/render-og-images.mjs",
     "seo:check": "tsx scripts/generate-seo-outputs.ts --check",
@@ -25,6 +25,7 @@
     "format:check": "prettier --check .",
     "validate-all": "tsx --tsconfig tsconfig.app.json scripts/validate-all.ts",
     "check:bundle-budget": "node scripts/check-bundle-budget.mjs",
+    "check:no-public-sourcemaps": "node scripts/check-no-public-sourcemaps.mjs",
     "audit:catalog-integrity": "tsx scripts/audit-catalog-integrity.ts",
     "audit:gtfs-topology": "tsx scripts/transit/audit-gtfs-topology.ts",
     "audit:gtfs-schedule": "tsx scripts/transit/audit-gtfs-schedule.ts",
