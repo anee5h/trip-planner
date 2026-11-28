@@ -65,4 +65,5 @@ jobs:
           name: sourcemaps-${{ github.sha }}
           path: .sourcemaps/
           retention-days: 30
+          include-hidden-files: true
           if-no-files-found: error
