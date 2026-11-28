@@ -39,11 +39,33 @@ const MAX_MESSAGE_LENGTH = 2000;
 
 let sentThisMinute = 0;
 let windowStart = Date.now();
+type ChunkRecoveryResult = "not-chunk" | "reloading" | "cooldown";
+type ChunkRecoveryHandler = (error: unknown) => ChunkRecoveryResult;
+
+let chunkRecoveryHandler: ChunkRecoveryHandler | null = null;
+let installedWindow: Window | null = null;
+let errorHandler: ((event: ErrorEvent) => void) | null = null;
+let rejectionHandler: ((event: PromiseRejectionEvent) => void) | null = null;
+
+/** Lets the recovery module report whether it handled or deferred a chunk error. */
+export function registerChunkLoadRecoveryHandler(
+  handler: ChunkRecoveryHandler | null,
+): void {
+  chunkRecoveryHandler = handler;
+}
 
 /** Test-only: reset the rate-limit window between test cases. */
 export function __resetErrorReporter(): void {
   sentThisMinute = 0;
   windowStart = Date.now();
+  chunkRecoveryHandler = null;
+  if (installedWindow && errorHandler && rejectionHandler) {
+    installedWindow.removeEventListener("error", errorHandler);
+    installedWindow.removeEventListener("unhandledrejection", rejectionHandler);
+  }
+  installedWindow = null;
+  errorHandler = null;
+  rejectionHandler = null;
 }
 
 function browserClass(): string {
@@ -146,24 +168,46 @@ async function deliver(report: ErrorReportContext): Promise<void> {
   }
 }
 
-/** Rate-limited report entry point (up to 10 separate POSTs per minute). */
-export function reportError(error: unknown, feature = "app"): void {
-  if (typeof window === "undefined") return;
+/** Starts a rate-limited report and returns its best-effort delivery promise. */
+function startErrorReport(
+  error: unknown,
+  feature: string,
+): Promise<void> | null {
+  if (typeof window === "undefined") return null;
   const now = Date.now();
   if (now - windowStart > 60_000) {
     windowStart = now;
     sentThisMinute = 0;
   }
-  if (sentThisMinute >= MAX_BATCH_PER_MINUTE) return;
+  // A once-per-60-second chunk recovery must remain measurable even when
+  // ordinary reports have reached their per-minute cap.
+  if (sentThisMinute >= MAX_BATCH_PER_MINUTE && feature !== "chunk-reload") {
+    return null;
+  }
   sentThisMinute += 1;
 
   const { message, name, stackHead } = sanitizeError(error);
-  void deliver({
+  return deliver({
     ...currentContext(feature),
     message,
     errorName: name,
     stackHead,
   });
+}
+
+/** Rate-limited report entry point (up to 10 separate POSTs per minute). */
+export function reportError(error: unknown, feature = "app"): void {
+  const delivery = startErrorReport(error, feature);
+  if (delivery) void delivery;
+}
+
+/** Awaits the existing redacted, keepalive delivery path when the caller must
+ *  finish reporting before a page transition (for example a chunk recovery). */
+export async function reportErrorAndWait(
+  error: unknown,
+  feature: string,
+): Promise<void> {
+  await startErrorReport(error, feature);
 }
 
 /**
@@ -194,11 +238,24 @@ export function reportAuthFailureIfOperational(
 
 /** Installs global handlers for unhandled errors and rejections. */
 export function installGlobalErrorHandlers(): void {
-  if (typeof window === "undefined") return;
-  window.addEventListener("error", (event) => {
-    reportError(event.error ?? event.message, "window");
-  });
-  window.addEventListener("unhandledrejection", (event) => {
-    reportError(event.reason, "promise");
-  });
+  if (typeof window === "undefined" || installedWindow === window) return;
+
+  if (installedWindow && errorHandler && rejectionHandler) {
+    installedWindow.removeEventListener("error", errorHandler);
+    installedWindow.removeEventListener("unhandledrejection", rejectionHandler);
+  }
+
+  installedWindow = window;
+  errorHandler = (event) => {
+    const error = event.error ?? event.message;
+    const recovery = chunkRecoveryHandler?.(error);
+    if (recovery !== "reloading") reportError(error, "window");
+  };
+  rejectionHandler = (event) => {
+    const recovery = chunkRecoveryHandler?.(event.reason);
+    if (recovery !== "reloading") reportError(event.reason, "promise");
+  };
+
+  window.addEventListener("error", errorHandler);
+  window.addEventListener("unhandledrejection", rejectionHandler);
 }

@@ -4,6 +4,7 @@ import { AlertTriangle, RefreshCw } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import i18n from "i18next";
 import { reportError } from "@/shared/utils/errorReporter";
+import { recoverFromChunkLoadFailure } from "@/shared/utils/chunkLoadRecovery";
 
 interface Props {
   children?: ReactNode;
@@ -25,6 +26,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error("Uncaught error:", error, errorInfo);
+    if (recoverFromChunkLoadFailure(error) === "reloading") return;
     // KAI-46: report route crashes to the error pipeline (privacy-safe).
     reportError(error, "react-boundary");
   }

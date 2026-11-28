@@ -61,6 +61,7 @@ const WEIGHTS = {
   "kai-420-home-preferences-cleanup": 20, // homepage preference-action removal (EN/JA responsive)
   "kai-64-pwa": 0, // skips without PWA_E2E=1 (owned by the PWA job)
   "kai-64-upgrade": 0, // same
+  "kai-379-chunk-load-recovery": 0, // production-preview recovery check
   "kai-80-a11y": 0, // skips without A11Y_E2E=1 (owned by the a11y run)
 };
 
@@ -104,6 +105,7 @@ const BINS = {
     "kai-420-home-preferences-cleanup",
     "kai-64-pwa",
     "kai-64-upgrade",
+    "kai-379-chunk-load-recovery",
     "kai-80-a11y",
   ],
 };
@@ -111,7 +113,12 @@ const BINS = {
 /** PWA-only specs are owned by the dedicated production-build PWA E2E job;
  *  they sit in bin 4 as no-ops so the coverage invariant stays total.
  *  The a11y spec is gated the same way (A11Y_E2E=1). */
-const PWA_ONLY = new Set(["kai-64-pwa", "kai-64-upgrade", "kai-80-a11y"]);
+const PWA_ONLY = new Set([
+  "kai-64-pwa",
+  "kai-64-upgrade",
+  "kai-379-chunk-load-recovery",
+  "kai-80-a11y",
+]);
 
 function specPath(name) {
   return path.join(E2E_DIR, `${name}.spec.ts`);
