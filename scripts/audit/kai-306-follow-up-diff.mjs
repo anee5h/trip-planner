@@ -3,6 +3,15 @@
 // in the shape qa/kai-306/follow-up-ledger.json expects. Objects are descended;
 // arrays and scalars are replaced whole. Usage:
 //   node scripts/audit/kai-306-follow-up-diff.mjs <before.json> <after.json> <id,id,...>
+//
+// Ledger entry kinds (KAI-373). The patch shape is identical for both:
+// - "audit-follow-up" (default, no `kind`): ids must be in the frozen 20-ID
+//   cohort and each record carries the audit adjudication fields.
+// - "catalogue-maintenance": ids must be OUTSIDE the cohort. Set `kind`, plus
+//   `ticket` (KAI-n), `sourceCheckedOn`, `rationale`, and per record
+//   `correctedFields`, `sources` (https url, checkedOn, observation) and these
+//   `changes`. No outcome/adjudication fields. This script itself never checks
+//   cohort membership; validateLedger() in kai-306-destination-sample.mjs does.
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { isDeepStrictEqual } from "node:util";

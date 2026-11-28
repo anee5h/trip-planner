@@ -336,6 +336,14 @@ function reconstructPinnedCandidate(manifest, ledger) {
     resolveInside(repoRoot, manifest.base.canonicalPath),
     "utf8",
   );
+  return reverseLedger(currentRaw, ledger, manifest);
+}
+
+/**
+ * Pure core of reconstructPinnedCandidate (exported for synthetic tests).
+ * Both entry kinds carry field-path `changes` and are reversed identically.
+ */
+export function reverseLedger(currentRaw, ledger, manifest) {
   const entries = ledger?.entries ?? [];
   if (!entries.length) return { raw: currentRaw, currentRaw };
   validateLedger(ledger, manifest);
@@ -417,7 +425,20 @@ function isIsoDate(value) {
   );
 }
 
-function validateLedger(ledger, manifest) {
+const AUDIT_KIND = "audit-follow-up";
+const MAINTENANCE_KIND = "catalogue-maintenance";
+
+/**
+ * Two entry kinds share one hash chain (KAI-373).
+ * - "audit-follow-up" (default when `kind` is absent): a manual adjudication of
+ *   a frozen-cohort audit finding. Strict: ids must be in the 20-ID cohort and
+ *   every audit field is required.
+ * - "catalogue-maintenance": a sourced edit to a record OUTSIDE the cohort. It
+ *   keeps the hash chain, patches, sources and correctedFields, replaces the
+ *   audit fields with `ticket`, `sourceCheckedOn` and `rationale`, and rejects
+ *   cohort ids and any audit adjudication field.
+ */
+export function validateLedger(ledger, manifest) {
   assert.equal(ledger.schemaVersion, 1, "Unsupported follow-up ledger version");
   assert.equal(ledger.ticket, "KAI-306");
   assert.ok(Array.isArray(ledger.entries), "Follow-up entries missing");
@@ -425,6 +446,13 @@ function validateLedger(ledger, manifest) {
   let previousHash = manifest.candidate.canonicalSha256;
   ledger.entries.forEach((entry, position) => {
     const label = `follow-up ${entry.id}`;
+    assert.ok(
+      entry.kind === undefined ||
+        entry.kind === AUDIT_KIND ||
+        entry.kind === MAINTENANCE_KIND,
+      `${label}: unknown entry kind`,
+    );
+    const maintenance = entry.kind === MAINTENANCE_KIND;
     assert.equal(entry.sequence, position + 1, `${label}: sequence gap`);
     assert.ok(isIsoDate(entry.date), `${label}: invalid date`);
     assert.ok(isIsoDate(entry.sourceCheckedOn), `${label}: invalid check date`);
@@ -435,35 +463,69 @@ function validateLedger(ledger, manifest) {
     );
     assert.match(entry.afterCanonicalSha256, /^[0-9a-f]{64}$/);
     previousHash = entry.afterCanonicalSha256;
+    if (maintenance) {
+      assert.match(
+        entry.ticket ?? "",
+        /^KAI-\d+$/,
+        `${label}: maintenance entry needs a ticket`,
+      );
+      assert.ok(
+        typeof entry.rationale === "string" && entry.rationale.trim(),
+        `${label}: maintenance entry needs a rationale`,
+      );
+    }
     assert.ok(entry.records?.length, `${label}: no records`);
     const seen = new Set();
     for (const record of entry.records) {
-      assert.ok(
-        cohort.has(record.id),
-        `${label}: ${record.id} is outside the frozen 20-ID cohort`,
-      );
-      assert.ok(!seen.has(record.id), `${label}: duplicate ${record.id}`);
-      seen.add(record.id);
-      for (const key of [
-        "originalFinding",
-        "currentObservation",
-        "adjudicationNote",
-      ]) {
+      if (maintenance) {
         assert.ok(
-          typeof record[key] === "string" && record[key].trim(),
-          `${label}: ${record.id} missing ${key}`,
+          !cohort.has(record.id),
+          `${label}: ${record.id} is inside the frozen 20-ID cohort; cohort ids need an audit-follow-up entry`,
+        );
+        for (const key of [
+          "outcomeBefore",
+          "adjudicatedOutcome",
+          "adjudicationBasis",
+          "adjudicationNote",
+          "editorialOverrides",
+          "auditReconciliations",
+        ]) {
+          assert.equal(
+            record[key],
+            undefined,
+            `${label}: ${record.id} maintenance records cannot carry audit field ${key}`,
+          );
+        }
+      } else {
+        assert.ok(
+          cohort.has(record.id),
+          `${label}: ${record.id} is outside the frozen 20-ID cohort`,
         );
       }
-      assert.ok(
-        LEDGER_OUTCOMES.includes(record.outcomeBefore) &&
-          LEDGER_OUTCOMES.includes(record.adjudicatedOutcome),
-        `${label}: ${record.id} invalid outcome`,
-      );
-      assert.equal(
-        record.adjudicationBasis,
-        "manual",
-        `${label}: ${record.id} outcomes are manual adjudications`,
-      );
+      assert.ok(!seen.has(record.id), `${label}: duplicate ${record.id}`);
+      seen.add(record.id);
+      if (!maintenance) {
+        for (const key of [
+          "originalFinding",
+          "currentObservation",
+          "adjudicationNote",
+        ]) {
+          assert.ok(
+            typeof record[key] === "string" && record[key].trim(),
+            `${label}: ${record.id} missing ${key}`,
+          );
+        }
+        assert.ok(
+          LEDGER_OUTCOMES.includes(record.outcomeBefore) &&
+            LEDGER_OUTCOMES.includes(record.adjudicatedOutcome),
+          `${label}: ${record.id} invalid outcome`,
+        );
+        assert.equal(
+          record.adjudicationBasis,
+          "manual",
+          `${label}: ${record.id} outcomes are manual adjudications`,
+        );
+      }
       assert.ok(record.correctedFields?.length, `${label}: ${record.id}`);
       assert.ok(record.sources?.length, `${label}: ${record.id} has no source`);
       for (const source of record.sources) {
@@ -546,6 +608,7 @@ function currentOutcomes(ledger, manifest) {
     manifest.records.map((record) => [record.id, record.outcomeAfter]),
   );
   for (const entry of ledger.entries) {
+    if (entry.kind === MAINTENANCE_KIND) continue; // not an adjudication
     for (const record of entry.records) {
       outcomes.set(record.id, record.adjudicatedOutcome);
     }
@@ -553,7 +616,7 @@ function currentOutcomes(ledger, manifest) {
   return outcomes;
 }
 
-function renderFollowUpMarkdown(ledger, manifest) {
+export function renderFollowUpMarkdown(ledger, manifest) {
   const outcomes = currentOutcomes(ledger, manifest);
   const pass = [...outcomes.values()].filter((o) => o === "PASS").length;
   const failing = [...outcomes]
@@ -574,6 +637,7 @@ function renderFollowUpMarkdown(ledger, manifest) {
     "",
   ];
   for (const entry of ledger.entries) {
+    if (entry.kind === MAINTENANCE_KIND) continue;
     lines.push(`## ${entry.sequence}. ${entry.title}`, "");
     lines.push(
       `- Date: ${entry.date} · sources checked: ${entry.sourceCheckedOn} · base \`${entry.baseCommit}\``,
@@ -614,6 +678,43 @@ function renderFollowUpMarkdown(ledger, manifest) {
         lines.push(`- Residual: ${residual}`);
       }
       lines.push("");
+    }
+  }
+  const maintenance = ledger.entries.filter(
+    (entry) => entry.kind === MAINTENANCE_KIND,
+  );
+  if (maintenance.length) {
+    lines.push(
+      "## Catalogue maintenance",
+      "",
+      "Sourced edits to records **outside** the frozen 20-ID cohort. They extend the same hash chain but are **not** audit adjudications: there is no PASS/FAIL here and the gate above is unaffected.",
+      "",
+    );
+    for (const entry of maintenance) {
+      lines.push(
+        `### ${entry.sequence}. ${entry.title}`,
+        "",
+        `- Ticket: ${entry.ticket} · date: ${entry.date} · sources checked: ${entry.sourceCheckedOn}`,
+        `- Canonical SHA-256: \`${entry.beforeCanonicalSha256.slice(0, 12)}\` → \`${entry.afterCanonicalSha256.slice(0, 12)}\`.`,
+        `- Rationale: ${entry.rationale}`,
+        "",
+      );
+      for (const record of entry.records) {
+        lines.push(
+          `#### ${record.id}`,
+          "",
+          `- Corrected fields: ${record.correctedFields.map((f) => `\`${f}\``).join(", ")}.`,
+        );
+        for (const source of record.sources) {
+          lines.push(
+            `- Source (${source.checkedOn}): [${source.url}](${source.url}) — ${source.observation}`,
+          );
+        }
+        for (const residual of record.residual ?? []) {
+          lines.push(`- Residual: ${residual}`);
+        }
+        lines.push("");
+      }
     }
   }
   return execFileSync(
@@ -1110,9 +1211,15 @@ function main() {
   }
 }
 
-try {
-  main();
-} catch (error) {
-  console.error(error instanceof Error ? error.message : String(error));
-  process.exitCode = 1;
+// Importable for tests (KAI-373); runs only when invoked as a script.
+if (
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+) {
+  try {
+    main();
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exitCode = 1;
+  }
 }
