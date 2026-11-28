@@ -1,7 +1,6 @@
 import { APP_VERSION, COMMIT_SHA } from "@/shared/utils/version";
 import { redactSensitiveValues } from "@/shared/utils/redact";
 import { supabase } from "@/lib/supabase";
-import { isChunkLoadFailure } from "@/shared/utils/chunkLoadDetection";
 
 /**
  * KAI-46: privacy-safe frontend error reporting.
@@ -40,11 +39,33 @@ const MAX_MESSAGE_LENGTH = 2000;
 
 let sentThisMinute = 0;
 let windowStart = Date.now();
+type ChunkRecoveryResult = "not-chunk" | "reloading" | "cooldown";
+type ChunkRecoveryHandler = (error: unknown) => ChunkRecoveryResult;
+
+let chunkRecoveryHandler: ChunkRecoveryHandler | null = null;
+let installedWindow: Window | null = null;
+let errorHandler: ((event: ErrorEvent) => void) | null = null;
+let rejectionHandler: ((event: PromiseRejectionEvent) => void) | null = null;
+
+/** Lets the recovery module report whether it handled or deferred a chunk error. */
+export function registerChunkLoadRecoveryHandler(
+  handler: ChunkRecoveryHandler | null,
+): void {
+  chunkRecoveryHandler = handler;
+}
 
 /** Test-only: reset the rate-limit window between test cases. */
 export function __resetErrorReporter(): void {
   sentThisMinute = 0;
   windowStart = Date.now();
+  chunkRecoveryHandler = null;
+  if (installedWindow && errorHandler && rejectionHandler) {
+    installedWindow.removeEventListener("error", errorHandler);
+    installedWindow.removeEventListener("unhandledrejection", rejectionHandler);
+  }
+  installedWindow = null;
+  errorHandler = null;
+  rejectionHandler = null;
 }
 
 function browserClass(): string {
@@ -217,16 +238,24 @@ export function reportAuthFailureIfOperational(
 
 /** Installs global handlers for unhandled errors and rejections. */
 export function installGlobalErrorHandlers(): void {
-  if (typeof window === "undefined") return;
-  window.addEventListener("error", (event) => {
+  if (typeof window === "undefined" || installedWindow === window) return;
+
+  if (installedWindow && errorHandler && rejectionHandler) {
+    installedWindow.removeEventListener("error", errorHandler);
+    installedWindow.removeEventListener("unhandledrejection", rejectionHandler);
+  }
+
+  installedWindow = window;
+  errorHandler = (event) => {
     const error = event.error ?? event.message;
-    if (!isChunkLoadFailure(error)) reportError(error, "window");
-  });
-  window.addEventListener("unhandledrejection", (event) => {
-    // Chunk failures have their own once-only recovery event and must not
-    // also create a generic promise row for the same failure.
-    if (!isChunkLoadFailure(event.reason)) {
-      reportError(event.reason, "promise");
-    }
-  });
+    const recovery = chunkRecoveryHandler?.(error);
+    if (recovery !== "reloading") reportError(error, "window");
+  };
+  rejectionHandler = (event) => {
+    const recovery = chunkRecoveryHandler?.(event.reason);
+    if (recovery !== "reloading") reportError(event.reason, "promise");
+  };
+
+  window.addEventListener("error", errorHandler);
+  window.addEventListener("unhandledrejection", rejectionHandler);
 }

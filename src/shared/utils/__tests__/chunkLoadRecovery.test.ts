@@ -9,6 +9,7 @@ import {
 import type { ChunkRecoveryDependencies } from "@/shared/utils/chunkLoadRecovery";
 
 vi.mock("@/shared/utils/errorReporter", () => ({
+  registerChunkLoadRecoveryHandler: vi.fn(),
   reportErrorAndWait: vi.fn().mockResolvedValue(undefined),
 }));
 

@@ -1,5 +1,8 @@
 import { isChunkLoadFailure } from "@/shared/utils/chunkLoadDetection";
-import { reportErrorAndWait } from "@/shared/utils/errorReporter";
+import {
+  registerChunkLoadRecoveryHandler,
+  reportErrorAndWait,
+} from "@/shared/utils/errorReporter";
 
 export const CHUNK_RECOVERY_SESSION_KEY = "meguruto-chunk-recovery-at";
 export const CHUNK_RECOVERY_WINDOW_MS = 60_000;
@@ -73,7 +76,9 @@ export function recoverFromChunkLoadFailure(
 /** Installs early listeners so Vite and unhandled-import failures recover
  *  before React's route boundary renders its fallback. */
 export function installChunkLoadRecovery(): void {
-  if (typeof window === "undefined" || installedWindow === window) return;
+  if (typeof window === "undefined") return;
+  registerChunkLoadRecoveryHandler(recoverFromChunkLoadFailure);
+  if (installedWindow === window) return;
 
   if (installedWindow && preloadErrorHandler && rejectionHandler) {
     installedWindow.removeEventListener(
@@ -103,6 +108,7 @@ export function installChunkLoadRecovery(): void {
 /** Test-only reset that models a full document reload. */
 export function __resetChunkLoadRecoveryForTests(): void {
   recoveryStartedInThisDocument = false;
+  registerChunkLoadRecoveryHandler(null);
   if (installedWindow && preloadErrorHandler && rejectionHandler) {
     installedWindow.removeEventListener(
       "vite:preloadError",
